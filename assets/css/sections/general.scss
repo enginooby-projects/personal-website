@@ -1,0 +1,195 @@
+/*-------------------------
+         GENERAL
+-------------------------*/
+@font-face {
+        font-family: "Agency FB";
+        src: url("../fonts/agency-fb-regular.TTF");
+}
+
+@font-face {
+        font-family: "Agency FB Bold";
+        src: url("../fonts/agency-fb-bold.ttf");
+}
+
+body {
+        font-family: "Agency FB", sans-serif;
+        font-weight: 400;
+        font-size: 1.35rem !important;
+        background-color: #f1f3f6 !important;
+}
+
+.section {
+        background-color: #f1f3f6 !important;
+}
+
+.full-screen {
+        height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1 {
+        font-family: "Agency FB Bold", sans-serif;
+        line-height: 1.618;
+}
+
+.h1 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+}
+
+.z-index {
+        z-index: 2;
+}
+
+h2,
+h2 span {
+        font-weight: 700;
+}
+
+.max-width-450 {
+        max-width: 450px;
+        margin: 0 auto;
+}
+
+a:hover {
+        text-decoration: none;
+}
+
+a,
+button {
+        outline: none !important;
+}
+
+.box-border {
+        background-color: #f1f3f6;
+        border-radius: 1.25rem;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+}
+
+.box-hover-border {
+        background-color: #f1f3f6;
+        border-radius: 1.25rem;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+}
+
+.box-hover-border:hover {
+        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+}
+
+.button-border {
+        background-color: #f1f3f6;
+        border-radius: 1rem;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        display: inline-block;
+        padding: 1px;
+}
+
+.button-border button {
+        background-color: transparent;
+}
+
+.button-border {
+        background-color: #f1f3f6;
+        border-radius: 1rem;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        display: inline-block;
+        padding: 1px;
+}
+
+.pill-button {
+        border-radius: 1rem;
+        border: none;
+        padding: 10px 30px;
+        transition: all 0.3s ease;
+        font-size: 22px;
+        // font-weight: 580 !important;
+        display: inline-block;
+}
+
+.pill-button:hover,
+.pill-button.active {
+        border: none;
+        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+}
+
+.image-border {
+        background-color: #f1f3f6;
+        border-radius: 1.25rem;
+        box-shadow: 3px 3px 8px rgba(55, 84, 170, 0.1), -3px -3px 8px white;
+        padding: 5px;
+}
+
+.image-border img {
+        width: 100%;
+        border-radius: 1rem;
+}
+
+.display-table {
+        width: 100%;
+        height: 100%;
+        display: table;
+}
+
+.display-content {
+        vertical-align: middle;
+        display: table-cell;
+        padding: 5rem 0;
+}
+
+.center-item {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+}
+
+.text-dark {
+        color: #5f5f5f;
+}
+
+.dark-bg {
+        background-color: #2c2d30;
+}
+
+.title-wrapper {
+        text-align: center;
+        font-size: 56px;
+        font-weight: 900;
+        color: rgba(95, 95, 95, 0.1);
+        /* font-family: "Agency FB", sans-serif; */
+        font-family: "Poppins", sans-serif;
+        margin-top: -18px;
+}
+
+.title-content {
+        text-align: center;
+        position: relative;
+        top: -48px;
+}
+
+.title-content h2 {
+        font-size: 32px;
+        font-weight: 900;
+        font-family: "Poppins", sans-serif !important;
+        margin-bottom: 0;
+}
+
+.border-style {
+        height: 2px;
+        width: 65px;
+        margin: 16px auto;
+        transition: all 0.5s;
+}
+
+.resume-title:hover .border-style {
+        width: 90px;
+}
+
+.box-border {
+        padding: 15 15 0 15;
+}

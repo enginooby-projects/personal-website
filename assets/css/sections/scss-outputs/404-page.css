@@ -1,0 +1,21 @@
+/*-------------------------
+      404 Page
+-------------------------*/
+.error-404 ~ .contact {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (max-width: 991px) {
+  .hero.error-404 .hero-content {
+    position: inherit;
+    -webkit-transform: inherit;
+            transform: inherit;
+  }
+  .error-404 ~ .contact {
+    position: inherit;
+  }
+}
+/*# sourceMappingURL=404-page.css.map */

@@ -35,9 +35,7 @@
         <!-- Colors Css -->
         <link rel="stylesheet" href="assets/css/color/blue-color.css" id="option-color">
         <!--  Custom Style CSS  -->
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/scrollbar.css">
-        <!-- <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css" /> -->
+        <?php include 'custom-styles.php' ?>
         <!--  Colorfull Style CSS  -->
         <link rel="stylesheet" href="assets/css/color/colorfull-main.css">
 </head>

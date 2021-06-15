@@ -1,0 +1,51 @@
+/*-------------------------
+         RESUME
+-------------------------*/
+.badge-pill {
+        font-size: 1.15rem !important;
+}
+
+.timeline-items.box-border{
+        padding: 30px 30px 15px 30px;
+        margin-top: 30px;
+}
+
+.timeline-item {
+        position: relative;
+        /* margin-bottom: 30px; */
+}
+
+.timeline-item:before {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1px;
+        border-radius: 1rem;
+        display: block;
+}
+
+.timeline-contents {
+        padding-left: 30px;
+        text-align: justify;
+}
+
+.timeline-icon {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        left: -7px;
+        z-index: 10;
+}
+
+.timeline-year {
+        font-size: 20px;
+        font-weight: 500;
+}
+
+.resume h3 i {
+        padding-right: 0.75rem;
+}

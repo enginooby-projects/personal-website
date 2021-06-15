@@ -1,0 +1,191 @@
+/*-------------------------
+     Mono Color Light
+-------------------------*/
+.mono #pp-nav li .active span,
+.mono #pp-nav li:hover span,
+.mono .follow-label:before,
+.mono .border-style {
+  background-color: #2c2d30 !important;
+}
+
+.mono .overlay-menu a:hover {
+  color: #dedede !important;
+}
+
+.mono .social a:hover {
+  color: #1a1a1a !important;
+}
+
+.mono .pill-button {
+  color: #3c3c3c;
+}
+
+.mono .base-color {
+  color: #5f5f5f !important;
+}
+
+.mono .bg-base-color,
+.mono .testimonial .owl-dot.active span {
+  background-color: #3c3c3c !important;
+}
+
+.mono .hero-social li a:hover,
+.mono .blog-link a:hover {
+  color: #1a1a1a !important;
+}
+
+.mono .timeline-icon {
+  border: 1px solid #3c3c3c;
+  background-color: #3c3c3c;
+}
+
+.mono .timeline-item::before {
+  border: 1px solid #3c3c3c;
+}
+
+.mono .timeline-year,
+.mono .portfolio .portfolio-icon a:first-child,
+.mono .portfolio .portfolio-icon a {
+  color: #5f5f5f;
+}
+
+.mono .skill-box .fill-skillbar {
+  background-color: #3c3c3c;
+}
+
+.mono .portfolio .portfolio-icon a:first-child i,
+.mono .portfolio .portfolio-icon a i,
+.mono .portfolio .portfolio-filter li a {
+  color: #3c3c3c;
+}
+
+.mono .portfolio .portfolio-item-content::before {
+  background-color: rgba(60, 60, 60, 0.9);
+}
+
+.mono .loader {
+  border-top: 4px solid #3c3c3c !important;
+}
+
+.mono .menu-toggler span {
+  background-color: #3c3c3c;
+}
+
+.mono .contact .form-item .form-control {
+  color: #3c3c3c;
+}
+
+.mono .hero-03 .circle {
+  background: #e1e1e1;
+}
+
+.mono .hero-03 .circle-2 {
+  background: #3c3c3c;
+}
+
+.mono .hero-03 .floating {
+  background: #2c2d30;
+}
+
+/*-------------------------
+      Mono Color Dark
+-------------------------*/
+.mono.dark-scheme #pp-nav li .active span,
+.mono.dark-scheme #pp-nav li:hover span,
+.mono.dark-scheme .follow-label:before,
+.mono.dark-scheme .border-style {
+  background-color: #e1e1e1 !important;
+}
+
+.mono.dark-scheme .social a:hover {
+  color: #e3e5d2 !important;
+}
+
+.mono.dark-scheme .text-white {
+  color: #3c3c3c !important;
+}
+
+.mono.dark-scheme .pill-button {
+  color: #fafafa;
+}
+
+.mono.dark-scheme .base-color {
+  color: #dedede !important;
+}
+
+.mono.dark-scheme .bg-base-color {
+  background-color: #f8f8f8 !important;
+}
+
+.mono.dark-scheme .hero-social li a:hover,
+.mono.dark-scheme .blog-link a:hover {
+  color: #a1a1a1 !important;
+}
+
+.mono.dark-scheme .timeline-icon {
+  border: 1px solid #dedede;
+  background-color: #dedede;
+}
+
+.mono.dark-scheme .timeline-item::before {
+  border: 1px solid #dedede;
+}
+
+.mono.dark-scheme .timeline-year,
+.mono.dark-scheme .portfolio .portfolio-icon a:first-child,
+.mono.dark-scheme .portfolio .portfolio-icon a {
+  color: #dedede;
+}
+
+.mono.dark-scheme .skill-box .fill-skillbar,
+.mono.dark-scheme .testimonial .owl-dot.active span {
+  background-color: #dedede;
+}
+
+.mono.dark-scheme .testimonial .owl-carousel .owl-dot span {
+  background-color: #3c3c3c;
+}
+
+.mono.dark-scheme .testimonial .owl-carousel .owl-dot.active span {
+  background-color: #dedede !important;
+}
+
+.mono.dark-scheme .portfolio .portfolio-item-content::before {
+  background-color: rgba(250, 250, 250, 0.8);
+}
+
+.mono.dark-scheme .portfolio .img-overlay-content h5 {
+  color: #3c3c3c;
+}
+
+.mono.dark-scheme .portfolio .portfolio-icon a:first-child,
+.mono.dark-scheme .portfolio .portfolio-icon a {
+  background-color: #3c3c3c;
+}
+
+.mono.dark-scheme .portfolio .portfolio-icon a:first-child i,
+.mono.dark-scheme .portfolio .portfolio-icon a i,
+.mono.dark-scheme .portfolio .portfolio-filter li a {
+  color: #fafafa;
+}
+
+.mono.dark-scheme .menu-toggler span {
+  background-color: #fafafa;
+}
+
+.mono.dark-scheme .contact .form-item .form-control {
+  color: #fafafa;
+}
+
+.mono.dark-scheme .hero-03 .circle {
+  background: #e1e1e1;
+}
+
+.mono.dark-scheme .hero-03 .circle-2 {
+  background: #dedede;
+}
+
+.mono.dark-scheme .hero-03 .floating {
+  background: #f8f8f8;
+}
+/*# sourceMappingURL=mono.css.map */

@@ -1,0 +1,100 @@
+/*-------------------------
+     OVERLAY MENU
+-------------------------*/
+.overlay-menu {
+        background-color: #222;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        transition: all 0.3s ease;
+        z-index: 1032;
+        opacity: 0;
+        visibility: hidden;
+}
+
+.overlay-menu .overlay-menu-list {
+        width: 100%;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav>ul {
+        width: 50%;
+        float: left;
+}
+
+/* .overlay-menu .overlay-menu-list .sub-menu {
+  height: 176px;
+  overflow-y: scroll;
+} */
+
+.overlay-menu .overlay-menu-list .overlay-nav a,
+.overlay-menu .overlay-menu-list .overlay-nav span,
+.overlay-menu .overlay-menu-list .overlay-nav p {
+        color: #fafafa;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding: 0.75rem;
+        display: inline-block;
+        font-family: "Agency FB", sans-serif;
+        font-weight: 500;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info li:first-child span {
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 600;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info li span i {
+        font-size: 20px;
+        position: relative;
+        top: 2px;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info .socails li i {
+        font-size: 22px;
+        font-weight: 400;
+}
+
+.overlay-menu .overlay-menu-list .list-group-item {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent !important;
+        text-transform: uppercase;
+}
+
+.overlay-menu.show {
+        opacity: 1;
+        visibility: visible;
+        cursor: url(../img/cursor-white.png), auto;
+}
+
+.pilling-page .overlay-menu .overlay-menu-list .list-group-item {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent !important;
+        text-transform: uppercase;
+}
+
+.overlay-menu-toggler {
+        position: absolute;
+        top: 5px;
+        color: #3c3c3c;
+        padding: 10px;
+        right: 24px;
+        z-index: 1029;
+        border-radius: 0 4px 4px 0;
+        transition: all 0.3s ease;
+        opacity: 1;
+}
+
+.overlay-menu-toggler:hover {
+        color: #3c3c3c;
+}
+
+.overlay-menu-toggler.move {
+        opacity: 0;
+}

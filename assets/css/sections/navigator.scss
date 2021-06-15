@@ -1,0 +1,38 @@
+/*-------------------------
+          PP Nav
+-------------------------*/
+#pp-nav li {
+        margin: 10px 8px;
+        width: 28px;
+}
+
+#pp-nav li span {
+        width: 25px;
+        height: 3px;
+        border-radius: 5px;
+        background-color: #3c3c3c;
+        border: none;
+        top: 5px;
+}
+
+#pp-nav li .pp-tooltip {
+        font-size: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        transform: translateY(0);
+        padding-right: 1rem;
+        color: #3c3c3c;
+}
+
+#pp-nav li .active span {
+        transform: translateX(-10px);
+        width: 36px;
+}
+
+#pp-nav li .active~.pp-tooltip {
+        padding-right: 1.5rem;
+}
+
+#pp-nav.right {
+        right: 28px;
+}
