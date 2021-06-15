@@ -10,7 +10,8 @@
   color: #ff645e;
 }
 
-.pill-button:hover, .pill-button.active {
+.pill-button:hover,
+.pill-button.active {
   color: #ff645e;
 }
 
@@ -87,7 +88,8 @@
   background-color: rgba(255, 100, 94, 0.9);
 }
 
-.portfolio .portfolio-icon a:first-child i, .portfolio .portfolio-icon a i {
+.portfolio .portfolio-icon a:first-child i,
+.portfolio .portfolio-icon a i {
   color: #ff645e;
 }
 
@@ -103,15 +105,18 @@
   border-top: 4px solid #ff645e !important;
 }
 
-.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+.flat-demo .button-border,
+.arshia-dark.flat-demo .button-border {
   background-color: #ff645e;
 }
 
-.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+.flat-demo .pill-button:hover,
+.flat-demo .pill-button.active {
   background-color: #f05852;
 }
 
-.arshia-dark .social-icon a:hover, .arshia-dark .social a:hover {
+.arshia-dark .social-icon a:hover,
+.arshia-dark .social a:hover {
   color: #ff645e !important;
 }
 
