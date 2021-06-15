@@ -601,8 +601,8 @@ header {
   color: #fff;
 }
 
-.color-scheme li a.dark-scheme:hover,
-.color-scheme li a.dark-scheme.active {
+.color-scheme li a.dark-scheme-option:hover,
+.color-scheme li a.dark-scheme-option.active {
   background-color: #2c2d30;
   color: #fff;
 }

@@ -161,14 +161,14 @@ function pagePilling() {
 -------------------------*/
 function themeOption() {
         "use strict";
-        $('.color-scheme li .dark-scheme').click(changeDarkScheme);
+        $('.color-scheme li .dark-scheme-option').click(changeDarkScheme);
         $('.color-scheme li .light-scheme').click(changeLightScheme);
         $('.theme-skin li .flat-skin').click(changeFlatSkin);
         $('.theme-skin li .neo-skin').click(changeNeoSkin);
 }
 
 function changeDarkScheme() {
-        // $("body").addClass('arshia-dark');
+        $("body").addClass('arshia-dark');
         $('.color-scheme li a').removeClass('active');
         $(this).addClass('active');
 }
