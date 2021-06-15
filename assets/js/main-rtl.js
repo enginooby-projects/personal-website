@@ -132,13 +132,13 @@ function themeOption() {
         "use strict";
 
         $('.color-scheme li .dark-scheme-option').click(function () {
-                $("body").addClass('arshia-dark');
+                $("body").addClass('dark-scheme');
                 $('.color-scheme li a').removeClass('active');
                 $(this).addClass('active');
         });
 
         $('.color-scheme li .light-scheme').click(function () {
-                $("body").removeClass('arshia-dark');
+                $("body").removeClass('dark-scheme');
                 $('.color-scheme li a').removeClass('active');
                 $(this).addClass('active');
         });

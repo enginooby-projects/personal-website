@@ -168,13 +168,13 @@ function themeOption() {
 }
 
 function changeDarkScheme() {
-        $("body").addClass('arshia-dark');
+        $("body").addClass('dark-scheme');
         $('.color-scheme li a').removeClass('active');
         $(this).addClass('active');
 }
 
 function changeLightScheme() {
-        $("body").removeClass('arshia-dark');
+        $("body").removeClass('dark-scheme');
         $('.color-scheme li a').removeClass('active');
         $(this).addClass('active');
 }
