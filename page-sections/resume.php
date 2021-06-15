@@ -74,7 +74,7 @@
 
                                                                                 <h6 class="timeline-title">Bronze Medal: Vietnam National Casio Mathematics Contest for High School Students
                                                                                 </h6>
-                                                                                <div class="count-icon">
+                                                                                <div class="icon-image">
                                                                                         <img src="assets/img/icons/bronze-medal.svg" alt="">
                                                                                 </div>
                                                                                 <p class="timeline-year">02/2014</p>
@@ -87,7 +87,7 @@
                                                                         <div class="time-line-header text-center">
 
                                                                                 <h6 class="timeline-title">Gold Medal: Vietnam National Vi-Olympic Online Mathematics Contest for High School Students</h6>
-                                                                                <div class="count-icon">
+                                                                                <div class="icon-image">
                                                                                         <img src="assets/img/icons/gold-medal.svg" alt="">
                                                                                 </div>
                                                                                 <p class="timeline-year">05/2014</p>

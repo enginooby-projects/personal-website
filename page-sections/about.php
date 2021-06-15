@@ -45,10 +45,10 @@
                                                         <p class=" text-justify mb-0">
                                                                 While normal software is all about services to serve our life, <span class="base-color">computer graphics</span> (CG) is the technology enabling us to create life itself, virtually. That interests me, Particularly, game development is a subset of CG, where we define our own rules for the world then allow players to get involved in. That interests me more.
                                                                 <br>
-                                                                I first got started in this field by playing around with various CG or game tools. Feeling more and more engaged, I picked up <span class="base-color">Unity Engine</span> as my serious long-term accompany. But I don’t limit myself with a single tool, I sometimes explore new technologies…
+                                                                I first got started in this field by playing around with various CG and game tools. Feeling more and more engaged, I decided to pick <span class="base-color">Unity Engine</span> as my "long-term companion" on the journey.
                                                                 <br>
-                                                                I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal projects collaborative coding laboratories for my classes which involve with CG or game.
-                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. I particularly fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> & <span class="base-color">3D</span> game genres.
+                                                                Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal projects collaborative coding laboratories for my classes which involve with CG or game.
+                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. I particularly fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> and <span class="base-color">3D</span> game genres.
                                                         </p>
                                                         <br>
                                                         <h6 class="text-dark mt-4 mt-lg-0 mb-0">What am I doing?</h6>
@@ -56,7 +56,6 @@
                                                                 At the current time, I am exploring <span class="base-color">VR/AR</span> and <span class="base-color">AI/ML</span> fields – those technologies I believe that could bring huge enhancements for the experiences in games and CG projects in general.
                                                                 <br>
                                                                 I am also <span class="base-color">open for work</span> in the game development to gain real-world experience.
-
                                                         </p>
                                                         <br>
                                                         <div class="button-group-about">
@@ -71,40 +70,33 @@
                                         </div>
                                 </div>
 
-                                <!-- Count up Start -->
-                                <div id="count-up" class="count-up text-center box-border">
-                                        <div class="row">
-                                                <!-- Item-01 -->
-                                                <div class="col-6 col-lg-3 my-3 count-item">
-                                                        <div class="count-icon">
-                                                                <img src="assets/img/icons/guitar.svg" alt="">
-                                                        </div>
-                                                        <!-- <p class="mb-0">Files Download</p> -->
+                                <!-- Characteristics & Hobbies -->
+                                <!-- <br>
+                                <br>
+                                <div class="row text-center">
+                                        <div class="col-12 col-lg-3  ">
+                                                <div class="resume-title text-center">
+                                                        <h6 class="text-dark">Characteristics</h6>
+                                                        <div class="border-style"></div>
                                                 </div>
-                                                <!-- Item-02 -->
-                                                <div class="col-6 col-lg-3 my-3 count-item">
-                                                        <div class="count-icon">
-                                                                <img src="assets/img/icons/fried.svg" alt="">
-                                                        </div>
-                                                        <!-- <p class="mb-0">Project Done</p> -->
-                                                </div>
-                                                <!-- Item-03 -->
-                                                <div class="col-6 col-lg-3 my-3 count-item">
-                                                        <div class="count-icon">
-                                                                <img src="assets/img/icons/reading.svg" alt="">
-                                                        </div>
-                                                        <!-- <p class="mb-0">Get Award</p> -->
-                                                </div>
-                                                <!-- Item-04 -->
-                                                <div class="col-6 col-lg-3 my-3 count-item">
-                                                        <div class="count-icon">
-                                                                <img src="assets/img/icons/game-pad.svg" alt="">
-                                                        </div>
-                                                        <!-- <p class="mb-0">Happy Client</p> -->
+                                                <div class="icon-image d-flex justify-content-around box-border">
+                                                        <img src="assets/img/icons/guitar.svg" alt="">
+                                                        <img src="assets/img/icons/guitar.svg" alt="">
                                                 </div>
                                         </div>
-                                </div>
-                                <!--  Count up End  -->
+                                        <div class="col-12 col-lg-8">
+                                                <div class="resume-title text-center">
+                                                        <h6 class="text-dark">Hobbies</h6>
+                                                        <div class="border-style"></div>
+                                                </div>
+                                                <div class="icon-image d-flex justify-content-around box-border">
+                                                        <img src="assets/img/icons/guitar.svg" alt="">
+                                                        <img src="assets/img/icons/fried.svg" alt="">
+                                                        <img src="assets/img/icons/reading.svg" alt="">
+                                                        <img src="assets/img/icons/game-pad.svg" alt="">
+                                                </div>
+                                        </div>
+                                </div> -->
                         </div>
                 </div>
         </div>
