@@ -44,7 +44,6 @@ header {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   font-size: 1.3rem !important;
-  font-weight: 550 !important;
 }
 
 .follow-label::before {
