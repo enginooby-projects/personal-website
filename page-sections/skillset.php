@@ -59,7 +59,7 @@
                                                 <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill colorfull3">C# <span class="badge badge-light">200</span></span>
-                                                                <span class="badge badge-pill colorfull3"><i class="fab fa-java"></i> Java <span class="badge badge-light">?</span></span>
+                                                                <span class="badge badge-pill colorfull3"><i class="fab fa-java"></i> Java <span class="badge badge-light">300</span></span>
                                                                 <span class="badge badge-pill colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">?</span></span>
                                                                 <span class="badge badge-pill colorfull2"><i class="fab fa-html5"></i> HTML5 <span class="badge badge-light">?</span></span>
                                                                 <span class="badge badge-pill colorfull2"><i class="fab fa-css3-alt"></i> CSS3 - SASS - SCSS <span class="badge badge-light">?</span></span>
@@ -78,6 +78,7 @@
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill colorfull2">MySQL <span class="badge badge-light">?</span></span>
                                                                 <span class="badge badge-pill colorfull2">Firestore <span class="badge badge-light">?</span></span>
+                                                                <span class="badge badge-pill colorfull1">SQLite <span class="badge badge-light">?</span></span>
                                                         </div>
                                                 </div>
                                         </div>
@@ -153,7 +154,7 @@
                                                 <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill colorfull3">VSCode </span>
-                                                                <span class="badge badge-pill colorfull3">Eclipse </span>
+                                                                <span class="badge badge-pill colorfull2">Eclipse </span>
                                                                 <span class="badge badge-pill colorfull2">Jupyter Notebook </span>
                                                                 <span class="badge badge-pill colorfull1">Vim </span>
                                                                 <span class="badge badge-pill colorfull1">IntelliJ IDEA </span>

@@ -65,7 +65,7 @@
 }
 
 .dark-scheme.flat-demo ::-webkit-scrollbar-thumb {
-  background: rgba(206, 206, 206, 0.623);
+  background: rgba(219, 219, 219, 0.623);
   -webkit-box-shadow: none;
           box-shadow: none;
 }

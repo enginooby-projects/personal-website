@@ -20,7 +20,7 @@
 class CodingProject
 {
         public function __construct(
-                public string $subfilters,
+                public string $filters,
                 public string $name,
                 public string $imgUrl,
                 public string $accessUrl,
@@ -32,7 +32,7 @@ class CodingProject
         public function display()
         {
                 echo '
-                    <div class="col-lg-4 portfolio-item  game ' . $this->subfilters . '">
+                    <div class="col-lg-4 portfolio-item  game ' . $this->filters . '">
                               <div class="image-border">
                                         <div class="portfolio-item-content">
                                                   <img src="assets/img/portfolio/' . $this->imgUrl . '.PNG" alt="/" class="img-fluid">
@@ -53,6 +53,59 @@ class CodingProject
         }
 }
 
+// access URL can be single blog page, download or  website link
+function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $codeUrl = null)
+{
+        $formattedName = formatLabel($label);
+        $highlightElement = getHighlightElement($filters);
+        $buttonElements = "";
+
+        if ($isGalleryItem) $buttonElements .= '
+                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery">
+                        <i class="lni-search"></i>
+                </a>
+        ';
+        else $buttonElements .= '
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '"><i class=" lni-search"></i></a>
+        ';
+
+        if ($accessUrl) $buttonElements .= '
+                <a href="https://' . $accessUrl . '" target="blank_" type="button"><i class=" lni-play"></i></a>
+        ';
+
+        if ($codeUrl) $buttonElements .= '
+                <a href="https://github.com/' . $codeUrl . '" target="_blank"> <i class="lni-code"></i> </a>
+        ';
+
+        echo '
+          <div class="col-lg-4 portfolio-item ' . $filters . '">
+                    <div class="image-border">
+                              <div class="portfolio-item-content ">
+                                        <img src="assets/img/portfolio/' . $formattedName . '.PNG" alt="/" class="img-fluid">
+                                        ' . $highlightElement . '
+                                        <div class="img-overlay text-center">
+                                                  <div class="img-overlay-content">
+                                                            <div class="portfolio-icon">
+                                                        ' . $buttonElements . '
+                                                            </div>
+                                                            <h6 class="mt-3 mb-0">' . $label . '</h6>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+          </div>
+    ';
+}
+
+function getHighlightElement($filters)
+{
+        $highlightElement = '';
+        if (strpos($filters, "highlight") !== false) {
+                $highlightElement = '<i class="highlight-portfolio-item base-color fas fa-star fa-xs" ></i>';
+        }
+        return $highlightElement;
+}
+
 // Project Name -> project-name
 function formatLabel($str, $sep = '-')
 {
@@ -62,65 +115,6 @@ function formatLabel($str, $sep = '-')
         return trim($res, $sep);
 }
 
-function displayPortfolioItem($subfilters, $label, $accessUrl, $codeUrl)
-{
-        $formattedName = formatLabel($label);
-        $highlightTag = '';
-        if (strpos($subfilters, "highlight") !== false) {
-                $highlightTag = '<i class="highlight-portfolio-item base-color fas fa-star fa-xs" ></i>';
-        }
-
-        echo '
-          <div class="col-lg-4 portfolio-item ' . $subfilters . '">
-                    <div class="image-border">
-                              <div class="portfolio-item-content ">
-                                        <img src="assets/img/portfolio/' . $formattedName . '.PNG" alt="/" class="img-fluid">
-                                        ' . $highlightTag . '
-                                        <div class="img-overlay text-center">
-                                                  <div class="img-overlay-content">
-                                                            <div class="portfolio-icon">
-                                                                      <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '"><i class=" lni-search"></i></a>
-                                                                      <a href="https://' . $accessUrl . '" target="blank_" type="button"><i class=" lni-play"></i></a>
-                                                                      <a href="https://github.com/' . $codeUrl . '" target="_blank"> <i class="lni-code"></i> </a>
-                                                            </div>
-                                                            <h6 class="mt-3 mb-0">' . $label . '</h6>
-                                                  </div>
-                                        </div>
-                              </div>
-                    </div>
-          </div>
-    ';
-}
-
-function displayDesignItem($subfilters, $label)
-{
-        $formattedName = formatLabel($label);
-        $highlightTag = '';
-        if (strpos($subfilters, "highlight") !== false) {
-                $highlightTag = '<i class="highlight-portfolio-item base-color fas fa-star fa-xs" ></i>';
-        }
-
-        echo '
-          <div class="col-lg-4 portfolio-item ' . $subfilters . '">
-                    <div class="image-border">
-                              <div class="portfolio-item-content ">
-                                        <img src="assets/img/portfolio/' . $formattedName . '.PNG" alt="/" class="img-fluid">
-                                        ' . $highlightTag . '
-                                        <div class="img-overlay text-center">
-                                                  <div class="img-overlay-content">
-                                                            <div class="portfolio-icon">
-                                                                         <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery">
-                                                                                <i class="lni-search"></i>
-                                                                        </a>
-                                                            </div>
-                                                            <h6 class="mt-3 mb-0">' . $label . '</h6>
-                                                  </div>
-                                        </div>
-                              </div>
-                    </div>
-          </div>
-    ';
-}
 ?>
 
 <section id="portfolio" class="section portfolio  pp-scrollable" data-navigation-tooltip="PORTFOLIO">
@@ -238,21 +232,67 @@ function displayDesignItem($subfilters, $label)
                                 </div>
                                 <div class="portfolio-items row">
                                         <?php
-                                        displayPortfolioItem('highlight game large web completed', 'Endless Flight', 'enginoobz.itch.io/endless-flight', 'enginoobz-games/endless-flight');
-                                        displayPortfolioItem('highlight game medium web completed networking', 'Generic Tic Tac Toe', 'enginoobz-threejs.herokuapp.com', 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts');
-                                        displayPortfolioItem('game small web prototype', 'Guess The Word', 'enginoobz.itch.io/guess-the-word', 'enginoobz-games/guess-the-word');
-                                        displayPortfolioItem('game medium web completed', 'Tony The Runner', 'enginoobz.itch.io/tony-the-runner', 'enginoobz-games/tony-the-runner');
-                                        displayDesignItem('design completed', 'MeowMeow Brand Design');
-                                        displayDesignItem('design completed', 'Photo Enhancement');
+                                        //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null
+                                        displayPortfolioItem(
+                                                label: 'Endless Flight',
+                                                isGalleryItem: false,
+                                                filters: 'highlight game large web completed',
+                                                accessUrl: 'enginoobz.itch.io/endless-flight',
+                                                codeUrl: 'enginoobz-games/endless-flight'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Generic Tic Tac Toe',
+                                                isGalleryItem: false,
+                                                filters: 'highlight game medium web completed networking',
+                                                accessUrl: 'enginoobz-threejs.herokuapp.com',
+                                                codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Guess The Word',
+                                                isGalleryItem: false,
+                                                filters: 'game small web prototype',
+                                                accessUrl: 'enginoobz.itch.io/guess-the-word',
+                                                codeUrl: 'enginoobz-games/guess-the-word'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Tony The Runner',
+                                                isGalleryItem: false,
+                                                filters: 'game medium web completed',
+                                                accessUrl: 'enginoobz.itch.io/tony-the-runner',
+                                                codeUrl: 'enginoobz-games/tony-the-runner'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'MeowMeow Brand Design',
+                                                isGalleryItem: true,
+                                                filters: 'design completed',
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Photo Enhancement',
+                                                isGalleryItem: true,
+                                                filters: 'design completed',
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Multistore Shopping GUI',
+                                                isGalleryItem: false,
+                                                filters: 'ecommerce  medium  desktop completed',
+                                                accessUrl: 'enginoobz-projects/multistore-shopping-gui',
+                                                codeUrl: 'enginoobz-projects/multistore-shopping-gui',
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Simple Weather GUI',
+                                                isGalleryItem: false,
+                                                filters: 'utility  small  desktop prototype',
+                                                codeUrl: 'enginoobz-projects/simple-weather-gui'
+                                        );
                                         ?>
                                 </div>
-                                <div class="row mt-4">
+                                <!-- <div class="row mt-4">
                                         <div class="col-12 text-center pt-2">
                                                 <div class="button-border d-inline-block">
                                                         <a href="portfolio.html" class="pill-button">Portfolio Page</a>
                                                 </div>
                                         </div>
-                                </div>
+                                </div> -->
                         </div>
                 </div>
         </div>
