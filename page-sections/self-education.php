@@ -37,7 +37,7 @@ function displayCourse($name, $percent, $url = '')
                         <div class="img-overlay text-center">
                                         <div class="img-overlay-content">
                                                 <div class="portfolio-icon">
-                                                        <a href=' . $url . ' target="blank_" type="button"><i class=" lni-link"></i></a>
+                                                        <a href=' . $url . ' target="blank_" type="button" class="colorfull3"><i class=" lni-link"></i></a>
                                                 </div>
                                         </div>
                         </div>

@@ -61,20 +61,20 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
         $buttonElements = "";
 
         if ($isGalleryItem) $buttonElements .= '
-                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery">
+                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery colorfull1">
                         <i class="lni-search"></i>
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '"><i class=" lni-search"></i></a>
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="colorfull1"><i class=" lni-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button"><i class=" lni-play"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="colorfull2"><i class=" lni-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank"> <i class="lni-code"></i> </a>
+                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="colorfull3"> <i class="lni-code"></i> </a>
         ';
 
         echo '

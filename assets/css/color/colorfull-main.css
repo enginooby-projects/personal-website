@@ -21,33 +21,27 @@
   position: relative;
   bottom: 0.09rem;
 }
+
 .colorfull1 > .badge {
   color: #01bb8c !important;
-  /* color: #1ab394 !important; */
 }
 .colorfull2 > .badge {
   color: #eebe00 !important;
-  /* color: #1ab394 !important; */
 }
 .colorfull3 > .badge {
   color: #e73263 !important;
-  /* color: #1ab394 !important; */
 }
 
 .colorfull1 {
   background-color: #01bb8c !important;
-  /* color: #1ab394 !important; */
 }
 
 .colorfull2 {
   background-color: #eebe00 !important;
-  /* color: #5f5f5f !important; */
-  /* color: #ffcc00 !important; */
 }
 
 .colorfull3 {
   background-color: #e73263 !important;
-  /* color: #ff4274 !important; */
 }
 
 .timeline-items .timeline-icon {
@@ -85,20 +79,8 @@
   background-color: rgba(0, 0, 0, 0.479);
 }
 
-.portfolio-icon a:first-child {
-  background-color: #1ab394;
-}
-
 .portfolio-icon a i {
   color: #fafafa !important;
-}
-
-.portfolio-icon a {
-  background-color: #fbdd62;
-}
-
-.portfolio-icon a:last-child {
-  background-color: rgba(255, 66, 116, 0.8);
 }
 
 .contact .contact-info img {
