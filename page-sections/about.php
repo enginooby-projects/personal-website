@@ -17,23 +17,23 @@
                                 </div>
                                 <div class="row">
                                         <div class="col-lg-6 ">
-                                                <!-- Image -->
                                                 <div class="personal-item">
                                                         <h6 class="text-dark mt-0 mt-lg-0 mb-0">Who am I?</h6>
                                                         <p class=" text-justify mb-0">
-                                                                I am <span class="base-color">Hieu Ngo</span>, a.k.a. “<span class="base-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate Software Engineering student in Poland.
+                                                                Hi! I am <span class="base-color">Hieu Ngo</span>, a.k.a. “<span class="base-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate Software Engineering student in Poland.
                                                         </p>
                                                 </div>
+                                                <!-- Image -->
                                                 <div class="image-border mt-4">
                                                         <img src="assets/img/about1.jpg" alt="/">
                                                 </div>
-                                                <!-- <br> -->
+                                                <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p>
                                                 <div class="personal-item">
                                                         <h6 class="text-dark mt-4 mt-lg-4 mb-0">Background: <span class="base-color">Java & web development</span></h6>
                                                         <p class=" text-justify mb-0">
                                                                 Once upon a time, I took the first step on my programming journey with <span class="base-color">Java</span>. Through some university classes combining self-education, I then explored various Java technologies, most notably <span class="base-color">Spring frameworks</span>, for the development of enterprise & desktop software or back-end of web applications. I also slightly expanded my experiences learning a few web technologies for front-end development and built some of personal-fun-things.
                                                                 <br>
-                                                                If you ask me, Java and web development in general were all fun, but then I figured out my bigger passion…
+                                                                If you ask me, Java and web development in general were all fun, untill I figured out my bigger passion…
                                                         </p>
                                                 </div>
                                         </div>
@@ -46,7 +46,7 @@
                                                                 I first got started in this field by playing around with a few CG and game tools. Feeling more and more engaged, I decided to pick <span class="base-color">Unity</span> and <span class="base-color"> Unreal Engine</span> as my "long-term companions" on the journey.
                                                                 <br>
                                                                 Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal projects collaborative coding laboratories for my classes which involve with CG or game.
-                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. I particularly fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> and <span class="base-color">3D</span> game genres.
+                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well (as long as it's challenging). I particularly fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> & <span class="base-color">3D</span> game genres.
                                                         </p>
                                                         <h6 class="text-dark mt-4 mt-lg-4 mb-0">What am I doing?</h6>
                                                         <p class=" text-justify mb-4">
@@ -54,8 +54,8 @@
                                                                 <br>
                                                                 I am also <span class="base-color">open for work</span> in the game development to gain real-world experience.
                                                         </p>
-                                                        <div class="button-group-about">
-                                                                <div class="button-border mt-3 mb-lg-0 mr-4">
+                                                        <div class="button-group-about ">
+                                                                <div class="button-border mt-3  mb-lg-0 mr-4">
                                                                         <a href="javascript:void(0);" class="pill-button">Download CV</a>
                                                                 </div>
                                                                 <div class="button-border mt-3 mb-lg-0 to-contact">
