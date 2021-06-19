@@ -213,49 +213,49 @@ function formatLabel($str, $sep = '-')
                                 <div class="container mt-4" id="tech-filters">
                                         <div class="checkbox  m-0 row justify-content-center">
                                                 <div class="checkbox__1">
-                                                        <input id="checkbox-1" type="checkbox">
+                                                        <input id="checkbox-1" type="checkbox" value=".database">
                                                         <label for="checkbox-1">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">Database</div>
                                                 </div>
                                                 <div class="checkbox__2">
-                                                        <input id="checkbox-2" type="checkbox">
+                                                        <input id="checkbox-2" type="checkbox" value=".networking">
                                                         <label for="checkbox-2">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">Networking</div>
                                                 </div>
                                                 <div class="checkbox__3">
-                                                        <input id="checkbox-3" type="checkbox">
+                                                        <input id="checkbox-3" type="checkbox" value=".api">
                                                         <label for="checkbox-3">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">API</div>
                                                 </div>
                                                 <div class="checkbox__4">
-                                                        <input id="checkbox-4" type="checkbox">
+                                                        <input id="checkbox-4" type="checkbox" value=".ai">
                                                         <label for="checkbox-4">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">AI/ML</div>
                                                 </div>
                                                 <div class="checkbox__5">
-                                                        <input id="checkbox-5" type="checkbox">
+                                                        <input id="checkbox-5" type="checkbox" value=".ar">
                                                         <label for="checkbox-5">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">AR</div>
                                                 </div>
                                                 <div class="checkbox__6">
-                                                        <input id="checkbox-6" type="checkbox">
+                                                        <input id="checkbox-6" type="checkbox" value=".vr">
                                                         <label for="checkbox-6">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">VR</div>
                                                 </div>
                                                 <div class="checkbox__7">
-                                                        <input id="checkbox-7" type="checkbox">
+                                                        <input id="checkbox-7" type="checkbox" value=".iot">
                                                         <label for="checkbox-7">
                                                                 <i class="fas fa-check"></i>
                                                         </label>

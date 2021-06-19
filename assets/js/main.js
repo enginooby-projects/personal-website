@@ -396,6 +396,7 @@ function portfolioIsotop() {
 
         var categorize = " ";
         var filterContent = '*';
+        var techFilters = "";
         // Create object to store sub-filter for each group
         var buttonFilters = {};
 
@@ -406,9 +407,13 @@ function portfolioIsotop() {
                 $filter.find('a').removeClass('active');
                 // activate current filter button
                 $(this).addClass('active');
+
                 buttonFilters = {};
                 resetSubfilters();
-                startFilterring($container, categorize);
+                techFilters = "";
+                resetTechFilters();
+
+                startFilterring($container, categorize + techFilters);
         });
 
         // Sub-filters
@@ -424,7 +429,20 @@ function portfolioIsotop() {
                 filterContent = concatValues(buttonFilters) || '*';
                 filterContent += categorize;
                 // Trigger isotope again to refresh layout
-                startFilterring($container, filterContent);
+                startFilterring($container, filterContent + techFilters);
+        });
+
+        // Tech-filters
+        $('#tech-filters').on('click', 'input', function () {
+                var tech = $(this).attr("value");
+                var isChecked = $(this).prop("checked");
+                if (isChecked && !techFilters.includes(tech)) {
+                        techFilters += tech + "";
+                }
+                if (!isChecked && techFilters.includes(tech)) {
+                        techFilters = techFilters.replace(tech, "");
+                }
+                startFilterring($container, filterContent + techFilters + categorize);
         });
 }
 
@@ -437,6 +455,12 @@ function resetSubfilters() {
                 })
                 var $firstButton = $buttonGroup.children(":first");
                 $firstButton.prop("checked", true);
+        });
+}
+
+function resetTechFilters() {
+        $('#tech-filters').find("input").each(function (i, checkbox) {
+                $(checkbox).prop("checked", false);
         });
 }
 
