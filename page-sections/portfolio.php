@@ -206,6 +206,41 @@ function formatLabel($str, $sep = '-')
                                                 </div>
                                         </div>
                                 </div>
+                                <div class=" row  justify-content-around sub-filters">
+                                        <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="size">
+                                                <input type="radio" name="size" value="1" id="size-1" checked />
+                                                <label for=" size-1" class="segmented-control__1" data-filter="">All sizes</label>
+                                                <input type="radio" name="size" value="2" id="size-2" />
+                                                <label for="size-2" class="segmented-control__2" data-filter=".small">Small</label>
+                                                <input type="radio" name="size" value="3" id="size-3" />
+                                                <label for="size-3" class="segmented-control__3" data-filter=".medium">Medium</label>
+                                                <input type="radio" name="size" value="4" id="size-4" />
+                                                <label for="size-4" class="segmented-control__4" data-filter=".large">Large</label>
+                                                <div class="segmented-control-size__color"></div>
+                                        </div>
+                                        <div class="segmented-control  col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="platform">
+                                                <input type="radio" name="platform" value="1" id="platform-1" checked />
+                                                <label for="platform-1" class="segmented-control__1" data-filter="">Platforms</label>
+                                                <input type="radio" name="platform" value="2" id="platform-2" />
+                                                <label for="platform-2" class="segmented-control__2" data-filter=".web">Web</label>
+                                                <input type="radio" name="platform" value="3" id="platform-3" />
+                                                <label for="platform-3" class="segmented-control__3" data-filter=".mobile">Mobile</label>
+                                                <input type="radio" name="platform" value="4" id="platform-4" />
+                                                <label for="platform-4" class="segmented-control__4" data-filter=".desktop">Desktop</label>
+                                                <div class="segmented-control-platform__color"></div>
+                                        </div>
+                                        <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="stage">
+                                                <input type="radio" name="stage" value="1" id="stage-1" checked />
+                                                <label for="stage-1" class="segmented-control__1" data-filter="">All stages</label>
+                                                <input type="radio" name="stage" value="2" id="stage-2" />
+                                                <label for="stage-2" class="segmented-control__2" data-filter=".completed">Completed</label>
+                                                <input type="radio" name="stage" value="3" id="stage-3" />
+                                                <label for="stage-3" class="segmented-control__3" data-filter=".prototype">Prototype</label>
+                                                <input type="radio" name="stage" value="4" id="stage-4" />
+                                                <label for="stage-4" class="segmented-control__4" data-filter=".ongoing">Ongoing</label>
+                                                <div class="segmented-control-stage__color"></div>
+                                        </div>
+                                </div>
                                 <br>
                                 <div class="sub-filters row">
                                         <!-- Size filter -->

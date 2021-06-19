@@ -180,4 +180,223 @@
   border-radius: 1rem;
   width: 100%;
 }
+
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+/*  SEGMENTED-CONTROL */
+.segmented-control {
+  background: var(--greyLight-1);
+  margin: 20px 15px 0 15px;
+  height: 2.6rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+          box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 0.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.segmented-control input {
+  display: none;
+}
+
+.segmented-control > input:checked + label {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  font-weight: 900 !important;
+}
+
+.segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
+  color: #444444;
+  font-size: 1.1rem;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  width: 6.8rem;
+  height: 3.6rem;
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover, .segmented-control__4:hover {
+  font-weight: 900 !important;
+}
+
+.segmented-control-size__color, .segmented-control-platform__color, .segmented-control-stage__color {
+  position: absolute;
+  height: 1.95rem;
+  width: 72.5px;
+  border-radius: .4rem;
+  -webkit-box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+          box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+  .segmented-control {
+    max-width: 470px;
+  }
+  .segmented-control__color {
+    width: 110px;
+  }
+  #size-1:checked ~ .segmented-control-size__color,
+  #platform-1:checked ~ .segmented-control-platform__color,
+  #stage-1:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-165px);
+            transform: translateX(-165px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-2:checked ~ .segmented-control-size__color,
+  #platform-2:checked ~ .segmented-control-platform__color,
+  #stage-2:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-55px);
+            transform: translateX(-55px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-3:checked ~ .segmented-control-size__color,
+  #platform-3:checked ~ .segmented-control-platform__color,
+  #stage-3:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(55px);
+            transform: translateX(55px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-4:checked ~ .segmented-control-size__color,
+  #platform-4:checked ~ .segmented-control-platform__color,
+  #stage-4:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(165px);
+            transform: translateX(165px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .segmented-control {
+    max-width: 250px;
+  }
+  .segmented-control__color {
+    width: 55px;
+  }
+  #size-1:checked ~ .segmented-control-size__color,
+  #platform-1:checked ~ .segmented-control-platform__color,
+  #stage-1:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-82.5px);
+            transform: translateX(-82.5px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-2:checked ~ .segmented-control-size__color,
+  #platform-2:checked ~ .segmented-control-platform__color,
+  #stage-2:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-27.5px);
+            transform: translateX(-27.5px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-3:checked ~ .segmented-control-size__color,
+  #platform-3:checked ~ .segmented-control-platform__color,
+  #stage-3:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(27.5px);
+            transform: translateX(27.5px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-4:checked ~ .segmented-control-size__color,
+  #platform-4:checked ~ .segmented-control-platform__color,
+  #stage-4:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(82.5px);
+            transform: translateX(82.5px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .segmented-control {
+    max-width: 320px;
+  }
+  .segmented-control__color {
+    width: 72.5px;
+  }
+  #size-1:checked ~ .segmented-control-size__color,
+  #platform-1:checked ~ .segmented-control-platform__color,
+  #stage-1:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-108.75px);
+            transform: translateX(-108.75px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-2:checked ~ .segmented-control-size__color,
+  #platform-2:checked ~ .segmented-control-platform__color,
+  #stage-2:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(-36.25px);
+            transform: translateX(-36.25px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-3:checked ~ .segmented-control-size__color,
+  #platform-3:checked ~ .segmented-control-platform__color,
+  #stage-3:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(36.25px);
+            transform: translateX(36.25px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #size-4:checked ~ .segmented-control-size__color,
+  #platform-4:checked ~ .segmented-control-platform__color,
+  #stage-4:checked ~ .segmented-control-stage__color {
+    -webkit-transform: translateX(108.75px);
+            transform: translateX(108.75px);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
 /*# sourceMappingURL=portfolio.css.map */

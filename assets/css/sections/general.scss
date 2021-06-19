@@ -1,6 +1,8 @@
 /*-------------------------
          GENERAL
 -------------------------*/
+$button-border:0.6rem;
+
 @font-face {
         font-family: "Agency FB";
         src: url("../fonts/agency-fb-regular.TTF");
@@ -90,7 +92,7 @@ button {
 
 .button-border {
         background-color: #f1f3f6;
-        border-radius: 1rem;
+        border-radius: $button-border !important;
         box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
         display: inline-block;
         padding: 1px;
@@ -109,7 +111,7 @@ button {
 }
 
 .pill-button {
-        border-radius: 1rem;
+        border-radius: $button-border;
         border: none;
         padding: 10px 30px;
         transition: all 0.3s ease;

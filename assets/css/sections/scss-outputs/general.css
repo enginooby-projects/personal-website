@@ -93,7 +93,7 @@ button {
 
 .button-border {
   background-color: #f1f3f6;
-  border-radius: 1rem;
+  border-radius: 0.6rem !important;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   display: inline-block;
@@ -114,7 +114,7 @@ button {
 }
 
 .pill-button {
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   border: none;
   padding: 10px 30px;
   -webkit-transition: all 0.3s ease;

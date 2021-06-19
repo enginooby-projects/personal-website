@@ -395,6 +395,10 @@ function portfolioIsotop() {
         });
 
         var categorize = " ";
+        var filterContent = '*';
+        // Create object to store sub-filter for each group
+        var buttonFilters = {};
+
         // categorize filter
         $filter.find('a').on("click", function () {
                 categorize = $(this).attr('data-filter');
@@ -402,33 +406,39 @@ function portfolioIsotop() {
                 $filter.find('a').removeClass('active');
                 // activate current filter button
                 $(this).addClass('active');
+                buttonFilters = {};
+                resetSubfilters();
                 startFilterring($container, categorize);
         });
 
-        // sub-filters
-        // Create object to store filter for each group
-        var buttonFilters = {};
-        var buttonFilter = '*';
-        // Create new object for the range filters and set default values
-        // The default values should correspond to the default values from the slider
+        // Sub-filters
+        $('.sub-filters').on('click', 'label', function () {
+                var $this = $(this);
+                // Get group key from parent btn-group (e.g. size, platform...)
+                var $buttonGroup = $this.parents('.segmented-control');
+                var filterGroup = $buttonGroup.attr('data-filter-group');
+                // set filter for group
+                buttonFilters[filterGroup] = $this.attr('data-filter');
+                // Combine filters or set the value to * if buttonFilters
+                filterContent = concatValues(buttonFilters) || '*';
+                filterContent += categorize;
+                // Trigger isotope again to refresh layout
+                startFilterring($container, filterContent);
+        });
 
         // Look inside element with .sub-filters class for any clicks on elements with .btn
         $('.sub-filters').on('click', '.btn', function () {
-
                 var $this = $(this);
-                // Get group key from parent btn-group (e.g. data-filter-group="color")
+                // Get group key from parent btn-group (e.g. size, platform...)
                 var $buttonGroup = $this.parents('.btn-group');
                 var filterGroup = $buttonGroup.attr('data-filter-group');
                 // set filter for group
                 buttonFilters[filterGroup] = $this.attr('data-filter');
                 // Combine filters or set the value to * if buttonFilters
-                buttonFilter = concatValues(buttonFilters) || '*';
-                buttonFilter += categorize;
-                // buttonFilter = concatValues(categorize) || '*';
-                // Log out current filter to check that it's working when clicked
-                console.log(buttonFilter);
+                filterContent = concatValues(buttonFilters) || '*';
+                filterContent += categorize;
                 // Trigger isotope again to refresh layout
-                startFilterring($container, buttonFilter);
+                startFilterring($container, filterContent);
         });
 
         // change checked class on btn-filter to toggle which one is active
@@ -441,13 +451,44 @@ function portfolioIsotop() {
         });
 }
 
+// check each first filter button and uncheck others
 function resetSubfilters() {
+        $('.segmented-control').each(function (i, buttonGroup) {
+                var $buttonGroup = $(buttonGroup);
+                $buttonGroup.find('input').each(function () {
+                        console.log($(this).attr("name"));
+                        // $(this).checked = false;
+                        $(this).prop("checked", false);
+                })
+                var $firstButton = $buttonGroup.children(":first");
+                // $firstButton.checked = true;
+                $firstButton.prop("checked", true);
+        });
 
+        $('.btn-group').each(function (i, buttonGroup) {
+                var $buttonGroup = $(buttonGroup);
+                $buttonGroup.children().each(function () {
+                        removeClassIfExist($(this), "checked");
+                })
+                var $firstButton = $buttonGroup.children(":first");
+                addClassIfNotExist($firstButton, 'checked');
+        });
 }
 
-function startFilterring(container, selector) {
+// HELPERS
+function addClassIfNotExist(selector, className) {
+        if (!selector.hasClass(className)) selector.addClass(className);
+}
+
+function removeClassIfExist(selector, className) {
+        if (selector.hasClass(className)) selector.removeClass(className);
+}
+
+function startFilterring(container, filterContent) {
+        console.log(filterContent);
+
         container.isotope({
-                filter: selector,
+                filter: filterContent,
                 animationOptions: {
                         animationDuration: 750,
                         easing: 'linear',
