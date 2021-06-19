@@ -2,7 +2,8 @@
          PORTFOLIO
 -------------------------*/
 .portfolio-filter>li>a>i {
-        padding-top: 10px;
+        position: relative;
+        bottom: 2px;
 }
 
 .highlight-portfolio-item {
@@ -188,26 +189,32 @@
         --primary-dark: #5b0eeb;
 
         --white: #FFFFFF;
-        --greyLight-1: #E4EBF5;
-        //  --greyLight-1: #f1f3f6;
+        // --greyLight-1: #E4EBF5;
+        --greyLight-1: #f1f3f6;
         --greyLight-2: #c1c9df;
         --greyLight-3: #bec8e4;
         --greyDark: #9baacf;
 }
 
-$shadow: .17rem .17rem .5rem var(--greyLight-2),
--.2rem -.2rem .5rem var(--white);
-$inner-shadow: inset .1rem .1rem .5rem var(--greyLight-2),
-inset -.25em -.25rem .5rem var(--white);
+// $shadow: .17rem .17rem .5rem var(--greyLight-2),
+// -.2rem -.2rem .5rem var(--white);
+// $inner-shadow: inset .1rem .1rem .5rem var(--greyLight-2),
+// inset -.2em -.2rem .5rem var(--white);
+$shadow:3px 3px 3px #dadada,
+-3px -3px 3px #fafafa;
+$inner-shadow:inset 3px 3px 3px #dadada,
+inset -3px -3px 3px #fafafa;
+$dark-shadow:3px 3px 3px #202125,
+-3px -3px 3px #3e3e3e;
+$dark-inner-shadow:inset 3px 3px 3px #202125,
+inset -3px -3px 3px #3e3e3e;
+//#2c2d30
 $scale:0.65;
 
 /*  SEGMENTED-CONTROL */
 .segmented-control {
         background: var(--greyLight-1);
         margin: 0.7rem 0.4rem 0 0.4rem;
-
-        // grid-column: 3 / 4;
-        // grid-row: 1 / 2;
         height: 4rem*$scale;
         box-shadow: $shadow;
         border-radius: 0.6rem;
@@ -221,8 +228,8 @@ $scale:0.65;
 
         >input:checked+label {
                 transition: all .5s ease;
-                font-weight: 900 !important;
-                // color: var(--primary);
+                // font-weight: 900 !important;
+                color: var(--primary);
         }
 
         &__1,
@@ -230,8 +237,8 @@ $scale:0.65;
         &__3,
         &__4 {
                 &:hover {
-                        font-weight: 900 !important;
-                        // color: var(--primary);
+                        // font-weight: 900 !important;
+                        color: var(--primary);
                 }
 
                 // color: var(--greyDark);
@@ -258,6 +265,63 @@ $scale:0.65;
                 width: 72.5px;
                 border-radius: .4rem;
                 box-shadow: $inner-shadow;
+                pointer-events: none;
+        }
+}
+
+// TODO: DRY
+.dark-scheme .segmented-control {
+        background: #2c2d30;
+        margin: 0.7rem 0.4rem 0 0.4rem;
+        height: 4rem*$scale;
+        box-shadow: $dark-shadow;
+        border-radius: 0.6rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        input {
+                display: none;
+        }
+
+        >input:checked+label {
+                transition: all .5s ease;
+                // font-weight: 900 !important;
+                color: var(--primary);
+        }
+
+        &__1,
+        &__2,
+        &__3,
+        &__4 {
+                &:hover {
+                        // font-weight: 900 !important;
+                        color: var(--primary);
+                }
+
+                color: #e2e2e2;
+                font-size: 1.1rem;
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                transition: all .5s ease;
+
+                width: 6.8rem;
+                height: 3.6rem;
+                margin-bottom: 0;
+                display: flex;
+
+        }
+
+        // current selection box
+        &-size__color,
+        &-platform__color,
+        &-stage__color {
+                position: absolute;
+                height: 3.1rem*$scale;
+                width: 72.5px;
+                border-radius: .4rem;
+                box-shadow: $dark-inner-shadow;
                 pointer-events: none;
         }
 }
@@ -322,12 +386,6 @@ $scale:0.65;
 $checkbox-scale:0.5;
 
 .checkbox {
-        // grid-column: 1 / 2;
-        // display: grid;
-        // grid-template-columns: repeat(2, 6rem);
-        // grid-gap: 3rem;
-        // justify-content: center;
-
         input {
                 display: none;
         }
@@ -347,9 +405,7 @@ $checkbox-scale:0.5;
         &__5,
         &__6,
         &__7 {
-                // width: 6rem;
                 display: flex;
-                // justify-content: center;
 
                 label {
                         box-shadow: $shadow;
@@ -377,6 +433,64 @@ $checkbox-scale:0.5;
                 & input:checked {
                         &~label {
                                 box-shadow: $inner-shadow;
+
+                                i {
+                                        color: var(--primary);
+                                }
+                        }
+                }
+        }
+}
+
+// TODO: DRY
+.dark-scheme .checkbox {
+        input {
+                display: none;
+        }
+
+        .name {
+                font-size: 1.1rem;
+                margin-left: 0.35rem;
+                margin-right: 0.8rem;
+
+                margin-bottom: 0rem;
+        }
+
+        &__1,
+        &__2,
+        &__3,
+        &__4,
+        &__5,
+        &__6,
+        &__7 {
+                display: flex;
+
+                label {
+                        box-shadow: $dark-shadow;
+                        cursor: pointer;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .5rem;
+                        width: 2.8rem*$checkbox-scale;
+                        height: 2.8rem*$checkbox-scale;
+
+                        &:hover i {
+                                color: var(--primary);
+                        }
+
+                        i {
+                                font-size: 1.8rem*$checkbox-scale;
+                                font-weight: 700;
+                                color: var(--greyDark);
+                                transition: .3s ease;
+                        }
+                }
+
+                & input:checked {
+                        &~label {
+                                box-shadow: $dark-inner-shadow;
 
                                 i {
                                         color: var(--primary);

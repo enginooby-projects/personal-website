@@ -394,7 +394,7 @@ function portfolioIsotop() {
                 }
         });
 
-        var categorize = " ";
+        var categorize = "";
         var filterContent = '*';
         var techFilters = "";
         // Create object to store sub-filter for each group
@@ -409,6 +409,7 @@ function portfolioIsotop() {
                 $(this).addClass('active');
 
                 buttonFilters = {};
+                filterContent = '*';
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
@@ -427,9 +428,9 @@ function portfolioIsotop() {
                 buttonFilters[filterGroup] = $this.attr('data-filter');
                 // Combine filters or set the value to * if buttonFilters
                 filterContent = concatValues(buttonFilters) || '*';
-                filterContent += categorize;
+                // filterContent += categorize;
                 // Trigger isotope again to refresh layout
-                startFilterring($container, filterContent + techFilters);
+                startFilterring($container, filterContent + techFilters + categorize);
         });
 
         // Tech-filters

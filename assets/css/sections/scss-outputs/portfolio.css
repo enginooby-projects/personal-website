@@ -2,7 +2,8 @@
          PORTFOLIO
 -------------------------*/
 .portfolio-filter > li > a > i {
-  padding-top: 10px;
+  position: relative;
+  bottom: 2px;
 }
 
 .highlight-portfolio-item {
@@ -186,7 +187,7 @@
   --primary: #6d5dfc;
   --primary-dark: #5b0eeb;
   --white: #FFFFFF;
-  --greyLight-1: #E4EBF5;
+  --greyLight-1: #f1f3f6;
   --greyLight-2: #c1c9df;
   --greyLight-3: #bec8e4;
   --greyDark: #9baacf;
@@ -197,8 +198,8 @@
   background: var(--greyLight-1);
   margin: 0.7rem 0.4rem 0 0.4rem;
   height: 2.6rem;
-  -webkit-box-shadow: 0.17rem 0.17rem 0.5rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-          box-shadow: 0.17rem 0.17rem 0.5rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   border-radius: 0.6rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -216,7 +217,7 @@
 .segmented-control > input:checked + label {
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  font-weight: 900 !important;
+  color: var(--primary);
 }
 
 .segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
@@ -240,7 +241,7 @@
 }
 
 .segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover, .segmented-control__4:hover {
-  font-weight: 900 !important;
+  color: var(--primary);
 }
 
 .segmented-control-size__color, .segmented-control-platform__color, .segmented-control-stage__color {
@@ -248,8 +249,68 @@
   height: 2.015rem;
   width: 72.5px;
   border-radius: .4rem;
-  -webkit-box-shadow: inset 0.1rem 0.1rem 0.5rem var(--greyLight-2), inset -0.25em -0.25rem 0.5rem var(--white);
-          box-shadow: inset 0.1rem 0.1rem 0.5rem var(--greyLight-2), inset -0.25em -0.25rem 0.5rem var(--white);
+  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  pointer-events: none;
+}
+
+.dark-scheme .segmented-control {
+  background: #2c2d30;
+  margin: 0.7rem 0.4rem 0 0.4rem;
+  height: 2.6rem;
+  -webkit-box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
+          box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
+  border-radius: 0.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.dark-scheme .segmented-control input {
+  display: none;
+}
+
+.dark-scheme .segmented-control > input:checked + label {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  color: var(--primary);
+}
+
+.dark-scheme .segmented-control__1, .dark-scheme .segmented-control__2, .dark-scheme .segmented-control__3, .dark-scheme .segmented-control__4 {
+  color: #e2e2e2;
+  font-size: 1.1rem;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  width: 6.8rem;
+  height: 3.6rem;
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dark-scheme .segmented-control__1:hover, .dark-scheme .segmented-control__2:hover, .dark-scheme .segmented-control__3:hover, .dark-scheme .segmented-control__4:hover {
+  color: var(--primary);
+}
+
+.dark-scheme .segmented-control-size__color, .dark-scheme .segmented-control-platform__color, .dark-scheme .segmented-control-stage__color {
+  position: absolute;
+  height: 2.015rem;
+  width: 72.5px;
+  border-radius: .4rem;
+  -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
+          box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
   pointer-events: none;
 }
 
@@ -419,8 +480,8 @@
 }
 
 .checkbox__1 label, .checkbox__2 label, .checkbox__3 label, .checkbox__4 label, .checkbox__5 label, .checkbox__6 label, .checkbox__7 label {
-  -webkit-box-shadow: 0.17rem 0.17rem 0.5rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-          box-shadow: 0.17rem 0.17rem 0.5rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   cursor: pointer;
   position: relative;
   display: -webkit-box;
@@ -450,11 +511,68 @@
 }
 
 .checkbox__1 input:checked ~ label, .checkbox__2 input:checked ~ label, .checkbox__3 input:checked ~ label, .checkbox__4 input:checked ~ label, .checkbox__5 input:checked ~ label, .checkbox__6 input:checked ~ label, .checkbox__7 input:checked ~ label {
-  -webkit-box-shadow: inset 0.1rem 0.1rem 0.5rem var(--greyLight-2), inset -0.25em -0.25rem 0.5rem var(--white);
-          box-shadow: inset 0.1rem 0.1rem 0.5rem var(--greyLight-2), inset -0.25em -0.25rem 0.5rem var(--white);
+  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
 }
 
 .checkbox__1 input:checked ~ label i, .checkbox__2 input:checked ~ label i, .checkbox__3 input:checked ~ label i, .checkbox__4 input:checked ~ label i, .checkbox__5 input:checked ~ label i, .checkbox__6 input:checked ~ label i, .checkbox__7 input:checked ~ label i {
+  color: var(--primary);
+}
+
+.dark-scheme .checkbox input {
+  display: none;
+}
+
+.dark-scheme .checkbox .name {
+  font-size: 1.1rem;
+  margin-left: 0.35rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0rem;
+}
+
+.dark-scheme .checkbox__1, .dark-scheme .checkbox__2, .dark-scheme .checkbox__3, .dark-scheme .checkbox__4, .dark-scheme .checkbox__5, .dark-scheme .checkbox__6, .dark-scheme .checkbox__7 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dark-scheme .checkbox__1 label, .dark-scheme .checkbox__2 label, .dark-scheme .checkbox__3 label, .dark-scheme .checkbox__4 label, .dark-scheme .checkbox__5 label, .dark-scheme .checkbox__6 label, .dark-scheme .checkbox__7 label {
+  -webkit-box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
+          box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: .5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.dark-scheme .checkbox__1 label:hover i, .dark-scheme .checkbox__2 label:hover i, .dark-scheme .checkbox__3 label:hover i, .dark-scheme .checkbox__4 label:hover i, .dark-scheme .checkbox__5 label:hover i, .dark-scheme .checkbox__6 label:hover i, .dark-scheme .checkbox__7 label:hover i {
+  color: var(--primary);
+}
+
+.dark-scheme .checkbox__1 label i, .dark-scheme .checkbox__2 label i, .dark-scheme .checkbox__3 label i, .dark-scheme .checkbox__4 label i, .dark-scheme .checkbox__5 label i, .dark-scheme .checkbox__6 label i, .dark-scheme .checkbox__7 label i {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--greyDark);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.dark-scheme .checkbox__1 input:checked ~ label, .dark-scheme .checkbox__2 input:checked ~ label, .dark-scheme .checkbox__3 input:checked ~ label, .dark-scheme .checkbox__4 input:checked ~ label, .dark-scheme .checkbox__5 input:checked ~ label, .dark-scheme .checkbox__6 input:checked ~ label, .dark-scheme .checkbox__7 input:checked ~ label {
+  -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
+          box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
+}
+
+.dark-scheme .checkbox__1 input:checked ~ label i, .dark-scheme .checkbox__2 input:checked ~ label i, .dark-scheme .checkbox__3 input:checked ~ label i, .dark-scheme .checkbox__4 input:checked ~ label i, .dark-scheme .checkbox__5 input:checked ~ label i, .dark-scheme .checkbox__6 input:checked ~ label i, .dark-scheme .checkbox__7 input:checked ~ label i {
   color: var(--primary);
 }
 /*# sourceMappingURL=portfolio.css.map */

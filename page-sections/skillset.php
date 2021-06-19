@@ -75,9 +75,9 @@
                                                                 <div class="border-style"></div>
                                                         </div>
                                                         <div class="row justify-content-center">
-                                                                <span class="badge badge-pill colorfull2">MySQL <span class="badge badge-light">?</span></span>
-                                                                <span class="badge badge-pill colorfull2">Firestore <span class="badge badge-light">?</span></span>
-                                                                <span class="badge badge-pill colorfull1">SQLite <span class="badge badge-light">?</span></span>
+                                                                <span class="badge badge-pill colorfull2">MySQL</span>
+                                                                <span class="badge badge-pill colorfull2">Firestore</span>
+                                                                <span class="badge badge-pill colorfull1">SQLite</span>
                                                         </div>
                                                 </div>
                                         </div>
