@@ -241,30 +241,7 @@ function formatLabel($str, $sep = '-')
                                                 <div class="segmented-control-stage__color"></div>
                                         </div>
                                 </div>
-                                <br>
-                                <div class="sub-filters row">
-                                        <!-- Size filter -->
-                                        <div class="btn-group col-lg-4" role="group" data-filter-group="size" aria-label="Size">
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All sizes</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".small" data-toggle="tooltip" data-placement="top" title="<1000 lines of code">Small</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".medium" data-toggle="tooltip" data-placement="top" title="1000 - 5000 lines of code">Medium</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".large" data-toggle="tooltip" data-placement="top" title=">5000 lines of code">Large</button>
-                                        </div>
-                                        <!-- Platform filter -->
-                                        <div class="btn-group col-lg-4" role="group" data-filter-group="platform" aria-label="Platform">
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All platforms</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".web">Web</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".mobile">Mobile</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".desktop">Desktop</button>
-                                        </div>
-                                        <!-- Stage filter -->
-                                        <div class="btn-group col-lg-4" role="group" data-filter-group="stage" aria-label="Stage">
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All stages</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".completed">Completed</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".prototype">Prototype</button>
-                                                <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".ongoing">Ongoing</button>
-                                        </div>
-                                </div>
+
                                 <div class="portfolio-items row">
                                         <?php
                                         //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null

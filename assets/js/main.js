@@ -412,6 +412,7 @@ function portfolioIsotop() {
         });
 
         // Sub-filters
+        // Look inside element with .sub-filters class for any clicks on elements with .btn
         $('.sub-filters').on('click', 'label', function () {
                 var $this = $(this);
                 // Get group key from parent btn-group (e.g. size, platform...)
@@ -425,30 +426,6 @@ function portfolioIsotop() {
                 // Trigger isotope again to refresh layout
                 startFilterring($container, filterContent);
         });
-
-        // Look inside element with .sub-filters class for any clicks on elements with .btn
-        $('.sub-filters').on('click', '.btn', function () {
-                var $this = $(this);
-                // Get group key from parent btn-group (e.g. size, platform...)
-                var $buttonGroup = $this.parents('.btn-group');
-                var filterGroup = $buttonGroup.attr('data-filter-group');
-                // set filter for group
-                buttonFilters[filterGroup] = $this.attr('data-filter');
-                // Combine filters or set the value to * if buttonFilters
-                filterContent = concatValues(buttonFilters) || '*';
-                filterContent += categorize;
-                // Trigger isotope again to refresh layout
-                startFilterring($container, filterContent);
-        });
-
-        // change checked class on btn-filter to toggle which one is active
-        $('.btn-group').each(function (i, buttonGroup) {
-                var $buttonGroup = $(buttonGroup);
-                $buttonGroup.on('click', '.btn-filter', function () {
-                        $buttonGroup.find('.checked').removeClass('checked');
-                        $(this).addClass('checked');
-                });
-        });
 }
 
 // check each first filter button and uncheck others
@@ -456,22 +433,10 @@ function resetSubfilters() {
         $('.segmented-control').each(function (i, buttonGroup) {
                 var $buttonGroup = $(buttonGroup);
                 $buttonGroup.find('input').each(function () {
-                        console.log($(this).attr("name"));
-                        // $(this).checked = false;
                         $(this).prop("checked", false);
                 })
                 var $firstButton = $buttonGroup.children(":first");
-                // $firstButton.checked = true;
                 $firstButton.prop("checked", true);
-        });
-
-        $('.btn-group').each(function (i, buttonGroup) {
-                var $buttonGroup = $(buttonGroup);
-                $buttonGroup.children().each(function () {
-                        removeClassIfExist($(this), "checked");
-                })
-                var $firstButton = $buttonGroup.children(":first");
-                addClassIfNotExist($firstButton, 'checked');
         });
 }
 
