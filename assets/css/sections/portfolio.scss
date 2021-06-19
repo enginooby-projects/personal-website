@@ -25,7 +25,7 @@
 }
 
 .portfolio .portfolio-filter .list-inline-item:not(:last-child) {
-        margin-bottom: 1rem;
+        margin-bottom: 0.7rem;
 }
 
 .portfolio .portfolio-filter li a {
@@ -190,21 +190,21 @@
         --white: #FFFFFF;
         --greyLight-1: #E4EBF5;
         //  --greyLight-1: #f1f3f6;
-        --greyLight-2: #c8d0e7;
+        --greyLight-2: #c1c9df;
         --greyLight-3: #bec8e4;
         --greyDark: #9baacf;
 }
 
-$shadow: .3rem .3rem .6rem var(--greyLight-2),
+$shadow: .17rem .17rem .5rem var(--greyLight-2),
 -.2rem -.2rem .5rem var(--white);
-$inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
-inset -.2rem -.2rem .5rem var(--white);
+$inner-shadow: inset .1rem .1rem .5rem var(--greyLight-2),
+inset -.25em -.25rem .5rem var(--white);
 $scale:0.65;
 
 /*  SEGMENTED-CONTROL */
 .segmented-control {
         background: var(--greyLight-1);
-        margin: 20px 15px 0 15px;
+        margin: 0.7rem 0.4rem 0 0.4rem;
 
         // grid-column: 3 / 4;
         // grid-row: 1 / 2;
@@ -254,7 +254,7 @@ $scale:0.65;
         &-platform__color,
         &-stage__color {
                 position: absolute;
-                height: 3rem*$scale;
+                height: 3.1rem*$scale;
                 width: 72.5px;
                 border-radius: .4rem;
                 box-shadow: $inner-shadow;
@@ -316,4 +316,72 @@ $scale:0.65;
 // >1200px
 @media screen and (min-width: 1200px) {
         @include segmented-control-transform($groupLength: 290px);
+}
+
+/*  CHECKBOX  */
+$checkbox-scale:0.5;
+
+.checkbox {
+        // grid-column: 1 / 2;
+        // display: grid;
+        // grid-template-columns: repeat(2, 6rem);
+        // grid-gap: 3rem;
+        // justify-content: center;
+
+        input {
+                display: none;
+        }
+
+        .name {
+                font-size: 1.1rem;
+                margin-left: 0.35rem;
+                margin-right: 0.8rem;
+
+                margin-bottom: 0rem;
+        }
+
+        &__1,
+        &__2,
+        &__3,
+        &__4,
+        &__5,
+        &__6,
+        &__7 {
+                // width: 6rem;
+                display: flex;
+                // justify-content: center;
+
+                label {
+                        box-shadow: $shadow;
+                        cursor: pointer;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .5rem;
+                        width: 2.8rem*$checkbox-scale;
+                        height: 2.8rem*$checkbox-scale;
+
+                        &:hover i {
+                                color: var(--primary);
+                        }
+
+                        i {
+                                font-size: 1.8rem*$checkbox-scale;
+                                font-weight: 700;
+                                color: var(--greyDark);
+                                transition: .3s ease;
+                        }
+                }
+
+                & input:checked {
+                        &~label {
+                                box-shadow: $inner-shadow;
+
+                                i {
+                                        color: var(--primary);
+                                }
+                        }
+                }
+        }
 }

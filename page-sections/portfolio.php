@@ -132,8 +132,10 @@ function formatLabel($str, $sep = '-')
                                                 </div>
                                         </div>
                                 </div>
+
+
                                 <!-- Categorize filter -->
-                                <div class="row">
+                                <div class="row mb-0">
                                         <!--   Portfolio Filters   -->
                                         <ul id="portfolio-filter" class="list-unstyled list-inline mb-0 col-lg-12 text-center portfolio-filter">
                                                 <li class="button-border list-inline-item">
@@ -168,48 +170,13 @@ function formatLabel($str, $sep = '-')
                                                 </li>
                                         </ul>
                                 </div>
-                                <!-- Technology filter -->
-                                <div class="container">
-                                        <div class="row justify-content-center">
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox0" value="option0" />
-                                                        <label class="form-check-label" for="inlineCheckbox0">All technologies</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-                                                        <label class="form-check-label" for="inlineCheckbox1">Database</label>
-                                                </div>
 
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-                                                        <label class="form-check-label" for="inlineCheckbox2">Networking</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-                                                        <label class="form-check-label" for="inlineCheckbox3">API</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" />
-                                                        <label class="form-check-label" for="inlineCheckbox4">AI</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5" />
-                                                        <label class="form-check-label" for="inlineCheckbox5">AR</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6" />
-                                                        <label class="form-check-label" for="inlineCheckbox6">VR</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7" />
-                                                        <label class="form-check-label" for="inlineCheckbox7">IoT</label>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class=" row  justify-content-around sub-filters">
+
+                                <!-- Sub-filters -->
+                                <div class="row  justify-content-around sub-filters mt-0">
                                         <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="size">
                                                 <input type="radio" name="size" value="1" id="size-1" checked />
-                                                <label for=" size-1" class="segmented-control__1" data-filter="">All sizes</label>
+                                                <label for="size-1" class="segmented-control__1" data-filter="">All sizes</label>
                                                 <input type="radio" name="size" value="2" id="size-2" />
                                                 <label for="size-2" class="segmented-control__2" data-filter=".small">Small</label>
                                                 <input type="radio" name="size" value="3" id="size-3" />
@@ -239,6 +206,61 @@ function formatLabel($str, $sep = '-')
                                                 <input type="radio" name="stage" value="4" id="stage-4" />
                                                 <label for="stage-4" class="segmented-control__4" data-filter=".ongoing">Ongoing</label>
                                                 <div class="segmented-control-stage__color"></div>
+                                        </div>
+                                </div>
+
+                                <!-- Technology filter -->
+                                <div class="container mt-4" id="tech-filters">
+                                        <div class="checkbox  m-0 row justify-content-center">
+                                                <div class="checkbox__1">
+                                                        <input id="checkbox-1" type="checkbox">
+                                                        <label for="checkbox-1">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">Database</div>
+                                                </div>
+                                                <div class="checkbox__2">
+                                                        <input id="checkbox-2" type="checkbox">
+                                                        <label for="checkbox-2">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">Networking</div>
+                                                </div>
+                                                <div class="checkbox__3">
+                                                        <input id="checkbox-3" type="checkbox">
+                                                        <label for="checkbox-3">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">API</div>
+                                                </div>
+                                                <div class="checkbox__4">
+                                                        <input id="checkbox-4" type="checkbox">
+                                                        <label for="checkbox-4">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">AI/ML</div>
+                                                </div>
+                                                <div class="checkbox__5">
+                                                        <input id="checkbox-5" type="checkbox">
+                                                        <label for="checkbox-5">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">AR</div>
+                                                </div>
+                                                <div class="checkbox__6">
+                                                        <input id="checkbox-6" type="checkbox">
+                                                        <label for="checkbox-6">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">VR</div>
+                                                </div>
+                                                <div class="checkbox__7">
+                                                        <input id="checkbox-7" type="checkbox">
+                                                        <label for="checkbox-7">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">IoT</div>
+                                                </div>
                                         </div>
                                 </div>
 
