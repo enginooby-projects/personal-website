@@ -60,9 +60,9 @@
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill colorfull3">C# <span class="badge badge-light">205</span></span>
                                                                 <span class="badge badge-pill colorfull3"><i class="fab fa-java"></i> Java <span class="badge badge-light">300</span></span>
-                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">150</span></span>
-                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-html5"></i> HTML5 <span class="badge badge-light">50</span></span>
-                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-css3-alt"></i> CSS3/SASS <span class="badge badge-light">55</span></span>
+                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">151</span></span>
+                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-html5"></i> HTML5 <span class="badge badge-light">51</span></span>
+                                                                <span class="badge badge-pill colorfull2"><i class="fab fa-css3-alt"></i> CSS3/SASS <span class="badge badge-light">62</span></span>
                                                                 <span class="badge badge-pill colorfull2"> PHP <span class="badge badge-light">46</span></span>
                                                                 <span class="badge badge-pill colorfull2">SQL <span class="badge badge-light">20</span></span>
                                                                 <span class="badge badge-pill colorfull1">C/C++ <span class="badge badge-light">30</span></span>
@@ -138,7 +138,7 @@
                                                 <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill colorfull2"><i class="fab fa-bootstrap"></i> Bootstrap 4 <span class="badge badge-light">35</span></span>
-                                                                <span class="badge badge-pill colorfull1">jQuery <span class="badge badge-light">15</span></span>
+                                                                <span class="badge badge-pill colorfull1">jQuery <span class="badge badge-light">17</span></span>
                                                                 <span class="badge badge-pill colorfull1"><i class="fab fa-wordpress"></i> WordPress <span class="badge badge-light">20</span></span>
                                                         </div>
                                                 </div>

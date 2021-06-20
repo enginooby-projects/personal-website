@@ -74,7 +74,7 @@ button {
 
 .box-border {
   background-color: #f1f3f6;
-  border-radius: 1.25rem;
+  border-radius: 0.8rem;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
 }
@@ -93,7 +93,7 @@ button {
 
 .button-border {
   background-color: #f1f3f6;
-  border-radius: 0.6rem !important;
+  border-radius: 0.8rem !important;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   display: inline-block;
@@ -114,7 +114,7 @@ button {
 }
 
 .pill-button {
-  border-radius: 0.6rem;
+  border-radius: 0.8rem;
   border: none;
   padding: 10px 30px;
   -webkit-transition: all 0.3s ease;
@@ -224,5 +224,9 @@ button {
 
 .icon-image img {
   width: 45px;
+}
+
+.course-item b {
+  font-size: 1.15rem !important;
 }
 /*# sourceMappingURL=general.css.map */

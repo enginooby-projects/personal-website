@@ -39,20 +39,20 @@
                                         </div>
                                         <div class="col-lg-6 mt-0 mt-lg-0">
                                                 <div class="personal-item ml-lg-4">
-                                                        <h6 class="text-dark mt-4 mt-lg-0 mb-0">New journey: <span class="base-color">Video game development</span></h6>
+                                                        <h6 class="text-dark mt-4 mt-lg-0 mb-0">Passion: <span class="base-color">Video game development</span></h6>
                                                         <p class=" text-justify mb-0">
                                                                 While normal software is all about services to serve our life, <span class="base-color">computer graphics</span> (CG) is the technology enabling us to create life itself, virtually. That interests me, Particularly, game development is a subset of CG, where we define our own rules for the world then allow players to get involved in. That interests me more.
                                                                 <br>
                                                                 I first got started in this field by playing around with a few CG and game tools. Feeling more and more engaged, I decided to pick <span class="base-color">Unity</span> and <span class="base-color"> Unreal Engine</span> as my "long-term companions" on the journey.
                                                                 <br>
-                                                                Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal projects collaborative coding laboratories for my classes which involve with CG or game.
-                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well (as long as it's challenging). I particularly fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> & <span class="base-color">3D</span> game genres.
+                                                                Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal fun projects collaborative coding laboratories for my classes which involve with CG or game.
+                                                                While mainly focusing on <span class="base-color">gameplay programming</span>, I enjoy every other aspect in the development process as well (as long as it's challenging). I especially fall in love with <span class="base-color">procedural generation</span>, <span class="base-color">open world</span> & <span class="base-color">3D</span> game genres.
                                                         </p>
                                                         <h6 class="text-dark mt-4 mt-lg-4 mb-0">What am I doing?</h6>
                                                         <p class=" text-justify mb-4">
                                                                 At the current time, I am exploring <span class="base-color">VR/AR</span> and <span class="base-color">AI/ML</span> fields – those technologies I believe that could bring huge enhancements for the experiences in games and CG projects in general.
                                                                 <br>
-                                                                I am also <span class="base-color">open for work</span> in the game development to gain real-world experience.
+                                                                I am also <span class="base-color">open for work</span> in the game development to gain real-world and professional experience.
                                                         </p>
                                                         <div class="button-group-about ">
                                                                 <div class="button-border mt-3  mb-lg-0 mr-4">

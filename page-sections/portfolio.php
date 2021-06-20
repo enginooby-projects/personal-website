@@ -254,13 +254,13 @@ function formatLabel($str, $sep = '-')
                                                         </label>
                                                         <div class="name">VR</div>
                                                 </div>
-                                                <div class="checkbox__7">
+                                                <!-- <div class="checkbox__7">
                                                         <input id="checkbox-7" type="checkbox" value=".iot">
                                                         <label for="checkbox-7">
                                                                 <i class="fas fa-check"></i>
                                                         </label>
                                                         <div class="name">IoT</div>
-                                                </div>
+                                                </div> -->
                                         </div>
                                 </div>
 
@@ -308,14 +308,14 @@ function formatLabel($str, $sep = '-')
                                         displayPortfolioItem(
                                                 label: 'Multistore Shopping GUI',
                                                 isGalleryItem: false,
-                                                filters: 'ecommerce  medium  desktop completed',
+                                                filters: 'ecommerce  medium  desktop completed database',
                                                 accessUrl: 'enginoobz-projects/multistore-shopping-gui',
                                                 codeUrl: 'enginoobz-projects/multistore-shopping-gui',
                                         );
                                         displayPortfolioItem(
                                                 label: 'Simple Weather GUI',
                                                 isGalleryItem: false,
-                                                filters: 'utility  small  desktop prototype',
+                                                filters: 'utility small  desktop prototype api',
                                                 codeUrl: 'enginoobz-projects/simple-weather-gui'
                                         );
                                         ?>

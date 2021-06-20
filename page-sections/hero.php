@@ -7,9 +7,9 @@
                                                 <div class="hero-content">
                                                         <h1 class="dark-color mb-3">I'M <span class="base-color"> HIEU NGO</span></h1>
                                                         <h4 class="text-darktext-capitalize mb-0"><span class="base-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
-                                                        <p class="text-muted my-4">Creating video game is my way of expressing personal views and feelings to/about the world.</p>
+                                                        <p class="text-muted my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
                                                         <div class="button-border mt-2">
-                                                                <a href="#portfolio" class="pill-button">See my games</a>
+                                                                <a href="#about" class="pill-button">About me</a>
                                                         </div>
                                                 </div>
                                         </div>

@@ -11,16 +11,18 @@ function getColorByPercent($percent)
 
         return $color;
 }
+$accountSpaceBar = 3.5;
+
 function displayBook($imageUrl, $pageAmount)
 {
         $percent = $pageAmount * 100;
 
         echo '
-        <div class="image-border text-center book-item ">
+        <div class="image-border text-center book-item">
                 <img src="assets/img/books/' . $imageUrl . '" class="img-fluid rounded">
                 <div class="skill-box p-2">
-                        <div class="skillbar clearfix " data-percent="' . $percent . '%">
-                                <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
+                        <div class="skillbar clearfix " data-percent="' . $percent - $GLOBALS["accountSpaceBar"] . '%">
+                               <div class="skillbar-bar fill-skillbar data-background w-96" data-color="' . getColorByPercent($percent) . '"></div>
                         </div>
                 </div>
         </div>
@@ -43,8 +45,8 @@ function displayCourse($name, $percent, $url = '')
                         </div>
                 </div>
                 <div class="skill-box p-2">
-                        <div class="skillbar clearfix " data-percent="' . $percent . '%">
-                                <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
+                        <div class="skillbar clearfix " data-percent="' . $percent  - $GLOBALS["accountSpaceBar"] . '%">
+                                        <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
                         </div>
                 </div>
                  <b> ' . $name . '</b>
@@ -87,7 +89,7 @@ function displayCourse($name, $percent, $url = '')
                                         displayBook('game-programming-patterns.jpg', 0 / 560);
                                         displayBook('introduction-to-algorithms.jpg', 10 / 1229);
                                         displayBook('clean-architecture.jpg', 0 / 100);
-                                        displayBook('code-complete.jpg', 0 / 100);
+                                        displayBook('code-complete.jpg', 15 / 862);
                                         displayBook('the-self-taught-programmer.jpg', 0 / 100);
                                         ?>
                                 </div>

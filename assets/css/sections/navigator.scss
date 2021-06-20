@@ -16,12 +16,14 @@
 }
 
 #pp-nav li .pp-tooltip {
-        font-size: 10px;
-        font-weight: 500;
+        font-family: "Agency FB", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
         transition: all 0.3s ease;
         transform: translateY(0);
         padding-right: 1rem;
         color: #3c3c3c;
+        margin-top: -1.4px;
 }
 
 #pp-nav li .active span {

@@ -3,7 +3,7 @@
 -------------------------*/
 .portfolio-filter > li > a > i {
   position: relative;
-  bottom: 2px;
+  bottom: 1.5px;
 }
 
 .highlight-portfolio-item {
@@ -31,30 +31,6 @@
 
 .portfolio .portfolio-filter li a {
   padding: 5px 15px;
-}
-
-.book-item {
-  margin: 30px 15px 10px 15px;
-  width: 180px;
-  height: 248px;
-}
-
-.book-item > img {
-  width: 165px !important;
-  height: 215px !important;
-  border-radius: 1rem !important;
-}
-
-.course-item {
-  margin: 30px 15px 10px 15px;
-  width: 232px;
-  height: auto;
-}
-
-.course-item img {
-  width: 220px !important;
-  height: 135px !important;
-  border-radius: 1rem !important;
 }
 
 .portfolio .portfolio-item {
@@ -184,8 +160,8 @@
 
 :root {
   --primary-light: #8abdff;
-  --primary: #6d5dfc;
-  --primary-dark: #5b0eeb;
+  --primary: #1b63ad;
+  --primary-dark: #0d4680;
   --white: #FFFFFF;
   --greyLight-1: #f1f3f6;
   --greyLight-2: #c1c9df;
@@ -248,9 +224,9 @@
   position: absolute;
   height: 2.015rem;
   width: 72.5px;
-  border-radius: .4rem;
-  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  border-radius: .55rem;
+  -webkit-box-shadow: 3px 3px 4px #dcdee2, -3px -3px 4px #ffffff, inset 3px 3px 4px #dcdee2, inset -3px -3px 4px #ffffff;
+          box-shadow: 3px 3px 4px #dcdee2, -3px -3px 4px #ffffff, inset 3px 3px 4px #dcdee2, inset -3px -3px 4px #ffffff;
   pointer-events: none;
 }
 
@@ -308,7 +284,7 @@
   position: absolute;
   height: 2.015rem;
   width: 72.5px;
-  border-radius: .4rem;
+  border-radius: .55rem;
   -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
           box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
   pointer-events: none;

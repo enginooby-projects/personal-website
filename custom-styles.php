@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/skillset.css">
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/duties.css">
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/portfolio.css">
+        <link rel="stylesheet" href="assets/css/sections/scss-outputs/self-education.css">
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/overlay-menu.css">
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/preloader.css">
         <link rel="stylesheet" href="assets/css/sections/scss-outputs/testimonial.css">

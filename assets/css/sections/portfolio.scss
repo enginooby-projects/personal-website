@@ -3,7 +3,7 @@
 -------------------------*/
 .portfolio-filter>li>a>i {
         position: relative;
-        bottom: 2px;
+        bottom: 1.5px;
 }
 
 .highlight-portfolio-item {
@@ -31,30 +31,6 @@
 
 .portfolio .portfolio-filter li a {
         padding: 5px 15px;
-}
-
-.book-item {
-        margin: 30px 15px 10px 15px;
-        width: 180px;
-        height: 248px;
-}
-
-.book-item>img {
-        width: 165px !important;
-        height: 215px !important;
-        border-radius: 1rem !important;
-}
-
-.course-item {
-        margin: 30px 15px 10px 15px;
-        width: 232px;
-        height: auto;
-}
-
-.course-item img {
-        width: 220px !important;
-        height: 135px !important;
-        border-radius: 1rem !important;
 }
 
 .portfolio .portfolio-item {
@@ -178,15 +154,10 @@
 
 
 
-
-
-
-
-
 :root {
         --primary-light: #8abdff;
-        --primary: #6d5dfc;
-        --primary-dark: #5b0eeb;
+        --primary: #1b63ad;
+        --primary-dark: #0d4680;
 
         --white: #FFFFFF;
         // --greyLight-1: #E4EBF5;
@@ -210,6 +181,14 @@ $dark-inner-shadow:inset 3px 3px 3px #202125,
 inset -3px -3px 3px #3e3e3e;
 //#2c2d30
 $scale:0.65;
+
+$bg-color:#f1f3f6;
+$light-bg-color:#ffffff;
+$dark-bg-color:#dcdee2;
+$inner-shadow-2:3px 3px 4px $dark-bg-color,
+-3px -3px 4px $light-bg-color,
+inset 3px 3px 4px $dark-bg-color,
+inset -3px -3px 4px $light-bg-color;
 
 /*  SEGMENTED-CONTROL */
 .segmented-control {
@@ -263,8 +242,9 @@ $scale:0.65;
                 position: absolute;
                 height: 3.1rem*$scale;
                 width: 72.5px;
-                border-radius: .4rem;
-                box-shadow: $inner-shadow;
+                border-radius: .55rem;
+                // box-shadow: $inner-shadow;
+                box-shadow: $inner-shadow-2;
                 pointer-events: none;
         }
 }
@@ -320,7 +300,7 @@ $scale:0.65;
                 position: absolute;
                 height: 3.1rem*$scale;
                 width: 72.5px;
-                border-radius: .4rem;
+                border-radius: .55rem;
                 box-shadow: $dark-inner-shadow;
                 pointer-events: none;
         }

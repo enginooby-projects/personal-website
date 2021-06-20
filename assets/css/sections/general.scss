@@ -1,7 +1,7 @@
 /*-------------------------
          GENERAL
 -------------------------*/
-$button-border:0.6rem;
+$button-border:0.8rem;
 
 @font-face {
         font-family: "Agency FB";
@@ -76,7 +76,7 @@ button {
 
 .box-border {
         background-color: #f1f3f6;
-        border-radius: 1.25rem;
+        border-radius: 0.8rem;
         box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
 }
 
@@ -210,4 +210,8 @@ button {
 .icon-image img {
         width: 45px;
         // background-color: aqua;
+}
+
+.course-item b {
+        font-size: 1.15rem !important;
 }
