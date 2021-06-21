@@ -1,3 +1,5 @@
+@import "../variables";
+
 .book-item {
         transition: 0.5s all ease;
 }
@@ -37,21 +39,6 @@
         margin-top: 5px;
 }
 
-// https://neumorphism.io/#e0e0e0
-$lightColor:#f1f3f6;
-$lightBrightColor:#ffffff;
-$lightShadowColor:#dcdee2; // intensity
-$darkColor:#2c2d30;
-$darkBrightColor:#3e3e3e;
-$darkShadowColor:#202125; // intensity
-$distance:2px;
-$blur:5px;
-
-$lightConcave:$distance $distance $blur $lightShadowColor,
-(-$distance) (-$distance) $blur $lightBrightColor,
-inset $distance $distance $blur $lightShadowColor,
-inset (-$distance) (-$distance)$blur $lightBrightColor;
-
 .skill-box .skillbar {
         position: relative;
         display: block;
@@ -59,11 +46,6 @@ inset (-$distance) (-$distance)$blur $lightBrightColor;
         height: 12px;
         border-radius: 5px;
         transition: 0.1s linear;
-
-        // background-color: #f1f3f6;
-        // box-shadow: inset 3px 3px 8px rgba(55, 84, 170, 0.3),
-        //         inset -3px -3px 8px white;
-
         background: $lightColor;
         box-shadow: $lightConcave
 }

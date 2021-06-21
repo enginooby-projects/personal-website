@@ -1,0 +1,14 @@
+// https://neumorphism.io/#e0e0e0
+$lightColor:#f1f3f6;
+$lightBrightColor:#ffffff;
+$lightShadowColor:#dcdee2; // intensity
+$darkColor:#2c2d30;
+$darkBrightColor:#3e3e3e;
+$darkShadowColor:#202125; // intensity
+$distance:2px;
+$blur:5px;
+
+$lightConcave:$distance $distance $blur $lightShadowColor,
+(-$distance) (-$distance) $blur $lightBrightColor,
+inset $distance $distance $blur $lightShadowColor,
+inset (-$distance) (-$distance)$blur $lightBrightColor;

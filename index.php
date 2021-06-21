@@ -35,7 +35,7 @@
         <!-- Colors Css -->
         <link rel="stylesheet" href="assets/css/color/blue-color.css" id="option-color">
         <!--  Custom Style CSS  -->
-        <?php include 'custom-styles.php' ?>
+        <link rel="stylesheet" href="assets/css/scss-outputs/style.css">
         <!--  Colorfull Style CSS  -->
         <link rel="stylesheet" href="assets/css/color/colorfull-main.css">
 </head>
