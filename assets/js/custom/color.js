@@ -126,7 +126,7 @@ function updateSchemeColor() {
 }
 
 
-function updateButtonsColor() {
+export function updateButtonsColor() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', baseColor);

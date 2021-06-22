@@ -1,4 +1,4 @@
-import * as ColorModule from './color-custom.js'
+import * as ColorModule from './color.js'
 
 // repeated variables
 var $window = $(window);
@@ -379,7 +379,7 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
-                updateButtonsColor();
+                ColorModule.updateButtonsColor();
 
                 startFilterring($container, categorize + techFilters);
         });

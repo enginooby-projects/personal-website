@@ -67,19 +67,19 @@
                 <?php include 'page-sections/setting.php';  ?>
         </div>
 
-        <script src="assets/js/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/import/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="assets/js/bootstrap.js"></script>
-        <script src="assets/js/pagePiling.js"></script>
-        <script src="assets/js/jquery.easing.min.js"></script>
-        <script src="assets/js/jquery.countTo.js"></script>
-        <script src="assets/js/typed.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/tinycolor.js"></script>
-        <script src="assets/js/color-custom.js" type="module"></script>
-        <script src="assets/js/main.js" type="module"></script>
+        <script src="assets/js/import/bootstrap.js"></script>
+        <script src="assets/js/import/pagePiling.js"></script>
+        <script src="assets/js/import/jquery.easing.min.js"></script>
+        <script src="assets/js/import/jquery.countTo.js"></script>
+        <script src="assets/js/import/typed.js"></script>
+        <script src="assets/js/import/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/import/isotope.pkgd.min.js"></script>
+        <script src="assets/js/import/owl.carousel.min.js"></script>
+        <script src="assets/js/import/tinycolor.js"></script>
+        <script src="assets/js/custom/color.js" type="module"></script>
+        <script src="assets/js/custom/main.js" type="module"></script>
         <!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
 </body>
