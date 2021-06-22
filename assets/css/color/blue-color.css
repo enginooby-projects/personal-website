@@ -16,27 +16,23 @@
 }
 
 .overlay-menu a:hover {
-  color: #1b63ad !important;
+  color: #1b63ad;
 }
 
 .overlay-menu a.active {
-  color: #1b63ad !important;
+  color: #1b63ad;
 }
 
 .bg-base-color {
-  background-color: #1b63ad !important;
-}
-
-.base-color {
-  color: #1b63ad !important;
-}
-
-.follow-label::before {
   background-color: #1b63ad;
 }
 
+.base-color {
+  color: #1b63ad;
+}
+
 .social a:hover {
-  color: #1b63ad !important;
+  color: #1b63ad;
 }
 
 .social-icon a:hover {
@@ -44,7 +40,7 @@
 }
 
 #pp-nav li:hover span {
-  background-color: #1b63ad !important;
+  background-color: #1b63ad;
 }
 
 #pp-nav li .active span {
@@ -56,8 +52,8 @@
 }
 
 .timeline-icon {
-  border: 1px solid #1b63ad;
-  background-color: #1b63ad;
+  /* border: 1px solid #1b63ad; */
+  /* background-color: #1b63ad; */
 }
 
 .timeline-year {
@@ -81,7 +77,7 @@
 }
 
 .blog-link a:hover {
-  color: #135495 !important;
+  color: #135495;
 }
 
 .portfolio .portfolio-item-content:before {
@@ -102,7 +98,7 @@
 }
 
 .loader {
-  border-top: 4px solid #1b63ad !important;
+  border-top: 4px solid #1b63ad;
 }
 
 .flat-demo .button-border,
@@ -117,13 +113,13 @@
 
 .dark-scheme .social-icon a:hover,
 .dark-scheme .social a:hover {
-  color: #1b63ad !important;
+  color: #1b63ad;
 }
 
 .dark-scheme #pp-nav li .active span {
-  background-color: #1b63ad !important;
+  background-color: #1b63ad;
 }
 
 .dark-scheme #pp-nav li:hover span {
-  background-color: #1b63ad !important;
+  background-color: #1b63ad;
 }

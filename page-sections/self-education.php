@@ -39,7 +39,7 @@ function displayCourse($name, $percent, $url = '')
                         <div class="img-overlay text-center">
                                         <div class="img-overlay-content">
                                                 <div class="portfolio-icon">
-                                                        <a href=' . $url . ' target="blank_" type="button" class="colorfull3"><i class=" lni-link"></i></a>
+                                                        <a href=' . $url . ' target="blank_" type="button" class="background-colorfull3"><i class=" lni-link"></i></a>
                                                 </div>
                                         </div>
                         </div>
@@ -85,7 +85,7 @@ function displayCourse($name, $percent, $url = '')
                                         <?php
                                         displayBook('clean-code.jpg', (193 - 10) / 407);
                                         displayBook('head-first-design-patterns.jpg', 20 / 629);
-                                        displayBook('gof.jpg', 45 / 396);
+                                        displayBook('gof.jpg', ((52 - 0) + (152 - 144)) / 396);
                                         displayBook('game-programming-patterns.jpg', 0 / 560);
                                         displayBook('introduction-to-algorithms.jpg', 10 / 1229);
                                         displayBook('clean-architecture.jpg', 0 / 100);

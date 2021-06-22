@@ -61,20 +61,20 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
         $buttonElements = "";
 
         if ($isGalleryItem) $buttonElements .= '
-                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery colorfull1">
+                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery background-colorfull1">
                         <i class="lni-search"></i>
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="colorfull1"><i class=" lni-search"></i></a>
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="background-colorfull1"><i class=" lni-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="colorfull2"><i class=" lni-play"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2"><i class=" lni-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="colorfull3"> <i class="lni-code"></i> </a>
+                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="background-colorfull3"> <i class="lni-code"></i> </a>
         ';
 
         echo '
@@ -174,7 +174,7 @@ function formatLabel($str, $sep = '-')
 
                                 <!-- Sub-filters -->
                                 <div class="row  justify-content-around sub-filters mt-0">
-                                        <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="size">
+                                        <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" id="size-filters" data-filter-group="size">
                                                 <input type="radio" name="size" value="1" id="size-1" checked />
                                                 <label for="size-1" class="segmented-control__1" data-filter="">All sizes</label>
                                                 <input type="radio" name="size" value="2" id="size-2" />

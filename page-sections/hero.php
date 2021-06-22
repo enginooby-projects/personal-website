@@ -9,7 +9,9 @@
                                                         <h4 class="text-darktext-capitalize mb-0"><span class="base-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
                                                         <p class="text-muted my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
                                                         <div class="button-border mt-2">
-                                                                <a href="#about" class="pill-button">About me</a>
+                                                                <a href="#about" class="pill-button">
+                                                                        <div class="base-color">About me</div>
+                                                                </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -18,10 +20,10 @@
                                                         <div class="square">
                                                                 <img src="assets/img/element_square.png" alt="/">
                                                         </div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle-2"></div>
+                                                        <div class="circle background-colorfull1"></div>
+                                                        <div class="circle-2 background-colorfull2"></div>
                                                         <div class="circle-3"></div>
-                                                        <div class="floating"></div>
+                                                        <div class="floating background-colorfull3"></div>
                                                         <div class="personal-image rounded-circle">
                                                                 <img src="assets/img/avatar.jpeg" alt="/" class="rounded-circle img-fluid">
                                                         </div>

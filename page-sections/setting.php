@@ -40,6 +40,7 @@
                                 <a class="color9" href="#"></a>
                         </li>
                 </ul>
+                <input type="color" id="color-picker" value="#0000ff">
                 <h6 class="my-2 color-scheme-title">Scheme Mode</h6>
                 <ul class="color-scheme list-inline">
                         <!-- TODO: Change to switch style -->

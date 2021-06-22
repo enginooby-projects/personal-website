@@ -4,6 +4,7 @@
 .portfolio-filter>li>a>i {
         position: relative;
         bottom: 1.5px;
+        margin-right: 0.15rem;
 }
 
 .highlight-portfolio-item {
@@ -167,10 +168,6 @@
         --greyDark: #9baacf;
 }
 
-// $shadow: .17rem .17rem .5rem var(--greyLight-2),
-// -.2rem -.2rem .5rem var(--white);
-// $inner-shadow: inset .1rem .1rem .5rem var(--greyLight-2),
-// inset -.2em -.2rem .5rem var(--white);
 $shadow:3px 3px 3px #dadada,
 -3px -3px 3px #fafafa;
 $inner-shadow:inset 3px 3px 3px #dadada,
@@ -208,17 +205,12 @@ inset -3px -3px 4px $light-bg-color;
         >input:checked+label {
                 transition: all .5s ease;
                 // font-weight: 900 !important;
-                color: var(--primary);
         }
 
         &__1,
         &__2,
         &__3,
         &__4 {
-                &:hover {
-                        // font-weight: 900 !important;
-                        color: var(--primary);
-                }
 
                 // color: var(--greyDark);
                 color: #444444;
@@ -267,17 +259,12 @@ inset -3px -3px 4px $light-bg-color;
         >input:checked+label {
                 transition: all .5s ease;
                 // font-weight: 900 !important;
-                color: var(--primary);
         }
 
         &__1,
         &__2,
         &__3,
         &__4 {
-                &:hover {
-                        // font-weight: 900 !important;
-                        color: var(--primary);
-                }
 
                 color: #e2e2e2;
                 font-size: 1.1rem;
@@ -374,7 +361,6 @@ $checkbox-scale:0.5;
                 font-size: 1.1rem;
                 margin-left: 0.35rem;
                 margin-right: 0.8rem;
-
                 margin-bottom: 0rem;
         }
 
@@ -398,15 +384,18 @@ $checkbox-scale:0.5;
                         width: 2.8rem*$checkbox-scale;
                         height: 2.8rem*$checkbox-scale;
 
-                        &:hover i {
-                                color: var(--primary);
-                        }
-
                         i {
+                                width: 100%;
+                                height: 100%;
                                 font-size: 1.8rem*$checkbox-scale;
                                 font-weight: 700;
                                 color: var(--greyDark);
                                 transition: .3s ease;
+
+                                // horizontal & vertical centering (flex)
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                         }
                 }
 
@@ -415,7 +404,7 @@ $checkbox-scale:0.5;
                                 box-shadow: $inner-shadow;
 
                                 i {
-                                        color: var(--primary);
+                                        // color: var(--primary);
                                 }
                         }
                 }
