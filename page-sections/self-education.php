@@ -11,7 +11,19 @@ function getColorByPercent($percent)
 
         return $color;
 }
-$accountSpaceBar = 3.5;
+
+function progressBar($percent)
+{
+        $accountSpace = 3.5;
+
+        return '
+                <div class="skill-box p-2">
+                        <div class="skillbar clearfix " data-percent="' . $percent - $accountSpace . '%">
+                               <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
+                        </div>
+                </div>
+        ';
+}
 
 function displayBook($imageUrl, $pageAmount)
 {
@@ -20,11 +32,7 @@ function displayBook($imageUrl, $pageAmount)
         echo '
         <div class="image-border text-center book-item">
                 <img src="assets/img/books/' . $imageUrl . '" class="img-fluid rounded">
-                <div class="skill-box p-2">
-                        <div class="skillbar clearfix " data-percent="' . $percent - $GLOBALS["accountSpaceBar"] . '%">
-                               <div class="skillbar-bar fill-skillbar data-background w-96" data-color="' . getColorByPercent($percent) . '"></div>
-                        </div>
-                </div>
+                ' . progressBar($percent) . '
         </div>
         ';
 }
@@ -44,11 +52,7 @@ function displayCourse($name, $percent, $url = '')
                                         </div>
                         </div>
                 </div>
-                <div class="skill-box p-2">
-                        <div class="skillbar clearfix " data-percent="' . $percent  - $GLOBALS["accountSpaceBar"] . '%">
-                                        <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
-                        </div>
-                </div>
+                ' . progressBar($percent) . '
                  <b> ' . $name . '</b>
 
         </div>

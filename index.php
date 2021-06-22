@@ -77,7 +77,9 @@
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/isotope.pkgd.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="assets/js/tinycolor.js"></script>
+        <script src="assets/js/color-custom.js" type="module"></script>
+        <script src="assets/js/main.js" type="module"></script>
         <!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
 </body>
