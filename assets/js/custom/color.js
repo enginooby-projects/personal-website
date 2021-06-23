@@ -1,6 +1,12 @@
 // buttons: radios, checkboxes
 
-var baseColor;
+var baseColor; // texts, icons
+var lightBaseColor = "#EBEBEB";
+var darkBaseColor = "#212529";
+var mutedBaseColor;
+var lightMutedBaseColor = "#DBDBDB";
+var darkMutedBaseColor = "#4D4D4D";
+
 var highlightColor = "#1b63ad";
 var schemeColor = "#f1f3f6";
 var lightenSchemeColor = "#ffffff";
@@ -9,9 +15,12 @@ var contrastSchemeColor = "#000"; // -> baseColor
 var colorfull1;
 var colorfull2;
 var colorfull3;
+
 // NEO style
-var pressedButtonBoxShadow;
+var pressedBoxShadow;
 var flatButtonBoxShadow;
+var concaveBoxShadow;
+var thumbScrollbarBoxShadow;
 
 // TODO: Remove
 function ColorPallet() {
@@ -94,7 +103,7 @@ function setupColorHoverEvents() {
 
         $(".pill-button").hover(
                 function () {
-                        $(this).css('box-shadow', pressedButtonBoxShadow);
+                        $(this).css('box-shadow', pressedBoxShadow);
                 }, function () {
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
                 }
@@ -140,7 +149,7 @@ export function updateHighlightColor() {
         updateButtonsColor();
 
         const colorSelectors = [
-                ".base-color",
+                ".highlight-color",
                 ".pill-button",
                 ".overlay-menu a.active",
                 ".timeline-year",
@@ -167,9 +176,10 @@ export function updateHighlightColor() {
 function updateSchemeColor() {
         lightenSchemeColor = tinycolor(schemeColor).lighten(7).toString();
         darkenSchemeColor = tinycolor(schemeColor).darken(10).toString();
+        updateBaseColor();
         updateNeuStyle();
 
-        const backgroundSelectors = [
+        const backgroundSchemeSelectors = [
                 ".section",
                 ".button-border",
                 ".box-border",
@@ -177,18 +187,72 @@ function updateSchemeColor() {
                 ".image-border",
                 ".form-group",
                 ".skill-box .skillbar",
-                ".pallet-button"
+                ".pallet-button",
+                ".blog .blog-image",
         ];
         const flatBoxShadowSelectors = [
                 ".button-border",
+                ".box-border",
+                ".image-border",
+                ".segmented-control",
+                ".hero-03 .personal-image img",
+                ".checkbox label",
+                ".blog-intro"
         ];
         const pressedBoxShadowSelectors = [
                 ".pill-button.active",
+                ".custom-scrollbar",
+        ];
+        const concaveBoxShadowSelectors = [
+                // ".pill-button.active",
+                ".skill-box .skillbar",
+                ".form-group",
+        ];
+        const colorBaseSelectors = [
+                "body",
+                ".logo",
+                ".color-switcher .pallet-button i",
+                ".follow-label",
+                ".social a",
+                ".segmented-control label",
+                ".blog-content h6 a",
+                ".form-group input",
+                ".form-group textarea",
+                ".overlay-menu-toggler",
+        ];
+        const backgroundBaseSelectors = [
+                "#pp-nav li span",
+        ];
+        const mutedBaseColorSelectors = [
+                ".blog-content .list-inline-item span",
+                ".contact-info-text small",
+                ".hero-content p"
         ];
 
-        $(formatString(backgroundSelectors)).css("background-color", schemeColor);
+        updateScrollBar();
+        $(formatString(backgroundSchemeSelectors)).css("background-color", schemeColor);
         $(formatString(flatBoxShadowSelectors)).css("box-shadow", flatButtonBoxShadow);
-        $(formatString(pressedBoxShadowSelectors)).css("box-shadow", pressedButtonBoxShadow);
+        $(formatString(pressedBoxShadowSelectors)).css("box-shadow", pressedBoxShadow);
+        $(formatString(concaveBoxShadowSelectors)).css("box-shadow", concaveBoxShadow);
+        $(formatString(colorBaseSelectors)).css("color", baseColor);
+        $(formatString(backgroundBaseSelectors)).css("background-color", baseColor);
+        $(formatString(mutedBaseColorSelectors)).css("color", mutedBaseColor);
+        // updateButtonsColor();
+}
+
+function updateScrollBar() {
+        for (var i = 0; i < document.styleSheets.length; i++) {
+                var cursheet = document.styleSheets[i];
+                if (cursheet.title == 'style') {
+                        cursheet.addRule("::-webkit-scrollbar-track", `box-shadow: ${pressedBoxShadow}`);
+                        cursheet.addRule("::-webkit-scrollbar-thumb", `box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}`);
+                }
+        }
+}
+
+function updateBaseColor() {
+        baseColor = getContrast(schemeColor);
+        mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
 }
 
 function updateNeuStyle() {
@@ -196,7 +260,9 @@ function updateNeuStyle() {
         const distance = '3px';
         const blur = '3px';
         flatButtonBoxShadow = `${distance} ${distance} ${blur} ${darkenSchemeColor}, -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
-        pressedButtonBoxShadow = `inset ${distance} ${distance} ${blur} ${darkenSchemeColor}, inset -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
+        pressedBoxShadow = `inset ${distance} ${distance} ${blur} ${darkenSchemeColor}, inset -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
+        concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;
+        thumbScrollbarBoxShadow = `inset -${distance} -${distance} ${blur} ${darkenSchemeColor}, inset ${distance} ${distance} ${blur} ${lightenSchemeColor}`;
 }
 
 function formatString(selectorsArray) {
@@ -227,3 +293,36 @@ export function updateButtonsColor() {
                 }
         );
 }
+
+/*!
+ * Get the contrasting color for any hex color
+ * (c) 2019 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * Derived from work by Brian Suda, https://24ways.org/2010/calculating-color-contrast/
+ * @param  {String} A hexcolor value
+ * @return {String} The contrasting color (black or white)
+ */
+var getContrast = function (hexcolor) {
+
+        // If a leading # is provided, remove it
+        if (hexcolor.slice(0, 1) === '#') {
+                hexcolor = hexcolor.slice(1);
+        }
+
+        // If a three-character hexcode, make six-character
+        if (hexcolor.length === 3) {
+                hexcolor = hexcolor.split('').map(function (hex) {
+                        return hex + hex;
+                }).join('');
+        }
+
+        // Convert to RGB value
+        var r = parseInt(hexcolor.substr(0, 2), 16);
+        var g = parseInt(hexcolor.substr(2, 2), 16);
+        var b = parseInt(hexcolor.substr(4, 2), 16);
+
+        // Get YIQ ratio
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+        // Check contrast
+        return (yiq >= 128) ? darkBaseColor : lightBaseColor;
+};

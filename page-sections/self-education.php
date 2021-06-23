@@ -71,7 +71,7 @@ function displayCourse($name, $percent, $url = '')
                                                         <span>Self-Education</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">Self-Education</h2>
+                                                        <h2 class="highlight-color">Self-Education</h2>
                                                 </div>
                                         </div>
                                 </div>
@@ -79,7 +79,7 @@ function displayCourse($name, $percent, $url = '')
                                 <div class="row">
                                         <div class="col-lg-12">
                                                 <div class="resume-title text-center">
-                                                        <h3 class="text-dark">Bookshelf</h3>
+                                                        <h3>Bookshelf</h3>
                                                         <div class="border-style"></div>
                                                 </div>
                                         </div>
@@ -103,7 +103,7 @@ function displayCourse($name, $percent, $url = '')
                                 <div class="row">
                                         <div class="col-lg-12 mt-5">
                                                 <div class="resume-title text-center">
-                                                        <h3 class="text-dark">Courses</h3>
+                                                        <h3>Courses</h3>
                                                         <div class="border-style"></div>
                                                 </div>
                                         </div>

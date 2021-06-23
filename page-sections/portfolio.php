@@ -128,7 +128,7 @@ function formatLabel($str, $sep = '-')
                                                         <span>My Work</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">My Work</h2>
+                                                        <h2 class="highlight-color">My Work</h2>
                                                 </div>
                                         </div>
                                 </div>

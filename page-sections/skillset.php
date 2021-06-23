@@ -8,7 +8,7 @@
                                                         <span>My Skillset</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">My Skillset</h2>
+                                                        <h2 class="highlight-color">My Skillset</h2>
                                                         <br>
                                                         <span class="badge badge-pill background-colorfull3">Advanced</span>
                                                         <span class="badge badge-pill background-colorfull2">Intermediate</span>
@@ -23,7 +23,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Fundamentals & Theories</h5>
+                                                        <h5>Fundamentals & Theories</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -53,7 +53,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Languages & Databases</h5>
+                                                        <h5>Languages & Databases</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -85,7 +85,7 @@
                                         <div class="col-lg-12 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Game & CG Technologies</h5>
+                                                        <h5>Game & CG Technologies</h5>
                                                         <div class="border-style"></div>
                                                 </div>
 
@@ -110,7 +110,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Java Technologies</h5>
+                                                        <h5>Java Technologies</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -132,7 +132,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Web Technologies</h5>
+                                                        <h5>Web Technologies</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -147,7 +147,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">IDEs & Code Editors</h5>
+                                                        <h5>IDEs & Code Editors</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -166,7 +166,7 @@
                                         <div class="col-lg-6 equal-columns">
                                                 <br>
                                                 <div class="resume-title text-center">
-                                                        <h5 class="text-dark">Tools</h5>
+                                                        <h5>Tools</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">

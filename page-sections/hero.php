@@ -5,12 +5,12 @@
                                 <div class="row align-items-center">
                                         <div class="col-lg-6 order-2 order-lg-1">
                                                 <div class="hero-content">
-                                                        <h1 class="dark-color mb-3">I'M <span class="base-color"> HIEU NGO</span></h1>
-                                                        <h4 class="text-darktext-capitalize mb-0"><span class="base-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
-                                                        <p class="text-muted my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
+                                                        <h1 class="dark-color mb-3">I'M <span class="highlight-color"> HIEU NGO</span></h1>
+                                                        <h4 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
+                                                        <p class="my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
                                                         <div class="button-border mt-2">
                                                                 <a href="#about" class="pill-button">
-                                                                        <div class="base-color">About me</div>
+                                                                        <div class="highlight-color">My story</div>
                                                                 </a>
                                                         </div>
                                                 </div>

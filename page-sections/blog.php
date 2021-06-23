@@ -8,7 +8,7 @@
                                                         <span>News Post</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">News Post</h2>
+                                                        <h2 class="highlight-color">News Post</h2>
                                                 </div>
                                         </div>
                                 </div>
@@ -25,17 +25,17 @@
                                                                 <ul class="list-inline mt-4">
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull3"></i>
-                                                                                <span class="text-muted">June 02, 2020 </span>
+                                                                                <span>June 02, 2020 </span>
                                                                         </li>
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull2"></i>
-                                                                                <span class="text-muted">5</span>
+                                                                                <span>5</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> Be Your Best Version</a></h6>
-                                                                <p class="text-dark">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+                                                                <h6 class="mb-3"><a href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> Be Your Best Version</a></h6>
+                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
-                                                                        <a class="base-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
+                                                                        <a class="highlight-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -52,17 +52,17 @@
                                                                 <ul class="list-inline mt-4">
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull3"></i>
-                                                                                <span class="text-muted">June 08, 2020 </span>
+                                                                                <span>June 08, 2020 </span>
                                                                         </li>
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull2"></i>
-                                                                                <span class="text-muted">3</span>
+                                                                                <span>3</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> 5 Tips In UI/UX Web Design</a></h6>
-                                                                <p class="text-dark">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+                                                                <h6 class="mb-3"><a href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> 5 Tips In UI/UX Web Design</a></h6>
+                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
-                                                                        <a class="base-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
+                                                                        <a class="highlight-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -79,17 +79,17 @@
                                                                 <ul class="list-inline mt-4">
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull3"></i>
-                                                                                <span class="text-muted">June 12, 2020 </span>
+                                                                                <span>June 12, 2020 </span>
                                                                         </li>
                                                                         <li class="list-inline-item">
                                                                                 <i class="lni-calendar colorfull2"></i>
-                                                                                <span class="text-muted">8</span>
+                                                                                <span>8</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> Write Your Dreams</a></h6>
-                                                                <p class="text-dark">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+                                                                <h6 class="mb-3"><a href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single"> Write Your Dreams</a></h6>
+                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
-                                                                        <a class="base-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
+                                                                        <a class="highlight-color" href="javascript:void(0)" target="_blank" data-toggle="modal" data-target="#blog-single">Read More...</a>
                                                                 </div>
                                                         </div>
                                                 </div>

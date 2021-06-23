@@ -3353,7 +3353,7 @@ header {
   color: #3c3c3c;
 }
 
-.mono .base-color {
+.mono .highlight-color {
   color: #5f5f5f !important;
 }
 
@@ -3442,7 +3442,7 @@ header {
   color: #fafafa;
 }
 
-.mono.dark-scheme .base-color {
+.mono.dark-scheme .highlight-color {
   color: #dedede !important;
 }
 
@@ -3903,7 +3903,7 @@ header {
   .mono .pill-button {
     color: #fafafa;
   }
-  .mono .base-color {
+  .mono .highlight-color {
     color: #dedede !important;
   }
   .mono .bg-base-color {

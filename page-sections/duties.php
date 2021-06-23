@@ -8,7 +8,7 @@
                                                         <span>My Duties</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">My Duties</h2>
+                                                        <h2 class="highlight-color">My Duties</h2>
                                                 </div>
                                         </div>
                                 </div>
@@ -22,7 +22,7 @@
                                                         <div class="duties-item box-hover-border data-background" data-color="#fbdd62">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/support.svg" alt="/">
-                                                                        <h5 class="text-dark">Unity Programming</h5>
+                                                                        <h5>Unity Programming</h5>
                                                                         <p class="text-muted text-justify mb-0">This is my main specialization. I make every effort to write <b>clean code</b> to implement project features following good principles (<b>SOLID, DRY,
                                                                                         KISS</b>)
                                                                                 and applying appropriate <b>Design Patterns</b> to make code readable, extendable, flexible, reusable as well as testable.</p>
@@ -63,7 +63,7 @@
                                                         <div class="duties-item box-hover-border data-background" data-color="#fbdd62">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/premium-service.svg" alt="/">
-                                                                        <h5 class="text-dark">Unity Automation Testing</h5>
+                                                                        <h5>Unity Automation Testing</h5>
                                                                         <p class="text-muted text-justify  mb-0">In a professional context it often happens that private clients corder a publication to be made.</p>
                                                                 </div>
                                                         </div>

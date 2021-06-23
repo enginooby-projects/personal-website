@@ -8,7 +8,7 @@
                                                         <span>My Resume</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="base-color">My Resume</h2>
+                                                        <h2 class="highlight-color">My Resume</h2>
                                                 </div>
                                         </div>
                                 </div>
@@ -16,7 +16,7 @@
                                 <div class="row">
                                         <div class="col-lg-6">
                                                 <div class="resume-title text-center">
-                                                        <h3 class="text-dark">Education</h3>
+                                                        <h3>Education</h3>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="timeline-items box-border">
@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="col-lg-6 mt-5 mt-lg-0">
                                                 <div class="resume-title text-center">
-                                                        <h3 class="text-dark">Experience</h3>
+                                                        <h3>Experience</h3>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="timeline-items box-border">
@@ -63,7 +63,7 @@
                                 <div class="row">
                                         <div class="col-lg-12 mt-5">
                                                 <div class="resume-title text-center">
-                                                        <h3 class="text-dark">Achievements</h3>
+                                                        <h3>Achievements</h3>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="timeline-items box-border">
