@@ -15,7 +15,6 @@ $(document).ready(function () {
         bgBackground();
         colorFull();
         ColorModule.setupColorEvents();
-        ColorModule.updateBaseColor();
         borderColor();
         menuToggler();
         sliderOwlCarousel();
@@ -170,6 +169,7 @@ function themeOption() {
         $('.theme-skin li .neo-skin').click(changeNeoSkin);
 }
 
+// TODO: Remove
 function changeDarkScheme() {
         $("body").addClass('dark-scheme');
         $('.color-scheme li a').removeClass('active');
