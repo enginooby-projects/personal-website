@@ -9,6 +9,9 @@ var contrastSchemeColor = "#000"; // -> baseColor
 var colorfull1;
 var colorfull2;
 var colorfull3;
+// NEO style
+var pressedButtonBoxShadow;
+var flatButtonBoxShadow;
 
 // TODO: Remove
 function ColorPallet() {
@@ -66,20 +69,36 @@ function setupPickerEvents() {
 }
 
 function setupColorHoverEvents() {
-        $(".social a i, .segmented-control label, .checkbox i")
-                .hover(
-                        function () {
-                                $(this).css('color', highlightColor);
-                        }, function () {
-                                var id = $(this).attr("for"); // radio
-                                if (!id)
-                                        id = $(this).parent().attr("for"); // checkbox
+        $("").hover(
+                function () {
 
-                                // reset color if the  button not checked
-                                if (!$("#" + id).prop("checked"))
-                                        // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                        $(this).css('color', '');
-                        });
+                }, function () {
+
+                }
+        );
+
+        $(".social a i, .segmented-control label, .checkbox i").hover(
+                function () {
+                        $(this).css('color', highlightColor);
+                }, function () {
+                        var id = $(this).attr("for"); // radio
+                        if (!id)
+                                id = $(this).parent().attr("for"); // checkbox
+
+                        // reset color if the  button not checked
+                        if (!$("#" + id).prop("checked"))
+                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+                                $(this).css('color', '');
+                }
+        );
+
+        $(".pill-button").hover(
+                function () {
+                        $(this).css('box-shadow', pressedButtonBoxShadow);
+                }, function () {
+                        if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
+                }
+        );
 }
 
 function setupColorClickEvents() {
@@ -103,6 +122,17 @@ function setupColorClickEvents() {
                         $(this).siblings(".name").css('color', highlightColor);
                         $(this).siblings("label").child().css('color', highlightColor);
                 }
+        });
+
+        // TODO: Reset box shadow for inactive buttons
+        $('.pill-button').click(function () {
+                $('.pill-button').each(function () {
+                        if (!$(this).hasClass('active')) {
+                                // $(this).css('box-shadow', '');
+                        } else {
+                                // $(this).css('box-shadow', pressedButtonBoxShadow);
+                        }
+                });
         });
 }
 
@@ -137,6 +167,7 @@ export function updateHighlightColor() {
 function updateSchemeColor() {
         lightenSchemeColor = tinycolor(schemeColor).lighten(7).toString();
         darkenSchemeColor = tinycolor(schemeColor).darken(10).toString();
+        updateNeuStyle();
 
         const backgroundSelectors = [
                 ".section",
@@ -148,15 +179,24 @@ function updateSchemeColor() {
                 ".skill-box .skillbar",
                 ".pallet-button"
         ];
-        const boxShadowSelectors = [
+        const flatBoxShadowSelectors = [
                 ".button-border",
         ];
-
-        //TODO: Parameterize
-        const boxShadow = `3px 3px 3px ${darkenSchemeColor}, -3px -3px 3px ${lightenSchemeColor}`;
+        const pressedBoxShadowSelectors = [
+                ".pill-button.active",
+        ];
 
         $(formatString(backgroundSelectors)).css("background-color", schemeColor);
-        $(formatString(boxShadowSelectors)).css("box-shadow", boxShadow);
+        $(formatString(flatBoxShadowSelectors)).css("box-shadow", flatButtonBoxShadow);
+        $(formatString(pressedBoxShadowSelectors)).css("box-shadow", pressedButtonBoxShadow);
+}
+
+function updateNeuStyle() {
+        //TODO: Variablize
+        const distance = '3px';
+        const blur = '3px';
+        flatButtonBoxShadow = `${distance} ${distance} ${blur} ${darkenSchemeColor}, -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
+        pressedButtonBoxShadow = `inset ${distance} ${distance} ${blur} ${darkenSchemeColor}, inset -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
 }
 
 function formatString(selectorsArray) {
