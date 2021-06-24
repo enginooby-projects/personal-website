@@ -17,7 +17,7 @@ export const backgroundHighlightColorSelectors = formatString([
         ".flat-demo .button-border",
         ".dark - scheme.flat - demo.button - border",
         ".flat-demo .pill-button.active",
-        ".dark-scheme #pp-nav li .active span",
+        "#pp-nav li .active span"
 ]);
 
 export const backgroundSchemeColorSelectors = formatString([
@@ -68,7 +68,7 @@ export const colorBaseColorSelectors = formatString([
 ]);
 
 export const backgroundBaseColorSelectors = formatString([
-        "#pp-nav li span",
+        "#pp-nav li :not(.active) span",
 ]);
 
 export const colorMutedBaseColorSelectors = formatString([

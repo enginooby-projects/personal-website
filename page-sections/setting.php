@@ -10,6 +10,8 @@
                         </li>
                 </ul>
                 </ul>
+                <button type="button" class="btn btn-primary" id="test1">Test</button>
+                <button type="button" class="btn btn-primary" id="test2">Test</button>
                 <h6 class="text-center mt-3"> Base Color</h6>
                 <ul class="pattern">
                         <li>

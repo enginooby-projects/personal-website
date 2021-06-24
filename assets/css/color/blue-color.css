@@ -40,11 +40,11 @@
 }
 
 #pp-nav li:hover span {
-  background-color: #1b63ad;
+  /* background-color: #ad381b !important; */
 }
 
 #pp-nav li .active span {
-  background-color: #1b63ad !important;
+  /* background-color: #1b63ad !important; */
 }
 
 .border-style {
@@ -117,9 +117,9 @@
 }
 
 .dark-scheme #pp-nav li .active span {
-  background-color: #1b63ad;
+  /* background-color: #1b63ad; */
 }
 
 .dark-scheme #pp-nav li:hover span {
-  background-color: #1b63ad;
+  /* background-color: #1b63ad; */
 }

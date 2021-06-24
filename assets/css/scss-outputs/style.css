@@ -242,7 +242,6 @@ button {
   width: 25px;
   height: 3px;
   border-radius: 5px;
-  background-color: #3c3c3c;
   border: none;
   top: 5px;
 }
@@ -256,7 +255,6 @@ button {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   padding-right: 1rem;
-  color: #3c3c3c;
   margin-top: -1.4px;
 }
 
@@ -338,7 +336,6 @@ button {
 }
 
 .color-switcher .pallet-button i {
-  color: #3c3c3c;
   font-size: 20px;
   line-height: 40px;
 }

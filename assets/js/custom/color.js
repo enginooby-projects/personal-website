@@ -7,8 +7,8 @@ var colorfull1;
 var colorfull2;
 var colorfull3;
 
-var highlightColor = "#1b63ad";
-var baseColor;
+export var highlightColor = "#1b63ad";
+export var baseColor;
 var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var mutedBaseColor;
@@ -29,6 +29,7 @@ var thumbScrollbarBoxShadow;
 var trackScrollbarRule;
 var thumbScrollbarRule;
 var placeholderRule;
+var papePilingTooltipRule;
 
 export function getStyleSheet() {
         for (var i = 0; i < document.styleSheets.length; i++) {
@@ -38,27 +39,28 @@ export function getStyleSheet() {
 }
 
 export function setupColorEvents() {
-        setupPickerEvents();
+        setupColorPickerEvents();
         setupColorHoverEvents();
         setupColorClickEvents();
 
-        applyHighlightColor();
+        updateHighlightColor(highlightColor);
         const cssRules = styleSheet.cssRules || styleSheet.rules;
         trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {box-shadow: ${pressedBoxShadow}; border-radius: 15px;}`)];
         thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}; border-radius: 15px;}`)];
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
+        papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
         // updateSchemeColor();
 }
 
-function setupPickerEvents() {
+function setupColorPickerEvents() {
         $("#highlight-color-picker").on('input', function (event) {
-                highlightColor = event.target.value;
-                applyHighlightColor();
+                updateHighlightColor(event.target.value);
+                console.log(tinycolor.readability(schemeColor, highlightColor));
         });
 
         $("#scheme-color-picker").on('input', function (event) {
-                schemeColor = event.target.value;
-                applySchemeColor();
+                updateSchemeColor(event.target.value);
+                console.log(tinycolor.readability(schemeColor, highlightColor));
         });
 }
 
@@ -93,6 +95,19 @@ function setupColorHoverEvents() {
 }
 
 function setupColorClickEvents() {
+        $("#test1").click(function () {
+                updateHighlightColor(tinycolor(highlightColor).saturate().toString());
+                console.log(tinycolor.readability(schemeColor, highlightColor));
+                // $("#highlight-color-picker").value = highlightColor;
+        });
+
+        $("#test2").click(function () {
+                updateHighlightColor(tinycolor(highlightColor).saturate(-10).toString());
+                console.log(tinycolor.readability(schemeColor, highlightColor));
+                // $("#highlight-color-picker").value = highlightColor;
+
+        });
+
         $("#color-switcher .pallet-button").click(function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
         });
@@ -123,7 +138,8 @@ function setupColorClickEvents() {
         });
 }
 
-export function applyHighlightColor() {
+function updateHighlightColor(newColor) {
+        highlightColor = newColor;
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
         updateButtonsColor();
@@ -131,14 +147,24 @@ export function applyHighlightColor() {
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
 
-function applySchemeColor() {
+function getBrightFamilyColor(originalColor) {
+        return [
+                // tinycolor(originalColor).brighten(-20).toString(),
+                tinycolor(originalColor).brighten(-10).toString(),
+                tinycolor(originalColor).brighten(0).toString(),
+                tinycolor(originalColor).brighten(10).toString(),
+                // tinycolor(originalColor).brighten(20).toString()
+        ];
+}
+
+function updateSchemeColor(newColor) {
         // update derived colors 
+        schemeColor = newColor;
         lightenSchemeColor = tinycolor(schemeColor).lighten(7).toString();
         darkenSchemeColor = tinycolor(schemeColor).darken(10).toString();
-        highlightColor = invertColor(schemeColor, false);
-        applyHighlightColor();
         updateBaseColor();
         updateNeuStyle();
+        // updateHighlightColor(tinycolor.mostReadable(schemeColor, getBrightFamilyColor(highlightColor), { includeFallbackColors: false }).toHexString());
 
         // update selectors
         $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor);
@@ -157,7 +183,7 @@ function updatePseudoElements() {
         thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
         thumbScrollbarRule.style.background = schemeColor;
         placeholderRule.style.color = mutedBaseColor;
-
+        papePilingTooltipRule.style.color = baseColor;
 }
 
 function updateBaseColor() {
