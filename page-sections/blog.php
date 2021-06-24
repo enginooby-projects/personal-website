@@ -16,7 +16,9 @@
                                         <!--  Item 01 -->
                                         <div class="col-lg-4">
                                                 <div class="blog-item box-border">
+                                                        <div class="before"></div>
                                                         <div class="blog-image">
+                                                                <div class="after"></div>
                                                                 <div class="blog-intro">
                                                                         <img src="https://placehold.co/720x480" alt="/">
                                                                 </div>
@@ -43,7 +45,9 @@
                                         <!--  Item 02 -->
                                         <div class="col-lg-4">
                                                 <div class="blog-item box-border">
+                                                        <div class="before"></div>
                                                         <div class="blog-image">
+                                                                <div class="after"></div>
                                                                 <div class="blog-intro">
                                                                         <img src="https://placehold.co/720x480" alt="/">
                                                                 </div>
@@ -70,7 +74,9 @@
                                         <!--  Item 03 -->
                                         <div class="col-lg-4">
                                                 <div class="blog-item box-border">
+                                                        <div class="before"></div>
                                                         <div class="blog-image">
+                                                                <div class="after"></div>
                                                                 <div class="blog-intro">
                                                                         <img src="https://placehold.co/720x480" alt="/">
                                                                 </div>

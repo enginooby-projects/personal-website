@@ -1,103 +1,84 @@
-// buttons: radios, checkboxes
+import * as ColorSelectors from './color-selectors.js'
 
-var baseColor; // texts, icons
-var lightBaseColor = "#EBEBEB";
-var darkBaseColor = "#212529";
-var mutedBaseColor;
-var lightMutedBaseColor = "#DBDBDB";
-var darkMutedBaseColor = "#4D4D4D";
+var styleSheet;
 
-var highlightColor = "#1b63ad";
-var schemeColor = "#f1f3f6";
-var lightenSchemeColor = "#ffffff";
-var darkenSchemeColor = "#dcdee2";
-var contrastSchemeColor = "#000"; // -> baseColor
+// COLORS
 var colorfull1;
 var colorfull2;
 var colorfull3;
 
-// NEO style
+var highlightColor = "#1b63ad";
+var baseColor;
+var lightBaseColor = "#EBEBEB";
+var darkBaseColor = "#212529";
+var mutedBaseColor;
+var lightMutedBaseColor = "#b2b2b2";
+var darkMutedBaseColor = "#4D4D4D";
+
+var schemeColor = "#f1f3f6";
+var lightenSchemeColor = "#ffffff";
+var darkenSchemeColor = "#dcdee2";
+
+// NEO STYLES
 var pressedBoxShadow;
 var flatButtonBoxShadow;
 var concaveBoxShadow;
 var thumbScrollbarBoxShadow;
 
-// TODO: Remove
-function ColorPallet() {
-        "use strict";
-        $("ul.pattern .color1").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/green-color.css")
-        });
-        $("ul.pattern .color2").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/yellow-color.css")
-        });
-        $("ul.pattern .color3").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/golden-color.css")
-        });
-        $("ul.pattern .color4").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/sky-blue-color.css")
-        });
-        $("ul.pattern .color5").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/blue-color.css")
-        });
-        $("ul.pattern .color6").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/purple-color.css")
-        });
-        $("ul.pattern .color7").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/orange-color.css")
-        });
-        $("ul.pattern .color8").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/pink-color.css")
-        });
-        $("ul.pattern .color9").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/red-color.css")
-        });
-        $("#color-switcher .pallet-button").click(function () {
-                $("#color-switcher .color-pallet").toggleClass('show')
-        });
+// PSEUDO RULES
+var trackScrollbarRule;
+var thumbScrollbarRule;
+var placeholderRule;
+
+export function getStyleSheet() {
+        for (var i = 0; i < document.styleSheets.length; i++) {
+                var cursheet = document.styleSheets[i];
+                if (cursheet.title == 'style') styleSheet = cursheet;
+        }
 }
 
 export function setupColorEvents() {
         setupPickerEvents();
         setupColorHoverEvents();
         setupColorClickEvents();
-        updateHighlightColor();
+
+        applyHighlightColor();
+        const cssRules = styleSheet.cssRules || styleSheet.rules;
+        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {box-shadow: ${pressedBoxShadow}; border-radius: 15px;}`)];
+        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}; border-radius: 15px;}`)];
+        placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
         // updateSchemeColor();
 }
 
 function setupPickerEvents() {
         $("#highlight-color-picker").on('input', function (event) {
                 highlightColor = event.target.value;
-                updateHighlightColor();
+                applyHighlightColor();
         });
 
         $("#scheme-color-picker").on('input', function (event) {
                 schemeColor = event.target.value;
-                updateSchemeColor();
+                applySchemeColor();
         });
 }
 
 function setupColorHoverEvents() {
-        $("").hover(
+        $(".social a i").hover(
                 function () {
-
+                        $(this).css('color', highlightColor);
                 }, function () {
-
+                        $(this).css('color', baseColor);
                 }
         );
 
-        $(".social a i, .segmented-control label, .checkbox i").hover(
+        $(".segmented-control label, .checkbox i").hover(
                 function () {
                         $(this).css('color', highlightColor);
                 }, function () {
                         var id = $(this).attr("for"); // radio
-                        if (!id)
-                                id = $(this).parent().attr("for"); // checkbox
-
+                        if (!id) id = $(this).parent().attr("for"); // checkbox
                         // reset color if the  button not checked
-                        if (!$("#" + id).prop("checked"))
-                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                $(this).css('color', '');
+                        if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
                 }
         );
 
@@ -105,6 +86,7 @@ function setupColorHoverEvents() {
                 function () {
                         $(this).css('box-shadow', pressedBoxShadow);
                 }, function () {
+                        // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
                 }
         );
@@ -119,139 +101,67 @@ function setupColorClickEvents() {
         $(".segmented-control input").click(function () {
                 $(".segmented-control input[type='radio']:not(:checked)").each(
                         function () {
-                                $(".segmented-control label[for='" + this.id + "']").css('color', '');
+                                $(".segmented-control label[for='" + this.id + "']").css('color', mutedBaseColor);
                         }
                 );
         });
 
         $(".checkbox input").click(function () {
-                if (!$(this).prop("checked"))
-                        $(this).siblings(".name").css('color', '');
+                if (!$(this).prop("checked")) {
+                        $(this).siblings(".name").css('color', mutedBaseColor);
+                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', flatButtonBoxShadow);
+                }
                 else {
                         $(this).siblings(".name").css('color', highlightColor);
-                        $(this).siblings("label").child().css('color', highlightColor);
+                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
                 }
         });
 
         // TODO: Reset box shadow for inactive buttons
         $('.pill-button').click(function () {
-                $('.pill-button').each(function () {
-                        if (!$(this).hasClass('active')) {
-                                // $(this).css('box-shadow', '');
-                        } else {
-                                // $(this).css('box-shadow', pressedButtonBoxShadow);
-                        }
-                });
+                $('.pill-button').not(this).css('box-shadow', '');
         });
 }
 
-export function updateHighlightColor() {
+export function applyHighlightColor() {
+        $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
+        $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
         updateButtonsColor();
-
-        const colorSelectors = [
-                ".highlight-color",
-                ".pill-button",
-                ".overlay-menu a.active",
-                ".timeline-year",
-                ".portfolio .portfolio-filter li a",
-                ".portfolio .portfolio-icon a i",
-                ".contact .form-item .form-control",
-        ];
-        const backgroundSelectors = [
-                ".bg-base-color",
-                ".border-style",
-                ".timeline-icon",
-                ".flat-demo .button-border",
-                ".dark - scheme.flat - demo.button - border",
-                ".flat-demo .pill-button.active",
-                ".dark-scheme #pp-nav li .active span",
-        ];
-
-        $(formatString(colorSelectors)).css("color", highlightColor);
-        $(formatString(backgroundSelectors)).css("background-color", highlightColor);
         // TODO: overide important css rule for pp
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
 
-function updateSchemeColor() {
+function applySchemeColor() {
+        // update derived colors 
         lightenSchemeColor = tinycolor(schemeColor).lighten(7).toString();
         darkenSchemeColor = tinycolor(schemeColor).darken(10).toString();
+        highlightColor = invertColor(schemeColor, false);
+        applyHighlightColor();
         updateBaseColor();
         updateNeuStyle();
 
-        const backgroundSchemeSelectors = [
-                ".section",
-                ".button-border",
-                ".box-border",
-                ".segmented-control",
-                ".image-border",
-                ".form-group",
-                ".skill-box .skillbar",
-                ".pallet-button",
-                ".blog .blog-image",
-        ];
-        const flatBoxShadowSelectors = [
-                ".button-border",
-                ".box-border",
-                ".image-border",
-                ".segmented-control",
-                ".hero-03 .personal-image img",
-                ".checkbox label",
-                ".blog-intro"
-        ];
-        const pressedBoxShadowSelectors = [
-                ".pill-button.active",
-                ".custom-scrollbar",
-        ];
-        const concaveBoxShadowSelectors = [
-                // ".pill-button.active",
-                ".skill-box .skillbar",
-                ".form-group",
-        ];
-        const colorBaseSelectors = [
-                "body",
-                ".logo",
-                ".color-switcher .pallet-button i",
-                ".follow-label",
-                ".social a",
-                ".segmented-control label",
-                ".blog-content h6 a",
-                ".form-group input",
-                ".form-group textarea",
-                ".overlay-menu-toggler",
-        ];
-        const backgroundBaseSelectors = [
-                "#pp-nav li span",
-        ];
-        const mutedBaseColorSelectors = [
-                ".blog-content .list-inline-item span",
-                ".contact-info-text small",
-                ".hero-content p"
-        ];
-
-        updateScrollBar();
-        $(formatString(backgroundSchemeSelectors)).css("background-color", schemeColor);
-        $(formatString(flatBoxShadowSelectors)).css("box-shadow", flatButtonBoxShadow);
-        $(formatString(pressedBoxShadowSelectors)).css("box-shadow", pressedBoxShadow);
-        $(formatString(concaveBoxShadowSelectors)).css("box-shadow", concaveBoxShadow);
-        $(formatString(colorBaseSelectors)).css("color", baseColor);
-        $(formatString(backgroundBaseSelectors)).css("background-color", baseColor);
-        $(formatString(mutedBaseColorSelectors)).css("color", mutedBaseColor);
-        // updateButtonsColor();
+        // update selectors
+        $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor);
+        $(ColorSelectors.flatBoxShadowSelectors).css("box-shadow", flatButtonBoxShadow);
+        $(ColorSelectors.pressedBoxShadowSelectors).css("box-shadow", pressedBoxShadow);
+        $(ColorSelectors.concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
+        $(ColorSelectors.colorBaseColorSelectors).css("color", baseColor);
+        $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
+        $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
+        updatePseudoElements();
+        updateButtonsColor();
 }
 
-function updateScrollBar() {
-        for (var i = 0; i < document.styleSheets.length; i++) {
-                var cursheet = document.styleSheets[i];
-                if (cursheet.title == 'style') {
-                        cursheet.addRule("::-webkit-scrollbar-track", `box-shadow: ${pressedBoxShadow}`);
-                        cursheet.addRule("::-webkit-scrollbar-thumb", `box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}`);
-                }
-        }
+function updatePseudoElements() {
+        trackScrollbarRule.style.boxShadow = pressedBoxShadow;
+        thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
+        thumbScrollbarRule.style.background = schemeColor;
+        placeholderRule.style.color = mutedBaseColor;
+
 }
 
 function updateBaseColor() {
-        baseColor = getContrast(schemeColor);
+        baseColor = invertColor(schemeColor, true);
         mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
 }
 
@@ -261,12 +171,9 @@ function updateNeuStyle() {
         const blur = '3px';
         flatButtonBoxShadow = `${distance} ${distance} ${blur} ${darkenSchemeColor}, -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
         pressedBoxShadow = `inset ${distance} ${distance} ${blur} ${darkenSchemeColor}, inset -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
+        // TODO: Does not look good!
         concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;
         thumbScrollbarBoxShadow = `inset -${distance} -${distance} ${blur} ${darkenSchemeColor}, inset ${distance} ${distance} ${blur} ${lightenSchemeColor}`;
-}
-
-function formatString(selectorsArray) {
-        return selectorsArray.join(", ");
 }
 
 export function updateButtonsColor() {
@@ -277,52 +184,53 @@ export function updateButtonsColor() {
         );
         $("input[type='radio']:not(:checked)").each(
                 function () {
-                        $("label[for='" + this.id + "']").css('color', '');
+                        $("label[for='" + this.id + "']").css('color', mutedBaseColor);
                 }
         );
         $("input[type='checkbox']:checked").each(
                 function () {
                         $("label[for='" + this.id + "'] i").css('color', highlightColor);
                         $("label[for='" + this.id + "']").next().css('color', highlightColor);
+                        $("label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
                 }
         );
         $("input[type='checkbox']:not(:checked)").each(
                 function () {
-                        $("label[for='" + this.id + "'] i").css('color', '');
-                        $("label[for='" + this.id + "']").next().css('color', '');
+                        $("label[for='" + this.id + "'] i").css('color', mutedBaseColor);
+                        $("label[for='" + this.id + "']").next().css('color', mutedBaseColor);
+                        $("label[for='" + this.id + "']").css('box-shadow', flatButtonBoxShadow);
                 }
         );
 }
 
-/*!
- * Get the contrasting color for any hex color
- * (c) 2019 Chris Ferdinandi, MIT License, https://gomakethings.com
- * Derived from work by Brian Suda, https://24ways.org/2010/calculating-color-contrast/
- * @param  {String} A hexcolor value
- * @return {String} The contrasting color (black or white)
- */
-var getContrast = function (hexcolor) {
-
-        // If a leading # is provided, remove it
-        if (hexcolor.slice(0, 1) === '#') {
-                hexcolor = hexcolor.slice(1);
+function invertColor(hex, isBlackWhite) {
+        if (hex.indexOf('#') === 0) {
+                hex = hex.slice(1);
         }
-
-        // If a three-character hexcode, make six-character
-        if (hexcolor.length === 3) {
-                hexcolor = hexcolor.split('').map(function (hex) {
-                        return hex + hex;
-                }).join('');
+        // convert 3-digit hex to 6-digits.
+        if (hex.length === 3) {
+                hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
         }
+        if (hex.length !== 6) {
+                throw new Error('Invalid HEX color.');
+        }
+        var r = parseInt(hex.slice(0, 2), 16),
+                g = parseInt(hex.slice(2, 4), 16),
+                b = parseInt(hex.slice(4, 6), 16);
+        if (isBlackWhite) {
+                // http://stackoverflow.com/a/3943023/112731
+                return (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? darkBaseColor : lightBaseColor;
+        }
+        // invert color components
+        r = (255 - r).toString(16);
+        g = (255 - g).toString(16);
+        b = (255 - b).toString(16);
+        // pad each with zeros and return
+        return "#" + padZero(r) + padZero(g) + padZero(b);
+}
 
-        // Convert to RGB value
-        var r = parseInt(hexcolor.substr(0, 2), 16);
-        var g = parseInt(hexcolor.substr(2, 2), 16);
-        var b = parseInt(hexcolor.substr(4, 2), 16);
-
-        // Get YIQ ratio
-        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-
-        // Check contrast
-        return (yiq >= 128) ? darkBaseColor : lightBaseColor;
-};
+function padZero(str, len) {
+        len = len || 2;
+        var zeros = new Array(len).join('0');
+        return (zeros + str).slice(-len);
+}

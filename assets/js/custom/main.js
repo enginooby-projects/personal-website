@@ -8,6 +8,7 @@ $(document).ready(function () {
 
         "use strict";
 
+        ColorModule.getStyleSheet();
         clientCarousel();
         pagePilling();
         themeOption();

@@ -53,6 +53,7 @@
                                                         <div class="row">
                                                                 <div class="col-lg-6 form-item">
                                                                         <div class="form-group">
+                                                                                <!-- TODO: Chage input field to NEU flat style when focus -->
                                                                                 <input name="name" id="name" type="text" class="form-control" placeholder="Your Name*" required>
                                                                         </div>
                                                                 </div>

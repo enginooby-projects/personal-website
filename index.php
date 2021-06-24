@@ -78,6 +78,7 @@
         <script src="assets/js/import/isotope.pkgd.min.js"></script>
         <script src="assets/js/import/owl.carousel.min.js"></script>
         <script src="assets/js/import/tinycolor.js"></script>
+        <script src="assets/js/custom/color-selectors.js" type="module"></script>
         <script src="assets/js/custom/color.js" type="module"></script>
         <script src="assets/js/custom/main.js" type="module"></script>
         <!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script> -->

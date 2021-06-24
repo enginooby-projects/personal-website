@@ -183,7 +183,7 @@ function formatLabel($str, $sep = '-')
                                                 <label for="size-3" class="segmented-control__3" data-filter=".medium">Medium</label>
                                                 <input type="radio" name="size" value="4" id="size-4" />
                                                 <label for="size-4" class="segmented-control__4" data-filter=".large">Large</label>
-                                                <div class="segmented-control-size__color"></div>
+                                                <div class="segmented-control-size__color radio-selection"></div>
                                         </div>
                                         <div class="segmented-control  col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="platform">
                                                 <input type="radio" name="platform" value="1" id="platform-1" checked />
@@ -194,7 +194,7 @@ function formatLabel($str, $sep = '-')
                                                 <label for="platform-3" class="segmented-control__3" data-filter=".mobile">Mobile</label>
                                                 <input type="radio" name="platform" value="4" id="platform-4" />
                                                 <label for="platform-4" class="segmented-control__4" data-filter=".desktop">Desktop</label>
-                                                <div class="segmented-control-platform__color"></div>
+                                                <div class="segmented-control-platform__color radio-selection"></div>
                                         </div>
                                         <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" data-filter-group="stage">
                                                 <input type="radio" name="stage" value="1" id="stage-1" checked />
@@ -205,7 +205,7 @@ function formatLabel($str, $sep = '-')
                                                 <label for="stage-3" class="segmented-control__3" data-filter=".prototype">Prototype</label>
                                                 <input type="radio" name="stage" value="4" id="stage-4" />
                                                 <label for="stage-4" class="segmented-control__4" data-filter=".ongoing">Ongoing</label>
-                                                <div class="segmented-control-stage__color"></div>
+                                                <div class="segmented-control-stage__color radio-selection"></div>
                                         </div>
                                 </div>
 

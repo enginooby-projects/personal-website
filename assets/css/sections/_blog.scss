@@ -6,7 +6,7 @@
         margin: 60px 0 30px;
 }
 
-.blog .blog-item::before {
+.blog .blog-item .before {
         content: "";
         position: absolute;
         top: 0;
@@ -31,7 +31,7 @@
         background-color: #f1f3f6;
 }
 
-.blog .blog-image::after {
+.blog .blog-image .after {
         content: "";
         position: absolute;
         top: 0;
