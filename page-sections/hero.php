@@ -18,7 +18,7 @@
                                         <div class="col-lg-6 order-1 order-lg-2">
                                                 <div class="hero-image">
                                                         <div class="square">
-                                                                <img src="assets/img/element_square.png" alt="/">
+                                                                <img src="assets/img/dark-element_square.png" alt="/">
                                                         </div>
                                                         <div class="circle background-colorfull1"></div>
                                                         <div class="circle-2 background-colorfull2"></div>

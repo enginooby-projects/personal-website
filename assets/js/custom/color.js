@@ -1,6 +1,7 @@
 import * as ColorSelectors from './color-selectors.js'
 
 var styleSheet;
+var $squareImg;
 
 // COLORS
 var colorfull1;
@@ -49,6 +50,8 @@ export function setupColorEvents() {
         setupColorClickEvents();
         setupRangeSliders();
 
+        // init
+        $squareImg = $(".hero-image .square img");
         updateHighlightColor(highlightColor);
         const cssRules = styleSheet.cssRules || styleSheet.rules;
         trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {box-shadow: ${pressedBoxShadow}; border-radius: 15px;}`)];
@@ -254,9 +257,12 @@ function updatePseudoElements() {
         // selectionOldFirefoxRule.background = highlightColor;
 }
 
+
 function updateBaseColor() {
         baseColor = invertColor(schemeColor, true);
         mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
+        const heroImg = (baseColor == lightBaseColor) ? "light-element_square" : "dark-element_square";
+        $squareImg.attr('src', `assets/img/${heroImg}.png`);
 }
 
 export function updateRadioShadow() {
