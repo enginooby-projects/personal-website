@@ -10,10 +10,34 @@
                         </li>
                 </ul>
                 </ul>
+                <div class="range-slider">
+                        <label for="distance">Distance</label>
+                        <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
+                        <span class="range-slider__value"></span>
+                </div>
+
+                <div class="range-slider">
+                        <label for="blur">Blur</label>
+                        <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
+                        <span class="range-slider__value"></span>
+                </div>
+                <div class="range-slider">
+                        <label for="light-intensity">Light intensity</label>
+                        <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
+                        <span class="range-slider__value"></span>
+                </div>
+                <div class="range-slider">
+                        <label for="dark-intensity">Dark intensity</label>
+                        <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
+                        <span class="range-slider__value"></span>
+                </div>
+
+                <br>
                 <button type="button" class="btn btn-primary" id="test1">Test</button>
                 <button type="button" class="btn btn-primary" id="test2">Test</button>
-                <h6 class="text-center mt-3"> Base Color</h6>
-                <ul class="pattern">
+
+                <h6 class="text-center mt-3"> Color</h6>
+                <!-- <ul class="pattern">
                         <li>
                                 <a class="color1" href="#"></a>
                         </li>
@@ -41,7 +65,7 @@
                         <li>
                                 <a class="color9" href="#"></a>
                         </li>
-                </ul>
+                </ul> -->
                 <input type="color" id="highlight-color-picker" value="#0000ff">
                 <input type="color" id="scheme-color-picker" value="#f1f3f6">
                 <h6 class="my-2 color-scheme-title">Scheme Mode</h6>

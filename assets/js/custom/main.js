@@ -30,6 +30,7 @@ $(document).ready(function () {
         return $('[data-toggle="tooltip"]').tooltip();
 });
 
+
 $window.on("load", (function () {
         $("#overlayer").delay(500).fadeOut('slow');
         $(".loader").delay(1000).fadeOut('slow');
@@ -383,7 +384,8 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
-                ColorModule.updateButtonsColor();
+                ColorModule.updateRadioShadow();
+                ColorModule.updateCheckboxShadow();
 
                 startFilterring($container, categorize + techFilters);
         });

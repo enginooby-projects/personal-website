@@ -14,22 +14,27 @@ var darkBaseColor = "#212529";
 var mutedBaseColor;
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
-
 var schemeColor = "#f1f3f6";
-var lightenSchemeColor = "#ffffff";
-var darkenSchemeColor = "#dcdee2";
 
 // NEO STYLES
+var lightenSchemeColor = "#ffffff";
+var darkenSchemeColor = "#dcdee2";
 var pressedBoxShadow;
 var flatButtonBoxShadow;
 var concaveBoxShadow;
 var thumbScrollbarBoxShadow;
+var neuDistance = '3px';
+var neuBlur = '8px';
+var neuLightIntensity = 7;
+var neuDarkIntensity = 7;
 
 // PSEUDO RULES
 var trackScrollbarRule;
 var thumbScrollbarRule;
 var placeholderRule;
 var papePilingTooltipRule;
+var selectionRule;
+var selectionOldFirefoxRule;
 
 export function getStyleSheet() {
         for (var i = 0; i < document.styleSheets.length; i++) {
@@ -42,6 +47,7 @@ export function setupColorEvents() {
         setupColorPickerEvents();
         setupColorHoverEvents();
         setupColorClickEvents();
+        setupRangeSliders();
 
         updateHighlightColor(highlightColor);
         const cssRules = styleSheet.cssRules || styleSheet.rules;
@@ -49,6 +55,14 @@ export function setupColorEvents() {
         thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}; border-radius: 15px;}`)];
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
+        const selectionbackgroud = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+        if (window.chrome) {
+                console.log("chrome");
+                selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackgroud}}`)];
+        }
+        // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
+
+        // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
         // updateSchemeColor();
 }
 
@@ -133,16 +147,53 @@ function setupColorClickEvents() {
         });
 
         // TODO: Reset box shadow for inactive buttons
-        $('.pill-button').click(function () {
-                $('.pill-button').not(this).css('box-shadow', '');
+        $('#portfolio .pill-button').click(function () {
+                $('#portfolio .pill-button').not(this).css('box-shadow', '');
         });
 }
+
+function setupRangeSliders() {
+        // initt  texts & values
+        $('#distance').attr('value', neuDistance.replace('px', ''));
+        $("#distance").next('.range-slider__value').html(neuDistance.replace('px', ''));
+        $('#blur').attr('value', neuBlur.replace('px', ''));
+        $("#blur").next('.range-slider__value').html(neuBlur.replace('px', ''));
+        $('#light-intensity').attr('value', neuLightIntensity);
+        $("#light-intensity").next('.range-slider__value').html(neuLightIntensity);
+        $('#dark-intensity').attr('value', neuDarkIntensity);
+        $("#dark-intensity").next('.range-slider__value').html(neuDarkIntensity);
+
+        $("#distance").on('input', function () {
+                $(this).next('.range-slider__value').html(this.value);
+                neuDistance = this.value + "px";
+                updateNeuStyle();
+        });
+
+        $("#blur").on('input', function () {
+                $(this).next('.range-slider__value').html(this.value);
+                neuBlur = this.value + "px";
+                updateNeuStyle();
+        });
+
+        $("#light-intensity").on('input', function () {
+                $(this).next('.range-slider__value').html(this.value);
+                neuLightIntensity = this.value;
+                updateNeuStyle();
+        });
+
+        $("#dark-intensity").on('input', function () {
+                $(this).next('.range-slider__value').html(this.value);
+                neuDarkIntensity = this.value;
+                updateNeuStyle();
+        });
+};
 
 function updateHighlightColor(newColor) {
         highlightColor = newColor;
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
-        updateButtonsColor();
+        updateRadioShadow();
+        updateCheckboxShadow();
         // TODO: overide important css rule for pp
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
@@ -160,30 +211,47 @@ function getBrightFamilyColor(originalColor) {
 function updateSchemeColor(newColor) {
         // update derived colors 
         schemeColor = newColor;
-        lightenSchemeColor = tinycolor(schemeColor).lighten(7).toString();
-        darkenSchemeColor = tinycolor(schemeColor).darken(10).toString();
         updateBaseColor();
         updateNeuStyle();
         // updateHighlightColor(tinycolor.mostReadable(schemeColor, getBrightFamilyColor(highlightColor), { includeFallbackColors: false }).toHexString());
 
         // update selectors
         $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor);
-        $(ColorSelectors.flatBoxShadowSelectors).css("box-shadow", flatButtonBoxShadow);
-        $(ColorSelectors.pressedBoxShadowSelectors).css("box-shadow", pressedBoxShadow);
-        $(ColorSelectors.concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
         $(ColorSelectors.colorBaseColorSelectors).css("color", baseColor);
         $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
         $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
         updatePseudoElements();
-        updateButtonsColor();
+        updateRadioShadow();
+        updateCheckboxShadow();
+}
+
+function updateNeuStyle() {
+        lightenSchemeColor = tinycolor(schemeColor).lighten(neuLightIntensity).toString();
+        darkenSchemeColor = tinycolor(schemeColor).darken(neuDarkIntensity).toString();
+        flatButtonBoxShadow = `${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
+        pressedBoxShadow = `inset ${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
+        // TODO: Does not look good!
+        concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;
+        thumbScrollbarBoxShadow = `inset -${neuDistance} -${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset ${neuDistance} ${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
+        updateNeuElements();
+}
+
+function updateNeuElements() {
+        $(ColorSelectors.flatBoxShadowSelectors).css("box-shadow", flatButtonBoxShadow);
+        $(ColorSelectors.pressedBoxShadowSelectors).css("box-shadow", pressedBoxShadow);
+        $(ColorSelectors.concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
+        trackScrollbarRule.style.boxShadow = pressedBoxShadow;
+        thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
 }
 
 function updatePseudoElements() {
-        trackScrollbarRule.style.boxShadow = pressedBoxShadow;
-        thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
         thumbScrollbarRule.style.background = schemeColor;
         placeholderRule.style.color = mutedBaseColor;
         papePilingTooltipRule.style.color = baseColor;
+        if (window.chrome) {
+                selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+        }
+        // selectionOldFirefoxRule.background = highlightColor;
 }
 
 function updateBaseColor() {
@@ -191,18 +259,7 @@ function updateBaseColor() {
         mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
 }
 
-function updateNeuStyle() {
-        //TODO: Variablize
-        const distance = '3px';
-        const blur = '3px';
-        flatButtonBoxShadow = `${distance} ${distance} ${blur} ${darkenSchemeColor}, -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
-        pressedBoxShadow = `inset ${distance} ${distance} ${blur} ${darkenSchemeColor}, inset -${distance} -${distance} ${blur} ${lightenSchemeColor}`;
-        // TODO: Does not look good!
-        concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;
-        thumbScrollbarBoxShadow = `inset -${distance} -${distance} ${blur} ${darkenSchemeColor}, inset ${distance} ${distance} ${blur} ${lightenSchemeColor}`;
-}
-
-export function updateButtonsColor() {
+export function updateRadioShadow() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', highlightColor);
@@ -213,6 +270,9 @@ export function updateButtonsColor() {
                         $("label[for='" + this.id + "']").css('color', mutedBaseColor);
                 }
         );
+}
+
+export function updateCheckboxShadow() {
         $("input[type='checkbox']:checked").each(
                 function () {
                         $("label[for='" + this.id + "'] i").css('color', highlightColor);

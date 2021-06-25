@@ -75,6 +75,9 @@
         <script src="assets/js/import/jquery.countTo.js"></script>
         <script src="assets/js/import/typed.js"></script>
         <script src="assets/js/import/jquery.magnific-popup.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/bootstrap-slider.min.js"></script> -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/css/bootstrap-slider.min.css" /> -->
         <script src="assets/js/import/isotope.pkgd.min.js"></script>
         <script src="assets/js/import/owl.carousel.min.js"></script>
         <script src="assets/js/import/tinycolor.js"></script>

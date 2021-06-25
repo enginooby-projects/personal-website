@@ -9,8 +9,8 @@
                                                         <h4 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
                                                         <p class="my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
                                                         <div class="button-border mt-2">
-                                                                <a href="#about" class="pill-button">
-                                                                        <div class="highlight-color">My story</div>
+                                                                <a href="#contact" class="pill-button">
+                                                                        <div class="highlight-color">Hire me</div>
                                                                 </a>
                                                         </div>
                                                 </div>

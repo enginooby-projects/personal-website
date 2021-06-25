@@ -26,8 +26,15 @@
                                                         <h5>Fundamentals & Theories</h5>
                                                         <div class="border-style"></div>
                                                 </div>
-                                                <div class="skill-boxes box-border">
+                                                <div class="skill-boxes ">
                                                         <div class="row justify-content-center">
+                                                                <div class="image-border">
+                                                                        <div class="duties-item box-hover-border background-colorfull3">
+                                                                                <div class="text-center p-2">
+                                                                                        <p class="text-justify mb-0">Data Structure & Algorithms</p>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
                                                                 <span class="badge badge-pill background-colorfull3">Data Structure & Algorithms</span>
                                                                 <span class="badge badge-pill background-colorfull3">OOP</span>
                                                                 <span class="badge badge-pill background-colorfull3">Design Patterns</span>
