@@ -1,23 +1,16 @@
 // color related selectors (property + corresponding style)
-
-export const colorHighlightColorSelectors = formatString([
-        ".highlight-color",
-        ".pill-button",
-        ".overlay-menu a.active",
-        ".timeline-year",
-        ".portfolio .portfolio-filter li a",
-        ".portfolio .portfolio-icon a i",
-        ".contact .form-item .form-control",
+export const backgroundBaseColorSelectors = formatString([
+        "#pp-nav li :not(.active) span",
 ]);
 
 export const backgroundHighlightColorSelectors = formatString([
         ".bg-base-color",
         ".border-style",
         ".timeline-icon",
-        ".flat-demo .button-border",
-        ".dark - scheme.flat - demo.button - border",
-        ".flat-demo .pill-button.active",
-        "#pp-nav li .active span"
+        "#pp-nav li .active span",
+
+        // ".flat-demo .pill-button.active",
+        // ".flat-demo .button-border"
 ]);
 
 export const backgroundSchemeColorSelectors = formatString([
@@ -31,28 +24,18 @@ export const backgroundSchemeColorSelectors = formatString([
         ".pallet-button",
         ".blog .blog-image",
         ".blog .blog-item .before",
+
+        ".flat-demo .section",
 ]);
 
-export const flatBoxShadowSelectors = formatString([
-        ".button-border",
-        ".box-border",
-        ".image-border",
-        ".segmented-control",
-        ".hero-03 .personal-image img",
-        ".checkbox label",
-        ".blog-intro"
-]);
-
-export const pressedBoxShadowSelectors = formatString([
-        ".pill-button.active",
-        ".custom-scrollbar",
-        ".blog .blog-image .after",
-]);
-
-export const concaveBoxShadowSelectors = formatString([
-        ".skill-box .skillbar",
-        ".form-group",
-        ".radio-selection"
+export const colorHighlightColorSelectors = formatString([
+        ".highlight-color",
+        ".pill-button",
+        ".overlay-menu a.active",
+        ".timeline-year",
+        ".portfolio .portfolio-filter li a",
+        ".portfolio .portfolio-icon a i",
+        ".contact .form-item .form-control",
 ]);
 
 export const colorBaseColorSelectors = formatString([
@@ -67,16 +50,18 @@ export const colorBaseColorSelectors = formatString([
         ".overlay-menu-toggler",
 ]);
 
-export const backgroundBaseColorSelectors = formatString([
-        "#pp-nav li :not(.active) span",
-]);
-
 export const colorMutedBaseColorSelectors = formatString([
         ".blog-content .list-inline-item span",
         ".contact-info-text small",
         ".hero-content p",
         ".title-wrapper span",
         ".form-control"
+]);
+
+// FLAT STYLE
+export const noneBoxShadowSelectors = formatString([
+        ".flat-demo .image-border",
+        ".flat-demo .button-border"
 ]);
 
 function formatString(selectorsArray) {

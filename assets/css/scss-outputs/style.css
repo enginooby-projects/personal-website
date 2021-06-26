@@ -92,7 +92,6 @@ button {
 }
 
 .button-border {
-  background-color: #f1f3f6;
   border-radius: 0.8rem !important;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
@@ -105,7 +104,6 @@ button {
 }
 
 .button-border {
-  background-color: #f1f3f6;
   border-radius: 1rem;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
@@ -3278,8 +3276,26 @@ header {
 /*-------------------------
       FLAT STYLE LIGHT
 -------------------------*/
-.flat-demo .section {
-  background-color: #f8f8f8 !important;
+.flat-demo .portfolio-item-content {
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+          box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+}
+
+.flat-demo .box-border {
+  background-color: #fefefe;
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+          box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .flat-demo .section {
+    background-color: #2c2d30;
+  }
+  .flat-demo .box-border {
+    background-color: rgba(52, 53, 57, 0.9);
+    -webkit-box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
+            box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
+  }
 }
 
 .flat-demo .blog-single .modal-content,
@@ -3315,8 +3331,6 @@ header {
 }
 
 .flat-demo .button-border {
-  -webkit-box-shadow: none;
-          box-shadow: none;
   padding: 0;
 }
 
@@ -3338,8 +3352,6 @@ header {
 }
 
 .flat-demo .image-border {
-  -webkit-box-shadow: none;
-          box-shadow: none;
   background-color: transparent;
   padding: 0;
 }
@@ -3376,8 +3388,14 @@ header {
 /*-------------------------
       FLAT STYLE DARK
 -------------------------*/
+.flat-demo.dark-scheme .box-border {
+  background-color: rgba(52, 53, 57, 0.9);
+  -webkit-box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
+          box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
+}
+
 .dark-scheme.flat-demo .section {
-  background-color: #2c2d30 !important;
+  background-color: #2c2d30;
 }
 
 .dark-scheme.flat-demo .box-hover-border:hover {
@@ -3863,7 +3881,6 @@ header {
   .box-hover-border,
   .button-border,
   .image-border {
-    background-color: #2c2d30;
     -webkit-box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
             box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e;
   }

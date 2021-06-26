@@ -8,14 +8,13 @@ $(document).ready(function () {
 
         "use strict";
 
-        ColorModule.getStyleSheet();
+        ColorModule.init();
         clientCarousel();
         pagePilling();
         themeOption();
-        changeNeoSkin();
+        // changeNeoSkin();
         bgBackground();
         colorFull();
-        ColorModule.init();
         borderColor();
         menuToggler();
         sliderOwlCarousel();
@@ -171,7 +170,6 @@ function themeOption() {
         $('.color-scheme li .dark-scheme-option').click(changeDarkScheme);
         $('.color-scheme li .light-scheme').click(changeLightScheme);
         $('.theme-skin li .flat-skin').click(changeFlatSkin);
-        $('.theme-skin li .neo-skin').click(changeNeoSkin);
 }
 
 // TODO: Remove
@@ -189,16 +187,10 @@ function changeLightScheme() {
 
 function changeFlatSkin() {
         $("body").addClass('flat-demo');
-        $('.theme-skin li a').removeClass('active');
+        $('.theme-skin li a').removeClass('active'); // option button
         $(this).addClass('active');
+        ColorModule.updateStyle(ColorModule.Styles.FLAT);
 }
-
-function changeNeoSkin() {
-        $("body").removeClass('flat-demo');
-        $('.theme-skin li a').removeClass('active');
-        $(this).addClass('active');
-}
-
 
 /*-------------------------
         ColorFull Demo
