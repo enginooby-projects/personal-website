@@ -15,7 +15,7 @@ $(document).ready(function () {
         changeNeoSkin();
         bgBackground();
         colorFull();
-        ColorModule.setupColorEvents();
+        ColorModule.init();
         borderColor();
         menuToggler();
         sliderOwlCarousel();
@@ -384,8 +384,8 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
-                ColorModule.updateRadioShadow();
-                ColorModule.updateCheckboxShadow();
+                ColorModule.updateRadioStates();
+                ColorModule.updateCheckboxShadows();
 
                 startFilterring($container, categorize + techFilters);
         });

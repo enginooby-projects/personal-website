@@ -8,14 +8,14 @@ var colorfull1;
 var colorfull2;
 var colorfull3;
 
-export var highlightColor = "#1b63ad";
+export var highlightColor = "#227DD8";
 export var baseColor;
 var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var mutedBaseColor;
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
-var schemeColor = "#f1f3f6";
+var schemeColor = "#680317";// "#f1f3f6";
 
 // NEO STYLES
 var lightenSchemeColor = "#ffffff";
@@ -44,16 +44,15 @@ export function getStyleSheet() {
         }
 }
 
-export function setupColorEvents() {
-        setupColorPickerEvents();
-        setupColorHoverEvents();
-        setupColorClickEvents();
-        setupRangeSliders();
+export function init() {
+        setupEvents();
 
         // init
         $squareImg = $(".hero-image .square img");
-        updateHighlightColor(highlightColor);
         const cssRules = styleSheet.cssRules || styleSheet.rules;
+
+        initRangeSliders();
+
         trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {box-shadow: ${pressedBoxShadow}; border-radius: 15px;}`)];
         thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {box-shadow: ${thumbScrollbarBoxShadow}; background: ${schemeColor}; border-radius: 15px;}`)];
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
@@ -64,9 +63,19 @@ export function setupColorEvents() {
                 selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackgroud}}`)];
         }
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
-
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
-        // updateSchemeColor();
+
+        $("#scheme-color-picker").attr('value', schemeColor);
+        $("#highlight-color-picker").attr('value', highlightColor);
+        updateSchemeColor(schemeColor);
+        updateHighlightColor(highlightColor);
+}
+
+function setupEvents() {
+        setupColorPickerEvents();
+        setupColorHoverEvents();
+        setupColorClickEvents();
+        setupRangeSliderEvents();
 }
 
 function setupColorPickerEvents() {
@@ -155,17 +164,7 @@ function setupColorClickEvents() {
         });
 }
 
-function setupRangeSliders() {
-        // initt  texts & values
-        $('#distance').attr('value', neuDistance.replace('px', ''));
-        $("#distance").next('.range-slider__value').html(neuDistance.replace('px', ''));
-        $('#blur').attr('value', neuBlur.replace('px', ''));
-        $("#blur").next('.range-slider__value').html(neuBlur.replace('px', ''));
-        $('#light-intensity').attr('value', neuLightIntensity);
-        $("#light-intensity").next('.range-slider__value').html(neuLightIntensity);
-        $('#dark-intensity').attr('value', neuDarkIntensity);
-        $("#dark-intensity").next('.range-slider__value').html(neuDarkIntensity);
-
+function setupRangeSliderEvents() {
         $("#distance").on('input', function () {
                 $(this).next('.range-slider__value').html(this.value);
                 neuDistance = this.value + "px";
@@ -191,32 +190,32 @@ function setupRangeSliders() {
         });
 };
 
+function initRangeSliders() {
+        $('#distance').attr('value', neuDistance.replace('px', ''));
+        $("#distance").next('.range-slider__value').html(neuDistance.replace('px', ''));
+        $('#blur').attr('value', neuBlur.replace('px', ''));
+        $("#blur").next('.range-slider__value').html(neuBlur.replace('px', ''));
+        $('#light-intensity').attr('value', neuLightIntensity);
+        $("#light-intensity").next('.range-slider__value').html(neuLightIntensity);
+        $('#dark-intensity').attr('value', neuDarkIntensity);
+        $("#dark-intensity").next('.range-slider__value').html(neuDarkIntensity);
+}
+
 function updateHighlightColor(newColor) {
         highlightColor = newColor;
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
-        updateRadioShadow();
-        updateCheckboxShadow();
+        updateRadioStates();
+        updateCheckboxShadows();
         // TODO: overide important css rule for pp
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
 
-function getBrightFamilyColor(originalColor) {
-        return [
-                // tinycolor(originalColor).brighten(-20).toString(),
-                tinycolor(originalColor).brighten(-10).toString(),
-                tinycolor(originalColor).brighten(0).toString(),
-                tinycolor(originalColor).brighten(10).toString(),
-                // tinycolor(originalColor).brighten(20).toString()
-        ];
-}
-
 function updateSchemeColor(newColor) {
-        // update derived colors 
+        // update derived colors  & properties
         schemeColor = newColor;
         updateBaseColor();
         updateNeuStyle();
-        // updateHighlightColor(tinycolor.mostReadable(schemeColor, getBrightFamilyColor(highlightColor), { includeFallbackColors: false }).toHexString());
 
         // update selectors
         $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor);
@@ -224,8 +223,6 @@ function updateSchemeColor(newColor) {
         $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
         $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
         updatePseudoElements();
-        updateRadioShadow();
-        updateCheckboxShadow();
 }
 
 function updateNeuStyle() {
@@ -233,8 +230,7 @@ function updateNeuStyle() {
         darkenSchemeColor = tinycolor(schemeColor).darken(neuDarkIntensity).toString();
         flatButtonBoxShadow = `${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
         pressedBoxShadow = `inset ${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
-        // TODO: Does not look good!
-        concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;
+        concaveBoxShadow = `${flatButtonBoxShadow}, ${pressedBoxShadow}`;         // TODO: Does not look good!
         thumbScrollbarBoxShadow = `inset -${neuDistance} -${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset ${neuDistance} ${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
         updateNeuElements();
 }
@@ -245,6 +241,7 @@ function updateNeuElements() {
         $(ColorSelectors.concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
         trackScrollbarRule.style.boxShadow = pressedBoxShadow;
         thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
+        updateCheckboxShadows();
 }
 
 function updatePseudoElements() {
@@ -257,7 +254,6 @@ function updatePseudoElements() {
         // selectionOldFirefoxRule.background = highlightColor;
 }
 
-
 function updateBaseColor() {
         baseColor = invertColor(schemeColor, true);
         mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
@@ -265,7 +261,7 @@ function updateBaseColor() {
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
 }
 
-export function updateRadioShadow() {
+export function updateRadioStates() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', highlightColor);
@@ -278,7 +274,7 @@ export function updateRadioShadow() {
         );
 }
 
-export function updateCheckboxShadow() {
+export function updateCheckboxShadows() {
         $("input[type='checkbox']:checked").each(
                 function () {
                         $("label[for='" + this.id + "'] i").css('color', highlightColor);
