@@ -29,7 +29,10 @@ $transition_duration: 0.8s;
 .form-group,
 .button-border,
 .blog-intro,
-.blog-image {
+.blog-image,
+.checkbox label,
+.segmented-control,
+.radio-selection {
         transition: $transition_duration all ease !important;
         -webkit-transition: $transition_duration all ease !important;
 }
@@ -102,19 +105,19 @@ button {
 }
 
 .box-hover-border {
-        background-color: #f1f3f6;
-        border-radius: 1.25rem;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        // background-color: #f1f3f6;
+        // border-radius: 1.25rem;
+        // box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
 }
 
 .box-hover-border:hover {
-        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+        // box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
 }
 
 .button-border {
         // background-color: #f1f3f6;
         border-radius: $button-border !important;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        // box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
         display: inline-block;
         padding: 1px;
 }

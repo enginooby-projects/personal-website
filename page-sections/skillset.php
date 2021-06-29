@@ -8,11 +8,11 @@
                                                         <span>My Skillset</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="highlight-color">My Skillset</h2>
-                                                        <br>
-                                                        <span class="badge badge-pill background-colorfull3">Advanced</span>
-                                                        <span class="badge badge-pill background-colorfull2">Intermediate</span>
-                                                        <span class="badge badge-pill background-colorfull1">Beginner</span>
+                                                        <h2 class="highlight-color mb-3">My Skillset</h2>
+                                                        <span class="badge badge-pill background-colorfull3">Advanced <span class="badge badge-light">X</span></span>
+                                                        <span class="badge badge-pill background-colorfull2">Intermediate <span class="badge badge-light">Y</span></span>
+                                                        <span class="badge badge-pill background-colorfull1">Beginner <span class="badge badge-light">Z</span></span>
+                                                        <p class="image-caption mb-0">(XYZ: hours of experience)</p>
                                                 </div>
                                         </div>
                                 </div>
@@ -21,20 +21,12 @@
                                 <div class="row mt-0">
                                         <!-- Fundamentals -->
                                         <div class="col-lg-6 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-0 mt-lg-0">
                                                         <h5>Fundamentals & Theories</h5>
                                                         <div class="border-style"></div>
                                                 </div>
-                                                <div class="skill-boxes ">
+                                                <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
-                                                                <div class="image-border">
-                                                                        <div class="duties-item box-hover-border background-colorfull3">
-                                                                                <div class="text-center p-2">
-                                                                                        <p class="text-justify mb-0">Data Structure & Algorithms</p>
-                                                                                </div>
-                                                                        </div>
-                                                                </div>
                                                                 <span class="badge badge-pill background-colorfull3">Data Structure & Algorithms</span>
                                                                 <span class="badge badge-pill background-colorfull3">OOP</span>
                                                                 <span class="badge badge-pill background-colorfull3">Design Patterns</span>
@@ -58,18 +50,19 @@
                                         </div>
                                         <!-- Languages -->
                                         <div class="col-lg-6 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-5 mt-lg-0">
                                                         <h5>Languages & Databases</h5>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
-                                                                <span class="badge badge-pill background-colorfull3">C# <span class="badge badge-light">205</span></span>
+                                                                <!-- <div class="badge-border"> -->
+                                                                <span class="badge badge-pill background-colorfull3">C# <span class="badge badge-light">206</span></span>
+                                                                <!-- </div> -->
                                                                 <span class="badge badge-pill background-colorfull3"><i class="fab fa-java"></i> Java <span class="badge badge-light">300</span></span>
-                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">151</span></span>
-                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-html5"></i> HTML5 <span class="badge badge-light">51</span></span>
-                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-css3-alt"></i> CSS3/SASS <span class="badge badge-light">62</span></span>
+                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-html5"></i> HTML5 <span class="badge badge-light">53</span></span>
+                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-css3-alt"></i> CSS3/SASS <span class="badge badge-light">72</span></span>
+                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">171</span></span>
                                                                 <span class="badge badge-pill background-colorfull2"> PHP <span class="badge badge-light">46</span></span>
                                                                 <span class="badge badge-pill background-colorfull2">SQL <span class="badge badge-light">20</span></span>
                                                                 <span class="badge badge-pill background-colorfull1">C/C++ <span class="badge badge-light">30</span></span>
@@ -90,12 +83,10 @@
                                         </div>
                                         <!-- Game/CS Technologies -->
                                         <div class="col-lg-12 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-5">
                                                         <h5>Game & CG Technologies</h5>
                                                         <div class="border-style"></div>
                                                 </div>
-
                                                 <div class="skill-boxes box-border">
                                                         <div class="row justify-content-center">
                                                                 <span class="badge badge-pill background-colorfull3"><i class="fab fa-unity"></i> Unity <span class="badge badge-light">300</span></span>
@@ -103,19 +94,17 @@
                                                                 <span class="badge badge-pill background-colorfull1">Unreal Engine <span class="badge badge-light">1</span></span>
                                                                 <span class="badge badge-pill background-colorfull1">Cocos Creator <span class="badge badge-light">30</span></span>
                                                                 <span class="badge badge-pill background-colorfull1">Phaser 3 <span class="badge badge-light">15</span></span>
-                                                                <!-- <span class="badge badge-pill background-colorfull1">Unreal Engine</span>
+                                                                <span class="badge badge-pill background-colorfull1">Godot</span>
                                                                 <span class="badge badge-pill background-colorfull1">CryEngine</span>
                                                                 <span class="badge badge-pill background-colorfull1">GameMaker Studio</span>
                                                                 <span class="badge badge-pill background-colorfull1">Construct</span>
-                                                                <span class="badge badge-pill background-colorfull1">Godot</span>
-                                                                <span class="badge badge-pill background-colorfull1">OpenGL</span>
-                                                                <span class="badge badge-pill background-colorfull1">libGDX</span> -->
+                                                                <!-- <span class="badge badge-pill background-colorfull1">OpenGL</span> -->
+                                                                <!-- <span class="badge badge-pill background-colorfull1">libGDX</span> -->
                                                         </div>
                                                 </div>
                                         </div>
                                         <!-- Java Technologies -->
-                                        <div class="col-lg-6 equal-columns">
-                                                <br>
+                                        <div class="col-lg-6 equal-columns mt-5">
                                                 <div class="resume-title text-center">
                                                         <h5>Java Technologies</h5>
                                                         <div class="border-style"></div>
@@ -137,8 +126,7 @@
                                         </div>
                                         <!-- Web Technologies -->
                                         <div class="col-lg-6 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-5">
                                                         <h5>Web Technologies</h5>
                                                         <div class="border-style"></div>
                                                 </div>
@@ -152,8 +140,7 @@
                                         </div>
                                         <!-- IDE -->
                                         <div class="col-lg-6 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-5">
                                                         <h5>IDEs & Code Editors</h5>
                                                         <div class="border-style"></div>
                                                 </div>
@@ -171,8 +158,7 @@
                                         </div>
                                         <!-- Tools -->
                                         <div class="col-lg-6 equal-columns">
-                                                <br>
-                                                <div class="resume-title text-center">
+                                                <div class="resume-title text-center mt-5">
                                                         <h5>Tools</h5>
                                                         <div class="border-style"></div>
                                                 </div>

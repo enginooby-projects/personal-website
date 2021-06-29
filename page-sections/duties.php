@@ -1,4 +1,4 @@
-<section id="duties" class="section pp-scrollable duties" data-navigation-tooltip="DUTIES">
+<section id="duties" class="section pp-scrollable duties" data-navigation-tooltip="SERVICES">
         <div class="display-table">
                 <div class="display-content">
                         <div class="container">

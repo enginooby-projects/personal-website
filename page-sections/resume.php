@@ -26,7 +26,7 @@
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
                                                                                 <h6 class="timeline-title">Bachelor in Software Engineering</h6>
-                                                                                <p class="timeline-year">03/2019 - 03/2022 (Current GPA: 4.76/5.0)</p>
+                                                                                <p class="timeline-year">03/2019 - 03/2022 (GPA: 4.76/5.0)</p>
                                                                         </div>
                                                                         <div class="timeline-content">
                                                                                 <p>My specialization is Internet & Multimedia Technologies which is one of the factors inspiring me to pursue game development.</p>

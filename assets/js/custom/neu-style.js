@@ -28,20 +28,23 @@ const unpressedBoxShadowSelectors = formatString([
         ".hero-03 .personal-image img",
         ".checkbox label",
         ".blog-intro",
-        " .pallet-border"
+        " .pallet-border",
+        ".badge-border"
+        // ".badge-pill"
 ]);
 
 const pressedBoxShadowSelectors = formatString([
         ".pill-button.active",
         ".custom-scrollbar",
         ".blog .blog-image .after",
-        " .pallet-button.active"
+        " .pallet-button.active",
+        ".skill-boxes ,box-border",
 ]);
 
 const concaveBoxShadowSelectors = formatString([
         ".skill-box .skillbar",
         ".form-group",
-        ".radio-selection"
+        ".radio-selection",
 ]);
 
 // NEO STYLE

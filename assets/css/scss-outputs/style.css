@@ -16,7 +16,10 @@
 .form-group,
 .button-border,
 .blog-intro,
-.blog-image {
+.blog-image,
+.checkbox label,
+.segmented-control,
+.radio-selection {
   transition: 0.8s all ease !important;
   -webkit-transition: 0.8s all ease !important;
 }
@@ -89,22 +92,8 @@ button {
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
 }
 
-.box-hover-border {
-  background-color: #f1f3f6;
-  border-radius: 1.25rem;
-  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-}
-
-.box-hover-border:hover {
-  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-}
-
 .button-border {
   border-radius: 0.8rem !important;
-  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   display: inline-block;
   padding: 1px;
 }
@@ -1364,9 +1353,44 @@ header {
   bottom: 0.05rem;
 }
 
+.skill-item {
+  border-radius: 0.8rem !important;
+}
+
+.skill-boxes .image-border {
+  border-radius: 0.8rem !important;
+  padding: 2px !important;
+}
+
+.skill-boxes p {
+  font-size: 1.15rem !important;
+}
+
+.badge-border {
+  border-radius: 0.8rem !important;
+  display: inline-block;
+  padding: 1px;
+}
+
+.badge {
+  display: inline-block;
+}
+
+.skillset h5 {
+  margin-bottom: 0;
+}
+
+.skillset .border-style {
+  margin-top: 10px;
+}
+
 /*-------------------------
          DUTIES
 -------------------------*/
+.duties-item img {
+  width: 40px;
+}
+
 .duties .duties-item.data-background {
   margin-top: 0;
 }

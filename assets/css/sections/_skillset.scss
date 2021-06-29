@@ -16,3 +16,36 @@
         position: relative;
         bottom: 0.05rem;
 }
+
+$badge-radius:0.8rem;
+
+.skill-item {
+        border-radius: $badge-radius !important;
+}
+
+.skill-boxes .image-border {
+        border-radius: $badge-radius !important;
+        padding: 2px !important;
+}
+
+.skill-boxes p {
+        font-size: 1.15rem !important;
+}
+
+.badge-border {
+        border-radius: $badge-radius !important;
+        display: inline-block;
+        padding: 1px;
+}
+
+.badge {
+        display: inline-block;
+}
+
+.skillset h5 {
+        margin-bottom: 0;
+}
+
+.skillset .border-style {
+        margin-top: 10px;
+}

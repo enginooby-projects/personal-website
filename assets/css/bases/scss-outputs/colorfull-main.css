@@ -66,23 +66,6 @@
   display: none;
 }
 
-.duties-item img {
-  width: 40px;
-}
-
-.duties .duties-item .text-dark {
-  color: #3c3c3c !important;
-}
-
-.duties .duties-item .text-muted {
-  color: #5f5f5f !important;
-}
-
-.duties-item {
-  -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
-          box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
-}
-
 .portfolio .portfolio-item-content::before,
 .portfolio-item-content::before {
   /* background-color: rgba(255, 66, 116, 0.8); */
