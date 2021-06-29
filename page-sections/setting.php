@@ -79,7 +79,9 @@
                         </li>
                 </ul>
         </div>
-        <div class="pallet-button hide">
-                <a href="#" class="cp-toggle"><i class="fa fa-cog fa-spin"></i></a>
+        <div class="pallet-border hide">
+                <div class="pallet-button">
+                        <a href="#" class="cp-toggle"><i class="fa fa-cog fa-spin"></i></a>
+                </div>
         </div>
 </div>

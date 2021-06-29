@@ -157,6 +157,7 @@ function setupColorClickEvents() {
 
         $("#color-switcher .pallet-button").click(function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
+                $(this).toggleClass('active');
         });
 
         // reset color for unchecked buttons

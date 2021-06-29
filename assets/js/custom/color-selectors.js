@@ -18,7 +18,6 @@ export const backgroundSchemeColorSelectors = formatString([
         ".image-border",
         ".form-group",
         ".skill-box .skillbar",
-        ".pallet-button",
         ".blog .blog-image",
         ".blog .blog-item .before",
         ".flat-demo .section",
@@ -37,7 +36,7 @@ export const colorHighlightColorSelectors = formatString([
 export const colorBaseColorSelectors = formatString([
         "body",
         ".logo",
-        ".color-switcher .pallet-button i",
+        ".color-switcher .pallet-border i",
         ".follow-label",
         ".social a i",
         ".blog-content h6 a",

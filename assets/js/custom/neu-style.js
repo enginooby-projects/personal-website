@@ -8,7 +8,8 @@ const backgroundSchemeColorSelectors = formatString([
         " .contact .form-item .form-group",
         ".pill-button.active",
         ".segmented-control",
-        ".checkbox label"
+        ".checkbox label",
+        ".pallet-border",
 ]);
 
 const backgroundTransparentSelectors = formatString([
@@ -26,13 +27,15 @@ const unpressedBoxShadowSelectors = formatString([
         ".segmented-control",
         ".hero-03 .personal-image img",
         ".checkbox label",
-        ".blog-intro"
+        ".blog-intro",
+        " .pallet-border"
 ]);
 
 const pressedBoxShadowSelectors = formatString([
         ".pill-button.active",
         ".custom-scrollbar",
         ".blog .blog-image .after",
+        " .pallet-button.active"
 ]);
 
 const concaveBoxShadowSelectors = formatString([
@@ -82,6 +85,16 @@ function setupHoverEvents() {
                 }, function () {
                         // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
+                }
+        );
+
+        $(" .pallet-button").off('mouseenter mouseleave').hover(
+                function () {
+                        console.log("neu");
+                        $(this).css('box-shadow', pressedBoxShadow);
+                }, function () {
+                        // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+                        if (!$(this).hasClass('active')) $(this).css('box-shadow', 'none');
                 }
         );
 }

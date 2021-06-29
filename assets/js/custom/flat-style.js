@@ -20,6 +20,8 @@ const noneBoxShadowSelectors = formatString([
         ".flat-demo .blog-intro",
         ".flat-demo .blog .blog-image .after",
         ".flat-demo .skill-box .skillbar",
+        ".flat-demo .pallet-border",
+        ".flat-demo .pallet-button",
 ]);
 
 const backgroundHighlightColorSelectors = formatString([
@@ -34,7 +36,8 @@ const backgroundLightenSchemeColorSelectors = formatString([
         ".flat-demo .box-hover-border",
         ".flat-demo .contact .form-item .form-group",
         ".flat-demo .segmented-control",
-        ".flat-demo .checkbox label"
+        ".flat-demo .checkbox label",
+        ".flat-demo .pallet-border",
 ]);
 
 const backgroundSchemeColorSelectors = formatString([
@@ -81,6 +84,8 @@ function setupHoverEvents() {
                         if (!$(this).hasClass('active')) $(this).css('background', '');
                 }
         );
+
+        $(" .pallet-button").off('mouseenter mouseleave');
 
         $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(
                 function () {

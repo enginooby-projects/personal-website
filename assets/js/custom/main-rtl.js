@@ -190,7 +190,7 @@ function ColorPallet() {
         $("ul.pattern .color9").click(function () {
                 return $("#option-color").attr("href", "assets/css/color/red-color.css")
         });
-        $("#color-switcher .pallet-button").click(function () {
+        $("#color-switcher .pallet-border").click(function () {
                 $("#color-switcher .color-pallet").toggleClass('show')
         })
 
