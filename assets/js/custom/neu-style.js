@@ -1,6 +1,25 @@
 import * as ColorModule from './color.js';
 
-export const unpressedBoxShadowSelectors = formatString([
+const backgroundSchemeColorSelectors = formatString([
+        " .button-border",
+        " .box-border",
+        ".image-border",
+        ".box-hover-border",
+        " .contact .form-item .form-group",
+        ".pill-button.active",
+        ".segmented-control",
+        ".checkbox label"
+]);
+
+const backgroundTransparentSelectors = formatString([
+        ".radio-selection",
+]);
+
+const colorHighlightColorSelectors = formatString([
+        ".pill-button",
+]);
+
+const unpressedBoxShadowSelectors = formatString([
         ".button-border",
         ".box-border",
         ".image-border",
@@ -10,13 +29,13 @@ export const unpressedBoxShadowSelectors = formatString([
         ".blog-intro"
 ]);
 
-export const pressedBoxShadowSelectors = formatString([
+const pressedBoxShadowSelectors = formatString([
         ".pill-button.active",
         ".custom-scrollbar",
         ".blog .blog-image .after",
 ]);
 
-export const concaveBoxShadowSelectors = formatString([
+const concaveBoxShadowSelectors = formatString([
         ".skill-box .skillbar",
         ".form-group",
         ".radio-selection"
@@ -34,36 +53,59 @@ var neuBlur = '8px';
 var neuLightIntensity = 7;
 var neuDarkIntensity = 7;
 
+$(document).ready(function () {
+        "use strict";
+
+        $('.theme-skin li .neo-skin').click(function () {
+                init();
+                ColorModule.updateStyle(ColorModule.Styles.NEU);
+        });
+});
+
 export function init() {
         $("body").removeClass('flat-demo');
         $('.theme-skin li a').removeClass('active');
         $(this).addClass('active');
 
-        initRangeSliders();
         setupClickEvents();
-        setupRangeSliderEvents();
+        initRangeSliders();
         setupHoverEvents();
-}
-
-function setupClickEvents() {
-        "use strict";
-        $('.theme-skin li .neo-skin').click(function () {
-                $("body").removeClass('flat-demo');
-                $('.theme-skin li a').removeClass('active');
-                $(this).addClass('active');
-                ColorModule.updateStyle(ColorModule.Styles.NEU);
-        });
+        setupRangeSliderEvents();
+        updateRadioStates();
 }
 
 function setupHoverEvents() {
-        $(".pill-button").hover(
+        $(".pill-button").off('mouseenter mouseleave').hover(
                 function () {
+                        console.log("neu");
                         $(this).css('box-shadow', pressedBoxShadow);
                 }, function () {
                         // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
                 }
         );
+}
+
+function setupClickEvents() {
+        $(".segmented-control input").off('click').click(function () {
+                $(".segmented-control label[for='" + this.id + "']").css('color', ColorModule.highlightColor);
+                $(".segmented-control input[type='radio']:not(:checked)").each(
+                        function () {
+                                $(".segmented-control label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+                        }
+                );
+        });
+
+        $(".checkbox input").off('click').click(function () {
+                if (!$(this).prop("checked")) {
+                        $(this).siblings(".name").css('color', ColorModule.mutedBaseColor);
+                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', unpressedBoxShadow);
+                }
+                else {
+                        $(this).siblings(".name").css('color', ColorModule.highlightColor);
+                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
+                }
+        });
 }
 
 function initRangeSliders() {
@@ -107,6 +149,10 @@ function formatString(selectorsArray) {
         return selectorsArray.join(", ");
 }
 
+export function switchStyle() {
+        setupHoverEvents();
+}
+
 export function update() {
         lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(neuLightIntensity).toString();
         darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(neuDarkIntensity).toString();
@@ -118,10 +164,28 @@ export function update() {
 }
 
 function applyStyle() {
+        $(backgroundSchemeColorSelectors).css("background-color", ColorModule.schemeColor);
+        $(backgroundTransparentSelectors).css("background", 'transparent');
+        $(colorHighlightColorSelectors).css("color", ColorModule.highlightColor);
         $(unpressedBoxShadowSelectors).css("box-shadow", unpressedBoxShadow);
         $(pressedBoxShadowSelectors).css("box-shadow", pressedBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
         ColorModule.trackScrollbarRule.style.boxShadow = pressedBoxShadow;
         ColorModule.thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
+        ColorModule.trackScrollbarRule.style.background = ColorModule.schemeColor;
+        ColorModule.thumbScrollbarRule.style.background = ColorModule.schemeColor;
         // updateCheckboxShadows();
+}
+
+export function updateRadioStates() {
+        $("input[type='radio']:checked").each(
+                function () {
+                        $("label[for='" + this.id + "']").css('color', ColorModule.highlightColor);
+                }
+        );
+        $("input[type='radio']:not(:checked)").each(
+                function () {
+                        $("label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+                }
+        );
 }

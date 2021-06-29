@@ -7,10 +7,10 @@
                                                 <div class="hero-content">
                                                         <h1 class="dark-color mb-3">I'M <span class="highlight-color"> HIEU NGO</span></h1>
                                                         <h4 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="element" data-elements="Game Programmer,Java Developer, Tech Enthusiast"></span></h4>
-                                                        <p class="my-4">Welcome to my little corner of the Internet. Here is the place where I document my life.</p>
-                                                        <div class="button-border mt-2">
-                                                                <a href="#contact" class="pill-button">
-                                                                        <div class="highlight-color">Hire me</div>
+                                                        <p class="my-4">Welcome to my little corner of the Internet. Here is the place I document my life, showcase works & share knowledge.</p>
+                                                        <div class="button-border mt-2 mt-lg-4">
+                                                                <a href="#portfolio" class="pill-button">
+                                                                        My works
                                                                 </a>
                                                         </div>
                                                 </div>

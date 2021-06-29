@@ -20,7 +20,7 @@
                                                 <div class="personal-item">
                                                         <h6 class="mt-0 mt-lg-0 mb-0">Who am I?</h6>
                                                         <p class=" text-justify mb-0">
-                                                                Hi! I am <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate Software Engineering student in Poland.
+                                                                Hi! I am <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate <span class="highlight-color">Software Engineering student</span> in Poland.
                                                         </p>
                                                 </div>
                                                 <!-- Image -->
@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="col-lg-6 mt-0 mt-lg-0">
                                                 <div class="personal-item ml-lg-4">
-                                                        <h6 class="mt-4 mt-lg-0 mb-0">Passion: <span class="highlight-color">Video game development</span></h6>
+                                                        <h6 class="mt-4 mt-lg-0 mb-0">Ambition: <span class="highlight-color">Video game development</span></h6>
                                                         <p class=" text-justify mb-0">
                                                                 While normal software is all about services to serve our life, <span class="highlight-color">computer graphics</span> (CG) is the technology enabling us to create life itself, virtually. That interests me, Particularly, game development is a subset of CG, where we define our own rules for the world then allow players to get involved in. That interests me more.
                                                                 <br>

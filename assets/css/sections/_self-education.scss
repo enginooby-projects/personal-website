@@ -18,6 +18,7 @@
         width: 165px !important;
         height: 215px !important;
         border-radius: 1rem !important;
+        // border-radius: 1rem 1rem 0 0 !important;
 }
 
 .course-item {
@@ -87,4 +88,10 @@
 
 .skill-box .skillbar-title span {
         margin-left: 18px;
+}
+
+.flat-demo .self-education .image-border {
+        // box-shadow: none;
+        background-color: transparent;
+        padding: .4rem;
 }

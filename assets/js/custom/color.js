@@ -1,5 +1,6 @@
 import * as ColorSelectors from './color-selectors.js'
 import * as NeuModule from './neu-style.js'
+import * as FlatModule from './flat-style.js'
 
 var styleSheet;
 var $squareImg;
@@ -9,17 +10,17 @@ var colorfull1;
 var colorfull2;
 var colorfull3;
 
+export var schemeColor = "#680317";// "#f1f3f6";
 export var highlightColor = "#227DD8";
 export var baseColor;
-var lightBaseColor = "#EBEBEB";
-var darkBaseColor = "#212529";
-var mutedBaseColor;
-var lightMutedBaseColor = "#b2b2b2";
-var darkMutedBaseColor = "#4D4D4D";
-export var schemeColor = "#680317";// "#f1f3f6";
+export var mutedBaseColor;
+const lightBaseColor = "#EBEBEB";
+const darkBaseColor = "#212529";
+const lightMutedBaseColor = "#b2b2b2";
+const darkMutedBaseColor = "#4D4D4D";
 
 export const Styles = Object.freeze({ "FLAT": 1, "NEU": 2, "GLASS": 3 });
-var currentStyle = Styles.NEU;
+export var currentStyle = Styles.NEU;
 
 // FLAT STYLE
 var flatBoxShadow;
@@ -42,9 +43,7 @@ function getStyleSheet() {
 export function init() {
         getStyleSheet();
         setupEvents();
-        initStyle();
 
-        // init
         $squareImg = $(".hero-image .square img");
         const cssRules = styleSheet.cssRules || styleSheet.rules;
 
@@ -60,6 +59,7 @@ export function init() {
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
 
+        initStyle();
         $("#scheme-color-picker").attr('value', schemeColor);
         $("#highlight-color-picker").attr('value', highlightColor);
         updateSchemeColor(schemeColor);
@@ -68,14 +68,14 @@ export function init() {
 
 export function updateStyle(newStyle) {
         currentStyle = newStyle;
-        // update styles
+        // TODO: use interface
         switch (currentStyle) {
                 case Styles.NEU:
                         NeuModule.update();
                         console.log("neu");
                         break;
                 case Styles.FLAT:
-                        updateFlatStyle();
+                        FlatModule.update();
                         console.log("flat");
                         break;
         }
@@ -87,7 +87,7 @@ function initStyle() {
                         NeuModule.init();
                         break;
                 case Styles.FLAT:
-                        updateFlatSty / le();
+                        FlatModule.init();
                         break;
         }
 }
@@ -119,12 +119,23 @@ function setupColorHoverEvents() {
                 }
         );
 
-        $(".segmented-control label, .checkbox i").hover(
+        $(".segmented-control label").hover(
+                function () {
+                        var id = $(this).attr("for");
+                        if (currentStyle == Styles.NEU) $(this).css('color', highlightColor);
+                        if (currentStyle == Styles.FLAT && !$("#" + id).prop("checked")) $(this).css('color', highlightColor);
+                }, function () {
+                        var id = $(this).attr("for");
+                        // reset color if the  button not checked
+                        if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
+                }
+        );
+
+        $(".checkbox i").hover(
                 function () {
                         $(this).css('color', highlightColor);
                 }, function () {
-                        var id = $(this).attr("for"); // radio
-                        if (!id) id = $(this).parent().attr("for"); // checkbox
+                        var id = $(this).parent().attr("for");
                         // reset color if the  button not checked
                         if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
                 }
@@ -142,7 +153,6 @@ function setupColorClickEvents() {
                 updateHighlightColor(tinycolor(highlightColor).saturate(-10).toString());
                 console.log(tinycolor.readability(schemeColor, highlightColor));
                 // $("#highlight-color-picker").value = highlightColor;
-
         });
 
         $("#color-switcher .pallet-button").click(function () {
@@ -151,6 +161,7 @@ function setupColorClickEvents() {
 
         // reset color for unchecked buttons
         $(".segmented-control input").click(function () {
+                $(".segmented-control label[for='" + this.id + "']").css('color', baseColor);
                 $(".segmented-control input[type='radio']:not(:checked)").each(
                         function () {
                                 $(".segmented-control label[for='" + this.id + "']").css('color', mutedBaseColor);
@@ -158,21 +169,12 @@ function setupColorClickEvents() {
                 );
         });
 
-        $(".checkbox input").click(function () {
-                if (!$(this).prop("checked")) {
-                        $(this).siblings(".name").css('color', mutedBaseColor);
-                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', unpressedBoxShadow);
-                }
-                else {
-                        $(this).siblings(".name").css('color', highlightColor);
-                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
-                }
-        });
+        $('#portfolio .pill-button').click(resetUncheckedButtons);
+}
 
-        // TODO: Reset box shadow for inactive buttons
-        $('#portfolio .pill-button').click(function () {
-                $('#portfolio .pill-button').not(this).css('box-shadow', '');
-        });
+function resetUncheckedButtons() {
+        if (currentStyle == Styles.NEU) $('#portfolio .pill-button').not(this).css('box-shadow', '');
+        if (currentStyle == Styles.FLAT) $('#portfolio .pill-button').not(this).css('background', 'transparent');
 }
 
 function updateHighlightColor(newColor) {
@@ -181,6 +183,7 @@ function updateHighlightColor(newColor) {
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
         updateRadioStates();
         updateCheckboxShadows();
+        updateStyle(currentStyle);
         // TODO: overide important css rule for pp
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
@@ -199,14 +202,6 @@ function updateSchemeColor(newColor) {
         updateStyle(currentStyle);
 }
 
-function updateFlatStyle() {
-        updateFlatElements();
-}
-
-function updateFlatElements() {
-        $(ColorSelectors.noneBoxShadowSelectors).css('box-shadow', 'none');
-}
-
 function updatePseudoElements() {
         thumbScrollbarRule.style.background = schemeColor;
         placeholderRule.style.color = mutedBaseColor;
@@ -218,23 +213,27 @@ function updatePseudoElements() {
 }
 
 function updateBaseColor() {
+        const lastBaseColor = baseColor;
         baseColor = invertColor(schemeColor, true);
         mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
         const heroImg = (baseColor == lightBaseColor) ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
+
+        if (lastBaseColor != baseColor) {
+                updateRadioStates();
+                updateCheckboxShadows();
+        }
 }
 
 export function updateRadioStates() {
-        $("input[type='radio']:checked").each(
-                function () {
-                        $("label[for='" + this.id + "']").css('color', highlightColor);
-                }
-        );
-        $("input[type='radio']:not(:checked)").each(
-                function () {
-                        $("label[for='" + this.id + "']").css('color', mutedBaseColor);
-                }
-        );
+        switch (currentStyle) {
+                case Styles.NEU:
+                        NeuModule.updateRadioStates();
+                        break;
+                case Styles.FLAT:
+                        FlatModule.updateRadioStates();
+                        break;
+        }
 }
 
 export function updateCheckboxShadows() {
@@ -254,7 +253,7 @@ export function updateCheckboxShadows() {
         );
 }
 
-function invertColor(hex, isBlackWhite) {
+export function invertColor(hex, isBlackWhite) {
         if (hex.indexOf('#') === 0) {
                 hex = hex.slice(1);
         }

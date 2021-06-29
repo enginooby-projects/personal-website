@@ -12,7 +12,6 @@ $(document).ready(function () {
         clientCarousel();
         pagePilling();
         themeOption();
-        // changeNeoSkin();
         bgBackground();
         colorFull();
         borderColor();
@@ -138,6 +137,8 @@ function pagePilling() {
                         $("#pp-nav li .active span").css('backgroundColor', ColorModule.highlightColor);
                 },
                 afterRender: function (index) {
+                        $("#pp-nav li span").css('background-color', ColorModule.baseColor);
+                        $("#pp-nav li .active span").css('backgroundColor', ColorModule.highlightColor);
                         if (index > 1) {
                                 // $(".special-section").css('color', ColorModule.baseColor);
                         } else {
@@ -169,7 +170,6 @@ function themeOption() {
         "use strict";
         $('.color-scheme li .dark-scheme-option').click(changeDarkScheme);
         $('.color-scheme li .light-scheme').click(changeLightScheme);
-        $('.theme-skin li .flat-skin').click(changeFlatSkin);
 }
 
 // TODO: Remove
@@ -184,14 +184,6 @@ function changeLightScheme() {
         $('.color-scheme li a').removeClass('active');
         $(this).addClass('active');
 }
-
-function changeFlatSkin() {
-        $("body").addClass('flat-demo');
-        $('.theme-skin li a').removeClass('active'); // option button
-        $(this).addClass('active');
-        ColorModule.updateStyle(ColorModule.Styles.FLAT);
-}
-
 /*-------------------------
         ColorFull Demo
 -------------------------*/
@@ -376,6 +368,7 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
+                // update portfolio button UI
                 ColorModule.updateRadioStates();
                 ColorModule.updateCheckboxShadows();
 

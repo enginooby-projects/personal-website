@@ -11,6 +11,16 @@
   src: local("../fonts/agency-fb-bold.ttf");
 }
 
+.image-border,
+.box-border,
+.form-group,
+.button-border,
+.blog-intro,
+.blog-image {
+  transition: 0.8s all ease !important;
+  -webkit-transition: 0.8s all ease !important;
+}
+
 body {
   font-family: "Agency FB", sans-serif;
   font-weight: 400;
@@ -118,6 +128,7 @@ button {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-size: 22px;
+  font-weight: 500 !important;
   display: inline-block;
 }
 
@@ -182,6 +193,7 @@ button {
   font-size: 56px;
   font-weight: 900;
   color: rgba(95, 95, 95, 0.1);
+  opacity: 0.3;
   /* font-family: "Agency FB", sans-serif; */
   font-family: "Poppins", sans-serif;
   margin-top: -18px;
@@ -612,6 +624,16 @@ input::-moz-focus-outer {
 }
 
 /* Light */
+::-webkit-scrollbar-track {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
 /* Dark */
 .dark-scheme ::-webkit-scrollbar-track {
   border-radius: 25px;
@@ -635,13 +657,11 @@ input::-moz-focus-outer {
 
 /* Light */
 .flat-demo ::-webkit-scrollbar-track {
-  background: #f1f1f1;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .flat-demo ::-webkit-scrollbar-thumb {
-  background: #888;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1337,10 +1357,6 @@ header {
 /*-------------------------
          DUTIES
 -------------------------*/
-.duties .duties-item {
-  margin-top: 30px;
-}
-
 .duties .duties-item.data-background {
   margin-top: 0;
 }
@@ -1355,7 +1371,7 @@ header {
 }
 
 .duties .image-border .box-hover-border {
-  border-radius: 1rem;
+  border-radius: 1.25rem;
 }
 
 .flat-demo .duties .image-border .box-hover-border {
@@ -1567,6 +1583,10 @@ header {
 .segmented-control > input:checked + label {
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
+}
+
+.segmented-control label {
+  z-index: 99;
 }
 
 .segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
@@ -2003,6 +2023,11 @@ header {
 
 .skill-box .skillbar-title span {
   margin-left: 18px;
+}
+
+.flat-demo .self-education .image-border {
+  background-color: transparent;
+  padding: .4rem;
 }
 
 /*-------------------------
@@ -3338,7 +3363,6 @@ header {
 .flat-demo .pill-button.active,
 .flat-demo .testimonial .owl-dot.active span,
 .flat-demo .skill-box .skillbar,
-.flat-demo .blog-intro,
 .flat-demo .contact .form-item .form-group,
 .flat-demo .testimonial .owl-carousel .testimonial-image-border {
   -webkit-box-shadow: none;
@@ -3353,15 +3377,7 @@ header {
 
 .flat-demo .image-border {
   background-color: transparent;
-  padding: 0;
-}
-
-.flat-demo .box-border,
-.flat-demo .box-hover-border,
-.flat-demo .contact .form-item .form-group {
-  background-color: rgba(240, 240, 240, 0.7);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  padding: 0rem;
 }
 
 .flat-demo .testimonial .owl-carousel .testimonial-image::after,
@@ -3369,11 +3385,6 @@ header {
 .flat-demo .blog-item::before,
 .flat-demo .blog-image::after {
   display: none;
-}
-
-.flat-demo .testimonial .owl-carousel .testimonial-image,
-.flat-demo .portfolio-filter .button-border {
-  background-color: transparent;
 }
 
 .flat-demo .portfolio-filter .pill-button {

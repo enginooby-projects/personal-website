@@ -8,14 +8,11 @@ export const backgroundHighlightColorSelectors = formatString([
         ".border-style",
         ".timeline-icon",
         "#pp-nav li .active span",
-
-        // ".flat-demo .pill-button.active",
-        // ".flat-demo .button-border"
+        ".pp-slidesNav .active span"
 ]);
 
 export const backgroundSchemeColorSelectors = formatString([
         ".section",
-        ".button-border",
         ".box-border",
         ".segmented-control",
         ".image-border",
@@ -24,7 +21,6 @@ export const backgroundSchemeColorSelectors = formatString([
         ".pallet-button",
         ".blog .blog-image",
         ".blog .blog-item .before",
-
         ".flat-demo .section",
 ]);
 
@@ -56,12 +52,6 @@ export const colorMutedBaseColorSelectors = formatString([
         ".hero-content p",
         ".title-wrapper span",
         ".form-control"
-]);
-
-// FLAT STYLE
-export const noneBoxShadowSelectors = formatString([
-        ".flat-demo .image-border",
-        ".flat-demo .button-border"
 ]);
 
 function formatString(selectorsArray) {

@@ -13,6 +13,27 @@ $button-border:0.8rem;
         src: local("../fonts/agency-fb-bold.ttf");
 }
 
+$transition_duration: 0.8s;
+
+* {
+        // transition: color $transition_duration ease-in-out,
+        //         background-color$transition_duration ease-in-out,
+        //         border-color $transition_duration ease-in-out,
+        //         box-shadow $transition_duration ease-in-out;
+        // transition: 0.5s all ease !important;
+        // -webkit-transition: 0.5s all ease !important;
+}
+
+.image-border,
+.box-border,
+.form-group,
+.button-border,
+.blog-intro,
+.blog-image {
+        transition: $transition_duration all ease !important;
+        -webkit-transition: $transition_duration all ease !important;
+}
+
 body {
         font-family: "Agency FB", sans-serif;
         font-weight: 400;
@@ -116,7 +137,7 @@ button {
         padding: 10px 30px;
         transition: all 0.3s ease;
         font-size: 22px;
-        // font-weight: 580 !important;
+        font-weight: 500 !important;
         display: inline-block;
 }
 
@@ -170,6 +191,7 @@ button {
         font-size: 56px;
         font-weight: 900;
         color: rgba(95, 95, 95, 0.1);
+        opacity: 0.3;
         /* font-family: "Agency FB", sans-serif; */
         font-family: "Poppins", sans-serif;
         margin-top: -18px;

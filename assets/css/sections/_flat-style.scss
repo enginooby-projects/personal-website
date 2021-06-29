@@ -70,7 +70,7 @@
 .flat-demo .pill-button.active,
 .flat-demo .testimonial .owl-dot.active span,
 .flat-demo .skill-box .skillbar,
-.flat-demo .blog-intro,
+// .flat-demo .blog-intro,
 .flat-demo .contact .form-item .form-group,
 .flat-demo .testimonial .owl-carousel .testimonial-image-border {
         box-shadow: none;
@@ -85,14 +85,14 @@
 .flat-demo .image-border {
         // box-shadow: none;
         background-color: transparent;
-        padding: 0;
+        padding: 0rem;
 }
 
 .flat-demo .box-border,
 .flat-demo .box-hover-border,
 .flat-demo .contact .form-item .form-group {
-        background-color: rgba(240, 240, 240, 0.7);
-        box-shadow: none;
+        // background-color: rgba(240, 240, 240, 0.7);
+        // box-shadow: none;
 }
 
 .flat-demo .testimonial .owl-carousel .testimonial-image::after,
@@ -104,7 +104,7 @@
 
 .flat-demo .testimonial .owl-carousel .testimonial-image,
 .flat-demo .portfolio-filter .button-border {
-        background-color: transparent;
+        // background-color: transparent;
 }
 
 .flat-demo .portfolio-filter .pill-button {

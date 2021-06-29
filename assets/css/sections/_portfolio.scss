@@ -197,6 +197,8 @@ inset -3px -3px 4px $light-bg-color;
         display: flex;
         align-items: center;
         position: relative;
+        // z-index: -2;
+
 
         input {
                 display: none;
@@ -205,6 +207,10 @@ inset -3px -3px 4px $light-bg-color;
         >input:checked+label {
                 transition: all .5s ease;
                 // font-weight: 900 !important;
+        }
+
+        label {
+                z-index: 99;
         }
 
         &__1,
@@ -235,6 +241,7 @@ inset -3px -3px 4px $light-bg-color;
                 height: 3.1rem*$scale;
                 width: 72.5px;
                 border-radius: .55rem;
+                // z-index: -1;
                 // box-shadow: $inner-shadow;
                 // box-shadow: $inner-shadow-2;
                 pointer-events: none;
