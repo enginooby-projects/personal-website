@@ -1,62 +1,44 @@
 import * as ColorModule from './color.js';
 
+var blur = '16px';
+var transparency = '0.5'
+
 var lightenSchemeColor = "#680317";
 var darkenSchemeColor = "#680317";
 const lightenIntensity = 5;
 const darkenIntensity = 5;
 
-
 const noneBoxShadowSelectors = formatString([
-        ".flat-demo .image-border",
-        ".flat-demo .button-border",
+        ".glass-style .image-border",
+        ".glass-style .button-border",
         ".hero-03 .personal-image img",
-        ".flat-demo .box-border",
-        ".flat-demo .box-hover-border",
-        ".flat-demo .contact .form-item .form-group",
+        ".glass-style .box-border",
+        ".glass-style .box-hover-border",
+        ".glass-style .contact .form-item .form-group",
         ".checkbox label",//
         ".segmented-control", //
         ".radio-selection",
-        ".flat-demo .portfolio-filter .pill-button.active",
-        ".flat-demo .blog-intro",
-        ".flat-demo .blog .blog-image .after",
-        ".flat-demo .skill-box .skillbar",
-        ".flat-demo .pallet-border",
-        ".flat-demo .pallet-button",
-        ".color-pallet",
-        "table",
-        "table thead "
+        ".glass-style .portfolio-filter .pill-button.active",
+        ".glass-style .blog-intro",
+        ".glass-style .blog .blog-image .after",
+        ".glass-style .skill-box .skillbar",
+        ".glass-style .pallet-border",
+        ".glass-style .pallet-button",
+        // ".glass-style .image-border",
 ]);
 
-const backgroundHighlightColorSelectors = formatString([
-        ".flat-demo .button-border",
-        ".radio-selection",
-        ".flat-demo .portfolio-filter .pill-button.active",
+const backgroundGlassSelectors = formatString([
+        " .button-border",
+        " .box-border",
+        ".box-hover-border",
+        " .contact .form-item .form-group",
+        ".pill-button.active",
+        ".segmented-control",
+        ".checkbox label",
+        ".pallet-border",
+        ".neo-skin"
 ]);
 
-const backgroundLightenSchemeColorSelectors = formatString([
-        ".flat-demo .box-border",
-        ".flat-demo .image-border",
-        ".flat-demo .box-hover-border",
-        ".flat-demo .contact .form-item .form-group",
-        ".flat-demo .segmented-control",
-        ".flat-demo .checkbox label",
-        ".flat-demo .pallet-border",
-        ".color-pallet"
-]);
-
-const backgroundSchemeColorSelectors = formatString([
-        // ".flat-demo .portfolio-filter .pill-button.active",
-]);
-
-const colorBaseColorSelectors = formatString([
-        ".flat-demo .portfolio-filter .pill-button ",
-]);
-
-const backgroundTransparentSelectors = formatString([
-        ".flat-demo .portfolio-filter .pill-button:not(.active)",
-        ".flat-demo .portfolio-filter .button-border",
-        ".flat-demo .testimonial .owl-carousel .testimonial-image",
-]);
 
 function formatString(selectorsArray) {
         return selectorsArray.join(", ");
@@ -64,21 +46,37 @@ function formatString(selectorsArray) {
 
 $(document).ready(function () {
         "use strict";
-        $('.theme-skin li .flat-skin').click(function () {
+
+        $('.theme-skin li .glass-skin').click(function () {
                 init();
-                ColorModule.updateStyle(ColorModule.Styles.FLAT);
+                ColorModule.updateStyle(ColorModule.Styles.GLASS);
         });
 });
 
 export function init() {
-        $("body").addClass('flat-demo');
+        $("body").addClass('glass-style');
         $('.theme-skin li a').removeClass('active'); // option button
         $(this).addClass('active');
         setupHoverEvents();
         setupClickEvents();
         updateRadioStates();
         $(".customizer").hide();
-        $("#flat-customizer").show();
+        $("#glass-customizer").show();
+
+        $(".section").css({
+                'background': '#0f2027', // fallback for old browsers
+                'background': '-webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364)', /* Chrome 10-25, Safari 5.1-6 */
+                'background': 'linear-gradient(to right, #0f2027, #203a43, #2c5364)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        });
+
+        $(backgroundGlassSelectors).css({
+                'backdrop-filter': `blur(${blur})`,
+                '-webkit-backdrop-filter': `blur(${blur})`,
+                // 'opacity': `${transparency}`,
+                'background-color': `rgba(255, 255, 255, ${transparency})`,
+                // 'border-radius': '24px',
+                'border': '1px solid rgba(209, 213, 219, 0.3)',
+        });
 }
 
 function setupHoverEvents() {
@@ -101,15 +99,6 @@ function setupHoverEvents() {
                         if (!$(this).hasClass('active')) $(this).css('background', '');
                 }
         );
-
-        $("table>tbody>tr").off('mouseenter mouseleave').hover(
-                function () {
-                        $(this).css('background', ColorModule.highlightColor);
-                }, function () {
-                        $(this).css('background', '');
-                }
-        );
-
         // $(".portfolio-filter .pill-button").off('mouseenter mouseleave');
 }
 
@@ -134,23 +123,11 @@ function setupClickEvents() {
 }
 
 export function update() {
-        // TODO: variablize
-        lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(lightenIntensity).toString();
-        darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(darkenIntensity).toString();
         applyStyle();
 }
 
 function applyStyle() {
-        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorModule.invertColor(ColorModule.highlightColor, true));
-        $(backgroundLightenSchemeColorSelectors).css('background', lightenSchemeColor);
-        $(backgroundHighlightColorSelectors).css('background', ColorModule.highlightColor);
-        $(backgroundTransparentSelectors).css('background', 'transparent');
-        $(colorBaseColorSelectors).css('color', ColorModule.baseColor);
         $(noneBoxShadowSelectors).css('box-shadow', 'none');
-        // $('.image-border').css('padding: 1rem');
-        ColorModule.trackScrollbarRule.style.background = lightenSchemeColor;
-        ColorModule.thumbScrollbarRule.style.background = darkenSchemeColor;
-
 }
 
 export function updateRadioStates() {

@@ -7,8 +7,8 @@
         z-index: 1000;
         position: fixed;
         transition: all 0.3s ease;
-        left: 50px;
-        width: 189px;
+        left: 60px;
+        width: 180px;
         border-radius: 16px;
         opacity: 0;
         visibility: hidden;
@@ -164,35 +164,36 @@
 }
 
 .theme-skin-title {
-        background-color: #f1f3f6;
+        // background-color: #f1f3f6;
         margin: 0;
         padding: 15px 0 0;
         border-radius: 16px 16px 0 0;
 }
 
 .theme-skin {
-        background-color: #f1f3f6;
+        // background-color: #f1f3f6;
         margin: 0;
-        padding: 8px 0 16px;
+        padding: 8px 0 0 0;
 }
 
 .theme-skin li {
-        width: 40%;
+        width: 65%;
         margin: 0 !important;
+        margin-bottom: 15px !important;
 }
 
-.theme-skin li:last-child {
-        background-color: #f1f3f6;
-        border-radius: 0.75rem;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-        padding: 1px;
-}
+// .theme-skin li:last-child {
+//         background-color: #f1f3f6;
+//         border-radius: 0.75rem;
+//         box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+//         padding: 1px;
+// }
 
-.theme-skin li:last-child a:hover,
-.theme-skin li:last-child a.active {
-        border: none;
-        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-}
+// .theme-skin li:last-child a:hover,
+// .theme-skin li:last-child a.active {
+//         border: none;
+//         box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+// }
 
 .theme-skin li a {
         display: block;

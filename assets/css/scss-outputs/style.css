@@ -229,6 +229,51 @@ button {
   font-size: 1.15rem !important;
 }
 
+table.neumorphic {
+  border-spacing: 0;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+table.neumorphic th {
+  font-size: 1.35rem;
+  padding: 7px;
+  white-space: pre;
+}
+
+table.neumorphic tbody {
+  font-size: 1.20rem;
+}
+
+table.neumorphic > tbody > tr > td {
+  padding: 10px;
+  position: relative;
+}
+
+table.neumorphic tr td:first-child::before {
+  content: "";
+  position: absolute;
+  padding: 7px;
+  top: 0;
+  left: -5000px;
+  width: 10000px;
+  height: 100%;
+  z-index: -10;
+}
+
+table.neumorphic td:hover::after {
+  content: "";
+  position: absolute;
+  -webkit-box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.6);
+          box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.6);
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
 /*-------------------------
           PP Nav
 -------------------------*/
@@ -281,8 +326,8 @@ button {
   position: fixed;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  left: 50px;
-  width: 189px;
+  left: 60px;
+  width: 180px;
   border-radius: 16px;
   opacity: 0;
   visibility: hidden;
@@ -445,36 +490,20 @@ button {
 }
 
 .theme-skin-title {
-  background-color: #f1f3f6;
   margin: 0;
   padding: 15px 0 0;
   border-radius: 16px 16px 0 0;
 }
 
 .theme-skin {
-  background-color: #f1f3f6;
   margin: 0;
-  padding: 8px 0 16px;
+  padding: 8px 0 0 0;
 }
 
 .theme-skin li {
-  width: 40%;
+  width: 65%;
   margin: 0 !important;
-}
-
-.theme-skin li:last-child {
-  background-color: #f1f3f6;
-  border-radius: 0.75rem;
-  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-  padding: 1px;
-}
-
-.theme-skin li:last-child a:hover,
-.theme-skin li:last-child a.active {
-  border: none;
-  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  margin-bottom: 15px !important;
 }
 
 .theme-skin li a {
@@ -1214,6 +1243,17 @@ canvas.particles-js-canvas-el {
 .timeline-contents {
   padding-left: 30px;
   text-align: justify;
+}
+
+.timeline-content .button-border {
+  display: table;
+  margin: 0 auto;
+}
+
+.timeline-content .button-border .pill-button {
+  padding: 8px 15px;
+  min-width: 150px;
+  text-align: center;
 }
 
 .timeline-icon {

@@ -1,0 +1,80 @@
+<?php
+function displaySubjects()
+{
+        $subjects = array(
+                // array('Computer', '-', '-', '5.0'),
+                array('Software Engineering', 'Software development cycle - Testing - Scrum - UML', 'StarUML', '5.0'),
+                array('Linear Algebra', 'Matrix', '-', '4.5'),
+                array('Algorithms & Data Structures', 'Graph - Tree - Sorting - Dynamic programming', 'Java Core', '5.0'),
+                array('Object Oriented Programming', 'Encapsulation - Polymorphism  - Inheritance - (Abstract) Class - Interface - Generics', 'Java Core  - JUnit -  Swing - MySQL', '5.0'),
+                array('Operating Systems', '-', 'Windows OS - Linux OS', '5.0'),
+                array('Discreet Mathematics', 'Prime', '-', '5.0'),
+                array('Foundations of Digital Electronics', '-', '-', '5.0'),
+                array('Database Applications ', '-', 'Java - Spring Boot - H2', '5.0'),
+                array('Database Concept', 'Database Design', 'MySQL', '5.0'),
+                //
+                array('Web Services ', 'SOAP API - RESTful API', 'Java - Spring - JSP - JavaFX - Swing - Rapid API', '5.0'),
+                array('Signal Processing', 'Sound signal - Harmonics - Noise - Discrete Fourier Transform - Filtering & convolution', 'Python - Jupyter Notebook', '5.0'),
+                array('Computer Networks', 'Firewall - Ports- Protocols - Sockets - Network layouts - IP addresses - Wiring/Cabling - Routing', 'Linux OS', '5.0'),
+                array('Computer Graphic', 'Text tools - Selection tools - Gradient -  Mask layer - Photo enhancement - Business design', 'Adobe Photoshop', '5.0'),
+                array('Probabilistic Methods & Statistics', 'Data analysis - Unary linear regression', 'Excel', '5.0'),
+                array('HTML Games', 'Camera projection - Material - Geometry - Mesh', 'JavaScript/TypeScript - Three,js - Socket.io', '5.0'),
+                array('Computer Games Programming', 'Modeling - Lighting - Camera - 3D & 2D Programming', 'Unity - C#', '5.0'),
+                array('Embedded Systems', 'Electronics - Analog & digital - Input & output  - Breadboard - LED - LCD - IR remote - Ultrasonic range finder - Interrupt - EEPROM', 'Arduino  UNO - C++', '5.0'),
+                array('WWW Applications', 'Web technologies - W3C - Information architecture - API - JSON - HTTP protocol - Responsive web design - Color design', 'HTML5 - CSS3 - JavaScript  & jQuery - Bootstrap ', '5.0'),
+                array('Elements of Artificial Intelligence', 'Evolutionary algorithm - Fuzzy logic - Neural network', 'Python', '4.0'),
+                array('Computer Network Design', 'Topology - Network design proposal', '-', '5.0'),
+                array('Multimedia Presentation ', 'PUMA - Infographics & data visualization - Color theory - Copyright', 'PowerPoint', '5.0'),
+                array('Mobile Technologies ', 'AR', 'Unity - C# - Vuforia SDK - Wit.ai', '5.0'),
+                array('Server Software Administration', 'CI/CD - Networking - Web scalability - Web services & microservices - Container - DevOps', 'Ubuntu Server  - Apache Server - Chef - Docker', '4.5'),
+                array('Security of Computer Systems', 'Malware - Attacks - Vulnerabilities - SQL injection - Hashing & checksum', 'Kali  OS  - Bash - Wireshark', '5.0'),
+        );
+
+        for ($i = 0; $i < count($subjects); $i++) {
+                echo '
+                <tr>
+                        <td> ' . ($i + 1) . '</td>
+                        <td>' . $subjects[$i][0] . '</td>
+                        <td>' . $subjects[$i][1] . '</td>
+                        <td>' . $subjects[$i][2] . '</td>
+                        <td>' . $subjects[$i][3] . '</td>
+                </tr>       
+                ';
+        }
+}
+?>
+
+<div class="portfolio-single modal fade" id="courses-modal" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content text-muted">
+                        <div class="modal-header">
+                                <h5 class="modal-title " id="portfolioModalScrollable">Classes</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="pt-4 pb-5">
+                                        <div class="container">
+                                                <div class="row">
+                                                        <table class="neumorphic">
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>#</th>
+                                                                                <th>Name</th>
+                                                                                <th>Key points</th>
+                                                                                <th>Technologies</th>
+                                                                                <th>Grade<br> (scale: 5.0)</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                        <?php displaySubjects(); ?>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

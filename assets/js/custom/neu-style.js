@@ -1,6 +1,7 @@
 import * as ColorModule from './color.js';
 
 const backgroundSchemeColorSelectors = formatString([
+        ".section",
         " .button-border",
         " .box-border",
         ".image-border",
@@ -10,6 +11,9 @@ const backgroundSchemeColorSelectors = formatString([
         ".segmented-control",
         ".checkbox label",
         ".pallet-border",
+        ".neo-skin",
+        ".color-pallet",
+        ".portfolio-single .modal-content",
 ]);
 
 const backgroundTransparentSelectors = formatString([
@@ -20,7 +24,7 @@ const colorHighlightColorSelectors = formatString([
         ".pill-button",
 ]);
 
-const unpressedBoxShadowSelectors = formatString([
+const dropBoxShadowSelectors = formatString([
         ".button-border",
         ".box-border",
         ".image-border",
@@ -29,16 +33,21 @@ const unpressedBoxShadowSelectors = formatString([
         ".checkbox label",
         ".blog-intro",
         " .pallet-border",
-        ".badge-border"
+        ".badge-border",
+        ".neo-skin",
+        "table",
+        "table thead ",
         // ".badge-pill"
 ]);
 
-const pressedBoxShadowSelectors = formatString([
+const insetBoxShadowSelectors = formatString([
         ".pill-button.active",
         ".custom-scrollbar",
         ".blog .blog-image .after",
         " .pallet-button.active",
         ".skill-boxes ,box-border",
+        ".color-pallet",
+        ".timeline-items.box-border",
 ]);
 
 const concaveBoxShadowSelectors = formatString([
@@ -50,8 +59,8 @@ const concaveBoxShadowSelectors = formatString([
 // NEO STYLE
 var lightenSchemeColor = "#ffffff";
 var darkenSchemeColor = "#dcdee2";
-var pressedBoxShadow;
-var unpressedBoxShadow;
+var insetBoxShadow;
+var dropBoxShadow;
 var concaveBoxShadow;
 var thumbScrollbarBoxShadow;
 var neuDistance = '3px';
@@ -78,13 +87,14 @@ export function init() {
         setupHoverEvents();
         setupRangeSliderEvents();
         updateRadioStates();
+        $(".customizer").hide();
+        $("#neo-customizer").show();
 }
 
 function setupHoverEvents() {
         $(".pill-button").off('mouseenter mouseleave').hover(
                 function () {
-                        console.log("neu");
-                        $(this).css('box-shadow', pressedBoxShadow);
+                        $(this).css('box-shadow', insetBoxShadow);
                 }, function () {
                         // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', '');
@@ -93,11 +103,18 @@ function setupHoverEvents() {
 
         $(" .pallet-button").off('mouseenter mouseleave').hover(
                 function () {
-                        console.log("neu");
-                        $(this).css('box-shadow', pressedBoxShadow);
+                        $(this).css('box-shadow', insetBoxShadow);
                 }, function () {
                         // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                         if (!$(this).hasClass('active')) $(this).css('box-shadow', 'none');
+                }
+        );
+
+        $("table>tbody>tr").off('mouseenter mouseleave').hover(
+                function () {
+                        $(this).css('box-shadow', insetBoxShadow);
+                }, function () {
+                        $(this).css('box-shadow', '');
                 }
         );
 }
@@ -115,7 +132,7 @@ function setupClickEvents() {
         $(".checkbox input").off('click').click(function () {
                 if (!$(this).prop("checked")) {
                         $(this).siblings(".name").css('color', ColorModule.mutedBaseColor);
-                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', unpressedBoxShadow);
+                        $(".checkbox label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
                 }
                 else {
                         $(this).siblings(".name").css('color', ColorModule.highlightColor);
@@ -172,9 +189,9 @@ export function switchStyle() {
 export function update() {
         lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(neuLightIntensity).toString();
         darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(neuDarkIntensity).toString();
-        unpressedBoxShadow = `${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
-        pressedBoxShadow = `inset ${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
-        concaveBoxShadow = `${unpressedBoxShadow}, ${pressedBoxShadow}`;         // TODO: Does not look good!
+        dropBoxShadow = `${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
+        insetBoxShadow = `inset ${neuDistance} ${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset -${neuDistance} -${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
+        concaveBoxShadow = `${dropBoxShadow}, ${insetBoxShadow}`;         // TODO: Does not look good!
         thumbScrollbarBoxShadow = `inset -${neuDistance} -${neuDistance} ${neuBlur} ${darkenSchemeColor}, inset ${neuDistance} ${neuDistance} ${neuBlur} ${lightenSchemeColor}`;
         applyStyle();
 }
@@ -183,10 +200,10 @@ function applyStyle() {
         $(backgroundSchemeColorSelectors).css("background-color", ColorModule.schemeColor);
         $(backgroundTransparentSelectors).css("background", 'transparent');
         $(colorHighlightColorSelectors).css("color", ColorModule.highlightColor);
-        $(unpressedBoxShadowSelectors).css("box-shadow", unpressedBoxShadow);
-        $(pressedBoxShadowSelectors).css("box-shadow", pressedBoxShadow);
+        $(dropBoxShadowSelectors).css("box-shadow", dropBoxShadow);
+        $(insetBoxShadowSelectors).css("box-shadow", insetBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", concaveBoxShadow);
-        ColorModule.trackScrollbarRule.style.boxShadow = pressedBoxShadow;
+        ColorModule.trackScrollbarRule.style.boxShadow = insetBoxShadow;
         ColorModule.thumbScrollbarRule.style.boxShadow = thumbScrollbarBoxShadow;
         ColorModule.trackScrollbarRule.style.background = ColorModule.schemeColor;
         ColorModule.thumbScrollbarRule.style.background = ColorModule.schemeColor;

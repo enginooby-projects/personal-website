@@ -14,7 +14,7 @@
                                 </div>
                                 <!--    TimeLine Start   -->
                                 <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center">
                                                         <h3>Education</h3>
                                                         <div class="border-style"></div>
@@ -28,14 +28,17 @@
                                                                                 <h6 class="timeline-title">Bachelor in Software Engineering</h6>
                                                                                 <p class="timeline-year">03/2019 - 03/2022 (GPA: 4.76/5.0)</p>
                                                                         </div>
-                                                                        <div class="timeline-content">
+                                                                        <div class="timeline-content  ">
                                                                                 <p>My specialization is Internet & Multimedia Technologies which is one of the factors inspiring me to pursue game development.</p>
+                                                                                <div class="button-border mt-2 mb-2">
+                                                                                        <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#courses-modal">Main classes</a>
+                                                                                </div>
                                                                         </div>
                                                                 </div>
                                                         </div>
                                                 </div>
                                         </div>
-                                        <div class="col-lg-6 mt-5 mt-lg-0">
+                                        <div class="col-lg-6 mt-5 mt-lg-0 equal-columns">
                                                 <div class="resume-title text-center">
                                                         <h3>Experience</h3>
                                                         <div class="border-style"></div>
@@ -51,6 +54,9 @@
                                                                         </div>
                                                                         <div class="timeline-content">
                                                                                 <p>My responsibility is upgrading the back-end infrastructure of the company's application using Spring framework and Firebase services.</p>
+                                                                                <div class="button-border mt-2 mb-2">
+                                                                                        <a href="#contact" class="pill-button">My tasks</a>
+                                                                                </div>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -71,7 +77,6 @@
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-
                                                                                 <h6 class="timeline-title">Bronze Medal: Vietnam National Casio Mathematics Contest for High School Students
                                                                                 </h6>
                                                                                 <div class="icon-image mb-2">
@@ -85,7 +90,6 @@
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-
                                                                                 <h6 class="timeline-title">Gold Medal: Vietnam National Vi-Olympic Online Mathematics Contest for High School Students</h6>
                                                                                 <div class="icon-image mb-2">
                                                                                         <img src="assets/img/icons/gold-medal.svg" alt="">
@@ -94,12 +98,9 @@
                                                                         </div>
                                                                 </div>
                                                         </div>
-
                                                 </div>
                                         </div>
                                 </div>
-
-
                         </div>
                 </div>
         </div>

@@ -1,6 +1,7 @@
 import * as ColorSelectors from './color-selectors.js'
 import * as NeuModule from './neu-style.js'
 import * as FlatModule from './flat-style.js'
+import * as GlassModule from './glass-style.js'
 
 var styleSheet;
 var $squareImg;
@@ -72,11 +73,12 @@ export function updateStyle(newStyle) {
         switch (currentStyle) {
                 case Styles.NEU:
                         NeuModule.update();
-                        console.log("neu");
                         break;
                 case Styles.FLAT:
                         FlatModule.update();
-                        console.log("flat");
+                        break;
+                case Styles.GLASS:
+                        GlassModule.update();
                         break;
         }
 }
@@ -88,6 +90,9 @@ function initStyle() {
                         break;
                 case Styles.FLAT:
                         FlatModule.init();
+                        break;
+                case Styles.GLASS:
+                        GlassModule.init();
                         break;
         }
 }
@@ -143,18 +148,6 @@ function setupColorHoverEvents() {
 }
 
 function setupColorClickEvents() {
-        $("#test1").click(function () {
-                updateHighlightColor(tinycolor(highlightColor).saturate().toString());
-                console.log(tinycolor.readability(schemeColor, highlightColor));
-                // $("#highlight-color-picker").value = highlightColor;
-        });
-
-        $("#test2").click(function () {
-                updateHighlightColor(tinycolor(highlightColor).saturate(-10).toString());
-                console.log(tinycolor.readability(schemeColor, highlightColor));
-                // $("#highlight-color-picker").value = highlightColor;
-        });
-
         $("#color-switcher .pallet-button").click(function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
                 $(this).toggleClass('active');
@@ -233,6 +226,9 @@ export function updateRadioStates() {
                         break;
                 case Styles.FLAT:
                         FlatModule.updateRadioStates();
+                        break;
+                case Styles.GLASS:
+                        GlassModule.updateRadioStates();
                         break;
         }
 }

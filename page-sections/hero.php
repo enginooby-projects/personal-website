@@ -25,7 +25,8 @@
                                                         <div class="circle-3"></div>
                                                         <div class="floating background-colorfull3"></div>
                                                         <div class="personal-image rounded-circle">
-                                                                <img src="assets/img/avatar.jpeg" alt="/" class="rounded-circle img-fluid">
+                                                                <!-- <img src="assets/img/avatar.jpeg" alt="/" class="rounded-circle img-fluid"> -->
+                                                                <img src="assets/img/portfolio/endless-flight.png" alt="/" class="img-fluid">
                                                         </div>
                                                 </div>
                                         </div>

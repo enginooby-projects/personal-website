@@ -5,36 +5,83 @@
                         <li class="list-inline-item">
                                 <a href="javascript:void(0)" class="flat-skin active">Flat</a>
                         </li>
+                        <br>
                         <li class="list-inline-item">
-                                <a href="javascript:void(0)" class="neo-skin">Neo</a>
+                                <a href="javascript:void(0)" class="neo-skin">Neumorphism</a>
+                        </li>
+                        <br>
+                        <li class="list-inline-item">
+                                <a href="javascript:void(0)" class="glass-skin">Glassmorphism </a>
                         </li>
                 </ul>
-                </ul>
-                <div class="range-slider">
-                        <label for="distance">Distance</label>
-                        <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
-                        <span class="range-slider__value"></span>
-                </div>
 
-                <div class="range-slider">
-                        <label for="blur">Blur</label>
-                        <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
-                        <span class="range-slider__value"></span>
+                <h6 class="text-center mt-0"> Customize</h6>
+                <div class="customizer" id="neo-customizer">
+                        <div class="range-slider">
+                                <label for="distance">Distance</label>
+                                <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="blur">Blur</label>
+                                <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="light-intensity">Light intensity</label>
+                                <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="dark-intensity">Dark intensity</label>
+                                <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
                 </div>
-                <div class="range-slider">
-                        <label for="light-intensity">Light intensity</label>
-                        <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
-                        <span class="range-slider__value"></span>
+                <div class="customizer" id="flat-customizer">
+                        <div class="range-slider">
+                                <label for="distance">Distance</label>
+                                <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="blur">Blur</label>
+                                <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="light-intensity">Light intensity</label>
+                                <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="dark-intensity">Dark intensity</label>
+                                <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
                 </div>
-                <div class="range-slider">
-                        <label for="dark-intensity">Dark intensity</label>
-                        <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
-                        <span class="range-slider__value"></span>
+                <div class="customizer" id="glass-customizer">
+                        <div class="range-slider">
+                                <label for="transparency">Transparency</label>
+                                <input class="range-slider__range" id="transparency" type="range" min="0" max="50" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="blur">Blur</label>
+                                <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="light-intensity">Light intensity</label>
+                                <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
+                        <div class="range-slider">
+                                <label for="dark-intensity">Dark intensity</label>
+                                <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
+                                <span class="range-slider__value"></span>
+                        </div>
                 </div>
-
-                <br>
-                <button type="button" class="btn btn-primary" id="test1">Test</button>
-                <button type="button" class="btn btn-primary" id="test2">Test</button>
 
                 <h6 class="text-center mt-3"> Color</h6>
                 <!-- <ul class="pattern">
@@ -68,16 +115,16 @@
                 </ul> -->
                 <input type="color" id="highlight-color-picker" value="#0000ff">
                 <input type="color" id="scheme-color-picker" value="#f1f3f6">
-                <h6 class="my-2 color-scheme-title">Scheme Mode</h6>
+                <!-- TODO: Change to switch style -->
+                <!-- <h6 class="my-2 color-scheme-title">Scheme Mode</h6>
                 <ul class="color-scheme list-inline">
-                        <!-- TODO: Change to switch style -->
                         <li class="list-inline-item">
                                 <a href="javascript:void(0)" class="light-scheme active"><i class="lni-sun"></i> Light</a>
                         </li>
                         <li class="list-inline-item">
                                 <a href="javascript:void(0)" class="dark-scheme-option"><i class="lni-night"></i> Dark</a>
                         </li>
-                </ul>
+                </ul> -->
         </div>
         <div class="pallet-border hide">
                 <div class="pallet-button">

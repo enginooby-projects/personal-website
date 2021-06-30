@@ -43,6 +43,8 @@ export const colorBaseColorSelectors = formatString([
         ".form-group input",
         ".form-group textarea",
         ".overlay-menu-toggler",
+        ".modal-title",
+        ".portfolio-single .close"
 ]);
 
 export const colorMutedBaseColorSelectors = formatString([

@@ -25,7 +25,8 @@
                                                 </div>
                                                 <!-- Image -->
                                                 <div class="image-border mt-4">
-                                                        <img src="assets/img/about1.jpg" alt="/">
+                                                        <!-- <img src="assets/img/about1.jpg" alt="/"> -->
+                                                        <img src="assets/img/portfolio/endless-flight.png" alt="/" class="img-fluid">
                                                 </div>
                                                 <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p>
                                                 <div class="personal-item">
