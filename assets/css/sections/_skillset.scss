@@ -4,6 +4,12 @@
 /* skill-boxes */
 $badge-radius:0.6rem;
 
+.skillset .row {
+        margin-top: 4px;
+        margin-left: -5px;
+        margin-right: -5px;
+}
+
 .equal-columns>.box-border {
         flex-grow: 1 !important;
 }
@@ -46,7 +52,9 @@ $badge-radius:0.6rem;
         border-radius: $badge-radius !important;
         display: inline-block;
         padding: 2px;
-        margin: 0 4px 10px;
+        margin: 0 5px 10px;
+        display: flex;
+        flex-grow: 1;
 }
 
 .badge {
@@ -54,21 +62,34 @@ $badge-radius:0.6rem;
 }
 
 .badge.badge-pill {
-        /* vertical center */
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;
-
         font-weight: 300 !important;
         color: white;
-        margin: 2px;
         border-radius: 0.5rem !important;
+
+        flex-grow: 1;
+        display: table;
+        margin: 0 auto;
+
+        /* vertical center */
+        vertical-align: middle;
+        line-height: normal;
+        padding-top: 0.4rem;
+        padding-bottom: 0.3rem;
 }
 
-.badge>.badge {
+.title-content .badge.badge-pill {
+        display: inline-block;
+        flex-grow: 0;
+}
+
+.title-content .badge-border {
+        display: inline-block;
+}
+
+.badge-pill>.badge {
         font-size: 75% !important;
         padding: 0.15rem 0.3rem !important;
         margin: 0 !important;
         position: relative;
-        bottom: 0.09rem;
+        bottom: 0.11rem;
 }

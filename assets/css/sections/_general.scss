@@ -32,7 +32,8 @@ $transition_duration: 0.8s;
 .blog-image,
 .checkbox label,
 .segmented-control,
-.radio-selection {
+.radio-selection,
+.badge-border {
         transition: $transition_duration all ease !important;
         -webkit-transition: $transition_duration all ease !important;
 }

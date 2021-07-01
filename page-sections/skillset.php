@@ -32,7 +32,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull3">Data Structure & Algorithms</span>
                                                                 </div>
@@ -95,7 +95,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull3">C# <span class="badge badge-light">206</span></span>
                                                                 </div>
@@ -133,10 +133,10 @@
                                                                         <span class="badge badge-pill background-colorfull1">HLSL <span class="badge badge-light">5</span></span>
                                                                 </div>
                                                         </div>
-                                                        <!-- <div class="row justify-content-center">
+                                                        <!-- <div class="row justify-content-between">
                                                                 <div class="border-style"></div>
                                                         </div> -->
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2">MySQL</span>
                                                                 </div>
@@ -156,7 +156,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull3"><i class="fab fa-unity"></i> Unity <span class="badge badge-light">300</span></span>
                                                                 </div>
@@ -196,7 +196,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2">Spring <span class="badge badge-light">100</span></span>
                                                                 </div>
@@ -237,7 +237,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2"><i class="fab fa-bootstrap"></i> Bootstrap 4 <span class="badge badge-light">35</span></span>
                                                                 </div>
@@ -257,7 +257,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull3">VSCode </span>
                                                                 </div>
@@ -289,7 +289,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
-                                                        <div class="row justify-content-center">
+                                                        <div class="row justify-content-between">
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2"><i class="fab fa-git-alt"></i> Git (LFS) - GitHub</span>
                                                                 </div>
