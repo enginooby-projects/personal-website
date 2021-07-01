@@ -59,7 +59,7 @@ export function init() {
         $(this).addClass('active');
         setupHoverEvents();
         setupClickEvents();
-        updateRadioStates();
+        updateRadioUI();
         $(".customizer").hide();
         $("#glass-customizer").show();
 
@@ -130,7 +130,7 @@ function applyStyle() {
         $(noneBoxShadowSelectors).css('box-shadow', 'none');
 }
 
-export function updateRadioStates() {
+export function updateRadioUI() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', ColorModule.invertColor(ColorModule.highlightColor, true));

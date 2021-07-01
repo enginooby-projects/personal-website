@@ -116,7 +116,7 @@ function setupColorPickerEvents() {
 }
 
 function setupColorHoverEvents() {
-        $(".social a i").hover(
+        $(".social a i, .list-inline.socials li a i").hover(
                 function () {
                         $(this).css('color', highlightColor);
                 }, function () {

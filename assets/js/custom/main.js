@@ -368,9 +368,6 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
-                // update portfolio buttons UI
-                ColorModule.updateRadioUI();
-                ColorModule.updateCheckboxUI();
 
                 startFilterring($container, categorize + techFilters);
         });
@@ -415,12 +412,14 @@ function resetSubfilters() {
                 var $firstButton = $buttonGroup.children(":first");
                 $firstButton.prop("checked", true);
         });
+        ColorModule.updateRadioUI();
 }
 
 function resetTechFilters() {
         $('#tech-filters').find("input").each(function (i, checkbox) {
                 $(checkbox).prop("checked", false);
         });
+        ColorModule.updateCheckboxUI();
 }
 
 // HELPERS

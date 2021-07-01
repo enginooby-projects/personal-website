@@ -23,14 +23,12 @@
                                         <ul class="list-group contact-info text-left mb-0 mt-4 mt-lg-5">
                                                 <li class="list-group-item"><span>Social links :</span></li>
                                                 <li class="list-group-item">
-                                                        <ul class="list-inline socails">
-                                                                <!-- TODO: Change itch icon -->
+                                                        <ul class="list-inline socials">
                                                                 <li class="list-inline-item"><a href="https://enginoobz.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a></li>
                                                                 <li class="list-inline-item"><a href="https://github.com/enginoobz" target="_blank"><i class="fab fa-github"></i></a></li>
                                                                 <li class="list-inline-item"><a href="https://www.linkedin.com/in/enginoobz/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                                                                 <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYiFredH0gXzs887bgZ9KDg" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
                                                                 <li class="list-inline-item"><a href="https://steamcommunity.com/profiles/76561199124618095/" target="_blank"><i class="fab fa-steam"></i></a></li>
-
                                                         </ul>
                                                 </li>
                                         </ul>

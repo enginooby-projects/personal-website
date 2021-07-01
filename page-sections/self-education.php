@@ -112,7 +112,7 @@ function displayCourse($name, $percent, $url = '')
                                         <?php
                                         // displayCourse('', 100, "");
                                         displayCourse('Complete C# Unity Game Developer 3D', 35, "https://www.udemy.com/course/unitycourse2/");
-                                        displayCourse('Unreal Engine C++ Developer', 5, "https://www.udemy.com/course/unrealcourse/");
+                                        displayCourse('Unreal Engine C++ Developer', 10, "https://www.udemy.com/course/unrealcourse/");
                                         displayCourse('Machine Learning', (3 / 57) * 100, "https://www.coursera.org/learn/machine-learning");
                                         displayCourse('Mobile App Development Mini-Degree', (100 + 35) / 7, "https://academy.zenva.com/product/mobile-development-mini-degree/");
                                         displayCourse('Three.js and TypeScript', 100, "https://www.udemy.com/certificate/UC-825b45a2-3986-4fbf-a0d5-456eeefbe0d8/");
