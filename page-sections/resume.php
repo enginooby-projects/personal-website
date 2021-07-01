@@ -55,7 +55,7 @@
                                                                         <div class="timeline-content">
                                                                                 <p>My responsibility is upgrading the back-end infrastructure of the company's application using Spring framework and Firebase services.</p>
                                                                                 <div class="button-border mt-2 mb-2">
-                                                                                        <a href="#contact" class="pill-button">My tasks</a>
+                                                                                        <a class="pill-button">My tasks</a>
                                                                                 </div>
                                                                         </div>
                                                                 </div>

@@ -14,6 +14,7 @@ const backgroundSchemeColorSelectors = formatString([
         ".neo-skin",
         ".color-pallet",
         ".portfolio-single .modal-content",
+        ".range-slider__range"
 ]);
 
 const backgroundTransparentSelectors = formatString([
@@ -48,6 +49,7 @@ const insetBoxShadowSelectors = formatString([
         ".skill-boxes ,box-border",
         ".color-pallet",
         ".timeline-items.box-border",
+        ".range-slider__range"
 ]);
 
 const concaveBoxShadowSelectors = formatString([

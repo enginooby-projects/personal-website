@@ -125,10 +125,10 @@ function formatLabel($str, $sep = '-')
                                 <div class="row">
                                         <div class="col-lg-12">
                                                 <div class="title-wrapper">
-                                                        <span>My Work</span>
+                                                        <span>My Works</span>
                                                 </div>
                                                 <div class="title-content">
-                                                        <h2 class="highlight-color">My Work</h2>
+                                                        <h2 class="highlight-color">My Works</h2>
                                                 </div>
                                         </div>
                                 </div>
