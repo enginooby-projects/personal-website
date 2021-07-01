@@ -2,26 +2,6 @@ $colorfull1:#00a584;
 $colorfull2: #ebbc00;
 $colorfull3: #e93666;
 
-.badge.badge-pill {
-        /* vertical center */
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;
-
-        font-weight: 300 !important;
-        color: white;
-        margin: 0 3 15 3;
-        border-radius: 0.5rem !important;
-}
-
-.badge>.badge {
-        font-size: 75% !important;
-        padding: 0.15rem 0.3rem !important;
-        margin: 0 !important;
-        position: relative;
-        bottom: 0.09rem;
-}
-
 .colorfull1 {
         color: $colorfull1 !important;
 }

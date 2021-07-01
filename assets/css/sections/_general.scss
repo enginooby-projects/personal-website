@@ -102,6 +102,7 @@ button {
         background-color: #f1f3f6;
         border-radius: 0.8rem;
         box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        padding: 15px 20px 7px;
 }
 
 .box-hover-border {
@@ -222,10 +223,6 @@ button {
 
 .resume-title:hover .border-style {
         width: 90px;
-}
-
-.box-border {
-        padding: 15 15 0 15;
 }
 
 .icon-image i {

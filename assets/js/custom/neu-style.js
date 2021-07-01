@@ -88,7 +88,7 @@ export function init() {
         initRangeSliders();
         setupHoverEvents();
         setupRangeSliderEvents();
-        updateRadioStates();
+        updateRadioUI();
         $(".customizer").hide();
         $("#neo-customizer").show();
 }
@@ -117,6 +117,14 @@ function setupHoverEvents() {
                         $(this).css('box-shadow', insetBoxShadow);
                 }, function () {
                         $(this).css('box-shadow', '');
+                }
+        );
+
+        $(" .badge-border").off('mouseenter mouseleave').hover(
+                function () {
+                        $(this).css('box-shadow', insetBoxShadow);
+                }, function () {
+                        $(this).css('box-shadow', dropBoxShadow);
                 }
         );
 }
@@ -184,10 +192,6 @@ function formatString(selectorsArray) {
         return selectorsArray.join(", ");
 }
 
-export function switchStyle() {
-        setupHoverEvents();
-}
-
 export function update() {
         lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(neuLightIntensity).toString();
         darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(neuDarkIntensity).toString();
@@ -212,7 +216,7 @@ function applyStyle() {
         // updateCheckboxShadows();
 }
 
-export function updateRadioStates() {
+export function updateRadioUI() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', ColorModule.highlightColor);
@@ -221,6 +225,24 @@ export function updateRadioStates() {
         $("input[type='radio']:not(:checked)").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+                        // $(" label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
+                }
+        );
+}
+
+export function updateCheckboxUI() {
+        $("input[type='checkbox']:checked").each(
+                function () {
+                        $("label[for='" + this.id + "'] i").css('color', ColorModule.highlightColor);
+                        $("label[for='" + this.id + "']").next().css('color', ColorModule.highlightColor);
+                        $("label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
+                }
+        );
+        $("input[type='checkbox']:not(:checked)").each(
+                function () {
+                        $("label[for='" + this.id + "'] i").css('color', ColorModule.mutedBaseColor);
+                        $("label[for='" + this.id + "']").next().css('color', ColorModule.mutedBaseColor);
+                        $("label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
                 }
         );
 }

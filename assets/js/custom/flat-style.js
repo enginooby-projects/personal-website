@@ -24,7 +24,7 @@ const noneBoxShadowSelectors = formatString([
         ".flat-demo .pallet-button",
         ".color-pallet",
         "table",
-        "table thead "
+        "table thead ",
 ]);
 
 const backgroundHighlightColorSelectors = formatString([
@@ -76,7 +76,7 @@ export function init() {
         $(this).addClass('active');
         setupHoverEvents();
         setupClickEvents();
-        updateRadioStates();
+        updateRadioUI();
         $(".customizer").hide();
         $("#flat-customizer").show();
 }
@@ -109,6 +109,8 @@ function setupHoverEvents() {
                         $(this).css('background', '');
                 }
         );
+
+        $(" .badge-border").off('mouseenter mouseleave');
 
         // $(".portfolio-filter .pill-button").off('mouseenter mouseleave');
 }
@@ -153,7 +155,7 @@ function applyStyle() {
 
 }
 
-export function updateRadioStates() {
+export function updateRadioUI() {
         $("input[type='radio']:checked").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', ColorModule.invertColor(ColorModule.highlightColor, true));
@@ -162,6 +164,21 @@ export function updateRadioStates() {
         $("input[type='radio']:not(:checked)").each(
                 function () {
                         $("label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+                }
+        );
+}
+
+export function updateCheckboxUI() {
+        $("input[type='checkbox']:checked").each(
+                function () {
+                        $("label[for='" + this.id + "'] i").css('color', ColorModule.highlightColor);
+                        $("label[for='" + this.id + "']").next().css('color', ColorModule.highlightColor);
+                }
+        );
+        $("input[type='checkbox']:not(:checked)").each(
+                function () {
+                        $("label[for='" + this.id + "'] i").css('color', ColorModule.mutedBaseColor);
+                        $("label[for='" + this.id + "']").next().css('color', ColorModule.mutedBaseColor);
                 }
         );
 }

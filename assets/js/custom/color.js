@@ -175,8 +175,8 @@ function updateHighlightColor(newColor) {
         highlightColor = newColor;
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
-        updateRadioStates();
-        updateCheckboxShadows();
+        updateRadioUI();
+        updateCheckboxUI();
         updateStyle(currentStyle);
         // TODO: overide important css rule for pp
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
@@ -214,40 +214,37 @@ function updateBaseColor() {
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
 
         if (lastBaseColor != baseColor) {
-                updateRadioStates();
-                updateCheckboxShadows();
+                updateRadioUI();
+                updateCheckboxUI();
         }
 }
 
-export function updateRadioStates() {
+export function updateRadioUI() {
         switch (currentStyle) {
                 case Styles.NEU:
-                        NeuModule.updateRadioStates();
+                        NeuModule.updateRadioUI();
                         break;
                 case Styles.FLAT:
-                        FlatModule.updateRadioStates();
+                        FlatModule.updateRadioUI();
                         break;
                 case Styles.GLASS:
-                        GlassModule.updateRadioStates();
+                        GlassModule.updateRadioUI();
                         break;
         }
 }
 
-export function updateCheckboxShadows() {
-        $("input[type='checkbox']:checked").each(
-                function () {
-                        $("label[for='" + this.id + "'] i").css('color', highlightColor);
-                        $("label[for='" + this.id + "']").next().css('color', highlightColor);
-                        // $("label[for='" + this.id + "']").css('box-shadow', concaveBoxShadow);
-                }
-        );
-        $("input[type='checkbox']:not(:checked)").each(
-                function () {
-                        $("label[for='" + this.id + "'] i").css('color', mutedBaseColor);
-                        $("label[for='" + this.id + "']").next().css('color', mutedBaseColor);
-                        // $("label[for='" + this.id + "']").css('box-shadow', unpressedBoxShadow);
-                }
-        );
+export function updateCheckboxUI() {
+        switch (currentStyle) {
+                case Styles.NEU:
+                        NeuModule.updateCheckboxUI();
+                        break;
+                case Styles.FLAT:
+                        FlatModule.updateCheckboxUI();
+                        break;
+                case Styles.GLASS:
+                        GlassModule.updateCheckboxUI();
+                        break;
+        }
 }
 
 export function invertColor(hex, isBlackWhite) {

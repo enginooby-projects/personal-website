@@ -368,9 +368,9 @@ function portfolioIsotop() {
                 resetSubfilters();
                 techFilters = "";
                 resetTechFilters();
-                // update portfolio button UI
-                ColorModule.updateRadioStates();
-                ColorModule.updateCheckboxShadows();
+                // update portfolio buttons UI
+                ColorModule.updateRadioUI();
+                ColorModule.updateCheckboxUI();
 
                 startFilterring($container, categorize + techFilters);
         });

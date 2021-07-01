@@ -90,6 +90,7 @@ button {
   border-radius: 0.8rem;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
           box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+  padding: 15px 20px 7px;
 }
 
 .button-border {
@@ -211,10 +212,6 @@ button {
 
 .resume-title:hover .border-style {
   width: 90px;
-}
-
-.box-border {
-  padding: 15 15 0 15;
 }
 
 .icon-image i {
@@ -1388,32 +1385,13 @@ header {
   min-height: 140px;
 }
 
-.badge i {
-  position: relative;
-  bottom: 0.05rem;
-}
-
 .skill-item {
-  border-radius: 0.8rem !important;
+  border-radius: 0.6rem !important;
 }
 
 .skill-boxes .image-border {
-  border-radius: 0.8rem !important;
+  border-radius: 0.6rem !important;
   padding: 2px !important;
-}
-
-.skill-boxes p {
-  font-size: 1.15rem !important;
-}
-
-.badge-border {
-  border-radius: 0.8rem !important;
-  display: inline-block;
-  padding: 1px;
-}
-
-.badge {
-  display: inline-block;
 }
 
 .skillset h5 {
@@ -1422,6 +1400,45 @@ header {
 
 .skillset .border-style {
   margin-top: 10px;
+}
+
+.badge i {
+  position: relative;
+  bottom: 0.05rem;
+}
+
+.skill-boxes p {
+  font-size: 1.15rem !important;
+}
+
+.badge-border {
+  border-radius: 0.6rem !important;
+  display: inline-block;
+  padding: 2px;
+  margin: 0 4px 10px;
+}
+
+.badge {
+  display: inline-block;
+}
+
+.badge.badge-pill {
+  /* vertical center */
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-weight: 300 !important;
+  color: white;
+  margin: 2px;
+  border-radius: 0.5rem !important;
+}
+
+.badge > .badge {
+  font-size: 75% !important;
+  padding: 0.15rem 0.3rem !important;
+  margin: 0 !important;
+  position: relative;
+  bottom: 0.09rem;
 }
 
 /*-------------------------
