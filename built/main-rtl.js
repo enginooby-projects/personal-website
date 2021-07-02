@@ -1,3 +1,4 @@
+"use strict";
 // repeated variables
 var $window = $(window);
 var $root = $('html, body');

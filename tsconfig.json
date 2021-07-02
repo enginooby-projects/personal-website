@@ -2,10 +2,25 @@
         "compilerOptions": {
                 "outDir": "./built",
                 "allowJs": true,
-                "checkJs": true,
                 "target": "es5",
                 "module": "es6",
-                "esModuleInterop": true
+                "esModuleInterop": true, /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+                "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
+                "allowUnreachableCode": false,
+                "allowUnusedLabels": false,
+                "alwaysStrict": true,
+                "noImplicitAny": true,
+                "noImplicitReturns": true,
+                "noImplicitThis": true,
+                "noFallthroughCasesInSwitch": true,
+                "noUnusedLocals": true,
+                "noUnusedParameters": true,
+                "suppressExcessPropertyErrors": false,
+                "suppressImplicitAnyIndexErrors": false,
+                "strictFunctionTypes": true,
+                "strictNullChecks": true,
+                "strictPropertyInitialization": true,
+                "checkJs": true // If you are still using some js files
         },
         "include": [
                 "./src/**/*"

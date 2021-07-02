@@ -78,7 +78,6 @@
         <script src="assets/js/import/owl.carousel.min.js"></script>
         <script src="assets/js/import/tinycolor.js"></script>
         <script src="built/main.js" type="module"></script>
-        <!-- <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 </body>
 
 </html>

@@ -2,9 +2,11 @@ import * as ColorSelectors from './color-selectors.js';
 import * as NeuModule from './neu-style.js';
 import * as FlatModule from './flat-style.js';
 import * as GlassModule from './glass-style.js';
+// import tinycolor from 'tinycolor2';
+// import $ from "jquery";
 var styleSheet;
 var $squareImg;
-// COLORS
+// COLORFULL
 var colorfull1;
 var colorfull2;
 var colorfull3;
@@ -18,8 +20,6 @@ var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
 export var Styles = Object.freeze({ "FLAT": 1, "NEU": 2, "GLASS": 3 });
 export var currentStyle = Styles.NEU;
-// FLAT STYLE
-var flatBoxShadow;
 // PSEUDO RULES
 export var trackScrollbarRule;
 export var thumbScrollbarRule;
@@ -43,10 +43,10 @@ export function init() {
     thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
-    var selectionbackgroud = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+    var selectionbackground = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
     if (window.chrome) {
         console.log("chrome");
-        selectionRule = cssRules[styleSheet.insertRule("::selection  {background: " + selectionbackgroud + "}")];
+        selectionRule = cssRules[styleSheet.insertRule("::selection  {background: " + selectionbackground + "}")];
     }
     // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
     // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
@@ -92,11 +92,9 @@ function setupEvents() {
 function setupColorPickerEvents() {
     $("#highlight-color-picker").on('input', function (event) {
         updateHighlightColor(event.target.value);
-        console.log(tinycolor.readability(schemeColor, highlightColor));
     });
     $("#scheme-color-picker").on('input', function (event) {
         updateSchemeColor(event.target.value);
-        console.log(tinycolor.readability(schemeColor, highlightColor));
     });
 }
 function setupColorHoverEvents() {
@@ -138,13 +136,15 @@ function setupColorClickEvents() {
             $(".segmented-control label[for='" + this.id + "']").css('color', mutedBaseColor);
         });
     });
-    $('#portfolio .pill-button').click(resetUncheckedButtons);
+    $('#portfolio .pill-button').click(function () {
+        resetUncheckedButtons(this);
+    });
 }
-function resetUncheckedButtons() {
+function resetUncheckedButtons(checkedButton) {
     if (currentStyle == Styles.NEU)
-        $('#portfolio .pill-button').not(this).css('box-shadow', '');
+        $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
     if (currentStyle == Styles.FLAT)
-        $('#portfolio .pill-button').not(this).css('background', 'transparent');
+        $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 function updateHighlightColor(newColor) {
     highlightColor = newColor;
@@ -172,7 +172,7 @@ function updatePseudoElements() {
     placeholderRule.style.color = mutedBaseColor;
     papePilingTooltipRule.style.color = baseColor;
     if (window.chrome) {
-        selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+        // selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
     }
     // selectionOldFirefoxRule.background = highlightColor;
 }
@@ -209,7 +209,7 @@ export function updateCheckboxUI() {
             FlatModule.updateCheckboxUI();
             break;
         case Styles.GLASS:
-            GlassModule.updateCheckboxUI();
+            // GlassModule.updateCheckboxUI();
             break;
     }
 }
@@ -230,11 +230,11 @@ export function invertColor(hex, isBlackWhite) {
         return (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? darkBaseColor : lightBaseColor;
     }
     // invert color components
-    r = (255 - r).toString(16);
-    g = (255 - g).toString(16);
-    b = (255 - b).toString(16);
+    var rString = (255 - r).toString(16);
+    var bString = (255 - b).toString(16);
+    var gString = (255 - g).toString(16);
     // pad each with zeros and return
-    return "#" + padZero(r) + padZero(g) + padZero(b);
+    return "#" + padZero(rString) + padZero(gString) + padZero(bString);
 }
 function padZero(str, len) {
     len = len || 2;

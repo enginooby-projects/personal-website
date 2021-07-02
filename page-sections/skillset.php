@@ -250,6 +250,9 @@
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull1"><i class="fab fa-wordpress"></i> WordPress <span class="badge badge-light">20</span></span>
                                                                 </div>
+                                                                <div class="badge-border">
+                                                                        <span class="badge badge-pill background-colorfull1"> npm </span>
+                                                                </div>
                                                         </div>
                                                 </div>
                                         </div>
