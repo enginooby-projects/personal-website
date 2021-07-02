@@ -3,7 +3,7 @@ $subjects = array(
         // array('Computer', '-', '-', '5.0'),
         array('Software Engineering', 'Software development cycle - Testing - Scrum - UML', 'StarUML', '5.0'),
         array('Linear Algebra', 'Vector - Matrix - Determinant', '-', '4.5'),
-        array('Algorithms & Data Structures', 'Graph - Tree - Sorting - Dynamic programming', 'Java Core', '5.0'),
+        array('Algorithms & Data Structures', 'Computational complexity - Graph - Tree - Sorting - Dynamic programming', 'Java Core', '5.0'),
         array('Object Oriented Programming', 'Encapsulation - Polymorphism  - Inheritance - (Abstract) Class - Interface - Generics', 'Java Core  - JUnit -  Swing - MySQL', '5.0'),
         array('Operating Systems', '-', 'Windows OS - Linux OS', '5.0'),
 

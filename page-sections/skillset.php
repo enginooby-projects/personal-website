@@ -83,6 +83,9 @@
                                                                         <span class="badge badge-pill background-colorfull1">Computer Graphics</span>
                                                                 </div>
                                                                 <div class="badge-border">
+                                                                        <span class="badge badge-pill background-colorfull1">Quantum Computing</span>
+                                                                </div>
+                                                                <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull1">Mathematics</span>
                                                                 </div>
                                                         </div>

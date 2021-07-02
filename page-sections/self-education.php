@@ -87,7 +87,7 @@ function displayCourse($name, $percent, $url = '')
                                 <!-- TODO: Start update progress bars when just moving into this section -->
                                 <div class=" row justify-content-center">
                                         <?php
-                                        displayBook('clean-code.jpg', ((-27 + 113) + (-152 + 158) + (-166 + 182)) / (-26 + 345));
+                                        displayBook('clean-code.jpg', ((-26   + 182) + (-202 + 207)) / (-25 + 345));
                                         displayBook('head-first-design-patterns.jpg', 20 / 629);
                                         displayBook('gof.jpg', ((52 - 0) + (152 - 144)) / 396);
                                         displayBook('game-programming-patterns.jpg', 0 / 560);
@@ -114,6 +114,7 @@ function displayCourse($name, $percent, $url = '')
                                         displayCourse('Complete C# Unity Game Developer 3D', 35, "https://www.udemy.com/course/unitycourse2/");
                                         displayCourse('Unreal Engine C++ Developer', 10, "https://www.udemy.com/course/unrealcourse/");
                                         displayCourse('Machine Learning', (3 / 57) * 100, "https://www.coursera.org/learn/machine-learning");
+                                        displayCourse('Understanding Quantum Computers', 7, "https://www.futurelearn.com/courses/intro-to-quantum-computing");
                                         displayCourse('Mobile App Development Mini-Degree', (100 + 35) / 7, "https://academy.zenva.com/product/mobile-development-mini-degree/");
                                         displayCourse('Three.js and TypeScript', 100, "https://www.udemy.com/certificate/UC-825b45a2-3986-4fbf-a0d5-456eeefbe0d8/");
                                         displayCourse('Git Complete', 100, "https://www.udemy.com/certificate/UC-3b47fecf-2595-4bcf-8c64-2a69a8bd9e03/");
