@@ -82,8 +82,8 @@ var NeuStyle = /** @class */ (function (_super) {
         _this.dropBoxShadow = '';
         _this.concaveBoxShadow = '';
         _this.thumbScrollbarBoxShadow = '';
-        _this.neuDistance = '3px';
-        _this.neuBlur = '8px';
+        _this.distance = 3;
+        _this.blur = 8;
         _this.lightenIntensity = 7;
         _this.darkenIntensity = 7;
         return _this;
@@ -94,7 +94,7 @@ var NeuStyle = /** @class */ (function (_super) {
         this.setupClickEvents();
         this.setupHoverEvents();
         this.initRangeSliders();
-        // this.setupRangeSliderEvents();
+        this.setupRangeSliderEvents();
         this.updateRadioUI();
         $(".customizer").hide();
         $("#neo-customizer").show();
@@ -147,10 +147,10 @@ var NeuStyle = /** @class */ (function (_super) {
     NeuStyle.prototype.update = function () {
         this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, this.lightenIntensity);
         this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, this.darkenIntensity);
-        this.dropBoxShadow = this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
-        this.insetBoxShadow = "inset " + this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", inset -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
+        this.dropBoxShadow = this.distance + "px " + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
+        this.insetBoxShadow = "inset " + this.distance + "px " + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", inset -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
         this.concaveBoxShadow = this.dropBoxShadow + ", " + this.insetBoxShadow; // TODO: Does not look good!
-        this.thumbScrollbarBoxShadow = "inset -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", inset " + this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
+        this.thumbScrollbarBoxShadow = "inset -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", inset " + this.distance + "px " + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
         $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
         $(backgroundTransparentSelectors).css("background", 'transparent');
         $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor);
@@ -185,10 +185,10 @@ var NeuStyle = /** @class */ (function (_super) {
         });
     };
     NeuStyle.prototype.initRangeSliders = function () {
-        $('#distance').attr('value', this.neuDistance.replace('px', ''));
-        $("#distance").next('.range-slider__value').html(this.neuDistance.replace('px', ''));
-        $('#blur').attr('value', this.neuBlur.replace('px', ''));
-        $("#blur").next('.range-slider__value').html(this.neuBlur.replace('px', ''));
+        $('#distance').attr('value', this.distance);
+        $("#distance").next('.range-slider__value').html(this.distance.toString());
+        $('#blur').attr('value', this.blur);
+        $("#blur").next('.range-slider__value').html(this.blur.toString());
         $('#light-intensity').attr('value', this.lightenIntensity);
         $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
         $('#dark-intensity').attr('value', this.darkenIntensity);
@@ -196,24 +196,25 @@ var NeuStyle = /** @class */ (function (_super) {
     };
     NeuStyle.prototype.setupRangeSliderEvents = function () {
         var _this = this;
-        $("#distance").on('input', function (event) {
-            $(_this).next('.range-slider__value').html(_this.value);
-            _this.neuDistance = _this.value + "px";
-            _this.update();
-        });
-        $("#blur").on('input', function (event) {
-            $(_this).next('.range-slider__value').html(_this.value);
-            _this.neuBlur = _this.value + "px";
-            _this.update();
-        });
-        $("#light-intensity").on('input', function (event) {
-            $(_this).next('.range-slider__value').html(_this.value);
-            _this.lightenIntensity = _this.value;
-            _this.update();
-        });
-        $("#dark-intensity").on('input', function (event) {
-            $(_this).next('.range-slider__value').html(_this.value);
-            _this.darkenIntensity = _this.value;
+        $("#distance, #blur, #light-intensity, #dark-intensity").on('input', function (event) {
+            var newValue = event.target.value;
+            console.log(newValue);
+            $(event.target.id).next('.range-slider__value').html(newValue);
+            console.log(event.target.id);
+            switch (event.target.id) {
+                case 'distance':
+                    _this.distance = parseInt(newValue);
+                    break;
+                case 'blur':
+                    _this.blur = parseInt(newValue);
+                    break;
+                case 'light-intensity':
+                    _this.lightenIntensity = parseInt(newValue);
+                    break;
+                case 'dark-intensity':
+                    _this.darkenIntensity = parseInt(newValue);
+                    break;
+            }
             _this.update();
         });
     };

@@ -68,12 +68,14 @@ function formatString(selectorsArray: string[]): string {
 export class NeuStyle extends Style {
         lightenSchemeColor: string = "#ffffff";
         darkenSchemeColor: string = "#dcdee2";
+
         insetBoxShadow: string = '';
         dropBoxShadow: string = '';
         concaveBoxShadow: string = '';
         thumbScrollbarBoxShadow: string = '';
-        neuDistance: string = '3px';
-        neuBlur: string = '8px';
+
+        distance: number = 3;
+        blur: number = 8;
         lightenIntensity: number = 7;
         darkenIntensity: number = 7;
 
@@ -83,7 +85,7 @@ export class NeuStyle extends Style {
                 this.setupClickEvents();
                 this.setupHoverEvents();
                 this.initRangeSliders();
-                // this.setupRangeSliderEvents();
+                this.setupRangeSliderEvents();
                 this.updateRadioUI();
                 $(".customizer").hide();
                 $("#neo-customizer").show();
@@ -150,10 +152,10 @@ export class NeuStyle extends Style {
         update(): void {
                 this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, this.lightenIntensity);
                 this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, this.darkenIntensity);
-                this.dropBoxShadow = `${this.neuDistance} ${this.neuDistance} ${this.neuBlur} ${this.darkenSchemeColor}, -${this.neuDistance} -${this.neuDistance} ${this.neuBlur} ${this.lightenSchemeColor}`;
-                this.insetBoxShadow = `inset ${this.neuDistance} ${this.neuDistance} ${this.neuBlur} ${this.darkenSchemeColor}, inset -${this.neuDistance} -${this.neuDistance} ${this.neuBlur} ${this.lightenSchemeColor}`;
+                this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
+                this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
                 this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`;         // TODO: Does not look good!
-                this.thumbScrollbarBoxShadow = `inset -${this.neuDistance} -${this.neuDistance} ${this.neuBlur} ${this.darkenSchemeColor}, inset ${this.neuDistance} ${this.neuDistance} ${this.neuBlur} ${this.lightenSchemeColor}`;
+                this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
 
                 $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
                 $(backgroundTransparentSelectors).css("background", 'transparent');
@@ -199,10 +201,10 @@ export class NeuStyle extends Style {
         }
 
         initRangeSliders() {
-                $('#distance').attr('value', this.neuDistance.replace('px', ''));
-                $("#distance").next('.range-slider__value').html(this.neuDistance.replace('px', ''));
-                $('#blur').attr('value', this.neuBlur.replace('px', ''));
-                $("#blur").next('.range-slider__value').html(this.neuBlur.replace('px', ''));
+                $('#distance').attr('value', this.distance);
+                $("#distance").next('.range-slider__value').html(this.distance.toString());
+                $('#blur').attr('value', this.blur);
+                $("#blur").next('.range-slider__value').html(this.blur.toString());
                 $('#light-intensity').attr('value', this.lightenIntensity);
                 $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
                 $('#dark-intensity').attr('value', this.darkenIntensity);
@@ -210,27 +212,25 @@ export class NeuStyle extends Style {
         }
 
         setupRangeSliderEvents() {
-                $("#distance").on('input', (event) => {
-                        $(this).next('.range-slider__value').html(this.value);
-                        this.neuDistance = this.value + "px";
-                        this.update();
-                });
-
-                $("#blur").on('input', (event) => {
-                        $(this).next('.range-slider__value').html(this.value);
-                        this.neuBlur = this.value + "px";
-                        this.update();
-                });
-
-                $("#light-intensity").on('input', (event) => {
-                        $(this).next('.range-slider__value').html(this.value);
-                        this.lightenIntensity = this.value;
-                        this.update();
-                });
-
-                $("#dark-intensity").on('input', (event) => {
-                        $(this).next('.range-slider__value').html(this.value);
-                        this.darkenIntensity = this.value;
+                $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
+                        const newValue = (event.target as HTMLInputElement).value;
+                        console.log(newValue);
+                        $(event.target.id).next('.range-slider__value').html(newValue);
+                        console.log(event.target.id);
+                        switch (event.target.id) {
+                                case 'distance':
+                                        this.distance = parseInt(newValue);
+                                        break;
+                                case 'blur':
+                                        this.blur = parseInt(newValue);
+                                        break;
+                                case 'light-intensity':
+                                        this.lightenIntensity = parseInt(newValue);
+                                        break;
+                                case 'dark-intensity':
+                                        this.darkenIntensity = parseInt(newValue);
+                                        break;
+                        }
                         this.update();
                 });
         };
