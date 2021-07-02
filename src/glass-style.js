@@ -1,4 +1,4 @@
-import * as ColorModule from './DynamicTheming.js';
+import * as ColorModule from './DynamicTheme.js';
 
 var blur = '16px';
 var transparency = '0.5'
