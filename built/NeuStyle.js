@@ -13,7 +13,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as ColorModule from './DynamicTheme.js';
+import * as DynamicTheme from './DynamicTheme.js';
+import ColorUtility from './ColorUtility.js';
 import { Style } from './Style.js';
 var backgroundSchemeColorSelectors = formatString([
     ".section",
@@ -83,8 +84,8 @@ var NeuStyle = /** @class */ (function (_super) {
         _this.thumbScrollbarBoxShadow = '';
         _this.neuDistance = '3px';
         _this.neuBlur = '8px';
-        _this.neuLightIntensity = 7;
-        _this.neuDarkIntensity = 7;
+        _this.lightenIntensity = 7;
+        _this.darkenIntensity = 7;
         return _this;
     }
     NeuStyle.prototype.onEnable = function () {
@@ -127,59 +128,59 @@ var NeuStyle = /** @class */ (function (_super) {
     NeuStyle.prototype.setupClickEvents = function () {
         var _this = this;
         $(".segmented-control input").off('click').on('click', function (event) {
-            $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', ColorModule.highlightColor);
+            $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor);
             $(".segmented-control input[type='radio']:not(:checked)").each(function () {
-                $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', ColorModule.mutedBaseColor);
+                $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
         $(".checkbox input").off('click').on('click', function (event) {
             if (!$(event.currentTarget).prop("checked")) {
-                $(event.currentTarget).siblings(".name").css('color', ColorModule.mutedBaseColor);
+                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.dropBoxShadow);
             }
             else {
-                $(event.currentTarget).siblings(".name").css('color', ColorModule.highlightColor);
+                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor);
                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.concaveBoxShadow);
             }
         });
     };
     NeuStyle.prototype.update = function () {
-        this.lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(this.neuLightIntensity).toString();
-        this.darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(this.neuDarkIntensity).toString();
+        this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, this.lightenIntensity);
+        this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, this.darkenIntensity);
         this.dropBoxShadow = this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
         this.insetBoxShadow = "inset " + this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", inset -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
         this.concaveBoxShadow = this.dropBoxShadow + ", " + this.insetBoxShadow; // TODO: Does not look good!
         this.thumbScrollbarBoxShadow = "inset -" + this.neuDistance + " -" + this.neuDistance + " " + this.neuBlur + " " + this.darkenSchemeColor + ", inset " + this.neuDistance + " " + this.neuDistance + " " + this.neuBlur + " " + this.lightenSchemeColor;
-        $(backgroundSchemeColorSelectors).css("background-color", ColorModule.schemeColor);
+        $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
         $(backgroundTransparentSelectors).css("background", 'transparent');
-        $(colorHighlightColorSelectors).css("color", ColorModule.highlightColor);
+        $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor);
         $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
         $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
-        ColorModule.trackScrollbarRule.style.boxShadow = this.insetBoxShadow;
-        ColorModule.thumbScrollbarRule.style.boxShadow = this.thumbScrollbarBoxShadow;
-        ColorModule.trackScrollbarRule.style.background = ColorModule.schemeColor;
-        ColorModule.thumbScrollbarRule.style.background = ColorModule.schemeColor;
+        DynamicTheme.trackScrollbarRule.style.boxShadow = this.insetBoxShadow;
+        DynamicTheme.thumbScrollbarRule.style.boxShadow = this.thumbScrollbarBoxShadow;
+        DynamicTheme.trackScrollbarRule.style.background = DynamicTheme.schemeColor;
+        DynamicTheme.thumbScrollbarRule.style.background = DynamicTheme.schemeColor;
     };
     NeuStyle.prototype.updateRadioUI = function () {
         $("input[type='radio']:checked").each(function () {
-            $("label[for='" + this.id + "']").css('color', ColorModule.highlightColor);
+            $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor);
         });
         $("input[type='radio']:not(:checked)").each(function () {
-            $("label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+            $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
             // $(" label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
         });
     };
     NeuStyle.prototype.updateCheckboxUI = function () {
         var _this = this;
         $("input[type='checkbox']:checked").each(function (i, currentElement) {
-            $("label[for='" + currentElement.id + "'] i").css('color', ColorModule.highlightColor);
-            $("label[for='" + currentElement.id + "']").next().css('color', ColorModule.highlightColor);
+            $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.highlightColor);
+            $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.highlightColor);
             $("label[for='" + currentElement.id + "']").css('box-shadow', _this.concaveBoxShadow);
         });
         $("input[type='checkbox']:not(:checked)").each(function (i, currentElement) {
-            $("label[for='" + currentElement.id + "'] i").css('color', ColorModule.mutedBaseColor);
-            $("label[for='" + currentElement.id + "']").next().css('color', ColorModule.mutedBaseColor);
+            $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
+            $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
             $("label[for='" + currentElement.id + "']").css('box-shadow', _this.dropBoxShadow);
         });
     };
@@ -188,10 +189,10 @@ var NeuStyle = /** @class */ (function (_super) {
         $("#distance").next('.range-slider__value').html(this.neuDistance.replace('px', ''));
         $('#blur').attr('value', this.neuBlur.replace('px', ''));
         $("#blur").next('.range-slider__value').html(this.neuBlur.replace('px', ''));
-        $('#light-intensity').attr('value', this.neuLightIntensity);
-        $("#light-intensity").next('.range-slider__value').html(this.neuLightIntensity.toString());
-        $('#dark-intensity').attr('value', this.neuDarkIntensity);
-        $("#dark-intensity").next('.range-slider__value').html(this.neuDarkIntensity.toString());
+        $('#light-intensity').attr('value', this.lightenIntensity);
+        $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
+        $('#dark-intensity').attr('value', this.darkenIntensity);
+        $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
     };
     NeuStyle.prototype.setupRangeSliderEvents = function () {
         var _this = this;
@@ -207,12 +208,12 @@ var NeuStyle = /** @class */ (function (_super) {
         });
         $("#light-intensity").on('input', function (event) {
             $(_this).next('.range-slider__value').html(_this.value);
-            _this.neuLightIntensity = _this.value;
+            _this.lightenIntensity = _this.value;
             _this.update();
         });
         $("#dark-intensity").on('input', function (event) {
             $(_this).next('.range-slider__value').html(_this.value);
-            _this.neuDarkIntensity = _this.value;
+            _this.darkenIntensity = _this.value;
             _this.update();
         });
     };

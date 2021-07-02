@@ -1,8 +1,7 @@
 import * as ColorSelectors from './color-selectors.js';
 import { FlatStyle } from './FlatStyle.js';
 import { NeuStyle } from './NeuStyle.js';
-// import tinycolor from 'tinycolor2';
-// import $ from "jquery";
+import ColorUtility from './ColorUtility.js';
 var styleSheet;
 var $squareImg;
 // COLORFULL
@@ -152,14 +151,10 @@ function updatePseudoElements() {
     thumbScrollbarRule.style.background = schemeColor;
     placeholderRule.style.color = mutedBaseColor;
     papePilingTooltipRule.style.color = baseColor;
-    if (window.chrome) {
-        // selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
-    }
-    // selectionOldFirefoxRule.background = highlightColor;
 }
 function updateBaseColor() {
     var lastBaseColor = baseColor;
-    baseColor = invertColor(schemeColor, true);
+    baseColor = ColorUtility.getInvert(schemeColor, true);
     mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
     var heroImg = (baseColor == lightBaseColor) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', "assets/img/" + heroImg + ".png");
@@ -167,32 +162,4 @@ function updateBaseColor() {
         currentStyle.updateRadioUI();
         currentStyle.updateCheckboxUI();
     }
-}
-export function invertColor(hex, isBlackWhite) {
-    if (hex.indexOf('#') === 0) {
-        hex = hex.slice(1);
-    }
-    // convert 3-digit hex to 6-digits.
-    if (hex.length === 3) {
-        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-    }
-    if (hex.length !== 6) {
-        throw new Error('Invalid HEX color.');
-    }
-    var r = parseInt(hex.slice(0, 2), 16), g = parseInt(hex.slice(2, 4), 16), b = parseInt(hex.slice(4, 6), 16);
-    if (isBlackWhite) {
-        // http://stackoverflow.com/a/3943023/112731
-        return (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? darkBaseColor : lightBaseColor;
-    }
-    // invert color components
-    var rString = (255 - r).toString(16);
-    var bString = (255 - b).toString(16);
-    var gString = (255 - g).toString(16);
-    // pad each with zeros and return
-    return "#" + padZero(rString) + padZero(gString) + padZero(bString);
-}
-function padZero(str, len) {
-    len = len || 2;
-    var zeros = new Array(len).join('0');
-    return (zeros + str).slice(-len);
 }

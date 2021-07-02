@@ -13,8 +13,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// import tinycolor from 'tinycolor2';
-import * as ColorModule from './DynamicTheme.js';
+import ColorUtility from './ColorUtility.js';
+import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 var lightenIntensity = 5;
 var darkenIntensity = 5;
@@ -87,7 +87,7 @@ var FlatStyle = /** @class */ (function (_super) {
     };
     FlatStyle.prototype.setupHoverEvents = function () {
         $(" .pill-button").off('mouseenter mouseleave').hover(function () {
-            $(this).css('background', tinycolor(ColorModule.highlightColor).darken(15).toString());
+            $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!$(this).hasClass('active'))
@@ -95,14 +95,14 @@ var FlatStyle = /** @class */ (function (_super) {
         });
         $(" .pallet-button").off('mouseenter mouseleave');
         $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(function () {
-            $(this).css('background', ColorModule.highlightColor);
+            $(this).css('background', DynamicTheme.highlightColor);
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!$(this).hasClass('active'))
                 $(this).css('background', '');
         });
         $("table>tbody>tr").off('mouseenter mouseleave').hover(function () {
-            $(this).css('background', ColorModule.highlightColor);
+            $(this).css('background', DynamicTheme.highlightColor);
         }, function () {
             $(this).css('background', '');
         });
@@ -110,48 +110,48 @@ var FlatStyle = /** @class */ (function (_super) {
     };
     FlatStyle.prototype.setupClickEvents = function () {
         $(".segmented-control input").off('click').click(function () {
-            $(".segmented-control label[for='" + this.id + "']").css('color', ColorModule.baseColor);
+            $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
             $(".segmented-control input[type='radio']:not(:checked)").each(function () {
-                $(".segmented-control label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+                $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
         $(".checkbox input").off('click').click(function () {
             if (!$(this).prop("checked")) {
-                $(this).siblings(".name").css('color', ColorModule.mutedBaseColor);
+                $(this).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
             }
             else {
-                $(this).siblings(".name").css('color', ColorModule.highlightColor);
+                $(this).siblings(".name").css('color', DynamicTheme.highlightColor);
             }
         });
     };
     FlatStyle.prototype.update = function () {
-        this.lightenSchemeColor = tinycolor(ColorModule.schemeColor).lighten(lightenIntensity).toString();
-        this.darkenSchemeColor = tinycolor(ColorModule.schemeColor).darken(darkenIntensity).toString();
-        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorModule.invertColor(ColorModule.highlightColor, true));
+        this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, lightenIntensity);
+        this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, darkenIntensity);
+        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
         $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
-        $(backgroundHighlightColorSelectors).css('background', ColorModule.highlightColor);
+        $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor);
         $(backgroundTransparentSelectors).css('background', 'transparent');
-        $(colorBaseColorSelectors).css('color', ColorModule.baseColor);
+        $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
         $(noneBoxShadowSelectors).css('box-shadow', 'none');
-        ColorModule.trackScrollbarRule.style.background = this.lightenSchemeColor;
-        ColorModule.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+        DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
+        DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
     };
     FlatStyle.prototype.updateRadioUI = function () {
         $("input[type='radio']:checked").each(function () {
-            $("label[for='" + this.id + "']").css('color', ColorModule.invertColor(ColorModule.highlightColor, true));
+            $("label[for='" + this.id + "']").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
         });
         $("input[type='radio']:not(:checked)").each(function () {
-            $("label[for='" + this.id + "']").css('color', ColorModule.mutedBaseColor);
+            $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
         });
     };
     FlatStyle.prototype.updateCheckboxUI = function () {
         $("input[type='checkbox']:checked").each(function () {
-            $("label[for='" + this.id + "'] i").css('color', ColorModule.highlightColor);
-            $("label[for='" + this.id + "']").next().css('color', ColorModule.highlightColor);
+            $("label[for='" + this.id + "'] i").css('color', DynamicTheme.highlightColor);
+            $("label[for='" + this.id + "']").next().css('color', DynamicTheme.highlightColor);
         });
         $("input[type='checkbox']:not(:checked)").each(function () {
-            $("label[for='" + this.id + "'] i").css('color', ColorModule.mutedBaseColor);
-            $("label[for='" + this.id + "']").next().css('color', ColorModule.mutedBaseColor);
+            $("label[for='" + this.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
+            $("label[for='" + this.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
         });
     };
     return FlatStyle;
