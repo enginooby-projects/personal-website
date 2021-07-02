@@ -1,0 +1,27 @@
+{
+  "name": "pilling-parallax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/tinycolor2": "^1.4.2",
+    "tinycolor2": "^1.4.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enginoobz-projects/portfolio-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enginoobz-projects/portfolio-test/issues"
+  },
+  "homepage": "https://github.com/enginoobz-projects/portfolio-test#readme"
+}
