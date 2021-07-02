@@ -43,10 +43,9 @@ export function init() {
     thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
-    var selectionbackground = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+    // const selectionbackground = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
     if (window.chrome) {
-        console.log("chrome");
-        selectionRule = cssRules[styleSheet.insertRule("::selection  {background: " + selectionbackground + "}")];
+        // selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackground}}`)] as CSSStyleRule;
     }
     // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
     // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];

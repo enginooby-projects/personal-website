@@ -1,4 +1,4 @@
-import * as ColorModule from './color.js';
+import * as ColorModule from './DynamicTheming.js';
 var backgroundSchemeColorSelectors = formatString([
     ".section",
     " .button-border",

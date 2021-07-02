@@ -1,4 +1,4 @@
-import * as ColorModule from './color.js';
+import * as ColorModule from './DynamicTheming.js';
 var lightenSchemeColor = "#680317";
 var darkenSchemeColor = "#680317";
 var lightenIntensity = 5;

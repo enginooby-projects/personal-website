@@ -2,41 +2,40 @@ import * as ColorSelectors from './color-selectors.js'
 import * as NeuModule from './neu-style.js'
 import * as FlatModule from './flat-style.js'
 import * as GlassModule from './glass-style.js'
+// import tinycolor from 'tinycolor2';
+// import $ from "jquery";
 
-var styleSheet;
-var $squareImg;
+let styleSheet: CSSStyleSheet;
+let $squareImg: JQuery<HTMLElement>;
 
-// COLORS
-var colorfull1;
-var colorfull2;
-var colorfull3;
+// COLORFULL
+let colorfull1: string;
+let colorfull2: string;
+let colorfull3: string;
 
-export var schemeColor = "#680317";// "#f1f3f6";
-export var highlightColor = "#227DD8";
-export var baseColor;
-export var mutedBaseColor;
-const lightBaseColor = "#EBEBEB";
-const darkBaseColor = "#212529";
-const lightMutedBaseColor = "#b2b2b2";
-const darkMutedBaseColor = "#4D4D4D";
+export let schemeColor: string = "#680317";// "#f1f3f6";
+export let highlightColor: string = "#227DD8";
+export let baseColor: string;
+export let mutedBaseColor: string;
+const lightBaseColor: string = "#EBEBEB";
+const darkBaseColor: string = "#212529";
+const lightMutedBaseColor: string = "#b2b2b2";
+const darkMutedBaseColor: string = "#4D4D4D";
 
 export const Styles = Object.freeze({ "FLAT": 1, "NEU": 2, "GLASS": 3 });
-export var currentStyle = Styles.NEU;
-
-// FLAT STYLE
-var flatBoxShadow;
+export let currentStyle = Styles.NEU;
 
 // PSEUDO RULES
-export var trackScrollbarRule;
-export var thumbScrollbarRule;
-var placeholderRule;
-var papePilingTooltipRule;
-var selectionRule;
-var selectionOldFirefoxRule;
+export let trackScrollbarRule: CSSStyleRule;
+export let thumbScrollbarRule: CSSStyleRule;
+let placeholderRule: CSSStyleRule;
+let papePilingTooltipRule: CSSStyleRule;
+let selectionRule: CSSStyleRule;
+let selectionOldFirefoxRule: CSSStyleRule;
 
 function getStyleSheet() {
-        for (var i = 0; i < document.styleSheets.length; i++) {
-                var cursheet = document.styleSheets[i];
+        for (let i = 0; i < document.styleSheets.length; i++) {
+                let cursheet = document.styleSheets[i];
                 if (cursheet.title == 'style') styleSheet = cursheet;
         }
 }
@@ -47,15 +46,14 @@ export function init() {
 
         $squareImg = $(".hero-image .square img");
         const cssRules = styleSheet.cssRules || styleSheet.rules;
+        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {border-radius: 15px;}`)] as CSSStyleRule;
+        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)] as CSSStyleRule;
+        placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
+        papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
 
-        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {border-radius: 15px;}`)];
-        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)];
-        placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
-        papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
-        const selectionbackgroud = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
-        if (window.chrome) {
-                console.log("chrome");
-                selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackgroud}}`)];
+        // const selectionbackground = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+        if ((window as any).chrome) {
+                // selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackground}}`)] as CSSStyleRule;
         }
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
         // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
@@ -67,7 +65,7 @@ export function init() {
         updateHighlightColor(highlightColor);
 }
 
-export function updateStyle(newStyle) {
+export function updateStyle(newStyle: any) {
         currentStyle = newStyle;
         // TODO: use interface
         switch (currentStyle) {
@@ -105,13 +103,11 @@ function setupEvents() {
 
 function setupColorPickerEvents() {
         $("#highlight-color-picker").on('input', function (event) {
-                updateHighlightColor(event.target.value);
-                console.log(tinycolor.readability(schemeColor, highlightColor));
+                updateHighlightColor((event.target as any).value);
         });
 
         $("#scheme-color-picker").on('input', function (event) {
-                updateSchemeColor(event.target.value);
-                console.log(tinycolor.readability(schemeColor, highlightColor));
+                updateSchemeColor((event.target as any).value);
         });
 }
 
@@ -126,11 +122,11 @@ function setupColorHoverEvents() {
 
         $(".segmented-control label").hover(
                 function () {
-                        var id = $(this).attr("for");
+                        let id = $(this).attr("for");
                         if (currentStyle == Styles.NEU) $(this).css('color', highlightColor);
                         if (currentStyle == Styles.FLAT && !$("#" + id).prop("checked")) $(this).css('color', highlightColor);
                 }, function () {
-                        var id = $(this).attr("for");
+                        let id = $(this).attr("for");
                         // reset color if the  button not checked
                         if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
                 }
@@ -140,7 +136,7 @@ function setupColorHoverEvents() {
                 function () {
                         $(this).css('color', highlightColor);
                 }, function () {
-                        var id = $(this).parent().attr("for");
+                        let id = $(this).parent().attr("for");
                         // reset color if the  button not checked
                         if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
                 }
@@ -163,15 +159,17 @@ function setupColorClickEvents() {
                 );
         });
 
-        $('#portfolio .pill-button').click(resetUncheckedButtons);
+        $('#portfolio .pill-button').click(function (this: HTMLElement) {
+                resetUncheckedButtons(this);
+        });
 }
 
-function resetUncheckedButtons() {
-        if (currentStyle == Styles.NEU) $('#portfolio .pill-button').not(this).css('box-shadow', '');
-        if (currentStyle == Styles.FLAT) $('#portfolio .pill-button').not(this).css('background', 'transparent');
+function resetUncheckedButtons(checkedButton: HTMLElement) {
+        if (currentStyle == Styles.NEU) $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
+        if (currentStyle == Styles.FLAT) $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 
-function updateHighlightColor(newColor) {
+function updateHighlightColor(newColor: string) {
         highlightColor = newColor;
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
@@ -182,7 +180,7 @@ function updateHighlightColor(newColor) {
         // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
 }
 
-function updateSchemeColor(newColor) {
+function updateSchemeColor(newColor: string) {
         schemeColor = newColor;
         updateBaseColor();
 
@@ -200,8 +198,8 @@ function updatePseudoElements() {
         thumbScrollbarRule.style.background = schemeColor;
         placeholderRule.style.color = mutedBaseColor;
         papePilingTooltipRule.style.color = baseColor;
-        if (window.chrome) {
-                selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
+        if ((window as any).chrome) {
+                // selectionRule.background = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
         }
         // selectionOldFirefoxRule.background = highlightColor;
 }
@@ -242,12 +240,12 @@ export function updateCheckboxUI() {
                         FlatModule.updateCheckboxUI();
                         break;
                 case Styles.GLASS:
-                        GlassModule.updateCheckboxUI();
+                        // GlassModule.updateCheckboxUI();
                         break;
         }
 }
 
-export function invertColor(hex, isBlackWhite) {
+export function invertColor(hex: string, isBlackWhite: boolean) {
         if (hex.indexOf('#') === 0) {
                 hex = hex.slice(1);
         }
@@ -258,7 +256,7 @@ export function invertColor(hex, isBlackWhite) {
         if (hex.length !== 6) {
                 throw new Error('Invalid HEX color.');
         }
-        var r = parseInt(hex.slice(0, 2), 16),
+        let r = parseInt(hex.slice(0, 2), 16),
                 g = parseInt(hex.slice(2, 4), 16),
                 b = parseInt(hex.slice(4, 6), 16);
         if (isBlackWhite) {
@@ -266,15 +264,16 @@ export function invertColor(hex, isBlackWhite) {
                 return (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? darkBaseColor : lightBaseColor;
         }
         // invert color components
-        r = (255 - r).toString(16);
-        g = (255 - g).toString(16);
-        b = (255 - b).toString(16);
+        const rString: string = (255 - r).toString(16);
+        const bString: string = (255 - b).toString(16);
+        const gString: string = (255 - g).toString(16);
+
         // pad each with zeros and return
-        return "#" + padZero(r) + padZero(g) + padZero(b);
+        return "#" + padZero(rString) + padZero(gString) + padZero(bString);
 }
 
-function padZero(str, len) {
+function padZero(str: string, len?: number) {
         len = len || 2;
-        var zeros = new Array(len).join('0');
+        let zeros = new Array(len).join('0');
         return (zeros + str).slice(-len);
 }
