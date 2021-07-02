@@ -1,10 +1,10 @@
-import * as ColorModule from './DynamicTheme.js';
+import * as DynamicTheme from './DynamicTheme.js';
 // repeated variables
 var $window = $(window);
 var $root = $('html, body');
 $(document).ready(function () {
     "use strict";
-    ColorModule.init();
+    DynamicTheme.init();
     clientCarousel();
     pagePilling();
     themeOption();
@@ -120,14 +120,14 @@ function pagePilling() {
             else {
                 // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
             }
-            $("#pp-nav li span").css('background-color', ColorModule.baseColor);
+            $("#pp-nav li span").css('background-color', DynamicTheme.baseColor);
         },
         afterLoad: function (anchorLink, index) {
-            $("#pp-nav li .active span").css('backgroundColor', ColorModule.highlightColor);
+            $("#pp-nav li .active span").css('backgroundColor', DynamicTheme.highlightColor);
         },
         afterRender: function (index) {
-            $("#pp-nav li span").css('background-color', ColorModule.baseColor);
-            $("#pp-nav li .active span").css('backgroundColor', ColorModule.highlightColor);
+            $("#pp-nav li span").css('background-color', DynamicTheme.baseColor);
+            $("#pp-nav li .active span").css('backgroundColor', DynamicTheme.highlightColor);
             if (index > 1) {
                 // $(".special-section").css('color', ColorModule.baseColor);
             }
@@ -365,13 +365,13 @@ function resetSubfilters() {
         var $firstButton = $buttonGroup.children(":first");
         $firstButton.prop("checked", true);
     });
-    ColorModule.updateRadioUI();
+    DynamicTheme.currentStyle.updateRadioUI();
 }
 function resetTechFilters() {
     $('#tech-filters').find("input").each(function (i, checkbox) {
         $(checkbox).prop("checked", false);
     });
-    ColorModule.updateCheckboxUI();
+    DynamicTheme.currentStyle.updateCheckboxUI();
 }
 // HELPERS
 function addClassIfNotExist(selector, className) {

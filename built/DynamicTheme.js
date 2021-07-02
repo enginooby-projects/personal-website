@@ -1,7 +1,6 @@
 import * as ColorSelectors from './color-selectors.js';
-import * as NeuModule from './neu-style.js';
-import * as FlatModule from './flat-style.js';
-import * as GlassModule from './glass-style.js';
+import { FlatStyle } from './FlatStyle.js';
+import { NeuStyle } from './NeuStyle.js';
 // import tinycolor from 'tinycolor2';
 // import $ from "jquery";
 var styleSheet;
@@ -18,8 +17,24 @@ var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
-export var Styles = Object.freeze({ "FLAT": 1, "NEU": 2, "GLASS": 3 });
-export var currentStyle = Styles.NEU;
+export var currentStyle;
+var FLAT_STYLE;
+var NEU_STYLE;
+$(document).ready(function () {
+    FLAT_STYLE = new FlatStyle();
+    NEU_STYLE = new NeuStyle();
+    "use strict";
+    $('.theme-skin li .flat-skin').click(function () {
+        currentStyle = FLAT_STYLE;
+        $(this).addClass('active');
+        currentStyle.onEnable();
+    });
+    $('.theme-skin li .neo-skin').click(function () {
+        currentStyle = NEU_STYLE;
+        $(this).addClass('active');
+        currentStyle.onEnable();
+    });
+});
 // PSEUDO RULES
 export var trackScrollbarRule;
 export var thumbScrollbarRule;
@@ -43,45 +58,13 @@ export function init() {
     thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
-    // const selectionbackground = tinycolor(highlightColor).setAlpha(0.3).toRgbString();
-    if (window.chrome) {
-        // selectionRule = cssRules[styleSheet.insertRule(`::selection  {background: ${selectionbackground}}`)] as CSSStyleRule;
-    }
-    // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${selectionbackgroud}}`)];
-    // selectionOldFirefoxRule = cssRules[styleSheet.insertRule(`::-moz-selection  {background: ${highlightColor}}`)];
-    initStyle();
+    // initStyle();
+    currentStyle = NEU_STYLE;
+    currentStyle.onEnable();
     $("#scheme-color-picker").attr('value', schemeColor);
     $("#highlight-color-picker").attr('value', highlightColor);
     updateSchemeColor(schemeColor);
     updateHighlightColor(highlightColor);
-}
-export function updateStyle(newStyle) {
-    currentStyle = newStyle;
-    // TODO: use interface
-    switch (currentStyle) {
-        case Styles.NEU:
-            NeuModule.update();
-            break;
-        case Styles.FLAT:
-            FlatModule.update();
-            break;
-        case Styles.GLASS:
-            GlassModule.update();
-            break;
-    }
-}
-function initStyle() {
-    switch (currentStyle) {
-        case Styles.NEU:
-            NeuModule.init();
-            break;
-        case Styles.FLAT:
-            FlatModule.init();
-            break;
-        case Styles.GLASS:
-            GlassModule.init();
-            break;
-    }
 }
 function setupEvents() {
     setupColorPickerEvents();
@@ -104,9 +87,9 @@ function setupColorHoverEvents() {
     });
     $(".segmented-control label").hover(function () {
         var id = $(this).attr("for");
-        if (currentStyle == Styles.NEU)
+        if (currentStyle == NEU_STYLE)
             $(this).css('color', highlightColor);
-        if (currentStyle == Styles.FLAT && !$("#" + id).prop("checked"))
+        if (currentStyle == FLAT_STYLE && !$("#" + id).prop("checked"))
             $(this).css('color', highlightColor);
     }, function () {
         var id = $(this).attr("for");
@@ -140,20 +123,18 @@ function setupColorClickEvents() {
     });
 }
 function resetUncheckedButtons(checkedButton) {
-    if (currentStyle == Styles.NEU)
+    if (currentStyle == NEU_STYLE)
         $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
-    if (currentStyle == Styles.FLAT)
+    if (currentStyle == FLAT_STYLE)
         $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 function updateHighlightColor(newColor) {
     highlightColor = newColor;
     $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
     $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
-    updateRadioUI();
-    updateCheckboxUI();
-    updateStyle(currentStyle);
-    // TODO: overide important css rule for pp
-    // $("#pp-nav li .active span").each(function () { this.style.setProperty('background-color', 'red', 'important'); });
+    currentStyle.updateRadioUI();
+    currentStyle.updateCheckboxUI();
+    currentStyle.update();
 }
 function updateSchemeColor(newColor) {
     schemeColor = newColor;
@@ -164,7 +145,8 @@ function updateSchemeColor(newColor) {
     $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
     $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
     updatePseudoElements();
-    updateStyle(currentStyle);
+    // updateStyle(currentStyle);
+    currentStyle.update();
 }
 function updatePseudoElements() {
     thumbScrollbarRule.style.background = schemeColor;
@@ -182,34 +164,8 @@ function updateBaseColor() {
     var heroImg = (baseColor == lightBaseColor) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', "assets/img/" + heroImg + ".png");
     if (lastBaseColor != baseColor) {
-        updateRadioUI();
-        updateCheckboxUI();
-    }
-}
-export function updateRadioUI() {
-    switch (currentStyle) {
-        case Styles.NEU:
-            NeuModule.updateRadioUI();
-            break;
-        case Styles.FLAT:
-            FlatModule.updateRadioUI();
-            break;
-        case Styles.GLASS:
-            GlassModule.updateRadioUI();
-            break;
-    }
-}
-export function updateCheckboxUI() {
-    switch (currentStyle) {
-        case Styles.NEU:
-            NeuModule.updateCheckboxUI();
-            break;
-        case Styles.FLAT:
-            FlatModule.updateCheckboxUI();
-            break;
-        case Styles.GLASS:
-            // GlassModule.updateCheckboxUI();
-            break;
+        currentStyle.updateRadioUI();
+        currentStyle.updateCheckboxUI();
     }
 }
 export function invertColor(hex, isBlackWhite) {

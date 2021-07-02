@@ -40,8 +40,8 @@ function formatString(selectorsArray) {
 $(document).ready(function () {
     "use strict";
     $('.theme-skin li .glass-skin').click(function () {
-        init();
-        ColorModule.updateStyle(ColorModule.Styles.GLASS);
+        // init();
+        // ColorModule.updateStyle(ColorModule.Styles.GLASS);
     });
 });
 export function init() {

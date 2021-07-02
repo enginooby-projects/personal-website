@@ -1,20 +1,10 @@
-abstract class Style {
-
-        constructor() {
-                this.onDocumentReady();
-        }
-
-        formatString(selectorsArray: string[]): string {
-                return selectorsArray.join(", ");
-        }
-
+export abstract class Style {
         setupEvents(): void {
                 this.setupHoverEvents();
                 this.setupClickEvents();
         }
 
-        abstract onDocumentReady(): void;
-        abstract init(): void;
+        abstract onEnable(): void;
         abstract setupHoverEvents(): void;
         abstract setupClickEvents(): void;
         abstract update(): void;
