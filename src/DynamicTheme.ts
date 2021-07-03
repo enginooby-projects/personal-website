@@ -1,8 +1,7 @@
 import * as ColorSelectors from './color-selectors.js'
 import { Style } from './Style.js'
-import { FlatStyle } from './FlatStyle.js'
-import { NeuStyle } from './NeuStyle.js'
 import ColorUtility from './ColorUtility.js';
+import { StyleRegistry } from './StyleRegistry.js';
 
 let styleSheet: CSSStyleSheet;
 let $squareImg: JQuery<HTMLElement>;
@@ -21,7 +20,8 @@ const darkBaseColor: string = "#212529";
 const lightMutedBaseColor: string = "#b2b2b2";
 const darkMutedBaseColor: string = "#4D4D4D";
 
-export let currentStyle: Style = NeuStyle.Instance;
+let currentStyle: Style;
+let styleRegistry: StyleRegistry;
 
 // PSEUDO RULES
 export let trackScrollbarRule: CSSStyleRule;
@@ -38,9 +38,12 @@ function getStyleSheet() {
         }
 }
 
-export function changeStyle(htmlElement: HTMLElement, newStyle: Style) {
+export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newStyle: Style) {
         currentStyle = newStyle;
+        // update option buttons
+        $('.theme-skin li a').removeClass('active');
         $(htmlElement).addClass('active');
+        $(".customizer").hide();
         currentStyle.onEnable();
 }
 
@@ -55,8 +58,7 @@ export function init() {
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
 
-        // initStyle();
-        currentStyle.onEnable();
+        styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor);
         $("#highlight-color-picker").attr('value', highlightColor);
         updateSchemeColor(schemeColor);
@@ -65,8 +67,8 @@ export function init() {
 
 function setupEvents() {
         setupColorPickerEvents();
-        setupHoverEvents();
-        setupClickEvents();
+        setupCommonHoverEvents();
+        setupCommonClickEvents();
 }
 
 function setupColorPickerEvents() {
@@ -79,46 +81,38 @@ function setupColorPickerEvents() {
         });
 }
 
-function setupHoverEvents() {
-        $(".social a i, .list-inline.socials li a i").hover(
-                function () {
+function setupCommonHoverEvents() {
+        $(".social a i, .list-inline.socials li a i")
+                .on('mouseenter', function () {
                         $(this).css('color', highlightColor);
-                }, function () {
+                }).on('mouseleave', function () {
                         $(this).css('color', baseColor);
-                }
-        );
+                });
 
-        $(".segmented-control label").hover(
-                function () {
-                        let id = $(this).attr("for");
-                        if (currentStyle === NeuStyle.Instance) $(this).css('color', highlightColor);
-                        if (currentStyle === FlatStyle.Instance && !$("#" + id).prop("checked")) $(this).css('color', highlightColor);
-                }, function () {
-                        let id = $(this).attr("for");
-                        // reset color if the  button not checked
-                        if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-                }
-        );
+        $(".segmented-control label").on('mouseleave', function () {
+                let id = $(this).attr("for");
+                // reset color if the  button not checked
+                if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
+        });
 
-        $(".checkbox i").hover(
-                function () {
+        $(".checkbox i")
+                .on('mouseenter', function () {
                         $(this).css('color', highlightColor);
-                }, function () {
+                }).on('mouseleave', function () {
                         let id = $(this).parent().attr("for");
                         // reset color if the  button not checked
                         if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-                }
-        );
+                });
 }
 
-function setupClickEvents() {
-        $("#color-switcher .pallet-button").click(function () {
+function setupCommonClickEvents() {
+        $("#color-switcher .pallet-button").on('click', function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
                 $(this).toggleClass('active');
         });
 
         // reset color for unchecked buttons
-        $(".segmented-control input").click(function () {
+        $(".segmented-control input").on('click', function () {
                 $(".segmented-control label[for='" + this.id + "']").css('color', baseColor);
                 $(".segmented-control input[type='radio']:not(:checked)").each(
                         function () {
@@ -126,15 +120,9 @@ function setupClickEvents() {
                         }
                 );
         });
-
-        $('#portfolio .pill-button').click(function (this: HTMLElement) {
-                resetUncheckedButtons(this);
+        $('#portfolio .pill-button').on('click', function (this: HTMLElement) {
+                currentStyle.resetUncheckedButtons(this);
         });
-}
-
-function resetUncheckedButtons(checkedButton: HTMLElement) {
-        if (currentStyle === NeuStyle.Instance) $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
-        if (currentStyle === FlatStyle.Instance) $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 
 function updateHighlightColor(newColor: string) {

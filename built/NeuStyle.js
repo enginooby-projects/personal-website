@@ -16,12 +16,6 @@ var __extends = (this && this.__extends) || (function () {
 import * as DynamicTheme from './DynamicTheme.js';
 import ColorUtility from './ColorUtility.js';
 import { Style } from './Style.js';
-$(document).ready(function () {
-    "use strict";
-    $('.theme-skin li .neo-skin').click(function () {
-        DynamicTheme.changeStyle(this, NeuStyle.Instance);
-    });
-});
 var backgroundSchemeColorSelectors = formatString([
     ".section",
     " .button-border",
@@ -78,6 +72,7 @@ var concaveBoxShadowSelectors = formatString([
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
+// REFACTOR: Implement singleton pattern for base class instead
 var NeuStyle = /** @class */ (function (_super) {
     __extends(NeuStyle, _super);
     function NeuStyle() {
@@ -105,18 +100,19 @@ var NeuStyle = /** @class */ (function (_super) {
     });
     NeuStyle.prototype.onEnable = function () {
         $("body").removeClass('flat-demo');
-        $('.theme-skin li a').removeClass('active');
+        $("#neo-customizer").show();
         this.setupClickEvents();
         this.setupHoverEvents();
         this.initRangeSliders();
         this.setupRangeSliderEvents();
         this.updateRadioUI();
-        $(".customizer").hide();
-        $("#neo-customizer").show();
         this.update();
     };
     NeuStyle.prototype.setupHoverEvents = function () {
         var _this = this;
+        $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
+            $(this).css('color', DynamicTheme.highlightColor);
+        });
         $(".pill-button").off('mouseenter mouseleave').hover(function (event) {
             event.currentTarget.style.boxShadow = _this.insetBoxShadow;
         }, function (event) {
@@ -199,6 +195,9 @@ var NeuStyle = /** @class */ (function (_super) {
             $("label[for='" + currentElement.id + "']").css('box-shadow', _this.dropBoxShadow);
         });
     };
+    NeuStyle.prototype.resetUncheckedButtons = function (currentCheckedButton) {
+        $('#portfolio .pill-button').not(currentCheckedButton).css('box-shadow', '');
+    };
     NeuStyle.prototype.initRangeSliders = function () {
         $('#distance').attr('value', this.distance);
         $("#distance").next('.range-slider__value').html(this.distance.toString());
@@ -234,6 +233,8 @@ var NeuStyle = /** @class */ (function (_super) {
         });
     };
     ;
+    //  Singleton Pattern
+    NeuStyle._instance = new NeuStyle();
     return NeuStyle;
 }(Style));
 export { NeuStyle };

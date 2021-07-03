@@ -2,13 +2,6 @@ import ColorUtility from './ColorUtility.js'
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
-$(document).ready(function () {
-        "use strict";
-        $('.theme-skin li .flat-skin').click(function () {
-                DynamicTheme.changeStyle(this, FlatStyle.Instance);
-        });
-});
-
 const lightenIntensity = 5;
 const darkenIntensity = 5;
 const noneBoxShadowSelectors = formatString([
@@ -81,16 +74,19 @@ export class FlatStyle extends Style {
 
         onEnable(): void {
                 $("body").addClass('flat-demo');
-                $('.theme-skin li a').removeClass('active'); // option button
+                $("#flat-customizer").show();
                 this.setupHoverEvents();
                 this.setupClickEvents();
                 this.updateRadioUI();
-                $(".customizer").hide();
-                $("#flat-customizer").show();
                 this.update();
         }
 
         setupHoverEvents(): void {
+                $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
+                        let id = $(this).attr("for");
+                        if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor);
+                });
+
                 $(" .pill-button").off('mouseenter mouseleave').hover(
                         function () {
                                 $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
@@ -182,5 +178,8 @@ export class FlatStyle extends Style {
                                 $("label[for='" + this.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
                         }
                 );
+        }
+        resetUncheckedButtons(currentCheckedButton: HTMLElement): void {
+                $('#portfolio .pill-button').not(currentCheckedButton).css('background', 'transparent');
         }
 }
