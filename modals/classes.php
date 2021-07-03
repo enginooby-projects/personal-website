@@ -47,7 +47,7 @@ function displayTableRows($collection, $showId = true)
 }
 ?>
 
-<div class="portfolio-single modal fade" id="courses-modal" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+<div class="portfolio-single modal fade" id="classes" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content text-muted">
                         <div class="modal-header">

@@ -1,15 +1,15 @@
-// TODO: Import this
-// import tinycolor from "tinycolor2";
+// import tinycolor from "/assets/js/import/tinycolor.js";      // Import like this will make tsc compiler to copy source file into outDir as well?!
+// import tinycolor from "tinycolor2"  ;        // Import like this, has to run Node.js server
 
 const lightBaseColor: string = "#EBEBEB";
 const darkBaseColor: string = "#212529";
 
 export default class ColorUtility {
         static getLighten(color: string, amount: number): string {
-                return tinycolor(color).lighten(amount).toString();
+                return tinycolor(color)!.lighten(amount).toString();
         }
         static getDarken(color: string, amount: number): string {
-                return tinycolor(color).darken(amount).toString();
+                return tinycolor(color)!.darken(amount).toString();
         }
 
         static getInvert(hex: string, isBlackWhite: boolean) {

@@ -15,7 +15,7 @@ var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
-var currentStyle;
+export var currentStyle;
 var styleRegistry;
 // PSEUDO RULES
 export var trackScrollbarRule;

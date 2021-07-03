@@ -1,5 +1,5 @@
-// TODO: Import this
-// import tinycolor from "tinycolor2";
+// import tinycolor from "/assets/js/import/tinycolor.js";      // Import like this will make tsc compiler to copy source file into outDir as well?!
+// import tinycolor from "tinycolor2"  ;        // Import like this, has to run Node.js server
 var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var ColorUtility = /** @class */ (function () {

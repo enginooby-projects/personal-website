@@ -31,7 +31,7 @@
                                                                         <div class="timeline-content  ">
                                                                                 <p>My specialization is Internet & Multimedia Technologies which is one of the factors inspiring me to pursue game development.</p>
                                                                                 <div class="button-border mt-2 mb-2">
-                                                                                        <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#courses-modal">Main classes</a>
+                                                                                        <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#classes">Main classes</a>
                                                                                 </div>
                                                                         </div>
                                                                 </div>

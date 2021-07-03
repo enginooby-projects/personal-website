@@ -44,11 +44,10 @@
         <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
 
-        <!-- Portfolio Single Modals -->
-        <?php include 'portfolio-modals/endless-flight.php';  ?>
-        <?php include 'page-sections/courses-modal.php';  ?>
-        <!-- Blog Single Modals -->
-        <?php include 'blog-modals/sample.php';  ?>
+        <!--Modals -->
+        <?php include 'modals/portfolio/endless-flight.php';  ?>
+        <?php include 'modals/classes.php';  ?>
+        <?php include 'modals/blog/sample.php';  ?>
 
         <div id="pagepiling" class="pilling-page">
                 <?php include 'page-sections/social.php';  ?>

@@ -97,6 +97,13 @@ function displayCourse($name, $percent, $url = '')
                                         displayBook('the-self-taught-programmer.jpg', 0 / 100);
                                         ?>
                                 </div>
+                                <div class="row">
+                                        <div class="col-12 text-center mt-4">
+                                                <div class="button-border">
+                                                        <a href="blog.html" class="pill-button">View Detail</a>
+                                                </div>
+                                        </div>
+                                </div>
                                 <!--    Bookself End   -->
 
                                 <!--   Courses  -->
@@ -124,7 +131,13 @@ function displayCourse($name, $percent, $url = '')
                                         displayCourse('The Complete Web Developer Course', 100, "https://www.udemy.com/certificate/UC-309b0ea0-512e-4fee-851c-aefeb5571895/");
                                         ?>
                                 </div>
-
+                                <div class="row ">
+                                        <div class="col-12 text-center mt-4">
+                                                <div class="button-border">
+                                                        <a href="blog.html" class="pill-button ">View Detail</a>
+                                                </div>
+                                        </div>
+                                </div>
                                 <!-- TODO: Leetcode profile -->
                         </div>
                 </div>

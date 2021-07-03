@@ -20,7 +20,7 @@ const darkBaseColor: string = "#212529";
 const lightMutedBaseColor: string = "#b2b2b2";
 const darkMutedBaseColor: string = "#4D4D4D";
 
-let currentStyle: Style;
+export let currentStyle: Style;
 let styleRegistry: StyleRegistry;
 
 // PSEUDO RULES
