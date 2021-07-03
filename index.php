@@ -55,19 +55,19 @@
         ?>
 
         <div id="pagepiling" class="pilling-page">
-                <?php include 'page-sections/social.php';  ?>
-                <?php include 'page-sections/logo.php';  ?>
-                <?php include 'page-sections/overlay-menu.php';  ?>
-                <?php include 'page-sections/hero.php';  ?>
-                <?php include 'page-sections/about.php';  ?>
-                <?php include 'page-sections/resume.php';  ?>
-                <?php include 'page-sections/skillset.php';  ?>
-                <?php include 'page-sections/duties.php';  ?>
-                <?php include 'page-sections/portfolio.php';  ?>
-                <?php include 'page-sections/self-education.php';  ?>
-                <?php include 'page-sections/blog.php';  ?>
-                <?php include 'page-sections/contact.php';  ?>
-                <?php include 'page-sections/setting.php';  ?>
+                <?php include 'sections/social.php';  ?>
+                <?php include 'sections/logo.php';  ?>
+                <?php include 'sections/overlay-menu.php';  ?>
+                <?php include 'sections/hero.php';  ?>
+                <?php include 'sections/about.php';  ?>
+                <?php include 'sections/resume.php';  ?>
+                <?php include 'sections/skillset.php';  ?>
+                <?php include 'sections/duties.php';  ?>
+                <?php include 'sections/portfolio.php';  ?>
+                <?php include 'sections/self-education.php';  ?>
+                <?php include 'sections/blog.php';  ?>
+                <?php include 'sections/contact.php';  ?>
+                <?php include 'sections/setting.php';  ?>
         </div>
 
         <script src="assets/js/import/jquery-3.4.1.min.js"></script>
