@@ -2,6 +2,13 @@ import * as DynamicTheme from './DynamicTheme.js';
 import ColorUtility from './ColorUtility.js'
 import { Style } from './Style.js';
 
+$(document).ready(function () {
+        "use strict";
+        $('.theme-skin li .neo-skin').click(function () {
+                DynamicTheme.changeStyle(this, NeuStyle.Instance);
+        });
+});
+
 const backgroundSchemeColorSelectors = formatString([
         ".section",
         " .button-border",
@@ -66,6 +73,14 @@ function formatString(selectorsArray: string[]): string {
 }
 
 export class NeuStyle extends Style {
+        // Singleton Pattern
+        private static _instance: NeuStyle;
+        private constructor() { super() }
+        public static get Instance(): NeuStyle {
+                NeuStyle._instance ??= new NeuStyle();
+                return NeuStyle._instance;
+        }
+
         lightenSchemeColor: string = "#ffffff";
         darkenSchemeColor: string = "#dcdee2";
 
@@ -131,8 +146,8 @@ export class NeuStyle extends Style {
                 $(".segmented-control input").off('click').on('click', (event) => {
                         $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor);
                         $(".segmented-control input[type='radio']:not(:checked)").each(
-                                function () {
-                                        $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.mutedBaseColor);
+                                (i, currentElement) => {
+                                        $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
                                 }
                         );
                 });

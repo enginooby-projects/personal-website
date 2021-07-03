@@ -16,6 +16,12 @@ var __extends = (this && this.__extends) || (function () {
 import * as DynamicTheme from './DynamicTheme.js';
 import ColorUtility from './ColorUtility.js';
 import { Style } from './Style.js';
+$(document).ready(function () {
+    "use strict";
+    $('.theme-skin li .neo-skin').click(function () {
+        DynamicTheme.changeStyle(this, NeuStyle.Instance);
+    });
+});
 var backgroundSchemeColorSelectors = formatString([
     ".section",
     " .button-border",
@@ -75,7 +81,7 @@ function formatString(selectorsArray) {
 var NeuStyle = /** @class */ (function (_super) {
     __extends(NeuStyle, _super);
     function NeuStyle() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
         _this.lightenSchemeColor = "#ffffff";
         _this.darkenSchemeColor = "#dcdee2";
         _this.insetBoxShadow = '';
@@ -88,6 +94,15 @@ var NeuStyle = /** @class */ (function (_super) {
         _this.darkenIntensity = 7;
         return _this;
     }
+    Object.defineProperty(NeuStyle, "Instance", {
+        get: function () {
+            var _a;
+            (_a = NeuStyle._instance) !== null && _a !== void 0 ? _a : (NeuStyle._instance = new NeuStyle());
+            return NeuStyle._instance;
+        },
+        enumerable: false,
+        configurable: true
+    });
     NeuStyle.prototype.onEnable = function () {
         $("body").removeClass('flat-demo');
         $('.theme-skin li a').removeClass('active');
@@ -129,8 +144,8 @@ var NeuStyle = /** @class */ (function (_super) {
         var _this = this;
         $(".segmented-control input").off('click').on('click', function (event) {
             $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor);
-            $(".segmented-control input[type='radio']:not(:checked)").each(function () {
-                $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.mutedBaseColor);
+            $(".segmented-control input[type='radio']:not(:checked)").each(function (i, currentElement) {
+                $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
         $(".checkbox input").off('click').on('click', function (event) {

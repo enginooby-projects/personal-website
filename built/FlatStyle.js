@@ -16,6 +16,12 @@ var __extends = (this && this.__extends) || (function () {
 import ColorUtility from './ColorUtility.js';
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
+$(document).ready(function () {
+    "use strict";
+    $('.theme-skin li .flat-skin').click(function () {
+        DynamicTheme.changeStyle(this, FlatStyle.Instance);
+    });
+});
 var lightenIntensity = 5;
 var darkenIntensity = 5;
 var noneBoxShadowSelectors = formatString([
@@ -70,11 +76,20 @@ function formatString(selectorsArray) {
 var FlatStyle = /** @class */ (function (_super) {
     __extends(FlatStyle, _super);
     function FlatStyle() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
         _this.lightenSchemeColor = "#680317";
         _this.darkenSchemeColor = "#680317";
         return _this;
     }
+    Object.defineProperty(FlatStyle, "Instance", {
+        get: function () {
+            var _a;
+            (_a = FlatStyle._instance) !== null && _a !== void 0 ? _a : (FlatStyle._instance = new FlatStyle());
+            return FlatStyle._instance;
+        },
+        enumerable: false,
+        configurable: true
+    });
     FlatStyle.prototype.onEnable = function () {
         $("body").addClass('flat-demo');
         $('.theme-skin li a').removeClass('active'); // option button

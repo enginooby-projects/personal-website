@@ -16,24 +16,7 @@ var lightBaseColor = "#EBEBEB";
 var darkBaseColor = "#212529";
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
-export var currentStyle;
-var FLAT_STYLE;
-var NEU_STYLE;
-$(document).ready(function () {
-    FLAT_STYLE = new FlatStyle();
-    NEU_STYLE = new NeuStyle();
-    "use strict";
-    $('.theme-skin li .flat-skin').click(function () {
-        currentStyle = FLAT_STYLE;
-        $(this).addClass('active');
-        currentStyle.onEnable();
-    });
-    $('.theme-skin li .neo-skin').click(function () {
-        currentStyle = NEU_STYLE;
-        $(this).addClass('active');
-        currentStyle.onEnable();
-    });
-});
+export var currentStyle = NeuStyle.Instance;
 // PSEUDO RULES
 export var trackScrollbarRule;
 export var thumbScrollbarRule;
@@ -48,6 +31,11 @@ function getStyleSheet() {
             styleSheet = cursheet;
     }
 }
+export function changeStyle(htmlElement, newStyle) {
+    currentStyle = newStyle;
+    $(htmlElement).addClass('active');
+    currentStyle.onEnable();
+}
 export function init() {
     getStyleSheet();
     setupEvents();
@@ -58,7 +46,6 @@ export function init() {
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
     // initStyle();
-    currentStyle = NEU_STYLE;
     currentStyle.onEnable();
     $("#scheme-color-picker").attr('value', schemeColor);
     $("#highlight-color-picker").attr('value', highlightColor);
@@ -67,8 +54,8 @@ export function init() {
 }
 function setupEvents() {
     setupColorPickerEvents();
-    setupColorHoverEvents();
-    setupColorClickEvents();
+    setupHoverEvents();
+    setupClickEvents();
 }
 function setupColorPickerEvents() {
     $("#highlight-color-picker").on('input', function (event) {
@@ -78,7 +65,7 @@ function setupColorPickerEvents() {
         updateSchemeColor(event.target.value);
     });
 }
-function setupColorHoverEvents() {
+function setupHoverEvents() {
     $(".social a i, .list-inline.socials li a i").hover(function () {
         $(this).css('color', highlightColor);
     }, function () {
@@ -86,9 +73,9 @@ function setupColorHoverEvents() {
     });
     $(".segmented-control label").hover(function () {
         var id = $(this).attr("for");
-        if (currentStyle == NEU_STYLE)
+        if (currentStyle === NeuStyle.Instance)
             $(this).css('color', highlightColor);
-        if (currentStyle == FLAT_STYLE && !$("#" + id).prop("checked"))
+        if (currentStyle === FlatStyle.Instance && !$("#" + id).prop("checked"))
             $(this).css('color', highlightColor);
     }, function () {
         var id = $(this).attr("for");
@@ -105,7 +92,7 @@ function setupColorHoverEvents() {
             $(this).css('color', mutedBaseColor);
     });
 }
-function setupColorClickEvents() {
+function setupClickEvents() {
     $("#color-switcher .pallet-button").click(function () {
         $("#color-switcher .color-pallet").toggleClass('show');
         $(this).toggleClass('active');
@@ -122,9 +109,9 @@ function setupColorClickEvents() {
     });
 }
 function resetUncheckedButtons(checkedButton) {
-    if (currentStyle == NEU_STYLE)
+    if (currentStyle === NeuStyle.Instance)
         $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
-    if (currentStyle == FLAT_STYLE)
+    if (currentStyle === FlatStyle.Instance)
         $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 function updateHighlightColor(newColor) {
@@ -144,7 +131,6 @@ function updateSchemeColor(newColor) {
     $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
     $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
     updatePseudoElements();
-    // updateStyle(currentStyle);
     currentStyle.update();
 }
 function updatePseudoElements() {

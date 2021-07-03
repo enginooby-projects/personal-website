@@ -1,3 +1,13 @@
+// $(document).ready(function () {
+//         "use strict";
+//         $('.theme-skin li .flat-skin').click(function () {
+//                 DynamicTheme.changeStyle(this, FlatStyle.Instance);
+//         });
+//         $('.theme-skin li .neo-skin').click(function () {
+//                 DynamicTheme.changeStyle(this, NeuStyle.Instance);
+//         });
+// });
+
 export abstract class Style {
         setupEvents(): void {
                 this.setupHoverEvents();
@@ -11,3 +21,4 @@ export abstract class Style {
         abstract updateRadioUI(): void;
         abstract updateCheckboxUI(): void;
 }
+

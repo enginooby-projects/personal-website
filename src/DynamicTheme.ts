@@ -21,25 +21,7 @@ const darkBaseColor: string = "#212529";
 const lightMutedBaseColor: string = "#b2b2b2";
 const darkMutedBaseColor: string = "#4D4D4D";
 
-export let currentStyle: Style;
-let FLAT_STYLE: Style;
-let NEU_STYLE: Style;
-
-$(document).ready(function () {
-        FLAT_STYLE = new FlatStyle();
-        NEU_STYLE = new NeuStyle();
-        "use strict";
-        $('.theme-skin li .flat-skin').click(function () {
-                currentStyle = FLAT_STYLE;
-                $(this).addClass('active');
-                currentStyle.onEnable();
-        });
-        $('.theme-skin li .neo-skin').click(function () {
-                currentStyle = NEU_STYLE;
-                $(this).addClass('active');
-                currentStyle.onEnable();
-        });
-});
+export let currentStyle: Style = NeuStyle.Instance;
 
 // PSEUDO RULES
 export let trackScrollbarRule: CSSStyleRule;
@@ -56,6 +38,12 @@ function getStyleSheet() {
         }
 }
 
+export function changeStyle(htmlElement: HTMLElement, newStyle: Style) {
+        currentStyle = newStyle;
+        $(htmlElement).addClass('active');
+        currentStyle.onEnable();
+}
+
 export function init() {
         getStyleSheet();
         setupEvents();
@@ -68,7 +56,6 @@ export function init() {
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
 
         // initStyle();
-        currentStyle = NEU_STYLE;
         currentStyle.onEnable();
         $("#scheme-color-picker").attr('value', schemeColor);
         $("#highlight-color-picker").attr('value', highlightColor);
@@ -78,8 +65,8 @@ export function init() {
 
 function setupEvents() {
         setupColorPickerEvents();
-        setupColorHoverEvents();
-        setupColorClickEvents();
+        setupHoverEvents();
+        setupClickEvents();
 }
 
 function setupColorPickerEvents() {
@@ -92,7 +79,7 @@ function setupColorPickerEvents() {
         });
 }
 
-function setupColorHoverEvents() {
+function setupHoverEvents() {
         $(".social a i, .list-inline.socials li a i").hover(
                 function () {
                         $(this).css('color', highlightColor);
@@ -104,8 +91,8 @@ function setupColorHoverEvents() {
         $(".segmented-control label").hover(
                 function () {
                         let id = $(this).attr("for");
-                        if (currentStyle == NEU_STYLE) $(this).css('color', highlightColor);
-                        if (currentStyle == FLAT_STYLE && !$("#" + id).prop("checked")) $(this).css('color', highlightColor);
+                        if (currentStyle === NeuStyle.Instance) $(this).css('color', highlightColor);
+                        if (currentStyle === FlatStyle.Instance && !$("#" + id).prop("checked")) $(this).css('color', highlightColor);
                 }, function () {
                         let id = $(this).attr("for");
                         // reset color if the  button not checked
@@ -124,7 +111,7 @@ function setupColorHoverEvents() {
         );
 }
 
-function setupColorClickEvents() {
+function setupClickEvents() {
         $("#color-switcher .pallet-button").click(function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
                 $(this).toggleClass('active');
@@ -146,8 +133,8 @@ function setupColorClickEvents() {
 }
 
 function resetUncheckedButtons(checkedButton: HTMLElement) {
-        if (currentStyle == NEU_STYLE) $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
-        if (currentStyle == FLAT_STYLE) $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
+        if (currentStyle === NeuStyle.Instance) $('#portfolio .pill-button').not(checkedButton).css('box-shadow', '');
+        if (currentStyle === FlatStyle.Instance) $('#portfolio .pill-button').not(checkedButton).css('background', 'transparent');
 }
 
 function updateHighlightColor(newColor: string) {
@@ -169,8 +156,6 @@ function updateSchemeColor(newColor: string) {
         $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
         $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
         updatePseudoElements();
-
-        // updateStyle(currentStyle);
         currentStyle.update();
 }
 

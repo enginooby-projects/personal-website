@@ -2,6 +2,13 @@ import ColorUtility from './ColorUtility.js'
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
+$(document).ready(function () {
+        "use strict";
+        $('.theme-skin li .flat-skin').click(function () {
+                DynamicTheme.changeStyle(this, FlatStyle.Instance);
+        });
+});
+
 const lightenIntensity = 5;
 const darkenIntensity = 5;
 const noneBoxShadowSelectors = formatString([
@@ -61,6 +68,14 @@ function formatString(selectorsArray: string[]): string {
 }
 
 export class FlatStyle extends Style {
+        // Singleton Pattern
+        private static _instance: FlatStyle;
+        private constructor() { super() }
+        public static get Instance(): FlatStyle {
+                FlatStyle._instance ??= new FlatStyle();
+                return FlatStyle._instance;
+        }
+
         lightenSchemeColor: string = "#680317";
         darkenSchemeColor: string = "#680317";
 
