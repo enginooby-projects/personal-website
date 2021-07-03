@@ -306,16 +306,19 @@
                                                                         <span class="badge badge-pill background-colorfull2">Postman</span>
                                                                 </div>
                                                                 <div class="badge-border">
-                                                                        <span class="badge badge-pill background-colorfull1">PlantUML </span>
-                                                                </div>
-                                                                <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2">Microsoft Office </span>
                                                                 </div>
                                                                 <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull2">Camtasia <span class="badge badge-light">?</span></span>
                                                                 </div>
                                                                 <div class="badge-border">
+                                                                        <span class="badge badge-pill background-colorfull1">PlantUML </span>
+                                                                </div>
+                                                                <div class="badge-border">
                                                                         <span class="badge badge-pill background-colorfull1">Adobe Photoshop <span class="badge badge-light">?</span></span>
+                                                                </div>
+                                                                <div class="badge-border">
+                                                                        <span class="badge badge-pill background-colorfull1">Chrome DevTools</span>
                                                                 </div>
                                                         </div>
                                                 </div>

@@ -10,7 +10,7 @@
                                                         <p class="my-4">Welcome to my little corner of the Internet. Here is the place I document my life, showcase works & share knowledge.</p>
                                                         <div class="button-border mt-2 mt-lg-4">
                                                                 <a href="#portfolio" class="pill-button">
-                                                                        My works
+                                                                        My Work
                                                                 </a>
                                                         </div>
                                                 </div>

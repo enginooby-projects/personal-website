@@ -45,9 +45,14 @@
         <div id="overlayer"></div><span class="loader"></span>
 
         <!--Modals -->
-        <?php include 'modals/portfolio/endless-flight.php';  ?>
-        <?php include 'modals/classes.php';  ?>
-        <?php include 'modals/blog/sample.php';  ?>
+        <?php
+        include 'utility.php';
+        include 'modals/portfolio/endless-flight.php';
+        include 'modals/classes.php';
+        include 'modals/bookshelf.php';
+        include 'modals/courses.php';
+        include 'modals/blog/sample.php';
+        ?>
 
         <div id="pagepiling" class="pilling-page">
                 <?php include 'page-sections/social.php';  ?>

@@ -46,13 +46,11 @@ var dropBoxShadowSelectors = formatString([
     ".hero-03 .personal-image img",
     ".checkbox label",
     ".blog-intro",
-    " .pal-border",
     ".badge-border",
     ".neo-skin",
     "table",
     "table thead ",
     ".pallet-border",
-    // ".badge-pill"
 ]);
 var insetBoxShadowSelectors = formatString([
     ".pill-button.active",
@@ -62,7 +60,8 @@ var insetBoxShadowSelectors = formatString([
     ".skill-boxes ,box-border",
     ".color-pallet",
     ".timeline-items.box-border",
-    ".range-slider__range"
+    ".range-slider__range",
+    ".pallet-button.active"
 ]);
 var concaveBoxShadowSelectors = formatString([
     ".skill-box .skillbar",
@@ -123,7 +122,8 @@ var NeuStyle = /** @class */ (function (_super) {
         $(" .pallet-button").off('mouseenter mouseleave').hover(function (event) {
             event.currentTarget.style.boxShadow = _this.insetBoxShadow;
         }, function (event) {
-            event.currentTarget.style.boxShadow = 'none';
+            if (!(event.currentTarget).classList.contains('active'))
+                event.currentTarget.style.boxShadow = 'none';
         });
         $("table>tbody>tr").off('mouseenter mouseleave').hover(function (event) {
             event.currentTarget.style.boxShadow = _this.insetBoxShadow;

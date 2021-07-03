@@ -87,7 +87,7 @@ function displayCourse($name, $percent, $url = '')
                                 <!-- TODO: Start update progress bars when just moving into this section -->
                                 <div class=" row justify-content-center">
                                         <?php
-                                        displayBook('clean-code.jpg', ((-26   + 182) + (-202 + 207)) / (-25 + 345));
+                                        displayBook('clean-code.jpg', ((-26   + 190) + (-202 + 216)) / (-25 + 345));
                                         displayBook('head-first-design-patterns.jpg', 20 / 629);
                                         displayBook('gof.jpg', ((52 - 0) + (152 - 144)) / 396);
                                         displayBook('game-programming-patterns.jpg', 0 / 560);
@@ -100,7 +100,7 @@ function displayCourse($name, $percent, $url = '')
                                 <div class="row">
                                         <div class="col-12 text-center mt-4">
                                                 <div class="button-border">
-                                                        <a href="blog.html" class="pill-button">View Detail</a>
+                                                        <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#bookshelf">View Catalog</a>
                                                 </div>
                                         </div>
                                 </div>
@@ -134,7 +134,7 @@ function displayCourse($name, $percent, $url = '')
                                 <div class="row ">
                                         <div class="col-12 text-center mt-4">
                                                 <div class="button-border">
-                                                        <a href="blog.html" class="pill-button ">View Detail</a>
+                                                        <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#courses">View Catalog</a>
                                                 </div>
                                         </div>
                                 </div>
