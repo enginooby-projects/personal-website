@@ -1,6 +1,7 @@
 /*-------------------------
          SETTING
 -------------------------*/
+
 .color-switcher .color-pallet {
         background-color: white;
         top: 75px;
@@ -13,6 +14,9 @@
         opacity: 0;
         visibility: hidden;
         box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+
+        height: calc(100vh - 100px);
+        // overflow-y: scroll;
 }
 
 .color-switcher .color-pallet.show {
@@ -182,26 +186,13 @@
         margin-bottom: 15px !important;
 }
 
-// .theme-skin li:last-child {
-//         background-color: #f1f3f6;
-//         border-radius: 0.75rem;
-//         box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-//         padding: 1px;
-// }
-
-// .theme-skin li:last-child a:hover,
-// .theme-skin li:last-child a.active {
-//         border: none;
-//         box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-// }
-
 .theme-skin li a {
         display: block;
         padding: 8px 0;
         border-radius: 0.75rem;
-        color: #222;
+        // color: #222;
         transition: all 0.5s ease;
-        font-size: 20px;
+        font-size: 1.15rem !important;
 }
 
 .theme-skin li a.flat-skin {
@@ -216,7 +207,7 @@
 
 // RANGE SLIDER
 // Base Colors
-$shade-10: #2c3e50 !default;
+$shade-10: #a6c3e0 !default;
 $shade-1: #d7dcdf !default;
 $shade-0: #fff !default;
 $teal: #1abc9c !default;
@@ -231,7 +222,7 @@ $range-track-color: $shade-1 !default;
 $range-track-height: 10px !default;
 
 $range-label-color: $shade-10 !default;
-$range-label-width: 60px !default;
+$range-label-width: 2rem !default;
 
 .range-slider {
         width: $range-width;
@@ -239,7 +230,7 @@ $range-label-width: 60px !default;
 
 .range-slider__range {
         -webkit-appearance: none;
-        width: calc(100% - (#{$range-label-width + 13px}));
+        width: calc(75% - (#{$range-label-width + 0.5rem}));
         height: $range-track-height;
         border-radius: 5px;
         background: $range-track-color;
@@ -247,23 +238,30 @@ $range-label-width: 60px !default;
         padding: 0;
         margin: 0;
 
+        writing-mode: bt-lr;
+        /* IE */
+        -webkit-appearance: slider-vertical;
+        /* WebKit */
+        width: 8px;
+        height: 100px;
+        padding: 0 5px;
+
         // Range Handle
         &::-webkit-slider-thumb {
                 appearance: none;
                 width: $range-handle-size;
                 height: $range-handle-size;
-                border-radius: 50%;
-                background: $range-handle-color;
+                border-radius: 30%;
                 cursor: pointer;
                 transition: background .15s ease-in-out;
 
                 &:hover {
-                        background: $range-handle-color-hover;
+                        // background: $range-handle-color-hover;
                 }
         }
 
         &:active::-webkit-slider-thumb {
-                background: $range-handle-color-hover;
+                // background: $range-handle-color-hover;
         }
 
         &::-moz-range-thumb {
@@ -271,25 +269,24 @@ $range-label-width: 60px !default;
                 height: $range-handle-size;
                 border: 0;
                 border-radius: 50%;
-                background: $range-handle-color;
                 cursor: pointer;
                 transition: background .15s ease-in-out;
 
                 &:hover {
-                        background: $range-handle-color-hover;
+                        // background: $range-handle-color-hover;
                 }
         }
 
         &:active::-moz-range-thumb {
-                background: $range-handle-color-hover;
+                // background: $range-handle-color-hover;
         }
 
         // Focus state
         &:focus {
 
                 &::-webkit-slider-thumb {
-                        box-shadow: 0 0 0 3px $shade-0,
-                                0 0 0 6px $teal;
+                        // box-shadow: 0 0 0 3px $shade-0,
+                        //         0 0 0 6px $teal;
                 }
         }
 }
@@ -299,26 +296,28 @@ $range-label-width: 60px !default;
 .range-slider__value {
         display: inline-block;
         position: relative;
-        width: $range-label-width;
-        color: $shade-0;
+        // width: $range-label-width;
         line-height: 20px;
         text-align: center;
-        border-radius: 3px;
+        justify-content: center;
+        border-radius: 30%;
         background: $range-label-color;
         padding: 5px 10px;
         margin-left: 8px;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+}
 
-        &:after {
-                position: absolute;
-                top: 8px;
-                left: -7px;
-                width: 0;
-                height: 0;
-                border-top: 7px solid transparent;
-                border-right: 7px solid $range-label-color;
-                border-bottom: 7px solid transparent;
-                content: '';
-        }
+.range-slider__value .after {
+        position: absolute;
+        top: 8px;
+        left: -7px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-right: 7px solid $range-label-color;
+        border-bottom: 7px solid transparent;
+        content: '';
 }
 
 
@@ -331,4 +330,9 @@ $range-label-width: 60px !default;
 input::-moz-focus-inner,
 input::-moz-focus-outer {
         border: 0;
+}
+
+.range-slider label,
+.range-slider__value {
+        font-size: 1.15rem !important;
 }

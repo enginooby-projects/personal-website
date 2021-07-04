@@ -31,6 +31,7 @@ export const colorHighlightColorSelectors = formatString([
         ".portfolio .portfolio-filter li a",
         ".portfolio .portfolio-icon a i",
         ".contact .form-item .form-control",
+        ".theme-skin .neo-skin",
 ]);
 
 export const colorBaseColorSelectors = formatString([
@@ -44,7 +45,8 @@ export const colorBaseColorSelectors = formatString([
         ".form-group textarea",
         ".overlay-menu-toggler",
         ".modal-title",
-        ".portfolio-single .close"
+        ".portfolio-single .close",
+        ".range-slider__value",
 ]);
 
 export const colorMutedBaseColorSelectors = formatString([
@@ -52,9 +54,10 @@ export const colorMutedBaseColorSelectors = formatString([
         ".contact-info-text small",
         ".hero-content p",
         ".title-wrapper span",
-        ".form-control"
+        ".form-control",
+        ".range-slider label"
 ]);
 
-function formatString(selectorsArray) {
+function formatString(selectorsArray: string[]): string {
         return selectorsArray.join(", ");
 }

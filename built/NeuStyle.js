@@ -31,6 +31,7 @@ var backgroundSchemeColorSelectors = formatString([
     ".portfolio-single .modal-content",
     ".range-slider__range",
     ".pallet-border",
+    ".range-slider__value",
 ]);
 var backgroundTransparentSelectors = formatString([
     ".radio-selection",
@@ -51,6 +52,7 @@ var dropBoxShadowSelectors = formatString([
     "table",
     "table thead ",
     ".pallet-border",
+    ".range-slider__value",
 ]);
 var insetBoxShadowSelectors = formatString([
     ".pill-button.active",
@@ -61,17 +63,18 @@ var insetBoxShadowSelectors = formatString([
     ".color-pallet",
     ".timeline-items.box-border",
     ".range-slider__range",
-    ".pallet-button.active"
+    ".pallet-button.active",
 ]);
 var concaveBoxShadowSelectors = formatString([
     ".skill-box .skillbar",
     ".form-group",
     ".radio-selection",
+    ".neo-skin",
 ]);
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
-// REFACTOR: Implement singleton pattern for base class instead
+// REFACTOR: Implement singleton pattern for base class instead/generic singleton
 var NeuStyle = /** @class */ (function (_super) {
     __extends(NeuStyle, _super);
     function NeuStyle() {
@@ -118,6 +121,11 @@ var NeuStyle = /** @class */ (function (_super) {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!(event.currentTarget).classList.contains('active'))
                 event.currentTarget.style.boxShadow = '';
+        });
+        $(".range-slider__range ").off('mouseenter mouseleave').hover(function (event) {
+            event.currentTarget.classList.add('focus');
+        }, function (event) {
+            event.currentTarget.classList.remove('focus');
         });
         $(" .pallet-button").off('mouseenter mouseleave').hover(function (event) {
             event.currentTarget.style.boxShadow = _this.insetBoxShadow;
@@ -172,6 +180,10 @@ var NeuStyle = /** @class */ (function (_super) {
         DynamicTheme.thumbScrollbarRule.style.boxShadow = this.thumbScrollbarBoxShadow;
         DynamicTheme.trackScrollbarRule.style.background = DynamicTheme.schemeColor;
         DynamicTheme.thumbScrollbarRule.style.background = DynamicTheme.schemeColor;
+        DynamicTheme.sliderThumbRule.style.boxShadow = this.dropBoxShadow;
+        DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor;
+        DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
+        DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor;
     };
     NeuStyle.prototype.updateRadioUI = function () {
         $("input[type='radio']:checked").each(function () {
@@ -212,9 +224,9 @@ var NeuStyle = /** @class */ (function (_super) {
         var _this = this;
         $("#distance, #blur, #light-intensity, #dark-intensity").on('input', function (event) {
             var newValue = event.target.value;
-            console.log(newValue);
-            $(event.target.id).next('.range-slider__value').html(newValue);
-            console.log(event.target.id);
+            // console.log(newValue);
+            // console.log(event.target.id);
+            $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
                 case 'distance':
                     _this.distance = parseInt(newValue);

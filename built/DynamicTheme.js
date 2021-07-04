@@ -20,6 +20,8 @@ var styleRegistry;
 // PSEUDO RULES
 export var trackScrollbarRule;
 export var thumbScrollbarRule;
+export var sliderThumbRule;
+export var sliderThumbFocusRule;
 var placeholderRule;
 var papePilingTooltipRule;
 var selectionRule;
@@ -48,6 +50,8 @@ export function init() {
     thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
+    sliderThumbRule = cssRules[styleSheet.insertRule(".range-slider__range::-webkit-slider-thumb {background:" + schemeColor + ";}")];
+    sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";}")];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor);
     $("#highlight-color-picker").attr('value', highlightColor);
@@ -73,6 +77,12 @@ function setupCommonHoverEvents() {
         $(this).css('color', highlightColor);
     }).on('mouseleave', function () {
         $(this).css('color', baseColor);
+    });
+    $(".list-inline.socials li a i, #myMenu li a")
+        .on('mouseenter', function () {
+        $(this).css('color', highlightColor);
+    }).on('mouseleave', function () {
+        $(this).css('color', 'white');
     });
     $(".segmented-control label").on('mouseleave', function () {
         var id = $(this).attr("for");

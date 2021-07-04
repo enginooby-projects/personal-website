@@ -26,6 +26,8 @@ let styleRegistry: StyleRegistry;
 // PSEUDO RULES
 export let trackScrollbarRule: CSSStyleRule;
 export let thumbScrollbarRule: CSSStyleRule;
+export let sliderThumbRule: CSSStyleRule;
+export let sliderThumbFocusRule: CSSStyleRule;
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
 let selectionRule: CSSStyleRule;
@@ -57,6 +59,8 @@ export function init() {
         thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)] as CSSStyleRule;
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
+        sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
+        sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor);
@@ -87,6 +91,13 @@ function setupCommonHoverEvents() {
                         $(this).css('color', highlightColor);
                 }).on('mouseleave', function () {
                         $(this).css('color', baseColor);
+                });
+
+        $(".list-inline.socials li a i, #myMenu li a")
+                .on('mouseenter', function () {
+                        $(this).css('color', highlightColor);
+                }).on('mouseleave', function () {
+                        $(this).css('color', 'white');
                 });
 
         $(".segmented-control label").on('mouseleave', function () {

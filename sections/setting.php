@@ -20,7 +20,9 @@
                         <div class="range-slider">
                                 <label for="distance">Distance</label>
                                 <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
-                                <span class="range-slider__value"></span>
+                                <span class="range-slider__value">
+                                        <!-- <div class="after"></div> -->
+                                </span>
                         </div>
                         <div class="range-slider">
                                 <label for="blur">Blur</label>
@@ -42,7 +44,8 @@
                         <div class="range-slider">
                                 <label for="distance">Distance</label>
                                 <input class="range-slider__range" id="distance" type="range" min="0" max="50" step="0.5">
-                                <span class="range-slider__value"></span>
+                                <span class="range-slider__value">
+                                </span>
                         </div>
                         <div class="range-slider">
                                 <label for="blur">Blur</label>
@@ -115,16 +118,6 @@
                 </ul> -->
                 <input type="color" id="highlight-color-picker" value="#0000ff">
                 <input type="color" id="scheme-color-picker" value="#f1f3f6">
-                <!-- TODO: Change to switch style -->
-                <!-- <h6 class="my-2 color-scheme-title">Scheme Mode</h6>
-                <ul class="color-scheme list-inline">
-                        <li class="list-inline-item">
-                                <a href="javascript:void(0)" class="light-scheme active"><i class="lni-sun"></i> Light</a>
-                        </li>
-                        <li class="list-inline-item">
-                                <a href="javascript:void(0)" class="dark-scheme-option"><i class="lni-night"></i> Dark</a>
-                        </li>
-                </ul> -->
         </div>
         <div class="pallet-border hide">
                 <div class="pallet-button">
