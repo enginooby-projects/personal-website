@@ -1,7 +1,7 @@
 <!-- <div class="col-lg-4 portfolio-item  game highlight medium web completed">
           <div class="image-border">
                     <div class="portfolio-item-content">
-                              <img src="assets/img/endless-flight.PNG" alt="/" class="img-fluid">
+                              <img src="assets/img/endless-flight.png" alt="/" class="img-fluid">
                               <div class="img-overlay text-center">
                                         <div class="img-overlay-content">
                                                   <div class="portfolio-icon">
@@ -54,14 +54,14 @@ class CodingProject
 }
 
 // access URL can be single blog page, download or  website link
-function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $codeUrl = null)
+function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $codeUrl = null, $modalPlay = null)
 {
         $formattedName = formatLabel($label);
         $highlightElement = getHighlightElement($filters);
         $buttonElements = "";
 
         if ($isGalleryItem) $buttonElements .= '
-                <a href="assets/img/portfolio/' . $formattedName . '.PNG" class="js-zoom-gallery background-colorfull1">
+                <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1">
                         <i class="lni-search"></i>
                 </a>
         ';
@@ -70,7 +70,11 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2"><i class=" lni-play"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2"><i class=" lni-link"></i></a>
+        ';
+
+        if ($modalPlay) $buttonElements .= '
+                <a href="javascript:void();" class="background-colorfull2" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class=" lni-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
@@ -81,7 +85,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
           <div class="col-lg-4 portfolio-item ' . $filters . '">
                     <div class="image-border">
                               <div class="portfolio-item-content ">
-                                        <img src="assets/img/portfolio/' . $formattedName . '.PNG" alt="/" class="img-fluid">
+                                        <img src="assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">
                                         ' . $highlightElement . '
                                         <div class="img-overlay text-center">
                                                   <div class="img-overlay-content">
@@ -285,7 +289,7 @@ function formatLabel($str, $sep = '-')
                                                 label: 'Guess The Word',
                                                 isGalleryItem: false,
                                                 filters: 'game small web prototype',
-                                                accessUrl: 'enginoobz.itch.io/guess-the-word',
+                                                modalPlay: 'guess-the-word-play',
                                                 codeUrl: 'enginoobz-games/guess-the-word'
                                         );
                                         displayPortfolioItem(

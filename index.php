@@ -44,13 +44,15 @@
         <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
 
+        <!-- TODO: Lazy initialization -->
         <!--Modals -->
         <?php
         include 'utility.php';
-        include 'modals/portfolio/endless-flight.php';
         include 'modals/classes.php';
         include 'modals/bookshelf.php';
         include 'modals/courses.php';
+        include 'modals/portfolio/endless-flight.php';
+        include 'modals/portfolio/guess-the-word-play.php';
         include 'modals/blog/sample.php';
         ?>
 

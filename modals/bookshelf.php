@@ -78,7 +78,7 @@ function displayBookCatalogBody($catalog, $showId)
                         <div class="modal-body">
                                 <div class="pt-4 pb-5">
                                         <div class="container">
-                                                <div class="row">
+                                                <div class="row  justify-content-center">
                                                         <table class="neumorphic">
                                                                 <!-- TODO: lazy initialization -->
                                                                 <?php displayBookCatalog($books) ?>

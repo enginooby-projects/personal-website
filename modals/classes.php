@@ -24,7 +24,7 @@ $subjects = array(
         array('Computer Network Design', 'Topology - Network design proposal', '-', '5.0'),
         array('Multimedia Presentation ', 'PUMA - Infographics & data visualization - Color theory - Copyright', 'PowerPoint', '5.0'),
         array('Mobile Technologies ', 'AR', 'Unity - C# - Vuforia SDK - Wit.ai', '5.0'),
-        array('Server Software Administration', 'CI/CD - Networking - Web scalability - Web services & microservices - Container - DevOps', 'Ubuntu Server  - Apache Server - Chef - Docker', '4.5'),
+        array('Server Software Administration', 'CI/CD - Networking - Web scalability - Web services & microservices - Container - DevOps', 'Ubuntu Server  OS - Apache Server - Chef - Docker', '4.5'),
         array('Security of Computer Systems', 'Malware - Attacks - Vulnerabilities - SQL injection - Hashing & checksum', 'Kali  OS  - Bash - Wireshark', '5.0'),
 );
 ?>
