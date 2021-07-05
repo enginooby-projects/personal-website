@@ -35,7 +35,7 @@ class CodingProject
                     <div class="col-lg-4 portfolio-item  game ' . $this->filters . '">
                               <div class="image-border">
                                         <div class="portfolio-item-content">
-                                                  <img src="assets/img/portfolio/' . $this->imgUrl . '.PNG" alt="/" class="img-fluid">
+                                                  <img src="assets/img/portfolio/' . $this->imgUrl . '.png" alt="/" class="img-fluid">
                                                   <div class="img-overlay text-center">
                                                             <div class="img-overlay-content">
                                                                       <div class="portfolio-icon">
