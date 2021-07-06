@@ -3,14 +3,28 @@
 -------------------------*/
 $button-border:0.8rem;
 
+$regularFont: '/assets/fonts/agency-fb-regular/AgencyFB-Reg';
+
 @font-face {
         font-family: "Agency FB";
-        src: local("../fonts/agency-fb-regular.TTF");
+        src: url("#{$regularFont}.ttf");
+        src: url("#{$regularFont}.eot") format("embedded-opentype"),
+        url("#{$regularFont}.woff2") format("woff2"),
+        url("#{$regularFont}.woff") format("woff"),
+        url("#{$regularFont}.ttf") format("truetype"),
+        url("#{$regularFont}.svg") format("svg");
 }
+
+$boldFont: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
 
 @font-face {
         font-family: "Agency FB Bold";
-        src: local("../fonts/agency-fb-bold.ttf");
+        src: url("#{$boldFont}.ttf");
+        src: url("#{$boldFont}.eot") format("embedded-opentype"),
+        url("#{$boldFont}.woff2") format("woff2"),
+        url("#{$boldFont}.woff") format("woff"),
+        url("#{$boldFont}.ttf") format("truetype"),
+        url("#{$boldFont}.svg") format("svg");
 }
 
 $transition_duration: 0.8s;

@@ -53,8 +53,8 @@ class CodingProject
         }
 }
 
-// access URL can be single blog page, download or  website link
-function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $codeUrl = null, $modalPlay = null)
+// space in url = %20
+function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
 {
         $formattedName = formatLabel($label);
         $highlightElement = getHighlightElement($filters);
@@ -71,6 +71,10 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
 
         if ($accessUrl) $buttonElements .= '
                 <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2"><i class=" lni-link"></i></a>
+        ';
+
+        if ($downloadUrl) $buttonElements .= '
+                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2"><i class=" lni-download"></i></a>
         ';
 
         if ($modalPlay) $buttonElements .= '
@@ -313,7 +317,7 @@ function formatLabel($str, $sep = '-')
                                                 label: 'Multistore Shopping GUI',
                                                 isGalleryItem: false,
                                                 filters: 'ecommerce  medium  desktop completed database',
-                                                accessUrl: 'enginoobz-projects/multistore-shopping-gui',
+                                                downloadUrl: 'enginoobz.com/download/Multistore%20Shopping%20GUI.rar',
                                                 codeUrl: 'enginoobz-projects/multistore-shopping-gui',
                                         );
                                         displayPortfolioItem(
