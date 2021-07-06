@@ -7,8 +7,8 @@ import { changeStyle } from "./DynamicTheme.js";
 import { FlatStyle } from "./FlatStyle.js";
 import { NeuStyle } from "./NeuStyle.js";
 
-const FLAT_OPTION_SELECTOR: string = '.theme-skin li .flat-skin';
-const NEU_OPTION_SELECTOR: string = '.theme-skin li .neo-skin';
+const FLAT_OPTION_SELECTOR: string = '#flat-skin-button';
+const NEU_OPTION_SELECTOR: string = '#neo-skin-button';
 
 jQuery(function () {
         "use strict";

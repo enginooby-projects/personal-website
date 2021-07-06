@@ -37,11 +37,14 @@ var noneBoxShadowSelectors = formatString([
     ".color-pallet",
     "table",
     "table thead ",
+    ".theme-skin .pill-button",
+    ".badge-border",
 ]);
 var backgroundHighlightColorSelectors = formatString([
     ".flat-demo .button-border",
     ".radio-selection",
     ".flat-demo .portfolio-filter .pill-button.active",
+    ".theme-skin .pill-button.active",
 ]);
 var backgroundLightenSchemeColorSelectors = formatString([
     ".flat-demo .box-border",
@@ -54,7 +57,8 @@ var backgroundLightenSchemeColorSelectors = formatString([
     ".color-pallet"
 ]);
 var backgroundSchemeColorSelectors = formatString([
-// ".flat-demo .portfolio-filter .pill-button.active",
+    // ".flat-demo .portfolio-filter .pill-button.active",
+    ".theme-skin .pill-button"
 ]);
 var colorBaseColorSelectors = formatString([
     ".flat-demo .portfolio-filter .pill-button ",
@@ -99,11 +103,19 @@ var FlatStyle = /** @class */ (function (_super) {
                 $(this).css('color', DynamicTheme.highlightColor);
         });
         $(" .pill-button").off('mouseenter mouseleave').hover(function () {
+            // TODO: variablize
             $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!$(this).hasClass('active'))
                 $(this).css('background', '');
+        });
+        $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(function () {
+            $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
+        }, function () {
+            // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+            if (!$(this).hasClass('active'))
+                $(this).css('background', DynamicTheme.schemeColor);
         });
         $(" .pallet-button").off('mouseenter mouseleave');
         $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(function () {
@@ -141,6 +153,7 @@ var FlatStyle = /** @class */ (function (_super) {
         this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, darkenIntensity);
         $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
         $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
+        $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor);
         $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor);
         $(backgroundTransparentSelectors).css('background', 'transparent');
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);

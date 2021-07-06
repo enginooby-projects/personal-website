@@ -16,6 +16,9 @@ var __extends = (this && this.__extends) || (function () {
 import * as DynamicTheme from './DynamicTheme.js';
 import ColorUtility from './ColorUtility.js';
 import { Style } from './Style.js';
+var noneBoxShadowSelectors = formatString([
+    ".theme-skin .pill-button",
+]);
 var backgroundSchemeColorSelectors = formatString([
     ".section",
     " .button-border",
@@ -26,12 +29,12 @@ var backgroundSchemeColorSelectors = formatString([
     ".pill-button.active",
     ".segmented-control",
     ".checkbox label",
-    ".neo-skin",
     ".color-pallet",
     ".portfolio-single .modal-content",
     ".range-slider__range",
     ".pallet-border",
     ".range-slider__value",
+    ".theme-skin .pill-button"
 ]);
 var backgroundTransparentSelectors = formatString([
     ".radio-selection",
@@ -48,7 +51,6 @@ var dropBoxShadowSelectors = formatString([
     ".checkbox label",
     ".blog-intro",
     ".badge-border",
-    ".neo-skin",
     "table",
     "table thead ",
     ".pallet-border",
@@ -64,12 +66,12 @@ var insetBoxShadowSelectors = formatString([
     ".timeline-items.box-border",
     ".range-slider__range",
     ".pallet-button.active",
+    ".theme-skin .pill-button.active",
 ]);
 var concaveBoxShadowSelectors = formatString([
     ".skill-box .skillbar",
     ".form-group",
     ".radio-selection",
-    ".neo-skin",
 ]);
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
@@ -173,6 +175,7 @@ var NeuStyle = /** @class */ (function (_super) {
         $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
         $(backgroundTransparentSelectors).css("background", 'transparent');
         $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor);
+        $(noneBoxShadowSelectors).css("box-shadow", 'none');
         $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
         $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);

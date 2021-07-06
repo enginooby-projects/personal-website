@@ -2,6 +2,10 @@ import * as DynamicTheme from './DynamicTheme.js';
 import ColorUtility from './ColorUtility.js'
 import { Style } from './Style.js';
 
+const noneBoxShadowSelectors = formatString([
+        ".theme-skin .pill-button",
+]);
+
 const backgroundSchemeColorSelectors = formatString([
         ".section",
         " .button-border",
@@ -12,12 +16,12 @@ const backgroundSchemeColorSelectors = formatString([
         ".pill-button.active",
         ".segmented-control",
         ".checkbox label",
-        ".neo-skin",
         ".color-pallet",
         ".portfolio-single .modal-content",
         ".range-slider__range",
         ".pallet-border",
         ".range-slider__value",
+        ".theme-skin .pill-button"
 ]);
 
 const backgroundTransparentSelectors = formatString([
@@ -37,7 +41,6 @@ const dropBoxShadowSelectors = formatString([
         ".checkbox label",
         ".blog-intro",
         ".badge-border",
-        ".neo-skin",
         "table",
         "table thead ",
         ".pallet-border",
@@ -54,14 +57,13 @@ const insetBoxShadowSelectors = formatString([
         ".timeline-items.box-border",
         ".range-slider__range",
         ".pallet-button.active",
-
+        ".theme-skin .pill-button.active",
 ]);
 
 const concaveBoxShadowSelectors = formatString([
         ".skill-box .skillbar",
         ".form-group",
         ".radio-selection",
-        ".neo-skin",
 ]);
 
 function formatString(selectorsArray: string[]): string {
@@ -182,6 +184,7 @@ export class NeuStyle extends Style {
                 $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
                 $(backgroundTransparentSelectors).css("background", 'transparent');
                 $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor);
+                $(noneBoxShadowSelectors).css("box-shadow", 'none');
                 $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
                 $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
                 $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);

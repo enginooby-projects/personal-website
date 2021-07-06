@@ -5,8 +5,8 @@ Reason to change: add/remove a style, change the first style
 import { changeStyle } from "./DynamicTheme.js";
 import { FlatStyle } from "./FlatStyle.js";
 import { NeuStyle } from "./NeuStyle.js";
-var FLAT_OPTION_SELECTOR = '.theme-skin li .flat-skin';
-var NEU_OPTION_SELECTOR = '.theme-skin li .neo-skin';
+var FLAT_OPTION_SELECTOR = '#flat-skin-button';
+var NEU_OPTION_SELECTOR = '#neo-skin-button';
 jQuery(function () {
     "use strict";
     $(FLAT_OPTION_SELECTOR).on('click', function () {

@@ -23,12 +23,15 @@ const noneBoxShadowSelectors = formatString([
         ".color-pallet",
         "table",
         "table thead ",
+        ".theme-skin .pill-button",
+        ".badge-border",
 ]);
 
 const backgroundHighlightColorSelectors = formatString([
         ".flat-demo .button-border",
         ".radio-selection",
         ".flat-demo .portfolio-filter .pill-button.active",
+        ".theme-skin .pill-button.active",
 ]);
 
 const backgroundLightenSchemeColorSelectors = formatString([
@@ -44,6 +47,7 @@ const backgroundLightenSchemeColorSelectors = formatString([
 
 const backgroundSchemeColorSelectors = formatString([
         // ".flat-demo .portfolio-filter .pill-button.active",
+        ".theme-skin .pill-button"
 ]);
 
 const colorBaseColorSelectors = formatString([
@@ -89,10 +93,20 @@ export class FlatStyle extends Style {
 
                 $(" .pill-button").off('mouseenter mouseleave').hover(
                         function () {
+                                // TODO: variablize
                                 $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                                 if (!$(this).hasClass('active')) $(this).css('background', '');
+                        }
+                );
+
+                $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(
+                        function () {
+                                $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
+                        }, function () {
+                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.schemeColor);
                         }
                 );
 
@@ -144,6 +158,7 @@ export class FlatStyle extends Style {
 
                 $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
                 $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
+                $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor);
                 $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor);
                 $(backgroundTransparentSelectors).css('background', 'transparent');
                 $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);

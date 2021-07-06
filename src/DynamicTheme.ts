@@ -43,8 +43,8 @@ function getStyleSheet() {
 export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newStyle: Style) {
         currentStyle = newStyle;
         // update option buttons
-        $('.theme-skin li a').removeClass('active');
-        $(htmlElement).addClass('active');
+        $('.theme-skin .button-border a').removeClass('active');
+        $(htmlElement).children('.pill-button').addClass('active');
         $(".customizer").hide();
         currentStyle.onEnable();
 }

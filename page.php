@@ -44,18 +44,6 @@
         <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
 
-        <!-- TODO: Lazy initialization -->
-        <!--Modals -->
-        <?php
-        include 'utility.php';
-        include 'modals/classes.php';
-        include 'modals/bookshelf.php';
-        include 'modals/courses.php';
-        include 'modals/portfolio/endless-flight.php';
-        include 'modals/portfolio/guess-the-word-play.php';
-        include 'modals/blog/sample.php';
-        ?>
-
         <div id="pagepiling" class="pilling-page">
                 <?php include 'sections/social.php';  ?>
                 <?php include 'sections/logo.php';  ?>
@@ -71,6 +59,19 @@
                 <?php include 'sections/contact.php';  ?>
                 <?php include 'sections/setting.php';  ?>
         </div>
+
+
+        <!-- TODO: Lazy initialization -->
+        <!--Modals -->
+        <?php
+        include 'utility.php';
+        include 'modals/classes.php';
+        include 'modals/bookshelf.php';
+        include 'modals/courses.php';
+        include 'modals/portfolio/endless-flight.php';
+        include 'modals/portfolio/guess-the-word-play.php';
+        include 'modals/blog/sample.php';
+        ?>
 
         <script src="assets/js/import/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
