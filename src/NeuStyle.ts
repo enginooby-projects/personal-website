@@ -66,6 +66,16 @@ const concaveBoxShadowSelectors = formatString([
         ".radio-selection",
 ]);
 
+
+// EFFECTS
+const hoverInsetBoxShadowSelectors = formatString([
+        " .badge-border",
+        "table>tbody>tr",
+        ".pill-button",
+        ".pallet-button"
+]);
+
+
 function formatString(selectorsArray: string[]): string {
         return selectorsArray.join(", ");
 }
@@ -93,6 +103,22 @@ export class NeuStyle extends Style {
         lightenIntensity: number = 7;
         darkenIntensity: number = 7;
 
+        lastHoverElement: string = 'lastHover';
+        originalProperty: string = '';
+        originalPropertyValue: string = '';
+
+        updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
+                element.classList.add(this.lastHoverElement);
+                this.originalProperty = originalProperty;
+                this.originalPropertyValue = originalPropertyValue;
+        }
+
+        resetLastHoverElement(element: HTMLElement) {
+                element.classList.remove(this.lastHoverElement);
+                if (!element.classList.contains('active')) // for buttons
+                        $(element).css(this.originalProperty, this.originalPropertyValue);
+        }
+
         onEnable(): void {
                 $("body").removeClass('flat-demo');
                 $("#neo-customizer").show();
@@ -109,15 +135,6 @@ export class NeuStyle extends Style {
                         $(this).css('color', DynamicTheme.highlightColor);
                 });
 
-                $(".pill-button").off('mouseenter mouseleave').hover(
-                        (event) => {
-                                event.currentTarget.style.boxShadow = this.insetBoxShadow;
-                        }, (event) => {
-                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!(event.currentTarget).classList.contains('active')) event.currentTarget.style.boxShadow = '';
-                        }
-                );
-
                 $(".range-slider__range ").off('mouseenter mouseleave').hover(
                         (event) => {
                                 event.currentTarget.classList.add('focus');
@@ -126,27 +143,13 @@ export class NeuStyle extends Style {
                         }
                 );
 
-                $(" .pallet-button").off('mouseenter mouseleave').hover(
+                $(hoverInsetBoxShadowSelectors).off('mouseenter mouseleave').hover(
                         (event) => {
-                                event.currentTarget.style.boxShadow = this.insetBoxShadow;
+                                const target: HTMLElement = event.currentTarget;
+                                this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
+                                target.style.boxShadow = this.insetBoxShadow;
                         }, (event) => {
-                                if (!(event.currentTarget).classList.contains('active')) event.currentTarget.style.boxShadow = 'none';
-                        }
-                );
-
-                $("table>tbody>tr").off('mouseenter mouseleave').hover(
-                        (event) => {
-                                event.currentTarget.style.boxShadow = this.insetBoxShadow;
-                        }, (event) => {
-                                event.currentTarget.style.boxShadow = '';
-                        }
-                );
-
-                $(" .badge-border").off('mouseenter mouseleave').hover(
-                        (event) => {
-                                event.currentTarget.style.boxShadow = this.insetBoxShadow;
-                        }, (event) => {
-                                event.currentTarget.style.boxShadow = this.dropBoxShadow;
+                                this.resetLastHoverElement(event.currentTarget);
                         }
                 );
         }

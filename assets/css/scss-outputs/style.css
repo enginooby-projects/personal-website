@@ -21,10 +21,14 @@
 .blog-image,
 .checkbox label,
 .segmented-control,
-.radio-selection,
 .badge-border {
   transition: 0.8s all ease !important;
   -webkit-transition: 0.8s all ease !important;
+}
+
+.radio-selection {
+  transition: 0.4s all ease !important;
+  -webkit-transition: 0.4s all ease !important;
 }
 
 body {

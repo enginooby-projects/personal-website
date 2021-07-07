@@ -73,6 +73,13 @@ var concaveBoxShadowSelectors = formatString([
     ".form-group",
     ".radio-selection",
 ]);
+// EFFECTS
+var hoverInsetBoxShadowSelectors = formatString([
+    " .badge-border",
+    "table>tbody>tr",
+    ".pill-button",
+    ".pallet-button"
+]);
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
@@ -91,6 +98,9 @@ var NeuStyle = /** @class */ (function (_super) {
         _this.blur = 8;
         _this.lightenIntensity = 7;
         _this.darkenIntensity = 7;
+        _this.lastHoverElement = 'lastHover';
+        _this.originalProperty = '';
+        _this.originalPropertyValue = '';
         return _this;
     }
     Object.defineProperty(NeuStyle, "Instance", {
@@ -102,6 +112,16 @@ var NeuStyle = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
+    NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
+        element.classList.add(this.lastHoverElement);
+        this.originalProperty = originalProperty;
+        this.originalPropertyValue = originalPropertyValue;
+    };
+    NeuStyle.prototype.resetLastHoverElement = function (element) {
+        element.classList.remove(this.lastHoverElement);
+        if (!element.classList.contains('active')) // for buttons
+            $(element).css(this.originalProperty, this.originalPropertyValue);
+    };
     NeuStyle.prototype.onEnable = function () {
         $("body").removeClass('flat-demo');
         $("#neo-customizer").show();
@@ -117,33 +137,17 @@ var NeuStyle = /** @class */ (function (_super) {
         $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
             $(this).css('color', DynamicTheme.highlightColor);
         });
-        $(".pill-button").off('mouseenter mouseleave').hover(function (event) {
-            event.currentTarget.style.boxShadow = _this.insetBoxShadow;
-        }, function (event) {
-            // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-            if (!(event.currentTarget).classList.contains('active'))
-                event.currentTarget.style.boxShadow = '';
-        });
         $(".range-slider__range ").off('mouseenter mouseleave').hover(function (event) {
             event.currentTarget.classList.add('focus');
         }, function (event) {
             event.currentTarget.classList.remove('focus');
         });
-        $(" .pallet-button").off('mouseenter mouseleave').hover(function (event) {
-            event.currentTarget.style.boxShadow = _this.insetBoxShadow;
+        $(hoverInsetBoxShadowSelectors).off('mouseenter mouseleave').hover(function (event) {
+            var target = event.currentTarget;
+            _this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
+            target.style.boxShadow = _this.insetBoxShadow;
         }, function (event) {
-            if (!(event.currentTarget).classList.contains('active'))
-                event.currentTarget.style.boxShadow = 'none';
-        });
-        $("table>tbody>tr").off('mouseenter mouseleave').hover(function (event) {
-            event.currentTarget.style.boxShadow = _this.insetBoxShadow;
-        }, function (event) {
-            event.currentTarget.style.boxShadow = '';
-        });
-        $(" .badge-border").off('mouseenter mouseleave').hover(function (event) {
-            event.currentTarget.style.boxShadow = _this.insetBoxShadow;
-        }, function (event) {
-            event.currentTarget.style.boxShadow = _this.dropBoxShadow;
+            _this.resetLastHoverElement(event.currentTarget);
         });
     };
     NeuStyle.prototype.setupClickEvents = function () {
