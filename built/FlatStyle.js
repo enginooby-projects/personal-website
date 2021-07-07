@@ -44,7 +44,7 @@ var backgroundHighlightColorSelectors = formatString([
     // ".flat-demo .button-border",
     ".radio-selection",
     ".flat-demo .portfolio-filter .pill-button.active",
-    ".pill-button:not(.theme-skin .pill-button)",
+    ".pill-button",
     " .theme-skin .pill-button.active"
 ]);
 var backgroundLightenSchemeColorSelectors = formatString([
@@ -58,8 +58,8 @@ var backgroundLightenSchemeColorSelectors = formatString([
     ".color-pallet",
 ]);
 var backgroundSchemeColorSelectors = formatString([
-    // ".flat-demo .portfolio-filter .pill-button.active",
-    ".theme-skin .pill-button"
+// ".flat-demo .portfolio-filter .pill-button.active",
+// ".theme-skin .pill-button"
 ]);
 var colorBaseColorSelectors = formatString([
     ".flat-demo .portfolio-filter .pill-button ",
@@ -109,14 +109,14 @@ var FlatStyle = /** @class */ (function (_super) {
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!$(this).hasClass('active'))
-                $(this).css('background', '');
+                $(this).css('background', DynamicTheme.highlightColor);
         });
         $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(function () {
             $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             if (!$(this).hasClass('active'))
-                $(this).css('background', DynamicTheme.schemeColor);
+                $(this).css('background', DynamicTheme.highlightColor);
         });
         $(" .pallet-button").off('mouseenter mouseleave');
         $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(function () {
@@ -152,13 +152,14 @@ var FlatStyle = /** @class */ (function (_super) {
     FlatStyle.prototype.update = function () {
         this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, lightenIntensity);
         this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, darkenIntensity);
-        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
         $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
         $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor);
         $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor);
         $(backgroundTransparentSelectors).css('background', 'transparent');
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
         $(noneBoxShadowSelectors).css('box-shadow', 'none');
+        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
+        $("#flat-skin-button .pill-button").css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
         DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
         DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
     };
