@@ -41,7 +41,7 @@ var noneBoxShadowSelectors = formatString([
     ".badge-border",
 ]);
 var backgroundHighlightColorSelectors = formatString([
-    ".flat-demo .button-border",
+    // ".flat-demo .button-border",
     ".radio-selection",
     ".flat-demo .portfolio-filter .pill-button.active",
     ".pill-button:not(.theme-skin .pill-button)",
