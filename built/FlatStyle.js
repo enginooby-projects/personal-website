@@ -44,7 +44,8 @@ var backgroundHighlightColorSelectors = formatString([
     ".flat-demo .button-border",
     ".radio-selection",
     ".flat-demo .portfolio-filter .pill-button.active",
-    ".theme-skin .pill-button.active",
+    ".pill-button:not(.theme-skin .pill-button)",
+    " .theme-skin .pill-button.active"
 ]);
 var backgroundLightenSchemeColorSelectors = formatString([
     ".flat-demo .box-border",
@@ -54,7 +55,7 @@ var backgroundLightenSchemeColorSelectors = formatString([
     ".flat-demo .segmented-control",
     ".flat-demo .checkbox label",
     ".flat-demo .pallet-border",
-    ".color-pallet"
+    ".color-pallet",
 ]);
 var backgroundSchemeColorSelectors = formatString([
     // ".flat-demo .portfolio-filter .pill-button.active",

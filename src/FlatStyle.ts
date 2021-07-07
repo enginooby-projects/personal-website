@@ -31,7 +31,8 @@ const backgroundHighlightColorSelectors = formatString([
         ".flat-demo .button-border",
         ".radio-selection",
         ".flat-demo .portfolio-filter .pill-button.active",
-        ".theme-skin .pill-button.active",
+        ".pill-button:not(.theme-skin .pill-button)",
+        " .theme-skin .pill-button.active"
 ]);
 
 const backgroundLightenSchemeColorSelectors = formatString([
@@ -42,7 +43,7 @@ const backgroundLightenSchemeColorSelectors = formatString([
         ".flat-demo .segmented-control",
         ".flat-demo .checkbox label",
         ".flat-demo .pallet-border",
-        ".color-pallet"
+        ".color-pallet",
 ]);
 
 const backgroundSchemeColorSelectors = formatString([

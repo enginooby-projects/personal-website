@@ -337,7 +337,7 @@ table.neumorphic td:hover::after {
   visibility: hidden;
   -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
-  height: calc(100vh - 85px);
+  height: calc(100vh - 87px);
 }
 
 .color-switcher .color-pallet.show {
