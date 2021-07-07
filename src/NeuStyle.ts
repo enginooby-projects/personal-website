@@ -13,7 +13,6 @@ const backgroundSchemeColorSelectors = formatString([
         ".image-border",
         ".box-hover-border",
         " .contact .form-item .form-group",
-        ".pill-button.active",
         ".segmented-control",
         ".checkbox label",
         ".color-pallet",
@@ -21,7 +20,9 @@ const backgroundSchemeColorSelectors = formatString([
         ".range-slider__range",
         ".pallet-border",
         ".range-slider__value",
-        ".theme-skin .pill-button"
+        ".theme-skin .pill-button",
+        ".pill-button.active",
+        ".pill-button"
 ]);
 
 const backgroundTransparentSelectors = formatString([
@@ -109,8 +110,10 @@ export class NeuStyle extends Style {
 
         updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
                 element.classList.add(this.lastHoverElement);
-                this.originalProperty = originalProperty;
-                this.originalPropertyValue = originalPropertyValue;
+                if (!element.classList.contains('active')) { // for buttons
+                        this.originalProperty = originalProperty;
+                        this.originalPropertyValue = originalPropertyValue;
+                }
         }
 
         resetLastHoverElement(element: HTMLElement) {
@@ -199,6 +202,7 @@ export class NeuStyle extends Style {
                 DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor;
                 DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
                 DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor;
+                // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
         }
 
         updateRadioUI(): void {
@@ -250,8 +254,6 @@ export class NeuStyle extends Style {
         setupRangeSliderEvents() {
                 $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
                         const newValue = (event.target as HTMLInputElement).value;
-                        // console.log(newValue);
-                        // console.log(event.target.id);
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
                                 case 'distance':

@@ -26,7 +26,6 @@ var backgroundSchemeColorSelectors = formatString([
     ".image-border",
     ".box-hover-border",
     " .contact .form-item .form-group",
-    ".pill-button.active",
     ".segmented-control",
     ".checkbox label",
     ".color-pallet",
@@ -34,7 +33,9 @@ var backgroundSchemeColorSelectors = formatString([
     ".range-slider__range",
     ".pallet-border",
     ".range-slider__value",
-    ".theme-skin .pill-button"
+    ".theme-skin .pill-button",
+    ".pill-button.active",
+    ".pill-button"
 ]);
 var backgroundTransparentSelectors = formatString([
     ".radio-selection",
@@ -114,8 +115,10 @@ var NeuStyle = /** @class */ (function (_super) {
     });
     NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
         element.classList.add(this.lastHoverElement);
-        this.originalProperty = originalProperty;
-        this.originalPropertyValue = originalPropertyValue;
+        if (!element.classList.contains('active')) { // for buttons
+            this.originalProperty = originalProperty;
+            this.originalPropertyValue = originalPropertyValue;
+        }
     };
     NeuStyle.prototype.resetLastHoverElement = function (element) {
         element.classList.remove(this.lastHoverElement);
@@ -191,6 +194,7 @@ var NeuStyle = /** @class */ (function (_super) {
         DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor;
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
         DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor;
+        // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
     };
     NeuStyle.prototype.updateRadioUI = function () {
         $("input[type='radio']:checked").each(function () {
@@ -231,8 +235,6 @@ var NeuStyle = /** @class */ (function (_super) {
         var _this = this;
         $("#distance, #blur, #light-intensity, #dark-intensity").on('input', function (event) {
             var newValue = event.target.value;
-            // console.log(newValue);
-            // console.log(event.target.id);
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
                 case 'distance':

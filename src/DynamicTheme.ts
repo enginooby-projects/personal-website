@@ -28,6 +28,8 @@ export let trackScrollbarRule: CSSStyleRule;
 export let thumbScrollbarRule: CSSStyleRule;
 export let sliderThumbRule: CSSStyleRule;
 export let sliderThumbFocusRule: CSSStyleRule;
+export let colorSwatchRule: CSSStyleRule;
+
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
 let selectionRule: CSSStyleRule;
@@ -61,6 +63,7 @@ export function init() {
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
         sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
         sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
+        colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor);

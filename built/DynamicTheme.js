@@ -22,6 +22,7 @@ export var trackScrollbarRule;
 export var thumbScrollbarRule;
 export var sliderThumbRule;
 export var sliderThumbFocusRule;
+export var colorSwatchRule;
 var placeholderRule;
 var papePilingTooltipRule;
 var selectionRule;
@@ -52,6 +53,7 @@ export function init() {
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
     sliderThumbRule = cssRules[styleSheet.insertRule(".range-slider__range::-webkit-slider-thumb {background:" + schemeColor + ";}")];
     sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";}")];
+    colorSwatchRule = cssRules[styleSheet.insertRule("::-webkit-color-swatch{}")];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor);
     $("#highlight-color-picker").attr('value', highlightColor);

@@ -56,7 +56,7 @@ export const colorMutedBaseColorSelectors = formatString([
         ".form-control",
         ".range-slider label",
         ".range-slider__value",
-
+        "#colour-panel label ",
 ]);
 
 function formatString(selectorsArray: string[]): string {

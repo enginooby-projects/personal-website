@@ -2,7 +2,7 @@
          SCROLLBAR NEO
 -------------------------*/
 ::-webkit-scrollbar {
-        width: 15px;
+        width: 11px;
 }
 
 $transition_duration: 0.5s;
@@ -35,7 +35,7 @@ $transition_duration: 0.5s;
          SCROLLBAR FLAT
 -------------------------*/
 .flat-demo ::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
 }
 
 /* Light */

@@ -330,14 +330,14 @@ table.neumorphic td:hover::after {
   position: fixed;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  left: 60px;
+  left: 55px;
   width: 180px;
   border-radius: 16px;
   opacity: 0;
   visibility: hidden;
   -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
-  height: calc(100vh - 100px);
+  height: calc(100vh - 85px);
 }
 
 .color-switcher .color-pallet.show {
@@ -483,8 +483,7 @@ table.neumorphic td:hover::after {
 }
 
 .theme-skin-title {
-  margin: 0;
-  padding: 15px 0 0;
+  margin-bottom: 14px;
   border-radius: 16px 16px 0 0;
 }
 
@@ -595,12 +594,17 @@ input::-moz-focus-outer {
 
 .range-slider label,
 .range-slider__value {
-  font-size: 1.15rem !important;
+  font-size: 1.1rem !important;
 }
 
 .range-slider label {
   display: block;
   margin: 0;
+}
+
+#colour-panel label {
+  font-size: 1.1rem !important;
+  margin-bottom: 0.2rem !important;
 }
 
 /*-------------------------
@@ -632,7 +636,7 @@ input::-moz-focus-outer {
          SCROLLBAR NEO
 -------------------------*/
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 11px;
 }
 
 /* Light */
@@ -664,7 +668,7 @@ input::-moz-focus-outer {
          SCROLLBAR FLAT
 -------------------------*/
 .flat-demo ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 /* Light */
@@ -1284,7 +1288,7 @@ header {
 
 .social-box {
   position: absolute;
-  left: 1.5rem;
+  left: 1.2rem;
   bottom: 0;
   width: 1.5rem;
   z-index: 100;
