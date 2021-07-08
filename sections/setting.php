@@ -123,6 +123,16 @@
                         </div>
                 </div>
 
+                <div id="border-panel" class="mt-3 mb-3">
+                        <h6 class="text-center "> Border</h6>
+                        <div class="range-slider">
+                                <label for="border-radius">Radius</label>
+                                <input class="range-slider__range" id="border-radius" type="range" min="0" max="50" step="1">
+                                <span class="range-slider__value">
+                                </span>
+                        </div>
+                </div>
+
         </div>
         <div class="pallet-border hide">
                 <div class="pallet-button">

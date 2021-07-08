@@ -71,6 +71,8 @@
         height: 100%;
         float: none;
         z-index: 1031;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
         border-radius: 16px 0 0 16px;
         opacity: 1;
         visibility: visible;

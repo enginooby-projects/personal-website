@@ -135,9 +135,7 @@ button {
 }
 
 .button-border {
-        // background-color: #f1f3f6;
-        border-radius: $button-border !important;
-        // box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        border-radius: $button-border;
         display: inline-block;
         padding: 1px;
 }

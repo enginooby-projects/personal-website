@@ -59,6 +59,45 @@ export const colorMutedBaseColorSelectors = formatString([
         "#colour-panel label ",
 ]);
 
+export const borderRadiusSelectors = formatString([
+        ".blog .blog-image",
+        ".blog .blog-image .after",
+        ".blog .blog-intro ",
+        ".blog .blog-intro img",
+        ".post-sidebar",
+        ".post-sidebar-toggle ",
+        ".aside-contents",
+        ".search .form-group",
+        ".breadcrumb",
+        ".blog-single img",
+        ".comments img", //50%
+        ".comments .commnet-image-border img",
+        ".comments-devider",
+        ".contact .form-item .form-group",
+        ".contact #message.toast",
+        ".pill-button",
+        ".button-border",
+        ".image-border img",
+        ".image-border",
+        ".color-switcher .color-pallet",
+        ".color-switcher .pallet-border",
+        " .pallet-button",
+        ".box-border",
+        ".badge",
+        ".badge-border",
+        ".duties .image-border .box-hover-border",
+        ".course-item img",
+        ".book-item>img",
+        ".skill-box .skillbar",
+        ".skill-box .fill-skillbar",
+        ".segmented-control",
+        ".radio-selection",
+        ".checkbox label",
+        ".range-slider__range",
+        ".modal-content",
+        "table"
+]);
+
 function formatString(selectorsArray: string[]): string {
         return selectorsArray.join(", ");
 }

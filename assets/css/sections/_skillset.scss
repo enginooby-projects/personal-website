@@ -21,11 +21,11 @@ $badge-radius:0.6rem;
 }
 
 .skill-item {
-        border-radius: $badge-radius !important;
+        border-radius: $badge-radius;
 }
 
 .skill-boxes .image-border {
-        border-radius: $badge-radius !important;
+        border-radius: $badge-radius;
         padding: 2px !important;
 }
 
@@ -49,7 +49,7 @@ $badge-radius:0.6rem;
 }
 
 .badge-border {
-        border-radius: $badge-radius !important;
+        border-radius: $badge-radius;
         display: inline-block;
         padding: 2px;
         margin: 0 5px 10px;
@@ -64,7 +64,7 @@ $badge-radius:0.6rem;
 .badge.badge-pill {
         font-weight: 300 !important;
         color: white;
-        border-radius: 0.5rem !important;
+        border-radius: 0.5rem;
 
         flex-grow: 1;
         display: table;

@@ -43,6 +43,7 @@
         border-radius: 1.25rem;
 }
 
+.portfolio .portfolio-item-content::before,
 .portfolio-item-content::before {
         content: "";
         position: absolute;
@@ -53,7 +54,9 @@
         opacity: 0;
         transform: scale(0.8);
         transition: 0.5s all ease;
+        // TODO: dynamic radius
         border-radius: 1.25rem;
+        background-color: rgba(0, 0, 0, 0.479);
 }
 
 .portfolio-item-content:hover .img-overlay-content {

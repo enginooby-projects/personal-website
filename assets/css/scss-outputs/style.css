@@ -101,7 +101,7 @@ button {
 }
 
 .button-border {
-  border-radius: 0.8rem !important;
+  border-radius: 0.8rem;
   display: inline-block;
   padding: 1px;
 }
@@ -331,6 +331,8 @@ table.neumorphic td:hover::after {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   left: 55px;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
   border-radius: 16px 0 0 16px;
   opacity: 0;
   visibility: hidden;
@@ -373,6 +375,8 @@ table.neumorphic td:hover::after {
   height: 40px;
   left: 0;
   width: 40px;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
   border-radius: 0 16px 16px 0;
 }
 
@@ -548,7 +552,7 @@ table.neumorphic td:hover::after {
           appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 30%;
+  border-radius: 100%;
   cursor: pointer;
   -webkit-transition: background .15s ease-in-out;
   transition: background .15s ease-in-out;
@@ -1400,11 +1404,11 @@ header {
 }
 
 .skill-item {
-  border-radius: 0.6rem !important;
+  border-radius: 0.6rem;
 }
 
 .skill-boxes .image-border {
-  border-radius: 0.6rem !important;
+  border-radius: 0.6rem;
   padding: 2px !important;
 }
 
@@ -1426,7 +1430,7 @@ header {
 }
 
 .badge-border {
-  border-radius: 0.6rem !important;
+  border-radius: 0.6rem;
   display: inline-block;
   padding: 2px;
   margin: 0 5px 10px;
@@ -1445,7 +1449,7 @@ header {
 .badge.badge-pill {
   font-weight: 300 !important;
   color: white;
-  border-radius: 0.5rem !important;
+  border-radius: 0.5rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1559,6 +1563,7 @@ header {
   border-radius: 1.25rem;
 }
 
+.portfolio .portfolio-item-content::before,
 .portfolio-item-content::before {
   content: "";
   position: absolute;
@@ -1572,6 +1577,7 @@ header {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
   border-radius: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.479);
 }
 
 .portfolio-item-content:hover .img-overlay-content {
@@ -2083,7 +2089,7 @@ header {
 .book-item > img {
   width: 165px !important;
   height: 215px !important;
-  border-radius: 1rem !important;
+  border-radius: 1rem;
 }
 
 .course-item {
@@ -2095,12 +2101,14 @@ header {
 .course-item img {
   width: 220px !important;
   height: 135px !important;
-  border-radius: 1rem !important;
+  border-radius: 1rem;
 }
 
 .skill-box {
   padding: 30px;
   margin-top: 5px;
+  padding-left: 3 !important;
+  padding-right: 3 !important;
 }
 
 .skill-box .skillbar {
@@ -2479,6 +2487,8 @@ header {
   height: 100%;
   float: none;
   z-index: 1031;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
   border-radius: 16px 0 0 16px;
   opacity: 1;
   visibility: visible;

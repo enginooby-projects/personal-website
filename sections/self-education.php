@@ -31,7 +31,7 @@ function displayBook($imageUrl, $pageAmount)
 
         echo '
         <div class="image-border text-center book-item">
-                <img src="assets/img/books/' . $imageUrl . '" class="img-fluid rounded">
+                <img src="assets/img/books/' . $imageUrl . '" class="img-fluid">
                 ' . progressBar($percent) . '
         </div>
         ';

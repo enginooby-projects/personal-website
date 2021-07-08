@@ -6,6 +6,8 @@ import { StyleRegistry } from './StyleRegistry.js';
 let styleSheet: CSSStyleSheet;
 let $squareImg: JQuery<HTMLElement>;
 
+let borderRadius: number = 15;
+
 // COLORFULL
 let colorfull1: string;
 let colorfull2: string;
@@ -61,8 +63,8 @@ export function init() {
         thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)] as CSSStyleRule;
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
-        sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
-        sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};}`)] as CSSStyleRule;
+        sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor}; border-radius: ${borderRadius}}`)] as CSSStyleRule;
+        sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)] as CSSStyleRule;
         colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
@@ -70,12 +72,16 @@ export function init() {
         $("#highlight-color-picker").attr('value', highlightColor);
         updateSchemeColor(schemeColor);
         updateHighlightColor(highlightColor);
+
+        $('#border-radius').attr('value', borderRadius);
+        $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
 
 function setupEvents() {
         setupColorPickerEvents();
         setupCommonHoverEvents();
         setupCommonClickEvents();
+        setupRangeSliderEvents();
 }
 
 function setupColorPickerEvents() {
@@ -179,3 +185,24 @@ function updateBaseColor() {
                 currentStyle.updateCheckboxUI();
         }
 }
+function setupRangeSliderEvents() {
+        $("#border-radius").on('input', (event) => {
+                const newValue = (event.target as HTMLInputElement).value;
+                $("#" + event.target.id).next('.range-slider__value').text(newValue);
+                switch (event.target.id) {
+                        case 'border-radius':
+                                borderRadius = parseInt(newValue);
+                                break;
+                }
+                updateBorder();
+        });
+}
+
+function updateBorder() {
+        $(ColorSelectors.borderRadiusSelectors).css('border-radius', borderRadius);
+        // TODO; not working
+        // sliderThumbRule.style.borderRadius = borderRadius.toString();         
+        // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
+        // trackScrollbarRule.style.borderRadius = borderRadius.toString();
+}
+

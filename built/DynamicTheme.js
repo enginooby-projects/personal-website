@@ -3,6 +3,7 @@ import ColorUtility from './ColorUtility.js';
 import { StyleRegistry } from './StyleRegistry.js';
 var styleSheet;
 var $squareImg;
+var borderRadius = 15;
 // COLORFULL
 var colorfull1;
 var colorfull2;
@@ -51,19 +52,22 @@ export function init() {
     thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
     placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
     papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
-    sliderThumbRule = cssRules[styleSheet.insertRule(".range-slider__range::-webkit-slider-thumb {background:" + schemeColor + ";}")];
-    sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";}")];
+    sliderThumbRule = cssRules[styleSheet.insertRule(".range-slider__range::-webkit-slider-thumb {background:" + schemeColor + "; border-radius: " + borderRadius + "}")];
+    sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";border-radius: " + borderRadius + "}")];
     colorSwatchRule = cssRules[styleSheet.insertRule("::-webkit-color-swatch{}")];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor);
     $("#highlight-color-picker").attr('value', highlightColor);
     updateSchemeColor(schemeColor);
     updateHighlightColor(highlightColor);
+    $('#border-radius').attr('value', borderRadius);
+    $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
 function setupEvents() {
     setupColorPickerEvents();
     setupCommonHoverEvents();
     setupCommonClickEvents();
+    setupRangeSliderEvents();
 }
 function setupColorPickerEvents() {
     $("#highlight-color-picker").on('input', function (event) {
@@ -152,4 +156,23 @@ function updateBaseColor() {
         currentStyle.updateRadioUI();
         currentStyle.updateCheckboxUI();
     }
+}
+function setupRangeSliderEvents() {
+    $("#border-radius").on('input', function (event) {
+        var newValue = event.target.value;
+        $("#" + event.target.id).next('.range-slider__value').text(newValue);
+        switch (event.target.id) {
+            case 'border-radius':
+                borderRadius = parseInt(newValue);
+                break;
+        }
+        updateBorder();
+    });
+}
+function updateBorder() {
+    $(ColorSelectors.borderRadiusSelectors).css('border-radius', borderRadius);
+    // TODO; not working
+    // sliderThumbRule.style.borderRadius = borderRadius.toString();         
+    // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
+    // trackScrollbarRule.style.borderRadius = borderRadius.toString();
 }
