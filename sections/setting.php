@@ -112,17 +112,17 @@
                 <div id="colour-panel">
                         <h6 class="text-center mt-3"> Colour</h6>
                         <div class="row px-4">
-                                <div class="col">
+                                <div class="col-6">
                                         <label for="highlight-color-picker">Highlight</label>
                                         <input type="color" id="highlight-color-picker" value="#0000ff">
                                 </div>
-                                <div class="col">
+                                <div class="col-6">
                                         <label for="scheme-color-picker">Scheme</label>
                                         <input type="color" id="scheme-color-picker" value="#f1f3f6">
                                 </div>
                         </div>
-
                 </div>
+
         </div>
         <div class="pallet-border hide">
                 <div class="pallet-button">

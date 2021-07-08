@@ -9,14 +9,35 @@
         position: fixed;
         transition: all 0.3s ease;
         left: 55px;
-        width: 180px;
-        border-radius: 16px;
+        border-radius: 16px 0 0 16px;
+        // border-radius: 16px;
         opacity: 0;
         visibility: hidden;
         box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
 
+        width: 180px;
         height: calc(100vh - 87px);
-        // overflow-y: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
+}
+
+$scrollbarRadius: 16px;
+
+.color-switcher .color-pallet::-webkit-scrollbar {
+        width: 6px !important;
+}
+
+.color-switcher .color-pallet::-webkit-scrollbar-track {
+        border-radius: 0 !important;
+        // border-radius: 0 $scrollbarRadius $scrollbarRadius 0 !important;
+
+        box-shadow: none !important;
+        background: transparent !important;
+}
+
+.color-switcher .color-pallet::-webkit-scrollbar-thumb {
+        border-radius: 0 !important;
+        // border-radius: 0 $scrollbarRadius $scrollbarRadius 0 !important;
 }
 
 .color-switcher .color-pallet.show {
