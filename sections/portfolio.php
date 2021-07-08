@@ -316,6 +316,13 @@ function formatLabel($str, $sep = '-')
                                                 codeUrl: 'enginoobz-projects/multistore-shopping-gui',
                                         );
                                         displayPortfolioItem(
+                                                label: 'The Dark Diary',
+                                                isGalleryItem: false,
+                                                accessUrl: 'enginoobz.com/projects/the-dark-diary',
+                                                filters: 'utility small  web database prototype ',
+                                                codeUrl: 'enginoobz-projects/the-dark-diary'
+                                        );
+                                        displayPortfolioItem(
                                                 label: 'Corona Checker',
                                                 isGalleryItem: false,
                                                 accessUrl: 'enginoobz.com/projects/corona-checker',
@@ -328,10 +335,10 @@ function formatLabel($str, $sep = '-')
                                                 filters: 'design completed',
                                         );
                                         displayPortfolioItem(
-                                                label: 'Simple Weather GUI',
+                                                label: 'Weather Checker',
                                                 isGalleryItem: false,
                                                 filters: 'utility small  desktop prototype api',
-                                                codeUrl: 'enginoobz-projects/simple-weather-gui'
+                                                codeUrl: 'enginoobz-projects/weather-checker'
                                         );
                                         ?>
                                 </div>
