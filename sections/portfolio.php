@@ -352,6 +352,13 @@ function formatLabel($str, $sep = '-')
                                                 codeUrl: 'enginoobz-games/project-boost'
                                         );
                                         displayPortfolioItem(
+                                                label: 'Racing',
+                                                isGalleryItem: false,
+                                                filters: 'game small web prototype',
+                                                // modalPlay: 'project-boost-play',
+                                                codeUrl: 'enginoobz-games/racing'
+                                        );
+                                        displayPortfolioItem(
                                                 label: 'Shader Playground',
                                                 isGalleryItem: false,
                                                 filters: 'cg small web ongoing',
