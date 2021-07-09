@@ -1594,6 +1594,7 @@ header {
   transition: 0.5s all ease;
   border-radius: 1.25rem;
   background-color: rgba(0, 0, 0, 0.479);
+  z-index: 99;
 }
 
 .portfolio-item-content:hover .img-overlay-content {
@@ -1601,8 +1602,8 @@ header {
 }
 
 .portfolio-item-content:hover::before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
   opacity: 1;
 }
 
@@ -1616,6 +1617,7 @@ header {
   opacity: 0;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  z-index: 100;
 }
 
 .img-overlay-content h6 {
@@ -2087,10 +2089,6 @@ header {
 .injected-section {
   zoom: 0.4;
   -moz-transform: scale(0.4);
-}
-
-.injected-section img {
-  z-index: inherit !important;
 }
 
 /*  CHECKBOX  */

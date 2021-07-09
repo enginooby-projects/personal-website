@@ -57,6 +57,7 @@
         // TODO: dynamic radius
         border-radius: 1.25rem;
         background-color: rgba(0, 0, 0, 0.479);
+        z-index: 99;
 }
 
 .portfolio-item-content:hover .img-overlay-content {
@@ -64,7 +65,7 @@
 }
 
 .portfolio-item-content:hover::before {
-        transform: scale(1);
+        transform: scale(1.03);
         opacity: 1;
 }
 
@@ -76,6 +77,8 @@
         text-align: center;
         opacity: 0;
         transition: all 0.5s ease;
+        z-index: 100;
+
 }
 
 .img-overlay-content h6 {
@@ -482,9 +485,6 @@ $checkbox-scale:0.5;
         -moz-transform: scale(0.4);
 }
 
-.injected-section img {
-        z-index: inherit !important;
-}
 
 /*  CHECKBOX  */
 .checkbox input {

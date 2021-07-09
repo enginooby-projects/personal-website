@@ -398,22 +398,23 @@ function formatLabel($str, $sep = '-')
                                                 codeUrl: 'enginoobz-projects/the-dark-diary'
                                         );
                                         displayPortfolioItem(
+                                                label: 'Weather Checker',
+                                                isGalleryItem: false,
+                                                filters: 'utility small  desktop prototype api',
+                                                codeUrl: 'enginoobz-projects/weather-checker'
+                                        );
+                                        displayPortfolioItem(
                                                 label: 'Corona Checker',
                                                 isGalleryItem: false,
                                                 accessUrl: 'enginoobz.com/projects/corona-checker',
                                                 filters: 'utility small  web completed ',
                                                 codeUrl: 'enginoobz-projects/corona-checker'
                                         );
+
                                         displayPortfolioItem(
                                                 label: 'Photo Enhancement',
                                                 isGalleryItem: true,
                                                 filters: 'design completed',
-                                        );
-                                        displayPortfolioItem(
-                                                label: 'Weather Checker',
-                                                isGalleryItem: false,
-                                                filters: 'utility small  desktop prototype api',
-                                                codeUrl: 'enginoobz-projects/weather-checker'
                                         );
                                         ?>
                                 </div>
