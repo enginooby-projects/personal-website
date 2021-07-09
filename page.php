@@ -70,6 +70,7 @@
         include 'modals/courses.php';
         include 'modals/portfolio/endless-flight.php';
         include 'modals/portfolio/guess-the-word-play.php';
+        include 'modals/portfolio/the-maze-play.php';
         include 'modals/blog/sample.php';
         ?>
 

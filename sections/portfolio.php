@@ -324,6 +324,13 @@ function formatLabel($str, $sep = '-')
                                                 codeUrl: 'enginoobz-games/tony-the-runner'
                                         );
                                         displayPortfolioItem(
+                                                label: 'The Maze',
+                                                isGalleryItem: false,
+                                                filters: 'game small web completed',
+                                                modalPlay: 'the-maze-play',
+                                                codeUrl: 'enginoobz-university/unity-laboratories'
+                                        );
+                                        displayPortfolioItem(
                                                 label: 'MeowMeow Brand Design',
                                                 isGalleryItem: true,
                                                 filters: 'design completed',

@@ -1547,7 +1547,7 @@ header {
   position: absolute;
   top: 6px;
   right: 6px;
-  color: rgba(250, 250, 93, 0.815) !important;
+  color: rgba(250, 250, 93, 0.815);
 }
 
 .btn-filter {

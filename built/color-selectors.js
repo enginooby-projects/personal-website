@@ -27,6 +27,7 @@ export var colorHighlightColorSelectors = formatString([
     ".portfolio .portfolio-filter li a",
     ".portfolio .portfolio-icon a i",
     ".contact .form-item .form-control",
+    ".highlight-portfolio-item.fa-star"
     // ".theme-skin .neo-skin",
 ]);
 export var colorBaseColorSelectors = formatString([
