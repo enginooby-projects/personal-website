@@ -246,6 +246,13 @@ function formatLabel($str, $sep = '-')
                                                         </label>
                                                         <div class="name">Networking</div>
                                                 </div>
+                                                <div class="checkbox__8">
+                                                        <input id="checkbox-8" type="checkbox" value=".cloud">
+                                                        <label for="checkbox-8">
+                                                                <i class="fas fa-check"></i>
+                                                        </label>
+                                                        <div class="name">Cloud</div>
+                                                </div>
                                                 <div class="checkbox__3">
                                                         <input id="checkbox-3" type="checkbox" value=".api">
                                                         <label for="checkbox-3">
@@ -313,7 +320,7 @@ function formatLabel($str, $sep = '-')
                                                 label: 'Personal Website',
                                                 isInjectedItem: true,
                                                 injectedFile: 'hero-injectable.php',
-                                                filters: 'highlight web ongoing large',
+                                                filters: 'highlight web database cloud ongoing large',
                                                 codeUrl: 'enginoobz-projects/portfolio-test'
                                         );
                                         displayPortfolioItem(
@@ -326,14 +333,48 @@ function formatLabel($str, $sep = '-')
                                         displayPortfolioItem(
                                                 label: 'The Maze',
                                                 isGalleryItem: false,
-                                                filters: 'game small web completed',
+                                                filters: 'game small web prototype',
                                                 modalPlay: 'the-maze-play',
                                                 codeUrl: 'enginoobz-university/unity-laboratories'
                                         );
                                         displayPortfolioItem(
-                                                label: 'MeowMeow Brand Design',
+                                                label: 'Breakout',
+                                                isGalleryItem: false,
+                                                filters: 'game small web prototype',
+                                                modalPlay: 'breakout-play',
+                                                codeUrl: 'enginoobz-games/breakout2'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Project Boost',
+                                                isGalleryItem: false,
+                                                filters: 'game small web prototype',
+                                                modalPlay: 'project-boost-play',
+                                                codeUrl: 'enginoobz-games/project-boost'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Shader Playground',
+                                                isGalleryItem: false,
+                                                filters: 'cg small web ongoing',
+                                                modalPlay: 'shader-playground-play',
+                                                codeUrl: 'enginoobz-games/shader-playground'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Newton Cradle',
+                                                isGalleryItem: false,
+                                                filters: 'cg medium web completed',
+                                                accessUrl: 'enginoobz-threejs.herokuapp.com',
+                                                codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/newton_cradle.ts'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'MeowMeow Brand',
                                                 isGalleryItem: true,
                                                 filters: 'design completed',
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Train Model',
+                                                isGalleryItem: true,
+                                                filters: 'model web completed',
+                                                accessUrl: 'enginoobz.itch.io/unity-laboratories',
                                         );
                                         displayPortfolioItem(
                                                 label: 'Multistore Shopping GUI',

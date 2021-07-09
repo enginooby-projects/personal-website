@@ -485,3 +485,69 @@ $checkbox-scale:0.5;
 .injected-section img {
         z-index: inherit !important;
 }
+
+/*  CHECKBOX  */
+.checkbox input {
+        display: none;
+}
+
+.checkbox .name {
+        font-size: 1.1rem;
+        margin-left: 0.35rem;
+        margin-right: 0.8rem;
+        margin-bottom: 0rem;
+}
+
+// TODO: Unify class
+.checkbox__1,
+.checkbox__2,
+.checkbox__3,
+.checkbox__4,
+.checkbox__5,
+.checkbox__6,
+.checkbox__7,
+.checkbox__8 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+}
+
+.checkbox label {
+        -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        cursor: pointer;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-radius: .5rem;
+        width: 1.4rem;
+        height: 1.4rem;
+}
+
+.checkbox label:hover i {
+        color: var(--primary);
+}
+
+.checkbox label i {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--greyDark);
+        -webkit-transition: .3s ease;
+        transition: .3s ease;
+}
+
+.checkbox input:checked~label {
+        -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+}
+
+.checkbox input:checked~label i {
+        color: var(--primary);
+}

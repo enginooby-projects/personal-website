@@ -71,6 +71,9 @@
         include 'modals/portfolio/endless-flight.php';
         include 'modals/portfolio/guess-the-word-play.php';
         include 'modals/portfolio/the-maze-play.php';
+        include 'modals/portfolio/breakout-play.php';
+        include 'modals/portfolio/project-boost-play.php';
+        include 'modals/portfolio/shader-playground-play.php';
         include 'modals/blog/sample.php';
         ?>
 
