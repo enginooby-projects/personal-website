@@ -900,8 +900,6 @@ canvas.particles-js-canvas-el {
 .hero-03 .personal-image img {
   z-index: 10;
   position: relative;
-  -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
 }
 
 .hero-03 .hero-image img {
@@ -2084,6 +2082,15 @@ header {
 
 .dark-scheme .checkbox__1 input:checked ~ label i, .dark-scheme .checkbox__2 input:checked ~ label i, .dark-scheme .checkbox__3 input:checked ~ label i, .dark-scheme .checkbox__4 input:checked ~ label i, .dark-scheme .checkbox__5 input:checked ~ label i, .dark-scheme .checkbox__6 input:checked ~ label i, .dark-scheme .checkbox__7 input:checked ~ label i {
   color: var(--primary);
+}
+
+.injected-section {
+  zoom: 0.4;
+  -moz-transform: scale(0.4);
+}
+
+.injected-section img {
+  z-index: inherit !important;
 }
 
 .book-item {

@@ -476,3 +476,12 @@ $checkbox-scale:0.5;
                 }
         }
 }
+
+.injected-section {
+        zoom: 0.4;
+        -moz-transform: scale(0.4);
+}
+
+.injected-section img {
+        z-index: inherit !important;
+}

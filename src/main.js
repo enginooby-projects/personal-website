@@ -264,7 +264,8 @@ function typedJS() {
 
         "use strict";
 
-        var $element = $(".element");
+        // TODO: Refactor
+        var $element = $("#hero .typed");
         if ($element.length > 0) {
                 if ($element.length) {
                         var options = {
@@ -274,9 +275,27 @@ function typedJS() {
                                 backSpeed: 30,
                                 loop: true
                         };
-                        var typed = new Typed(".element", options);
+                        var typed = new Typed("#hero .typed", options);
                 }
         }
+
+        var $element = $("#portfolio .typed");
+        if ($element.length > 0) {
+                if ($element.length) {
+                        var options = {
+                                strings: $element.attr('data-elements').split(','),
+                                typeSpeed: 70,
+                                backDelay: 1500,
+                                backSpeed: 30,
+                                loop: true
+                        };
+                        var typed = new Typed("#portfolio .typed", options);
+                }
+        }
+}
+
+function startTyping() {
+
 }
 /*-------------------------
           Skills

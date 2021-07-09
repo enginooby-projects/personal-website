@@ -54,11 +54,22 @@ class CodingProject
 }
 
 // space in url = %20
-function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
+function displayPortfolioItem($label, $isGalleryItem = false, $isInjectedItem = false, $injectedFile = null, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
 {
         $formattedName = formatLabel($label);
         $highlightElement = getHighlightElement($filters);
+        $injectedElement = "";
+        $imageElement = "";
         $buttonElements = "";
+
+        if ($isInjectedItem) {
+                ob_start();
+                include $injectedFile;
+                $injectedContent = ob_get_clean();
+                $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
+        } else {
+                $imageElement = ' <img src="assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">';
+        }
 
         if ($isGalleryItem) $buttonElements .= '
                 <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1">
@@ -89,8 +100,9 @@ function displayPortfolioItem($label, $isGalleryItem = false, $filters, $accessU
           <div class="col-lg-4 portfolio-item ' . $filters . '">
                     <div class="image-border">
                               <div class="portfolio-item-content ">
-                                        <img src="assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">
+                                        ' . $imageElement . '
                                         ' . $highlightElement . '
+                                        ' . $injectedElement . '
                                         <div class="img-overlay text-center">
                                                   <div class="img-overlay-content">
                                                             <div class="portfolio-icon">
@@ -289,12 +301,20 @@ function formatLabel($str, $sep = '-')
                                                 accessUrl: 'enginoobz-threejs.herokuapp.com',
                                                 codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
                                         );
+
                                         displayPortfolioItem(
                                                 label: 'Guess The Word',
                                                 isGalleryItem: false,
                                                 filters: 'game small web prototype',
                                                 modalPlay: 'guess-the-word-play',
                                                 codeUrl: 'enginoobz-games/guess-the-word'
+                                        );
+                                        displayPortfolioItem(
+                                                label: 'Personal Website',
+                                                isInjectedItem: true,
+                                                injectedFile: 'hero-injectable.php',
+                                                filters: 'highlight web ongoing large',
+                                                codeUrl: 'enginoobz-projects/portfolio-test'
                                         );
                                         displayPortfolioItem(
                                                 label: 'Tony The Runner',
