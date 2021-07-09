@@ -1,17 +1,19 @@
 /*-------------------------
          SETTING
 -------------------------*/
-
 .color-switcher .color-pallet {
+        direction: rtl;
+
         background-color: white;
         top: 75px;
         z-index: 1000;
         position: fixed;
         transition: all 0.3s ease;
         left: 55px;
-        border-top-right-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        border-radius: 16px 0 0 16px;
+
+        border-radius: 16px;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
         opacity: 0;
         visibility: hidden;
         box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
@@ -22,10 +24,14 @@
         overflow-x: hidden;
 }
 
+.color-pallet-content {
+        direction: ltr;
+}
+
 $scrollbarRadius: 16px;
 
 .color-switcher .color-pallet::-webkit-scrollbar {
-        width: 6px !important;
+        width: 7px !important;
 }
 
 .color-switcher .color-pallet::-webkit-scrollbar-track {
