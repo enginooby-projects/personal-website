@@ -76,6 +76,7 @@ export var borderRadiusSelectors = formatString([
     ".color-switcher .color-pallet",
     ".color-switcher .pallet-border",
     " .pallet-button",
+    ".duties .image-border .box-hover-border",
     ".box-border",
     ".badge",
     ".badge-border",
