@@ -24,7 +24,6 @@ var backgroundSchemeColorSelectors = formatString([
     " .button-border",
     " .box-border",
     ".image-border",
-    ".box-hover-border",
     " .contact .form-item .form-group",
     ".segmented-control",
     ".checkbox label",

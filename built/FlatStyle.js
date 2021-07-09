@@ -50,7 +50,6 @@ var backgroundHighlightColorSelectors = formatString([
 var backgroundLightenSchemeColorSelectors = formatString([
     ".flat-demo .box-border",
     ".flat-demo .image-border",
-    ".flat-demo .box-hover-border",
     ".flat-demo .contact .form-item .form-group",
     ".flat-demo .segmented-control",
     ".flat-demo .checkbox label",

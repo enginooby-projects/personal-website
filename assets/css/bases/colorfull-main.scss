@@ -3,54 +3,42 @@ $colorfull2: #ebbc00;
 $colorfull3: #e93666;
 
 .colorfull1 {
-        color: $colorfull1 !important;
+        color: $colorfull1;
 }
 
 .colorfull2 {
-        color: $colorfull2 !important;
+        color: $colorfull2;
 }
 
 .colorfull3 {
-        color: $colorfull3 !important;
+        color: $colorfull3;
 }
 
 .background-colorfull1>.badge {
-        color: $colorfull1 !important;
+        color: $colorfull1;
 }
 
 .background-colorfull2>.badge {
-        color: $colorfull2 !important;
+        color: $colorfull2;
 }
 
 .background-colorfull3>.badge {
-        color: $colorfull3 !important;
+        color: $colorfull3;
 }
 
 .background-colorfull1 {
-        background-color: $colorfull1 !important;
+        background-color: $colorfull1;
 }
 
 .background-colorfull2 {
-        background-color: $colorfull2 !important;
+        background-color: $colorfull2;
 }
 
 .background-colorfull3 {
-        background-color: $colorfull3 !important;
+        background-color: $colorfull3;
 }
 
 
-.timeline-items .timeline-icon {
-        border: none;
-        left: -9px !important;
-}
-
-.timeline-items .timeline-border {
-        border-left: 2px solid;
-}
-
-.timeline-item::before {
-        display: none;
-}
 
 .portfolio-icon a i {
         color: #fafafa !important;

@@ -1,6 +1,6 @@
 <div id="color-switcher" class="color-switcher">
         <div class="text-center color-pallet hide">
-                <ul class="theme-skin " id="ui-style-panel">
+                <ul class="theme-skin mb-1" id="ui-style-panel">
                         <h6 class="theme-skin-title">UI Style</h6>
                         <div class="button-border" id="flat-skin-button">
                                 <a href="javascript:void(0)" class="pill-button">Flat</a>
@@ -112,13 +112,27 @@
                 <div id="colour-panel">
                         <h6 class="text-center mt-3"> Colour</h6>
                         <div class="row px-4">
-                                <div class="col-6">
+                                <div class="col-6 p-0">
                                         <label for="highlight-color-picker">Highlight</label>
                                         <input type="color" id="highlight-color-picker" value="#0000ff">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6 p-0">
                                         <label for="scheme-color-picker">Scheme</label>
                                         <input type="color" id="scheme-color-picker" value="#f1f3f6">
+                                </div>
+                        </div>
+                        <div class="row mt-3 px-4 justify-content-center">
+                                <label>Colourful elements</label>
+                        </div>
+                        <div class="row mt-1 px-4">
+                                <div class="col-4 p-0 ">
+                                        <input class="color-picker" type="color" id="colorfull1-picker" value="#00a584">
+                                </div>
+                                <div class="col-4 p-0 ">
+                                        <input class="color-picker" type="color" id="colorfull2-picker" value="#ebbc00">
+                                </div>
+                                <div class="col-4 p-0">
+                                        <input class="color-picker" type="color" id="colorfull3-picker" value="#e93666">
                                 </div>
                         </div>
                 </div>

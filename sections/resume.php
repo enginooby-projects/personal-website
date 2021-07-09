@@ -14,7 +14,7 @@
                                 </div>
                                 <!--    TimeLine Start   -->
                                 <div class="row">
-                                        <div class="col-lg-6 equal-columns">
+                                        <div class="col-lg-6 equal-columns" id="education-timeline">
                                                 <div class="resume-title text-center">
                                                         <h3>Education</h3>
                                                         <div class="border-style"></div>
@@ -38,7 +38,7 @@
                                                         </div>
                                                 </div>
                                         </div>
-                                        <div class="col-lg-6 mt-5 mt-lg-0 equal-columns">
+                                        <div class="col-lg-6 mt-5 mt-lg-0 equal-columns" id="experience-timeline">
                                                 <div class="resume-title text-center">
                                                         <h3>Experience</h3>
                                                         <div class="border-style"></div>
@@ -67,7 +67,7 @@
 
                                 <!--    Achievements   -->
                                 <div class="row">
-                                        <div class="col-lg-12 mt-5">
+                                        <div class="col-lg-12 mt-5" id="achievements-timeline">
                                                 <div class="resume-title text-center">
                                                         <h3>Achievements</h3>
                                                         <div class="border-style"></div>

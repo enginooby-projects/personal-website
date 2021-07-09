@@ -5,7 +5,6 @@ export var backgroundBaseColorSelectors = formatString([
 export var backgroundHighlightColorSelectors = formatString([
     ".bg-base-color",
     ".border-style",
-    ".timeline-icon",
     "#pp-nav li .active span",
     ".pp-slidesNav .active span"
 ]);
@@ -53,6 +52,7 @@ export var colorMutedBaseColorSelectors = formatString([
     ".range-slider__value",
     "#colour-panel label ",
 ]);
+export var colorColorfull1Selectors = formatString([]);
 export var borderRadiusSelectors = formatString([
     ".blog .blog-image",
     ".blog .blog-image .after",
@@ -79,7 +79,6 @@ export var borderRadiusSelectors = formatString([
     ".box-border",
     ".badge",
     ".badge-border",
-    ".duties .image-border .box-hover-border",
     ".course-item img",
     ".book-item>img",
     ".skill-box .skillbar",

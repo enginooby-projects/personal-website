@@ -5,9 +5,9 @@ var styleSheet;
 var $squareImg;
 var borderRadius = 15;
 // COLORFULL
-var colorfull1;
-var colorfull2;
-var colorfull3;
+var colorfull1 = "#00a584";
+var colorfull2 = "#ebbc00";
+var colorfull3 = "#e93666";
 export var schemeColor = "#680317"; // "#f1f3f6";
 export var highlightColor = "#227DD8";
 export var baseColor;
@@ -76,6 +76,39 @@ function setupColorPickerEvents() {
     $("#scheme-color-picker").on('input', function (event) {
         updateSchemeColor(event.target.value);
     });
+    $("#colorfull1-picker").on('input', function (event) {
+        updateColorfull1(event.target.value);
+    });
+    $("#colorfull2-picker").on('input', function (event) {
+        updateColorfull2(event.target.value);
+    });
+    $("#colorfull3-picker").on('input', function (event) {
+        updateColorfull3(event.target.value);
+    });
+}
+function updateColorfull1(newColor) {
+    colorfull1 = newColor;
+    $('.colorfull1, .background-colorfull1>.badge').css('color', colorfull1);
+    $('.background-colorfull1').css('background-color', colorfull1);
+    $('.background-colorfull1').css('color', ColorUtility.getInvert(colorfull1, true));
+    $('#education-timeline .timeline-item').css('border-left-color', colorfull1);
+    $('.badge-pill.background-colorfull1 .badge').css('background', ColorUtility.getInvert(colorfull1, true));
+}
+function updateColorfull2(newColor) {
+    colorfull2 = newColor;
+    $('.colorfull2, .background-colorfull2>.badge').css('color', colorfull2);
+    $('.background-colorfull2').css('background-color', colorfull2);
+    $('.background-colorfull2').css('color', ColorUtility.getInvert(colorfull2, true));
+    $('#experience-timeline .timeline-item').css('border-left-color', colorfull2);
+    $('.badge-pill.background-colorfull2 .badge').css('background', ColorUtility.getInvert(colorfull2, true));
+}
+function updateColorfull3(newColor) {
+    colorfull3 = newColor;
+    $('.colorfull3, .background-colorfull3>.badge').css('color', colorfull3);
+    $('.background-colorfull3').css('background-color', colorfull3);
+    $('.background-colorfull3').css('color', ColorUtility.getInvert(colorfull3, true));
+    $('#achievements-timeline .timeline-item').css('border-left-color', colorfull3);
+    $('.badge-pill.background-colorfull3 .badge').css('background', ColorUtility.getInvert(colorfull3, true));
 }
 function setupCommonHoverEvents() {
     $(".social a i, .list-inline.socials li a i")

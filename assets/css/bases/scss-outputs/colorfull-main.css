@@ -1,50 +1,37 @@
 .colorfull1 {
-  color: #00a584 !important;
+  color: #00a584;
 }
 
 .colorfull2 {
-  color: #ebbc00 !important;
+  color: #ebbc00;
 }
 
 .colorfull3 {
-  color: #e93666 !important;
+  color: #e93666;
 }
 
 .background-colorfull1 > .badge {
-  color: #00a584 !important;
+  color: #00a584;
 }
 
 .background-colorfull2 > .badge {
-  color: #ebbc00 !important;
+  color: #ebbc00;
 }
 
 .background-colorfull3 > .badge {
-  color: #e93666 !important;
+  color: #e93666;
 }
 
 .background-colorfull1 {
-  background-color: #00a584 !important;
+  background-color: #00a584;
 }
 
 .background-colorfull2 {
-  background-color: #ebbc00 !important;
+  background-color: #ebbc00;
 }
 
 .background-colorfull3 {
-  background-color: #e93666 !important;
-}
-
-.timeline-items .timeline-icon {
-  border: none;
-  left: -9px !important;
-}
-
-.timeline-items .timeline-border {
-  border-left: 2px solid;
-}
-
-.timeline-item::before {
-  display: none;
+  background-color: #e93666;
 }
 
 .portfolio-icon a i {

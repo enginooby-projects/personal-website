@@ -1,15 +1,15 @@
 <?php
-function getColorByPercent($percent)
+function getColorfullByPercent($percent)
 {
-        $color = '#e73263';
+        $backgroundColor = 'background-colorfull3';
 
         if ($percent < 40) {
-                $color = '#01bb8c';
+                $backgroundColor = 'background-colorfull1';
         } else if ($percent < 70) {
-                $color = '#eebe00';
+                $backgroundColor = 'background-colorfull2';
         }
 
-        return $color;
+        return $backgroundColor;
 }
 
 function progressBar($percent)
@@ -19,7 +19,7 @@ function progressBar($percent)
         return '
                 <div class="skill-box p-2">
                         <div class="skillbar clearfix " data-percent="' . $percent - $accountSpace . '%">
-                               <div class="skillbar-bar fill-skillbar data-background" data-color="' . getColorByPercent($percent) . '"></div>
+                               <div class="skillbar-bar fill-skillbar ' . getColorfullByPercent($percent) . '"></div>
                         </div>
                 </div>
         ';

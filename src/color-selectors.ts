@@ -6,7 +6,6 @@ export const backgroundBaseColorSelectors = formatString([
 export const backgroundHighlightColorSelectors = formatString([
         ".bg-base-color",
         ".border-style",
-        ".timeline-icon",
         "#pp-nav li .active span",
         ".pp-slidesNav .active span"
 ]);
@@ -59,6 +58,10 @@ export const colorMutedBaseColorSelectors = formatString([
         "#colour-panel label ",
 ]);
 
+export const colorColorfull1Selectors = formatString([
+]);
+
+
 export const borderRadiusSelectors = formatString([
         ".blog .blog-image",
         ".blog .blog-image .after",
@@ -85,7 +88,6 @@ export const borderRadiusSelectors = formatString([
         ".box-border",
         ".badge",
         ".badge-border",
-        ".duties .image-border .box-hover-border",
         ".course-item img",
         ".book-item>img",
         ".skill-box .skillbar",
