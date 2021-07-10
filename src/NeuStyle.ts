@@ -1,5 +1,4 @@
 import * as DynamicTheme from './DynamicTheme.js';
-import ColorUtility from './ColorUtility.js'
 import { Style } from './Style.js';
 
 const noneBoxShadowSelectors = formatString([
@@ -134,7 +133,7 @@ export class NeuStyle extends Style {
 
         setupHoverEvents(): void {
                 $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
-                        $(this).css('color', DynamicTheme.highlightColor);
+                        $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
 
                 $(".range-slider__range ").off('mouseenter mouseleave').hover(
@@ -158,7 +157,7 @@ export class NeuStyle extends Style {
 
         setupClickEvents(): void {
                 $(".segmented-control input").off('click').on('click', (event) => {
-                        $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor);
+                        $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
                         $(".segmented-control input[type='radio']:not(:checked)").each(
                                 (i, currentElement) => {
                                         $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
@@ -172,42 +171,42 @@ export class NeuStyle extends Style {
                                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.dropBoxShadow);
                         }
                         else {
-                                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor);
+                                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
                                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
                         }
                 });
         }
 
         update(): void {
-                this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, this.lightenIntensity);
-                this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, this.darkenIntensity);
+                this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
+                this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                 this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
                 this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
                 this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`;         // TODO: Does not look good!
                 this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
 
-                $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor);
+                $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
                 $(backgroundTransparentSelectors).css("background", 'transparent');
-                $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor);
+                $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
                 $(noneBoxShadowSelectors).css("box-shadow", 'none');
                 $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
                 $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
                 $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
                 DynamicTheme.trackScrollbarRule.style.boxShadow = this.insetBoxShadow;
                 DynamicTheme.thumbScrollbarRule.style.boxShadow = this.thumbScrollbarBoxShadow;
-                DynamicTheme.trackScrollbarRule.style.background = DynamicTheme.schemeColor;
-                DynamicTheme.thumbScrollbarRule.style.background = DynamicTheme.schemeColor;
+                DynamicTheme.trackScrollbarRule.style.background = DynamicTheme.schemeColor.hex;
+                DynamicTheme.thumbScrollbarRule.style.background = DynamicTheme.schemeColor.hex;
                 DynamicTheme.sliderThumbRule.style.boxShadow = this.dropBoxShadow;
-                DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor;
+                DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
                 DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
-                DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor;
+                DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
                 // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
         }
 
         updateRadioUI(): void {
                 $("input[type='radio']:checked").each(
                         function () {
-                                $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor);
+                                $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.hex);
                         }
                 );
                 $("input[type='radio']:not(:checked)").each(
@@ -221,8 +220,8 @@ export class NeuStyle extends Style {
         updateCheckboxUI(): void {
                 $("input[type='checkbox']:checked").each(
                         (i, currentElement) => {
-                                $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.highlightColor);
-                                $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.highlightColor);
+                                $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
+                                $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
                                 $("label[for='" + currentElement.id + "']").css('box-shadow', this.concaveBoxShadow);
                         }
                 );
@@ -268,6 +267,7 @@ export class NeuStyle extends Style {
                                         this.darkenIntensity = parseInt(newValue);
                                         break;
                         }
+                        //TODO: Seperate update functions
                         this.update();
                 });
         };

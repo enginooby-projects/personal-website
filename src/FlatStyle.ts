@@ -1,4 +1,3 @@
-import ColorUtility from './ColorUtility.js'
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
@@ -88,25 +87,25 @@ export class FlatStyle extends Style {
         setupHoverEvents(): void {
                 $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
                         let id = $(this).attr("for");
-                        if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor);
+                        if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
 
                 $(" .pill-button").off('mouseenter mouseleave').hover(
                         function () {
                                 // TODO: variablize
-                                $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
+                                $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor);
+                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
                 $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(
                         function () {
-                                $(this).css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
+                                $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor);
+                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
@@ -114,7 +113,7 @@ export class FlatStyle extends Style {
 
                 $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(
                         function () {
-                                $(this).css('background', DynamicTheme.highlightColor);
+                                $(this).css('background', DynamicTheme.highlightColor.hex);
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                                 if (!$(this).hasClass('active')) $(this).css('background', '');
@@ -123,7 +122,7 @@ export class FlatStyle extends Style {
 
                 $("table>tbody>tr").off('mouseenter mouseleave').hover(
                         function () {
-                                $(this).css('background', DynamicTheme.highlightColor);
+                                $(this).css('background', DynamicTheme.highlightColor.hex);
                         }, function () {
                                 $(this).css('background', '');
                         }
@@ -147,31 +146,34 @@ export class FlatStyle extends Style {
                                 $(this).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
                         }
                         else {
-                                $(this).siblings(".name").css('color', DynamicTheme.highlightColor);
+                                $(this).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
                         }
                 });
         }
 
         update(): void {
-                this.lightenSchemeColor = ColorUtility.getLighten(DynamicTheme.schemeColor, lightenIntensity);
-                this.darkenSchemeColor = ColorUtility.getDarken(DynamicTheme.schemeColor, darkenIntensity);
-
-                $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
-                $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor);
-                $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor);
-                $(backgroundTransparentSelectors).css('background', 'transparent');
-                $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
+                this.updateColor();
                 $(noneBoxShadowSelectors).css('box-shadow', 'none');
-                $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
-                $("#flat-skin-button .pill-button").css('background', ColorUtility.getDarken(DynamicTheme.highlightColor, 15));
                 DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
                 DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+        }
+
+        public updateColor() {
+                this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
+                this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
+                $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
+                $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor.hex);
+                $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor.hex);
+                $(backgroundTransparentSelectors).css('background', 'transparent');
+                $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+                $("#flat-skin-button .pill-button").css('background', DynamicTheme.highlightColor.getDarken(15));
+                $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
         }
 
         updateRadioUI(): void {
                 $("input[type='radio']:checked").each(
                         function () {
-                                $("label[for='" + this.id + "']").css('color', ColorUtility.getInvert(DynamicTheme.highlightColor, true));
+                                $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
                         }
                 );
                 $("input[type='radio']:not(:checked)").each(
@@ -184,8 +186,8 @@ export class FlatStyle extends Style {
         updateCheckboxUI(): void {
                 $("input[type='checkbox']:checked").each(
                         function () {
-                                $("label[for='" + this.id + "'] i").css('color', DynamicTheme.highlightColor);
-                                $("label[for='" + this.id + "']").next().css('color', DynamicTheme.highlightColor);
+                                $("label[for='" + this.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
+                                $("label[for='" + this.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
                         }
                 );
                 $("input[type='checkbox']:not(:checked)").each(

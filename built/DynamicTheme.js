@@ -1,19 +1,18 @@
 import * as ColorSelectors from './color-selectors.js';
-import ColorUtility from './ColorUtility.js';
 import { StyleRegistry } from './StyleRegistry.js';
+import { lightBaseValue } from './Color.js';
+import { TinyColor } from './TinyColor.js';
 var styleSheet;
 var $squareImg;
 var borderRadius = 15;
 // COLORFULL
-var colorfull1 = "#00a584";
-var colorfull2 = "#ebbc00";
-var colorfull3 = "#e93666";
-export var schemeColor = "#680317"; // "#f1f3f6";
-export var highlightColor = "#227DD8";
+var colorfull1 = new TinyColor("#00a584");
+var colorfull2 = new TinyColor("#ebbc00");
+var colorfull3 = new TinyColor("#e93666");
+export var schemeColor = new TinyColor("#680317");
+export var highlightColor = new TinyColor("#227DD8");
 export var baseColor;
 export var mutedBaseColor;
-var lightBaseColor = "#EBEBEB";
-var darkBaseColor = "#212529";
 var lightMutedBaseColor = "#b2b2b2";
 var darkMutedBaseColor = "#4D4D4D";
 export var currentStyle;
@@ -56,10 +55,10 @@ export function init() {
     sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";border-radius: " + borderRadius + "}")];
     colorSwatchRule = cssRules[styleSheet.insertRule("::-webkit-color-swatch{}")];
     styleRegistry = new StyleRegistry();
-    $("#scheme-color-picker").attr('value', schemeColor);
-    $("#highlight-color-picker").attr('value', highlightColor);
-    updateSchemeColor(schemeColor);
-    updateHighlightColor(highlightColor);
+    $("#scheme-color-picker").attr('value', schemeColor.hex);
+    $("#highlight-color-picker").attr('value', highlightColor.hex);
+    updateSchemeColor(schemeColor.hex);
+    updateHighlightColor(highlightColor.hex);
     $('#border-radius').attr('value', borderRadius);
     $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
@@ -86,40 +85,40 @@ function setupColorPickerEvents() {
         updateColorfull3(event.target.value);
     });
 }
-function updateColorfull1(newColor) {
-    colorfull1 = newColor;
-    $('.colorfull1, .background-colorfull1>.badge').css('color', colorfull1);
-    $('.background-colorfull1').css('background-color', colorfull1);
-    $('.background-colorfull1').css('color', ColorUtility.getInvert(colorfull1, true));
-    $('#education-timeline .timeline-item').css('border-left-color', colorfull1);
-    $('.badge-pill.background-colorfull1 .badge').css('background', ColorUtility.getInvert(colorfull1, true));
+function updateColorfull1(hex) {
+    colorfull1.setHex(hex);
+    $('.colorfull1, .background-colorfull1>.badge').css('color', colorfull1.hex);
+    $('.background-colorfull1').css('background-color', colorfull1.hex);
+    $('.background-colorfull1').css('color', colorfull1.getInvertBlackWhite());
+    $('#education-timeline .timeline-item').css('border-left-color', colorfull1.hex);
+    $('.badge-pill.background-colorfull1 .badge').css('background', colorfull1.getInvertBlackWhite());
 }
-function updateColorfull2(newColor) {
-    colorfull2 = newColor;
-    $('.colorfull2, .background-colorfull2>.badge').css('color', colorfull2);
-    $('.background-colorfull2').css('background-color', colorfull2);
-    $('.background-colorfull2').css('color', ColorUtility.getInvert(colorfull2, true));
-    $('#experience-timeline .timeline-item').css('border-left-color', colorfull2);
-    $('.badge-pill.background-colorfull2 .badge').css('background', ColorUtility.getInvert(colorfull2, true));
+function updateColorfull2(hex) {
+    colorfull2.setHex(hex);
+    $('.colorfull2, .background-colorfull2>.badge').css('color', colorfull2.hex);
+    $('.background-colorfull2').css('background-color', colorfull2.hex);
+    $('.background-colorfull2').css('color', colorfull2.getInvertBlackWhite());
+    $('#experience-timeline .timeline-item').css('border-left-color', colorfull2.hex);
+    $('.badge-pill.background-colorfull2 .badge').css('background', colorfull2.getInvertBlackWhite());
 }
-function updateColorfull3(newColor) {
-    colorfull3 = newColor;
-    $('.colorfull3, .background-colorfull3>.badge').css('color', colorfull3);
-    $('.background-colorfull3').css('background-color', colorfull3);
-    $('.background-colorfull3').css('color', ColorUtility.getInvert(colorfull3, true));
-    $('#achievements-timeline .timeline-item').css('border-left-color', colorfull3);
-    $('.badge-pill.background-colorfull3 .badge').css('background', ColorUtility.getInvert(colorfull3, true));
+function updateColorfull3(hex) {
+    colorfull3.setHex(hex);
+    $('.colorfull3, .background-colorfull3>.badge').css('color', colorfull3.hex);
+    $('.background-colorfull3').css('background-color', colorfull3.hex);
+    $('.background-colorfull3').css('color', colorfull3.getInvertBlackWhite());
+    $('#achievements-timeline .timeline-item').css('border-left-color', colorfull3.hex);
+    $('.badge-pill.background-colorfull3 .badge').css('background', colorfull3.getInvertBlackWhite());
 }
 function setupCommonHoverEvents() {
     $(".social a i, .list-inline.socials li a i")
         .on('mouseenter', function () {
-        $(this).css('color', highlightColor);
+        $(this).css('color', highlightColor.hex);
     }).on('mouseleave', function () {
         $(this).css('color', baseColor);
     });
     $(".list-inline.socials li a i, #myMenu li a")
         .on('mouseenter', function () {
-        $(this).css('color', highlightColor);
+        $(this).css('color', highlightColor.hex);
     }).on('mouseleave', function () {
         $(this).css('color', 'white');
     });
@@ -131,7 +130,7 @@ function setupCommonHoverEvents() {
     });
     $(".checkbox i")
         .on('mouseenter', function () {
-        $(this).css('color', highlightColor);
+        $(this).css('color', highlightColor.hex);
     }).on('mouseleave', function () {
         var id = $(this).parent().attr("for");
         // reset color if the  button not checked
@@ -155,19 +154,19 @@ function setupCommonClickEvents() {
         currentStyle.resetUncheckedButtons(this);
     });
 }
-function updateHighlightColor(newColor) {
-    highlightColor = newColor;
-    $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor);
-    $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor);
+function updateHighlightColor(hex) {
+    highlightColor.setHex(hex);
+    $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
+    $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
     currentStyle.updateRadioUI();
     currentStyle.updateCheckboxUI();
     currentStyle.update();
 }
-function updateSchemeColor(newColor) {
-    schemeColor = newColor;
+function updateSchemeColor(hex) {
+    schemeColor.setHex(hex);
     updateBaseColor();
     // update selectors
-    $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor);
+    $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
     $(ColorSelectors.colorBaseColorSelectors).css("color", baseColor);
     $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
     $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
@@ -175,15 +174,16 @@ function updateSchemeColor(newColor) {
     currentStyle.update();
 }
 function updatePseudoElements() {
-    thumbScrollbarRule.style.background = schemeColor;
+    thumbScrollbarRule.style.background = schemeColor.hex;
     placeholderRule.style.color = mutedBaseColor;
     papePilingTooltipRule.style.color = baseColor;
 }
 function updateBaseColor() {
     var lastBaseColor = baseColor;
-    baseColor = ColorUtility.getInvert(schemeColor, true);
-    mutedBaseColor = (baseColor == lightBaseColor) ? lightMutedBaseColor : darkMutedBaseColor;
-    var heroImg = (baseColor == lightBaseColor) ? "light-element_square" : "dark-element_square";
+    baseColor = schemeColor.getInvertBlackWhite();
+    console.log("Base color: " + baseColor);
+    mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
+    var heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', "assets/img/" + heroImg + ".png");
     if (lastBaseColor != baseColor) {
         currentStyle.updateRadioUI();

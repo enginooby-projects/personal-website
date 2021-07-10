@@ -1,5 +1,5 @@
-var lightBaseValue = "#EBEBEB";
-var darkBaseValue = "#212529";
+export var lightBaseValue = "#EBEBEB";
+export var darkBaseValue = "#212529";
 var Color = /** @class */ (function () {
     function Color(hex) {
         this.hex = hex;
@@ -7,6 +7,12 @@ var Color = /** @class */ (function () {
         this.bValue = this.extractB(hex);
         this.gValue = this.extractG(hex);
     }
+    Color.prototype.setHex = function (hex) {
+        this.hex = hex;
+        this.rValue = this.extractR(hex);
+        this.bValue = this.extractB(hex);
+        this.gValue = this.extractG(hex);
+    };
     Color.prototype.extractR = function (hex) { return parseInt((this.cutHex(hex)).substring(0, 2), 16); };
     Color.prototype.extractG = function (hex) { return parseInt((this.cutHex(hex)).substring(2, 4), 16); };
     Color.prototype.extractB = function (hex) { return parseInt((this.cutHex(hex)).substring(4, 6), 16); };

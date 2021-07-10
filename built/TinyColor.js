@@ -29,3 +29,4 @@ var TinyColor = /** @class */ (function (_super) {
     };
     return TinyColor;
 }(Color));
+export { TinyColor };
