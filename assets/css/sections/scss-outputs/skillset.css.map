@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA;;2BAE2B;AAC3B,iBAAiB;AACjB,AAAA,cAAc,GAAC,WAAW,CAAC;EACnB,SAAS,EAAE,YAAY;CAC9B;;AAED,AAAA,cAAc,CAAC;EACP,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,MAAM;EACjB,UAAU,EAAE,KAAK;CACxB;;AAED,AAAA,MAAM,CAAC,CAAC,CAAC;EACD,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,OAAO;CACtB",
-    "sources": [
-        "../skillset.scss"
-    ],
-    "names": [],
-    "file": "skillset.css"
-}

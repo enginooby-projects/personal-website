@@ -99,7 +99,8 @@ export const borderRadiusSelectors = formatString([
         ".checkbox label",
         ".range-slider__range",
         ".modal-content",
-        "table"
+        "table",
+        ".display-content>.container",
 ]);
 
 function formatString(selectorsArray: string[]): string {

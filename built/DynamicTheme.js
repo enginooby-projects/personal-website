@@ -156,6 +156,7 @@ function setupCommonClickEvents() {
 }
 function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
+    console.log(highlightColor);
     $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
     currentStyle.updateRadioUI();
@@ -181,7 +182,6 @@ function updatePseudoElements() {
 function updateBaseColor() {
     var lastBaseColor = baseColor;
     baseColor = schemeColor.getInvertBlackWhite();
-    console.log("Base color: " + baseColor);
     mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
     var heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', "assets/img/" + heroImg + ".png");

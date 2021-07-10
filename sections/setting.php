@@ -77,32 +77,25 @@
                                                 </span>
                                         </div>
                                 </div>
-                                <div class="customizer" id="glass-customizer-in-progress">
+                                <div class="customizer" id="glass-customizer">
                                         <h6 class="text-center mt-0"> Customize</h6>
                                         <div class="range-slider">
-                                                <label for="transparency">Transparency</label>
-                                                <input class="range-slider__range" id="transparency" type="range" min="0" max="50" step="0.5">
+                                                <label for="glass-transparency">Transparency</label>
+                                                <input class="range-slider__range" id="glass-transparency" type="range" min="0" max="1" step="0.1">
                                                 <span class="range-slider__value">
                                                         <div class="inner-text"></div>
                                                 </span>
                                         </div>
                                         <div class="range-slider">
-                                                <label for="blur">Blur</label>
-                                                <input class="range-slider__range" id="blur" type="range" min="0" max="100" step="0.5">
+                                                <label for="glass-blur">Blur</label>
+                                                <input class="range-slider__range" id="glass-blur" type="range" min="0" max="30" step="0.5">
                                                 <span class="range-slider__value">
                                                         <div class="inner-text"></div>
                                                 </span>
                                         </div>
                                         <div class="range-slider">
-                                                <label for="light-intensity">Light intensity</label>
-                                                <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
-                                                <span class="range-slider__value">
-                                                        <div class="inner-text"></div>
-                                                </span>
-                                        </div>
-                                        <div class="range-slider">
-                                                <label for="dark-intensity">Dark intensity</label>
-                                                <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
+                                                <label for="glass-border-size">Border size</label>
+                                                <input class="range-slider__range" id="glass-border-size" type="range" min="0.5" max="10" step="0.1">
                                                 <span class="range-slider__value">
                                                         <div class="inner-text"></div>
                                                 </span>
