@@ -1,6 +1,7 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
+// TODO: move this to CSS file
 const noneBoxShadowSelectors = formatString([
         ".theme-skin .pill-button",
 ]);
@@ -23,6 +24,7 @@ const backgroundSchemeColorSelectors = formatString([
         ".pill-button"
 ]);
 
+// TODO: move this to CSS file
 const backgroundTransparentSelectors = formatString([
         ".radio-selection",
 ]);
@@ -121,7 +123,7 @@ export class NeuStyle extends Style {
         }
 
         onEnable(): void {
-                $("body").removeClass('flat-demo');
+                $("body").addClass("neo-style");
                 $("#neo-customizer").show();
                 this.setupClickEvents();
                 this.setupHoverEvents();
@@ -129,6 +131,9 @@ export class NeuStyle extends Style {
                 this.setupRangeSliderEvents();
                 this.updateRadioUI();
                 this.update();
+        }
+
+        onDisable(): void {
         }
 
         setupHoverEvents(): void {

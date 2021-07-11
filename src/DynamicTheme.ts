@@ -9,13 +9,13 @@ let $squareImg: JQuery<HTMLElement>;
 
 let borderRadius: number = 15;
 
-// COLORFULL
-let colorfull1: Color = new TinyColor("#00a584");
-let colorfull2: Color = new TinyColor("#ebbc00");
-let colorfull3: Color = new TinyColor("#e93666");
+export let colorfull1: Color = new TinyColor("#00a584");
+export let colorfull2: Color = new TinyColor("#ebbc00");
+export let colorfull3: Color = new TinyColor("#e93666");
 
-export let schemeColor: Color = new TinyColor("#680317");
-export let highlightColor: Color = new TinyColor("#227DD8");
+// export let schemeColor: Color = new TinyColor("#680317");
+export let schemeColor: Color = new TinyColor("#D4D4D4");
+export let highlightColor: Color = new TinyColor("#055CB3");
 export let baseColor: string;
 export let mutedBaseColor: string;
 const lightMutedBaseColor: string = "#b2b2b2";
@@ -44,11 +44,13 @@ function getStyleSheet() {
 }
 
 export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newStyle: Style) {
+        currentStyle?.onDisable();
         currentStyle = newStyle;
         // update option buttons
         $('.theme-skin .button-border a').removeClass('active');
         $(htmlElement).children('.pill-button').addClass('active');
         $(".customizer").hide();
+        $("body").removeClass();
         currentStyle.onEnable();
 }
 
@@ -91,42 +93,41 @@ function setupColorPickerEvents() {
                 updateSchemeColor((event.target as any).value);
         });
         $("#colorfull1-picker").on('input', function (event) {
-                updateColorfull1((event.target as any).value);
+                colorfull1.setHex((event.target as any).value);
+                updateColorfull(1);
         });
         $("#colorfull2-picker").on('input', function (event) {
-                updateColorfull2((event.target as any).value);
+                colorfull2.setHex((event.target as any).value);
+                updateColorfull(2);
         });
         $("#colorfull3-picker").on('input', function (event) {
-                updateColorfull3((event.target as any).value);
+                colorfull3.setHex((event.target as any).value);
+                updateColorfull(3);
         });
 }
 
-function updateColorfull1(hex: string) {
-        colorfull1.setHex(hex);
-        $('.colorfull1, .background-colorfull1>.badge').css('color', colorfull1.hex);
-        $('.background-colorfull1').css('background-color', colorfull1.hex);
-        $('.background-colorfull1').css('color', colorfull1.getInvertBlackWhite());
-        $('#education-timeline .timeline-item').css('border-left-color', colorfull1.hex);
-        $('.badge-pill.background-colorfull1 .badge').css('background', colorfull1.getInvertBlackWhite());
-}
+function updateColorfull(colorfullNumber: number) {
+        let colorfull: Color;
+        let timelineSelector: string;
+        if (colorfullNumber == 1) {
+                colorfull = colorfull1;
+                timelineSelector = '#education-timeline';
+        }
+        if (colorfullNumber == 2) {
+                colorfull = colorfull2;
+                timelineSelector = '#experience-timeline';
+        }
+        if (colorfullNumber == 3) {
+                colorfull = colorfull3;
+                timelineSelector = '#achievements-timeline';
+        }
 
-function updateColorfull2(hex: string) {
-        colorfull2.setHex(hex);
-        $('.colorfull2, .background-colorfull2>.badge').css('color', colorfull2.hex);
-        $('.background-colorfull2').css('background-color', colorfull2.hex);
-        $('.background-colorfull2').css('color', colorfull2.getInvertBlackWhite());
-        $('#experience-timeline .timeline-item').css('border-left-color', colorfull2.hex);
-        $('.badge-pill.background-colorfull2 .badge').css('background', colorfull2.getInvertBlackWhite());
-}
-
-function updateColorfull3(hex: string) {
-        colorfull3.setHex(hex);
-        $('.colorfull3, .background-colorfull3>.badge').css('color', colorfull3.hex);
-        $('.background-colorfull3').css('background-color', colorfull3.hex);
-        $('.background-colorfull3').css('color', colorfull3.getInvertBlackWhite());
-        $('#achievements-timeline .timeline-item').css('border-left-color', colorfull3.hex);
-        $('.badge-pill.background-colorfull3 .badge').css('background', colorfull3.getInvertBlackWhite());
-}
+        $(`.colorfull${colorfullNumber}, .background-colorfull${colorfullNumber}>.badge`).css('color', colorfull!.hex);
+        $(`.background-colorfull${colorfullNumber}`).css('background-color', colorfull!.hex);
+        $(`.background-colorfull${colorfullNumber}`).css('color', colorfull!.getInvertBlackWhite());
+        $(`${timelineSelector!} .timeline-item`).css('border-left-color', colorfull!.hex);
+        $(`.badge-pill.background-colorfull${colorfullNumber} .badge`).css('background', colorfull!.getInvertBlackWhite());
+};
 
 function setupCommonHoverEvents() {
         $(".social a i, .list-inline.socials li a i")
@@ -181,6 +182,7 @@ function setupCommonClickEvents() {
 
 function updateHighlightColor(hex: string) {
         highlightColor.setHex(hex);
+        console.log(highlightColor);
         $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
         currentStyle.updateRadioUI();
@@ -210,7 +212,6 @@ function updatePseudoElements() {
 function updateBaseColor() {
         const lastBaseColor = baseColor;
         baseColor = schemeColor.getInvertBlackWhite();
-        console.log(`Base color: ${baseColor}`);
         mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
         const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);

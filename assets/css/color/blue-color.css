@@ -97,13 +97,13 @@
   border-top: 4px solid #1b63ad;
 }
 
-.flat-demo .button-border,
-.dark-scheme.flat-demo .button-border {
+.flat-style .button-border,
+.dark-scheme.flat-style .button-border {
   background-color: #1b63ad;
 }
 
-.flat-demo .pill-button:hover,
-.flat-demo .pill-button.active {
+.flat-style .pill-button:hover,
+.flat-style .pill-button.active {
   background-color: #135495;
 }
 

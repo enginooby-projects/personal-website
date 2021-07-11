@@ -1,0 +1,60 @@
+.glass-style {
+        .section {
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+                0% {
+                        background-position: 0% 50%;
+                }
+
+                50% {
+                        background-position: 100% 50%;
+                }
+
+                100% {
+                        background-position: 0% 50%;
+                }
+        }
+
+        .pill-button:hover {
+                transition: 0.6s all ease !important;
+                -webkit-transition: 0.6 s all ease !important;
+        }
+
+        .button-border,
+        .image-border,
+        .badge-border,
+        .blog-image,
+        .color-pallet,
+        .pallet-button {
+                padding: 0 !important;
+                box-shadow: none !important;
+        }
+
+        .pill-button,
+        .hero-03 .personal-image img,
+        .box-border,
+        .box-hover-border,
+        .contact .form-item .form-group,
+        .checkbox label,
+        .segmented-control,
+        .radio-selection,
+        .portfolio-filter .pill-button.active,
+        .blog-intro,
+        .blog .blog-image .after,
+        .skill-box .skillbar,
+        .pallet-border,
+        .range-slider__range {
+                box-shadow: none !important;
+        }
+
+        .button-border,
+        .image-border:not(#self-education .image-border) {
+                background: transparent !important;
+        }
+}

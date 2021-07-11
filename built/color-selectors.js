@@ -17,7 +17,7 @@ export var backgroundSchemeColorSelectors = formatString([
     ".skill-box .skillbar",
     ".blog .blog-image",
     ".blog .blog-item .before",
-    ".flat-demo .section",
+    ".flat-style .section",
 ]);
 export var colorHighlightColorSelectors = formatString([
     ".highlight-color",

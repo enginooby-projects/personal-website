@@ -15,6 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
+// TODO: move this to CSS file
 var noneBoxShadowSelectors = formatString([
     ".theme-skin .pill-button",
 ]);
@@ -35,6 +36,7 @@ var backgroundSchemeColorSelectors = formatString([
     ".pill-button.active",
     ".pill-button"
 ]);
+// TODO: move this to CSS file
 var backgroundTransparentSelectors = formatString([
     ".radio-selection",
 ]);
@@ -124,7 +126,7 @@ var NeuStyle = /** @class */ (function (_super) {
             $(element).css(this.originalProperty, this.originalPropertyValue);
     };
     NeuStyle.prototype.onEnable = function () {
-        $("body").removeClass('flat-demo');
+        $("body").addClass("neo-style");
         $("#neo-customizer").show();
         this.setupClickEvents();
         this.setupHoverEvents();
@@ -132,6 +134,8 @@ var NeuStyle = /** @class */ (function (_super) {
         this.setupRangeSliderEvents();
         this.updateRadioUI();
         this.update();
+    };
+    NeuStyle.prototype.onDisable = function () {
     };
     NeuStyle.prototype.setupHoverEvents = function () {
         var _this = this;

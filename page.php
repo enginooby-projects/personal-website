@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="assets/css/bases/scss-outputs/colorfull-main.css">
 </head>
 
-<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="flat-demo">
+<body data-spy="scroll" data-target="#scrollspy" data-offset="1">
         <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
 

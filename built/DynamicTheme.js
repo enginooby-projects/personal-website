@@ -5,12 +5,12 @@ import { TinyColor } from './TinyColor.js';
 var styleSheet;
 var $squareImg;
 var borderRadius = 15;
-// COLORFULL
-var colorfull1 = new TinyColor("#00a584");
-var colorfull2 = new TinyColor("#ebbc00");
-var colorfull3 = new TinyColor("#e93666");
-export var schemeColor = new TinyColor("#680317");
-export var highlightColor = new TinyColor("#227DD8");
+export var colorfull1 = new TinyColor("#00a584");
+export var colorfull2 = new TinyColor("#ebbc00");
+export var colorfull3 = new TinyColor("#e93666");
+// export let schemeColor: Color = new TinyColor("#680317");
+export var schemeColor = new TinyColor("#D4D4D4");
+export var highlightColor = new TinyColor("#055CB3");
 export var baseColor;
 export var mutedBaseColor;
 var lightMutedBaseColor = "#b2b2b2";
@@ -35,11 +35,13 @@ function getStyleSheet() {
     }
 }
 export function changeStyle(htmlElement, newStyle) {
+    currentStyle === null || currentStyle === void 0 ? void 0 : currentStyle.onDisable();
     currentStyle = newStyle;
     // update option buttons
     $('.theme-skin .button-border a').removeClass('active');
     $(htmlElement).children('.pill-button').addClass('active');
     $(".customizer").hide();
+    $("body").removeClass();
     currentStyle.onEnable();
 }
 export function init() {
@@ -76,39 +78,40 @@ function setupColorPickerEvents() {
         updateSchemeColor(event.target.value);
     });
     $("#colorfull1-picker").on('input', function (event) {
-        updateColorfull1(event.target.value);
+        colorfull1.setHex(event.target.value);
+        updateColorfull(1);
     });
     $("#colorfull2-picker").on('input', function (event) {
-        updateColorfull2(event.target.value);
+        colorfull2.setHex(event.target.value);
+        updateColorfull(2);
     });
     $("#colorfull3-picker").on('input', function (event) {
-        updateColorfull3(event.target.value);
+        colorfull3.setHex(event.target.value);
+        updateColorfull(3);
     });
 }
-function updateColorfull1(hex) {
-    colorfull1.setHex(hex);
-    $('.colorfull1, .background-colorfull1>.badge').css('color', colorfull1.hex);
-    $('.background-colorfull1').css('background-color', colorfull1.hex);
-    $('.background-colorfull1').css('color', colorfull1.getInvertBlackWhite());
-    $('#education-timeline .timeline-item').css('border-left-color', colorfull1.hex);
-    $('.badge-pill.background-colorfull1 .badge').css('background', colorfull1.getInvertBlackWhite());
+function updateColorfull(colorfullNumber) {
+    var colorfull;
+    var timelineSelector;
+    if (colorfullNumber == 1) {
+        colorfull = colorfull1;
+        timelineSelector = '#education-timeline';
+    }
+    if (colorfullNumber == 2) {
+        colorfull = colorfull2;
+        timelineSelector = '#experience-timeline';
+    }
+    if (colorfullNumber == 3) {
+        colorfull = colorfull3;
+        timelineSelector = '#achievements-timeline';
+    }
+    $(".colorfull" + colorfullNumber + ", .background-colorfull" + colorfullNumber + ">.badge").css('color', colorfull.hex);
+    $(".background-colorfull" + colorfullNumber).css('background-color', colorfull.hex);
+    $(".background-colorfull" + colorfullNumber).css('color', colorfull.getInvertBlackWhite());
+    $(timelineSelector + " .timeline-item").css('border-left-color', colorfull.hex);
+    $(".badge-pill.background-colorfull" + colorfullNumber + " .badge").css('background', colorfull.getInvertBlackWhite());
 }
-function updateColorfull2(hex) {
-    colorfull2.setHex(hex);
-    $('.colorfull2, .background-colorfull2>.badge').css('color', colorfull2.hex);
-    $('.background-colorfull2').css('background-color', colorfull2.hex);
-    $('.background-colorfull2').css('color', colorfull2.getInvertBlackWhite());
-    $('#experience-timeline .timeline-item').css('border-left-color', colorfull2.hex);
-    $('.badge-pill.background-colorfull2 .badge').css('background', colorfull2.getInvertBlackWhite());
-}
-function updateColorfull3(hex) {
-    colorfull3.setHex(hex);
-    $('.colorfull3, .background-colorfull3>.badge').css('color', colorfull3.hex);
-    $('.background-colorfull3').css('background-color', colorfull3.hex);
-    $('.background-colorfull3').css('color', colorfull3.getInvertBlackWhite());
-    $('#achievements-timeline .timeline-item').css('border-left-color', colorfull3.hex);
-    $('.badge-pill.background-colorfull3 .badge').css('background', colorfull3.getInvertBlackWhite());
-}
+;
 function setupCommonHoverEvents() {
     $(".social a i, .list-inline.socials li a i")
         .on('mouseenter', function () {

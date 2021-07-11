@@ -19,7 +19,7 @@ export const backgroundSchemeColorSelectors = formatString([
         ".skill-box .skillbar",
         ".blog .blog-image",
         ".blog .blog-item .before",
-        ".flat-demo .section",
+        ".flat-style .section",
 ]);
 
 export const colorHighlightColorSelectors = formatString([

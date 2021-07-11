@@ -3,22 +3,23 @@ import { Style } from './Style.js';
 
 const lightenIntensity = 5;
 const darkenIntensity = 5;
+// TODO: move this to CSS file
 const noneBoxShadowSelectors = formatString([
-        ".flat-demo .image-border",
-        ".flat-demo .button-border",
+        ".flat-style .image-border",
+        ".flat-style .button-border",
         ".hero-03 .personal-image img",
-        ".flat-demo .box-border",
-        ".flat-demo .box-hover-border",
-        ".flat-demo .contact .form-item .form-group",
+        ".flat-style .box-border",
+        ".flat-style .box-hover-border",
+        ".flat-style .contact .form-item .form-group",
         ".checkbox label",//
         ".segmented-control", //
         ".radio-selection",
-        ".flat-demo .portfolio-filter .pill-button.active",
-        ".flat-demo .blog-intro",
-        ".flat-demo .blog .blog-image .after",
-        ".flat-demo .skill-box .skillbar",
-        ".flat-demo .pallet-border",
-        ".flat-demo .pallet-button",
+        ".flat-style .portfolio-filter .pill-button.active",
+        ".flat-style .blog-intro",
+        ".flat-style .blog .blog-image .after",
+        ".flat-style .skill-box .skillbar",
+        ".flat-style .pallet-border",
+        ".flat-style .pallet-button",
         ".color-pallet",
         "table",
         "table thead ",
@@ -27,36 +28,38 @@ const noneBoxShadowSelectors = formatString([
 ]);
 
 const backgroundHighlightColorSelectors = formatString([
-        // ".flat-demo .button-border",
+        // ".flat-style .button-border",
         ".radio-selection",
-        ".flat-demo .portfolio-filter .pill-button.active",
+        ".flat-style .portfolio-filter .pill-button.active",
         ".pill-button",
         " .theme-skin .pill-button.active"
 ]);
 
 const backgroundLightenSchemeColorSelectors = formatString([
-        ".flat-demo .box-border",
-        ".flat-demo .image-border",
-        ".flat-demo .contact .form-item .form-group",
-        ".flat-demo .segmented-control",
-        ".flat-demo .checkbox label",
-        ".flat-demo .pallet-border",
+        ".flat-style .box-border",
+        ".flat-style .image-border",
+        ".flat-style .contact .form-item .form-group",
+        ".flat-style .segmented-control",
+        ".flat-style .checkbox label",
+        ".flat-style .pallet-border",
         ".color-pallet",
+        ".flat-style .pallet-button"
 ]);
 
 const backgroundSchemeColorSelectors = formatString([
-        // ".flat-demo .portfolio-filter .pill-button.active",
+        // ".flat-style .portfolio-filter .pill-button.active",
         // ".theme-skin .pill-button"
 ]);
 
-const colorBaseColorSelectors = formatString([
-        ".flat-demo .portfolio-filter .pill-button ",
+// TODO: move this to CSS file
+const backgroundTransparentSelectors = formatString([
+        ".flat-style .portfolio-filter .pill-button:not(.active)",
+        ".flat-style .portfolio-filter .button-border",
+        ".flat-style .testimonial .owl-carousel .testimonial-image",
 ]);
 
-const backgroundTransparentSelectors = formatString([
-        ".flat-demo .portfolio-filter .pill-button:not(.active)",
-        ".flat-demo .portfolio-filter .button-border",
-        ".flat-demo .testimonial .owl-carousel .testimonial-image",
+const colorBaseColorSelectors = formatString([
+        ".flat-style .portfolio-filter .pill-button ",
 ]);
 
 function formatString(selectorsArray: string[]): string {
@@ -76,12 +79,15 @@ export class FlatStyle extends Style {
         darkenSchemeColor: string = "#680317";
 
         onEnable(): void {
-                $("body").addClass('flat-demo');
+                $("body").addClass('flat-style');
                 $("#flat-customizer").show();
                 this.setupHoverEvents();
                 this.setupClickEvents();
                 this.updateRadioUI();
                 this.update();
+        }
+
+        onDisable(): void {
         }
 
         setupHoverEvents(): void {
@@ -156,17 +162,20 @@ export class FlatStyle extends Style {
                 $(noneBoxShadowSelectors).css('box-shadow', 'none');
                 DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
                 DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+                DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+                DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
         }
 
+        //TODO: Separate update functions for highlight, scheme, colorfull elements
         public updateColor() {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
-                $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
-                $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor.hex);
-                $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor.hex);
+                $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
+                $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
+                $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
                 $(backgroundTransparentSelectors).css('background', 'transparent');
-                $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
-                $("#flat-skin-button .pill-button").css('background', DynamicTheme.highlightColor.getDarken(15));
+                $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+                $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
                 $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
         }
 

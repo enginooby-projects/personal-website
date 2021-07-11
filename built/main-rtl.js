@@ -124,12 +124,12 @@ function themeOption() {
         $(this).addClass('active');
     });
     $('.theme-skin li .flat-skin').click(function () {
-        $("body").addClass('flat-demo');
+        $("body").addClass('flat-style');
         $('.theme-skin li a').removeClass('active');
         $(this).addClass('active');
     });
     $('.theme-skin li .neo-skin').click(function () {
-        $("body").removeClass('flat-demo');
+        $("body").removeClass('flat-style');
         $('.theme-skin li a').removeClass('active');
         $(this).addClass('active');
     });

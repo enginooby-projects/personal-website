@@ -17,22 +17,23 @@ import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 var lightenIntensity = 5;
 var darkenIntensity = 5;
+// TODO: move this to CSS file
 var noneBoxShadowSelectors = formatString([
-    ".flat-demo .image-border",
-    ".flat-demo .button-border",
+    ".flat-style .image-border",
+    ".flat-style .button-border",
     ".hero-03 .personal-image img",
-    ".flat-demo .box-border",
-    ".flat-demo .box-hover-border",
-    ".flat-demo .contact .form-item .form-group",
+    ".flat-style .box-border",
+    ".flat-style .box-hover-border",
+    ".flat-style .contact .form-item .form-group",
     ".checkbox label",
     ".segmented-control",
     ".radio-selection",
-    ".flat-demo .portfolio-filter .pill-button.active",
-    ".flat-demo .blog-intro",
-    ".flat-demo .blog .blog-image .after",
-    ".flat-demo .skill-box .skillbar",
-    ".flat-demo .pallet-border",
-    ".flat-demo .pallet-button",
+    ".flat-style .portfolio-filter .pill-button.active",
+    ".flat-style .blog-intro",
+    ".flat-style .blog .blog-image .after",
+    ".flat-style .skill-box .skillbar",
+    ".flat-style .pallet-border",
+    ".flat-style .pallet-button",
     ".color-pallet",
     "table",
     "table thead ",
@@ -40,32 +41,34 @@ var noneBoxShadowSelectors = formatString([
     ".badge-border",
 ]);
 var backgroundHighlightColorSelectors = formatString([
-    // ".flat-demo .button-border",
+    // ".flat-style .button-border",
     ".radio-selection",
-    ".flat-demo .portfolio-filter .pill-button.active",
+    ".flat-style .portfolio-filter .pill-button.active",
     ".pill-button",
     " .theme-skin .pill-button.active"
 ]);
 var backgroundLightenSchemeColorSelectors = formatString([
-    ".flat-demo .box-border",
-    ".flat-demo .image-border",
-    ".flat-demo .contact .form-item .form-group",
-    ".flat-demo .segmented-control",
-    ".flat-demo .checkbox label",
-    ".flat-demo .pallet-border",
+    ".flat-style .box-border",
+    ".flat-style .image-border",
+    ".flat-style .contact .form-item .form-group",
+    ".flat-style .segmented-control",
+    ".flat-style .checkbox label",
+    ".flat-style .pallet-border",
     ".color-pallet",
+    ".flat-style .pallet-button"
 ]);
 var backgroundSchemeColorSelectors = formatString([
-// ".flat-demo .portfolio-filter .pill-button.active",
+// ".flat-style .portfolio-filter .pill-button.active",
 // ".theme-skin .pill-button"
 ]);
-var colorBaseColorSelectors = formatString([
-    ".flat-demo .portfolio-filter .pill-button ",
-]);
+// TODO: move this to CSS file
 var backgroundTransparentSelectors = formatString([
-    ".flat-demo .portfolio-filter .pill-button:not(.active)",
-    ".flat-demo .portfolio-filter .button-border",
-    ".flat-demo .testimonial .owl-carousel .testimonial-image",
+    ".flat-style .portfolio-filter .pill-button:not(.active)",
+    ".flat-style .portfolio-filter .button-border",
+    ".flat-style .testimonial .owl-carousel .testimonial-image",
+]);
+var colorBaseColorSelectors = formatString([
+    ".flat-style .portfolio-filter .pill-button ",
 ]);
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
@@ -88,12 +91,14 @@ var FlatStyle = /** @class */ (function (_super) {
         configurable: true
     });
     FlatStyle.prototype.onEnable = function () {
-        $("body").addClass('flat-demo');
+        $("body").addClass('flat-style');
         $("#flat-customizer").show();
         this.setupHoverEvents();
         this.setupClickEvents();
         this.updateRadioUI();
         this.update();
+    };
+    FlatStyle.prototype.onDisable = function () {
     };
     FlatStyle.prototype.setupHoverEvents = function () {
         $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
@@ -152,16 +157,19 @@ var FlatStyle = /** @class */ (function (_super) {
         $(noneBoxShadowSelectors).css('box-shadow', 'none');
         DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
         DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+        DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+        DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
     };
+    //TODO: Separate update functions for highlight, scheme, colorfull elements
     FlatStyle.prototype.updateColor = function () {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
-        $(backgroundLightenSchemeColorSelectors).css('background', this.lightenSchemeColor);
-        $(backgroundSchemeColorSelectors).css('background', DynamicTheme.schemeColor.hex);
-        $(backgroundHighlightColorSelectors).css('background', DynamicTheme.highlightColor.hex);
+        $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
+        $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
+        $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(backgroundTransparentSelectors).css('background', 'transparent');
-        $(".flat-demo :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
-        $("#flat-skin-button .pill-button").css('background', DynamicTheme.highlightColor.getDarken(15));
+        $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+        $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
     };
     FlatStyle.prototype.updateRadioUI = function () {

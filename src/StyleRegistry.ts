@@ -6,9 +6,12 @@ Reason to change: add/remove a style, change the first style
 import { changeStyle } from "./DynamicTheme.js";
 import { FlatStyle } from "./FlatStyle.js";
 import { NeuStyle } from "./NeuStyle.js";
+import { GlassStyle } from "./GlassStyle.js";
+
 
 const FLAT_OPTION_SELECTOR: string = '#flat-skin-button';
 const NEU_OPTION_SELECTOR: string = '#neo-skin-button';
+const GLASS_OPTION_SELECTOR: string = '#glass-skin-button';
 
 jQuery(function () {
         "use strict";
@@ -18,11 +21,15 @@ jQuery(function () {
         $(NEU_OPTION_SELECTOR).on('click', function () {
                 changeStyle(this, NeuStyle.Instance);
         });
+        $(GLASS_OPTION_SELECTOR).on('click', function () {
+                changeStyle(this, GlassStyle.Instance);
+        });
 });
 
 export class StyleRegistry {
         constructor() {
-                changeStyle($(NEU_OPTION_SELECTOR), NeuStyle.Instance);
-                // changeStyle($(FLAT_OPTION_SELECTOR), FlatStyle.Instance);
+                // changeStyle($(GLASS_OPTION_SELECTOR), GlassStyle.Instance);
+                // changeStyle($(NEU_OPTION_SELECTOR), NeuStyle.Instance);
+                changeStyle($(FLAT_OPTION_SELECTOR), FlatStyle.Instance);
         }
 }
