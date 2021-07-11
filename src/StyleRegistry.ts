@@ -8,9 +8,8 @@ import { FlatStyle } from "./FlatStyle.js";
 import { NeuStyle } from "./NeuStyle.js";
 import { GlassStyle } from "./GlassStyle.js";
 
-
 const FLAT_OPTION_SELECTOR: string = '#flat-skin-button';
-const NEU_OPTION_SELECTOR: string = '#neo-skin-button';
+const NEU_OPTION_SELECTOR: string = '#neu-skin-button';
 const GLASS_OPTION_SELECTOR: string = '#glass-skin-button';
 
 jQuery(function () {

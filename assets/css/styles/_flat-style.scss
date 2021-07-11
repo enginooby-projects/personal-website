@@ -8,6 +8,35 @@
         .background-colorfull3 {
                 opacity: 1 !important;
         }
+
+        .image-border,
+        .button-border,
+        .personal-image img,
+        .box-border,
+        .box-hover-border,
+        .contact .form-item .form-group,
+        .checkbox label,
+        .segmented-control,
+        .radio-selection,
+        .portfolio-filter .pill-button.active,
+        .blog-intro,
+        .blog .blog-image .after,
+        .skill-box .skillbar,
+        .pallet-border,
+        .pallet-button,
+        .color-pallet,
+        table,
+        table thead,
+        .theme-skin .pill-button,
+        .badge-border {
+                box-shadow: none !important;
+        }
+
+        .portfolio-filter .pill-button:not(.active),
+        .portfolio-filter .button-border,
+        .testimonial .owl-carousel .testimonial-image {
+                background: transparent !important;
+        }
 }
 
 .flat-style .portfolio-item-content {

@@ -3,30 +3,6 @@ import { Style } from './Style.js';
 
 const lightenIntensity = 5;
 const darkenIntensity = 5;
-// TODO: move this to CSS file
-const noneBoxShadowSelectors = formatString([
-        ".flat-style .image-border",
-        ".flat-style .button-border",
-        ".hero-03 .personal-image img",
-        ".flat-style .box-border",
-        ".flat-style .box-hover-border",
-        ".flat-style .contact .form-item .form-group",
-        ".checkbox label",//
-        ".segmented-control", //
-        ".radio-selection",
-        ".flat-style .portfolio-filter .pill-button.active",
-        ".flat-style .blog-intro",
-        ".flat-style .blog .blog-image .after",
-        ".flat-style .skill-box .skillbar",
-        ".flat-style .pallet-border",
-        ".flat-style .pallet-button",
-        ".color-pallet",
-        "table",
-        "table thead ",
-        ".theme-skin .pill-button",
-        ".badge-border",
-]);
-
 const backgroundHighlightColorSelectors = formatString([
         // ".flat-style .button-border",
         ".radio-selection",
@@ -44,18 +20,6 @@ const backgroundLightenSchemeColorSelectors = formatString([
         ".flat-style .pallet-border",
         ".color-pallet",
         ".flat-style .pallet-button"
-]);
-
-const backgroundSchemeColorSelectors = formatString([
-        // ".flat-style .portfolio-filter .pill-button.active",
-        // ".theme-skin .pill-button"
-]);
-
-// TODO: move this to CSS file
-const backgroundTransparentSelectors = formatString([
-        ".flat-style .portfolio-filter .pill-button:not(.active)",
-        ".flat-style .portfolio-filter .button-border",
-        ".flat-style .testimonial .owl-carousel .testimonial-image",
 ]);
 
 const colorBaseColorSelectors = formatString([
@@ -159,7 +123,6 @@ export class FlatStyle extends Style {
 
         update(): void {
                 this.updateColor();
-                $(noneBoxShadowSelectors).css('box-shadow', 'none');
                 DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
                 DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
                 DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
@@ -171,9 +134,7 @@ export class FlatStyle extends Style {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
                 $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
-                $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
                 $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
-                $(backgroundTransparentSelectors).css('background', 'transparent');
                 $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
                 $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
                 $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);

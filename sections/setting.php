@@ -6,7 +6,7 @@
                                 <div class="button-border" id="flat-skin-button">
                                         <a href="javascript:void(0)" class="pill-button">Flat</a>
                                 </div>
-                                <div class="button-border" id="neo-skin-button">
+                                <div class="button-border" id="neu-skin-button">
                                         <a href="javascript:void(0)" class="pill-button">Neumorphism</a>
                                 </div>
                                 <div class="button-border" id="glass-skin-button">
@@ -15,7 +15,7 @@
                         </ul>
 
                         <div id="customizer-panel">
-                                <div class="customizer" id="neo-customizer">
+                                <div class="customizer" id="neu-customizer">
                                         <h6 class="text-center mt-0"> Customize</h6>
                                         <div class="range-slider">
                                                 <label for="distance">Distance</label>

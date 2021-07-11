@@ -86,6 +86,8 @@ var GlassStyle = /** @class */ (function (_super) {
         this.update();
     };
     GlassStyle.prototype.onDisable = function () {
+        $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
+        $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
         $(backgroundGlassColorfull2Selectors).css('background-color', DynamicTheme.colorfull2.hex);
         $(backgroundGlassColorfull3Selectors).css('background-color', DynamicTheme.colorfull3.hex);

@@ -658,7 +658,7 @@ input::-moz-focus-outer {
 }
 
 /*-------------------------
-         SCROLLBAR NEO
+         SCROLLBAR NEU
 -------------------------*/
 ::-webkit-scrollbar {
   width: 11px;
@@ -3017,14 +3017,9 @@ header {
   border: none;
 }
 
-/* Neomorphism  hollow*/
+/* Neumorphism  hollow*/
 .contact .form-item .form-group {
   background-color: #f1f3f6;
-  box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-  -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-  -moz-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-  -o-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-  -ms-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
   border-radius: 1.25rem;
 }
 
@@ -4205,6 +4200,36 @@ header {
   opacity: 1 !important;
 }
 
+.flat-style .image-border,
+.flat-style .button-border,
+.flat-style .personal-image img,
+.flat-style .box-border,
+.flat-style .box-hover-border,
+.flat-style .contact .form-item .form-group,
+.flat-style .checkbox label,
+.flat-style .segmented-control,
+.flat-style .radio-selection,
+.flat-style .portfolio-filter .pill-button.active,
+.flat-style .blog-intro,
+.flat-style .blog .blog-image .after,
+.flat-style .skill-box .skillbar,
+.flat-style .pallet-border,
+.flat-style .pallet-button,
+.flat-style .color-pallet,
+.flat-style table,
+.flat-style table thead,
+.flat-style .theme-skin .pill-button,
+.flat-style .badge-border {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.flat-style .portfolio-filter .pill-button:not(.active),
+.flat-style .portfolio-filter .button-border,
+.flat-style .testimonial .owl-carousel .testimonial-image {
+  background: transparent !important;
+}
+
 .flat-style .portfolio-item-content {
   -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
           box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
@@ -4331,6 +4356,15 @@ header {
 
 .dark-scheme.flat-style .portfolio-filter .pill-button {
   color: #fafafa;
+}
+
+.neu-style .pill-button {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.neu-style .radio-selection {
+  background: transparent !important;
 }
 
 .glass-style .section {

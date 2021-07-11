@@ -1,11 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
-// TODO: move this to CSS file
-const noneBoxShadowSelectors = formatString([
-        ".theme-skin .pill-button",
-]);
-
 const backgroundSchemeColorSelectors = formatString([
         ".section",
         " .button-border",
@@ -24,10 +19,6 @@ const backgroundSchemeColorSelectors = formatString([
         ".pill-button"
 ]);
 
-// TODO: move this to CSS file
-const backgroundTransparentSelectors = formatString([
-        ".radio-selection",
-]);
 
 const colorHighlightColorSelectors = formatString([
         ".pill-button",
@@ -123,8 +114,8 @@ export class NeuStyle extends Style {
         }
 
         onEnable(): void {
-                $("body").addClass("neo-style");
-                $("#neo-customizer").show();
+                $("body").addClass("neu-style");
+                $("#neu-customizer").show();
                 this.setupClickEvents();
                 this.setupHoverEvents();
                 this.initRangeSliders();
@@ -191,9 +182,7 @@ export class NeuStyle extends Style {
                 this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
 
                 $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
-                $(backgroundTransparentSelectors).css("background", 'transparent');
                 $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
-                $(noneBoxShadowSelectors).css("box-shadow", 'none');
                 $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
                 $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
                 $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
