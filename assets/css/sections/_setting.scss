@@ -360,10 +360,12 @@ input::-moz-focus-outer {
         border: 0;
 }
 
-.range-slider label,
-.range-slider__value {
+.range-slider label {
         font-size: 1.1rem !important;
+}
 
+.range-slider__value {
+        font-size: 1rem !important;
 }
 
 .range-slider label {

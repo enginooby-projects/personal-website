@@ -617,9 +617,12 @@ input::-moz-focus-outer {
   border: 0;
 }
 
-.range-slider label,
-.range-slider__value {
+.range-slider label {
   font-size: 1.1rem !important;
+}
+
+.range-slider__value {
+  font-size: 1rem !important;
 }
 
 .range-slider label {
@@ -4229,7 +4232,9 @@ header {
 .flat-style table,
 .flat-style table thead,
 .flat-style .theme-skin .pill-button,
-.flat-style .badge-border {
+.flat-style .badge-border,
+.flat-style .range-slider__range,
+.flat-style .range-slider__value {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }

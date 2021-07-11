@@ -91,6 +91,7 @@ export const borderRadiusSelectors = formatString([
     ".modal-content",
     "table",
     ".display-content>.container",
+    ".range-slider__value"
 ]);
 //HELPER
 function formatString(selectorsArray) {

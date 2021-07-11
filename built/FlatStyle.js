@@ -17,10 +17,12 @@ const backgroundLightenSchemeColorSelectors = formatString([
     ".flat-style .checkbox label",
     ".flat-style .pallet-border",
     ".color-pallet",
-    ".flat-style .pallet-button"
+    ".flat-style .pallet-button",
 ]);
 const backgroundSchemeColorSelectors = formatString([
-    ".flat-style .display-content>.container"
+    ".flat-style .display-content>.container",
+    ".flat-style .range-slider__range",
+    ".flat-style .range-slider__value",
 ]);
 const colorBaseColorSelectors = formatString([
     ".flat-style .portfolio-filter .pill-button ",
@@ -119,6 +121,7 @@ export class FlatStyle extends Style {
         $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
+        DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.highlightColor.hex;
     }
     updateRadioUI() {
         $("input[type='radio']:checked").each(function () {
