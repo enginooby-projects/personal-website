@@ -4481,6 +4481,7 @@ header {
 .glass-style .skill-box .skillbar,
 .glass-style .pallet-border,
 .glass-style .range-slider__range,
+.glass-style .range-slider__value,
 .glass-style ::-webkit-scrollbar-thumb,
 .glass-style ::-webkit-scrollbar-track {
   -webkit-box-shadow: none !important;

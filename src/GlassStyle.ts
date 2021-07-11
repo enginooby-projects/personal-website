@@ -29,6 +29,8 @@ const backgroundGlassLightenSchemeColorSelectors = formatString([
         ".glass-style #self-education .image-border",
         ".glass-style .contact .form-item .form-group",
         ".glass-style .checkbox label",
+        ".glass-style .range-slider__range", // TODO: max-3
+        ".glass-style .range-slider__value", // TODO: max-3
         // ".glass-style .pallet-border",
 ]);
 
@@ -177,6 +179,7 @@ export class GlassStyle extends Style {
                 });
                 DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
                 DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
+                DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
         }
 
         formatRgba(color: Color) {
