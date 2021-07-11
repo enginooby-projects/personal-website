@@ -4489,6 +4489,7 @@ header {
 }
 
 .glass-style .button-border,
+.glass-style .pallet-border,
 .glass-style .image-border {
   background: transparent !important;
 }

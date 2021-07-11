@@ -17,9 +17,9 @@ const backgroundSchemeColorSelectors = formatString([
         ".theme-skin .pill-button",
         ".pill-button.active",
         ".pill-button",
-        ".neu-style .display-content>.container"
+        ".neu-style .display-content>.container",
+        ".neu-style .pallet-button"
 ]);
-
 
 const colorHighlightColorSelectors = formatString([
         ".pill-button",

@@ -162,7 +162,7 @@ export class GlassStyle extends Style {
         });
         DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
         DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
-        DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
+        DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
     }
     formatRgba(color) {
         return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
