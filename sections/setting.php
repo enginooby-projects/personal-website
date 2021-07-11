@@ -103,9 +103,9 @@
                                         <div class="background-gallery">
                                                 <p>Background</p>
                                                 <div class="row px-4">
-                                                        <div class="col-4 p-0 background-item " id="background-1"> </div>
-                                                        <div class="col-4 p-0 background-item " id="background-2"> </div>
-                                                        <div class="col-4 p-0 background-item " id="background-3"> </div>
+                                                        <div class="col-4 background-item " id="background-1"> </div>
+                                                        <div class="col-4 background-item " id="background-2"> </div>
+                                                        <div class="col-4 background-item " id="background-3"> </div>
                                                 </div>
                                         </div>
                                 </div>

@@ -1,4 +1,3 @@
-// color related selectors (property + corresponding style)
 export const backgroundBaseColorSelectors = formatString([
         "#pp-nav li :not(.active) span",
 ]);
@@ -103,6 +102,7 @@ export const borderRadiusSelectors = formatString([
         ".display-content>.container",
 ]);
 
+//HELPER
 function formatString(selectorsArray: string[]): string {
         return selectorsArray.join(", ");
 }

@@ -236,6 +236,7 @@ function setupRangeSliderEvents() {
 
 function updateBorder() {
         $(ColorSelectors.borderRadiusSelectors).css('border-radius', borderRadius);
+        $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
         // TODO; not working
         // sliderThumbRule.style.borderRadius = borderRadius.toString();         
         // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
