@@ -1,19 +1,26 @@
 import * as DynamicTheme from './DynamicTheme.js';
 
 export abstract class Style {
-        setupEvents(): void {
-                this.setupHoverEvents();
-                this.setupClickEvents();
-        }
+        onEnable(): void {
+                this.init();
+                this.setupEvents();
+                this.applyStyle();
+                this.updateRadioUI();
+        };
+        abstract init(): void;
+        abstract setupEvents(): void;
+        abstract applyStyle(): void;
 
-        abstract onEnable(): void;
-        abstract onDisable(): void; // remove consequenceswhich may affect other style (e.g transparency)
-        abstract setupHoverEvents(): void;
-        abstract setupClickEvents(): void;
-        abstract update(): void;
+        onDisable(): void {
+                this.removeEvents();
+                this.revertStyle();
+        };
+        abstract removeEvents(): void;
+        abstract revertStyle(): void;  // revert properties which may affect other styles such as transparency
+
         abstract updateRadioUI(): void;
         abstract updateCheckboxUI(): void;
-        abstract resetUncheckedButtons(currentCheckedButton: HTMLElement): void;
-        // events from DynamicTheme
+        abstract resetInactiveButtons(currentActiveButton: HTMLElement): void;
+        //TODO:  events from DynamicTheme
 }
 

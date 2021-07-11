@@ -96,18 +96,9 @@ export class NeuStyle extends Style {
         lightenIntensity: number = 7;
         darkenIntensity: number = 7;
 
-
-        onEnable(): void {
+        init() {
                 $("body").addClass("neu-style");
-                this.setupEvents();
                 this.initRangeSliders();
-                this.setupRangeSliderEvents();
-                this.updateRadioUI();
-                this.update();
-        }
-
-        onDisable(): void {
-                this.removeEvents();
         }
 
         removeEvents() {
@@ -115,7 +106,11 @@ export class NeuStyle extends Style {
                 $('.segmented-control input, .checkbox input').off('click');
         }
 
+        revertStyle() { }
+
         setupEvents(): void {
+                this.setupRangeSliderEvents(); // does not need to remove those events whose elements  belonging to only this style
+
                 $(".segmented-control label").on('mouseenter', function () {
                         $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
@@ -174,7 +169,7 @@ export class NeuStyle extends Style {
                 $(element).css(this.originalProperty, this.originalPropertyValue);
         }
 
-        update(): void {
+        applyStyle(): void {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                 this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
@@ -263,7 +258,7 @@ export class NeuStyle extends Style {
                                         break;
                         }
                         //TODO: Seperate update functions
-                        this.update();
+                        this.applyStyle();
                 });
         };
 }

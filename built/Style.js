@@ -1,10 +1,14 @@
-var Style = /** @class */ (function () {
-    function Style() {
+export class Style {
+    onEnable() {
+        this.init();
+        this.setupEvents();
+        this.applyStyle();
+        this.updateRadioUI();
     }
-    Style.prototype.setupEvents = function () {
-        this.setupHoverEvents();
-        this.setupClickEvents();
-    };
-    return Style;
-}());
-export { Style };
+    ;
+    onDisable() {
+        this.removeEvents();
+        this.revertStyle();
+    }
+    ;
+}

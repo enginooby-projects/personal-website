@@ -56,19 +56,14 @@ export class GlassStyle extends Style {
         (_a = GlassStyle._instance) !== null && _a !== void 0 ? _a : (GlassStyle._instance = new GlassStyle());
         return GlassStyle._instance;
     }
-    onEnable() {
+    init() {
         $("body").addClass('glass-style');
-        this.setupEvents();
-        this.updateRadioUI();
         this.initRangeSliders();
-        this.setupRangeSliderEvents();
-        this.update();
         $('section').each((index, element) => {
             element.classList.add('background-2');
         });
     }
-    onDisable() {
-        this.removeEvents();
+    revertStyle() {
         $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
         $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
@@ -79,6 +74,7 @@ export class GlassStyle extends Style {
         });
     }
     setupEvents() {
+        this.setupRangeSliderEvents();
         $('.background-item').on('click', (event) => {
             const background = event.currentTarget.id;
             $('section').each((index, element) => {
@@ -167,7 +163,7 @@ export class GlassStyle extends Style {
             'border': `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`,
         });
     }
-    update() {
+    applyStyle() {
         this.updateLightenSchemeColor();
         this.updateTransparency();
         this.updateBlur();

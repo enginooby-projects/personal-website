@@ -56,6 +56,7 @@ export const colorMutedBaseColorSelectors = formatString([
         ".range-slider label",
         ".range-slider__value",
         "#colour-panel label ",
+        ".color-pallet-content p"
 ]);
 
 export const colorColorfull1Selectors = formatString([

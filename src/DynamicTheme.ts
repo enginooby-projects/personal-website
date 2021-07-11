@@ -176,7 +176,7 @@ function setupCommonClickEvents() {
                 );
         });
         $('#portfolio .pill-button').on('click', function (this: HTMLElement) {
-                currentStyle.resetUncheckedButtons(this);
+                currentStyle.resetInactiveButtons(this);
         });
 }
 
@@ -187,7 +187,7 @@ function updateHighlightColor(hex: string) {
         $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
         currentStyle.updateRadioUI();
         currentStyle.updateCheckboxUI();
-        currentStyle.update();
+        currentStyle.applyStyle();
 }
 
 function updateSchemeColor(hex: string) {
@@ -200,7 +200,7 @@ function updateSchemeColor(hex: string) {
         $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
         $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
         updatePseudoElements();
-        currentStyle.update();
+        currentStyle.applyStyle();
 }
 
 function updatePseudoElements() {

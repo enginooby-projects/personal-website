@@ -1,21 +1,6 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
-var backgroundSchemeColorSelectors = formatString([
+const backgroundSchemeColorSelectors = formatString([
     ".section",
     " .button-border",
     " .box-border",
@@ -32,10 +17,10 @@ var backgroundSchemeColorSelectors = formatString([
     ".pill-button.active",
     ".pill-button"
 ]);
-var colorHighlightColorSelectors = formatString([
+const colorHighlightColorSelectors = formatString([
     ".pill-button",
 ]);
-var dropBoxShadowSelectors = formatString([
+const dropBoxShadowSelectors = formatString([
     ".button-border",
     ".box-border",
     ".image-border",
@@ -50,7 +35,7 @@ var dropBoxShadowSelectors = formatString([
     ".range-slider__value",
     ".theme-skin .pill-button"
 ]);
-var insetBoxShadowSelectors = formatString([
+const insetBoxShadowSelectors = formatString([
     ".pill-button.active",
     ".custom-scrollbar",
     ".blog .blog-image .after",
@@ -62,13 +47,13 @@ var insetBoxShadowSelectors = formatString([
     ".pallet-button.active",
     ".theme-skin .pill-button.active",
 ]);
-var concaveBoxShadowSelectors = formatString([
+const concaveBoxShadowSelectors = formatString([
     ".skill-box .skillbar",
     ".form-group",
     ".radio-selection",
 ]);
 // EFFECTS
-var hoverInsetBoxShadowSelectors = formatString([
+const hoverInsetBoxShadowSelectors = formatString([
     " .badge-border",
     "table>tbody>tr",
     ".pill-button",
@@ -78,101 +63,89 @@ function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
 // REFACTOR: Implement singleton pattern for base class instead/generic singleton
-var NeuStyle = /** @class */ (function (_super) {
-    __extends(NeuStyle, _super);
-    function NeuStyle() {
-        var _this = _super.call(this) || this;
-        _this.lightenSchemeColor = "#ffffff";
-        _this.darkenSchemeColor = "#dcdee2";
-        _this.insetBoxShadow = '';
-        _this.dropBoxShadow = '';
-        _this.concaveBoxShadow = '';
-        _this.thumbScrollbarBoxShadow = '';
-        _this.distance = 3;
-        _this.blur = 8;
-        _this.lightenIntensity = 7;
-        _this.darkenIntensity = 7;
-        _this.lastHoverClass = 'lastHover';
-        _this.originalProperty = '';
-        _this.originalPropertyValue = '';
-        return _this;
+export class NeuStyle extends Style {
+    constructor() {
+        super();
+        this.lightenSchemeColor = "#ffffff";
+        this.darkenSchemeColor = "#dcdee2";
+        this.insetBoxShadow = '';
+        this.dropBoxShadow = '';
+        this.concaveBoxShadow = '';
+        this.thumbScrollbarBoxShadow = '';
+        this.distance = 3;
+        this.blur = 8;
+        this.lightenIntensity = 7;
+        this.darkenIntensity = 7;
+        this.lastHoverClass = 'lastHover';
+        this.originalProperty = '';
+        this.originalPropertyValue = '';
     }
-    Object.defineProperty(NeuStyle, "Instance", {
-        get: function () {
-            var _a;
-            (_a = NeuStyle._instance) !== null && _a !== void 0 ? _a : (NeuStyle._instance = new NeuStyle());
-            return NeuStyle._instance;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    NeuStyle.prototype.onEnable = function () {
+    static get Instance() {
+        var _a;
+        (_a = NeuStyle._instance) !== null && _a !== void 0 ? _a : (NeuStyle._instance = new NeuStyle());
+        return NeuStyle._instance;
+    }
+    init() {
         $("body").addClass("neu-style");
-        this.setupEvents();
         this.initRangeSliders();
-        this.setupRangeSliderEvents();
-        this.updateRadioUI();
-        this.update();
-    };
-    NeuStyle.prototype.onDisable = function () {
-        this.removeEvents();
-    };
-    NeuStyle.prototype.removeEvents = function () {
-        $(hoverInsetBoxShadowSelectors + ", .segmented-control label, .range-slider__range").off('mouseenter mouseleave');
+    }
+    removeEvents() {
+        $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
         $('.segmented-control input, .checkbox input').off('click');
-    };
-    NeuStyle.prototype.setupEvents = function () {
-        var _this = this;
+    }
+    revertStyle() { }
+    setupEvents() {
+        this.setupRangeSliderEvents(); // does not need to remove those events whose elements  belonging to only this style
         $(".segmented-control label").on('mouseenter', function () {
             $(this).css('color', DynamicTheme.highlightColor.hex);
         });
-        $(".range-slider__range ").hover(function (event) {
+        $(".range-slider__range ").hover((event) => {
             event.currentTarget.classList.add('focus');
-        }, function (event) {
+        }, (event) => {
             event.currentTarget.classList.remove('focus');
         });
-        $(hoverInsetBoxShadowSelectors).hover(function (event) {
-            var target = event.currentTarget;
-            _this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
-            target.style.boxShadow = _this.insetBoxShadow;
-        }, function (event) {
-            _this.resetLastHoverElement(event.currentTarget);
+        $(hoverInsetBoxShadowSelectors).hover((event) => {
+            const target = event.currentTarget;
+            this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
+            target.style.boxShadow = this.insetBoxShadow;
+        }, (event) => {
+            this.resetLastHoverElement(event.currentTarget);
         });
-        $(".segmented-control input").on('click', function (event) {
+        $(".segmented-control input").on('click', (event) => {
             $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
-            $(".segmented-control input[type='radio']:not(:checked)").each(function (i, currentElement) {
+            $(".segmented-control input[type='radio']:not(:checked)").each((i, currentElement) => {
                 $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
-        $(".checkbox input").on('click', function (event) {
+        $(".checkbox input").on('click', (event) => {
             if (!$(event.currentTarget).prop("checked")) {
                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
-                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.dropBoxShadow);
+                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.dropBoxShadow);
             }
             else {
                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
-                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.concaveBoxShadow);
+                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
             }
         });
-    };
-    NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
+    }
+    updateLastHoverElement(element, originalProperty, originalPropertyValue) {
         element.classList.add(this.lastHoverClass);
         this.originalProperty = originalProperty;
         this.originalPropertyValue = originalPropertyValue;
-    };
-    NeuStyle.prototype.resetLastHoverElement = function (element) {
+    }
+    resetLastHoverElement(element) {
         element.classList.remove(this.lastHoverClass);
         if ($(element).hasClass('active'))
             return;
         $(element).css(this.originalProperty, this.originalPropertyValue);
-    };
-    NeuStyle.prototype.update = function () {
+    }
+    applyStyle() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
-        this.dropBoxShadow = this.distance + "px " + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
-        this.insetBoxShadow = "inset " + this.distance + "px " + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", inset -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
-        this.concaveBoxShadow = this.dropBoxShadow + ", " + this.insetBoxShadow; // TODO: Does not look good!
-        this.thumbScrollbarBoxShadow = "inset -" + this.distance + "px -" + this.distance + "px " + this.blur + "px " + this.darkenSchemeColor + ", inset " + this.distance + "px " + this.distance + "px " + this.blur + "px " + this.lightenSchemeColor;
+        this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
+        this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
+        this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
+        this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
         $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
         $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
@@ -187,8 +160,8 @@ var NeuStyle = /** @class */ (function (_super) {
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
         DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
         // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
-    };
-    NeuStyle.prototype.updateRadioUI = function () {
+    }
+    updateRadioUI() {
         $("input[type='radio']:checked").each(function () {
             $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.hex);
         });
@@ -196,24 +169,23 @@ var NeuStyle = /** @class */ (function (_super) {
             $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
             // $(" label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
         });
-    };
-    NeuStyle.prototype.updateCheckboxUI = function () {
-        var _this = this;
-        $("input[type='checkbox']:checked").each(function (i, currentElement) {
+    }
+    updateCheckboxUI() {
+        $("input[type='checkbox']:checked").each((i, currentElement) => {
             $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
             $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
-            $("label[for='" + currentElement.id + "']").css('box-shadow', _this.concaveBoxShadow);
+            $("label[for='" + currentElement.id + "']").css('box-shadow', this.concaveBoxShadow);
         });
-        $("input[type='checkbox']:not(:checked)").each(function (i, currentElement) {
+        $("input[type='checkbox']:not(:checked)").each((i, currentElement) => {
             $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
             $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
-            $("label[for='" + currentElement.id + "']").css('box-shadow', _this.dropBoxShadow);
+            $("label[for='" + currentElement.id + "']").css('box-shadow', this.dropBoxShadow);
         });
-    };
-    NeuStyle.prototype.resetInactiveButtons = function (currentActiveButton) {
+    }
+    resetInactiveButtons(currentActiveButton) {
         $('#portfolio .pill-button').not(currentActiveButton).css('box-shadow', '');
-    };
-    NeuStyle.prototype.initRangeSliders = function () {
+    }
+    initRangeSliders() {
         $('#distance').attr('value', this.distance);
         $("#distance").next('.range-slider__value').html(this.distance.toString());
         $('#blur').attr('value', this.blur);
@@ -222,33 +194,30 @@ var NeuStyle = /** @class */ (function (_super) {
         $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
         $('#dark-intensity').attr('value', this.darkenIntensity);
         $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
-    };
-    NeuStyle.prototype.setupRangeSliderEvents = function () {
-        var _this = this;
-        $("#distance, #blur, #light-intensity, #dark-intensity").on('input', function (event) {
-            var newValue = event.target.value;
+    }
+    setupRangeSliderEvents() {
+        $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
+            const newValue = event.target.value;
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
                 case 'distance':
-                    _this.distance = parseInt(newValue);
+                    this.distance = parseInt(newValue);
                     break;
                 case 'blur':
-                    _this.blur = parseInt(newValue);
+                    this.blur = parseInt(newValue);
                     break;
                 case 'light-intensity':
-                    _this.lightenIntensity = parseInt(newValue);
+                    this.lightenIntensity = parseInt(newValue);
                     break;
                 case 'dark-intensity':
-                    _this.darkenIntensity = parseInt(newValue);
+                    this.darkenIntensity = parseInt(newValue);
                     break;
             }
             //TODO: Seperate update functions
-            _this.update();
+            this.applyStyle();
         });
-    };
+    }
     ;
-    //  Singleton Pattern
-    NeuStyle._instance = new NeuStyle();
-    return NeuStyle;
-}(Style));
-export { NeuStyle };
+}
+//  Singleton Pattern
+NeuStyle._instance = new NeuStyle();

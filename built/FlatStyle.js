@@ -1,30 +1,15 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
-var lightenIntensity = 5;
-var darkenIntensity = 5;
-var backgroundHighlightColorSelectors = formatString([
+const lightenIntensity = 5;
+const darkenIntensity = 5;
+const backgroundHighlightColorSelectors = formatString([
     // ".flat-style .button-border",
     ".radio-selection",
     ".flat-style .portfolio-filter .pill-button.active",
     ".pill-button",
     " .theme-skin .pill-button.active"
 ]);
-var backgroundLightenSchemeColorSelectors = formatString([
+const backgroundLightenSchemeColorSelectors = formatString([
     ".flat-style .box-border",
     ".flat-style .image-border",
     ".flat-style .contact .form-item .form-group",
@@ -34,45 +19,34 @@ var backgroundLightenSchemeColorSelectors = formatString([
     ".color-pallet",
     ".flat-style .pallet-button"
 ]);
-var colorBaseColorSelectors = formatString([
+const colorBaseColorSelectors = formatString([
     ".flat-style .portfolio-filter .pill-button ",
 ]);
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
-var FlatStyle = /** @class */ (function (_super) {
-    __extends(FlatStyle, _super);
-    function FlatStyle() {
-        var _this = _super.call(this) || this;
-        _this.lightenSchemeColor = "#680317";
-        _this.darkenSchemeColor = "#680317";
-        return _this;
+export class FlatStyle extends Style {
+    constructor() {
+        super();
+        this.lightenSchemeColor = "#680317";
+        this.darkenSchemeColor = "#680317";
     }
-    Object.defineProperty(FlatStyle, "Instance", {
-        get: function () {
-            var _a;
-            (_a = FlatStyle._instance) !== null && _a !== void 0 ? _a : (FlatStyle._instance = new FlatStyle());
-            return FlatStyle._instance;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    FlatStyle.prototype.onEnable = function () {
+    static get Instance() {
+        var _a;
+        (_a = FlatStyle._instance) !== null && _a !== void 0 ? _a : (FlatStyle._instance = new FlatStyle());
+        return FlatStyle._instance;
+    }
+    init() {
         $("body").addClass('flat-style');
-        this.setupEvents();
-        this.updateRadioUI();
-        this.update();
-    };
-    FlatStyle.prototype.onDisable = function () {
-        this.removeEvents();
-    };
-    FlatStyle.prototype.removeEvents = function () {
+    }
+    removeEvents() {
         $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
         $('.segmented-control input, .checkbox input').off('click');
-    };
-    FlatStyle.prototype.setupEvents = function () {
+    }
+    revertStyle() { }
+    setupEvents() {
         $(".segmented-control label").on('mouseenter', function () {
-            var id = $(this).attr("for");
+            let id = $(this).attr("for");
             if (!$("#" + id).prop("checked"))
                 $(this).css('color', DynamicTheme.highlightColor.hex);
         });
@@ -92,7 +66,7 @@ var FlatStyle = /** @class */ (function (_super) {
             $(this).css('background', DynamicTheme.highlightColor.hex);
         });
         $(" .portfolio-filter .pill-button").hover(function () {
-            $(this).attr('style', function (i, s) { return (s || '') + ("background: " + DynamicTheme.highlightColor.hex + " !important;"); });
+            $(this).attr('style', function (i, s) { return (s || '') + `background: ${DynamicTheme.highlightColor.hex} !important;`; });
         }, function () {
             if ($(this).hasClass('active'))
                 return;
@@ -118,16 +92,16 @@ var FlatStyle = /** @class */ (function (_super) {
                 $(this).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
             }
         });
-    };
-    FlatStyle.prototype.update = function () {
+    }
+    applyStyle() {
         this.updateColor();
         DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
         DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
         DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
-    };
+    }
     //TODO: Separate update functions for highlight, scheme, colorfull elements
-    FlatStyle.prototype.updateColor = function () {
+    updateColor() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
         $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
@@ -135,16 +109,16 @@ var FlatStyle = /** @class */ (function (_super) {
         $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
-    };
-    FlatStyle.prototype.updateRadioUI = function () {
+    }
+    updateRadioUI() {
         $("input[type='radio']:checked").each(function () {
             $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         });
         $("input[type='radio']:not(:checked)").each(function () {
             $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
         });
-    };
-    FlatStyle.prototype.updateCheckboxUI = function () {
+    }
+    updateCheckboxUI() {
         $("input[type='checkbox']:checked").each(function () {
             $("label[for='" + this.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
             $("label[for='" + this.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
@@ -153,10 +127,8 @@ var FlatStyle = /** @class */ (function (_super) {
             $("label[for='" + this.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
             $("label[for='" + this.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
         });
-    };
-    FlatStyle.prototype.resetInactiveButtons = function (currentActiveButton) {
+    }
+    resetInactiveButtons(currentActiveButton) {
         $('#portfolio .pill-button').not(currentActiveButton).css('background', 'transparent');
-    };
-    return FlatStyle;
-}(Style));
-export { FlatStyle };
+    }
+}

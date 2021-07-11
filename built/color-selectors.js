@@ -1,14 +1,14 @@
 // color related selectors (property + corresponding style)
-export var backgroundBaseColorSelectors = formatString([
+export const backgroundBaseColorSelectors = formatString([
     "#pp-nav li :not(.active) span",
 ]);
-export var backgroundHighlightColorSelectors = formatString([
+export const backgroundHighlightColorSelectors = formatString([
     ".bg-base-color",
     ".border-style",
     "#pp-nav li .active span",
     ".pp-slidesNav .active span"
 ]);
-export var backgroundSchemeColorSelectors = formatString([
+export const backgroundSchemeColorSelectors = formatString([
     ".section",
     ".box-border",
     ".segmented-control",
@@ -19,7 +19,7 @@ export var backgroundSchemeColorSelectors = formatString([
     ".blog .blog-item .before",
     ".flat-style .section",
 ]);
-export var colorHighlightColorSelectors = formatString([
+export const colorHighlightColorSelectors = formatString([
     ".highlight-color",
     ".pill-button",
     ".overlay-menu a.active",
@@ -29,7 +29,7 @@ export var colorHighlightColorSelectors = formatString([
     ".contact .form-item .form-control",
     ".highlight-portfolio-item.fa-star"
 ]);
-export var colorBaseColorSelectors = formatString([
+export const colorBaseColorSelectors = formatString([
     "body",
     ".logo",
     ".color-switcher .pallet-border i",
@@ -42,7 +42,7 @@ export var colorBaseColorSelectors = formatString([
     ".modal-title",
     ".portfolio-single .close",
 ]);
-export var colorMutedBaseColorSelectors = formatString([
+export const colorMutedBaseColorSelectors = formatString([
     ".blog-content .list-inline-item span",
     ".contact-info-text small",
     ".hero-content p",
@@ -51,9 +51,10 @@ export var colorMutedBaseColorSelectors = formatString([
     ".range-slider label",
     ".range-slider__value",
     "#colour-panel label ",
+    ".color-pallet-content p"
 ]);
-export var colorColorfull1Selectors = formatString([]);
-export var borderRadiusSelectors = formatString([
+export const colorColorfull1Selectors = formatString([]);
+export const borderRadiusSelectors = formatString([
     ".blog .blog-image",
     ".blog .blog-image .after",
     ".blog .blog-intro ",

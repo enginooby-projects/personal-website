@@ -2,34 +2,34 @@ import * as ColorSelectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
-var styleSheet;
-var $squareImg;
-var borderRadius = 15;
-export var colorfull1 = new TinyColor("#00a584");
-export var colorfull2 = new TinyColor("#ebbc00");
-export var colorfull3 = new TinyColor("#e93666");
+let styleSheet;
+let $squareImg;
+let borderRadius = 15;
+export let colorfull1 = new TinyColor("#00a584");
+export let colorfull2 = new TinyColor("#ebbc00");
+export let colorfull3 = new TinyColor("#e93666");
 // export let schemeColor: Color = new TinyColor("#680317");
-export var schemeColor = new TinyColor("#D4D4D4");
-export var highlightColor = new TinyColor("#055CB3");
-export var baseColor;
-export var mutedBaseColor;
-var lightMutedBaseColor = "#b2b2b2";
-var darkMutedBaseColor = "#4D4D4D";
-export var currentStyle;
-var styleRegistry;
+export let schemeColor = new TinyColor("#D4D4D4");
+export let highlightColor = new TinyColor("#055CB3");
+export let baseColor;
+export let mutedBaseColor;
+const lightMutedBaseColor = "#b2b2b2";
+const darkMutedBaseColor = "#4D4D4D";
+export let currentStyle;
+let styleRegistry;
 // PSEUDO RULES
-export var trackScrollbarRule;
-export var thumbScrollbarRule;
-export var sliderThumbRule;
-export var sliderThumbFocusRule;
-export var colorSwatchRule;
-var placeholderRule;
-var papePilingTooltipRule;
-var selectionRule;
-var selectionOldFirefoxRule;
+export let trackScrollbarRule;
+export let thumbScrollbarRule;
+export let sliderThumbRule;
+export let sliderThumbFocusRule;
+export let colorSwatchRule;
+let placeholderRule;
+let papePilingTooltipRule;
+let selectionRule;
+let selectionOldFirefoxRule;
 function getStyleSheet() {
-    for (var i = 0; i < document.styleSheets.length; i++) {
-        var cursheet = document.styleSheets[i];
+    for (let i = 0; i < document.styleSheets.length; i++) {
+        let cursheet = document.styleSheets[i];
         if (cursheet.title == 'style')
             styleSheet = cursheet;
     }
@@ -48,14 +48,14 @@ export function init() {
     getStyleSheet();
     setupEvents();
     $squareImg = $(".hero-image .square img");
-    var cssRules = styleSheet.cssRules || styleSheet.rules;
-    trackScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-track {border-radius: 15px;}")];
-    thumbScrollbarRule = cssRules[styleSheet.insertRule("::-webkit-scrollbar-thumb {background: " + schemeColor + "; border-radius: 15px;}")];
-    placeholderRule = cssRules[styleSheet.insertRule(".form-control::placeholder {color: " + mutedBaseColor + "; opacity: 1;}")];
-    papePilingTooltipRule = cssRules[styleSheet.insertRule("#pp-nav li .pp-tooltip  {color: " + baseColor + "}")];
-    sliderThumbRule = cssRules[styleSheet.insertRule(".range-slider__range::-webkit-slider-thumb {background:" + schemeColor + "; border-radius: " + borderRadius + "}")];
-    sliderThumbFocusRule = cssRules[styleSheet.insertRule(".range-slider__range.focus::-webkit-slider-thumb {background:" + schemeColor + ";border-radius: " + borderRadius + "}")];
-    colorSwatchRule = cssRules[styleSheet.insertRule("::-webkit-color-swatch{}")];
+    const cssRules = styleSheet.cssRules || styleSheet.rules;
+    trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {border-radius: 15px;}`)];
+    thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)];
+    placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
+    papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
+    sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor}; border-radius: ${borderRadius}}`)];
+    sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)];
+    colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
     $("#highlight-color-picker").attr('value', highlightColor.hex);
@@ -91,8 +91,8 @@ function setupColorPickerEvents() {
     });
 }
 function updateColorfull(colorfullNumber) {
-    var colorfull;
-    var timelineSelector;
+    let colorfull;
+    let timelineSelector;
     if (colorfullNumber == 1) {
         colorfull = colorfull1;
         timelineSelector = '#education-timeline';
@@ -105,11 +105,11 @@ function updateColorfull(colorfullNumber) {
         colorfull = colorfull3;
         timelineSelector = '#achievements-timeline';
     }
-    $(".colorfull" + colorfullNumber + ", .background-colorfull" + colorfullNumber + ">.badge").css('color', colorfull.hex);
-    $(".background-colorfull" + colorfullNumber).css('background-color', colorfull.hex);
-    $(".background-colorfull" + colorfullNumber).css('color', colorfull.getInvertBlackWhite());
-    $(timelineSelector + " .timeline-item").css('border-left-color', colorfull.hex);
-    $(".badge-pill.background-colorfull" + colorfullNumber + " .badge").css('background', colorfull.getInvertBlackWhite());
+    $(`.colorfull${colorfullNumber}, .background-colorfull${colorfullNumber}>.badge`).css('color', colorfull.hex);
+    $(`.background-colorfull${colorfullNumber}`).css('background-color', colorfull.hex);
+    $(`.background-colorfull${colorfullNumber}`).css('color', colorfull.getInvertBlackWhite());
+    $(`${timelineSelector} .timeline-item`).css('border-left-color', colorfull.hex);
+    $(`.badge-pill.background-colorfull${colorfullNumber} .badge`).css('background', colorfull.getInvertBlackWhite());
 }
 ;
 function setupCommonHoverEvents() {
@@ -126,7 +126,7 @@ function setupCommonHoverEvents() {
         $(this).css('color', 'white');
     });
     $(".segmented-control label").on('mouseleave', function () {
-        var id = $(this).attr("for");
+        let id = $(this).attr("for");
         // reset color if the  button not checked
         if (!$("#" + id).prop("checked"))
             $(this).css('color', mutedBaseColor);
@@ -135,7 +135,7 @@ function setupCommonHoverEvents() {
         .on('mouseenter', function () {
         $(this).css('color', highlightColor.hex);
     }).on('mouseleave', function () {
-        var id = $(this).parent().attr("for");
+        let id = $(this).parent().attr("for");
         // reset color if the  button not checked
         if (!$("#" + id).prop("checked"))
             $(this).css('color', mutedBaseColor);
@@ -154,7 +154,7 @@ function setupCommonClickEvents() {
         });
     });
     $('#portfolio .pill-button').on('click', function () {
-        currentStyle.resetUncheckedButtons(this);
+        currentStyle.resetInactiveButtons(this);
     });
 }
 function updateHighlightColor(hex) {
@@ -164,7 +164,7 @@ function updateHighlightColor(hex) {
     $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
     currentStyle.updateRadioUI();
     currentStyle.updateCheckboxUI();
-    currentStyle.update();
+    currentStyle.applyStyle();
 }
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
@@ -175,7 +175,7 @@ function updateSchemeColor(hex) {
     $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
     $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
     updatePseudoElements();
-    currentStyle.update();
+    currentStyle.applyStyle();
 }
 function updatePseudoElements() {
     thumbScrollbarRule.style.background = schemeColor.hex;
@@ -183,19 +183,19 @@ function updatePseudoElements() {
     papePilingTooltipRule.style.color = baseColor;
 }
 function updateBaseColor() {
-    var lastBaseColor = baseColor;
+    const lastBaseColor = baseColor;
     baseColor = schemeColor.getInvertBlackWhite();
     mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
-    var heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
-    $squareImg.attr('src', "assets/img/" + heroImg + ".png");
+    const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
+    $squareImg.attr('src', `assets/img/${heroImg}.png`);
     if (lastBaseColor != baseColor) {
         currentStyle.updateRadioUI();
         currentStyle.updateCheckboxUI();
     }
 }
 function setupRangeSliderEvents() {
-    $("#border-radius").on('input', function (event) {
-        var newValue = event.target.value;
+    $("#border-radius").on('input', (event) => {
+        const newValue = event.target.value;
         $("#" + event.target.id).next('.range-slider__value').text(newValue);
         switch (event.target.id) {
             case 'border-radius':

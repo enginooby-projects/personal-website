@@ -42,21 +42,16 @@ export class FlatStyle extends Style {
         lightenSchemeColor: string = "#680317";
         darkenSchemeColor: string = "#680317";
 
-        onEnable(): void {
+        init() {
                 $("body").addClass('flat-style');
-                this.setupEvents();
-                this.updateRadioUI();
-                this.update();
-        }
-
-        onDisable(): void {
-                this.removeEvents();
         }
 
         removeEvents() {
                 $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
                 $('.segmented-control input, .checkbox input').off('click');
         }
+
+        revertStyle() { }
 
         setupEvents(): void {
                 $(".segmented-control label").on('mouseenter', function () {
@@ -120,7 +115,7 @@ export class FlatStyle extends Style {
                 });
         }
 
-        update(): void {
+        applyStyle(): void {
                 this.updateColor();
                 DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
                 DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;

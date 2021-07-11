@@ -69,20 +69,15 @@ export class GlassStyle extends Style {
         lightenSchemeColor: Color = new TinyColor('#000000');
         darkenSchemeColor: string = "#680317";
 
-        onEnable(): void {
+        init() {
                 $("body").addClass('glass-style');
-                this.setupEvents();
-                this.updateRadioUI();
                 this.initRangeSliders();
-                this.setupRangeSliderEvents();
-                this.update();
                 $('section').each((index, element) => {
                         element.classList.add('background-2');
                 })
         }
 
-        onDisable(): void {
-                this.removeEvents();
+        revertStyle() {
                 $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
                 $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
                 $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
@@ -94,6 +89,8 @@ export class GlassStyle extends Style {
         }
 
         setupEvents(): void {
+                this.setupRangeSliderEvents();
+
                 $('.background-item').on('click', (event) => {
                         const background: string = event.currentTarget.id;
                         $('section').each((index, element) => {
@@ -193,7 +190,7 @@ export class GlassStyle extends Style {
                 });
         }
 
-        update(): void {
+        applyStyle(): void {
                 this.updateLightenSchemeColor();
                 this.updateTransparency();
                 this.updateBlur();
