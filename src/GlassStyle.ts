@@ -71,7 +71,6 @@ export class GlassStyle extends Style {
 
         onEnable(): void {
                 $("body").addClass('glass-style');
-                $("#glass-customizer").show();
                 this.setupEvents();
                 this.updateRadioUI();
                 this.initRangeSliders();
@@ -190,8 +189,8 @@ export class GlassStyle extends Style {
         updateCheckboxUI(): void {
         }
 
-        resetUncheckedButtons(currentCheckedButton: HTMLElement): void {
-                $('#portfolio .pill-button').not(currentCheckedButton).css({
+        resetInactiveButtons(currentActiveButton: HTMLElement): void {
+                $('#portfolio .pill-button').not(currentActiveButton).css({
                         'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
                         'color': DynamicTheme.highlightColor.getInvertBlackWhite()
                 });

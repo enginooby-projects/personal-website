@@ -59,17 +59,18 @@ var FlatStyle = /** @class */ (function (_super) {
     });
     FlatStyle.prototype.onEnable = function () {
         $("body").addClass('flat-style');
-        $("#flat-customizer").show();
-        this.setupHoverEvents();
-        this.setupClickEvents();
+        this.setupEvents();
         this.updateRadioUI();
         this.update();
     };
     FlatStyle.prototype.onDisable = function () {
+        this.removeEvents();
+    };
+    FlatStyle.prototype.removeEvents = function () {
         $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
         $('.segmented-control input, .checkbox input').off('click');
     };
-    FlatStyle.prototype.setupHoverEvents = function () {
+    FlatStyle.prototype.setupEvents = function () {
         $(".segmented-control label").on('mouseenter', function () {
             var id = $(this).attr("for");
             if (!$("#" + id).prop("checked"))
@@ -103,8 +104,6 @@ var FlatStyle = /** @class */ (function (_super) {
         }, function () {
             $(this).css('background', '');
         });
-    };
-    FlatStyle.prototype.setupClickEvents = function () {
         $(".segmented-control input").click(function () {
             $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
             $(".segmented-control input[type='radio']:not(:checked)").each(function () {
@@ -155,8 +154,8 @@ var FlatStyle = /** @class */ (function (_super) {
             $("label[for='" + this.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
         });
     };
-    FlatStyle.prototype.resetUncheckedButtons = function (currentCheckedButton) {
-        $('#portfolio .pill-button').not(currentCheckedButton).css('background', 'transparent');
+    FlatStyle.prototype.resetInactiveButtons = function (currentActiveButton) {
+        $('#portfolio .pill-button').not(currentActiveButton).css('background', 'transparent');
     };
     return FlatStyle;
 }(Style));

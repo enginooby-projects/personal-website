@@ -4194,12 +4194,17 @@ header {
 /*-------------------------
       FLAT STYLE LIGHT
 -------------------------*/
+.flat-style #flat-customizer {
+  display: block !important;
+}
+
 .flat-style .background-colorfull1,
 .flat-style .background-colorfull2,
 .flat-style .background-colorfull3 {
   opacity: 1 !important;
 }
 
+.flat-style .pill-button,
 .flat-style .image-border,
 .flat-style .button-border,
 .flat-style .personal-image img,
@@ -4358,6 +4363,10 @@ header {
   color: #fafafa;
 }
 
+.neu-style #neu-customizer {
+  display: block !important;
+}
+
 .neu-style .pill-button {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -4365,6 +4374,10 @@ header {
 
 .neu-style .radio-selection {
   background: transparent !important;
+}
+
+.glass-style #glass-customizer {
+  display: block !important;
 }
 
 .glass-style .section {

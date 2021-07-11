@@ -96,27 +96,10 @@ export class NeuStyle extends Style {
         lightenIntensity: number = 7;
         darkenIntensity: number = 7;
 
-        lastHoverClass: string = 'lastHover';
-        originalProperty: string = '';
-        originalPropertyValue: string = '';
-
-        updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
-                element.classList.add(this.lastHoverClass);
-                this.originalProperty = originalProperty;
-                this.originalPropertyValue = originalPropertyValue;
-        }
-
-        resetLastHoverElement(element: HTMLElement) {
-                element.classList.remove(this.lastHoverClass);
-                if ($(element).hasClass('active')) return;
-                $(element).css(this.originalProperty, this.originalPropertyValue);
-        }
 
         onEnable(): void {
                 $("body").addClass("neu-style");
-                $("#neu-customizer").show();
-                this.setupClickEvents();
-                this.setupHoverEvents();
+                this.setupEvents();
                 this.initRangeSliders();
                 this.setupRangeSliderEvents();
                 this.updateRadioUI();
@@ -124,11 +107,15 @@ export class NeuStyle extends Style {
         }
 
         onDisable(): void {
+                this.removeEvents();
+        }
+
+        removeEvents() {
                 $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
                 $('.segmented-control input, .checkbox input').off('click');
         }
 
-        setupHoverEvents(): void {
+        setupEvents(): void {
                 $(".segmented-control label").on('mouseenter', function () {
                         $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
@@ -150,9 +137,7 @@ export class NeuStyle extends Style {
                                 this.resetLastHoverElement(event.currentTarget);
                         }
                 );
-        }
 
-        setupClickEvents(): void {
                 $(".segmented-control input").on('click', (event) => {
                         $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
                         $(".segmented-control input[type='radio']:not(:checked)").each(
@@ -172,6 +157,21 @@ export class NeuStyle extends Style {
                                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
                         }
                 });
+        }
+
+        lastHoverClass: string = 'lastHover';
+        originalProperty: string = '';
+        originalPropertyValue: string = '';
+        updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
+                element.classList.add(this.lastHoverClass);
+                this.originalProperty = originalProperty;
+                this.originalPropertyValue = originalPropertyValue;
+        }
+
+        resetLastHoverElement(element: HTMLElement) {
+                element.classList.remove(this.lastHoverClass);
+                if ($(element).hasClass('active')) return;
+                $(element).css(this.originalProperty, this.originalPropertyValue);
         }
 
         update(): void {
@@ -229,8 +229,8 @@ export class NeuStyle extends Style {
                 );
         }
 
-        resetUncheckedButtons(currentCheckedButton: HTMLElement): void {
-                $('#portfolio .pill-button').not(currentCheckedButton).css('box-shadow', '');
+        resetInactiveButtons(currentActiveButton: HTMLElement): void {
+                $('#portfolio .pill-button').not(currentActiveButton).css('box-shadow', '');
         }
 
         initRangeSliders() {

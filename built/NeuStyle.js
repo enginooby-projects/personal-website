@@ -106,32 +106,22 @@ var NeuStyle = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
-        element.classList.add(this.lastHoverClass);
-        this.originalProperty = originalProperty;
-        this.originalPropertyValue = originalPropertyValue;
-    };
-    NeuStyle.prototype.resetLastHoverElement = function (element) {
-        element.classList.remove(this.lastHoverClass);
-        if ($(element).hasClass('active'))
-            return;
-        $(element).css(this.originalProperty, this.originalPropertyValue);
-    };
     NeuStyle.prototype.onEnable = function () {
         $("body").addClass("neu-style");
-        $("#neu-customizer").show();
-        this.setupClickEvents();
-        this.setupHoverEvents();
+        this.setupEvents();
         this.initRangeSliders();
         this.setupRangeSliderEvents();
         this.updateRadioUI();
         this.update();
     };
     NeuStyle.prototype.onDisable = function () {
+        this.removeEvents();
+    };
+    NeuStyle.prototype.removeEvents = function () {
         $(hoverInsetBoxShadowSelectors + ", .segmented-control label, .range-slider__range").off('mouseenter mouseleave');
         $('.segmented-control input, .checkbox input').off('click');
     };
-    NeuStyle.prototype.setupHoverEvents = function () {
+    NeuStyle.prototype.setupEvents = function () {
         var _this = this;
         $(".segmented-control label").on('mouseenter', function () {
             $(this).css('color', DynamicTheme.highlightColor.hex);
@@ -148,9 +138,6 @@ var NeuStyle = /** @class */ (function (_super) {
         }, function (event) {
             _this.resetLastHoverElement(event.currentTarget);
         });
-    };
-    NeuStyle.prototype.setupClickEvents = function () {
-        var _this = this;
         $(".segmented-control input").on('click', function (event) {
             $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
             $(".segmented-control input[type='radio']:not(:checked)").each(function (i, currentElement) {
@@ -167,6 +154,17 @@ var NeuStyle = /** @class */ (function (_super) {
                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.concaveBoxShadow);
             }
         });
+    };
+    NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
+        element.classList.add(this.lastHoverClass);
+        this.originalProperty = originalProperty;
+        this.originalPropertyValue = originalPropertyValue;
+    };
+    NeuStyle.prototype.resetLastHoverElement = function (element) {
+        element.classList.remove(this.lastHoverClass);
+        if ($(element).hasClass('active'))
+            return;
+        $(element).css(this.originalProperty, this.originalPropertyValue);
     };
     NeuStyle.prototype.update = function () {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
@@ -212,8 +210,8 @@ var NeuStyle = /** @class */ (function (_super) {
             $("label[for='" + currentElement.id + "']").css('box-shadow', _this.dropBoxShadow);
         });
     };
-    NeuStyle.prototype.resetUncheckedButtons = function (currentCheckedButton) {
-        $('#portfolio .pill-button').not(currentCheckedButton).css('box-shadow', '');
+    NeuStyle.prototype.resetInactiveButtons = function (currentActiveButton) {
+        $('#portfolio .pill-button').not(currentActiveButton).css('box-shadow', '');
     };
     NeuStyle.prototype.initRangeSliders = function () {
         $('#distance').attr('value', this.distance);

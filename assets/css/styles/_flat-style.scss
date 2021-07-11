@@ -2,6 +2,9 @@
       FLAT STYLE LIGHT
 -------------------------*/
 .flat-style {
+        #flat-customizer {
+                display: block !important;
+        }
 
         .background-colorfull1,
         .background-colorfull2,
@@ -9,6 +12,7 @@
                 opacity: 1 !important;
         }
 
+        .pill-button,
         .image-border,
         .button-border,
         .personal-image img,
@@ -38,6 +42,9 @@
                 background: transparent !important;
         }
 }
+
+
+
 
 .flat-style .portfolio-item-content {
         box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);

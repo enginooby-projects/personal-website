@@ -79,7 +79,6 @@ var GlassStyle = /** @class */ (function (_super) {
     });
     GlassStyle.prototype.onEnable = function () {
         $("body").addClass('glass-style');
-        $("#glass-customizer").show();
         this.setupEvents();
         this.updateRadioUI();
         this.initRangeSliders();
@@ -185,8 +184,8 @@ var GlassStyle = /** @class */ (function (_super) {
     };
     GlassStyle.prototype.updateCheckboxUI = function () {
     };
-    GlassStyle.prototype.resetUncheckedButtons = function (currentCheckedButton) {
-        $('#portfolio .pill-button').not(currentCheckedButton).css({
+    GlassStyle.prototype.resetInactiveButtons = function (currentActiveButton) {
+        $('#portfolio .pill-button').not(currentActiveButton).css({
             'background-color': "rgba(" + DynamicTheme.highlightColor.rValue + ", " + DynamicTheme.highlightColor.gValue + ", " + DynamicTheme.highlightColor.bValue + ", " + this.transparency + ")",
             'color': DynamicTheme.highlightColor.getInvertBlackWhite()
         });

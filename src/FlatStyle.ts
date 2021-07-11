@@ -44,19 +44,21 @@ export class FlatStyle extends Style {
 
         onEnable(): void {
                 $("body").addClass('flat-style');
-                $("#flat-customizer").show();
-                this.setupHoverEvents();
-                this.setupClickEvents();
+                this.setupEvents();
                 this.updateRadioUI();
                 this.update();
         }
 
         onDisable(): void {
+                this.removeEvents();
+        }
+
+        removeEvents() {
                 $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
                 $('.segmented-control input, .checkbox input').off('click');
         }
 
-        setupHoverEvents(): void {
+        setupEvents(): void {
                 $(".segmented-control label").on('mouseenter', function () {
                         let id = $(this).attr("for");
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
@@ -98,9 +100,7 @@ export class FlatStyle extends Style {
                                 $(this).css('background', '');
                         }
                 );
-        }
 
-        setupClickEvents(): void {
                 $(".segmented-control input").click(function () {
                         $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
                         $(".segmented-control input[type='radio']:not(:checked)").each(
@@ -166,7 +166,7 @@ export class FlatStyle extends Style {
                         }
                 );
         }
-        resetUncheckedButtons(currentCheckedButton: HTMLElement): void {
-                $('#portfolio .pill-button').not(currentCheckedButton).css('background', 'transparent');
+        resetInactiveButtons(currentActiveButton: HTMLElement): void {
+                $('#portfolio .pill-button').not(currentActiveButton).css('background', 'transparent');
         }
 }
