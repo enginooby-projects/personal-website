@@ -37,6 +37,7 @@ const dropBoxShadowSelectors = formatString([
         "table thead ",
         ".pallet-border",
         ".range-slider__value",
+        ".theme-skin .pill-button"
 ]);
 
 const insetBoxShadowSelectors = formatString([
@@ -95,12 +96,12 @@ export class NeuStyle extends Style {
         lightenIntensity: number = 7;
         darkenIntensity: number = 7;
 
-        lastHoverElement: string = 'lastHover';
+        lastHoverClass: string = 'lastHover';
         originalProperty: string = '';
         originalPropertyValue: string = '';
 
         updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
-                element.classList.add(this.lastHoverElement);
+                element.classList.add(this.lastHoverClass);
                 if (!element.classList.contains('active')) { // for buttons
                         this.originalProperty = originalProperty;
                         this.originalPropertyValue = originalPropertyValue;
@@ -108,7 +109,7 @@ export class NeuStyle extends Style {
         }
 
         resetLastHoverElement(element: HTMLElement) {
-                element.classList.remove(this.lastHoverElement);
+                element.classList.remove(this.lastHoverClass);
                 if (!element.classList.contains('active')) // for buttons
                         $(element).css(this.originalProperty, this.originalPropertyValue);
         }

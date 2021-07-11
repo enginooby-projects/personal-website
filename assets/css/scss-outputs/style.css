@@ -4359,8 +4359,8 @@ header {
 }
 
 .neu-style .pill-button {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .neu-style .radio-selection {

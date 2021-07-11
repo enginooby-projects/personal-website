@@ -48,6 +48,7 @@ var dropBoxShadowSelectors = formatString([
     "table thead ",
     ".pallet-border",
     ".range-slider__value",
+    ".theme-skin .pill-button"
 ]);
 var insetBoxShadowSelectors = formatString([
     ".pill-button.active",
@@ -91,7 +92,7 @@ var NeuStyle = /** @class */ (function (_super) {
         _this.blur = 8;
         _this.lightenIntensity = 7;
         _this.darkenIntensity = 7;
-        _this.lastHoverElement = 'lastHover';
+        _this.lastHoverClass = 'lastHover';
         _this.originalProperty = '';
         _this.originalPropertyValue = '';
         return _this;
@@ -106,14 +107,14 @@ var NeuStyle = /** @class */ (function (_super) {
         configurable: true
     });
     NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
-        element.classList.add(this.lastHoverElement);
+        element.classList.add(this.lastHoverClass);
         if (!element.classList.contains('active')) { // for buttons
             this.originalProperty = originalProperty;
             this.originalPropertyValue = originalPropertyValue;
         }
     };
     NeuStyle.prototype.resetLastHoverElement = function (element) {
-        element.classList.remove(this.lastHoverElement);
+        element.classList.remove(this.lastHoverClass);
         if (!element.classList.contains('active')) // for buttons
             $(element).css(this.originalProperty, this.originalPropertyValue);
     };
