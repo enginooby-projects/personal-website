@@ -165,16 +165,22 @@ export class GlassStyle extends Style {
         }
 
         updateTransparency() {
-                $(backgroundGlassHighlightColorSelectors).css('background-color', `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`);
-                $(backgroundGlassSchemeColorSelectors).css('background-color', `rgba(${DynamicTheme.schemeColor.rValue}, ${DynamicTheme.schemeColor.gValue}, ${DynamicTheme.schemeColor.bValue}, ${this.transparency})`);
-                $(backgroundGlassLightenSchemeColorSelectors).css('background-color', `rgba(${this.lightenSchemeColor.rValue}, ${this.lightenSchemeColor.gValue}, ${this.lightenSchemeColor.bValue}, ${this.transparency})`);
-                $(backgroundGlassColorfull1Selectors).css('background-color', `rgba(${DynamicTheme.colorfull1.rValue}, ${DynamicTheme.colorfull1.gValue}, ${DynamicTheme.colorfull1.bValue}, ${this.transparency})`);
-                $(backgroundGlassColorfull2Selectors).css('background-color', `rgba(${DynamicTheme.colorfull2.rValue}, ${DynamicTheme.colorfull2.gValue}, ${DynamicTheme.colorfull2.bValue}, ${this.transparency})`);
-                $(backgroundGlassColorfull3Selectors).css('background-color', `rgba(${DynamicTheme.colorfull3.rValue}, ${DynamicTheme.colorfull3.gValue}, ${DynamicTheme.colorfull3.bValue}, ${this.transparency})`);
+                $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
+                $(backgroundGlassSchemeColorSelectors).css('background-color', this.formatRgba(DynamicTheme.schemeColor));
+                $(backgroundGlassLightenSchemeColorSelectors).css('background-color', this.formatRgba(this.lightenSchemeColor));
+                $(backgroundGlassColorfull1Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull1));
+                $(backgroundGlassColorfull2Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull2));
+                $(backgroundGlassColorfull3Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull3));
                 $(backgroundGlassActiveButtonSelectors).css({
                         'background-color': `rgba(255, 255, 255, ${this.transparency})`,
                         'color': DynamicTheme.highlightColor.hex
                 });
+                DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
+                DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
+        }
+
+        formatRgba(color: Color) {
+                return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
         }
 
         updateBlur() {
@@ -209,7 +215,7 @@ export class GlassStyle extends Style {
 
         resetInactiveButtons(currentActiveButton: HTMLElement): void {
                 $('#portfolio .pill-button').not(currentActiveButton).css({
-                        'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
+                        'background-color': this.formatRgba(DynamicTheme.highlightColor),
                         'color': DynamicTheme.highlightColor.getInvertBlackWhite()
                 });
         }

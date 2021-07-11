@@ -4475,7 +4475,9 @@ header {
 .glass-style .blog .blog-image .after,
 .glass-style .skill-box .skillbar,
 .glass-style .pallet-border,
-.glass-style .range-slider__range {
+.glass-style .range-slider__range,
+.glass-style ::-webkit-scrollbar-thumb,
+.glass-style ::-webkit-scrollbar-track {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
@@ -4483,5 +4485,9 @@ header {
 .glass-style .button-border,
 .glass-style .image-border {
   background: transparent !important;
+}
+
+.glass-style ::-webkit-scrollbar {
+  width: 8px !important;
 }
 /*# sourceMappingURL=style.css.map */

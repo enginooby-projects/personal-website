@@ -16,7 +16,7 @@ $subjects = array(
         array('Computer Networks', 'Firewall - Ports- Protocols - Sockets - Network layouts - IP addresses - Wiring/Cabling - Routing', 'Linux OS', '5.0'),
         array('Computer Graphic', 'Text tools - Selection tools - Gradient -  Mask layer - Photo enhancement - Business design', 'Adobe Photoshop', '5.0'),
         array('Probabilistic Methods & Statistics', 'Data analysis - Unary linear regression', 'Excel', '5.0'),
-        array('HTML Games', 'Camera projection - Material - Geometry - Mesh', 'JavaScript/TypeScript - Three,js - Socket.io', '5.0'),
+        array('HTML Games', 'WebGL - Camera projection - Material - Geometry - Mesh', 'JavaScript/TypeScript - Three,js - Socket.io', '5.0'),
         array('Computer Games Programming', 'Modeling - Lighting - Camera - 3D & 2D Programming', 'Unity - C#', '5.0'),
         array('Embedded Systems', 'Electronics - Analog & digital - Input & output  - Breadboard - LED - LCD - IR remote - Ultrasonic range finder - Interrupt - EEPROM', 'Arduino  UNO - C++', '5.0'),
         array('WWW Applications', 'Web technologies - W3C - Information architecture - API - JSON - HTTP protocol - Responsive web design - Color design', 'HTML5 - CSS3 - JavaScript  & jQuery - Bootstrap ', '5.0'),

@@ -81,12 +81,18 @@
         .blog .blog-image .after,
         .skill-box .skillbar,
         .pallet-border,
-        .range-slider__range {
+        .range-slider__range,
+        ::-webkit-scrollbar-thumb,
+        ::-webkit-scrollbar-track {
                 box-shadow: none !important;
         }
 
         .button-border,
         .image-border:not(#self-education .image-border) {
                 background: transparent !important;
+        }
+
+        ::-webkit-scrollbar {
+                width: 8px !important;
         }
 }
