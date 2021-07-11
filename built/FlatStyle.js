@@ -66,6 +66,7 @@ var FlatStyle = /** @class */ (function (_super) {
         this.update();
     };
     FlatStyle.prototype.onDisable = function () {
+        $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave');
     };
     FlatStyle.prototype.setupHoverEvents = function () {
         $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
@@ -73,28 +74,25 @@ var FlatStyle = /** @class */ (function (_super) {
             if (!$("#" + id).prop("checked"))
                 $(this).css('color', DynamicTheme.highlightColor.hex);
         });
-        $(" .pill-button").off('mouseenter mouseleave').hover(function () {
+        $(" .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
             // TODO: variablize
             $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-            if (!$(this).hasClass('active'))
-                $(this).css('background', DynamicTheme.highlightColor.hex);
+            $(this).css('background', DynamicTheme.highlightColor.hex);
         });
-        $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(function () {
+        $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-            if (!$(this).hasClass('active'))
-                $(this).css('background', DynamicTheme.highlightColor.hex);
+            $(this).css('background', DynamicTheme.highlightColor.hex);
         });
         $(" .pallet-button").off('mouseenter mouseleave');
-        $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(function () {
+        $(" .portfolio-filter .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.hex);
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-            if (!$(this).hasClass('active'))
-                $(this).css('background', '');
+            $(this).css('background', '');
         });
         $("table>tbody>tr").off('mouseenter mouseleave').hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.hex);

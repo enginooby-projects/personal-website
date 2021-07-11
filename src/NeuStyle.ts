@@ -64,7 +64,7 @@ const concaveBoxShadowSelectors = formatString([
 const hoverInsetBoxShadowSelectors = formatString([
         " .badge-border",
         "table>tbody>tr",
-        ".pill-button",
+        ".pill-button:not(.active)",
         ".pallet-button"
 ]);
 
@@ -102,16 +102,13 @@ export class NeuStyle extends Style {
 
         updateLastHoverElement(element: HTMLElement, originalProperty: string, originalPropertyValue: string) {
                 element.classList.add(this.lastHoverClass);
-                if (!element.classList.contains('active')) { // for buttons
-                        this.originalProperty = originalProperty;
-                        this.originalPropertyValue = originalPropertyValue;
-                }
+                this.originalProperty = originalProperty;
+                this.originalPropertyValue = originalPropertyValue;
         }
 
         resetLastHoverElement(element: HTMLElement) {
                 element.classList.remove(this.lastHoverClass);
-                if (!element.classList.contains('active')) // for buttons
-                        $(element).css(this.originalProperty, this.originalPropertyValue);
+                $(element).css(this.originalProperty, this.originalPropertyValue);
         }
 
         onEnable(): void {

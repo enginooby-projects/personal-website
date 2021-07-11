@@ -52,6 +52,7 @@ export class FlatStyle extends Style {
         }
 
         onDisable(): void {
+                $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave');
         }
 
         setupHoverEvents(): void {
@@ -60,33 +61,33 @@ export class FlatStyle extends Style {
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
 
-                $(" .pill-button").off('mouseenter mouseleave').hover(
+                $(" .pill-button:not(.active)").off('mouseenter mouseleave').hover(
                         function () {
                                 // TODO: variablize
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor.hex);
+                                $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
-                $(" .theme-skin .pill-button").off('mouseenter mouseleave').hover(
+                $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave').hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(this).css('background', DynamicTheme.highlightColor.hex);
+                                $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
                 $(" .pallet-button").off('mouseenter mouseleave');
 
-                $(" .portfolio-filter .pill-button").off('mouseenter mouseleave').hover(
+                $(" .portfolio-filter .pill-button:not(.active)").off('mouseenter mouseleave').hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.hex);
                         }, function () {
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(this).css('background', '');
+                                $(this).css('background', '');
                         }
                 );
 

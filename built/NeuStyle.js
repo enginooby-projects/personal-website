@@ -71,7 +71,7 @@ var concaveBoxShadowSelectors = formatString([
 var hoverInsetBoxShadowSelectors = formatString([
     " .badge-border",
     "table>tbody>tr",
-    ".pill-button",
+    ".pill-button:not(.active)",
     ".pallet-button"
 ]);
 function formatString(selectorsArray) {
@@ -108,15 +108,12 @@ var NeuStyle = /** @class */ (function (_super) {
     });
     NeuStyle.prototype.updateLastHoverElement = function (element, originalProperty, originalPropertyValue) {
         element.classList.add(this.lastHoverClass);
-        if (!element.classList.contains('active')) { // for buttons
-            this.originalProperty = originalProperty;
-            this.originalPropertyValue = originalPropertyValue;
-        }
+        this.originalProperty = originalProperty;
+        this.originalPropertyValue = originalPropertyValue;
     };
     NeuStyle.prototype.resetLastHoverElement = function (element) {
         element.classList.remove(this.lastHoverClass);
-        if (!element.classList.contains('active')) // for buttons
-            $(element).css(this.originalProperty, this.originalPropertyValue);
+        $(element).css(this.originalProperty, this.originalPropertyValue);
     };
     NeuStyle.prototype.onEnable = function () {
         $("body").addClass("neu-style");
