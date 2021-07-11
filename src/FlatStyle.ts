@@ -52,16 +52,17 @@ export class FlatStyle extends Style {
         }
 
         onDisable(): void {
-                $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave');
+                $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
+                $('.segmented-control input, .checkbox input').off('click');
         }
 
         setupHoverEvents(): void {
-                $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
+                $(".segmented-control label").on('mouseenter', function () {
                         let id = $(this).attr("for");
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
 
-                $(" .pill-button:not(.active)").off('mouseenter mouseleave').hover(
+                $(" .pill-button:not(.active)").hover(
                         function () {
                                 // TODO: variablize
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
@@ -71,7 +72,7 @@ export class FlatStyle extends Style {
                         }
                 );
 
-                $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave').hover(
+                $(" .theme-skin .pill-button:not(.active)").hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
@@ -80,9 +81,7 @@ export class FlatStyle extends Style {
                         }
                 );
 
-                $(" .pallet-button").off('mouseenter mouseleave');
-
-                $(" .portfolio-filter .pill-button:not(.active)").off('mouseenter mouseleave').hover(
+                $(" .portfolio-filter .pill-button:not(.active)").hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.hex);
                         }, function () {
@@ -91,19 +90,17 @@ export class FlatStyle extends Style {
                         }
                 );
 
-                $("table>tbody>tr").off('mouseenter mouseleave').hover(
+                $("table>tbody>tr").hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.hex);
                         }, function () {
                                 $(this).css('background', '');
                         }
                 );
-
-                $(" .badge-border").off('mouseenter mouseleave');
         }
 
         setupClickEvents(): void {
-                $(".segmented-control input").off('click').click(function () {
+                $(".segmented-control input").click(function () {
                         $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
                         $(".segmented-control input[type='radio']:not(:checked)").each(
                                 function () {
@@ -112,7 +109,7 @@ export class FlatStyle extends Style {
                         );
                 });
 
-                $(".checkbox input").off('click').click(function () {
+                $(".checkbox input").click(function () {
                         if (!$(this).prop("checked")) {
                                 $(this).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
                         }

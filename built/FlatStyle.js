@@ -66,49 +66,48 @@ var FlatStyle = /** @class */ (function (_super) {
         this.update();
     };
     FlatStyle.prototype.onDisable = function () {
-        $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave');
+        $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
+        $('.segmented-control input, .checkbox input').off('click');
     };
     FlatStyle.prototype.setupHoverEvents = function () {
-        $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
+        $(".segmented-control label").on('mouseenter', function () {
             var id = $(this).attr("for");
             if (!$("#" + id).prop("checked"))
                 $(this).css('color', DynamicTheme.highlightColor.hex);
         });
-        $(" .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
+        $(" .pill-button:not(.active)").hover(function () {
             // TODO: variablize
             $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             $(this).css('background', DynamicTheme.highlightColor.hex);
         });
-        $(" .theme-skin .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
+        $(" .theme-skin .pill-button:not(.active)").hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             $(this).css('background', DynamicTheme.highlightColor.hex);
         });
-        $(" .pallet-button").off('mouseenter mouseleave');
-        $(" .portfolio-filter .pill-button:not(.active)").off('mouseenter mouseleave').hover(function () {
+        $(" .portfolio-filter .pill-button:not(.active)").hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.hex);
         }, function () {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             $(this).css('background', '');
         });
-        $("table>tbody>tr").off('mouseenter mouseleave').hover(function () {
+        $("table>tbody>tr").hover(function () {
             $(this).css('background', DynamicTheme.highlightColor.hex);
         }, function () {
             $(this).css('background', '');
         });
-        $(" .badge-border").off('mouseenter mouseleave');
     };
     FlatStyle.prototype.setupClickEvents = function () {
-        $(".segmented-control input").off('click').click(function () {
+        $(".segmented-control input").click(function () {
             $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
             $(".segmented-control input[type='radio']:not(:checked)").each(function () {
                 $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
-        $(".checkbox input").off('click').click(function () {
+        $(".checkbox input").click(function () {
             if (!$(this).prop("checked")) {
                 $(this).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
             }

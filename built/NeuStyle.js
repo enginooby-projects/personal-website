@@ -126,18 +126,20 @@ var NeuStyle = /** @class */ (function (_super) {
         this.update();
     };
     NeuStyle.prototype.onDisable = function () {
+        $(hoverInsetBoxShadowSelectors + ", .segmented-control label, .range-slider__range").off('mouseenter mouseleave');
+        $('.segmented-control input, .checkbox input').off('click');
     };
     NeuStyle.prototype.setupHoverEvents = function () {
         var _this = this;
-        $(".segmented-control label").off('mouseenter').on('mouseenter', function () {
+        $(".segmented-control label").on('mouseenter', function () {
             $(this).css('color', DynamicTheme.highlightColor.hex);
         });
-        $(".range-slider__range ").off('mouseenter mouseleave').hover(function (event) {
+        $(".range-slider__range ").hover(function (event) {
             event.currentTarget.classList.add('focus');
         }, function (event) {
             event.currentTarget.classList.remove('focus');
         });
-        $(hoverInsetBoxShadowSelectors).off('mouseenter mouseleave').hover(function (event) {
+        $(hoverInsetBoxShadowSelectors).hover(function (event) {
             var target = event.currentTarget;
             _this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
             target.style.boxShadow = _this.insetBoxShadow;
@@ -147,13 +149,13 @@ var NeuStyle = /** @class */ (function (_super) {
     };
     NeuStyle.prototype.setupClickEvents = function () {
         var _this = this;
-        $(".segmented-control input").off('click').on('click', function (event) {
+        $(".segmented-control input").on('click', function (event) {
             $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
             $(".segmented-control input[type='radio']:not(:checked)").each(function (i, currentElement) {
                 $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
             });
         });
-        $(".checkbox input").off('click').on('click', function (event) {
+        $(".checkbox input").on('click', function (event) {
             if (!$(event.currentTarget).prop("checked")) {
                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', _this.dropBoxShadow);
