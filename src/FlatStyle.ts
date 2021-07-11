@@ -62,29 +62,30 @@ export class FlatStyle extends Style {
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
 
-                $(" .pill-button:not(.active)").hover(
+                $(" .pill-button").hover(
                         function () {
                                 // TODO: variablize
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
-                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+                                if ($(this).hasClass('active')) return;
                                 $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
-                $(" .theme-skin .pill-button:not(.active)").hover(
+                $(" .theme-skin .pill-button").hover(
                         function () {
                                 $(this).css('background', DynamicTheme.highlightColor.getDarken(15));
                         }, function () {
-                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
+                                if ($(this).hasClass('active')) return;
                                 $(this).css('background', DynamicTheme.highlightColor.hex);
                         }
                 );
 
-                $(" .portfolio-filter .pill-button:not(.active)").hover(
+                $(" .portfolio-filter .pill-button").hover(
                         function () {
-                                $(this).css('background', DynamicTheme.highlightColor.hex);
+                                $(this).attr('style', function (i, s) { return (s || '') + `background: ${DynamicTheme.highlightColor.hex} !important;` });
                         }, function () {
+                                if ($(this).hasClass('active')) return;
                                 // jQuery will alter the style INLINE, so by setting value to null we  get the original value
                                 $(this).css('background', '');
                         }

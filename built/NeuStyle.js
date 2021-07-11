@@ -71,7 +71,7 @@ var concaveBoxShadowSelectors = formatString([
 var hoverInsetBoxShadowSelectors = formatString([
     " .badge-border",
     "table>tbody>tr",
-    ".pill-button:not(.active)",
+    ".pill-button",
     ".pallet-button"
 ]);
 function formatString(selectorsArray) {
@@ -113,6 +113,8 @@ var NeuStyle = /** @class */ (function (_super) {
     };
     NeuStyle.prototype.resetLastHoverElement = function (element) {
         element.classList.remove(this.lastHoverClass);
+        if ($(element).hasClass('active'))
+            return;
         $(element).css(this.originalProperty, this.originalPropertyValue);
     };
     NeuStyle.prototype.onEnable = function () {
