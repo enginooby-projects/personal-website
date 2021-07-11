@@ -22,6 +22,9 @@ const backgroundLightenSchemeColorSelectors = formatString([
         ".flat-style .pallet-button"
 ]);
 
+const backgroundSchemeColorSelectors = formatString([
+        ".flat-style .display-content>.container"
+]);
 const colorBaseColorSelectors = formatString([
         ".flat-style .portfolio-filter .pill-button ",
 ]);
@@ -57,6 +60,12 @@ export class FlatStyle extends Style {
                 $(".segmented-control label").on('mouseenter', function () {
                         let id = $(this).attr("for");
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
+                });
+
+                $(".segmented-control label").on('mouseleave', function () {
+                        const radioId = $(this).attr('for');
+                        if ($(`#${radioId}`).is(':checked')) return;
+                        $(this).css('color', '');
                 });
 
                 $(" .pill-button").hover(
@@ -129,6 +138,7 @@ export class FlatStyle extends Style {
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
                 $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
                 $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
+                $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
                 $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
                 $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
                 $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);

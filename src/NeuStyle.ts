@@ -16,7 +16,8 @@ const backgroundSchemeColorSelectors = formatString([
         ".range-slider__value",
         ".theme-skin .pill-button",
         ".pill-button.active",
-        ".pill-button"
+        ".pill-button",
+        ".neu-style .display-content>.container"
 ]);
 
 
@@ -113,6 +114,12 @@ export class NeuStyle extends Style {
 
                 $(".segmented-control label").on('mouseenter', function () {
                         $(this).css('color', DynamicTheme.highlightColor.hex);
+                });
+
+                $(".segmented-control label").on('mouseleave', function () {
+                        const radioId = $(this).attr('for');
+                        if ($(`#${radioId}`).is(':checked')) return;
+                        $(this).css('color', '');
                 });
 
                 $(".range-slider__range ").hover(
