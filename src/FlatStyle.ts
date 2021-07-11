@@ -100,10 +100,11 @@ export class FlatStyle extends Style {
                 );
 
                 $("table>tbody>tr").hover(
-                        function () {
-                                $(this).css('background', DynamicTheme.highlightColor.hex);
+                        (event) => {
+                                event.currentTarget.style.backgroundColor = DynamicTheme.highlightColor.hex;
+                                event.currentTarget.style.color = DynamicTheme.highlightColor.getInvertBlackWhite();
                         }, function () {
-                                $(this).css('background', '');
+                                $(this).css('background', '').css('color', '');
                         }
                 );
 

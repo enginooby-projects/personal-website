@@ -84,7 +84,9 @@
         .range-slider__range,
         .range-slider__value,
         ::-webkit-scrollbar-thumb,
-        ::-webkit-scrollbar-track {
+        ::-webkit-scrollbar-track,
+        table,
+        thead {
                 box-shadow: none !important;
         }
 

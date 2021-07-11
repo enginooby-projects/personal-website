@@ -305,8 +305,8 @@ table.neumorphic tr td:first-child::before {
 table.neumorphic td:hover::after {
         content: "";
         position: absolute;
-        box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-                -9px -9px 16px rgba(255, 255, 255, 0.6);
+        // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+        //         -9px -9px 16px rgba(255, 255, 255, 0.6);
         left: 0;
         top: -5000px;
         height: 10000px;

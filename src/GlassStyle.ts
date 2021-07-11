@@ -21,7 +21,8 @@ const backgroundGlassSchemeColorSelectors = formatString([
         ".glass-style .color-switcher .color-pallet",
         ".glass-style .pallet-button",
         ".glass-style .skillbar",
-        ".glass-style .radio-selection"
+        ".glass-style .radio-selection",
+        ".glass-style .modal-content"
 ]);
 
 const backgroundGlassLightenSchemeColorSelectors = formatString([
@@ -116,10 +117,19 @@ export class GlassStyle extends Style {
                                 });
                         }
                 );
+
+                $("table>tbody>tr").hover(
+                        (event) => {
+                                event.currentTarget.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
+                                event.currentTarget.style.color = DynamicTheme.highlightColor.getInvertBlackWhite();
+                        }, function () {
+                                $(this).css('background', '').css('color', '');
+                        }
+                );
         }
 
         removeEvents() {
-                $('.pill-button').off('mouseenter mouseleave');
+                $('.pill-button, table>tbody>tr').off('mouseenter mouseleave');
         }
 
         //HELPER

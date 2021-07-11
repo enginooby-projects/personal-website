@@ -84,10 +84,11 @@ export class FlatStyle extends Style {
             // jQuery will alter the style INLINE, so by setting value to null we  get the original value
             $(this).css('background', '');
         });
-        $("table>tbody>tr").hover(function () {
-            $(this).css('background', DynamicTheme.highlightColor.hex);
+        $("table>tbody>tr").hover((event) => {
+            event.currentTarget.style.backgroundColor = DynamicTheme.highlightColor.hex;
+            event.currentTarget.style.color = DynamicTheme.highlightColor.getInvertBlackWhite();
         }, function () {
-            $(this).css('background', '');
+            $(this).css('background', '').css('color', '');
         });
         $(".segmented-control input").click(function () {
             $(".segmented-control label[for='" + this.id + "']").css('color', DynamicTheme.baseColor);
