@@ -63,7 +63,7 @@ export class GlassStyle extends Style {
                 return GlassStyle._instance;
         }
 
-        blur = '3.5';
+        blur = '2';
         transparency = '0.6';
         borderSize = '1';
         lightenSchemeColor: Color = new TinyColor('#000000');
@@ -76,6 +76,9 @@ export class GlassStyle extends Style {
                 this.initRangeSliders();
                 this.setupRangeSliderEvents();
                 this.update();
+                $('section').each((index, element) => {
+                        element.classList.add('background-2');
+                })
         }
 
         onDisable(): void {
@@ -91,6 +94,14 @@ export class GlassStyle extends Style {
         }
 
         setupEvents(): void {
+                $('.background-item').on('click', (event) => {
+                        const background: string = event.currentTarget.id;
+                        $('section').each((index, element) => {
+                                this.removeClassesByPrefix(element, 'background');
+                                element.classList.add(background);
+                        })
+                });
+
                 $(".glass-style .pill-button ").hover(
                         (event) => {
                                 // TODO: variablize
@@ -110,6 +121,16 @@ export class GlassStyle extends Style {
 
         removeEvents() {
                 $('.pill-button').off('mouseenter mouseleave');
+        }
+
+        //HELPER
+        removeClassesByPrefix(element: HTMLElement, prefix: string) {
+                for (let i = element.classList.length - 1; i >= 0; i--) {
+                        const className = element.classList[i];
+                        if (className.startsWith(prefix)) {
+                                element.classList.remove(className);
+                        }
+                }
         }
 
         updateLightenSchemeColor() {

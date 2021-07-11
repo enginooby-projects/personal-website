@@ -26,6 +26,11 @@
 
 .color-pallet-content {
         direction: ltr;
+
+        p {
+                font-size: 1.1rem !important;
+                margin-bottom: 10px !important;
+        }
 }
 
 $scrollbarRadius: 16px;
