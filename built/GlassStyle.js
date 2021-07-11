@@ -19,12 +19,11 @@ import { TinyColor } from './TinyColor.js';
 var lightenIntensity = 15;
 var darkenIntensity = 10;
 var backgroundGlassHighlightColorSelectors = formatString([
-    ".glass-style .pill-button",
+    ".glass-style .pill-button:not(.glass-style .pill-button.active)",
     " .contact .form-item .form-group",
-    ".pill-button.active",
     ".segmented-control",
     ".checkbox label",
-    ".glass-style .radio-selection"
+    ".glass-style .segmented-control",
 ]);
 var backgroundGlassSchemeColorSelectors = formatString([
     // ".glass-style .section",
@@ -32,15 +31,18 @@ var backgroundGlassSchemeColorSelectors = formatString([
     ".glass-style .color-switcher .color-pallet.show",
     ".glass-style .color-switcher .color-pallet",
     ".glass-style .pallet-button",
-    ".glass-style .skillbar"
+    ".glass-style .skillbar",
+    ".glass-style .radio-selection"
 ]);
 var backgroundGlassLightenSchemeColorSelectors = formatString([
     ".glass-style .box-border",
     ".glass-style #self-education .image-border",
     ".glass-style .contact .form-item .form-group",
-    ".glass-style .segmented-control",
     ".glass-style .checkbox label",
     // ".glass-style .pallet-border",
+]);
+var backgroundGlassActiveButtonSelectors = formatString([
+    ".glass-style .pill-button.active"
 ]);
 var backgroundGlassColorfull1Selectors = formatString([
     ".background-colorfull1:not(#self-education .background-colorfull1)",
@@ -51,7 +53,7 @@ var backgroundGlassColorfull2Selectors = formatString([
 var backgroundGlassColorfull3Selectors = formatString([
     ".background-colorfull3:not(#self-education .background-colorfull3)",
 ]);
-var borderSizeBlurDependentSelectors = backgroundGlassHighlightColorSelectors + ", " + backgroundGlassSchemeColorSelectors + ", " + backgroundGlassLightenSchemeColorSelectors + ", " + backgroundGlassColorfull1Selectors + ", " + backgroundGlassColorfull2Selectors + ", " + backgroundGlassColorfull3Selectors;
+var borderSizeBlurDependentSelectors = backgroundGlassHighlightColorSelectors + ", " + backgroundGlassSchemeColorSelectors + ", " + backgroundGlassLightenSchemeColorSelectors + ", " + backgroundGlassColorfull1Selectors + ", " + backgroundGlassColorfull2Selectors + ", " + backgroundGlassColorfull3Selectors + ", " + backgroundGlassActiveButtonSelectors;
 function formatString(selectorsArray) {
     return selectorsArray.join(", ");
 }
@@ -78,14 +80,14 @@ var GlassStyle = /** @class */ (function (_super) {
     GlassStyle.prototype.onEnable = function () {
         $("body").addClass('glass-style');
         $("#glass-customizer").show();
-        this.setupHoverEvents();
-        this.setupClickEvents();
+        this.setupEvents();
         this.updateRadioUI();
         this.initRangeSliders();
         this.setupRangeSliderEvents();
         this.update();
     };
     GlassStyle.prototype.onDisable = function () {
+        this.removeEvents();
         $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
         $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
@@ -94,6 +96,26 @@ var GlassStyle = /** @class */ (function (_super) {
         $(borderSizeBlurDependentSelectors).css({
             'border': "none", // alternative: use CSS file
         });
+    };
+    GlassStyle.prototype.setupEvents = function () {
+        var _this = this;
+        $(".glass-style .pill-button ").hover(function (event) {
+            // TODO: variablize
+            $(event.currentTarget).css({
+                'background-color': "rgba(255, 255, 255, " + _this.transparency + ")",
+                'color': DynamicTheme.highlightColor.hex
+            });
+        }, function (event) {
+            if ($(event.currentTarget).hasClass('active'))
+                return;
+            $(event.currentTarget).css({
+                'background-color': "rgba(" + DynamicTheme.highlightColor.rValue + ", " + DynamicTheme.highlightColor.gValue + ", " + DynamicTheme.highlightColor.bValue + ", " + _this.transparency + ")",
+                'color': DynamicTheme.highlightColor.getInvertBlackWhite()
+            });
+        });
+    };
+    GlassStyle.prototype.removeEvents = function () {
+        $('.pill-button').off('mouseenter mouseleave');
     };
     GlassStyle.prototype.updateLightenSchemeColor = function () {
         this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
@@ -134,6 +156,10 @@ var GlassStyle = /** @class */ (function (_super) {
         $(backgroundGlassColorfull1Selectors).css('background-color', "rgba(" + DynamicTheme.colorfull1.rValue + ", " + DynamicTheme.colorfull1.gValue + ", " + DynamicTheme.colorfull1.bValue + ", " + this.transparency + ")");
         $(backgroundGlassColorfull2Selectors).css('background-color', "rgba(" + DynamicTheme.colorfull2.rValue + ", " + DynamicTheme.colorfull2.gValue + ", " + DynamicTheme.colorfull2.bValue + ", " + this.transparency + ")");
         $(backgroundGlassColorfull3Selectors).css('background-color', "rgba(" + DynamicTheme.colorfull3.rValue + ", " + DynamicTheme.colorfull3.gValue + ", " + DynamicTheme.colorfull3.bValue + ", " + this.transparency + ")");
+        $(backgroundGlassActiveButtonSelectors).css({
+            'background-color': "rgba(255, 255, 255, " + this.transparency + ")",
+            'color': DynamicTheme.highlightColor.hex
+        });
     };
     GlassStyle.prototype.updateBlur = function () {
         $(borderSizeBlurDependentSelectors).css({
@@ -146,31 +172,12 @@ var GlassStyle = /** @class */ (function (_super) {
             'border': this.borderSize + "px solid rgba(209, 213, 219, 0.3)",
         });
     };
-    GlassStyle.prototype.setupHoverEvents = function () {
-        var _this = this;
-        $(".glass-style .pill-button ").off('mouseenter mouseleave').hover(function (event) {
-            // TODO: variablize
-            $(event.currentTarget).css({
-                'background-color': "rgba(255, 255, 255, " + _this.transparency + ")",
-                'color': DynamicTheme.highlightColor.hex
-            });
-        }, function (event) {
-            // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-            if (!$(_this).hasClass('active'))
-                $(event.currentTarget).css({
-                    'background-color': "rgba(" + DynamicTheme.highlightColor.rValue + ", " + DynamicTheme.highlightColor.gValue + ", " + DynamicTheme.highlightColor.bValue + ", " + _this.transparency + ")",
-                    'color': DynamicTheme.highlightColor.getInvertBlackWhite()
-                });
-        });
-    };
-    GlassStyle.prototype.setupClickEvents = function () {
-    };
     GlassStyle.prototype.update = function () {
         this.updateLightenSchemeColor();
         this.updateTransparency();
         this.updateBlur();
         this.updateBorderSize();
-        $(".glass-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+        $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
     };
@@ -179,6 +186,10 @@ var GlassStyle = /** @class */ (function (_super) {
     GlassStyle.prototype.updateCheckboxUI = function () {
     };
     GlassStyle.prototype.resetUncheckedButtons = function (currentCheckedButton) {
+        $('#portfolio .pill-button').not(currentCheckedButton).css({
+            'background-color': "rgba(" + DynamicTheme.highlightColor.rValue + ", " + DynamicTheme.highlightColor.gValue + ", " + DynamicTheme.highlightColor.bValue + ", " + this.transparency + ")",
+            'color': DynamicTheme.highlightColor.getInvertBlackWhite()
+        });
     };
     return GlassStyle;
 }(Style));

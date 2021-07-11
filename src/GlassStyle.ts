@@ -7,12 +7,11 @@ const lightenIntensity = 15;
 const darkenIntensity = 10;
 
 const backgroundGlassHighlightColorSelectors = formatString([
-        ".glass-style .pill-button",
+        ".glass-style .pill-button:not(.glass-style .pill-button.active)",
         " .contact .form-item .form-group",
-        ".pill-button.active",
         ".segmented-control",
         ".checkbox label",
-        ".glass-style .radio-selection"
+        ".glass-style .segmented-control",
 ]);
 
 const backgroundGlassSchemeColorSelectors = formatString([
@@ -21,16 +20,20 @@ const backgroundGlassSchemeColorSelectors = formatString([
         ".glass-style .color-switcher .color-pallet.show",
         ".glass-style .color-switcher .color-pallet",
         ".glass-style .pallet-button",
-        ".glass-style .skillbar"
+        ".glass-style .skillbar",
+        ".glass-style .radio-selection"
 ]);
 
 const backgroundGlassLightenSchemeColorSelectors = formatString([
         ".glass-style .box-border",
         ".glass-style #self-education .image-border",
         ".glass-style .contact .form-item .form-group",
-        ".glass-style .segmented-control",
         ".glass-style .checkbox label",
         // ".glass-style .pallet-border",
+]);
+
+const backgroundGlassActiveButtonSelectors = formatString([
+        ".glass-style .pill-button.active"
 ]);
 
 const backgroundGlassColorfull1Selectors = formatString([
@@ -45,7 +48,7 @@ const backgroundGlassColorfull3Selectors = formatString([
         ".background-colorfull3:not(#self-education .background-colorfull3)",
 ]);
 
-const borderSizeBlurDependentSelectors = `${backgroundGlassHighlightColorSelectors}, ${backgroundGlassSchemeColorSelectors}, ${backgroundGlassLightenSchemeColorSelectors}, ${backgroundGlassColorfull1Selectors}, ${backgroundGlassColorfull2Selectors}, ${backgroundGlassColorfull3Selectors}`;
+const borderSizeBlurDependentSelectors = `${backgroundGlassHighlightColorSelectors}, ${backgroundGlassSchemeColorSelectors}, ${backgroundGlassLightenSchemeColorSelectors}, ${backgroundGlassColorfull1Selectors}, ${backgroundGlassColorfull2Selectors}, ${backgroundGlassColorfull3Selectors}, ${backgroundGlassActiveButtonSelectors}`;
 
 function formatString(selectorsArray: string[]): string {
         return selectorsArray.join(", ");
@@ -69,8 +72,7 @@ export class GlassStyle extends Style {
         onEnable(): void {
                 $("body").addClass('glass-style');
                 $("#glass-customizer").show();
-                this.setupHoverEvents();
-                this.setupClickEvents();
+                this.setupEvents();
                 this.updateRadioUI();
                 this.initRangeSliders();
                 this.setupRangeSliderEvents();
@@ -78,6 +80,7 @@ export class GlassStyle extends Style {
         }
 
         onDisable(): void {
+                this.removeEvents();
                 $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
                 $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
                 $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
@@ -86,6 +89,28 @@ export class GlassStyle extends Style {
                 $(borderSizeBlurDependentSelectors).css({
                         'border': `none`, // alternative: use CSS file
                 });
+        }
+
+        setupEvents(): void {
+                $(".glass-style .pill-button ").hover(
+                        (event) => {
+                                // TODO: variablize
+                                $(event.currentTarget).css({
+                                        'background-color': `rgba(255, 255, 255, ${this.transparency})`,
+                                        'color': DynamicTheme.highlightColor.hex
+                                });
+                        }, (event) => {
+                                if ($(event.currentTarget).hasClass('active')) return;
+                                $(event.currentTarget).css({
+                                        'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
+                                        'color': DynamicTheme.highlightColor.getInvertBlackWhite()
+                                });
+                        }
+                );
+        }
+
+        removeEvents() {
+                $('.pill-button').off('mouseenter mouseleave');
         }
 
         updateLightenSchemeColor() {
@@ -129,6 +154,10 @@ export class GlassStyle extends Style {
                 $(backgroundGlassColorfull1Selectors).css('background-color', `rgba(${DynamicTheme.colorfull1.rValue}, ${DynamicTheme.colorfull1.gValue}, ${DynamicTheme.colorfull1.bValue}, ${this.transparency})`);
                 $(backgroundGlassColorfull2Selectors).css('background-color', `rgba(${DynamicTheme.colorfull2.rValue}, ${DynamicTheme.colorfull2.gValue}, ${DynamicTheme.colorfull2.bValue}, ${this.transparency})`);
                 $(backgroundGlassColorfull3Selectors).css('background-color', `rgba(${DynamicTheme.colorfull3.rValue}, ${DynamicTheme.colorfull3.gValue}, ${DynamicTheme.colorfull3.bValue}, ${this.transparency})`);
+                $(backgroundGlassActiveButtonSelectors).css({
+                        'background-color': `rgba(255, 255, 255, ${this.transparency})`,
+                        'color': DynamicTheme.highlightColor.hex
+                });
         }
 
         updateBlur() {
@@ -144,34 +173,12 @@ export class GlassStyle extends Style {
                 });
         }
 
-        setupHoverEvents(): void {
-                $(".glass-style .pill-button ").off('mouseenter mouseleave').hover(
-                        (event) => {
-                                // TODO: variablize
-                                $(event.currentTarget).css({
-                                        'background-color': `rgba(255, 255, 255, ${this.transparency})`,
-                                        'color': DynamicTheme.highlightColor.hex
-                                });
-                        }, (event) => {
-                                // jQuery will alter the style INLINE, so by setting value to null we  get the original value
-                                if (!$(this).hasClass('active')) $(event.currentTarget).css({
-                                        'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
-                                        'color': DynamicTheme.highlightColor.getInvertBlackWhite()
-                                });
-                        }
-                );
-        }
-
-        setupClickEvents(): void {
-
-        }
-
         update(): void {
                 this.updateLightenSchemeColor();
                 this.updateTransparency();
                 this.updateBlur();
                 this.updateBorderSize();
-                $(".glass-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+                $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
                 DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
                 DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
         }
@@ -184,5 +191,9 @@ export class GlassStyle extends Style {
         }
 
         resetUncheckedButtons(currentCheckedButton: HTMLElement): void {
+                $('#portfolio .pill-button').not(currentCheckedButton).css({
+                        'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
+                        'color': DynamicTheme.highlightColor.getInvertBlackWhite()
+                });
         }
 }
