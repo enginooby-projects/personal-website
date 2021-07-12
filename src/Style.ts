@@ -1,9 +1,12 @@
 import * as DynamicTheme from './DynamicTheme.js';
 
 export abstract class Style {
+        localEventsAreSetup: boolean = false;
+
         onEnable(): void {
                 this.init();
                 this.setupCustomizeEvents();
+                // this.setupLocalEvents(); // include this if not use init css file for dynamic properties
                 // this.updateRadioUI();
         };
         abstract setupCustomizeEvents(): void; // events for customize the style in the setting panel
@@ -22,7 +25,6 @@ export abstract class Style {
         abstract updateCheckboxUI(): void;
         abstract resetInactiveButtons(currentActiveButton: HTMLElement): void;
 
-        //TODO:  events from DynamicTheme
         abstract onHighlightColorUpdated(): void;
         abstract onSchemeColorUpdated(): void;
 }

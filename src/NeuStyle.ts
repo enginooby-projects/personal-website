@@ -103,6 +103,10 @@ export class NeuStyle extends Style {
         }
 
         setupLocalEvents(): void {
+                // lazily setup
+                if (this.localEventsAreSetup) return;
+                this.localEventsAreSetup = true;
+
                 $(".segmented-control label").on('mouseenter', function () {
                         $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
@@ -183,6 +187,7 @@ export class NeuStyle extends Style {
                                         break;
                         }
                         this.updateBoxShadows();
+                        this.setupLocalEvents();
                 });
         }
 
@@ -212,6 +217,7 @@ export class NeuStyle extends Style {
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                 $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
                 this.updateBoxShadows();
+                this.setupLocalEvents();
         }
 
         private updateBoxShadows() {

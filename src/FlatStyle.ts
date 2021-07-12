@@ -52,6 +52,10 @@ export class FlatStyle extends Style {
         }
 
         setupLocalEvents(): void {
+                // lazily setup
+                if (this.localEventsAreSetup) return;
+                this.localEventsAreSetup = true;
+
                 $(".segmented-control label").on('mouseenter', function () {
                         let id = $(this).attr("for");
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
@@ -137,6 +141,7 @@ export class FlatStyle extends Style {
                 $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
                 DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
                 DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+                this.setupLocalEvents();
         }
 
         onSchemeColorUpdated(): void {

@@ -94,6 +94,10 @@ export class NeuStyle extends Style {
         console.log(backgroundSchemeColorSelectors);
     }
     setupLocalEvents() {
+        // lazily setup
+        if (this.localEventsAreSetup)
+            return;
+        this.localEventsAreSetup = true;
         $(".segmented-control label").on('mouseenter', function () {
             $(this).css('color', DynamicTheme.highlightColor.hex);
         });
@@ -161,6 +165,7 @@ export class NeuStyle extends Style {
                     break;
             }
             this.updateBoxShadows();
+            this.setupLocalEvents();
         });
     }
     updateLastHoverElement(element, originalProperty, originalPropertyValue) {
@@ -184,6 +189,7 @@ export class NeuStyle extends Style {
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
         $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
         this.updateBoxShadows();
+        this.setupLocalEvents();
     }
     updateBoxShadows() {
         this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;

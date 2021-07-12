@@ -113,6 +113,10 @@ export class GlassStyle extends Style {
         }
 
         setupLocalEvents(): void {
+                // lazily setup
+                if (this.localEventsAreSetup) return;
+                this.localEventsAreSetup = true;
+
                 $('.background-item').on('click', (event) => {
                         const background: string = event.currentTarget.id;
                         $('section').each((index, element) => {
@@ -199,6 +203,7 @@ export class GlassStyle extends Style {
                 DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
                 DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
                 $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
+                this.setupLocalEvents();
         }
 
         private updateTransparencySchemeColor() {
