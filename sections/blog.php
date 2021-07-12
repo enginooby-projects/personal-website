@@ -104,7 +104,7 @@
                                 <div class="row">
                                         <div class="col-12 text-center">
                                                 <div class="button-border">
-                                                        <a href="blog.html" class="pill-button">View More</a>
+                                                        <a href="#" class="pill-button">View More</a>
                                                 </div>
                                         </div>
                                 </div>

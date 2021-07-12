@@ -2,7 +2,8 @@ import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
-let styleSheet;
+export let styleSheet;
+export let cssRules;
 let $squareImg;
 let borderRadius = 15;
 export let colorfull1 = new TinyColor("#00a584");
@@ -48,12 +49,12 @@ export function init() {
     getStyleSheet();
     setupEvents();
     $squareImg = $(".hero-image .square img");
-    const cssRules = styleSheet.cssRules || styleSheet.rules;
-    trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {border-radius: 15px;}`)];
-    thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)];
+    cssRules = styleSheet.cssRules || styleSheet.rules;
+    trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {}`)];
+    thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {}`)];
     placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
     papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
-    sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor}; border-radius: ${borderRadius}}`)];
+    sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
     sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)];
     colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     styleRegistry = new StyleRegistry();
@@ -63,8 +64,6 @@ export function init() {
     // updateHighlightColor(highlightColor.hex);
     $('#border-radius').attr('value', borderRadius);
     $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
-    console.log('>>>>>>>>>>');
-    console.log(Selectors.borderRadiusSelectors);
 }
 function setupEvents() {
     setupColorPickerEvents();
@@ -133,15 +132,14 @@ function setupCommonHoverEvents() {
         if (!$("#" + id).prop("checked"))
             $(this).css('color', mutedBaseColor);
     });
-    $(".checkbox i")
-        .on('mouseenter', function () {
-        $(this).css('color', highlightColor.hex);
-    }).on('mouseleave', function () {
-        let id = $(this).parent().attr("for");
-        // reset color if the  button not checked
-        if (!$("#" + id).prop("checked"))
-            $(this).css('color', mutedBaseColor);
-    });
+    // $(".checkbox i")
+    //         .on('mouseenter', function () {
+    //                 $(this).css('color', highlightColor.hex);
+    //         }).on('mouseleave', function () {
+    //                 let id = $(this).parent().attr("for");
+    //                 // reset color if the  button not checked
+    //                 if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
+    //         });
 }
 function setupCommonClickEvents() {
     $("#color-switcher .pallet-button").on('click', function () {
@@ -178,6 +176,7 @@ function updateSchemeColor(hex) {
     $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
     updatePseudoElements();
     currentStyle.applyStyle();
+    // currentStyle.setupEvents();
 }
 function updatePseudoElements() {
     thumbScrollbarRule.style.background = schemeColor.hex;
@@ -211,7 +210,7 @@ function updateBorder() {
     $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
     $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
     // TODO; not working
-    // sliderThumbRule.style.borderRadius = borderRadius.toString();         
+    // sliderThumbRule.style.borderRadius = borderRadius.toString() + 'px';
     // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
     // trackScrollbarRule.style.borderRadius = borderRadius.toString();
 }

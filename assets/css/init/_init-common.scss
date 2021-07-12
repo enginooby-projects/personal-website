@@ -29,9 +29,9 @@ body,
 .overlay-menu a.active,
 .timeline-year,
 .portfolio .portfolio-filter li a,
-.portfolio .portfolio-icon a i,
 .contact .form-item .form-control,
-.highlight-portfolio-item.fa-star {
+.highlight-portfolio-item.fa-star,
+.portfolio .portfolio-icon a:hover {
         color: $highlightColor;
 }
 
@@ -45,7 +45,8 @@ body,
 .form-group textarea,
 .overlay-menu-toggler,
 .modal-title,
-.portfolio-single .close {
+.portfolio-single .close,
+.pp-tooltip {
         color: $baseColor;
 }
 
@@ -78,14 +79,29 @@ body,
 
 .background-colorfull1 {
         background-color: $colorfull1;
+        color: $contrastColorfull1;
 }
 
 .background-colorfull2 {
         background-color: $colorfull2;
+        color: $contrastColorfull2;
 }
 
 .background-colorfull3 {
         background-color: $colorfull3;
+        color: $contrastColorfull3;
+}
+
+#education-timeline .timeline-items .timeline-border {
+        border-color: $colorfull1;
+}
+
+#experience-timeline .timeline-items .timeline-border {
+        border-color: $colorfull2;
+}
+
+#achievements-timeline .timeline-items .timeline-border {
+        border-color: $colorfull3;
 }
 
 .overlay-menu-toggler:hover,
@@ -139,4 +155,8 @@ table,
 .skill-item,
 .color-scheme li a {
         border-radius: $borderRadius;
+}
+
+.checkbox i {
+        color: $mutedBaseColor;
 }

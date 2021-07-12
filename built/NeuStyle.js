@@ -42,7 +42,7 @@ const insetBoxShadowSelectors = formatString([
     ".custom-scrollbar",
     ".blog .blog-image .after",
     " .pal-button.active",
-    ".skill-boxes ,box-border",
+    ".skill-boxes .box-border",
     ".color-pallet",
     ".timeline-items.box-border",
     ".range-slider__range",
@@ -90,6 +90,8 @@ export class NeuStyle extends Style {
     init() {
         $("body").addClass("neu-style");
         this.initRangeSliders();
+        console.log('>>>>>>>>>>');
+        console.log(backgroundSchemeColorSelectors);
     }
     removeEvents() {
         $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
@@ -159,12 +161,12 @@ export class NeuStyle extends Style {
         $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
         $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
-        DynamicTheme.trackScrollbarRule.style.boxShadow = this.insetBoxShadow;
-        DynamicTheme.thumbScrollbarRule.style.boxShadow = this.thumbScrollbarBoxShadow;
-        DynamicTheme.trackScrollbarRule.style.background = DynamicTheme.schemeColor.hex;
-        DynamicTheme.thumbScrollbarRule.style.background = DynamicTheme.schemeColor.hex;
-        DynamicTheme.sliderThumbRule.style.boxShadow = this.dropBoxShadow;
-        DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
+        DynamicTheme.trackScrollbarRule.style.setProperty('box-shadow', this.insetBoxShadow, 'important');
+        DynamicTheme.trackScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+        DynamicTheme.thumbScrollbarRule.style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
+        DynamicTheme.thumbScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+        DynamicTheme.sliderThumbRule.style.setProperty('box-shadow', this.dropBoxShadow, 'important');
+        DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
         DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
         // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;

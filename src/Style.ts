@@ -3,9 +3,9 @@ import * as DynamicTheme from './DynamicTheme.js';
 export abstract class Style {
         onEnable(): void {
                 this.init();
-                this.setupEvents();
-                this.applyStyle();
-                this.updateRadioUI();
+                // this.setupEvents();
+                // this.applyStyle();
+                // this.updateRadioUI();
         };
         abstract init(): void;
         abstract setupEvents(): void;

@@ -10,4 +10,8 @@
         .radio-selection {
                 background: transparent !important;
         }
+
+        ::-webkit-scrollbar {
+                width: 11px;
+        }
 }

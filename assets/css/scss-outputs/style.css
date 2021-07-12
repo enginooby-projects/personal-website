@@ -569,10 +569,6 @@ input::-moz-focus-outer {
 /*-------------------------
          SCROLLBAR NEU
 -------------------------*/
-::-webkit-scrollbar {
-  width: 11px;
-}
-
 /* Light */
 ::-webkit-scrollbar-track {
   -webkit-transition: 0.5s all ease;
@@ -603,23 +599,6 @@ input::-moz-focus-outer {
 }
 
 .flat-style ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* Dark */
-.dark-scheme.flat-style ::-webkit-scrollbar-track {
-  background: #2c2d30;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.dark-scheme.flat-style ::-webkit-scrollbar-thumb {
-  background: rgba(219, 219, 219, 0.623);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.dark-scheme.flat-style ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
@@ -1425,6 +1404,11 @@ header {
 /*-------------------------
          PORTFOLIO
 -------------------------*/
+.injected-section {
+  zoom: 0.4;
+  -moz-transform: scale(0.4);
+}
+
 .portfolio-filter > li > a > i {
   position: relative;
   bottom: 1.5px;
@@ -1435,7 +1419,6 @@ header {
   position: absolute;
   top: 6px;
   right: 6px;
-  color: rgba(250, 250, 93, 0.815);
 }
 
 .btn-filter {
@@ -1831,7 +1814,6 @@ header {
   height: 100%;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--greyDark);
   -webkit-transition: .3s ease;
   transition: .3s ease;
   display: -webkit-box;
@@ -1843,11 +1825,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.injected-section {
-  zoom: 0.4;
-  -moz-transform: scale(0.4);
 }
 
 /*  CHECKBOX  */
@@ -3589,9 +3566,6 @@ header {
     background-color: #2c2d30 !important;
     color: #fafafa;
   }
-  #pp-nav li span {
-    background-color: #fafafa !important;
-  }
   .follow-label,
   .overlay-menu-toggler,
   .logo {
@@ -3642,14 +3616,6 @@ header {
   .hero-images .square img {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
-  #pp-nav li .pp-tooltip,
-  .text-dark,
-  .hero-content,
-  .hero-social li a,
-  .social a,
-  .blog-single .modal-content {
-    color: #fafafa !important;
   }
   .text-muted,
   .about .personal-info span,
@@ -3784,12 +3750,6 @@ header {
   }
   .flat-style .portfolio-filter .pill-button {
     color: #fafafa;
-  }
-  .mono #pp-nav li .active span,
-  .mono #pp-nav li:hover span,
-  .mono .follow-label:before,
-  .mono .border-style {
-    background-color: #e1e1e1 !important;
   }
   .mono .social a:hover {
     color: #e3e5d2 !important;
@@ -4094,6 +4054,10 @@ header {
   background: transparent !important;
 }
 
+.neu-style ::-webkit-scrollbar {
+  width: 11px;
+}
+
 .glass-style #glass-customizer {
   display: block !important;
 }
@@ -4240,9 +4204,9 @@ body,
 .overlay-menu a.active,
 .timeline-year,
 .portfolio .portfolio-filter li a,
-.portfolio .portfolio-icon a i,
 .contact .form-item .form-control,
-.highlight-portfolio-item.fa-star {
+.highlight-portfolio-item.fa-star,
+.portfolio .portfolio-icon a:hover {
   color: #055CB3;
 }
 
@@ -4256,7 +4220,8 @@ body,
 .form-group textarea,
 .overlay-menu-toggler,
 .modal-title,
-.portfolio-single .close {
+.portfolio-single .close,
+.pp-tooltip {
   color: #212529;
 }
 
@@ -4289,14 +4254,29 @@ body,
 
 .background-colorfull1 {
   background-color: #00a584;
+  color: #EBEBEB;
 }
 
 .background-colorfull2 {
   background-color: #ebbc00;
+  color: #EBEBEB;
 }
 
 .background-colorfull3 {
   background-color: #e93666;
+  color: #EBEBEB;
+}
+
+#education-timeline .timeline-items .timeline-border {
+  border-color: #00a584;
+}
+
+#experience-timeline .timeline-items .timeline-border {
+  border-color: #ebbc00;
+}
+
+#achievements-timeline .timeline-items .timeline-border {
+  border-color: #e93666;
 }
 
 .overlay-menu-toggler:hover,
@@ -4350,5 +4330,132 @@ table,
 .skill-item,
 .color-scheme li a {
   border-radius: 15px;
+}
+
+.checkbox i {
+  color: #4D4D4D;
+}
+
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+.neu-style .button-border,
+.neu-style .box-border,
+.neu-style .image-border,
+.neu-style .segmented-control,
+.neu-style .hero-03 .personal-image img,
+.neu-style .checkbox label,
+.neu-style .blog-intro,
+.neu-style .badge-border,
+.neu-style table,
+.neu-style table thead,
+.neu-style .pallet-border,
+.neu-style .range-slider__value,
+.neu-style .theme-skin .pill-button {
+  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+}
+
+.neu-style .pill-button.active,
+.neu-style .custom-scrollbar,
+.neu-style .blog .blog-image .after,
+.neu-style .pal-button.active,
+.neu-style .skill-boxes .box-border,
+.neu-style .color-pallet,
+.neu-style .timeline-items.box-border,
+.neu-style .range-slider__range,
+.neu-style .pallet-button.active,
+.neu-style .theme-skin .pill-button.active {
+  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+.neu-style .skill-box .skillbar,
+.neu-style .form-group,
+.neu-style .radio-selection {
+  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+.neu-style .section,
+.neu-style .button-border,
+.neu-style .box-border,
+.neu-style .image-border,
+.neu-style .contact .form-item .form-group,
+.neu-style .segmented-control,
+.neu-style .checkbox label,
+.neu-style .color-pallet,
+.neu-style .portfolio-single .modal-content,
+.neu-style .range-slider__range,
+.neu-style .pallet-border,
+.neu-style .range-slider__value,
+.neu-style .theme-skin .pill-button,
+.neu-style .pill-button.active,
+.neu-style .pill-button,
+.neu-style .neu-style .display-content > .container,
+.neu-style .neu-style .pallet-button {
+  background-color: #D4D4D4;
+}
+
+.neu-style .pill-button,
+.neu-style .segmented-control > input:checked + label,
+.neu-style .segmented-control > input:hover + label {
+  color: #055CB3;
+}
+
+.neu-style .pill-button:hover,
+.neu-style .badge-border:hover,
+.neu-style table > tbody > tr:hover,
+.neu-style .pallet-button:hover {
+  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+.neu-style .checkbox input:checked ~ label {
+  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+.neu-style .checkbox input:checked ~ label i {
+  color: #055CB3;
+}
+
+.neu-style .checkbox input:checked ~ label + .name {
+  color: #055CB3;
+}
+
+.neu-style .checkbox input:hover ~ label i {
+  color: #055CB3;
+}
+
+.neu-style ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+  background-color: #D4D4D4;
+  border-radius: 15px;
+}
+
+.neu-style ::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
+          box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
+  background-color: #D4D4D4;
+  border-radius: 15px;
+}
+
+.neu-style ::-webkit-slider-thumb {
+  background-color: #D4D4D4;
+  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+  border-radius: 15px;
+}
+
+.neu-style ::-webkit-slider-thumb:hover {
+  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+.neu-style input[type=range]:focus {
+  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
 }
 /*# sourceMappingURL=style.css.map */

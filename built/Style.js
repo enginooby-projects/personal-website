@@ -1,9 +1,9 @@
 export class Style {
     onEnable() {
         this.init();
-        this.setupEvents();
-        this.applyStyle();
-        this.updateRadioUI();
+        // this.setupEvents();
+        // this.applyStyle();
+        // this.updateRadioUI();
     }
     ;
     onDisable() {

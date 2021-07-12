@@ -1,0 +1,143 @@
+@import "common-variables";
+
+$distance:3;
+$blur:8;
+$lightenSchemeColor:#e6e6e6;
+$darkenSchemeColor: #c2c2c2;
+
+$dropBoxShadow : #{$distance}px #{$distance}px #{$blur}px #{$darkenSchemeColor},
+-#{$distance}px -#{$distance}px #{$blur}px #{$lightenSchemeColor};
+
+$insetBoxShadow : inset #{$distance}px #{$distance}px #{$blur}px #{$darkenSchemeColor},
+inset -#{$distance}px -#{$distance}px #{$blur}px #{$lightenSchemeColor};
+
+$concaveBoxShadow:"#{$dropBoxShadow},  #{$insetBoxShadow}";
+
+$thumbScrollbarBoxShadow:inset -#{$distance}px -#{$distance}px #{$blur}px #{$darkenSchemeColor},
+inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
+
+.neu-style {
+
+        .button-border,
+        .box-border,
+        .image-border,
+        .segmented-control,
+        .hero-03 .personal-image img,
+        .checkbox label,
+        .blog-intro,
+        .badge-border,
+        table,
+        table thead,
+        .pallet-border,
+        .range-slider__value,
+        .theme-skin .pill-button {
+                box-shadow: $dropBoxShadow;
+        }
+
+        .pill-button.active,
+        .custom-scrollbar,
+        .blog .blog-image .after,
+        .pal-button.active,
+        .skill-boxes .box-border,
+        .color-pallet,
+        .timeline-items.box-border,
+        .range-slider__range,
+        .pallet-button.active,
+        .theme-skin .pill-button.active {
+                box-shadow: $insetBoxShadow;
+        }
+
+        .skill-box .skillbar,
+        .form-group,
+        .radio-selection {
+                box-shadow: #{$concaveBoxShadow}; //unquote
+        }
+
+        .section,
+        .button-border,
+        .box-border,
+        .image-border,
+        .contact .form-item .form-group,
+        .segmented-control,
+        .checkbox label,
+        .color-pallet,
+        .portfolio-single .modal-content,
+        .range-slider__range,
+        .pallet-border,
+        .range-slider__value,
+        .theme-skin .pill-button,
+        .pill-button.active,
+        .pill-button,
+        .neu-style .display-content>.container,
+        .neu-style .pallet-button {
+                background-color: $schemeColor;
+        }
+
+        .pill-button,
+        .segmented-control>input:checked+label,
+        .segmented-control>input:hover+label {
+                color: $highlightColor;
+        }
+
+        .pill-button:hover,
+        .badge-border:hover,
+        table>tbody>tr:hover,
+        .pallet-button:hover {
+                box-shadow: $insetBoxShadow;
+        }
+
+        // CHECKBOX
+        .checkbox input:checked~label {
+                box-shadow: $insetBoxShadow;
+
+                i {
+                        color: $highlightColor;
+                }
+        }
+
+        .checkbox input:checked~label+.name {
+                color: $highlightColor;
+        }
+
+        .checkbox input:hover~label i {
+                color: $highlightColor;
+        }
+
+        // SCROLLBAR
+        ::-webkit-scrollbar-track {
+                box-shadow: $insetBoxShadow;
+                background-color: $schemeColor;
+                border-radius: $borderRadius; //TODO:  JS update
+        }
+
+        ::-webkit-scrollbar-thumb {
+                box-shadow: $thumbScrollbarBoxShadow;
+                background-color: $schemeColor;
+                border-radius: $borderRadius; //TODO:  JS update
+        }
+
+        // RANGE SLIDER 
+        ::-webkit-slider-thumb {
+                background-color: $schemeColor;
+                box-shadow: $dropBoxShadow; //TODO:  JS update
+                border-radius: $borderRadius; //TODO:  JS update
+        }
+
+        //TODO:  JS update
+        ::-webkit-slider-thumb:hover {
+                box-shadow: #{$concaveBoxShadow};
+        }
+
+        //TODO:  JS update
+        input[type=range]:focus {
+                box-shadow:#{$concaveBoxShadow};
+        }
+
+        // input[type=range]:focus::-webkit-slider-thumb {
+        //         box-shadow:#{$concaveBoxShadow};
+        // }
+
+        // input[type=range]::-webkit-slider-runnable-track { // ~range-slider__range
+        //         box-shadow: $insetBoxShadow;
+        // }
+}

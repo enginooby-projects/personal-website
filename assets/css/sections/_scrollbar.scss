@@ -1,9 +1,6 @@
 /*-------------------------
          SCROLLBAR NEU
 -------------------------*/
-::-webkit-scrollbar {
-        width: 11px;
-}
 
 $transition_duration: 0.5s;
 
@@ -26,30 +23,13 @@ $transition_duration: 0.5s;
 
 /* Light */
 .flat-style ::-webkit-scrollbar-track {
-        // background: #f1f1f1;
         box-shadow: none;
 }
 
 .flat-style ::-webkit-scrollbar-thumb {
-        // background: #888;
         box-shadow: none;
 }
 
 .flat-style ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-}
-
-/* Dark */
-.dark-scheme.flat-style ::-webkit-scrollbar-track {
-        background: #2c2d30;
-        box-shadow: none;
-}
-
-.dark-scheme.flat-style ::-webkit-scrollbar-thumb {
-        background: rgba(219, 219, 219, 0.623);
-        box-shadow: none;
-}
-
-.dark-scheme.flat-style ::-webkit-scrollbar-thumb:hover {
         background: #555;
 }

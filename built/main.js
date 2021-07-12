@@ -353,22 +353,13 @@ function resetSubfilters() {
         var $firstButton = $buttonGroup.children(":first");
         $firstButton.prop("checked", true);
     });
-    DynamicTheme.currentStyle.updateRadioUI();
+    // DynamicTheme.currentStyle.updateRadioUI();
 }
 function resetTechFilters() {
     $('#tech-filters').find("input").each(function (i, checkbox) {
         $(checkbox).prop("checked", false);
     });
-    DynamicTheme.currentStyle.updateCheckboxUI();
-}
-// HELPERS
-function addClassIfNotExist(selector, className) {
-    if (!selector.hasClass(className))
-        selector.addClass(className);
-}
-function removeClassIfExist(selector, className) {
-    if (selector.hasClass(className))
-        selector.removeClass(className);
+    // DynamicTheme.currentStyle.updateCheckboxUI();
 }
 function startFilterring(container, filterContent) {
     console.log(filterContent);

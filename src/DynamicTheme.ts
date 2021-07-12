@@ -4,7 +4,8 @@ import { StyleRegistry } from './StyleRegistry.js';
 import { Color, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
 
-let styleSheet: CSSStyleSheet;
+export let styleSheet: CSSStyleSheet;
+export let cssRules: CSSRuleList;
 let $squareImg: JQuery<HTMLElement>;
 
 let borderRadius: number = 15;
@@ -59,12 +60,12 @@ export function init() {
         setupEvents();
 
         $squareImg = $(".hero-image .square img");
-        const cssRules = styleSheet.cssRules || styleSheet.rules;
-        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {border-radius: 15px;}`)] as CSSStyleRule;
-        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {background: ${schemeColor}; border-radius: 15px;}`)] as CSSStyleRule;
+        cssRules = styleSheet.cssRules || styleSheet.rules;
+        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {}`)] as CSSStyleRule;
+        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {}`)] as CSSStyleRule;
         placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
         papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
-        sliderThumbRule = cssRules[styleSheet.insertRule(`.range-slider__range::-webkit-slider-thumb {background:${schemeColor}; border-radius: ${borderRadius}}`)] as CSSStyleRule;
+        sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)] as CSSStyleRule;
         sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)] as CSSStyleRule;
         colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
 
@@ -76,9 +77,6 @@ export function init() {
 
         $('#border-radius').attr('value', borderRadius);
         $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
-
-        console.log('>>>>>>>>>>');
-        console.log(Selectors.borderRadiusSelectors);
 }
 
 function setupEvents() {
@@ -153,14 +151,14 @@ function setupCommonHoverEvents() {
                 if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
         });
 
-        $(".checkbox i")
-                .on('mouseenter', function () {
-                        $(this).css('color', highlightColor.hex);
-                }).on('mouseleave', function () {
-                        let id = $(this).parent().attr("for");
-                        // reset color if the  button not checked
-                        if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-                });
+        // $(".checkbox i")
+        //         .on('mouseenter', function () {
+        //                 $(this).css('color', highlightColor.hex);
+        //         }).on('mouseleave', function () {
+        //                 let id = $(this).parent().attr("for");
+        //                 // reset color if the  button not checked
+        //                 if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
+        //         });
 }
 
 function setupCommonClickEvents() {
@@ -204,6 +202,7 @@ function updateSchemeColor(hex: string) {
         $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
         updatePseudoElements();
         currentStyle.applyStyle();
+        // currentStyle.setupEvents();
 }
 
 function updatePseudoElements() {
@@ -241,7 +240,7 @@ function updateBorder() {
         $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
         $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
         // TODO; not working
-        // sliderThumbRule.style.borderRadius = borderRadius.toString();         
+        // sliderThumbRule.style.borderRadius = borderRadius.toString() + 'px';
         // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
         // trackScrollbarRule.style.borderRadius = borderRadius.toString();
 }

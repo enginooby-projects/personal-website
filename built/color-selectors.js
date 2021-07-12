@@ -24,7 +24,6 @@ export const colorHighlightColorSelectors = formatString([
     ".overlay-menu a.active",
     ".timeline-year",
     ".portfolio .portfolio-filter li a",
-    ".portfolio .portfolio-icon a i",
     ".contact .form-item .form-control",
     ".highlight-portfolio-item.fa-star"
 ]);
@@ -40,6 +39,7 @@ export const colorBaseColorSelectors = formatString([
     ".overlay-menu-toggler",
     ".modal-title",
     ".portfolio-single .close",
+    ".pp-tooltip"
 ]);
 export const colorMutedBaseColorSelectors = formatString([
     ".blog-content .list-inline-item span",
@@ -50,7 +50,8 @@ export const colorMutedBaseColorSelectors = formatString([
     ".range-slider label",
     ".range-slider__value",
     "#colour-panel label ",
-    ".color-pallet-content p"
+    ".color-pallet-content p",
+    ".checkbox i"
 ]);
 export const colorColorfull1Selectors = formatString([]);
 export const borderRadiusSelectors = formatString([
