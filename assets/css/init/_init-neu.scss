@@ -119,16 +119,13 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         // RANGE SLIDER 
         ::-webkit-slider-thumb {
                 background-color: $schemeColor;
-                box-shadow: $dropBoxShadow; //TODO:  JS update
-                border-radius: $borderRadius; //TODO:  JS update
+                box-shadow: $dropBoxShadow;
         }
 
-        //TODO:  JS update
         ::-webkit-slider-thumb:hover {
                 box-shadow: #{$concaveBoxShadow};
         }
 
-        //TODO:  JS update
         input[type=range]:focus {
                 box-shadow:#{$concaveBoxShadow};
         }

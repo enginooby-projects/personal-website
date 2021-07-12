@@ -4446,7 +4446,6 @@ Init values for dynamic properties to reduce  page load time
   background-color: #D4D4D4;
   -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
           box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
-  border-radius: 15px;
 }
 
 .neu-style ::-webkit-slider-thumb:hover {

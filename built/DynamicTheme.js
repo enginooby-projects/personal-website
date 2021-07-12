@@ -22,6 +22,8 @@ let styleRegistry;
 export let trackScrollbarRule;
 export let thumbScrollbarRule;
 export let sliderThumbRule;
+export let sliderThumbHoverRule;
+export let sliderTrackForcusRule;
 export let sliderThumbFocusRule;
 export let colorSwatchRule;
 let placeholderRule;
@@ -50,11 +52,14 @@ export function init() {
     setupEvents();
     $squareImg = $(".hero-image .square img");
     cssRules = styleSheet.cssRules || styleSheet.rules;
+    // TODO: lazy init
     trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {}`)];
     thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {}`)];
     placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
     papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
     sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
+    sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)];
+    sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)];
     sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)];
     colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     styleRegistry = new StyleRegistry();

@@ -205,6 +205,8 @@ export class NeuStyle extends Style {
         DynamicTheme.thumbScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
         DynamicTheme.sliderThumbRule.style.setProperty('box-shadow', this.dropBoxShadow, 'important');
         DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+        DynamicTheme.sliderThumbHoverRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
+        DynamicTheme.sliderTrackForcusRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
         DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
         DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
         // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
