@@ -80,6 +80,10 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 color: $highlightColor;
         }
 
+        .segmented-control>input:not(:checked)+label {
+                color: $mutedBaseColor;
+        }
+
         .pill-button:hover,
         .badge-border:hover,
         table>tbody>tr:hover,
@@ -96,6 +100,11 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .checkbox input:checked~label i,
         .checkbox input:hover~label i {
                 color: $highlightColor;
+        }
+
+        .checkbox input:not(:checked)~label i,
+        .checkbox input:not(:checked)~label+.name {
+                color: $mutedBaseColor;
         }
 
         // SCROLLBAR

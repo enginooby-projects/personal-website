@@ -36,9 +36,12 @@ export let colorSwatchRule: CSSStyleRule;
 
 export let radioLabelHoverRule: CSSStyleRule;
 export let radioLabelCheckedRule: CSSStyleRule;
+export let radioLabelUncheckedRule: CSSStyleRule;
 export let checkboxLabelHoverRule: CSSStyleRule;
 export let checkboxNameCheckedRule: CSSStyleRule;
 export let checkboxIconCheckedRule: CSSStyleRule;
+export let checkboxNameUncheckedRule: CSSStyleRule;
+export let checkboxIconUncheckedRule: CSSStyleRule;
 
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
@@ -85,9 +88,12 @@ export function init() {
 
         radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)] as CSSStyleRule;
         radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)] as CSSStyleRule;
-        checkboxLabelHoverRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)] as CSSStyleRule;
-        checkboxNameCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)] as CSSStyleRule;
+        radioLabelUncheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:not(:checked)+label {}`)] as CSSStyleRule;
+        checkboxLabelHoverRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)] as CSSStyleRule;
+        checkboxNameCheckedRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)] as CSSStyleRule;
         checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)] as CSSStyleRule;
+        checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)] as CSSStyleRule;
+        checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor.hex);
@@ -242,6 +248,7 @@ function updateBaseColor() {
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
 
         if (lastBaseColor != baseColor) {
+                currentStyle.onBaseColorUpdated();
                 //TODO: revoke onBaseColorChangedEvent
         }
 }

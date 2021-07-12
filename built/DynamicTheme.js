@@ -27,9 +27,12 @@ export let sliderTrackForcusRule;
 export let colorSwatchRule;
 export let radioLabelHoverRule;
 export let radioLabelCheckedRule;
+export let radioLabelUncheckedRule;
 export let checkboxLabelHoverRule;
 export let checkboxNameCheckedRule;
 export let checkboxIconCheckedRule;
+export let checkboxNameUncheckedRule;
+export let checkboxIconUncheckedRule;
 let placeholderRule;
 let papePilingTooltipRule;
 let selectionRule;
@@ -69,9 +72,12 @@ export function init() {
     colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)];
     radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)];
-    checkboxLabelHoverRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)];
-    checkboxNameCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)];
+    radioLabelUncheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:not(:checked)+label {}`)];
+    checkboxLabelHoverRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)];
+    checkboxNameCheckedRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)];
     checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)];
+    checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)];
+    checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
     $("#highlight-color-picker").attr('value', highlightColor.hex);
@@ -207,6 +213,7 @@ function updateBaseColor() {
     const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
     if (lastBaseColor != baseColor) {
+        currentStyle.onBaseColorUpdated();
         //TODO: revoke onBaseColorChangedEvent
     }
 }

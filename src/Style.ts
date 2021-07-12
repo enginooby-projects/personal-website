@@ -7,7 +7,6 @@ export abstract class Style {
                 this.init();
                 this.setupCustomizeEvents();
                 // this.setupLocalEvents(); // include this if not use init css file for dynamic properties
-                // this.updateRadioUI();
         };
         abstract setupCustomizeEvents(): void; // events for customize the style in the setting panel
         abstract setupLocalEvents(): void; // events belong to only a style
@@ -25,5 +24,6 @@ export abstract class Style {
 
         abstract onHighlightColorUpdated(): void;
         abstract onSchemeColorUpdated(): void;
+        abstract onBaseColorUpdated(): void;
 }
 

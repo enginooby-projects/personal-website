@@ -4406,6 +4406,10 @@ Init values for dynamic properties to reduce  page load time
   color: #055CB3;
 }
 
+.neu-style .segmented-control > input:not(:checked) + label {
+  color: #4D4D4D;
+}
+
 .neu-style .pill-button:hover,
 .neu-style .badge-border:hover,
 .neu-style table > tbody > tr:hover,
@@ -4423,6 +4427,11 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .checkbox input:checked ~ label i,
 .neu-style .checkbox input:hover ~ label i {
   color: #055CB3;
+}
+
+.neu-style .checkbox input:not(:checked) ~ label i,
+.neu-style .checkbox input:not(:checked) ~ label + .name {
+  color: #4D4D4D;
 }
 
 .neu-style ::-webkit-scrollbar-track {

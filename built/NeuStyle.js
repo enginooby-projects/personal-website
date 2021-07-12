@@ -177,6 +177,11 @@ export class NeuStyle extends Style {
         this.updateBoxShadows();
         this.setupLocalEvents();
     }
+    onBaseColorUpdated() {
+        DynamicTheme.radioLabelUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+        DynamicTheme.checkboxIconUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+        DynamicTheme.checkboxNameUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+    }
     updateBoxShadows() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);

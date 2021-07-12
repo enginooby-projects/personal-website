@@ -56,7 +56,6 @@ export const colorMutedBaseColorSelectors = formatString([
         ".range-slider__value",
         "#colour-panel label ",
         ".color-pallet-content p",
-        ".checkbox i"
 ]);
 
 export const colorColorfull1Selectors = formatString([
