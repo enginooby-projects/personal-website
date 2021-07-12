@@ -3,18 +3,20 @@ import * as DynamicTheme from './DynamicTheme.js';
 export abstract class Style {
         onEnable(): void {
                 this.init();
-                this.setupEvents();
+                this.setupCustomizeEvents();
                 // this.updateRadioUI();
         };
-        abstract setupEvents(): void;
+        abstract setupCustomizeEvents(): void; // events for customize the style in the setting panel
+        abstract setupLocalEvents(): void; // events belong to only a style
         abstract init(): void;
 
+        // revert properties & remove events  which may affect other styles such as transparency
         onDisable(): void {
-                this.removeEvents();
+                this.removeLocalEvents();
                 this.revertStyle();
         };
-        abstract removeEvents(): void;
-        abstract revertStyle(): void;  // revert properties which may affect other styles such as transparency
+        abstract removeLocalEvents(): void;
+        abstract revertStyle(): void;
 
         abstract updateRadioUI(): void;
         abstract updateCheckboxUI(): void;

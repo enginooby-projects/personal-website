@@ -102,19 +102,7 @@ export class NeuStyle extends Style {
                 console.log(backgroundSchemeColorSelectors);
         }
 
-        removeEvents() {
-                $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
-                $('.segmented-control input, .checkbox input').off('click');
-        }
-
-        revertStyle() {
-                DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
-                DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
-        }
-
-        setupEvents(): void {
-                this.setupRangeSliderEvents(); // does not need to remove those events whose elements  belonging to only this style
-
+        setupLocalEvents(): void {
                 $(".segmented-control label").on('mouseenter', function () {
                         $(this).css('color', DynamicTheme.highlightColor.hex);
                 });
@@ -161,6 +149,40 @@ export class NeuStyle extends Style {
                                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
                                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
                         }
+                });
+        }
+
+        removeLocalEvents() {
+                $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
+                $('.segmented-control input, .checkbox input').off('click');
+        }
+
+        revertStyle() {
+                DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+                DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
+        }
+
+        setupCustomizeEvents(): void {
+                $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
+                        const newValue = (event.target as HTMLInputElement).value;
+                        $("#" + event.target.id).next('.range-slider__value').text(newValue);
+                        switch (event.target.id) {
+                                case 'distance':
+                                        this.distance = parseInt(newValue);
+                                        break;
+                                case 'blur':
+                                        this.blur = parseInt(newValue);
+                                        break;
+                                case 'light-intensity':
+                                        this.lightenIntensity = parseInt(newValue);
+                                        this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
+                                        break;
+                                case 'dark-intensity':
+                                        this.darkenIntensity = parseInt(newValue);
+                                        this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
+                                        break;
+                        }
+                        this.updateBoxShadows();
                 });
         }
 
@@ -257,28 +279,4 @@ export class NeuStyle extends Style {
                 $('#dark-intensity').attr('value', this.darkenIntensity);
                 $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
         }
-
-        setupRangeSliderEvents() {
-                $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
-                        const newValue = (event.target as HTMLInputElement).value;
-                        $("#" + event.target.id).next('.range-slider__value').text(newValue);
-                        switch (event.target.id) {
-                                case 'distance':
-                                        this.distance = parseInt(newValue);
-                                        break;
-                                case 'blur':
-                                        this.blur = parseInt(newValue);
-                                        break;
-                                case 'light-intensity':
-                                        this.lightenIntensity = parseInt(newValue);
-                                        this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
-                                        break;
-                                case 'dark-intensity':
-                                        this.darkenIntensity = parseInt(newValue);
-                                        this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
-                                        break;
-                        }
-                        this.updateBoxShadows();
-                });
-        };
 }

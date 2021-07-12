@@ -76,8 +76,27 @@ export class GlassStyle extends Style {
             'border': `none`, // alternative: use CSS file
         });
     }
-    setupEvents() {
-        this.setupRangeSliderEvents();
+    setupCustomizeEvents() {
+        $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
+            const newValue = event.target.value;
+            $("#" + event.target.id).next('.range-slider__value').text(newValue);
+            switch (event.target.id) {
+                case 'glass-transparency':
+                    this.transparency = newValue;
+                    this.updateTransparency();
+                    break;
+                case 'glass-blur':
+                    this.blur = newValue;
+                    this.updateBlur();
+                    break;
+                case 'glass-border-size':
+                    this.borderSize = newValue;
+                    this.updateBorderSize();
+                    break;
+            }
+        });
+    }
+    setupLocalEvents() {
         $('.background-item').on('click', (event) => {
             const background = event.currentTarget.id;
             $('section').each((index, element) => {
@@ -106,7 +125,7 @@ export class GlassStyle extends Style {
             $(this).css('background', '').css('color', '');
         });
     }
-    removeEvents() {
+    removeLocalEvents() {
         $('.pill-button, table>tbody>tr').off('mouseenter mouseleave');
     }
     //HELPER
@@ -125,26 +144,6 @@ export class GlassStyle extends Style {
         $("#glass-blur").next('.range-slider__value').html(this.blur.toString());
         $('#glass-border-size').attr('value', this.borderSize);
         $("#glass-border-size").next('.range-slider__value').html(this.borderSize.toString());
-    }
-    setupRangeSliderEvents() {
-        $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
-            const newValue = event.target.value;
-            $("#" + event.target.id).next('.range-slider__value').text(newValue);
-            switch (event.target.id) {
-                case 'glass-transparency':
-                    this.transparency = newValue;
-                    this.updateTransparency();
-                    break;
-                case 'glass-blur':
-                    this.blur = newValue;
-                    this.updateBlur();
-                    break;
-                case 'glass-border-size':
-                    this.borderSize = newValue;
-                    this.updateBorderSize();
-                    break;
-            }
-        });
     }
     updateBlur() {
         $(borderSizeBlurDependentSelectors).css({

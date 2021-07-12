@@ -51,14 +51,7 @@ export class FlatStyle extends Style {
                 $("body").addClass('flat-style');
         }
 
-        removeEvents() {
-                $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
-                $('.segmented-control input, .checkbox input').off('click');
-        }
-
-        revertStyle() { }
-
-        setupEvents(): void {
+        setupLocalEvents(): void {
                 $(".segmented-control label").on('mouseenter', function () {
                         let id = $(this).attr("for");
                         if (!$("#" + id).prop("checked")) $(this).css('color', DynamicTheme.highlightColor.hex);
@@ -127,6 +120,15 @@ export class FlatStyle extends Style {
                 });
         }
 
+        removeLocalEvents() {
+                $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
+                $('.segmented-control input, .checkbox input').off('click');
+        }
+
+        revertStyle() { }
+
+        setupCustomizeEvents(): void { }
+
         onHighlightColorUpdated(): void {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
@@ -173,6 +175,7 @@ export class FlatStyle extends Style {
                         }
                 );
         }
+
         resetInactiveButtons(currentActiveButton: HTMLElement): void {
                 $('#portfolio .pill-button').not(currentActiveButton).css('background', 'transparent');
         }

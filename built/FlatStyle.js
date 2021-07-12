@@ -44,12 +44,7 @@ export class FlatStyle extends Style {
     init() {
         $("body").addClass('flat-style');
     }
-    removeEvents() {
-        $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
-        $('.segmented-control input, .checkbox input').off('click');
-    }
-    revertStyle() { }
-    setupEvents() {
+    setupLocalEvents() {
         $(".segmented-control label").on('mouseenter', function () {
             let id = $(this).attr("for");
             if (!$("#" + id).prop("checked"))
@@ -105,6 +100,12 @@ export class FlatStyle extends Style {
             }
         });
     }
+    removeLocalEvents() {
+        $(".pill-button, .segmented-control label, .pallet-button, table>tbody>tr").off('mouseenter mouseleave');
+        $('.segmented-control input, .checkbox input').off('click');
+    }
+    revertStyle() { }
+    setupCustomizeEvents() { }
     onHighlightColorUpdated() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
