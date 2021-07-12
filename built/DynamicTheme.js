@@ -160,20 +160,14 @@ function setupCommonHoverEvents() {
     if (hoverEventsAreSetup)
         return;
     hoverEventsAreSetup = true;
-    $(".social a i")
-        .on('mouseenter', function () {
-        $(this).css('color', highlightColor.hex);
-    }).on('mouseleave', function () {
+    $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i, .segmented-control label, .checkbox i").on('mouseenter', (event) => {
+        $(event.currentTarget).css('color', highlightColor.hex);
+    });
+    $(".social a i").on('mouseleave', function () {
         $(this).css('color', baseColor);
     });
-    $(".list-inline.socials li a i, #myMenu li a")
-        .on('mouseenter', function () {
-        $(this).css('color', highlightColor.hex);
-    }).on('mouseleave', function () {
+    $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
         $(this).css('color', 'white');
-    });
-    $(".segmented-control label").on('mouseenter', function () {
-        $(this).css('color', highlightColor.hex);
     });
     $(".segmented-control label").on('mouseleave', function () {
         let id = $(this).attr("for");
@@ -181,10 +175,7 @@ function setupCommonHoverEvents() {
         if (!$("#" + id).prop("checked"))
             $(this).css('color', mutedBaseColor);
     });
-    $(".checkbox i")
-        .on('mouseenter', function () {
-        $(this).css('color', highlightColor.hex);
-    }).on('mouseleave', function () {
+    $(".checkbox i").on('mouseleave', function () {
         let id = $(this).parent().attr("for");
         // reset color if the  button not checked
         if (!$("#" + id).prop("checked"))
