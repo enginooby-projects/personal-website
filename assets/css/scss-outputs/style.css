@@ -4402,14 +4402,14 @@ Init values for dynamic properties to reduce  page load time
   background-color: #D4D4D4;
 }
 
+.neu-style .segmented-control > input:not(:checked) + label {
+  color: #4D4D4D;
+}
+
 .neu-style .pill-button,
 .neu-style .segmented-control > input:checked + label,
 .neu-style .segmented-control > input:hover + label {
   color: #055CB3;
-}
-
-.neu-style .segmented-control > input:not(:checked) + label {
-  color: #4D4D4D;
 }
 
 .neu-style .pill-button:hover,
@@ -4425,15 +4425,15 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
 }
 
+.neu-style .checkbox input:not(:checked) ~ label i,
+.neu-style .checkbox input:not(:checked) ~ label + .name {
+  color: #4D4D4D;
+}
+
 .neu-style .checkbox input:checked ~ label + .name,
 .neu-style .checkbox input:checked ~ label i,
 .neu-style .checkbox input:hover ~ label i {
   color: #055CB3;
-}
-
-.neu-style .checkbox input:not(:checked) ~ label i,
-.neu-style .checkbox input:not(:checked) ~ label + .name {
-  color: #4D4D4D;
 }
 
 .neu-style ::-webkit-scrollbar-track {
