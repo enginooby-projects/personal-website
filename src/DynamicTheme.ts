@@ -31,7 +31,6 @@ export let thumbScrollbarRule: CSSStyleRule;
 export let sliderThumbRule: CSSStyleRule;
 export let sliderThumbHoverRule: CSSStyleRule;
 export let sliderTrackForcusRule: CSSStyleRule;
-export let sliderThumbFocusRule: CSSStyleRule;
 export let colorSwatchRule: CSSStyleRule;
 
 let placeholderRule: CSSStyleRule;
@@ -72,7 +71,6 @@ export function init() {
         sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)] as CSSStyleRule;
         sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)] as CSSStyleRule;
         sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)] as CSSStyleRule;
-        sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)] as CSSStyleRule;
         colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();

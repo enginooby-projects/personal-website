@@ -117,14 +117,6 @@ export class NeuStyle extends Style {
                         $(this).css('color', '');
                 });
 
-                $(".range-slider__range ").hover(
-                        (event) => {
-                                event.currentTarget.classList.add('focus');
-                        }, (event) => {
-                                event.currentTarget.classList.remove('focus');
-                        }
-                );
-
                 $(hoverInsetBoxShadowSelectors).hover(
                         (event) => {
                                 const target: HTMLElement = event.currentTarget;
@@ -163,7 +155,6 @@ export class NeuStyle extends Style {
 
         revertStyle() {
                 DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
-                DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
         }
 
         setupCustomizeEvents(): void {
@@ -237,8 +228,6 @@ export class NeuStyle extends Style {
                 DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
                 DynamicTheme.sliderThumbHoverRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
                 DynamicTheme.sliderTrackForcusRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
-                DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
-                DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
                 // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
         }
 

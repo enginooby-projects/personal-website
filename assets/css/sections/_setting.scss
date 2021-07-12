@@ -212,11 +212,6 @@ $range-label-width: 2rem !default;
         }
 
         &:active::-moz-range-thumb {}
-
-        // Focus state
-        &:focus {
-                &::-webkit-slider-thumb {}
-        }
 }
 
 // Range Label

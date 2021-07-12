@@ -107,11 +107,6 @@ export class NeuStyle extends Style {
                 return;
             $(this).css('color', '');
         });
-        $(".range-slider__range ").hover((event) => {
-            event.currentTarget.classList.add('focus');
-        }, (event) => {
-            event.currentTarget.classList.remove('focus');
-        });
         $(hoverInsetBoxShadowSelectors).hover((event) => {
             const target = event.currentTarget;
             this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
@@ -142,7 +137,6 @@ export class NeuStyle extends Style {
     }
     revertStyle() {
         DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
-        DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
     }
     setupCustomizeEvents() {
         $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
@@ -207,8 +201,6 @@ export class NeuStyle extends Style {
         DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
         DynamicTheme.sliderThumbHoverRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
         DynamicTheme.sliderTrackForcusRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
-        DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
-        DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
         // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
     }
     updateRadioUI() {

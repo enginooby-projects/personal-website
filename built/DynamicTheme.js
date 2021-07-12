@@ -24,7 +24,6 @@ export let thumbScrollbarRule;
 export let sliderThumbRule;
 export let sliderThumbHoverRule;
 export let sliderTrackForcusRule;
-export let sliderThumbFocusRule;
 export let colorSwatchRule;
 let placeholderRule;
 let papePilingTooltipRule;
@@ -60,7 +59,6 @@ export function init() {
     sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
     sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)];
     sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)];
-    sliderThumbFocusRule = cssRules[styleSheet.insertRule(`.range-slider__range.focus::-webkit-slider-thumb {background:${schemeColor};border-radius: ${borderRadius}}`)];
     colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
