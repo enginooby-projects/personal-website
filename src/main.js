@@ -12,9 +12,6 @@ $(document).ready(function () {
         clientCarousel();
         pagePilling();
         themeOption();
-        bgBackground();
-        colorFull();
-        borderColor();
         menuToggler();
         sliderOwlCarousel();
         typedJS();
@@ -184,38 +181,7 @@ function changeLightScheme() {
         $('.color-scheme li a').removeClass('active');
         $(this).addClass('active');
 }
-/*-------------------------
-        ColorFull Demo
--------------------------*/
-function bgBackground() {
 
-        "use strict";
-
-        var list = document.getElementsByClassName('data-background');
-
-        for (var i = 0; i < list.length; i++) {
-                var color = list[i].getAttribute('data-color');
-                list[i].style.backgroundColor = "" + color + "";
-        }
-}
-
-function colorFull() {
-        var allDivs = document.getElementsByClassName('data-text-color');
-
-        for (var i = 0; i < allDivs.length; ++i) {
-                var color = allDivs[i].getAttribute('data-color');
-                allDivs[i].style.color = "" + color + "";
-        }
-}
-
-function borderColor() {
-        var allDivs = document.getElementsByClassName('timeline-border');
-
-        for (var i = 0; i < allDivs.length; ++i) {
-                var color = allDivs[i].getAttribute('data-color');
-                allDivs[i].style.borderLeftColor = "" + color + "";
-        }
-}
 /*-------------------------
     MENU TOGGLER
 -------------------------*/

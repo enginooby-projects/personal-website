@@ -21,7 +21,7 @@
                                                 </div>
                                                 <div class="timeline-items box-border">
                                                         <!--    Item 01   -->
-                                                        <div class="timeline-item timeline-border" data-color="#01bb8c">
+                                                        <div class="timeline-item timeline-border">
                                                                 <div class="timeline-icon background-colorfull1"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
@@ -45,7 +45,7 @@
                                                 </div>
                                                 <div class="timeline-items box-border">
                                                         <!--    Item 01   -->
-                                                        <div class="timeline-item timeline-border" data-color="#eebe00">
+                                                        <div class="timeline-item timeline-border">
                                                                 <div class="timeline-icon data-background background-colorfull2"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
@@ -73,7 +73,7 @@
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="timeline-items box-border">
-                                                        <div class="timeline-item timeline-border" data-color="#ff5380">
+                                                        <div class="timeline-item timeline-border">
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
@@ -86,7 +86,7 @@
                                                                         </div>
                                                                 </div>
                                                         </div>
-                                                        <div class="timeline-item timeline-border" data-color="#ff5380">
+                                                        <div class="timeline-item timeline-border">
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">

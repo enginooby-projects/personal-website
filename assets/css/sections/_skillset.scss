@@ -2,8 +2,6 @@
           SKILLSET
 -------------------------*/
 /* skill-boxes */
-$badge-radius:0.6rem;
-
 .skillset .row {
         margin-top: 4px;
         margin-left: -5px;
@@ -20,12 +18,7 @@ $badge-radius:0.6rem;
         min-height: 140px;
 }
 
-.skill-item {
-        border-radius: $badge-radius;
-}
-
 .skill-boxes .image-border {
-        border-radius: $badge-radius;
         padding: 2px !important;
 }
 
@@ -49,7 +42,6 @@ $badge-radius:0.6rem;
 }
 
 .badge-border {
-        border-radius: $badge-radius;
         display: inline-block;
         padding: 2px;
         margin: 0 5px 10px;
@@ -63,9 +55,6 @@ $badge-radius:0.6rem;
 
 .badge.badge-pill {
         font-weight: 300 !important;
-        color: white;
-        border-radius: 0.5rem;
-
         flex-grow: 1;
         display: table;
         margin: 0 auto;

@@ -32,12 +32,8 @@
         <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
         <!-- Magnific Popup Css -->
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!-- Colors Css -->
-        <link rel="stylesheet" href="assets/css/color/blue-color.css" id="option-color">
         <!--  Custom Style CSS  -->
         <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
-        <!--  Colorfull Style CSS  -->
-        <link rel="stylesheet" href="assets/css/bases/scss-outputs/colorfull-main.css">
 </head>
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1">

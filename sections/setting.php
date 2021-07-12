@@ -2,7 +2,7 @@
         <div class="text-center color-pallet hide">
                 <div class="color-pallet-content">
                         <ul class="theme-skin mb-1" id="ui-style-panel">
-                                <h6 class="theme-skin-title">UI Style</h6>
+                                <h6 class="text-center mt-0">UI Style</h6>
                                 <div class="button-border" id="flat-skin-button">
                                         <a href="javascript:void(0)" class="pill-button">Flat</a>
                                 </div>

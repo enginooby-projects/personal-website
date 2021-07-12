@@ -17,20 +17,6 @@ $transition_duration: 0.5s;
         transition: 0.5s all ease;
 }
 
-/* Dark */
-.dark-scheme ::-webkit-scrollbar-track {
-        border-radius: 25px;
-        box-shadow: 2.5px 2.5px 5px #0d0d0d inset, -2.5px -2.5px 5px #4d4d4d inset;
-}
-
-.dark-scheme ::-webkit-scrollbar-thumb {
-        border-radius: 25px;
-        box-shadow: -2.5px -2.5px 2.5px #0d0d0d inset,
-                2.5px 2.5px 2.5px #4d4d4d inset;
-        background: #2c2d30;
-}
-
-
 /*-------------------------
          SCROLLBAR FLAT
 -------------------------*/

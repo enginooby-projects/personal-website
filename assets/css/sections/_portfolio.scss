@@ -41,7 +41,6 @@
 
 .portfolio-item-content {
         position: relative;
-        border-radius: 1.25rem;
 }
 
 .portfolio .portfolio-item-content::before,
@@ -92,7 +91,6 @@
         line-height: 37px;
         margin: 0 8px;
         display: inline-block;
-        border-radius: 4px;
         transition: all 0.3s ease;
         line-height: 37px;
 }
@@ -111,7 +109,6 @@
         line-height: 37px;
         margin: 0 8px;
         display: inline-block;
-        border-radius: 4px;
         transition: all 0.3s ease;
         line-height: 37px;
         border-color: transparent;
@@ -153,12 +150,8 @@
 }
 
 .portfolio-single img {
-        border-radius: 1rem;
         width: 100%;
 }
-
-
-
 
 :root {
         --primary-light: #8abdff;
@@ -194,16 +187,12 @@ inset -3px -3px 4px $light-bg-color;
 
 /*  SEGMENTED-CONTROL */
 .segmented-control {
-        background: var(--greyLight-1);
         margin: 0.7rem 0.4rem 0 0.4rem;
         height: 4rem*$scale;
-        box-shadow: $shadow;
-        border-radius: 0.6rem;
         display: flex;
         align-items: center;
         position: relative;
         // z-index: -2;
-
 
         input {
                 display: none;
@@ -245,62 +234,9 @@ inset -3px -3px 4px $light-bg-color;
                 position: absolute;
                 height: 3.1rem*$scale;
                 width: 72.5px;
-                border-radius: .55rem;
                 // z-index: -1;
                 // box-shadow: $inner-shadow;
                 // box-shadow: $inner-shadow-2;
-                pointer-events: none;
-        }
-}
-
-// TODO: DRY
-.dark-scheme .segmented-control {
-        background: #2c2d30;
-        margin: 0.7rem 0.4rem 0 0.4rem;
-        height: 4rem*$scale;
-        box-shadow: $dark-shadow;
-        border-radius: 0.6rem;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        input {
-                display: none;
-        }
-
-        >input:checked+label {
-                transition: all .5s ease;
-                // font-weight: 900 !important;
-        }
-
-        &__1,
-        &__2,
-        &__3,
-        &__4 {
-
-                color: #e2e2e2;
-                font-size: 1.1rem;
-                cursor: pointer;
-                align-items: center;
-                justify-content: center;
-                transition: all .5s ease;
-
-                width: 6.8rem;
-                height: 3.6rem;
-                margin-bottom: 0;
-                display: flex;
-
-        }
-
-        // current selection box
-        &-size__color,
-        &-platform__color,
-        &-stage__color {
-                position: absolute;
-                height: 3.1rem*$scale;
-                width: 72.5px;
-                border-radius: .55rem;
-                box-shadow: $dark-inner-shadow;
                 pointer-events: none;
         }
 }
@@ -386,13 +322,11 @@ $checkbox-scale:0.5;
                 display: flex;
 
                 label {
-                        box-shadow: $shadow;
                         cursor: pointer;
                         position: relative;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        border-radius: .5rem;
                         width: 2.8rem*$checkbox-scale;
                         height: 2.8rem*$checkbox-scale;
 
@@ -410,76 +344,9 @@ $checkbox-scale:0.5;
                                 align-items: center;
                         }
                 }
-
-                & input:checked {
-                        &~label {
-                                box-shadow: $inner-shadow;
-
-                                i {
-                                        // color: var(--primary);
-                                }
-                        }
-                }
         }
 }
 
-// TODO: DRY
-.dark-scheme .checkbox {
-        input {
-                display: none;
-        }
-
-        .name {
-                font-size: 1.1rem;
-                margin-left: 0.35rem;
-                margin-right: 0.8rem;
-
-                margin-bottom: 0rem;
-        }
-
-        &__1,
-        &__2,
-        &__3,
-        &__4,
-        &__5,
-        &__6,
-        &__7 {
-                display: flex;
-
-                label {
-                        box-shadow: $dark-shadow;
-                        cursor: pointer;
-                        position: relative;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: .5rem;
-                        width: 2.8rem*$checkbox-scale;
-                        height: 2.8rem*$checkbox-scale;
-
-                        &:hover i {
-                                color: var(--primary);
-                        }
-
-                        i {
-                                font-size: 1.8rem*$checkbox-scale;
-                                font-weight: 700;
-                                color: var(--greyDark);
-                                transition: .3s ease;
-                        }
-                }
-
-                & input:checked {
-                        &~label {
-                                box-shadow: $dark-inner-shadow;
-
-                                i {
-                                        color: var(--primary);
-                                }
-                        }
-                }
-        }
-}
 
 .injected-section {
         zoom: 0.4;
@@ -514,8 +381,6 @@ $checkbox-scale:0.5;
 }
 
 .checkbox label {
-        -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
         cursor: pointer;
         position: relative;
         display: -webkit-box;
@@ -527,28 +392,13 @@ $checkbox-scale:0.5;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        border-radius: .5rem;
         width: 1.4rem;
         height: 1.4rem;
-}
-
-.checkbox label:hover i {
-        color: var(--primary);
 }
 
 .checkbox label i {
         font-size: 0.9rem;
         font-weight: 700;
-        color: var(--greyDark);
         -webkit-transition: .3s ease;
         transition: .3s ease;
-}
-
-.checkbox input:checked~label {
-        -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-}
-
-.checkbox input:checked~label i {
-        color: var(--primary);
 }

@@ -1,6 +1,6 @@
 <div class="social-box">
         <div class="follow-label">
-                <span>Follow Me<span class="bg-base-color line"></span></span>
+                <span>Follow Me<span class="bg-highlight-color line"></span></span>
         </div>
         <div class="social">
                 <a href="https://enginoobz.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>

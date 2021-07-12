@@ -2,7 +2,7 @@ export const backgroundBaseColorSelectors = formatString([
     "#pp-nav li :not(.active) span",
 ]);
 export const backgroundHighlightColorSelectors = formatString([
-    ".bg-base-color",
+    ".bg-highlight-color",
     ".border-style",
     "#pp-nav li .active span",
     ".pp-slidesNav .active span"
@@ -91,7 +91,14 @@ export const borderRadiusSelectors = formatString([
     ".modal-content",
     "table",
     ".display-content>.container",
-    ".range-slider__value"
+    ".range-slider__value",
+    ".portfolio-item-content",
+    ".portfolio-icon a",
+    ".portfolio-single img",
+    ".checkbox label",
+    ".testimonial .owl-carousel .owl-dot span",
+    ".skill-item",
+    ".color-scheme li a"
 ]);
 //HELPER
 function formatString(selectorsArray) {

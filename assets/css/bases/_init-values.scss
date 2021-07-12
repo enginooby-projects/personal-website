@@ -1,0 +1,153 @@
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+$schemeColor:#D4D4D4;
+$highlightColor:#055CB3;
+$baseColor:#212529; //light: #EBEBEB
+$mutedBaseColor:#4D4D4D; //lightMuted: #b2b2b2
+$colorfull1: #00a584;
+$colorfull2: #ebbc00;
+$colorfull3: #e93666;
+
+$borderRadius: 15px;
+
+.section,
+.display-content>.container,
+body,
+.box-border,
+.segmented-control,
+.image-border,
+.form-group,
+.skill-box .skillbar,
+.blog .blog-image,
+.blog .blog-item .before {
+        background-color: $schemeColor;
+}
+
+#pp-nav li :not(.active) span {
+        background-color: $baseColor;
+}
+
+.bg-highlight-color,
+.border-style,
+#pp-nav li .active span,
+.pp-slidesNav .active span {
+        background-color: $highlightColor;
+}
+
+.highlight-color,
+.pill-button,
+.overlay-menu a.active,
+.timeline-year,
+.portfolio .portfolio-filter li a,
+.portfolio .portfolio-icon a i,
+.contact .form-item .form-control,
+.highlight-portfolio-item.fa-star {
+        color: $highlightColor;
+}
+
+body,
+.logo,
+.color-switcher .pallet-border i,
+.follow-label,
+.social a i,
+.blog-content h6 a,
+.form-group input,
+.form-group textarea,
+.overlay-menu-toggler,
+.modal-title,
+.portfolio-single .close {
+        color: $baseColor;
+}
+
+.blog-content .list-inline-item span,
+.contact-info-text small,
+.hero-content p,
+.title-wrapper span,
+.form-control,
+.range-slider label,
+.range-slider__value,
+#colour-panel label,
+.color-pallet-content p {
+        color: $mutedBaseColor;
+}
+
+.colorfull1,
+.background-colorfull1>.badge {
+        color: $colorfull1;
+}
+
+.colorfull2,
+.background-colorfull2>.badge {
+        color: $colorfull2;
+}
+
+.colorfull3,
+.background-colorfull3>.badge {
+        color: $colorfull3;
+}
+
+.background-colorfull1 {
+        background-color: $colorfull1;
+}
+
+.background-colorfull2 {
+        background-color: $colorfull2;
+}
+
+.background-colorfull3 {
+        background-color: $colorfull3;
+}
+
+.overlay-menu-toggler:hover,
+.checkbox input:checked~label i {
+        color: $highlightColor;
+}
+
+.blog .blog-image,
+.blog .blog-image .after,
+.blog .blog-intro,
+.blog .blog-intro img,
+.post-sidebar,
+.post-sidebar-toggle,
+.aside-contents,
+.search .form-group,
+.breadcrumb,
+.blog-single img,
+.comments img,
+.comments .commnet-image-border img,
+.comments-devider,
+.contact .form-item .form-group,
+.contact #message.toast,
+.pill-button,
+.button-border,
+.image-border img,
+.image-border,
+.color-switcher .color-pallet,
+.color-switcher .pallet-border,
+.pallet-button,
+.duties .image-border .box-hover-border,
+.box-border,
+.badge,
+.badge-border,
+.course-item img,
+.book-item>img,
+.skill-box .skillbar,
+.skill-box .fill-skillbar,
+.segmented-control,
+.radio-selection,
+.checkbox label,
+.range-slider__range,
+.modal-content,
+table,
+.display-content>.container,
+.range-slider__value,
+.portfolio-item-content,
+.portfolio-icon a,
+.portfolio-single img,
+.checkbox label,
+.testimonial .owl-carousel .owl-dot span,
+.skill-item,
+.color-scheme li a {
+        border-radius: $borderRadius;
+}

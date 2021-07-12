@@ -2,7 +2,7 @@ export class Style {
     onEnable() {
         this.init();
         this.setupEvents();
-        this.applyStyle();
+        // this.applyStyle();
         this.updateRadioUI();
     }
     ;

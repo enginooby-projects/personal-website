@@ -3,7 +3,7 @@ export const backgroundBaseColorSelectors = formatString([
 ]);
 
 export const backgroundHighlightColorSelectors = formatString([
-        ".bg-base-color",
+        ".bg-highlight-color",
         ".border-style",
         "#pp-nav li .active span",
         ".pp-slidesNav .active span"
@@ -74,7 +74,7 @@ export const borderRadiusSelectors = formatString([
         ".breadcrumb",
         ".blog-single img",
         ".comments img", //50%
-        ".comments .commnet-image-border img",
+        ".comments .commnet-image-border img", // 50%
         ".comments-devider",
         ".contact .form-item .form-group",
         ".contact #message.toast",
@@ -100,7 +100,14 @@ export const borderRadiusSelectors = formatString([
         ".modal-content",
         "table",
         ".display-content>.container",
-        ".range-slider__value"
+        ".range-slider__value",
+        ".portfolio-item-content",
+        ".portfolio-icon a",
+        ".portfolio-single img",
+        ".checkbox label",
+        ".testimonial .owl-carousel .owl-dot span",
+        ".skill-item",
+        ".color-scheme li a"
 ]);
 
 //HELPER

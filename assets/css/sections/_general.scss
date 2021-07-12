@@ -60,12 +60,10 @@ body {
         font-family: "Agency FB", sans-serif;
         font-weight: 400;
         font-size: 1.35rem !important;
-        background-color: #f1f3f6 !important;
 }
 
 .display-content>.container {
         padding: 14px;
-        border-radius: 15px;
 }
 
 .full-screen {
@@ -120,25 +118,7 @@ button {
 
 .box-border {
         background-color: #f1f3f6;
-        border-radius: 0.8rem;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
         padding: 15px 20px 7px;
-}
-
-.box-hover-border {
-        // background-color: #f1f3f6;
-        // border-radius: 1.25rem;
-        // box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-}
-
-.box-hover-border:hover {
-        // box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-}
-
-.button-border {
-        border-radius: $button-border;
-        display: inline-block;
-        padding: 1px;
 }
 
 .button-border button {
@@ -146,15 +126,11 @@ button {
 }
 
 .button-border {
-        // background-color: #f1f3f6;
-        border-radius: 1rem;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
         display: inline-block;
         padding: 1px;
 }
 
 .pill-button {
-        border-radius: $button-border;
         border: none;
         padding: 10px 30px;
         transition: all 0.3s ease;
@@ -166,14 +142,11 @@ button {
 
 .image-border {
         background-color: #f1f3f6;
-        border-radius: 1.25rem;
-        box-shadow: 3px 3px 8px rgba(55, 84, 170, 0.1), -3px -3px 8px white;
         padding: 5px;
 }
 
 .image-border img {
         width: 100%;
-        border-radius: 1rem;
 }
 
 .display-table {

@@ -1,4 +1,4 @@
-import * as ColorSelectors from './color-selectors.js';
+import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
@@ -59,10 +59,12 @@ export function init() {
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
     $("#highlight-color-picker").attr('value', highlightColor.hex);
-    updateSchemeColor(schemeColor.hex);
-    updateHighlightColor(highlightColor.hex);
+    // updateSchemeColor(schemeColor.hex);
+    // updateHighlightColor(highlightColor.hex);
     $('#border-radius').attr('value', borderRadius);
     $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
+    console.log('>>>>>>>>>>');
+    console.log(Selectors.borderRadiusSelectors);
 }
 function setupEvents() {
     setupColorPickerEvents();
@@ -160,8 +162,8 @@ function setupCommonClickEvents() {
 function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
     console.log(highlightColor);
-    $(ColorSelectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
-    $(ColorSelectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+    $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
+    $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
     currentStyle.updateRadioUI();
     currentStyle.updateCheckboxUI();
     currentStyle.applyStyle();
@@ -170,10 +172,10 @@ function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
     updateBaseColor();
     // update selectors
-    $(ColorSelectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
-    $(ColorSelectors.colorBaseColorSelectors).css("color", baseColor);
-    $(ColorSelectors.backgroundBaseColorSelectors).css("background-color", baseColor);
-    $(ColorSelectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
+    $(Selectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
+    $(Selectors.colorBaseColorSelectors).css("color", baseColor);
+    $(Selectors.backgroundBaseColorSelectors).css("background-color", baseColor);
+    $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
     updatePseudoElements();
     currentStyle.applyStyle();
 }
@@ -206,7 +208,7 @@ function setupRangeSliderEvents() {
     });
 }
 function updateBorder() {
-    $(ColorSelectors.borderRadiusSelectors).css('border-radius', borderRadius);
+    $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
     $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
     // TODO; not working
     // sliderThumbRule.style.borderRadius = borderRadius.toString();         

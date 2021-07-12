@@ -64,6 +64,16 @@
         border-left: 2px solid;
 }
 
+.rtl .timeline-items .timeline-border {
+        border-left: none !important;
+        border-right: 2px solid;
+}
+
+.rtl .timeline-items .timeline-icon {
+        left: inherit !important;
+        right: -9px !important;
+}
+
 .timeline-item::before {
         display: none;
 }
