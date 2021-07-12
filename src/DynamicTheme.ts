@@ -33,6 +33,9 @@ export let sliderThumbRule: CSSStyleRule;
 export let sliderThumbHoverRule: CSSStyleRule;
 export let sliderTrackForcusRule: CSSStyleRule;
 export let colorSwatchRule: CSSStyleRule;
+export let radioLabelHoverRule: CSSStyleRule;
+export let radioLabelCheckedRule: CSSStyleRule;
+
 
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
@@ -75,6 +78,8 @@ export function init() {
         sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)] as CSSStyleRule;
         sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)] as CSSStyleRule;
         sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)] as CSSStyleRule;
+        radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)] as CSSStyleRule;
+        radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)] as CSSStyleRule;
         colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();

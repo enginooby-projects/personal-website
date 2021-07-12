@@ -98,15 +98,6 @@ export class NeuStyle extends Style {
         if (this.localEventsAreSetup)
             return;
         this.localEventsAreSetup = true;
-        $(".segmented-control label").on('mouseenter', function () {
-            $(this).css('color', DynamicTheme.highlightColor.hex);
-        });
-        $(".segmented-control label").on('mouseleave', function () {
-            const radioId = $(this).attr('for');
-            if ($(`#${radioId}`).is(':checked'))
-                return;
-            $(this).css('color', '');
-        });
         $(hoverInsetBoxShadowSelectors).hover((event) => {
             const target = event.currentTarget;
             this.updateLastHoverElement(target, 'box-shadow', target.style.boxShadow);
@@ -173,6 +164,8 @@ export class NeuStyle extends Style {
     }
     onHighlightColorUpdated() {
         $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
+        DynamicTheme.radioLabelHoverRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+        DynamicTheme.radioLabelCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
         this.updateCheckboxUI();
         this.updateRadioUI();
     }

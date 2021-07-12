@@ -74,6 +74,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         }
 
         .pill-button,
+        // RADIO
         .segmented-control>input:checked+label,
         .segmented-control>input:hover+label {
                 color: $highlightColor;

@@ -25,6 +25,8 @@ export let sliderThumbRule;
 export let sliderThumbHoverRule;
 export let sliderTrackForcusRule;
 export let colorSwatchRule;
+export let radioLabelHoverRule;
+export let radioLabelCheckedRule;
 let placeholderRule;
 let papePilingTooltipRule;
 let selectionRule;
@@ -61,6 +63,8 @@ export function init() {
     sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
     sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)];
     sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)];
+    radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)];
+    radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)];
     colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
