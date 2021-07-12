@@ -97,7 +97,10 @@ export class NeuStyle extends Style {
         $(`${hoverInsetBoxShadowSelectors}, .segmented-control label, .range-slider__range`).off('mouseenter mouseleave');
         $('.segmented-control input, .checkbox input').off('click');
     }
-    revertStyle() { }
+    revertStyle() {
+        DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+        DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
+    }
     setupEvents() {
         this.setupRangeSliderEvents(); // does not need to remove those events whose elements  belonging to only this style
         $(".segmented-control label").on('mouseenter', function () {
@@ -149,15 +152,22 @@ export class NeuStyle extends Style {
             return;
         $(element).css(this.originalProperty, this.originalPropertyValue);
     }
-    applyStyle() {
+    onHighlightColorUpdated() {
+        $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
+        this.updateCheckboxUI();
+        this.updateRadioUI();
+    }
+    onSchemeColorUpdated() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
+        $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
+        this.updateBoxShadows();
+    }
+    updateBoxShadows() {
         this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
         this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
-        $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
-        $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
         $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
         $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
         $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
@@ -218,13 +228,14 @@ export class NeuStyle extends Style {
                     break;
                 case 'light-intensity':
                     this.lightenIntensity = parseInt(newValue);
+                    this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                     break;
                 case 'dark-intensity':
                     this.darkenIntensity = parseInt(newValue);
+                    this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                     break;
             }
-            //TODO: Seperate update functions
-            this.applyStyle();
+            this.updateBoxShadows();
         });
     }
     ;

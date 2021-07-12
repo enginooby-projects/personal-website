@@ -159,24 +159,22 @@ function setupCommonClickEvents() {
 }
 function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
-    console.log(highlightColor);
     $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-    currentStyle.updateRadioUI();
-    currentStyle.updateCheckboxUI();
-    currentStyle.applyStyle();
+    currentStyle.onHighlightColorUpdated();
 }
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
     updateBaseColor();
-    // update selectors
+    updateCommonElements();
+    updatePseudoElements();
+    currentStyle.onSchemeColorUpdated();
+}
+function updateCommonElements() {
     $(Selectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
     $(Selectors.colorBaseColorSelectors).css("color", baseColor);
     $(Selectors.backgroundBaseColorSelectors).css("background-color", baseColor);
     $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
-    updatePseudoElements();
-    currentStyle.applyStyle();
-    // currentStyle.setupEvents();
 }
 function updatePseudoElements() {
     thumbScrollbarRule.style.background = schemeColor.hex;

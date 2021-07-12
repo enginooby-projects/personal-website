@@ -105,24 +105,22 @@ export class FlatStyle extends Style {
             }
         });
     }
-    applyStyle() {
-        this.updateColor();
-        DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
-        DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
-        DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
-        DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
-    }
-    //TODO: Separate update functions for highlight, scheme, colorfull elements
-    updateColor() {
+    onHighlightColorUpdated() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(lightenIntensity);
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(darkenIntensity);
         $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
-        $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
+        $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
+        DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
+        DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+    }
+    onSchemeColorUpdated() {
+        $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
-        $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
         DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.highlightColor.hex;
+        this.updateCheckboxUI();
+        this.updateRadioUI();
     }
     updateRadioUI() {
         $("input[type='radio']:checked").each(function () {

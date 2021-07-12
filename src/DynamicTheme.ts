@@ -183,26 +183,24 @@ function setupCommonClickEvents() {
 
 function updateHighlightColor(hex: string) {
         highlightColor.setHex(hex);
-        console.log(highlightColor);
         $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-        currentStyle.updateRadioUI();
-        currentStyle.updateCheckboxUI();
-        currentStyle.applyStyle();
+        currentStyle.onHighlightColorUpdated();
 }
 
 function updateSchemeColor(hex: string) {
         schemeColor.setHex(hex);
         updateBaseColor();
+        updateCommonElements();
+        updatePseudoElements();
+        currentStyle.onSchemeColorUpdated();
+}
 
-        // update selectors
+function updateCommonElements() {
         $(Selectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
         $(Selectors.colorBaseColorSelectors).css("color", baseColor);
         $(Selectors.backgroundBaseColorSelectors).css("background-color", baseColor);
         $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
-        updatePseudoElements();
-        currentStyle.applyStyle();
-        // currentStyle.setupEvents();
 }
 
 function updatePseudoElements() {
@@ -223,6 +221,7 @@ function updateBaseColor() {
                 currentStyle.updateCheckboxUI();
         }
 }
+
 function setupRangeSliderEvents() {
         $("#border-radius").on('input', (event) => {
                 const newValue = (event.target as HTMLInputElement).value;

@@ -3,13 +3,11 @@ import * as DynamicTheme from './DynamicTheme.js';
 export abstract class Style {
         onEnable(): void {
                 this.init();
-                // this.setupEvents();
-                // this.applyStyle();
+                this.setupEvents();
                 // this.updateRadioUI();
         };
-        abstract init(): void;
         abstract setupEvents(): void;
-        abstract applyStyle(): void;
+        abstract init(): void;
 
         onDisable(): void {
                 this.removeEvents();
@@ -21,6 +19,9 @@ export abstract class Style {
         abstract updateRadioUI(): void;
         abstract updateCheckboxUI(): void;
         abstract resetInactiveButtons(currentActiveButton: HTMLElement): void;
+
         //TODO:  events from DynamicTheme
+        abstract onHighlightColorUpdated(): void;
+        abstract onSchemeColorUpdated(): void;
 }
 

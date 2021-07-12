@@ -118,9 +118,6 @@ export class GlassStyle extends Style {
             }
         }
     }
-    updateLightenSchemeColor() {
-        this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
-    }
     initRangeSliders() {
         $('#glass-transparency').attr('value', this.transparency);
         $("#glass-transparency").next('.range-slider__value').html(this.transparency.toString());
@@ -149,24 +146,6 @@ export class GlassStyle extends Style {
             }
         });
     }
-    updateTransparency() {
-        $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
-        $(backgroundGlassSchemeColorSelectors).css('background-color', this.formatRgba(DynamicTheme.schemeColor));
-        $(backgroundGlassLightenSchemeColorSelectors).css('background-color', this.formatRgba(this.lightenSchemeColor));
-        $(backgroundGlassColorfull1Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull1));
-        $(backgroundGlassColorfull2Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull2));
-        $(backgroundGlassColorfull3Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull3));
-        $(backgroundGlassActiveButtonSelectors).css({
-            'background-color': `rgba(255, 255, 255, ${this.transparency})`,
-            'color': DynamicTheme.highlightColor.hex
-        });
-        DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
-        DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
-        DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
-    }
-    formatRgba(color) {
-        return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
-    }
     updateBlur() {
         $(borderSizeBlurDependentSelectors).css({
             'backdrop-filter': `blur(${this.blur}px)`,
@@ -178,14 +157,39 @@ export class GlassStyle extends Style {
             'border': `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`,
         });
     }
-    applyStyle() {
-        this.updateLightenSchemeColor();
-        this.updateTransparency();
-        this.updateBlur();
-        this.updateBorderSize();
+    updateTransparency() {
+        this.updateTransparencySchemeColor();
+        this.updateTransparencyHighlightColor();
+        $(backgroundGlassColorfull1Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull1));
+        $(backgroundGlassColorfull2Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull2));
+        $(backgroundGlassColorfull3Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull3));
+    }
+    updateTransparencyHighlightColor() {
+        $(backgroundGlassActiveButtonSelectors).css({
+            'background-color': `rgba(255, 255, 255, ${this.transparency})`,
+            'color': DynamicTheme.highlightColor.hex
+        });
+        DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
+        DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
+        $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
+    }
+    updateTransparencySchemeColor() {
+        $(backgroundGlassSchemeColorSelectors).css('background-color', this.formatRgba(DynamicTheme.schemeColor));
+        $(backgroundGlassLightenSchemeColorSelectors).css('background-color', this.formatRgba(this.lightenSchemeColor));
+        DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
+    }
+    formatRgba(color) {
+        return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
+    }
+    onHighlightColorUpdated() {
+        this.updateCheckboxUI();
+        this.updateRadioUI();
+        this.updateTransparencyHighlightColor();
         $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
-        DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
-        DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
+    }
+    onSchemeColorUpdated() {
+        this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
+        this.updateTransparencySchemeColor();
     }
     updateRadioUI() {
     }

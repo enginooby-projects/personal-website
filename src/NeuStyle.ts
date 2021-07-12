@@ -107,7 +107,10 @@ export class NeuStyle extends Style {
                 $('.segmented-control input, .checkbox input').off('click');
         }
 
-        revertStyle() { }
+        revertStyle() {
+                DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+                DynamicTheme.sliderThumbFocusRule.style.boxShadow = 'none';
+        }
 
         setupEvents(): void {
                 this.setupRangeSliderEvents(); // does not need to remove those events whose elements  belonging to only this style
@@ -176,27 +179,34 @@ export class NeuStyle extends Style {
                 $(element).css(this.originalProperty, this.originalPropertyValue);
         }
 
-        applyStyle(): void {
+        onHighlightColorUpdated(): void {
+                $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
+                this.updateCheckboxUI();
+                this.updateRadioUI();
+        }
+
+        onSchemeColorUpdated(): void {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
+                $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
+                this.updateBoxShadows();
+        }
+
+        private updateBoxShadows() {
                 this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
                 this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
-                this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`;         // TODO: Does not look good!
+                this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
                 this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
 
-                $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
-                $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
                 $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
                 $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
                 $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
-
                 DynamicTheme.trackScrollbarRule.style.setProperty('box-shadow', this.insetBoxShadow, 'important');
                 DynamicTheme.trackScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
                 DynamicTheme.thumbScrollbarRule.style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
                 DynamicTheme.thumbScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
                 DynamicTheme.sliderThumbRule.style.setProperty('box-shadow', this.dropBoxShadow, 'important');
                 DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
-
                 DynamicTheme.sliderThumbFocusRule.style.boxShadow = this.concaveBoxShadow;
                 DynamicTheme.sliderThumbFocusRule.style.backgroundColor = DynamicTheme.schemeColor.hex;
                 // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
@@ -261,13 +271,14 @@ export class NeuStyle extends Style {
                                         break;
                                 case 'light-intensity':
                                         this.lightenIntensity = parseInt(newValue);
+                                        this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                                         break;
                                 case 'dark-intensity':
                                         this.darkenIntensity = parseInt(newValue);
+                                        this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                                         break;
                         }
-                        //TODO: Seperate update functions
-                        this.applyStyle();
+                        this.updateBoxShadows();
                 });
         };
 }
