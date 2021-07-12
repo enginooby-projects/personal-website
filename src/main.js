@@ -116,46 +116,16 @@ function pagePilling() {
                         } else {
                                 // $(".special-section").css('color', ColorModule.baseColor);
                         }
-
-                        if (nextIndex == 1 && $('.section.hero').hasClass("speacial-hero")) {
-                                // $("#pp-nav li span").css('backgroundColor', '#fff');
-                        } else {
-                                // $("#pp-nav li span").css('backgroundColor', ColorModule.baseColor);
-                        }
-
-                        if (nextIndex == 1 && $('.section.hero').hasClass("speacial-hero")) {
-                                // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
-                        } else {
-                                // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
-                        }
-                        $("#pp-nav li span").css('background-color', DynamicTheme.baseColor);
                 },
                 afterLoad: function (anchorLink, index) {
-                        $("#pp-nav li .active span").css('backgroundColor', DynamicTheme.highlightColor);
                 },
                 afterRender: function (index) {
-                        $("#pp-nav li span").css('background-color', DynamicTheme.baseColor);
-                        $("#pp-nav li .active span").css('backgroundColor', DynamicTheme.highlightColor);
-                        if (index > 1) {
-                                // $(".special-section").css('color', ColorModule.baseColor);
-                        } else {
-                                // $(".special-section").css('color', '#fff');
-                        }
-
-                        if (index > 1 && $('.section.hero').hasClass("speacial-hero")) {
-                                // $("#pp-nav li span").css('backgroundColor', ColorModule.baseColor);
-                        }
-                        else if ($('.section.hero').hasClass("speacial-hero")) {
-                                // $("#pp-nav li span").css('backgroundColor', '#fff');
-                        }
-
                         if (index > 1 && $('.section.hero').hasClass("speacial-hero")) {
                                 // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
                         }
                         else if ($('.section.hero').hasClass("speacial-hero")) {
                                 // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
                         }
-
                 },
         });
 }

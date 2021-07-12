@@ -42,6 +42,8 @@ export let checkboxNameCheckedRule: CSSStyleRule;
 export let checkboxIconCheckedRule: CSSStyleRule;
 export let checkboxNameUncheckedRule: CSSStyleRule;
 export let checkboxIconUncheckedRule: CSSStyleRule;
+export let pagePillingSpanActiveRule: CSSStyleRule;
+export let pagePillingSpanInactiveRule: CSSStyleRule;
 
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
@@ -94,6 +96,8 @@ export function init() {
         checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)] as CSSStyleRule;
         checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)] as CSSStyleRule;
         checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)] as CSSStyleRule;
+        pagePillingSpanActiveRule = cssRules[styleSheet.insertRule(` #pp-nav li .active span {}`)] as CSSStyleRule;
+        pagePillingSpanInactiveRule = cssRules[styleSheet.insertRule(` #pp-nav li :not(.active) span {}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor.hex);
@@ -183,6 +187,7 @@ function updateHighlightColor(hex: string) {
         highlightColor.setHex(hex);
         $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+        pagePillingSpanActiveRule.style.setProperty('background-color', highlightColor.hex, 'important');
         setupCommonHoverEvents();
         setupCommonClickEvents();
         currentStyle.onHighlightColorUpdated();
@@ -248,6 +253,7 @@ function updateBaseColor() {
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
 
         if (lastBaseColor != baseColor) {
+                pagePillingSpanInactiveRule.style.setProperty('background-color', baseColor, 'important');
                 currentStyle.onBaseColorUpdated();
                 //TODO: revoke onBaseColorChangedEvent
         }

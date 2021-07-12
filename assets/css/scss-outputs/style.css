@@ -4188,14 +4188,16 @@ body,
   background-color: #D4D4D4;
 }
 
+.bg-highlight-color,
+.border-style {
+  background-color: #055CB3;
+}
+
 #pp-nav li :not(.active) span {
   background-color: #212529;
 }
 
-.bg-highlight-color,
-.border-style,
-#pp-nav li .active span,
-.pp-slidesNav .active span {
+#pp-nav li .active span {
   background-color: #055CB3;
 }
 

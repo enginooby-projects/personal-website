@@ -1,12 +1,9 @@
 export const backgroundBaseColorSelectors = formatString([
-        "#pp-nav li :not(.active) span",
 ]);
 
 export const backgroundHighlightColorSelectors = formatString([
         ".bg-highlight-color",
         ".border-style",
-        "#pp-nav li .active span",
-        ".pp-slidesNav .active span"
 ]);
 
 export const backgroundSchemeColorSelectors = formatString([
@@ -43,7 +40,7 @@ export const colorBaseColorSelectors = formatString([
         ".overlay-menu-toggler",
         ".modal-title",
         ".portfolio-single .close",
-        ".pp-tooltip"
+        ".pp-tooltip",
 ]);
 
 export const colorMutedBaseColorSelectors = formatString([

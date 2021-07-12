@@ -33,6 +33,8 @@ export let checkboxNameCheckedRule;
 export let checkboxIconCheckedRule;
 export let checkboxNameUncheckedRule;
 export let checkboxIconUncheckedRule;
+export let pagePillingSpanActiveRule;
+export let pagePillingSpanInactiveRule;
 let placeholderRule;
 let papePilingTooltipRule;
 let selectionRule;
@@ -78,6 +80,8 @@ export function init() {
     checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)];
     checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)];
     checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)];
+    pagePillingSpanActiveRule = cssRules[styleSheet.insertRule(` #pp-nav li .active span {}`)];
+    pagePillingSpanInactiveRule = cssRules[styleSheet.insertRule(` #pp-nav li :not(.active) span {}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
     $("#highlight-color-picker").attr('value', highlightColor.hex);
@@ -158,6 +162,7 @@ function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
     $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+    pagePillingSpanActiveRule.style.setProperty('background-color', highlightColor.hex, 'important');
     setupCommonHoverEvents();
     setupCommonClickEvents();
     currentStyle.onHighlightColorUpdated();
@@ -213,6 +218,7 @@ function updateBaseColor() {
     const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
     if (lastBaseColor != baseColor) {
+        pagePillingSpanInactiveRule.style.setProperty('background-color', baseColor, 'important');
         currentStyle.onBaseColorUpdated();
         //TODO: revoke onBaseColorChangedEvent
     }
