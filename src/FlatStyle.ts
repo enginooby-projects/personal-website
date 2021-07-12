@@ -149,36 +149,6 @@ export class FlatStyle extends Style {
                 $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
                 $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
                 DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.highlightColor.hex;
-                this.updateCheckboxUI();
-                this.updateRadioUI();
-        }
-
-        updateRadioUI(): void {
-                $("input[type='radio']:checked").each(
-                        function () {
-                                $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
-                        }
-                );
-                $("input[type='radio']:not(:checked)").each(
-                        function () {
-                                $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
-                        }
-                );
-        }
-
-        updateCheckboxUI(): void {
-                $("input[type='checkbox']:checked").each(
-                        function () {
-                                $("label[for='" + this.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
-                                $("label[for='" + this.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
-                        }
-                );
-                $("input[type='checkbox']:not(:checked)").each(
-                        function () {
-                                $("label[for='" + this.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
-                                $("label[for='" + this.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
-                        }
-                );
         }
 
         resetInactiveButtons(currentActiveButton: HTMLElement): void {

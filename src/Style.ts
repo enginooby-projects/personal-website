@@ -21,8 +21,6 @@ export abstract class Style {
         abstract removeLocalEvents(): void;
         abstract revertStyle(): void;
 
-        abstract updateRadioUI(): void;
-        abstract updateCheckboxUI(): void;
         abstract resetInactiveButtons(currentActiveButton: HTMLElement): void;
 
         abstract onHighlightColorUpdated(): void;

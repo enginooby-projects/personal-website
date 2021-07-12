@@ -186,18 +186,12 @@ export class GlassStyle extends Style {
         return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
     }
     onHighlightColorUpdated() {
-        this.updateCheckboxUI();
-        this.updateRadioUI();
         this.updateTransparencyHighlightColor();
         $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
     }
     onSchemeColorUpdated() {
         this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
         this.updateTransparencySchemeColor();
-    }
-    updateRadioUI() {
-    }
-    updateCheckboxUI() {
     }
     resetInactiveButtons(currentActiveButton) {
         $('#portfolio .pill-button').not(currentActiveButton).css({

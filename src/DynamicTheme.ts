@@ -33,9 +33,12 @@ export let sliderThumbRule: CSSStyleRule;
 export let sliderThumbHoverRule: CSSStyleRule;
 export let sliderTrackForcusRule: CSSStyleRule;
 export let colorSwatchRule: CSSStyleRule;
+
 export let radioLabelHoverRule: CSSStyleRule;
 export let radioLabelCheckedRule: CSSStyleRule;
-
+export let checkboxLabelHoverRule: CSSStyleRule;
+export let checkboxNameCheckedRule: CSSStyleRule;
+export let checkboxIconCheckedRule: CSSStyleRule;
 
 let placeholderRule: CSSStyleRule;
 let papePilingTooltipRule: CSSStyleRule;
@@ -78,9 +81,13 @@ export function init() {
         sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)] as CSSStyleRule;
         sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)] as CSSStyleRule;
         sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)] as CSSStyleRule;
+        colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
+
         radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)] as CSSStyleRule;
         radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)] as CSSStyleRule;
-        colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
+        checkboxLabelHoverRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)] as CSSStyleRule;
+        checkboxNameCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)] as CSSStyleRule;
+        checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)] as CSSStyleRule;
 
         styleRegistry = new StyleRegistry();
         $("#scheme-color-picker").attr('value', schemeColor.hex);
@@ -191,7 +198,7 @@ function setupCommonHoverEvents() {
         if (hoverEventsAreSetup) return;
         hoverEventsAreSetup = true;
 
-        $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i, .segmented-control label, .checkbox i").on('mouseenter', (event) => {
+        $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i").on('mouseenter', (event) => {
                 $(event.currentTarget).css('color', highlightColor.hex);
         });
 
@@ -202,34 +209,12 @@ function setupCommonHoverEvents() {
         $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
                 $(this).css('color', 'white');
         });
-
-        $(".segmented-control label").on('mouseleave', function () {
-                let id = $(this).attr("for");
-                // reset color if the  button not checked
-                if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-        });
-
-        $(".checkbox i").on('mouseleave', function () {
-                let id = $(this).parent().attr("for");
-                // reset color if the  button not checked
-                if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-        });
 }
 
 function setupCommonClickEvents() {
         // lazily setup
         if (clickEventsAreSetup) return;
         clickEventsAreSetup = true;
-
-        // reset color for unchecked radios
-        $(".segmented-control input").on('click', function () {
-                $(".segmented-control label[for='" + this.id + "']").css('color', baseColor);
-                $(".segmented-control input[type='radio']:not(:checked)").each(
-                        function () {
-                                $(".segmented-control label[for='" + this.id + "']").css('color', mutedBaseColor);
-                        }
-                );
-        });
 
         $('#portfolio .pill-button').on('click', function (this: HTMLElement) {
                 currentStyle.resetInactiveButtons(this);
@@ -257,8 +242,7 @@ function updateBaseColor() {
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
 
         if (lastBaseColor != baseColor) {
-                currentStyle.updateRadioUI();
-                currentStyle.updateCheckboxUI();
+                //TODO: revoke onBaseColorChangedEvent
         }
 }
 

@@ -4419,14 +4419,8 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
 }
 
-.neu-style .checkbox input:checked ~ label i {
-  color: #055CB3;
-}
-
-.neu-style .checkbox input:checked ~ label + .name {
-  color: #055CB3;
-}
-
+.neu-style .checkbox input:checked ~ label + .name,
+.neu-style .checkbox input:checked ~ label i,
 .neu-style .checkbox input:hover ~ label i {
   color: #055CB3;
 }

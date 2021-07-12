@@ -90,16 +90,10 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         // CHECKBOX
         .checkbox input:checked~label {
                 box-shadow: $insetBoxShadow;
-
-                i {
-                        color: $highlightColor;
-                }
         }
 
-        .checkbox input:checked~label+.name {
-                color: $highlightColor;
-        }
-
+        .checkbox input:checked~label+.name,
+        .checkbox input:checked~label i,
         .checkbox input:hover~label i {
                 color: $highlightColor;
         }
@@ -108,13 +102,13 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         ::-webkit-scrollbar-track {
                 box-shadow: $insetBoxShadow;
                 background-color: $schemeColor;
-                border-radius: $borderRadius; //TODO:  JS update
+                border-radius: $borderRadius;
         }
 
         ::-webkit-scrollbar-thumb {
                 box-shadow: $thumbScrollbarBoxShadow;
                 background-color: $schemeColor;
-                border-radius: $borderRadius; //TODO:  JS update
+                border-radius: $borderRadius;
         }
 
         // RANGE SLIDER 

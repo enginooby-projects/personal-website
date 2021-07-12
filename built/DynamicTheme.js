@@ -27,6 +27,9 @@ export let sliderTrackForcusRule;
 export let colorSwatchRule;
 export let radioLabelHoverRule;
 export let radioLabelCheckedRule;
+export let checkboxLabelHoverRule;
+export let checkboxNameCheckedRule;
+export let checkboxIconCheckedRule;
 let placeholderRule;
 let papePilingTooltipRule;
 let selectionRule;
@@ -63,9 +66,12 @@ export function init() {
     sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
     sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)];
     sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)];
+    colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
     radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)];
     radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)];
-    colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
+    checkboxLabelHoverRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)];
+    checkboxNameCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)];
+    checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)];
     styleRegistry = new StyleRegistry();
     $("#scheme-color-picker").attr('value', schemeColor.hex);
     $("#highlight-color-picker").attr('value', highlightColor.hex);
@@ -164,7 +170,7 @@ function setupCommonHoverEvents() {
     if (hoverEventsAreSetup)
         return;
     hoverEventsAreSetup = true;
-    $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i, .segmented-control label, .checkbox i").on('mouseenter', (event) => {
+    $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i").on('mouseenter', (event) => {
         $(event.currentTarget).css('color', highlightColor.hex);
     });
     $(".social a i").on('mouseleave', function () {
@@ -173,31 +179,12 @@ function setupCommonHoverEvents() {
     $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
         $(this).css('color', 'white');
     });
-    $(".segmented-control label").on('mouseleave', function () {
-        let id = $(this).attr("for");
-        // reset color if the  button not checked
-        if (!$("#" + id).prop("checked"))
-            $(this).css('color', mutedBaseColor);
-    });
-    $(".checkbox i").on('mouseleave', function () {
-        let id = $(this).parent().attr("for");
-        // reset color if the  button not checked
-        if (!$("#" + id).prop("checked"))
-            $(this).css('color', mutedBaseColor);
-    });
 }
 function setupCommonClickEvents() {
     // lazily setup
     if (clickEventsAreSetup)
         return;
     clickEventsAreSetup = true;
-    // reset color for unchecked radios
-    $(".segmented-control input").on('click', function () {
-        $(".segmented-control label[for='" + this.id + "']").css('color', baseColor);
-        $(".segmented-control input[type='radio']:not(:checked)").each(function () {
-            $(".segmented-control label[for='" + this.id + "']").css('color', mutedBaseColor);
-        });
-    });
     $('#portfolio .pill-button').on('click', function () {
         currentStyle.resetInactiveButtons(this);
     });
@@ -220,7 +207,6 @@ function updateBaseColor() {
     const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
     if (lastBaseColor != baseColor) {
-        currentStyle.updateRadioUI();
-        currentStyle.updateCheckboxUI();
+        //TODO: revoke onBaseColorChangedEvent
     }
 }

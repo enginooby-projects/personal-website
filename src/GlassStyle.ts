@@ -217,8 +217,6 @@ export class GlassStyle extends Style {
         }
 
         onHighlightColorUpdated(): void {
-                this.updateCheckboxUI();
-                this.updateRadioUI();
                 this.updateTransparencyHighlightColor();
                 $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         }
@@ -226,12 +224,6 @@ export class GlassStyle extends Style {
         onSchemeColorUpdated(): void {
                 this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
                 this.updateTransparencySchemeColor();
-        }
-
-        updateRadioUI(): void {
-        }
-
-        updateCheckboxUI(): void {
         }
 
         resetInactiveButtons(currentActiveButton: HTMLElement): void {

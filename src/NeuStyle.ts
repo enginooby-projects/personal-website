@@ -117,25 +117,25 @@ export class NeuStyle extends Style {
                         }
                 );
 
-                $(".segmented-control input").on('click', (event) => {
-                        $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
-                        $(".segmented-control input[type='radio']:not(:checked)").each(
-                                (i, currentElement) => {
-                                        $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
-                                }
-                        );
-                });
+                // $(".segmented-control input").on('click', (event) => {
+                //         $(".segmented-control label[for='" + event.currentTarget.id + "']").css('color', DynamicTheme.highlightColor.hex);
+                //         $(".segmented-control input[type='radio']:not(:checked)").each(
+                //                 (i, currentElement) => {
+                //                         $(".segmented-control label[for='" + currentElement.id + "']").css('color', DynamicTheme.mutedBaseColor);
+                //                 }
+                //         );
+                // });
 
-                $(".checkbox input").on('click', (event) => {
-                        if (!$(event.currentTarget).prop("checked")) {
-                                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
-                                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.dropBoxShadow);
-                        }
-                        else {
-                                $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
-                                $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
-                        }
-                });
+                // $(".checkbox input").on('click', (event) => {
+                //         if (!$(event.currentTarget).prop("checked")) {
+                //                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.mutedBaseColor);
+                //                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.dropBoxShadow);
+                //         }
+                //         else {
+                //                 $(event.currentTarget).siblings(".name").css('color', DynamicTheme.highlightColor.hex);
+                //                 $(".checkbox label[for='" + event.currentTarget.id + "']").css('box-shadow', this.concaveBoxShadow);
+                //         }
+                // });
         }
 
         removeLocalEvents() {
@@ -144,7 +144,7 @@ export class NeuStyle extends Style {
         }
 
         revertStyle() {
-                DynamicTheme.sliderThumbRule.style.boxShadow = 'none';
+                DynamicTheme.sliderThumbRule.style.boxShadow = 'none'; //TODO: css file
         }
 
         setupCustomizeEvents(): void {
@@ -189,8 +189,9 @@ export class NeuStyle extends Style {
                 $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
                 DynamicTheme.radioLabelHoverRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
                 DynamicTheme.radioLabelCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
-                this.updateCheckboxUI();
-                this.updateRadioUI();
+                DynamicTheme.checkboxLabelHoverRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                DynamicTheme.checkboxNameCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                DynamicTheme.checkboxIconCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
         }
 
         onSchemeColorUpdated(): void {
@@ -219,37 +220,6 @@ export class NeuStyle extends Style {
                 DynamicTheme.sliderThumbHoverRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
                 DynamicTheme.sliderTrackForcusRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
                 // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
-        }
-
-        updateRadioUI(): void {
-                $("input[type='radio']:checked").each(
-                        function () {
-                                $("label[for='" + this.id + "']").css('color', DynamicTheme.highlightColor.hex);
-                        }
-                );
-                $("input[type='radio']:not(:checked)").each(
-                        function () {
-                                $("label[for='" + this.id + "']").css('color', DynamicTheme.mutedBaseColor);
-                                // $(" label[for='" + this.id + "']").css('box-shadow', dropBoxShadow);
-                        }
-                );
-        }
-
-        updateCheckboxUI(): void {
-                $("input[type='checkbox']:checked").each(
-                        (i, currentElement) => {
-                                $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.highlightColor.hex);
-                                $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.highlightColor.hex);
-                                $("label[for='" + currentElement.id + "']").css('box-shadow', this.concaveBoxShadow);
-                        }
-                );
-                $("input[type='checkbox']:not(:checked)").each(
-                        (i, currentElement) => {
-                                $("label[for='" + currentElement.id + "'] i").css('color', DynamicTheme.mutedBaseColor);
-                                $("label[for='" + currentElement.id + "']").next().css('color', DynamicTheme.mutedBaseColor);
-                                $("label[for='" + currentElement.id + "']").css('box-shadow', this.dropBoxShadow);
-                        }
-                );
         }
 
         resetInactiveButtons(currentActiveButton: HTMLElement): void {
