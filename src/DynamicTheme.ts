@@ -40,6 +40,7 @@ let selectionRule: CSSStyleRule;
 let selectionOldFirefoxRule: CSSStyleRule;
 
 let hoverEventsAreSetup: boolean = false;
+let clickEventsAreSetup: boolean = false;
 
 function getStyleSheet() {
         for (let i = 0; i < document.styleSheets.length; i++) {
@@ -61,7 +62,7 @@ export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newS
 
 export function init() {
         getStyleSheet();
-        setupEvents();
+        setupCustomizeEvents();
 
         $squareImg = $(".hero-image .square img");
         cssRules = styleSheet.cssRules || styleSheet.rules;
@@ -86,9 +87,12 @@ export function init() {
         $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
 
-function setupEvents() {
+function setupCustomizeEvents() {
+        $("#color-switcher .pallet-button").on('click', function () {
+                $("#color-switcher .color-pallet").toggleClass('show');
+                $(this).toggleClass('active');
+        });
         setupColorPickerEvents();
-        setupCommonClickEvents();
         setupRangeSliderEvents();
 }
 
@@ -113,6 +117,26 @@ function setupColorPickerEvents() {
         });
 }
 
+function setupRangeSliderEvents() {
+        $("#border-radius").on('input', (event) => {
+                const newValue = (event.target as HTMLInputElement).value;
+                $("#" + event.target.id).next('.range-slider__value').text(newValue);
+                switch (event.target.id) {
+                        case 'border-radius':
+                                borderRadius = parseInt(newValue);
+                                break;
+                }
+                updateBorder();
+        });
+}
+
+function updateBorder() {
+        $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
+        $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
+        trackScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
+        thumbScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
+}
+
 function updateColorfull(colorfullNumber: number) {
         let colorfull: Color;
         let timelineSelector: string;
@@ -135,6 +159,27 @@ function updateColorfull(colorfullNumber: number) {
         $(`${timelineSelector!} .timeline-item`).css('border-left-color', colorfull!.hex);
         $(`.badge-pill.background-colorfull${colorfullNumber} .badge`).css('background', colorfull!.getInvertBlackWhite());
 };
+
+
+function updateHighlightColor(hex: string) {
+        highlightColor.setHex(hex);
+        $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
+        $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+        setupCommonHoverEvents();
+        setupCommonClickEvents();
+        currentStyle.onHighlightColorUpdated();
+}
+
+function updateSchemeColor(hex: string) {
+        schemeColor.setHex(hex);
+        updateBaseColor();
+        updateCommonElements();
+        updatePseudoElements();
+        setupCommonHoverEvents();
+        setupCommonClickEvents();
+        currentStyle.onSchemeColorUpdated();
+}
+
 
 function setupCommonHoverEvents() {
         // lazily setup
@@ -176,12 +221,11 @@ function setupCommonHoverEvents() {
 }
 
 function setupCommonClickEvents() {
-        $("#color-switcher .pallet-button").on('click', function () {
-                $("#color-switcher .color-pallet").toggleClass('show');
-                $(this).toggleClass('active');
-        });
+        // lazily setup
+        if (clickEventsAreSetup) return;
+        clickEventsAreSetup = true;
 
-        // reset color for unchecked buttons
+        // reset color for unchecked radios
         $(".segmented-control input").on('click', function () {
                 $(".segmented-control label[for='" + this.id + "']").css('color', baseColor);
                 $(".segmented-control input[type='radio']:not(:checked)").each(
@@ -190,25 +234,10 @@ function setupCommonClickEvents() {
                         }
                 );
         });
+
         $('#portfolio .pill-button').on('click', function (this: HTMLElement) {
                 currentStyle.resetInactiveButtons(this);
         });
-}
-
-function updateHighlightColor(hex: string) {
-        highlightColor.setHex(hex);
-        $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
-        $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-        currentStyle.onHighlightColorUpdated();
-        setupCommonHoverEvents();
-}
-
-function updateSchemeColor(hex: string) {
-        schemeColor.setHex(hex);
-        updateBaseColor();
-        updateCommonElements();
-        updatePseudoElements();
-        currentStyle.onSchemeColorUpdated();
 }
 
 function updateCommonElements() {
@@ -235,25 +264,5 @@ function updateBaseColor() {
                 currentStyle.updateRadioUI();
                 currentStyle.updateCheckboxUI();
         }
-}
-
-function setupRangeSliderEvents() {
-        $("#border-radius").on('input', (event) => {
-                const newValue = (event.target as HTMLInputElement).value;
-                $("#" + event.target.id).next('.range-slider__value').text(newValue);
-                switch (event.target.id) {
-                        case 'border-radius':
-                                borderRadius = parseInt(newValue);
-                                break;
-                }
-                updateBorder();
-        });
-}
-
-function updateBorder() {
-        $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
-        $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
-        trackScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
-        thumbScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
 }
 
