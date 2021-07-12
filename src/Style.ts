@@ -4,7 +4,7 @@ export abstract class Style {
         onEnable(): void {
                 this.init();
                 this.setupEvents();
-                // this.applyStyle();
+                this.applyStyle();
                 this.updateRadioUI();
         };
         abstract init(): void;
