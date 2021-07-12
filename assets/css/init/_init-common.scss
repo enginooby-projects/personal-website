@@ -105,7 +105,10 @@ body,
 }
 
 .overlay-menu-toggler:hover,
-.checkbox input:checked~label i {
+.checkbox input:checked~label i,
+.social i:hover,
+.list-inline.socials li a i:hover,
+#myMenu li a:hover {
         color: $highlightColor;
 }
 

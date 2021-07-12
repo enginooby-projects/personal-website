@@ -1,6 +1,6 @@
 import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
-import { lightBaseValue } from './Color.js';
+import { darkBaseValue, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
 export let styleSheet;
 export let cssRules;
@@ -12,10 +12,10 @@ export let colorfull3 = new TinyColor("#e93666");
 // export let schemeColor: Color = new TinyColor("#680317");
 export let schemeColor = new TinyColor("#D4D4D4");
 export let highlightColor = new TinyColor("#055CB3");
-export let baseColor;
-export let mutedBaseColor;
+export let baseColor = darkBaseValue;
 const lightMutedBaseColor = "#b2b2b2";
 const darkMutedBaseColor = "#4D4D4D";
+export let mutedBaseColor = darkMutedBaseColor;
 export let currentStyle;
 let styleRegistry;
 // PSEUDO RULES
@@ -29,6 +29,7 @@ let placeholderRule;
 let papePilingTooltipRule;
 let selectionRule;
 let selectionOldFirefoxRule;
+let hoverEventsAreSetup = false;
 function getStyleSheet() {
     for (let i = 0; i < document.styleSheets.length; i++) {
         let cursheet = document.styleSheets[i];
@@ -70,7 +71,6 @@ export function init() {
 }
 function setupEvents() {
     setupColorPickerEvents();
-    setupCommonHoverEvents();
     setupCommonClickEvents();
     setupRangeSliderEvents();
 }
@@ -117,7 +117,11 @@ function updateColorfull(colorfullNumber) {
 }
 ;
 function setupCommonHoverEvents() {
-    $(".social a i, .list-inline.socials li a i")
+    // lazily setup
+    if (hoverEventsAreSetup)
+        return;
+    hoverEventsAreSetup = true;
+    $(".social a i")
         .on('mouseenter', function () {
         $(this).css('color', highlightColor.hex);
     }).on('mouseleave', function () {
@@ -129,20 +133,24 @@ function setupCommonHoverEvents() {
     }).on('mouseleave', function () {
         $(this).css('color', 'white');
     });
+    $(".segmented-control label").on('mouseenter', function () {
+        $(this).css('color', highlightColor.hex);
+    });
     $(".segmented-control label").on('mouseleave', function () {
         let id = $(this).attr("for");
         // reset color if the  button not checked
         if (!$("#" + id).prop("checked"))
             $(this).css('color', mutedBaseColor);
     });
-    // $(".checkbox i")
-    //         .on('mouseenter', function () {
-    //                 $(this).css('color', highlightColor.hex);
-    //         }).on('mouseleave', function () {
-    //                 let id = $(this).parent().attr("for");
-    //                 // reset color if the  button not checked
-    //                 if (!$("#" + id).prop("checked")) $(this).css('color', mutedBaseColor);
-    //         });
+    $(".checkbox i")
+        .on('mouseenter', function () {
+        $(this).css('color', highlightColor.hex);
+    }).on('mouseleave', function () {
+        let id = $(this).parent().attr("for");
+        // reset color if the  button not checked
+        if (!$("#" + id).prop("checked"))
+            $(this).css('color', mutedBaseColor);
+    });
 }
 function setupCommonClickEvents() {
     $("#color-switcher .pallet-button").on('click', function () {
@@ -165,6 +173,7 @@ function updateHighlightColor(hex) {
     $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
     currentStyle.onHighlightColorUpdated();
+    setupCommonHoverEvents();
 }
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
