@@ -209,11 +209,11 @@ function setupCommonHoverEvents() {
         if (hoverEventsAreSetup) return;
         hoverEventsAreSetup = true;
 
-        $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i").on('mouseenter', (event) => {
+        $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i,.overlay-menu-toggler").on('mouseenter', (event) => {
                 $(event.currentTarget).css('color', highlightColor.hex);
         });
 
-        $(".social a i").on('mouseleave', function () {
+        $(".social a i,.overlay-menu-toggler").on('mouseleave', function () {
                 $(this).css('color', baseColor);
         });
 
