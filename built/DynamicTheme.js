@@ -210,8 +210,6 @@ function setupRangeSliderEvents() {
 function updateBorder() {
     $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
     $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
-    // TODO; not working
-    // sliderThumbRule.style.borderRadius = borderRadius.toString() + 'px';
-    // thumbScrollbarRule.style.borderRadius = borderRadius.toString();
-    // trackScrollbarRule.style.borderRadius = borderRadius.toString();
+    trackScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
+    thumbScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
 }

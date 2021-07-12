@@ -68,8 +68,8 @@ function formatString(selectorsArray) {
 export class NeuStyle extends Style {
     constructor() {
         super();
-        this.lightenSchemeColor = "#ffffff";
-        this.darkenSchemeColor = "#dcdee2";
+        this.lightenSchemeColor = "#e6e6e6";
+        this.darkenSchemeColor = "#c2c2c2";
         this.insetBoxShadow = '';
         this.dropBoxShadow = '';
         this.concaveBoxShadow = '';
@@ -151,11 +151,9 @@ export class NeuStyle extends Style {
                     break;
                 case 'light-intensity':
                     this.lightenIntensity = parseInt(newValue);
-                    this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                     break;
                 case 'dark-intensity':
                     this.darkenIntensity = parseInt(newValue);
-                    this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                     break;
             }
             this.updateBoxShadows();
@@ -179,13 +177,13 @@ export class NeuStyle extends Style {
         this.updateRadioUI();
     }
     onSchemeColorUpdated() {
-        this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
-        this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
         $(backgroundSchemeColorSelectors).css("background-color", DynamicTheme.schemeColor.hex);
         this.updateBoxShadows();
         this.setupLocalEvents();
     }
     updateBoxShadows() {
+        this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
+        this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
         this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
