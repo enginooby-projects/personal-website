@@ -35,15 +35,14 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         }
 
         .pill-button.active,
+        .pallet-button.active,
+        .theme-skin .pill-button.active,
         .custom-scrollbar,
         .blog .blog-image .after,
-        .pal-button.active,
         .skill-boxes .box-border,
         .color-pallet,
         .timeline-items.box-border,
-        .range-slider__range,
-        .pallet-button.active,
-        .theme-skin .pill-button.active {
+        .range-slider__range {
                 box-shadow: $insetBoxShadow;
         }
 
@@ -68,13 +67,13 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .theme-skin .pill-button,
         .pill-button.active,
         .pill-button,
-        .neu-style .display-content>.container,
-        .neu-style .pallet-button {
+        .display-content>.container,
+        .pallet-button {
                 background-color: $schemeColor;
         }
 
         // RADIO
-        .segmented-control>input:not(:checked)+label {
+        .segmented-control>input:not(:checked):not(:hover)+label {
                 color: $mutedBaseColor;
         }
 
@@ -84,6 +83,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 color: $highlightColor;
         }
 
+        // HOVER
         .pill-button:hover,
         .badge-border:hover,
         table>tbody>tr:hover,
@@ -96,7 +96,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 box-shadow: $insetBoxShadow;
         }
 
-        .checkbox input:not(:checked)~label i,
+        .checkbox input:not(:checked):not(:hover)~label i,
         .checkbox input:not(:checked)~label+.name {
                 color: $mutedBaseColor;
         }
@@ -126,12 +126,9 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 box-shadow: $dropBoxShadow;
         }
 
-        ::-webkit-slider-thumb:hover {
-                box-shadow: #{$concaveBoxShadow};
-        }
-
+        ::-webkit-slider-thumb:hover,
         input[type=range]:focus {
-                box-shadow:#{$concaveBoxShadow};
+                box-shadow: #{$concaveBoxShadow};
         }
 
         // input[type=range]:focus::-webkit-slider-thumb {

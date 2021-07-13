@@ -26,6 +26,8 @@ export class StyleRuleStore {
         private selectionRule?: CSSStyleRule;
         private selectionOldFirefoxRule?: CSSStyleRule;
         // Stateful rules (hover, active, focus...)
+        private buttonActiveRule?: CSSStyleRule;
+        private buttonInactiveRule?: CSSStyleRule;
         private radioLabelHoverRule?: CSSStyleRule;
         private radioLabelCheckedRule?: CSSStyleRule;
         private radioLabelUncheckedRule?: CSSStyleRule;
@@ -49,6 +51,8 @@ export class StyleRuleStore {
 
         private insertEmptyRule = (selector: string): CSSStyleRule => this.cssRules![this.styleSheet!.insertRule(`${selector} {}`)] as CSSStyleRule;
 
+        getButtonActiveRule = (): CSSStyleRule => this.buttonActiveRule ?? (this.buttonActiveRule = this.insertEmptyRule('.pill-button.active, .pallet-button.active, .pill-button:hover'));
+        getButtonInactiveRule = (): CSSStyleRule => this.buttonInactiveRule ?? (this.buttonInactiveRule = this.insertEmptyRule('.pill-button:not(.active), .pallet-button:not(.active)'));
         getTrackScrollbarRule = (): CSSStyleRule => this.trackScrollbarRule ?? (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track'));
         getThumbScrollbarRule = (): CSSStyleRule => this.thumbScrollbarRule ?? (this.thumbScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-thumb'));
         getPlaceholderRule = (): CSSStyleRule => this.placeholderRule ?? (this.placeholderRule = this.insertEmptyRule('::placeholder'));
@@ -58,13 +62,13 @@ export class StyleRuleStore {
         getColorSwatchRule = (): CSSStyleRule => this.colorSwatchRule ?? (this.colorSwatchRule = this.insertEmptyRule('::-webkit-color-swatch'));
         getRadioLabelHoverRule = (): CSSStyleRule => this.radioLabelHoverRule ?? (this.radioLabelHoverRule = this.insertEmptyRule('.segmented-control>input:hover+label'));
         getRadioLabelCheckedRule = (): CSSStyleRule => this.radioLabelCheckedRule ?? (this.radioLabelCheckedRule = this.insertEmptyRule('.segmented-control>input:checked+label'));
-        getRadioLabelUncheckedRule = (): CSSStyleRule => this.radioLabelUncheckedRule ?? (this.radioLabelUncheckedRule = this.insertEmptyRule('.segmented-control>input:not(:checked)+label'));
+        getRadioLabelUncheckedRule = (): CSSStyleRule => this.radioLabelUncheckedRule ?? (this.radioLabelUncheckedRule = this.insertEmptyRule('.segmented-control>input:not(:checked):not(:hover)+label'));
         getCheckboxLabelCheckedRule = (): CSSStyleRule => this.checkboxLabelCheckedRule ?? (this.checkboxLabelCheckedRule = this.insertEmptyRule('.checkbox input:checked~label'));
         getCheckboxLabelHoverRule = (): CSSStyleRule => this.checkboxLabelHoverRule ?? (this.checkboxLabelHoverRule = this.insertEmptyRule('.checkbox input:hover~label i'));
         getCheckboxNameCheckedRule = (): CSSStyleRule => this.checkboxNameCheckedRule ?? (this.checkboxNameCheckedRule = this.insertEmptyRule('.checkbox input:checked~label+.name'));
         getCheckboxIconCheckedRule = (): CSSStyleRule => this.checkboxIconCheckedRule ?? (this.checkboxIconCheckedRule = this.insertEmptyRule('.checkbox input:checked~label i'));
         getCheckboxNameUncheckedRule = (): CSSStyleRule => this.checkboxNameUncheckedRule ?? (this.checkboxNameUncheckedRule = this.insertEmptyRule('.checkbox input:not(:checked)~label+.name'));
-        getCheckboxIconUncheckedRule = (): CSSStyleRule => this.checkboxIconUncheckedRule ?? (this.checkboxIconUncheckedRule = this.insertEmptyRule('.checkbox input:not(:checked)~label i'));
+        getCheckboxIconUncheckedRule = (): CSSStyleRule => this.checkboxIconUncheckedRule ?? (this.checkboxIconUncheckedRule = this.insertEmptyRule('.checkbox input:not(:checked):not(:hover)~label i'));
         getPagePillingTooltipRule = (): CSSStyleRule => this.papePillingTooltipRule ?? (this.papePillingTooltipRule = this.insertEmptyRule('#pp-nav li .pp-tooltip'));
         getPagePillingSpanActiveRule = (): CSSStyleRule => this.pagePillingSpanActiveRule ?? (this.pagePillingSpanActiveRule = this.insertEmptyRule('#pp-nav li .active span'));
         getPagePillingSpanInactiveRule = (): CSSStyleRule => this.pagePillingSpanInactiveRule ?? (this.pagePillingSpanInactiveRule = this.insertEmptyRule('#pp-nav li :not(.active) span'));

@@ -4362,15 +4362,14 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .neu-style .pill-button.active,
+.neu-style .pallet-button.active,
+.neu-style .theme-skin .pill-button.active,
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
-.neu-style .pal-button.active,
 .neu-style .skill-boxes .box-border,
 .neu-style .color-pallet,
 .neu-style .timeline-items.box-border,
-.neu-style .range-slider__range,
-.neu-style .pallet-button.active,
-.neu-style .theme-skin .pill-button.active {
+.neu-style .range-slider__range {
   -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
           box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
 }
@@ -4397,12 +4396,12 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .theme-skin .pill-button,
 .neu-style .pill-button.active,
 .neu-style .pill-button,
-.neu-style .neu-style .display-content > .container,
-.neu-style .neu-style .pallet-button {
+.neu-style .display-content > .container,
+.neu-style .pallet-button {
   background-color: #D4D4D4;
 }
 
-.neu-style .segmented-control > input:not(:checked) + label {
+.neu-style .segmented-control > input:not(:checked):not(:hover) + label {
   color: #4D4D4D;
 }
 
@@ -4425,7 +4424,7 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
 }
 
-.neu-style .checkbox input:not(:checked) ~ label i,
+.neu-style .checkbox input:not(:checked):not(:hover) ~ label i,
 .neu-style .checkbox input:not(:checked) ~ label + .name {
   color: #4D4D4D;
 }
@@ -4456,11 +4455,7 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
 }
 
-.neu-style ::-webkit-slider-thumb:hover {
-  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-}
-
+.neu-style ::-webkit-slider-thumb:hover,
 .neu-style input[type=range]:focus {
   -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
           box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
