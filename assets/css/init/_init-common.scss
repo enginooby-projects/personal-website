@@ -159,7 +159,9 @@ table,
 .checkbox label,
 .testimonial .owl-carousel .owl-dot span,
 .skill-item,
-.color-scheme li a {
+.color-scheme li a,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
         border-radius: $borderRadius;
 }
 

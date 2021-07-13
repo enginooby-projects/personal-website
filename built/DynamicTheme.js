@@ -20,7 +20,7 @@ let styleRegistry;
 let hoverEventsAreSetup = false;
 let clickEventsAreSetup = false;
 export function changeStyle(htmlElement, newStyle) {
-    currentStyle === null || currentStyle === void 0 ? void 0 : currentStyle.onDisable();
+    // currentStyle?.onDisable();
     currentStyle = newStyle;
     // update option buttons
     $('.theme-skin .button-border a').removeClass('active');
@@ -137,7 +137,7 @@ function setupCommonHoverEvents() {
     $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i,.overlay-menu-toggler").on('mouseenter', (event) => {
         $(event.currentTarget).css('color', highlightColor.hex);
     });
-    $(".social a i,.overlay-menu-toggler").on('mouseleave', function () {
+    $(".social a i,.overlay-menu-toggler, .portfolio .portfolio-icon a").on('mouseleave', function () {
         $(this).css('color', baseColor);
     });
     $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
@@ -150,7 +150,7 @@ function setupCommonClickEvents() {
         return;
     clickEventsAreSetup = true;
     $('#portfolio .pill-button').on('click', function () {
-        currentStyle.resetInactiveButtons(this);
+        // currentStyle.resetInactiveButtons(this);
     });
 }
 function updateCommonElements() {

@@ -41,6 +41,10 @@ export class StyleRuleStore {
         private pagePillingSpanInactiveRule?: CSSStyleRule;
         private papePillingTooltipRule?: CSSStyleRule;
 
+        private insetBoxShadowRule?: CSSStyleRule;
+
+
+        // CONSIDER: Create new style then append to head
         private getStyleSheet(): CSSStyleSheet {
                 for (let i = 0; i < document.styleSheets.length; i++) {
                         let cursheet = document.styleSheets[i];
@@ -51,6 +55,7 @@ export class StyleRuleStore {
 
         private insertEmptyRule = (selector: string): CSSStyleRule => this.cssRules![this.styleSheet!.insertRule(`${selector} {}`)] as CSSStyleRule;
 
+        getInsetBoxShadowRule = (): CSSStyleRule => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule('.custom-scrollbar, .blog .blog-image .after, .skill-boxes .box-border, .color-pallet, .timeline-items.box-border, .range-slider__range, .pallet-button.active, .theme-skin .pill-button.active'));
         getButtonActiveRule = (): CSSStyleRule => this.buttonActiveRule ?? (this.buttonActiveRule = this.insertEmptyRule('.pill-button.active, .pallet-button.active, .pill-button:hover'));
         getButtonInactiveRule = (): CSSStyleRule => this.buttonInactiveRule ?? (this.buttonInactiveRule = this.insertEmptyRule('.pill-button:not(.active), .pallet-button:not(.active)'));
         getTrackScrollbarRule = (): CSSStyleRule => this.trackScrollbarRule ?? (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track'));

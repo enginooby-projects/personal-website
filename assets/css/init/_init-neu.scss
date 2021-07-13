@@ -21,14 +21,14 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .button-border,
         .box-border,
         .image-border,
+        .badge-border,
+        .pallet-border,
         .segmented-control,
         .hero-03 .personal-image img,
         .checkbox label,
         .blog-intro,
-        .badge-border,
         table,
         table thead,
-        .pallet-border,
         .range-slider__value,
         .theme-skin .pill-button {
                 box-shadow: $dropBoxShadow;
@@ -53,22 +53,17 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         }
 
         .section,
-        .button-border,
-        .box-border,
-        .image-border,
+        .display-content>.container,
+        .pill-button,
+        .pallet-button,
+        .color-pallet,
         .contact .form-item .form-group,
         .segmented-control,
         .checkbox label,
-        .color-pallet,
         .portfolio-single .modal-content,
         .range-slider__range,
-        .pallet-border,
         .range-slider__value,
-        .theme-skin .pill-button,
-        .pill-button.active,
-        .pill-button,
-        .display-content>.container,
-        .pallet-button {
+        ::-webkit-scrollbar-track {
                 background-color: $schemeColor;
         }
 
@@ -83,7 +78,6 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 color: $highlightColor;
         }
 
-        // HOVER
         .pill-button:hover,
         .badge-border:hover,
         table>tbody>tr:hover,
@@ -111,13 +105,11 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         ::-webkit-scrollbar-track {
                 box-shadow: $insetBoxShadow;
                 background-color: $schemeColor;
-                border-radius: $borderRadius;
         }
 
         ::-webkit-scrollbar-thumb {
                 box-shadow: $thumbScrollbarBoxShadow;
                 background-color: $schemeColor;
-                border-radius: $borderRadius;
         }
 
         // RANGE SLIDER 
@@ -130,12 +122,4 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         input[type=range]:focus {
                 box-shadow: #{$concaveBoxShadow};
         }
-
-        // input[type=range]:focus::-webkit-slider-thumb {
-        //         box-shadow:#{$concaveBoxShadow};
-        // }
-
-        // input[type=range]::-webkit-slider-runnable-track { // ~range-slider__range
-        //         box-shadow: $insetBoxShadow;
-        // }
 }

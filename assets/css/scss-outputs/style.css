@@ -4333,7 +4333,9 @@ table,
 .checkbox label,
 .testimonial .owl-carousel .owl-dot span,
 .skill-item,
-.color-scheme li a {
+.color-scheme li a,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
   border-radius: 15px;
 }
 
@@ -4347,14 +4349,14 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .button-border,
 .neu-style .box-border,
 .neu-style .image-border,
+.neu-style .badge-border,
+.neu-style .pallet-border,
 .neu-style .segmented-control,
 .neu-style .hero-03 .personal-image img,
 .neu-style .checkbox label,
 .neu-style .blog-intro,
-.neu-style .badge-border,
 .neu-style table,
 .neu-style table thead,
-.neu-style .pallet-border,
 .neu-style .range-slider__value,
 .neu-style .theme-skin .pill-button {
   -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
@@ -4382,22 +4384,17 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .neu-style .section,
-.neu-style .button-border,
-.neu-style .box-border,
-.neu-style .image-border,
+.neu-style .display-content > .container,
+.neu-style .pill-button,
+.neu-style .pallet-button,
+.neu-style .color-pallet,
 .neu-style .contact .form-item .form-group,
 .neu-style .segmented-control,
 .neu-style .checkbox label,
-.neu-style .color-pallet,
 .neu-style .portfolio-single .modal-content,
 .neu-style .range-slider__range,
-.neu-style .pallet-border,
 .neu-style .range-slider__value,
-.neu-style .theme-skin .pill-button,
-.neu-style .pill-button.active,
-.neu-style .pill-button,
-.neu-style .display-content > .container,
-.neu-style .pallet-button {
+.neu-style ::-webkit-scrollbar-track {
   background-color: #D4D4D4;
 }
 
@@ -4439,14 +4436,12 @@ Init values for dynamic properties to reduce  page load time
   -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
           box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
   background-color: #D4D4D4;
-  border-radius: 15px;
 }
 
 .neu-style ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
           box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
   background-color: #D4D4D4;
-  border-radius: 15px;
 }
 
 .neu-style ::-webkit-slider-thumb {

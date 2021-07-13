@@ -2,6 +2,7 @@
 export class StyleRuleStore {
     constructor() {
         this.insertEmptyRule = (selector) => this.cssRules[this.styleSheet.insertRule(`${selector} {}`)];
+        this.getInsetBoxShadowRule = () => { var _a; return (_a = this.insetBoxShadowRule) !== null && _a !== void 0 ? _a : (this.insetBoxShadowRule = this.insertEmptyRule('.custom-scrollbar, .blog .blog-image .after, .skill-boxes .box-border, .color-pallet, .timeline-items.box-border, .range-slider__range, .pallet-button.active, .theme-skin .pill-button.active')); };
         this.getButtonActiveRule = () => { var _a; return (_a = this.buttonActiveRule) !== null && _a !== void 0 ? _a : (this.buttonActiveRule = this.insertEmptyRule('.pill-button.active, .pallet-button.active, .pill-button:hover')); };
         this.getButtonInactiveRule = () => { var _a; return (_a = this.buttonInactiveRule) !== null && _a !== void 0 ? _a : (this.buttonInactiveRule = this.insertEmptyRule('.pill-button:not(.active), .pallet-button:not(.active)')); };
         this.getTrackScrollbarRule = () => { var _a; return (_a = this.trackScrollbarRule) !== null && _a !== void 0 ? _a : (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track')); };
@@ -31,6 +32,7 @@ export class StyleRuleStore {
         (_a = StyleRuleStore._instance) !== null && _a !== void 0 ? _a : (StyleRuleStore._instance = new StyleRuleStore());
         return StyleRuleStore._instance;
     }
+    // CONSIDER: Create new style then append to head
     getStyleSheet() {
         for (let i = 0; i < document.styleSheets.length; i++) {
             let cursheet = document.styleSheets[i];
