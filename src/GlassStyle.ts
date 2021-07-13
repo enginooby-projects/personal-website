@@ -1,6 +1,7 @@
 import { Color } from './Color.js';
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
+import { StyleRuleStore } from './StyleRuleStore.js';
 import { TinyColor } from './TinyColor.js';
 
 const lightenIntensity = 15;
@@ -200,8 +201,8 @@ export class GlassStyle extends Style {
                         'background-color': `rgba(255, 255, 255, ${this.transparency})`,
                         'color': DynamicTheme.highlightColor.hex
                 });
-                DynamicTheme.thumbScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
-                DynamicTheme.sliderThumbRule.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
+                StyleRuleStore.Instance.getThumbScrollbarRule().style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
+                StyleRuleStore.Instance.getSliderThumbRule().style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
                 $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
                 this.setupLocalEvents();
         }
@@ -209,7 +210,7 @@ export class GlassStyle extends Style {
         private updateTransparencySchemeColor() {
                 $(backgroundGlassSchemeColorSelectors).css('background-color', this.formatRgba(DynamicTheme.schemeColor));
                 $(backgroundGlassLightenSchemeColorSelectors).css('background-color', this.formatRgba(this.lightenSchemeColor));
-                DynamicTheme.trackScrollbarRule.style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
+                StyleRuleStore.Instance.getTrackScrollbarRule().style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
         }
 
         formatRgba(color: Color) {
@@ -224,6 +225,9 @@ export class GlassStyle extends Style {
         onSchemeColorUpdated(): void {
                 this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
                 this.updateTransparencySchemeColor();
+        }
+
+        onBaseColorUpdated(): void {
         }
 
         resetInactiveButtons(currentActiveButton: HTMLElement): void {

@@ -1,5 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
+import { StyleRuleStore } from './StyleRuleStore.js';
 
 const backgroundSchemeColorSelectors = formatString([
         ".section",
@@ -144,7 +145,7 @@ export class NeuStyle extends Style {
         }
 
         revertStyle() {
-                DynamicTheme.sliderThumbRule.style.boxShadow = 'none'; //TODO: css file
+                StyleRuleStore.Instance.getSliderThumbRule().style.boxShadow = 'none'; //TODO: css file
         }
 
         setupCustomizeEvents(): void {
@@ -187,11 +188,12 @@ export class NeuStyle extends Style {
 
         onHighlightColorUpdated(): void {
                 $(colorHighlightColorSelectors).css("color", DynamicTheme.highlightColor.hex);
-                DynamicTheme.radioLabelHoverRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
-                DynamicTheme.radioLabelCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
-                DynamicTheme.checkboxLabelHoverRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
-                DynamicTheme.checkboxNameCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
-                DynamicTheme.checkboxIconCheckedRule.style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                // TODO: Cache StyleRuleStore.Instance
+                StyleRuleStore.Instance.getRadioLabelHoverRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                StyleRuleStore.Instance.getRadioLabelCheckedRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                StyleRuleStore.Instance.getCheckboxLabelHoverRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                StyleRuleStore.Instance.getCheckboxNameCheckedRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                StyleRuleStore.Instance.getCheckboxIconCheckedRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
         }
 
         onSchemeColorUpdated(): void {
@@ -201,9 +203,9 @@ export class NeuStyle extends Style {
         }
 
         onBaseColorUpdated(): void {
-                DynamicTheme.radioLabelUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
-                DynamicTheme.checkboxIconUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
-                DynamicTheme.checkboxNameUncheckedRule.style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+                StyleRuleStore.Instance.getRadioLabelUncheckedRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+                StyleRuleStore.Instance.getCheckboxIconUncheckedRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+                StyleRuleStore.Instance.getCheckboxNameUncheckedRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
         }
 
         private updateBoxShadows() {
@@ -217,14 +219,16 @@ export class NeuStyle extends Style {
                 $(dropBoxShadowSelectors).css("box-shadow", this.dropBoxShadow);
                 $(insetBoxShadowSelectors).css("box-shadow", this.insetBoxShadow);
                 $(concaveBoxShadowSelectors).css("box-shadow", this.concaveBoxShadow);
-                DynamicTheme.trackScrollbarRule.style.setProperty('box-shadow', this.insetBoxShadow, 'important');
-                DynamicTheme.trackScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
-                DynamicTheme.thumbScrollbarRule.style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
-                DynamicTheme.thumbScrollbarRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
-                DynamicTheme.sliderThumbRule.style.setProperty('box-shadow', this.dropBoxShadow, 'important');
-                DynamicTheme.sliderThumbRule.style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
-                DynamicTheme.sliderThumbHoverRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
-                DynamicTheme.sliderTrackForcusRule.style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
+
+                StyleRuleStore.Instance.getCheckboxLabelCheckedRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');
+                StyleRuleStore.Instance.getTrackScrollbarRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');
+                StyleRuleStore.Instance.getTrackScrollbarRule().style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+                StyleRuleStore.Instance.getThumbScrollbarRule().style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
+                StyleRuleStore.Instance.getThumbScrollbarRule().style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+                StyleRuleStore.Instance.getSliderThumbRule().style.setProperty('box-shadow', this.dropBoxShadow, 'important');
+                StyleRuleStore.Instance.getSliderThumbRule().style.setProperty('background-color', DynamicTheme.schemeColor.hex, 'important');
+                StyleRuleStore.Instance.getSliderThumbHoverRule().style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
+                StyleRuleStore.Instance.getSliderTrackFocusRule().style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
                 // DynamicTheme.colorSwatchRule.style.boxShadow = this.dropBoxShadow;
         }
 

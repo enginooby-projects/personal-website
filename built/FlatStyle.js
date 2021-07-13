@@ -1,5 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
+import { StyleRuleStore } from './StyleRuleStore.js';
 const lightenIntensity = 5;
 const darkenIntensity = 5;
 const backgroundHighlightColorSelectors = formatString([
@@ -116,15 +117,17 @@ export class FlatStyle extends Style {
         $(backgroundLightenSchemeColorSelectors).css('background-color', this.lightenSchemeColor);
         $(backgroundSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
         $(colorBaseColorSelectors).css('color', DynamicTheme.baseColor);
-        DynamicTheme.trackScrollbarRule.style.background = this.lightenSchemeColor;
-        DynamicTheme.thumbScrollbarRule.style.background = this.darkenSchemeColor;
+        StyleRuleStore.Instance.getTrackScrollbarRule().style.background = this.lightenSchemeColor;
+        StyleRuleStore.Instance.getThumbScrollbarRule().style.background = this.darkenSchemeColor;
         this.setupLocalEvents();
     }
     onSchemeColorUpdated() {
         $(backgroundHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
         $(".flat-style :not(.portfolio-filter) .pill-button").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
         $("#flat-skin-button .pill-button").css('background-color', DynamicTheme.highlightColor.getDarken(15));
-        DynamicTheme.sliderThumbRule.style.backgroundColor = DynamicTheme.highlightColor.hex;
+        StyleRuleStore.Instance.getSliderThumbHoverRule().style.backgroundColor = DynamicTheme.highlightColor.hex;
+    }
+    onBaseColorUpdated() {
     }
     resetInactiveButtons(currentActiveButton) {
         $('#portfolio .pill-button').not(currentActiveButton).css('background', 'transparent');

@@ -2,8 +2,7 @@ import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { darkBaseValue, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
-export let styleSheet;
-export let cssRules;
+import { StyleRuleStore } from './StyleRuleStore.js';
 let $squareImg;
 let borderRadius = 15;
 export let colorfull1 = new TinyColor("#00a584");
@@ -18,36 +17,8 @@ const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
 export let currentStyle;
 let styleRegistry;
-// PSEUDO RULES
-export let trackScrollbarRule;
-export let thumbScrollbarRule;
-export let sliderThumbRule;
-export let sliderThumbHoverRule;
-export let sliderTrackForcusRule;
-export let colorSwatchRule;
-export let radioLabelHoverRule;
-export let radioLabelCheckedRule;
-export let radioLabelUncheckedRule;
-export let checkboxLabelHoverRule;
-export let checkboxNameCheckedRule;
-export let checkboxIconCheckedRule;
-export let checkboxNameUncheckedRule;
-export let checkboxIconUncheckedRule;
-export let pagePillingSpanActiveRule;
-export let pagePillingSpanInactiveRule;
-let placeholderRule;
-let papePilingTooltipRule;
-let selectionRule;
-let selectionOldFirefoxRule;
 let hoverEventsAreSetup = false;
 let clickEventsAreSetup = false;
-function getStyleSheet() {
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        let cursheet = document.styleSheets[i];
-        if (cursheet.title == 'style')
-            styleSheet = cursheet;
-    }
-}
 export function changeStyle(htmlElement, newStyle) {
     currentStyle === null || currentStyle === void 0 ? void 0 : currentStyle.onDisable();
     currentStyle = newStyle;
@@ -59,34 +30,16 @@ export function changeStyle(htmlElement, newStyle) {
     currentStyle.onEnable();
 }
 export function init() {
-    getStyleSheet();
-    setupCustomizeEvents();
-    $squareImg = $(".hero-image .square img");
-    cssRules = styleSheet.cssRules || styleSheet.rules;
-    // TODO: lazy init
-    trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {}`)];
-    thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {}`)];
-    placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)];
-    papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)];
-    sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)];
-    sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)];
-    sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)];
-    colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)];
-    radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)];
-    radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)];
-    radioLabelUncheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:not(:checked)+label {}`)];
-    checkboxLabelHoverRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)];
-    checkboxNameCheckedRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)];
-    checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)];
-    checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)];
-    checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)];
-    pagePillingSpanActiveRule = cssRules[styleSheet.insertRule(` #pp-nav li .active span {}`)];
-    pagePillingSpanInactiveRule = cssRules[styleSheet.insertRule(` #pp-nav li :not(.active) span {}`)];
     styleRegistry = new StyleRegistry();
-    $("#scheme-color-picker").attr('value', schemeColor.hex);
-    $("#highlight-color-picker").attr('value', highlightColor.hex);
+    $squareImg = $(".hero-image .square img");
+    initSettingPanel();
+    setupCustomizeEvents();
     // updateSchemeColor(schemeColor.hex);
     // updateHighlightColor(highlightColor.hex);
+}
+function initSettingPanel() {
+    $("#scheme-color-picker").attr('value', schemeColor.hex);
+    $("#highlight-color-picker").attr('value', highlightColor.hex);
     $('#border-radius').attr('value', borderRadius);
     $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
@@ -133,8 +86,8 @@ function setupRangeSliderEvents() {
 function updateBorder() {
     $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
     $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
-    trackScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
-    thumbScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
+    StyleRuleStore.Instance.getTrackScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
+    StyleRuleStore.Instance.getThumbScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
 }
 function updateColorfull(colorfullNumber) {
     let colorfull;
@@ -162,7 +115,7 @@ function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
     $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-    pagePillingSpanActiveRule.style.setProperty('background-color', highlightColor.hex, 'important');
+    StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
     setupCommonHoverEvents();
     setupCommonClickEvents();
     currentStyle.onHighlightColorUpdated();
@@ -207,19 +160,22 @@ function updateCommonElements() {
     $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
 }
 function updatePseudoElements() {
-    thumbScrollbarRule.style.background = schemeColor.hex;
-    placeholderRule.style.color = mutedBaseColor;
-    papePilingTooltipRule.style.color = baseColor;
+    StyleRuleStore.Instance.getThumbScrollbarRule().style.background = schemeColor.hex;
+    StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
+    StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.color = baseColor;
 }
 function updateBaseColor() {
     const lastBaseColor = baseColor;
     baseColor = schemeColor.getInvertBlackWhite();
+    if (lastBaseColor != baseColor)
+        onBaseColorChanged();
+}
+function onBaseColorChanged() {
     mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
     const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
-    if (lastBaseColor != baseColor) {
-        pagePillingSpanInactiveRule.style.setProperty('background-color', baseColor, 'important');
-        currentStyle.onBaseColorUpdated();
-        //TODO: revoke onBaseColorChangedEvent
-    }
+    StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
+    StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;
+    StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
+    currentStyle.onBaseColorUpdated();
 }

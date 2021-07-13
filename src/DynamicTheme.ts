@@ -3,9 +3,9 @@ import { Style } from './Style.js'
 import { StyleRegistry } from './StyleRegistry.js';
 import { Color, darkBaseValue, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
+import { StyleRuleStore } from './StyleRuleStore.js';
 
-export let styleSheet: CSSStyleSheet;
-export let cssRules: CSSRuleList;
+
 let $squareImg: JQuery<HTMLElement>;
 
 let borderRadius: number = 15;
@@ -26,39 +26,8 @@ export let mutedBaseColor: string = darkMutedBaseColor;
 export let currentStyle: Style;
 let styleRegistry: StyleRegistry;
 
-// PSEUDO RULES
-export let trackScrollbarRule: CSSStyleRule;
-export let thumbScrollbarRule: CSSStyleRule;
-export let sliderThumbRule: CSSStyleRule;
-export let sliderThumbHoverRule: CSSStyleRule;
-export let sliderTrackForcusRule: CSSStyleRule;
-export let colorSwatchRule: CSSStyleRule;
-
-export let radioLabelHoverRule: CSSStyleRule;
-export let radioLabelCheckedRule: CSSStyleRule;
-export let radioLabelUncheckedRule: CSSStyleRule;
-export let checkboxLabelHoverRule: CSSStyleRule;
-export let checkboxNameCheckedRule: CSSStyleRule;
-export let checkboxIconCheckedRule: CSSStyleRule;
-export let checkboxNameUncheckedRule: CSSStyleRule;
-export let checkboxIconUncheckedRule: CSSStyleRule;
-export let pagePillingSpanActiveRule: CSSStyleRule;
-export let pagePillingSpanInactiveRule: CSSStyleRule;
-
-let placeholderRule: CSSStyleRule;
-let papePilingTooltipRule: CSSStyleRule;
-let selectionRule: CSSStyleRule;
-let selectionOldFirefoxRule: CSSStyleRule;
-
 let hoverEventsAreSetup: boolean = false;
 let clickEventsAreSetup: boolean = false;
-
-function getStyleSheet() {
-        for (let i = 0; i < document.styleSheets.length; i++) {
-                let cursheet = document.styleSheets[i];
-                if (cursheet.title == 'style') styleSheet = cursheet;
-        }
-}
 
 export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newStyle: Style) {
         currentStyle?.onDisable();
@@ -72,39 +41,17 @@ export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newS
 }
 
 export function init() {
-        getStyleSheet();
-        setupCustomizeEvents();
-
-        $squareImg = $(".hero-image .square img");
-        cssRules = styleSheet.cssRules || styleSheet.rules;
-
-        // TODO: lazy init
-        trackScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-track {}`)] as CSSStyleRule;
-        thumbScrollbarRule = cssRules[styleSheet.insertRule(`::-webkit-scrollbar-thumb {}`)] as CSSStyleRule;
-        placeholderRule = cssRules[styleSheet.insertRule(`.form-control::placeholder {color: ${mutedBaseColor}; opacity: 1;}`)] as CSSStyleRule;
-        papePilingTooltipRule = cssRules[styleSheet.insertRule(`#pp-nav li .pp-tooltip  {color: ${baseColor}}`)] as CSSStyleRule;
-        sliderThumbRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb {}`)] as CSSStyleRule;
-        sliderThumbHoverRule = cssRules[styleSheet.insertRule(`::-webkit-slider-thumb:hover {}`)] as CSSStyleRule;
-        sliderTrackForcusRule = cssRules[styleSheet.insertRule(`input[type=range]:focus {}`)] as CSSStyleRule;
-        colorSwatchRule = cssRules[styleSheet.insertRule(`::-webkit-color-swatch{}`)] as CSSStyleRule;
-
-        radioLabelHoverRule = cssRules[styleSheet.insertRule(`.segmented-control>input:hover+label {}`)] as CSSStyleRule;
-        radioLabelCheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:checked+label {}`)] as CSSStyleRule;
-        radioLabelUncheckedRule = cssRules[styleSheet.insertRule(`.segmented-control>input:not(:checked)+label {}`)] as CSSStyleRule;
-        checkboxLabelHoverRule = cssRules[styleSheet.insertRule(` .checkbox input:hover~label i {}`)] as CSSStyleRule;
-        checkboxNameCheckedRule = cssRules[styleSheet.insertRule(`.checkbox input:checked~label+.name {}`)] as CSSStyleRule;
-        checkboxIconCheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:checked~label i {}`)] as CSSStyleRule;
-        checkboxNameUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label+.name {}`)] as CSSStyleRule;
-        checkboxIconUncheckedRule = cssRules[styleSheet.insertRule(` .checkbox input:not(:checked)~label i {}`)] as CSSStyleRule;
-        pagePillingSpanActiveRule = cssRules[styleSheet.insertRule(` #pp-nav li .active span {}`)] as CSSStyleRule;
-        pagePillingSpanInactiveRule = cssRules[styleSheet.insertRule(` #pp-nav li :not(.active) span {}`)] as CSSStyleRule;
-
         styleRegistry = new StyleRegistry();
-        $("#scheme-color-picker").attr('value', schemeColor.hex);
-        $("#highlight-color-picker").attr('value', highlightColor.hex);
+        $squareImg = $(".hero-image .square img");
+        initSettingPanel();
+        setupCustomizeEvents();
         // updateSchemeColor(schemeColor.hex);
         // updateHighlightColor(highlightColor.hex);
+}
 
+function initSettingPanel() {
+        $("#scheme-color-picker").attr('value', schemeColor.hex);
+        $("#highlight-color-picker").attr('value', highlightColor.hex);
         $('#border-radius').attr('value', borderRadius);
         $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
@@ -155,8 +102,8 @@ function setupRangeSliderEvents() {
 function updateBorder() {
         $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
         $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
-        trackScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
-        thumbScrollbarRule.style.setProperty('border-radius', `${borderRadius}px`, 'important');
+        StyleRuleStore.Instance.getTrackScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
+        StyleRuleStore.Instance.getThumbScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
 }
 
 function updateColorfull(colorfullNumber: number) {
@@ -187,7 +134,7 @@ function updateHighlightColor(hex: string) {
         highlightColor.setHex(hex);
         $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-        pagePillingSpanActiveRule.style.setProperty('background-color', highlightColor.hex, 'important');
+        StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
         setupCommonHoverEvents();
         setupCommonClickEvents();
         currentStyle.onHighlightColorUpdated();
@@ -240,22 +187,24 @@ function updateCommonElements() {
 }
 
 function updatePseudoElements() {
-        thumbScrollbarRule.style.background = schemeColor.hex;
-        placeholderRule.style.color = mutedBaseColor;
-        papePilingTooltipRule.style.color = baseColor;
+        StyleRuleStore.Instance.getThumbScrollbarRule().style.background = schemeColor.hex;
+        StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
+        StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.color = baseColor;
 }
 
 function updateBaseColor() {
         const lastBaseColor = baseColor;
         baseColor = schemeColor.getInvertBlackWhite();
+        if (lastBaseColor != baseColor) onBaseColorChanged();
+}
+
+function onBaseColorChanged() {
         mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
         const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
-
-        if (lastBaseColor != baseColor) {
-                pagePillingSpanInactiveRule.style.setProperty('background-color', baseColor, 'important');
-                currentStyle.onBaseColorUpdated();
-                //TODO: revoke onBaseColorChangedEvent
-        }
+        StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
+        StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;
+        StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
+        currentStyle.onBaseColorUpdated();
 }
 
