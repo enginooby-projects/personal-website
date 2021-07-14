@@ -2,7 +2,6 @@ import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
 const backgroundSchemeColorSelectors = [
-        ".section",
         ".display-content>.container",
         "  .form-item .form-group",
         ".segmented-control",
@@ -11,6 +10,7 @@ const backgroundSchemeColorSelectors = [
         ".portfolio-single .modal-content",
         ".range-slider__range",
         ".range-slider__value",
+        ".box-border",
         ".pill-button",
         ".pallet-button",
         "::-webkit-scrollbar-track",

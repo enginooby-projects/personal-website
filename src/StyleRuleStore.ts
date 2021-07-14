@@ -55,9 +55,6 @@ export class StyleRuleStore {
 
         private insertEmptyRule = (selector: string): CSSStyleRule => this.cssRules![this.styleSheet!.insertRule(`${selector} {}`)] as CSSStyleRule;
 
-        getInsetBoxShadowRule = (): CSSStyleRule => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule('.custom-scrollbar, .blog .blog-image .after, .skill-boxes .box-border, .color-pallet, .timeline-items.box-border, .range-slider__range, .pallet-button.active, .theme-skin .pill-button.active'));
-        getButtonActiveRule = (): CSSStyleRule => this.buttonActiveRule ?? (this.buttonActiveRule = this.insertEmptyRule('.pill-button.active, .pallet-button.active, .pill-button:hover'));
-        getButtonInactiveRule = (): CSSStyleRule => this.buttonInactiveRule ?? (this.buttonInactiveRule = this.insertEmptyRule('.pill-button:not(.active), .pallet-button:not(.active)'));
         getTrackScrollbarRule = (): CSSStyleRule => this.trackScrollbarRule ?? (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track'));
         getThumbScrollbarRule = (): CSSStyleRule => this.thumbScrollbarRule ?? (this.thumbScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-thumb'));
         getPlaceholderRule = (): CSSStyleRule => this.placeholderRule ?? (this.placeholderRule = this.insertEmptyRule('::placeholder'));

@@ -28,7 +28,7 @@ jQuery(function () {
 export class StyleRegistry {
         constructor() {
                 // changeStyle($(GLASS_OPTION_SELECTOR), GlassStyle.Instance);
-                changeStyle($(NEU_OPTION_SELECTOR), NeuStyle.Instance);
-                // changeStyle($(FLAT_OPTION_SELECTOR), FlatStyle.Instance);
+                // changeStyle($(NEU_OPTION_SELECTOR), NeuStyle.Instance);
+                changeStyle($(FLAT_OPTION_SELECTOR), FlatStyle.Instance);
         }
 }

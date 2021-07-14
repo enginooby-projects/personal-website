@@ -124,7 +124,7 @@
                                         </div>
                                 </div>
                                 <div class="row mt-3 px-4 justify-content-center">
-                                        <label>Colourful elements</label>
+                                        <label>Classification</label>
                                 </div>
                                 <div class="row mt-1 px-4">
                                         <div class="col-4 p-0 ">

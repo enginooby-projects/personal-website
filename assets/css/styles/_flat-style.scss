@@ -12,8 +12,13 @@
                 opacity: 1 !important;
         }
 
-        .pill-button,
         .image-border,
+        .badge-border {
+                padding: 0;
+        }
+
+        .pill-button,
+        // .image-border,
         .button-border,
         .personal-image img,
         .box-border,
@@ -34,151 +39,115 @@
         .theme-skin .pill-button,
         .badge-border,
         .range-slider__range,
-        .range-slider__value {
+        .range-slider__value,
+        ::-webkit-scrollbar-track,
+        ::-webkit-scrollbar-thumb {
                 box-shadow: none !important;
         }
 
         .portfolio-filter .pill-button:not(.active),
+        .theme-skin .pill-button:not(.active),
         .portfolio-filter .button-border,
         .testimonial .owl-carousel .testimonial-image {
-                background: transparent !important;
+                background: transparent;
+        }
+
+        ::-webkit-scrollbar {
+                width: 7px;
         }
 }
 
 
+// .flat-style .portfolio-item-content {
+//         box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+// }
 
+// .flat-style .box-border {
+//         background-color: #fefefe;
+//         box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
+// }
 
-.flat-style .portfolio-item-content {
-        box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-}
+// .flat-style .blog-single .modal-content,
+// .flat-style .portfolio-single .modal-content {
+//         background-color: #f8f8f8;
+// }
 
-.flat-style .box-border {
-        background-color: #fefefe;
-        box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-}
+// .flat-style .testimonial-image-border {
+//         background-color: #f8f8f8;
+// }
 
-.flat-style .blog-single .modal-content,
-.flat-style .portfolio-single .modal-content {
-        background-color: #f8f8f8;
-}
+// .flat-style .testimonial-image-border img {
+//         padding: 4px;
+//         background-color: transparent;
+//         border: 1px solid #e3e5d2;
+//         max-width: 100%;
+//         height: auto;
+// }
 
-.flat-style .testimonial-image-border {
-        background-color: #f8f8f8;
-}
+// .flat-style .skill-box .skillbar {
+//         background-color: #e1e1e1;
+// }
 
-.flat-style .testimonial-image-border img {
-        padding: 4px;
-        background-color: transparent;
-        border: 1px solid #e3e5d2;
-        max-width: 100%;
-        height: auto;
-}
+// .flat-style .menu li a {
+//         box-shadow: none;
+// }
 
-.flat-style .skill-box .skillbar {
-        background-color: #e1e1e1;
-}
+// .flat-style .menu li a:hover,
+// .flat-style .menu li a.active {
+//         box-shadow: none;
+// }
 
-.flat-style .menu li a {
-        box-shadow: none;
-}
+// .flat-style .button-border {
+//         // box-shadow: none;
+//         padding: 0;
+// }
 
-.flat-style .menu li a:hover,
-.flat-style .menu li a.active {
-        box-shadow: none;
-}
+// .flat-style .pill-button:hover,
+// .flat-style .pill-button.active,
+// .flat-style .testimonial .owl-dot.active span,
+// .flat-style .skill-box .skillbar,
+// // .flat-style .blog-intro,
+// .flat-style .contact .form-item .form-group,
+// .flat-style .testimonial .owl-carousel .testimonial-image-border {
+//         box-shadow: none;
+// }
 
-.flat-style .button-border {
-        // box-shadow: none;
-        padding: 0;
-}
+// .flat-style .pill-button,
+// .flat-style .portfolio-filter .pill-button.active,
+// .flat-style .portfolio-filter .pill-button:hover {
+//         color: #fafafa;
+// }
 
-.flat-style .pill-button:hover,
-.flat-style .pill-button.active,
-.flat-style .testimonial .owl-dot.active span,
-.flat-style .skill-box .skillbar,
-// .flat-style .blog-intro,
-.flat-style .contact .form-item .form-group,
-.flat-style .testimonial .owl-carousel .testimonial-image-border {
-        box-shadow: none;
-}
+// .flat-style .image-border {
+//         // box-shadow: none;
+//         background-color: transparent;
+//         padding: 0rem;
+// }
 
-.flat-style .pill-button,
-.flat-style .portfolio-filter .pill-button.active,
-.flat-style .portfolio-filter .pill-button:hover {
-        color: #fafafa;
-}
+// .flat-style .box-border,
+// .flat-style .box-hover-border,
+// .flat-style .contact .form-item .form-group {
+//         // background-color: rgba(240, 240, 240, 0.7);
+//         // box-shadow: none;
+// }
 
-.flat-style .image-border {
-        // box-shadow: none;
-        background-color: transparent;
-        padding: 0rem;
-}
+// .flat-style .testimonial .owl-carousel .testimonial-image::after,
+// .flat-style .testimonial .owl-carousel .testimonial-image::before,
+// .flat-style .blog-item::before,
+// .flat-style .blog-image::after {
+//         display: none;
+// }
 
-.flat-style .box-border,
-.flat-style .box-hover-border,
-.flat-style .contact .form-item .form-group {
-        // background-color: rgba(240, 240, 240, 0.7);
-        // box-shadow: none;
-}
+// .flat-style .testimonial .owl-carousel .testimonial-image,
+// .flat-style .portfolio-filter .button-border {
+//         // background-color: transparent;
+// }
 
-.flat-style .testimonial .owl-carousel .testimonial-image::after,
-.flat-style .testimonial .owl-carousel .testimonial-image::before,
-.flat-style .blog-item::before,
-.flat-style .blog-image::after {
-        display: none;
-}
+// .flat-style .portfolio-filter .pill-button {
+//         color: #3c3c3c;
+// }
 
-.flat-style .testimonial .owl-carousel .testimonial-image,
-.flat-style .portfolio-filter .button-border {
-        // background-color: transparent;
-}
-
-.flat-style .portfolio-filter .pill-button {
-        color: #3c3c3c;
-}
-
-.flat-style .blog-image {
-        background-color: #f8f8f8;
-        padding: 0;
-}
-
-/*-------------------------
-      FLAT STYLE DARK
--------------------------*/
-.flat-style.dark-scheme .box-border {
-        background-color: rgba(52, 53, 57, 0.9);
-        box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
-}
-
-.dark-scheme.flat-style .section {
-        background-color: #2c2d30;
-}
-
-.dark-scheme.flat-style .box-hover-border:hover {
-        box-shadow: none;
-}
-
-.dark-scheme.flat-style .testimonial-image-border,
-.dark-scheme.flat-style .blog-image,
-.dark-scheme.flat-style .blog-single .modal-content,
-.dark-scheme.flat-style .portfolio-single .modal-content {
-        background-color: #2c2d30;
-}
-
-.dark-scheme.flat-style .testimonial-image-border img {
-        border: 1px solid #3c3c3c;
-}
-
-.dark-scheme.flat-style .box-border,
-.dark-scheme.flat-style .box-hover-border,
-.dark-scheme.flat-style .contact .form-item .form-group {
-        background-color: rgba(52, 53, 57, 0.9);
-}
-
-.dark-scheme.flat-style .box-hover-border:hover {
-        box-shadow: none;
-}
-
-.dark-scheme.flat-style .portfolio-filter .pill-button {
-        color: #fafafa;
-}
+// .flat-style .blog-image {
+//         background-color: #f8f8f8;
+//         padding: 0;
+// }

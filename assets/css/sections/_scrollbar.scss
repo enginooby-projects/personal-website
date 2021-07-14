@@ -1,10 +1,5 @@
-/*-------------------------
-         SCROLLBAR NEU
--------------------------*/
-
 $transition_duration: 0.5s;
 
-/* Light */
 ::-webkit-scrollbar-track {
         // TODO: does not work
         transition: 0.5s all ease;
@@ -12,24 +7,4 @@ $transition_duration: 0.5s;
 
 ::-webkit-scrollbar-thumb {
         transition: 0.5s all ease;
-}
-
-/*-------------------------
-         SCROLLBAR FLAT
--------------------------*/
-.flat-style ::-webkit-scrollbar {
-        width: 8px;
-}
-
-/* Light */
-.flat-style ::-webkit-scrollbar-track {
-        box-shadow: none;
-}
-
-.flat-style ::-webkit-scrollbar-thumb {
-        box-shadow: none;
-}
-
-.flat-style ::-webkit-scrollbar-thumb:hover {
-        background: #555;
 }

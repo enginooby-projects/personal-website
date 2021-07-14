@@ -2,9 +2,6 @@
 export class StyleRuleStore {
     constructor() {
         this.insertEmptyRule = (selector) => this.cssRules[this.styleSheet.insertRule(`${selector} {}`)];
-        this.getInsetBoxShadowRule = () => { var _a; return (_a = this.insetBoxShadowRule) !== null && _a !== void 0 ? _a : (this.insetBoxShadowRule = this.insertEmptyRule('.custom-scrollbar, .blog .blog-image .after, .skill-boxes .box-border, .color-pallet, .timeline-items.box-border, .range-slider__range, .pallet-button.active, .theme-skin .pill-button.active')); };
-        this.getButtonActiveRule = () => { var _a; return (_a = this.buttonActiveRule) !== null && _a !== void 0 ? _a : (this.buttonActiveRule = this.insertEmptyRule('.pill-button.active, .pallet-button.active, .pill-button:hover')); };
-        this.getButtonInactiveRule = () => { var _a; return (_a = this.buttonInactiveRule) !== null && _a !== void 0 ? _a : (this.buttonInactiveRule = this.insertEmptyRule('.pill-button:not(.active), .pallet-button:not(.active)')); };
         this.getTrackScrollbarRule = () => { var _a; return (_a = this.trackScrollbarRule) !== null && _a !== void 0 ? _a : (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track')); };
         this.getThumbScrollbarRule = () => { var _a; return (_a = this.thumbScrollbarRule) !== null && _a !== void 0 ? _a : (this.thumbScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-thumb')); };
         this.getPlaceholderRule = () => { var _a; return (_a = this.placeholderRule) !== null && _a !== void 0 ? _a : (this.placeholderRule = this.insertEmptyRule('::placeholder')); };

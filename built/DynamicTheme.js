@@ -4,7 +4,7 @@ import { darkBaseValue, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
 let $squareImg;
-let borderRadius = 15;
+let borderRadius = 9;
 export let colorfull1 = new TinyColor("#00a584");
 export let colorfull2 = new TinyColor("#ebbc00");
 export let colorfull3 = new TinyColor("#e93666");
@@ -12,6 +12,7 @@ export let colorfull3 = new TinyColor("#e93666");
 export let schemeColor = new TinyColor("#D4D4D4");
 export let highlightColor = new TinyColor("#055CB3");
 export let baseColor = darkBaseValue;
+//TODO: muted base color intensity
 const lightMutedBaseColor = "#b2b2b2";
 const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;

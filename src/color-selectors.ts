@@ -8,19 +8,17 @@ export const backgroundHighlightColorSelectors = formatString([
 
 export const backgroundSchemeColorSelectors = formatString([
         ".section",
-        ".box-border",
+        // ".hero-03",
         ".segmented-control",
         ".image-border",
         ".form-group",
         ".skill-box .skillbar",
         ".blog .blog-image",
         ".blog .blog-item .before",
-        ".flat-style .section",
 ]);
 
 export const colorHighlightColorSelectors = formatString([
         ".highlight-color",
-        ".pill-button",
         ".overlay-menu a.active",
         ".timeline-year",
         ".portfolio .portfolio-filter li a",

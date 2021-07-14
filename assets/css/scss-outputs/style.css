@@ -566,10 +566,6 @@ input::-moz-focus-outer {
   width: 45px;
 }
 
-/*-------------------------
-         SCROLLBAR NEU
--------------------------*/
-/* Light */
 ::-webkit-scrollbar-track {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -578,28 +574,6 @@ input::-moz-focus-outer {
 ::-webkit-scrollbar-thumb {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
-}
-
-/*-------------------------
-         SCROLLBAR FLAT
--------------------------*/
-.flat-style ::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Light */
-.flat-style ::-webkit-scrollbar-track {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.flat-style ::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.flat-style ::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 /*-------------------------
@@ -1959,7 +1933,6 @@ header {
 }
 
 .flat-style .self-education .image-border {
-  background-color: transparent;
   padding: .4rem;
 }
 
@@ -2707,10 +2680,6 @@ header {
   transition: border 0.9s ease;
   padding: 1rem;
   border: none;
-}
-
-.contact .form-item .form-group {
-  background-color: #f1f3f6;
 }
 
 .contact-form textarea {
@@ -3739,11 +3708,6 @@ header {
   .flat-style .testimonial-image-border img {
     border: 1px solid #3c3c3c;
   }
-  .flat-style .box-border,
-  .flat-style .box-hover-border,
-  .flat-style .contact .form-item .form-group {
-    background-color: rgba(52, 53, 57, 0.9);
-  }
   .flat-style .box-hover-border:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -3880,8 +3844,12 @@ header {
   opacity: 1 !important;
 }
 
-.flat-style .pill-button,
 .flat-style .image-border,
+.flat-style .badge-border {
+  padding: 0;
+}
+
+.flat-style .pill-button,
 .flat-style .button-border,
 .flat-style .personal-image img,
 .flat-style .box-border,
@@ -3902,143 +3870,22 @@ header {
 .flat-style .theme-skin .pill-button,
 .flat-style .badge-border,
 .flat-style .range-slider__range,
-.flat-style .range-slider__value {
+.flat-style .range-slider__value,
+.flat-style ::-webkit-scrollbar-track,
+.flat-style ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
 
 .flat-style .portfolio-filter .pill-button:not(.active),
+.flat-style .theme-skin .pill-button:not(.active),
 .flat-style .portfolio-filter .button-border,
 .flat-style .testimonial .owl-carousel .testimonial-image {
-  background: transparent !important;
+  background: transparent;
 }
 
-.flat-style .portfolio-item-content {
-  -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-          box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-}
-
-.flat-style .box-border {
-  background-color: #fefefe;
-  -webkit-box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-          box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1);
-}
-
-.flat-style .blog-single .modal-content,
-.flat-style .portfolio-single .modal-content {
-  background-color: #f8f8f8;
-}
-
-.flat-style .testimonial-image-border {
-  background-color: #f8f8f8;
-}
-
-.flat-style .testimonial-image-border img {
-  padding: 4px;
-  background-color: transparent;
-  border: 1px solid #e3e5d2;
-  max-width: 100%;
-  height: auto;
-}
-
-.flat-style .skill-box .skillbar {
-  background-color: #e1e1e1;
-}
-
-.flat-style .menu li a {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.flat-style .menu li a:hover,
-.flat-style .menu li a.active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.flat-style .button-border {
-  padding: 0;
-}
-
-.flat-style .pill-button:hover,
-.flat-style .pill-button.active,
-.flat-style .testimonial .owl-dot.active span,
-.flat-style .skill-box .skillbar,
-.flat-style .contact .form-item .form-group,
-.flat-style .testimonial .owl-carousel .testimonial-image-border {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.flat-style .pill-button,
-.flat-style .portfolio-filter .pill-button.active,
-.flat-style .portfolio-filter .pill-button:hover {
-  color: #fafafa;
-}
-
-.flat-style .image-border {
-  background-color: transparent;
-  padding: 0rem;
-}
-
-.flat-style .testimonial .owl-carousel .testimonial-image::after,
-.flat-style .testimonial .owl-carousel .testimonial-image::before,
-.flat-style .blog-item::before,
-.flat-style .blog-image::after {
-  display: none;
-}
-
-.flat-style .portfolio-filter .pill-button {
-  color: #3c3c3c;
-}
-
-.flat-style .blog-image {
-  background-color: #f8f8f8;
-  padding: 0;
-}
-
-/*-------------------------
-      FLAT STYLE DARK
--------------------------*/
-.flat-style.dark-scheme .box-border {
-  background-color: rgba(52, 53, 57, 0.9);
-  -webkit-box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
-          box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2);
-}
-
-.dark-scheme.flat-style .section {
-  background-color: #2c2d30;
-}
-
-.dark-scheme.flat-style .box-hover-border:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.dark-scheme.flat-style .testimonial-image-border,
-.dark-scheme.flat-style .blog-image,
-.dark-scheme.flat-style .blog-single .modal-content,
-.dark-scheme.flat-style .portfolio-single .modal-content {
-  background-color: #2c2d30;
-}
-
-.dark-scheme.flat-style .testimonial-image-border img {
-  border: 1px solid #3c3c3c;
-}
-
-.dark-scheme.flat-style .box-border,
-.dark-scheme.flat-style .box-hover-border,
-.dark-scheme.flat-style .contact .form-item .form-group {
-  background-color: rgba(52, 53, 57, 0.9);
-}
-
-.dark-scheme.flat-style .box-hover-border:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.dark-scheme.flat-style .portfolio-filter .pill-button {
-  color: #fafafa;
+.flat-style ::-webkit-scrollbar {
+  width: 7px;
 }
 
 .neu-style #neu-customizer {
@@ -4336,7 +4183,7 @@ table,
 .color-scheme li a,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
-  border-radius: 15px;
+  border-radius: 9px;
 }
 
 .checkbox i {
@@ -4454,5 +4301,90 @@ Init values for dynamic properties to reduce  page load time
 .neu-style input[type=range]:focus {
   -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
           box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+}
+
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+.flat-style .pill-button,
+.flat-style .radio-selection,
+.flat-style .portfolio-filter .pill-button.active,
+.flat-style .theme-skin .pill-button.active,
+.flat-style .portfolio-filter .pill-button:not(.active):hover,
+.flat-style .theme-skin .pill-button:not(.active):hover,
+.flat-style table > tbody > tr:hover {
+  background-color: #055CB3;
+  color: #EBEBEB;
+}
+
+.flat-style .box-border,
+.flat-style .image-border,
+.flat-style .contact .form-item .form-group,
+.flat-style .segmented-control,
+.flat-style .checkbox label,
+.flat-style .pallet-border,
+.flat-style .color-pallet,
+.flat-style .pallet-button {
+  background-color: #e1e1e1;
+  color: #212529;
+}
+
+.flat-style .display-content > .container,
+.flat-style .range-slider__range,
+.flat-style .range-slider__value {
+  background-color: #D4D4D4;
+  color: #212529;
+}
+
+.flat-style .portfolio-filter .pill-button:not(.active),
+.flat-style .theme-skin .pill-button:not(.active) {
+  color: #055CB3;
+}
+
+.flat-style .pill-button:hover {
+  background-color: #033669;
+}
+
+.flat-style .segmented-control > input:not(:checked):not(:hover) + label {
+  color: #4D4D4D;
+}
+
+.flat-style .segmented-control > input:hover + label {
+  color: #055CB3;
+}
+
+.flat-style .segmented-control > input:checked + label {
+  color: #EBEBEB;
+}
+
+.flat-style .checkbox input:not(:checked):not(:hover) ~ label i,
+.flat-style .checkbox input:not(:checked) ~ label + .name {
+  color: #4D4D4D;
+}
+
+.flat-style .checkbox input:checked ~ label + .name,
+.flat-style .checkbox input:checked ~ label i,
+.flat-style .checkbox input:hover ~ label i {
+  color: #055CB3;
+}
+
+.flat-style ::-webkit-scrollbar-track {
+  background-color: #e1e1e1;
+}
+
+.flat-style ::-webkit-scrollbar-thumb {
+  background-color: #055CB3;
+}
+
+.flat-style ::-webkit-scrollbar-thumb:hover {
+  background: #033669;
+}
+
+.flat-style ::-webkit-slider-thumb {
+  background-color: #055CB3;
+}
+
+.flat-style ::-webkit-slider-thumb:hover {
+  background-color: #033669;
 }
 /*# sourceMappingURL=style.css.map */

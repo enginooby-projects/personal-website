@@ -36,7 +36,7 @@
         <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
 </head>
 
-<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class=''>
+<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
         <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
 
