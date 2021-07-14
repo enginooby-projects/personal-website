@@ -20,7 +20,6 @@ export class Style {
     onEnable() {
         this.init();
         this.setupCustomizeEvents();
-        // this.setupLocalEvents(); // include this if not use init css file for dynamic properties
     }
     ;
 }

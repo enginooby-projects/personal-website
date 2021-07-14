@@ -8,7 +8,7 @@ const bgSchemeSelectors = [
         ".modal-content"
 ];
 
-const bgLightenSchemeSelectors = [ //colorBaseColorSelectors
+const bgLightenSchemeSelectors = [
         ".box-border",
         ".image-border",
         ".contact .form-item .form-group",
@@ -20,7 +20,7 @@ const bgLightenSchemeSelectors = [ //colorBaseColorSelectors
         "::-webkit-scrollbar-track"
 ];
 
-const bgHighlightSelectors = [//colorContrastHighlightColorSelectors
+const bgHighlightSelectors = [
         ".radio-selection",
         ".portfolio-filter .pill-button.active",
         ".pill-button:not( .theme-skin .pill-button):not(.portfolio-filter .pill-button)",
