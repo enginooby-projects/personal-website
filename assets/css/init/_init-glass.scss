@@ -20,12 +20,6 @@ $colorfull3A: rgba(233, 54, 102, $transparency);
         border: #{$borderSize}px solid rgba(209, 213, 219, 0.6),
 }
 
-@mixin no-blur-and-border {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        border: none,
-}
-
 .glass-style {
 
         .pill-button:not(.theme-skin .pill-button):not(.portfolio-filter .pill-button),
@@ -136,10 +130,5 @@ $colorfull3A: rgba(233, 54, 102, $transparency);
         ::-webkit-slider-thumb:hover {
                 background-color: $darkenHighlightColorA;
                 @include blur-and-border();
-        }
-
-        table>tbody>tr:hover,
-        .pallet-border {
-                @include no-blur-and-border();
         }
 }
