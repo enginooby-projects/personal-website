@@ -4443,6 +4443,18 @@ Init values for dynamic properties to reduce  page load time
   color: #055CB3;
 }
 
+.glass-style .background-colorfull1:not(.fill-skillbar) {
+  background-color: rgba(0, 165, 132, 0.6);
+}
+
+.glass-style .background-colorfull2:not(.fill-skillbar) {
+  background-color: rgba(235, 188, 0, 0.6);
+}
+
+.glass-style .background-colorfull3:not(.fill-skillbar) {
+  background-color: rgba(233, 54, 102, 0.6);
+}
+
 .glass-style .pill-button:hover {
   background-color: rgba(3, 54, 105, 0.6);
   color: #EBEBEB;

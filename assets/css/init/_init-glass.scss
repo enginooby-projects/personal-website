@@ -3,11 +3,16 @@
 $transparency:0.6;
 $blur:2;
 $borderSize:1;
+
 $schemeColorA: rgba(212, 212, 212, $transparency);
 $lightenSchemeColorA: rgba(250, 250, 250, $transparency);
 $highlightColorA: rgba(5, 92, 179, $transparency);
 $darkenHighlightColorA: rgba(3, 54, 105, $transparency);
 $contrastHighlightColor: #EBEBEB;
+
+$colorfull1A: rgba(0, 165, 132, $transparency);
+$colorfull2A: rgba(235, 188, 0, $transparency);
+$colorfull3A: rgba(233, 54, 102, $transparency);
 
 @mixin blur-and-border {
         backdrop-filter: blur(#{$blur}px);
@@ -60,6 +65,18 @@ $contrastHighlightColor: #EBEBEB;
         .portfolio-filter .pill-button:not(.active),
         .theme-skin .pill-button:not(.active) {
                 color: $highlightColor;
+        }
+
+        .background-colorfull1:not(.fill-skillbar) {
+                background-color: $colorfull1A;
+        }
+
+        .background-colorfull2:not(.fill-skillbar) {
+                background-color: $colorfull2A;
+        }
+
+        .background-colorfull3:not(.fill-skillbar) {
+                background-color: $colorfull3A;
         }
 
         //HOVER
