@@ -7,12 +7,12 @@ $contrastHighlightColor: #EBEBEB;
 
 .flat-style {
 
-        .pill-button,
-        .radio-selection,
+        .pill-button:not(.theme-skin .pill-button):not(.portfolio-filter .pill-button),
         .portfolio-filter .pill-button.active,
         .theme-skin .pill-button.active,
         .portfolio-filter .pill-button:not(.active):hover,
         .theme-skin .pill-button:not(.active):hover,
+        .radio-selection,
         table>tbody>tr:hover {
                 background-color: $highlightColor;
                 color: $contrastHighlightColor;
@@ -32,7 +32,8 @@ $contrastHighlightColor: #EBEBEB;
 
         .display-content>.container,
         .range-slider__range,
-        .range-slider__value {
+        .range-slider__value,
+        .modal-content {
                 background-color: $schemeColor;
                 color: $baseColor;
         }

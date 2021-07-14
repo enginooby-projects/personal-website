@@ -1525,10 +1525,6 @@ header {
   font-size: 2.5rem !important;
 }
 
-.portfolio-single .modal-content {
-  background-color: #f1f3f6;
-}
-
 .portfolio-single .close {
   color: #5f5f5f;
   text-shadow: none;
@@ -4307,11 +4303,11 @@ Init values for dynamic properties to reduce  page load time
 Init values for dynamic properties to reduce  page load time 
 */
 .flat-style .pill-button,
-.flat-style .radio-selection,
 .flat-style .portfolio-filter .pill-button.active,
 .flat-style .theme-skin .pill-button.active,
 .flat-style .portfolio-filter .pill-button:not(.active):hover,
 .flat-style .theme-skin .pill-button:not(.active):hover,
+.flat-style .radio-selection,
 .flat-style table > tbody > tr:hover {
   background-color: #055CB3;
   color: #EBEBEB;
@@ -4331,7 +4327,8 @@ Init values for dynamic properties to reduce  page load time
 
 .flat-style .display-content > .container,
 .flat-style .range-slider__range,
-.flat-style .range-slider__value {
+.flat-style .range-slider__value,
+.flat-style .modal-content {
   background-color: #D4D4D4;
   color: #212529;
 }
