@@ -91,9 +91,18 @@
         }
 
         .button-border,
-        .pallet-border,
-        .image-border:not(#self-education .image-border) {
+        .pallet-border {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
                 background: transparent !important;
+        }
+
+        .portfolio-filter .pill-button:not(.active),
+        .theme-skin .pill-button:not(.active),
+        .image-border:not(#self-education .image-border) {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: transparent;
         }
 
         ::-webkit-scrollbar {

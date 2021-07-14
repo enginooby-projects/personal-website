@@ -2,36 +2,34 @@ import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
 import { TinyColor } from './TinyColor.js';
-const lightenIntensity = 15;
-const darkenIntensity = 10;
 const backgroundGlassHighlightColorSelectors = formatString([
-    ".glass-style .pill-button:not(.glass-style .pill-button.active)",
+    ".pill-button:not(.pill-button.active)",
     " .contact .form-item .form-group",
-    ".segmented-control",
     ".checkbox label",
-    ".glass-style .segmented-control",
+    ".radio-selection",
+    ".segmented-control",
 ]);
 const backgroundGlassSchemeColorSelectors = formatString([
-    // ".glass-style .section",
-    ".glass-style .display-content>.container",
-    ".glass-style .color-switcher .color-pallet.show",
-    ".glass-style .color-switcher .color-pallet",
-    ".glass-style .pallet-button",
-    ".glass-style .skillbar",
-    ".glass-style .radio-selection",
-    ".glass-style .modal-content"
+    // ".section",
+    ".display-content>.container",
+    ".color-switcher .color-pallet.show",
+    ".color-switcher .color-pallet",
+    ".pallet-button",
+    ".skillbar",
+    ".modal-content"
 ]);
 const backgroundGlassLightenSchemeColorSelectors = formatString([
-    ".glass-style .box-border",
-    ".glass-style #self-education .image-border",
-    ".glass-style .contact .form-item .form-group",
-    ".glass-style .checkbox label",
-    ".glass-style .range-slider__range",
-    ".glass-style .range-slider__value", // TODO: max-3
-    // ".glass-style .pallet-border",
+    ".box-border",
+    "#self-education .image-border",
+    ".contact .form-item .form-group",
+    ".checkbox label",
+    ".segmented-control",
+    ".range-slider__range",
+    ".range-slider__value", // TODO: max-3
+    // ".pallet-border",
 ]);
 const backgroundGlassActiveButtonSelectors = formatString([
-    ".glass-style .pill-button.active"
+    ".pill-button.active"
 ]);
 const backgroundGlassColorfull1Selectors = formatString([
     ".background-colorfull1:not(#self-education .background-colorfull1)",
@@ -52,6 +50,7 @@ export class GlassStyle extends Style {
         this.blur = '2';
         this.transparency = '0.6';
         this.borderSize = '1';
+        this.lightenIntensity = 15;
         this.lightenSchemeColor = new TinyColor('#000000');
         this.darkenSchemeColor = "#680317";
     }
@@ -66,6 +65,10 @@ export class GlassStyle extends Style {
         $('section').each((index, element) => {
             element.classList.add('background-2');
         });
+        console.log('<<<<<<<<<<<');
+        console.log(backgroundGlassLightenSchemeColorSelectors);
+        // this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenIntensity));
+        // console.log(this.lightenSchemeColor.hex);
     }
     revertStyle() {
         $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
@@ -109,7 +112,7 @@ export class GlassStyle extends Style {
                 element.classList.add(background);
             });
         });
-        $(".glass-style .pill-button ").hover((event) => {
+        $(".pill-button ").hover((event) => {
             // TODO: variablize
             $(event.currentTarget).css({
                 'background-color': `rgba(255, 255, 255, ${this.transparency})`,
@@ -188,10 +191,10 @@ export class GlassStyle extends Style {
     }
     onHighlightColorUpdated() {
         this.updateTransparencyHighlightColor();
-        $(".glass-style :not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+        $(":not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
     }
     onSchemeColorUpdated() {
-        this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(lightenIntensity));
+        this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenIntensity));
         this.updateTransparencySchemeColor();
     }
     onBaseColorUpdated() {
