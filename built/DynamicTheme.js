@@ -17,7 +17,9 @@ const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
 export let currentStyle;
 let hoverEventsAreSetup = false;
-let stylesWithUpdatedSchemeColor = ['flat-style', 'neu-style', 'glass-style']; //since we have init css files
+//populate all style names since we have init css files
+let stylesWithUpdatedSchemeColor = ['flat-style', 'neu-style', 'glass-style'];
+let stylesWithUpdatedHighlightColor = ['flat-style', 'neu-style', 'glass-style'];
 export function changeStyle(newStyle) {
     // currentStyle?.onDisable();
     currentStyle = newStyle;
@@ -25,9 +27,16 @@ export function changeStyle(newStyle) {
     currentStyle.onEnable();
     $("body").removeClass();
     $("body").addClass(currentStyle.name);
+    updateChangesFromLastStyle();
+}
+function updateChangesFromLastStyle() {
     if (!stylesWithUpdatedSchemeColor.includes(currentStyle.name)) {
         currentStyle.onSchemeColorUpdated();
         stylesWithUpdatedSchemeColor.push(currentStyle.name);
+    }
+    if (!stylesWithUpdatedHighlightColor.includes(currentStyle.name)) {
+        currentStyle.onHighlightColorUpdated();
+        stylesWithUpdatedHighlightColor.push(currentStyle.name);
     }
 }
 export function init() {
@@ -123,6 +132,8 @@ function updateHighlightColor(hex) {
     StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
     setupCommonHoverEvents();
     currentStyle.onHighlightColorUpdated();
+    stylesWithUpdatedHighlightColor.length = 0;
+    stylesWithUpdatedHighlightColor.push(currentStyle.name);
 }
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
