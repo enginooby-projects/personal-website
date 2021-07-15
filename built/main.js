@@ -7,7 +7,6 @@ $(document).ready(function () {
     DynamicTheme.init();
     clientCarousel();
     pagePilling();
-    themeOption();
     menuToggler();
     sliderOwlCarousel();
     typedJS();
@@ -157,25 +156,6 @@ function pagePilling() {
     });
 }
 /*-------------------------
-        Theme Option
--------------------------*/
-function themeOption() {
-    "use strict";
-    $('.color-scheme li .dark-scheme-option').click(changeDarkScheme);
-    $('.color-scheme li .light-scheme').click(changeLightScheme);
-}
-// TODO: Remove
-function changeDarkScheme() {
-    $("body").addClass('dark-scheme');
-    $('.color-scheme li a').removeClass('active');
-    $(this).addClass('active');
-}
-function changeLightScheme() {
-    $("body").removeClass('dark-scheme');
-    $('.color-scheme li a').removeClass('active');
-    $(this).addClass('active');
-}
-/*-------------------------
     MENU TOGGLER
 -------------------------*/
 function menuToggler() {
@@ -245,8 +225,6 @@ function typedJS() {
         }
     }
 }
-function startTyping() {
-}
 /*-------------------------
           Skills
 -------------------------*/
@@ -263,8 +241,8 @@ function skills() {
   -------------------------*/
 function countup() {
     "use strict";
-    $('.timer').countTo();
-    $('.count-number').removeClass('timer');
+    // $('.timer').countTo();
+    // $('.count-number').removeClass('timer');
 }
 /*-------------------------
      MAGNIFIC POPUP JS
