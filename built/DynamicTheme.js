@@ -8,7 +8,6 @@ let borderRadius = 9;
 export let colorfull1 = new TinyColor("#00a584");
 export let colorfull2 = new TinyColor("#ebbc00");
 export let colorfull3 = new TinyColor("#e93666");
-// export let schemeColor: Color = new TinyColor("#680317");
 export let schemeColor = new TinyColor("#D4D4D4");
 export let highlightColor = new TinyColor("#055CB3");
 export let baseColor = darkBaseValue;
@@ -17,21 +16,17 @@ const lightMutedBaseColor = "#b2b2b2";
 const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
 export let currentStyle;
-let styleRegistry;
 let hoverEventsAreSetup = false;
-let clickEventsAreSetup = false;
-export function changeStyle(htmlElement, newStyle) {
+export function changeStyle(newStyle) {
     // currentStyle?.onDisable();
     currentStyle = newStyle;
-    // update option buttons
-    $('.theme-skin .button-border a').removeClass('active');
-    $(htmlElement).children('.pill-button').addClass('active');
     $(".customizer").hide();
-    $("body").removeClass();
     currentStyle.onEnable();
+    $("body").removeClass();
+    $("body").addClass(currentStyle.name);
 }
 export function init() {
-    styleRegistry = new StyleRegistry();
+    new StyleRegistry();
     $squareImg = $(".hero-image .square img");
     initSettingPanel();
     setupCustomizeEvents();
@@ -48,6 +43,10 @@ function setupCustomizeEvents() {
     $("#color-switcher .pallet-button").on('click', function () {
         $("#color-switcher .color-pallet").toggleClass('show');
         $(this).toggleClass('active');
+    });
+    $('.theme-skin .pill-button').on('click', event => {
+        $('.theme-skin .pill-button').removeClass('active');
+        $(event.currentTarget).addClass('active');
     });
     setupColorPickerEvents();
     setupRangeSliderEvents();
@@ -114,11 +113,10 @@ function updateColorfull(colorfullNumber) {
 ;
 function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
-    $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+    $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
     StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
     setupCommonHoverEvents();
-    setupCommonClickEvents();
     currentStyle.onHighlightColorUpdated();
 }
 function updateSchemeColor(hex) {
@@ -127,7 +125,6 @@ function updateSchemeColor(hex) {
     updateCommonElements();
     updatePseudoElements();
     setupCommonHoverEvents();
-    setupCommonClickEvents();
     currentStyle.onSchemeColorUpdated();
 }
 function setupCommonHoverEvents() {
@@ -143,15 +140,6 @@ function setupCommonHoverEvents() {
     });
     $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
         $(this).css('color', 'white');
-    });
-}
-function setupCommonClickEvents() {
-    // lazily setup
-    if (clickEventsAreSetup)
-        return;
-    clickEventsAreSetup = true;
-    $('#portfolio .pill-button').on('click', function () {
-        // currentStyle.resetInactiveButtons(this);
     });
 }
 function updateCommonElements() {

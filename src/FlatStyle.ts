@@ -64,7 +64,7 @@ const colorMutedBaseSelectors = [
 export class FlatStyle extends Style {
         // Singleton Pattern
         private static _instance: FlatStyle;
-        private constructor() { super() }
+        private constructor() { super('flat-style') }
         public static get Instance(): FlatStyle {
                 FlatStyle._instance ??= new FlatStyle();
                 return FlatStyle._instance;
@@ -95,9 +95,7 @@ export class FlatStyle extends Style {
         public getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
         public getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
 
-        init() {
-                $("body").addClass('flat-style');
-        }
+        init() { }
 
         setupCustomizeEvents(): void { }
 

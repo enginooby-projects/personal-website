@@ -54,7 +54,7 @@ const colorMutedBaseSelectors = [
 ];
 export class FlatStyle extends Style {
     constructor() {
-        super();
+        super('flat-style');
         this.lightSchemeIntensity = 5;
         // darkenSchemeColor: string = "#c7c7c7";
         this.darkHighlightIntensity = 15;
@@ -75,9 +75,7 @@ export class FlatStyle extends Style {
         (_a = FlatStyle._instance) !== null && _a !== void 0 ? _a : (FlatStyle._instance = new FlatStyle());
         return FlatStyle._instance;
     }
-    init() {
-        $("body").addClass('flat-style');
-    }
+    init() { }
     setupCustomizeEvents() { }
     onHighlightColorUpdated() {
         this.darkenHighlightColor = DynamicTheme.highlightColor.getDarken(this.darkHighlightIntensity);

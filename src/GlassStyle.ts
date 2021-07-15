@@ -4,11 +4,11 @@ import { FlatStyle } from './FlatStyle.js';
 import { Style } from './Style.js';
 import { TinyColor } from './TinyColor.js';
 
-// CAUTION: FlatStyle depedent
+// CAUTION: FlatStyle dependent
 export class GlassStyle extends Style {
         // Singleton Pattern
         private static _instance: GlassStyle;
-        private constructor() { super() }
+        private constructor() { super('glass-style') }
         public static get Instance(): GlassStyle {
                 GlassStyle._instance ??= new GlassStyle();
                 return GlassStyle._instance;
@@ -31,9 +31,7 @@ export class GlassStyle extends Style {
         getBgColorfull2Rule = () => this.bgColorfull2Rule ?? (this.bgColorfull2Rule = this.insertEmptyRule(['.background-colorfull2:not(.fill-skillbar)']));
         getBgColorfull3Rule = () => this.bgColorfull3Rule ?? (this.bgColorfull3Rule = this.insertEmptyRule(['.background-colorfull3:not(.fill-skillbar)']));
 
-
         init() {
-                $("body").addClass('glass-style');
                 this.initRangeSliders();
                 $('section').each((index, element) => {
                         element.classList.add('background-2');

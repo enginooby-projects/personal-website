@@ -2,10 +2,10 @@ import * as DynamicTheme from './DynamicTheme.js';
 import { FlatStyle } from './FlatStyle.js';
 import { Style } from './Style.js';
 import { TinyColor } from './TinyColor.js';
-// CAUTION: FlatStyle depedent
+// CAUTION: FlatStyle dependent
 export class GlassStyle extends Style {
     constructor() {
-        super();
+        super('glass-style');
         this.blur = 2;
         this.transparency = 0.6;
         this.borderSize = 1;
@@ -24,7 +24,6 @@ export class GlassStyle extends Style {
         return GlassStyle._instance;
     }
     init() {
-        $("body").addClass('glass-style');
         this.initRangeSliders();
         $('section').each((index, element) => {
             element.classList.add('background-2');

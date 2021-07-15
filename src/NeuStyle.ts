@@ -81,7 +81,7 @@ const concaveBoxShadowSelectors = [
 export class NeuStyle extends Style {
         //  Singleton Pattern
         private static _instance: NeuStyle = new NeuStyle();
-        private constructor() { super() }
+        private constructor() { super('neu-style') }
         public static get Instance(): NeuStyle {
                 NeuStyle._instance ??= new NeuStyle();
                 return NeuStyle._instance;
@@ -117,9 +117,7 @@ export class NeuStyle extends Style {
         getThumbScrollbarBoxShadowRule = () => this.thumbScrollbarBoxShadowRule ?? (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb']));
 
         init() {
-                $("body").addClass("neu-style");
                 this.initRangeSliders();
-                console.log('<<<<<<<<<<<')
         }
 
         initRangeSliders() {

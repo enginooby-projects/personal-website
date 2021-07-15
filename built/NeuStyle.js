@@ -73,7 +73,7 @@ const concaveBoxShadowSelectors = [
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
     constructor() {
-        super();
+        super('neu-style');
         this.distance = 3;
         this.blur = 8;
         this.lightenIntensity = 7;
@@ -99,9 +99,7 @@ export class NeuStyle extends Style {
         return NeuStyle._instance;
     }
     init() {
-        $("body").addClass("neu-style");
         this.initRangeSliders();
-        console.log('<<<<<<<<<<<');
     }
     initRangeSliders() {
         $('#distance').attr('value', this.distance);

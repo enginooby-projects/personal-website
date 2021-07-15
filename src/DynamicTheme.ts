@@ -5,7 +5,6 @@ import { Color, darkBaseValue, lightBaseValue } from './Color.js';
 import { TinyColor } from './TinyColor.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
 
-
 let $squareImg: JQuery<HTMLElement>;
 
 let borderRadius: number = 9;
@@ -14,7 +13,6 @@ export let colorfull1: Color = new TinyColor("#00a584");
 export let colorfull2: Color = new TinyColor("#ebbc00");
 export let colorfull3: Color = new TinyColor("#e93666");
 
-// export let schemeColor: Color = new TinyColor("#680317");
 export let schemeColor: Color = new TinyColor("#D4D4D4");
 export let highlightColor: Color = new TinyColor("#055CB3");
 export let baseColor: string = darkBaseValue;
@@ -23,26 +21,21 @@ const lightMutedBaseColor: string = "#b2b2b2";
 const darkMutedBaseColor: string = "#4D4D4D";
 export let mutedBaseColor: string = darkMutedBaseColor;
 
-
 export let currentStyle: Style;
-let styleRegistry: StyleRegistry;
 
 let hoverEventsAreSetup: boolean = false;
-let clickEventsAreSetup: boolean = false;
 
-export function changeStyle(htmlElement: HTMLElement | JQuery<HTMLElement>, newStyle: Style) {
+export function changeStyle(newStyle: Style) {
         // currentStyle?.onDisable();
         currentStyle = newStyle;
-        // update option buttons
-        $('.theme-skin .button-border a').removeClass('active');
-        $(htmlElement).children('.pill-button').addClass('active');
         $(".customizer").hide();
-        $("body").removeClass();
         currentStyle.onEnable();
+        $("body").removeClass();
+        $("body").addClass(currentStyle.name);
 }
 
 export function init() {
-        styleRegistry = new StyleRegistry();
+        new StyleRegistry();
         $squareImg = $(".hero-image .square img");
         initSettingPanel();
         setupCustomizeEvents();
@@ -61,6 +54,10 @@ function setupCustomizeEvents() {
         $("#color-switcher .pallet-button").on('click', function () {
                 $("#color-switcher .color-pallet").toggleClass('show');
                 $(this).toggleClass('active');
+        });
+        $('.theme-skin .pill-button').on('click', event => {
+                $('.theme-skin .pill-button').removeClass('active');
+                $(event.currentTarget).addClass('active')
         });
         setupColorPickerEvents();
         setupRangeSliderEvents();
@@ -130,14 +127,12 @@ function updateColorfull(colorfullNumber: number) {
         $(`.badge-pill.background-colorfull${colorfullNumber} .badge`).css('background', colorfull!.getInvertBlackWhite());
 };
 
-
 function updateHighlightColor(hex: string) {
         highlightColor.setHex(hex);
-        $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
+        $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
         StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
         setupCommonHoverEvents();
-        setupCommonClickEvents();
         currentStyle.onHighlightColorUpdated();
 }
 
@@ -147,10 +142,8 @@ function updateSchemeColor(hex: string) {
         updateCommonElements();
         updatePseudoElements();
         setupCommonHoverEvents();
-        setupCommonClickEvents();
         currentStyle.onSchemeColorUpdated();
 }
-
 
 function setupCommonHoverEvents() {
         // lazily setup
@@ -167,16 +160,6 @@ function setupCommonHoverEvents() {
 
         $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
                 $(this).css('color', 'white');
-        });
-}
-
-function setupCommonClickEvents() {
-        // lazily setup
-        if (clickEventsAreSetup) return;
-        clickEventsAreSetup = true;
-
-        $('#portfolio .pill-button').on('click', function (this: HTMLElement) {
-                // currentStyle.resetInactiveButtons(this);
         });
 }
 

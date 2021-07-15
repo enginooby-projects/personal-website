@@ -15,20 +15,23 @@ const GLASS_OPTION_SELECTOR: string = '#glass-skin-button';
 jQuery(function () {
         "use strict";
         $(FLAT_OPTION_SELECTOR).on('click', function () {
-                changeStyle(this, FlatStyle.Instance);
+                changeStyle(FlatStyle.Instance);
         });
         $(NEU_OPTION_SELECTOR).on('click', function () {
-                changeStyle(this, NeuStyle.Instance);
+                changeStyle(NeuStyle.Instance);
         });
         $(GLASS_OPTION_SELECTOR).on('click', function () {
-                changeStyle(this, GlassStyle.Instance);
+                changeStyle(GlassStyle.Instance);
         });
 });
 
 export class StyleRegistry {
         constructor() {
-                changeStyle($(GLASS_OPTION_SELECTOR), GlassStyle.Instance);
-                // changeStyle($(NEU_OPTION_SELECTOR), NeuStyle.Instance);
-                // changeStyle($(FLAT_OPTION_SELECTOR), FlatStyle.Instance);
+                changeStyle(GlassStyle.Instance);
+                $(GLASS_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                // changeStyle(NeuStyle.Instance);
+                // $(NEU_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                // changeStyle(FlatStyle.Instance);
+                // $(FLAT_OPTION_SELECTOR).children('.pill-button').addClass('active');
         }
 }

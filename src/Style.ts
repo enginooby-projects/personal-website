@@ -1,11 +1,12 @@
 export abstract class Style {
-        localEventsAreSetup: boolean = false;
         private styleSheet?: CSSStyleSheet;
         private cssRules?: CSSRuleList;
+        name: string = '';
 
-        constructor() {
+        constructor(name: string) {
                 this.styleSheet = this.getStyleSheet();
                 this.cssRules = this.styleSheet.cssRules || this.styleSheet.rules;
+                this.name = name;
         }
 
         // CONSIDER: Create new style then append to head

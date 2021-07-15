@@ -1,9 +1,10 @@
 export class Style {
-    constructor() {
-        this.localEventsAreSetup = false;
+    constructor(name) {
+        this.name = '';
         this.insertEmptyRule = (selectors) => this.cssRules[this.styleSheet.insertRule(`${this.formatSelectorsArray(selectors)} {}`)];
         this.styleSheet = this.getStyleSheet();
         this.cssRules = this.styleSheet.cssRules || this.styleSheet.rules;
+        this.name = name;
     }
     // CONSIDER: Create new style then append to head
     getStyleSheet() {
