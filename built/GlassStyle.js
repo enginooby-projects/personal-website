@@ -1,19 +1,28 @@
 import * as DynamicTheme from './DynamicTheme.js';
-import { FlatStyle } from './FlatStyle.js';
+import * as FlatStyle from './FlatStyle.js';
 import { Style } from './Style.js';
 import { TinyColor } from './TinyColor.js';
 // CAUTION: FlatStyle dependent
+//TODO: DRY with FlatStyle
 export class GlassStyle extends Style {
     constructor() {
         super('glass-style');
-        this.blur = 2;
-        this.transparency = 0.6;
-        this.borderSize = 1;
+        this.blur = '2';
+        this.transparency = '0.6';
+        this.borderSize = '1';
         this.lightenSchemeIntensity = 15;
         this.darkHighlightIntensity = 15;
         this.lightenSchemeColor = new TinyColor('#fafafa');
         this.darkenHighlightColor = new TinyColor('#033669');
         // lazy initializations
+        this.getBgSchemeRule = () => { var _a; return (_a = this.bgSchemeRule) !== null && _a !== void 0 ? _a : (this.bgSchemeRule = this.insertEmptyRule(FlatStyle.bgSchemeSelectors)); };
+        this.getBgLightenSchemeRule = () => { var _a; return (_a = this.bgLightenSchemeRule) !== null && _a !== void 0 ? _a : (this.bgLightenSchemeRule = this.insertEmptyRule(FlatStyle.bgLightenSchemeSelectors)); };
+        this.getBgHighlightRule = () => { var _a; return (_a = this.bgHighlightRule) !== null && _a !== void 0 ? _a : (this.bgHighlightRule = this.insertEmptyRule(FlatStyle.bgHighlightSelectors)); };
+        this.getBgDarkenHighlightRule = () => { var _a; return (_a = this.bgDarkenHighlightRule) !== null && _a !== void 0 ? _a : (this.bgDarkenHighlightRule = this.insertEmptyRule(FlatStyle.bgDarkenHighlightSelectors)); };
+        this.getColorHighlightRule = () => { var _a; return (_a = this.colorHighlightRule) !== null && _a !== void 0 ? _a : (this.colorHighlightRule = this.insertEmptyRule(FlatStyle.colorHighlightSelectors)); };
+        this.getColorContrastHighlightRule = () => { var _a; return (_a = this.colorContrastHighlightRule) !== null && _a !== void 0 ? _a : (this.colorContrastHighlightRule = this.insertEmptyRule(FlatStyle.colorContrastHighlightSelectors)); };
+        this.getColorBaseRule = () => { var _a; return (_a = this.colorBaseRule) !== null && _a !== void 0 ? _a : (this.colorBaseRule = this.insertEmptyRule(FlatStyle.colorBaseSelectors)); };
+        this.getColorMutedBaseRule = () => { var _a; return (_a = this.colorMutedBaseRule) !== null && _a !== void 0 ? _a : (this.colorMutedBaseRule = this.insertEmptyRule(FlatStyle.colorMutedBaseSelectors)); };
         this.getBgColorfull1Rule = () => { var _a; return (_a = this.bgColorfull1Rule) !== null && _a !== void 0 ? _a : (this.bgColorfull1Rule = this.insertEmptyRule(['.background-colorfull1:not(.fill-skillbar)'])); };
         this.getBgColorfull2Rule = () => { var _a; return (_a = this.bgColorfull2Rule) !== null && _a !== void 0 ? _a : (this.bgColorfull2Rule = this.insertEmptyRule(['.background-colorfull2:not(.fill-skillbar)'])); };
         this.getBgColorfull3Rule = () => { var _a; return (_a = this.bgColorfull3Rule) !== null && _a !== void 0 ? _a : (this.bgColorfull3Rule = this.insertEmptyRule(['.background-colorfull3:not(.fill-skillbar)'])); };
@@ -39,7 +48,7 @@ export class GlassStyle extends Style {
     }
     setupCustomizeEvents() {
         $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
-            const newValue = parseInt(event.target.value);
+            const newValue = event.target.value;
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
                 case 'glass-transparency':
@@ -75,9 +84,10 @@ export class GlassStyle extends Style {
     }
     updateBlur() {
         this.setToCurrentBlur([
-            FlatStyle.Instance.getBgSchemeRule(),
-            FlatStyle.Instance.getBgHighlightRule(),
-            FlatStyle.Instance.getBgDarkenHighlightRule(),
+            this.getBgSchemeRule(),
+            this.getBgLightenSchemeRule(),
+            this.getBgHighlightRule(),
+            this.getBgDarkenHighlightRule(),
             this.getBgColorfull1Rule(),
             this.getBgColorfull2Rule(),
             this.getBgColorfull3Rule()
@@ -91,9 +101,10 @@ export class GlassStyle extends Style {
     }
     updateBorderSize() {
         this.setToCurrentBorderSize([
-            FlatStyle.Instance.getBgSchemeRule(),
-            FlatStyle.Instance.getBgLightenSchemeRule(),
-            FlatStyle.Instance.getBgDarkenHighlightRule(),
+            this.getBgSchemeRule(),
+            this.getBgLightenSchemeRule(),
+            this.getBgHighlightRule(),
+            this.getBgDarkenHighlightRule(),
             this.getBgColorfull1Rule(),
             this.getBgColorfull2Rule(),
             this.getBgColorfull3Rule(),
@@ -109,7 +120,7 @@ export class GlassStyle extends Style {
     }
     //HELPER
     limitBorderSize(selector, limit) {
-        document.querySelectorAll(selector).forEach((element) => element.style.setProperty('border-width', `${Math.min(limit, this.borderSize)}`, 'important'));
+        document.querySelectorAll(selector).forEach((element) => element.style.setProperty('border-width', `${Math.min(limit, parseFloat(this.borderSize))}`, 'important'));
     }
     updateTransparency() {
         this.updateTransparencySchemeColor();
@@ -123,12 +134,12 @@ export class GlassStyle extends Style {
         rule.style.setProperty('color', contrastColor, 'important');
     }
     updateTransparencySchemeColor() {
-        this.setToCurrentTransparency(FlatStyle.Instance.getBgSchemeRule(), DynamicTheme.schemeColor);
-        this.setToCurrentTransparency(FlatStyle.Instance.getBgLightenSchemeRule(), this.lightenSchemeColor);
+        this.setToCurrentTransparency(this.getBgSchemeRule(), DynamicTheme.schemeColor);
+        this.setToCurrentTransparency(this.getBgLightenSchemeRule(), this.lightenSchemeColor);
     }
     updateTransparencyHighlightColor() {
-        this.setToCurrentTransparency(FlatStyle.Instance.getBgHighlightRule(), DynamicTheme.highlightColor);
-        this.setToCurrentTransparency(FlatStyle.Instance.getBgDarkenHighlightRule(), DynamicTheme.highlightColor);
+        this.setToCurrentTransparency(this.getBgHighlightRule(), DynamicTheme.highlightColor);
+        this.setToCurrentTransparency(this.getBgDarkenHighlightRule(), DynamicTheme.highlightColor);
     }
     updateTransparencyColorfull() {
         //CONSIDER: Separate update functions if optimization needed
@@ -139,13 +150,15 @@ export class GlassStyle extends Style {
     onHighlightColorUpdated() {
         this.darkenHighlightColor.setHex(DynamicTheme.highlightColor.getLighten(this.darkHighlightIntensity));
         this.updateTransparencyHighlightColor();
-        FlatStyle.Instance.updateColorHighlight();
+        this.getColorHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+        this.getColorContrastHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
     }
     onSchemeColorUpdated() {
         this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenSchemeIntensity));
         this.updateTransparencySchemeColor();
     }
     onBaseColorUpdated() {
-        FlatStyle.Instance.onBaseColorUpdated();
+        this.getColorBaseRule().style.setProperty('color', DynamicTheme.baseColor, 'important');
+        this.getColorMutedBaseRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
     }
 }

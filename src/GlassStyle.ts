@@ -1,10 +1,11 @@
 import { Color } from './Color.js';
 import * as DynamicTheme from './DynamicTheme.js';
-import { FlatStyle } from './FlatStyle.js';
+import * as FlatStyle from './FlatStyle.js';
 import { Style } from './Style.js';
 import { TinyColor } from './TinyColor.js';
 
 // CAUTION: FlatStyle dependent
+//TODO: DRY with FlatStyle
 export class GlassStyle extends Style {
         // Singleton Pattern
         private static _instance: GlassStyle;
@@ -14,9 +15,9 @@ export class GlassStyle extends Style {
                 return GlassStyle._instance;
         }
 
-        blur = 2;
-        transparency = 0.6;
-        borderSize = 1;
+        blur = '2';
+        transparency = '0.6';
+        borderSize = '1';
         lightenSchemeIntensity = 15;
         darkHighlightIntensity: number = 15;
         lightenSchemeColor: Color = new TinyColor('#fafafa');
@@ -26,7 +27,24 @@ export class GlassStyle extends Style {
         private bgColorfull2Rule?: CSSStyleRule;
         private bgColorfull3Rule?: CSSStyleRule;
 
+        private bgSchemeRule?: CSSStyleRule;
+        private bgLightenSchemeRule?: CSSStyleRule;
+        private bgHighlightRule?: CSSStyleRule;
+        private bgDarkenHighlightRule?: CSSStyleRule;
+        private colorHighlightRule?: CSSStyleRule;
+        private colorContrastHighlightRule?: CSSStyleRule;
+        private colorBaseRule?: CSSStyleRule;
+        private colorMutedBaseRule?: CSSStyleRule;
+
         // lazy initializations
+        getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(FlatStyle.bgSchemeSelectors));
+        getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(FlatStyle.bgLightenSchemeSelectors));
+        getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(FlatStyle.bgHighlightSelectors));
+        getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(FlatStyle.bgDarkenHighlightSelectors));
+        getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(FlatStyle.colorHighlightSelectors));
+        getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(FlatStyle.colorContrastHighlightSelectors));
+        getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(FlatStyle.colorBaseSelectors));
+        getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(FlatStyle.colorMutedBaseSelectors));
         getBgColorfull1Rule = () => this.bgColorfull1Rule ?? (this.bgColorfull1Rule = this.insertEmptyRule(['.background-colorfull1:not(.fill-skillbar)']));
         getBgColorfull2Rule = () => this.bgColorfull2Rule ?? (this.bgColorfull2Rule = this.insertEmptyRule(['.background-colorfull2:not(.fill-skillbar)']));
         getBgColorfull3Rule = () => this.bgColorfull3Rule ?? (this.bgColorfull3Rule = this.insertEmptyRule(['.background-colorfull3:not(.fill-skillbar)']));
@@ -49,7 +67,7 @@ export class GlassStyle extends Style {
 
         setupCustomizeEvents(): void {
                 $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
-                        const newValue = parseInt((event.target as HTMLInputElement).value);
+                        const newValue = (event.target as HTMLInputElement).value;
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
                                 case 'glass-transparency':
@@ -88,9 +106,10 @@ export class GlassStyle extends Style {
 
         updateBlur() {
                 this.setToCurrentBlur([
-                        FlatStyle.Instance.getBgSchemeRule(),
-                        FlatStyle.Instance.getBgHighlightRule(),
-                        FlatStyle.Instance.getBgDarkenHighlightRule(),
+                        this.getBgSchemeRule(),
+                        this.getBgLightenSchemeRule(),
+                        this.getBgHighlightRule(),
+                        this.getBgDarkenHighlightRule(),
                         this.getBgColorfull1Rule(),
                         this.getBgColorfull2Rule(),
                         this.getBgColorfull3Rule()
@@ -106,9 +125,10 @@ export class GlassStyle extends Style {
 
         updateBorderSize() {
                 this.setToCurrentBorderSize([
-                        FlatStyle.Instance.getBgSchemeRule(),
-                        FlatStyle.Instance.getBgLightenSchemeRule(),
-                        FlatStyle.Instance.getBgDarkenHighlightRule(),
+                        this.getBgSchemeRule(),
+                        this.getBgLightenSchemeRule(),
+                        this.getBgHighlightRule(),
+                        this.getBgDarkenHighlightRule(),
                         this.getBgColorfull1Rule(),
                         this.getBgColorfull2Rule(),
                         this.getBgColorfull3Rule(),
@@ -126,7 +146,7 @@ export class GlassStyle extends Style {
 
         //HELPER
         limitBorderSize(selector: string, limit: number) {
-                document.querySelectorAll(selector).forEach((element) => (element as HTMLElement).style.setProperty('border-width', `${Math.min(limit, this.borderSize)}`, 'important'));
+                document.querySelectorAll(selector).forEach((element) => (element as HTMLElement).style.setProperty('border-width', `${Math.min(limit, parseFloat(this.borderSize))}`, 'important'));
         }
 
         updateTransparency() {
@@ -143,13 +163,13 @@ export class GlassStyle extends Style {
         }
 
         private updateTransparencySchemeColor() {
-                this.setToCurrentTransparency(FlatStyle.Instance.getBgSchemeRule(), DynamicTheme.schemeColor);
-                this.setToCurrentTransparency(FlatStyle.Instance.getBgLightenSchemeRule(), this.lightenSchemeColor);
+                this.setToCurrentTransparency(this.getBgSchemeRule(), DynamicTheme.schemeColor);
+                this.setToCurrentTransparency(this.getBgLightenSchemeRule(), this.lightenSchemeColor);
         }
 
         private updateTransparencyHighlightColor() {
-                this.setToCurrentTransparency(FlatStyle.Instance.getBgHighlightRule(), DynamicTheme.highlightColor);
-                this.setToCurrentTransparency(FlatStyle.Instance.getBgDarkenHighlightRule(), DynamicTheme.highlightColor);
+                this.setToCurrentTransparency(this.getBgHighlightRule(), DynamicTheme.highlightColor);
+                this.setToCurrentTransparency(this.getBgDarkenHighlightRule(), DynamicTheme.highlightColor);
         }
 
         private updateTransparencyColorfull() {
@@ -162,7 +182,8 @@ export class GlassStyle extends Style {
         onHighlightColorUpdated(): void {
                 this.darkenHighlightColor.setHex(DynamicTheme.highlightColor.getLighten(this.darkHighlightIntensity));
                 this.updateTransparencyHighlightColor();
-                FlatStyle.Instance.updateColorHighlight();
+                this.getColorHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
+                this.getColorContrastHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
         }
 
         onSchemeColorUpdated(): void {
@@ -171,6 +192,7 @@ export class GlassStyle extends Style {
         }
 
         onBaseColorUpdated(): void {
-                FlatStyle.Instance.onBaseColorUpdated();
+                this.getColorBaseRule().style.setProperty('color', DynamicTheme.baseColor, 'important');
+                this.getColorMutedBaseRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
         }
 }
