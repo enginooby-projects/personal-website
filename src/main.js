@@ -27,13 +27,13 @@ $(document).ready(function () {
         return $('[data-toggle="tooltip"]').tooltip();
 });
 
+setupLazyLoading();
 
 $window.on("load", (function () {
         $("#overlayer").delay(500).fadeOut('slow');
         $(".loader").delay(1000).fadeOut('slow');
         portfolioIsotop();
 }));
-
 $(".to-contact").on('click', function () {
         $("section.active").removeClass("active");
         var $id = $(this).attr('href');
@@ -60,6 +60,25 @@ function setupModalEvents() {
         $('[data-target="#the-maze-play"]').one('click', event => {
                 $('#the-maze-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/the-maze" style="width: 1072px;height: 517px;border:0"></iframe>')
         });
+}
+
+function setupLazyLoading() {
+        document.addEventListener("DOMContentLoaded", function () {
+                const imageObserver = new IntersectionObserver((entries, imgObserver) => {
+                        entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                        const lazyImage = entry.target
+                                        lazyImage.src = lazyImage.dataset.src
+                                        lazyImage.classList.remove("lazy");
+                                        imgObserver.unobserve(lazyImage);
+                                }
+                        })
+                });
+                const arr = document.querySelectorAll('img.lazy')
+                arr.forEach((v) => {
+                        imageObserver.observe(v);
+                })
+        })
 }
 
 /*-------------------------

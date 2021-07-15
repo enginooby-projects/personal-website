@@ -68,7 +68,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $isInjectedItem = 
                 $injectedContent = ob_get_clean();
                 $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
         } else {
-                $imageElement = ' <img src="assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">';
+                $imageElement = ' <img class="lazy" data-src="https://enginoobz.com/assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">';
         }
 
         if ($isGalleryItem) $buttonElements .= '
