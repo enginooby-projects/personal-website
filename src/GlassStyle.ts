@@ -52,7 +52,7 @@ export class GlassStyle extends Style {
         init() {
                 this.initRangeSliders();
                 $('section').each((index, element) => {
-                        element.classList.add('background-2');
+                        element.classList.add('background-3');
                 })
         }
 
