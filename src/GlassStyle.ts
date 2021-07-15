@@ -14,9 +14,9 @@ export class GlassStyle extends Style {
                 return GlassStyle._instance;
         }
 
-        blur = '2';
-        transparency = '0.6';
-        borderSize = '1';
+        blur = 2;
+        transparency = 0.6;
+        borderSize = 1;
         lightenSchemeIntensity = 15;
         darkHighlightIntensity: number = 15;
         lightenSchemeColor: Color = new TinyColor('#fafafa');
@@ -51,7 +51,7 @@ export class GlassStyle extends Style {
 
         setupCustomizeEvents(): void {
                 $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
-                        const newValue = (event.target as HTMLInputElement).value;
+                        const newValue = parseInt((event.target as HTMLInputElement).value);
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
                                 case 'glass-transparency':
@@ -111,6 +111,15 @@ export class GlassStyle extends Style {
                 this.setToCurrentBorderSize(this.getBgColorfull1Rule());
                 this.setToCurrentBorderSize(this.getBgColorfull2Rule());
                 this.setToCurrentBorderSize(this.getBgColorfull3Rule());
+                //TODO: use Map or Dictionary
+                this.limitBorderSize('.pallet-button', 1.5);
+                this.limitBorderSize('.range-slider__range', 2.5);
+                this.limitBorderSize('.range-slider__value', 4);
+        }
+
+        //HELPER
+        limitBorderSize(selector: string, limit: number) {
+                document.querySelectorAll(selector).forEach((element) => (element as HTMLElement).style.setProperty('border-width', `${Math.min(limit, this.borderSize)}`, 'important'));
         }
 
         setToCurrentBorderSize(rule: CSSStyleRule) {

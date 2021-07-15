@@ -6,9 +6,9 @@ import { TinyColor } from './TinyColor.js';
 export class GlassStyle extends Style {
     constructor() {
         super();
-        this.blur = '2';
-        this.transparency = '0.6';
-        this.borderSize = '1';
+        this.blur = 2;
+        this.transparency = 0.6;
+        this.borderSize = 1;
         this.lightenSchemeIntensity = 15;
         this.darkHighlightIntensity = 15;
         this.lightenSchemeColor = new TinyColor('#fafafa');
@@ -40,7 +40,7 @@ export class GlassStyle extends Style {
     }
     setupCustomizeEvents() {
         $("#glass-transparency, #glass-blur, #glass-border-size").on('input', (event) => {
-            const newValue = event.target.value;
+            const newValue = parseInt(event.target.value);
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
                 case 'glass-transparency':
@@ -95,6 +95,14 @@ export class GlassStyle extends Style {
         this.setToCurrentBorderSize(this.getBgColorfull1Rule());
         this.setToCurrentBorderSize(this.getBgColorfull2Rule());
         this.setToCurrentBorderSize(this.getBgColorfull3Rule());
+        //TODO: use Map or Dictionary
+        this.limitBorderSize('.pallet-button', 1.5);
+        this.limitBorderSize('.range-slider__range', 2.5);
+        this.limitBorderSize('.range-slider__value', 4);
+    }
+    //HELPER
+    limitBorderSize(selector, limit) {
+        document.querySelectorAll(selector).forEach((element) => element.style.setProperty('border-width', `${Math.min(limit, this.borderSize)}`, 'important'));
     }
     setToCurrentBorderSize(rule) {
         //TODO: Variablize border properties
