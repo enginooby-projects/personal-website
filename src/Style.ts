@@ -21,7 +21,8 @@ export abstract class Style {
         protected insertEmptyRule = (selectors: string[]): CSSStyleRule => this.cssRules![this.styleSheet!.insertRule(`${this.formatSelectorsArray(selectors)} {}`)] as CSSStyleRule;
 
         private formatSelectorsArray(array: string[]): string {
-                return array.join(", ");
+                return array.map(selector => `.${this.name} ${selector}`).join(", ");
+                // return array.join(", ");
         }
 
         onEnable(): void {

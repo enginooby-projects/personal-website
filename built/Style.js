@@ -16,7 +16,8 @@ export class Style {
         throw new Error('Failed to retrieve style sheet with title "style"!');
     }
     formatSelectorsArray(array) {
-        return array.join(", ");
+        return array.map(selector => `.${this.name} ${selector}`).join(", ");
+        // return array.join(", ");
     }
     onEnable() {
         this.init();

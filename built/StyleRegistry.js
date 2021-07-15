@@ -24,7 +24,7 @@ jQuery(function () {
 export class StyleRegistry {
     constructor() {
         changeStyle(GlassStyle.Instance);
-        $(GLASS_OPTION_SELECTOR).children('.pill-button').addClass('active');
+        // $(GLASS_OPTION_SELECTOR).children('.pill-button').addClass('active');
         // changeStyle(NeuStyle.Instance);
         // $(NEU_OPTION_SELECTOR).children('.pill-button').addClass('active');
         // changeStyle(FlatStyle.Instance);

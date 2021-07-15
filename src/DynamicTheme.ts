@@ -25,6 +25,8 @@ export let currentStyle: Style;
 
 let hoverEventsAreSetup: boolean = false;
 
+let stylesWithUpdatedSchemeColor: string[] = ['flat-style', 'neu-style', 'glass-style']; //since we have init css files
+
 export function changeStyle(newStyle: Style) {
         // currentStyle?.onDisable();
         currentStyle = newStyle;
@@ -32,6 +34,11 @@ export function changeStyle(newStyle: Style) {
         currentStyle.onEnable();
         $("body").removeClass();
         $("body").addClass(currentStyle.name);
+
+        if (!stylesWithUpdatedSchemeColor.includes(currentStyle.name)) {
+                currentStyle.onSchemeColorUpdated();
+                stylesWithUpdatedSchemeColor.push(currentStyle.name);
+        }
 }
 
 export function init() {
@@ -142,7 +149,10 @@ function updateSchemeColor(hex: string) {
         updateCommonElements();
         updatePseudoElements();
         setupCommonHoverEvents();
+
         currentStyle.onSchemeColorUpdated();
+        stylesWithUpdatedSchemeColor.length = 0;
+        stylesWithUpdatedSchemeColor.push(currentStyle.name);
 }
 
 function setupCommonHoverEvents() {

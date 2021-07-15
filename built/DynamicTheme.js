@@ -17,6 +17,7 @@ const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
 export let currentStyle;
 let hoverEventsAreSetup = false;
+let stylesWithUpdatedSchemeColor = ['flat-style', 'neu-style', 'glass-style']; //since we have init css files
 export function changeStyle(newStyle) {
     // currentStyle?.onDisable();
     currentStyle = newStyle;
@@ -24,6 +25,10 @@ export function changeStyle(newStyle) {
     currentStyle.onEnable();
     $("body").removeClass();
     $("body").addClass(currentStyle.name);
+    if (!stylesWithUpdatedSchemeColor.includes(currentStyle.name)) {
+        currentStyle.onSchemeColorUpdated();
+        stylesWithUpdatedSchemeColor.push(currentStyle.name);
+    }
 }
 export function init() {
     new StyleRegistry();
@@ -126,6 +131,8 @@ function updateSchemeColor(hex) {
     updatePseudoElements();
     setupCommonHoverEvents();
     currentStyle.onSchemeColorUpdated();
+    stylesWithUpdatedSchemeColor.length = 0;
+    stylesWithUpdatedSchemeColor.push(currentStyle.name);
 }
 function setupCommonHoverEvents() {
     // lazily setup

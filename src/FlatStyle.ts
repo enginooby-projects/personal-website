@@ -1,14 +1,14 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 
-const bgSchemeSelectors = [
+export const bgSchemeSelectors = [
         ".display-content>.container",
         ".range-slider__range",
         ".range-slider__value",
         ".modal-content"
 ];
 
-const bgLightenSchemeSelectors = [
+export const bgLightenSchemeSelectors = [
         ".box-border",
         ".image-border",
         ".contact .form-item .form-group",
@@ -20,7 +20,7 @@ const bgLightenSchemeSelectors = [
         "::-webkit-scrollbar-track"
 ];
 
-const bgHighlightSelectors = [
+export const bgHighlightSelectors = [
         ".radio-selection",
         ".portfolio-filter .pill-button.active",
         ".pill-button:not( .theme-skin .pill-button):not(.portfolio-filter .pill-button)",
@@ -32,13 +32,13 @@ const bgHighlightSelectors = [
         "::-webkit-slider-thumb "
 ];
 
-const bgDarkenHighlightSelectors = [
+export const bgDarkenHighlightSelectors = [
         "::-webkit-scrollbar-thumb:hover",
         "::-webkit-slider-thumb:hover",
         ".pill-button:hover"
 ]
 
-const colorHighlightSelectors = [
+export const colorHighlightSelectors = [
         ".segmented-control>input:hover+label",
         ".portfolio-filter .pill-button:not(.active)",
         ".theme-skin .pill-button:not(.active)",
@@ -47,15 +47,15 @@ const colorHighlightSelectors = [
         ".checkbox input:checked~label+.name"
 ];
 
-const colorContrastHighlightSelectors = [
+export const colorContrastHighlightSelectors = [
         ".segmented-control>input:checked+label",
 ]
 
-const colorBaseSelectors = [
+export const colorBaseSelectors = [
         ".portfolio-filter .pill-button ",
 ];
 
-const colorMutedBaseSelectors = [
+export const colorMutedBaseSelectors = [
         ".segmented-control>input:not(:checked):not(:hover)+label",
         ".checkbox input:not(:checked)~label+.name",
         ".checkbox input:not(:checked):not(:hover)~label i",
@@ -86,14 +86,14 @@ export class FlatStyle extends Style {
         private colorMutedBaseRule?: CSSStyleRule;
 
         // lazy initializations
-        public getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
-        public getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors));
-        public getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
-        public getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
-        public getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors));
-        public getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors));
-        public getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
-        public getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
+        getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
+        getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors));
+        getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
+        getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
+        getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors));
+        getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors));
+        getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
+        getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
 
         init() { }
 

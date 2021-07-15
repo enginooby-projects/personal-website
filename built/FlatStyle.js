@@ -1,12 +1,12 @@
 import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
-const bgSchemeSelectors = [
+export const bgSchemeSelectors = [
     ".display-content>.container",
     ".range-slider__range",
     ".range-slider__value",
     ".modal-content"
 ];
-const bgLightenSchemeSelectors = [
+export const bgLightenSchemeSelectors = [
     ".box-border",
     ".image-border",
     ".contact .form-item .form-group",
@@ -17,7 +17,7 @@ const bgLightenSchemeSelectors = [
     ".pallet-button",
     "::-webkit-scrollbar-track"
 ];
-const bgHighlightSelectors = [
+export const bgHighlightSelectors = [
     ".radio-selection",
     ".portfolio-filter .pill-button.active",
     ".pill-button:not( .theme-skin .pill-button):not(.portfolio-filter .pill-button)",
@@ -28,12 +28,12 @@ const bgHighlightSelectors = [
     "::-webkit-scrollbar-thumb",
     "::-webkit-slider-thumb "
 ];
-const bgDarkenHighlightSelectors = [
+export const bgDarkenHighlightSelectors = [
     "::-webkit-scrollbar-thumb:hover",
     "::-webkit-slider-thumb:hover",
     ".pill-button:hover"
 ];
-const colorHighlightSelectors = [
+export const colorHighlightSelectors = [
     ".segmented-control>input:hover+label",
     ".portfolio-filter .pill-button:not(.active)",
     ".theme-skin .pill-button:not(.active)",
@@ -41,13 +41,13 @@ const colorHighlightSelectors = [
     ".checkbox input:checked~label i",
     ".checkbox input:checked~label+.name"
 ];
-const colorContrastHighlightSelectors = [
+export const colorContrastHighlightSelectors = [
     ".segmented-control>input:checked+label",
 ];
-const colorBaseSelectors = [
+export const colorBaseSelectors = [
     ".portfolio-filter .pill-button ",
 ];
-const colorMutedBaseSelectors = [
+export const colorMutedBaseSelectors = [
     ".segmented-control>input:not(:checked):not(:hover)+label",
     ".checkbox input:not(:checked)~label+.name",
     ".checkbox input:not(:checked):not(:hover)~label i",
