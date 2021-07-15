@@ -1,4 +1,5 @@
 import * as DynamicTheme from './DynamicTheme.js'
+import { ModalManager } from './ModalManager.js';
 
 // repeated variables
 var $window = $(window);
@@ -22,6 +23,7 @@ $(document).ready(function () {
         validateEmail();
         sendEmail();
         $('.owl-item.active .hero-slide').addClass('zoom');
+        setupModalEvents();
         return $('[data-toggle="tooltip"]').tooltip();
 });
 
@@ -41,6 +43,24 @@ $(".to-contact").on('click', function () {
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
+function setupModalEvents() {
+        //TODO: using multi-dimension arrays or Object array
+        $('[data-target="#guess-the-word-play"]').one('click', event => {
+                $('#guess-the-word-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/guess-the-word" style="width: 1072px;height: 670px;border:0"></iframe>')
+        });
+        $('[data-target="#breakout-play"]').one('click', event => {
+                $('#breakout-play.row').append('<iframe src="https://i.simmer.io/@enginoobz/breakout" style="width: 893px;height: 670px;border:0"></iframe>')
+        });
+        $('[data-target="#project-boost-play"]').one('click', event => {
+                $('#project-boost-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/project-boost" style="width: 1072px;height: 670px;border:0"></iframe>')
+        });
+        $('[data-target="#shader-playground-play"]').one('click', event => {
+                $('#shader-playground-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/shader-playground" style="width: 880px;height: 538px;border:0"></iframe>')
+        });
+        $('[data-target="#the-maze-play"]').one('click', event => {
+                $('#the-maze-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/the-maze" style="width: 1072px;height: 517px;border:0"></iframe>')
+        });
+}
 
 /*-------------------------
   Testimonial CAROUSEL JS
