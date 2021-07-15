@@ -75,38 +75,42 @@ export class GlassStyle extends Style {
         }
     }
     updateBlur() {
-        this.setToCurrentBlur(FlatStyle.Instance.getBgSchemeRule());
-        this.setToCurrentBlur(FlatStyle.Instance.getBgLightenSchemeRule());
-        this.setToCurrentBlur(FlatStyle.Instance.getBgHighlightRule());
-        this.setToCurrentBlur(FlatStyle.Instance.getBgDarkenHighlightRule());
-        this.setToCurrentBlur(this.getBgColorfull1Rule());
-        this.setToCurrentBlur(this.getBgColorfull2Rule());
-        this.setToCurrentBlur(this.getBgColorfull3Rule());
+        this.setToCurrentBlur([
+            FlatStyle.Instance.getBgSchemeRule(),
+            FlatStyle.Instance.getBgHighlightRule(),
+            FlatStyle.Instance.getBgDarkenHighlightRule(),
+            this.getBgColorfull1Rule(),
+            this.getBgColorfull2Rule(),
+            this.getBgColorfull3Rule()
+        ]);
     }
-    setToCurrentBlur(rule) {
-        rule.style.setProperty('backdrop-filter', `blur(${this.blur}px)`, 'important');
-        rule.style.setProperty('-webkit-backdrop-filter', `blur(${this.blur}px)`, 'important');
+    setToCurrentBlur(rules) {
+        rules.forEach(rule => {
+            rule.style.setProperty('backdrop-filter', `blur(${this.blur}px)`, 'important');
+            rule.style.setProperty('-webkit-backdrop-filter', `blur(${this.blur}px)`, 'important');
+        });
     }
     updateBorderSize() {
-        this.setToCurrentBorderSize(FlatStyle.Instance.getBgSchemeRule());
-        this.setToCurrentBorderSize(FlatStyle.Instance.getBgLightenSchemeRule());
-        this.setToCurrentBorderSize(FlatStyle.Instance.getBgHighlightRule());
-        this.setToCurrentBorderSize(FlatStyle.Instance.getBgDarkenHighlightRule());
-        this.setToCurrentBorderSize(this.getBgColorfull1Rule());
-        this.setToCurrentBorderSize(this.getBgColorfull2Rule());
-        this.setToCurrentBorderSize(this.getBgColorfull3Rule());
+        this.setToCurrentBorderSize([
+            FlatStyle.Instance.getBgSchemeRule(),
+            FlatStyle.Instance.getBgLightenSchemeRule(),
+            FlatStyle.Instance.getBgDarkenHighlightRule(),
+            this.getBgColorfull1Rule(),
+            this.getBgColorfull2Rule(),
+            this.getBgColorfull3Rule(),
+        ]);
         //TODO: use Map or Dictionary
         this.limitBorderSize('.pallet-button', 1.5);
         this.limitBorderSize('.range-slider__range', 2.5);
         this.limitBorderSize('.range-slider__value', 4);
     }
+    setToCurrentBorderSize(rules) {
+        //TODO: Variablize border properties
+        rules.forEach(rule => rule.style.setProperty('border', `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`, 'important'));
+    }
     //HELPER
     limitBorderSize(selector, limit) {
         document.querySelectorAll(selector).forEach((element) => element.style.setProperty('border-width', `${Math.min(limit, this.borderSize)}`, 'important'));
-    }
-    setToCurrentBorderSize(rule) {
-        //TODO: Variablize border properties
-        rule.style.setProperty('border', `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`, 'important');
     }
     updateTransparency() {
         this.updateTransparencySchemeColor();
