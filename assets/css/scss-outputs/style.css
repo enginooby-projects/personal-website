@@ -4006,6 +4006,13 @@ header {
           box-shadow: none !important;
 }
 
+.glass-style .portfolio-filter .pill-button:not(.active),
+.glass-style .theme-skin .pill-button:not(.active) {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+}
+
 .glass-style .button-border,
 .glass-style .pallet-border {
   backdrop-filter: none;
@@ -4013,16 +4020,9 @@ header {
   background: transparent !important;
 }
 
-.glass-style .portfolio-filter .pill-button:not(.active),
-.glass-style .theme-skin .pill-button:not(.active),
-.glass-style .image-border {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  background: transparent;
-}
-
 .glass-style table > tbody > tr:hover,
-.glass-style .pallet-border {
+.glass-style .pallet-border,
+.glass-style .image-border {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: none !important;

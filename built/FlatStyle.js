@@ -81,10 +81,16 @@ export class FlatStyle extends Style {
     setupCustomizeEvents() { }
     onHighlightColorUpdated() {
         this.darkenHighlightColor = DynamicTheme.highlightColor.getDarken(this.darkHighlightIntensity);
+        this.updateBgHighlight();
+        this.updateColorHighlight();
+    }
+    updateBgHighlight() {
         this.getBgHighlightRule().style.setProperty('background-color', DynamicTheme.highlightColor.hex, 'important');
         this.getBgHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
         this.getBgDarkenHighlightRule().style.setProperty('background-color', this.darkenHighlightColor, 'important');
         this.getBgDarkenHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
+    }
+    updateColorHighlight() {
         this.getColorHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
         this.getColorContrastHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
     }

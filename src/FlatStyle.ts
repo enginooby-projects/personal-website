@@ -86,14 +86,14 @@ export class FlatStyle extends Style {
         private colorMutedBaseRule?: CSSStyleRule;
 
         // lazy initializations
-        getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
-        getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors));
-        getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
-        getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
-        getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors));
-        getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors));
-        getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
-        getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
+        public getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
+        public getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors));
+        public getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
+        public getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
+        public getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors));
+        public getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors));
+        public getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
+        public getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
 
         init() {
                 $("body").addClass('flat-style');
@@ -103,10 +103,18 @@ export class FlatStyle extends Style {
 
         onHighlightColorUpdated(): void {
                 this.darkenHighlightColor = DynamicTheme.highlightColor.getDarken(this.darkHighlightIntensity);
+                this.updateBgHighlight();
+                this.updateColorHighlight();
+        }
+
+        private updateBgHighlight() {
                 this.getBgHighlightRule().style.setProperty('background-color', DynamicTheme.highlightColor.hex, 'important');
                 this.getBgHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
                 this.getBgDarkenHighlightRule().style.setProperty('background-color', this.darkenHighlightColor, 'important');
                 this.getBgDarkenHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
+        }
+
+        public updateColorHighlight() {
                 this.getColorHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
                 this.getColorContrastHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
         }
@@ -119,7 +127,7 @@ export class FlatStyle extends Style {
                 this.getBgLightenSchemeRule().style.setProperty('color', DynamicTheme.schemeColor.getInvertBlackWhite(), 'important');
         }
 
-        onBaseColorUpdated(): void {
+        public onBaseColorUpdated(): void {
                 this.getColorBaseRule().style.setProperty('color', DynamicTheme.baseColor, 'important');
                 this.getColorMutedBaseRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
         }

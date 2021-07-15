@@ -1,61 +1,10 @@
 import { Color } from './Color.js';
 import * as DynamicTheme from './DynamicTheme.js';
+import { FlatStyle } from './FlatStyle.js';
 import { Style } from './Style.js';
-import { StyleRuleStore } from './StyleRuleStore.js';
 import { TinyColor } from './TinyColor.js';
 
-
-const backgroundGlassHighlightColorSelectors = formatString([
-        ".pill-button:not(.pill-button.active)",
-        " .contact .form-item .form-group",
-        ".checkbox label",
-        ".radio-selection",
-        ".segmented-control",
-]);
-
-const backgroundGlassSchemeColorSelectors = formatString([
-        // ".section",
-        ".display-content>.container",
-        ".color-switcher .color-pallet.show",
-        ".color-switcher .color-pallet",
-        ".pallet-button",
-        ".skillbar",
-        ".modal-content"
-]);
-
-const backgroundGlassLightenSchemeColorSelectors = formatString([
-        ".box-border",
-        "#self-education .image-border",
-        ".contact .form-item .form-group",
-        ".checkbox label",
-        ".segmented-control",
-        ".range-slider__range", // TODO: max-3
-        ".range-slider__value", // TODO: max-3
-        // ".pallet-border",
-]);
-
-const backgroundGlassActiveButtonSelectors = formatString([
-        ".pill-button.active"
-]);
-
-const backgroundGlassColorfull1Selectors = formatString([
-        ".background-colorfull1:not(#self-education .background-colorfull1)",
-]);
-
-const backgroundGlassColorfull2Selectors = formatString([
-        ".background-colorfull2:not(#self-education .background-colorfull2)",
-]);
-
-const backgroundGlassColorfull3Selectors = formatString([
-        ".background-colorfull3:not(#self-education .background-colorfull3)",
-]);
-
-const borderSizeBlurDependentSelectors = `${backgroundGlassHighlightColorSelectors}, ${backgroundGlassSchemeColorSelectors}, ${backgroundGlassLightenSchemeColorSelectors}, ${backgroundGlassColorfull1Selectors}, ${backgroundGlassColorfull2Selectors}, ${backgroundGlassColorfull3Selectors}, ${backgroundGlassActiveButtonSelectors}`;
-
-function formatString(selectorsArray: string[]): string {
-        return selectorsArray.join(", ");
-}
-
+// CAUTION: FlatStyle depedent
 export class GlassStyle extends Style {
         // Singleton Pattern
         private static _instance: GlassStyle;
@@ -68,9 +17,20 @@ export class GlassStyle extends Style {
         blur = '2';
         transparency = '0.6';
         borderSize = '1';
-        lightenIntensity = 15;
-        lightenSchemeColor: Color = new TinyColor('#000000');
-        darkenSchemeColor: string = "#680317";
+        lightenSchemeIntensity = 15;
+        darkHighlightIntensity: number = 15;
+        lightenSchemeColor: Color = new TinyColor('#fafafa');
+        darkenHighlightColor: Color = new TinyColor('#033669');
+
+        private bgColorfull1Rule?: CSSStyleRule;
+        private bgColorfull2Rule?: CSSStyleRule;
+        private bgColorfull3Rule?: CSSStyleRule;
+
+        // lazy initializations
+        getBgColorfull1Rule = () => this.bgColorfull1Rule ?? (this.bgColorfull1Rule = this.insertEmptyRule(['.background-colorfull1:not(.fill-skillbar)']));
+        getBgColorfull2Rule = () => this.bgColorfull2Rule ?? (this.bgColorfull2Rule = this.insertEmptyRule(['.background-colorfull2:not(.fill-skillbar)']));
+        getBgColorfull3Rule = () => this.bgColorfull3Rule ?? (this.bgColorfull3Rule = this.insertEmptyRule(['.background-colorfull3:not(.fill-skillbar)']));
+
 
         init() {
                 $("body").addClass('glass-style');
@@ -78,21 +38,15 @@ export class GlassStyle extends Style {
                 $('section').each((index, element) => {
                         element.classList.add('background-2');
                 })
-                console.log('<<<<<<<<<<<')
-                console.log(backgroundGlassLightenSchemeColorSelectors)
-                // this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenIntensity));
-                // console.log(this.lightenSchemeColor.hex);
         }
 
-        revertStyle() {
-                $(backgroundGlassSchemeColorSelectors).css('background-color', DynamicTheme.schemeColor.hex);
-                $(backgroundGlassHighlightColorSelectors).css('background-color', DynamicTheme.highlightColor.hex);
-                $(backgroundGlassColorfull1Selectors).css('background-color', DynamicTheme.colorfull1.hex);
-                $(backgroundGlassColorfull2Selectors).css('background-color', DynamicTheme.colorfull2.hex);
-                $(backgroundGlassColorfull3Selectors).css('background-color', DynamicTheme.colorfull3.hex);
-                $(borderSizeBlurDependentSelectors).css({
-                        'border': `none`, // alternative: use CSS file
-                });
+        initRangeSliders() {
+                $('#glass-transparency').attr('value', this.transparency);
+                $("#glass-transparency").next('.range-slider__value').html(this.transparency.toString());
+                $('#glass-blur').attr('value', this.blur);
+                $("#glass-blur").next('.range-slider__value').html(this.blur.toString());
+                $('#glass-border-size').attr('value', this.borderSize);
+                $("#glass-border-size").next('.range-slider__value').html(this.borderSize.toString());
         }
 
         setupCustomizeEvents(): void {
@@ -114,12 +68,6 @@ export class GlassStyle extends Style {
                                         break;
                         }
                 });
-        }
-
-        setupLocalEvents(): void {
-                // lazily setup
-                if (this.localEventsAreSetup) return;
-                this.localEventsAreSetup = true;
 
                 $('.background-item').on('click', (event) => {
                         const background: string = event.currentTarget.id;
@@ -128,35 +76,6 @@ export class GlassStyle extends Style {
                                 element.classList.add(background);
                         })
                 });
-
-                $(".pill-button ").hover(
-                        (event) => {
-                                // TODO: variablize
-                                $(event.currentTarget).css({
-                                        'background-color': `rgba(255, 255, 255, ${this.transparency})`,
-                                        'color': DynamicTheme.highlightColor.hex
-                                });
-                        }, (event) => {
-                                if ($(event.currentTarget).hasClass('active')) return;
-                                $(event.currentTarget).css({
-                                        'background-color': `rgba(${DynamicTheme.highlightColor.rValue}, ${DynamicTheme.highlightColor.gValue}, ${DynamicTheme.highlightColor.bValue}, ${this.transparency})`,
-                                        'color': DynamicTheme.highlightColor.getInvertBlackWhite()
-                                });
-                        }
-                );
-
-                $("table>tbody>tr").hover(
-                        (event) => {
-                                event.currentTarget.style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
-                                event.currentTarget.style.color = DynamicTheme.highlightColor.getInvertBlackWhite();
-                        }, function () {
-                                $(this).css('background', '').css('color', '');
-                        }
-                );
-        }
-
-        removeLocalEvents() {
-                $('.pill-button, table>tbody>tr').off('mouseenter mouseleave');
         }
 
         //HELPER
@@ -169,74 +88,78 @@ export class GlassStyle extends Style {
                 }
         }
 
-        initRangeSliders() {
-                $('#glass-transparency').attr('value', this.transparency);
-                $("#glass-transparency").next('.range-slider__value').html(this.transparency.toString());
-                $('#glass-blur').attr('value', this.blur);
-                $("#glass-blur").next('.range-slider__value').html(this.blur.toString());
-                $('#glass-border-size').attr('value', this.borderSize);
-                $("#glass-border-size").next('.range-slider__value').html(this.borderSize.toString());
+        updateBlur() {
+                this.setToCurrentBlur(FlatStyle.Instance.getBgSchemeRule());
+                this.setToCurrentBlur(FlatStyle.Instance.getBgLightenSchemeRule());
+                this.setToCurrentBlur(FlatStyle.Instance.getBgHighlightRule());
+                this.setToCurrentBlur(FlatStyle.Instance.getBgDarkenHighlightRule());
+                this.setToCurrentBlur(this.getBgColorfull1Rule());
+                this.setToCurrentBlur(this.getBgColorfull2Rule());
+                this.setToCurrentBlur(this.getBgColorfull3Rule());
         }
 
-        updateBlur() {
-                $(borderSizeBlurDependentSelectors).css({
-                        'backdrop-filter': `blur(${this.blur}px)`,
-                        '-webkit-backdrop-filter': `blur(${this.blur}px)`,
-                });
+        setToCurrentBlur(rule: CSSStyleRule) {
+                rule.style.setProperty('backdrop-filter', `blur(${this.blur}px)`, 'important');
+                rule.style.setProperty('-webkit-backdrop-filter', `blur(${this.blur}px)`, 'important');
         }
 
         updateBorderSize() {
-                $(borderSizeBlurDependentSelectors).css({
-                        'border': `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`,
-                });
+                this.setToCurrentBorderSize(FlatStyle.Instance.getBgSchemeRule());
+                this.setToCurrentBorderSize(FlatStyle.Instance.getBgLightenSchemeRule());
+                this.setToCurrentBorderSize(FlatStyle.Instance.getBgHighlightRule());
+                this.setToCurrentBorderSize(FlatStyle.Instance.getBgDarkenHighlightRule());
+                this.setToCurrentBorderSize(this.getBgColorfull1Rule());
+                this.setToCurrentBorderSize(this.getBgColorfull2Rule());
+                this.setToCurrentBorderSize(this.getBgColorfull3Rule());
+        }
+
+        setToCurrentBorderSize(rule: CSSStyleRule) {
+                //TODO: Variablize border properties
+                rule.style.setProperty('border', `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`, 'important');
         }
 
         updateTransparency() {
                 this.updateTransparencySchemeColor();
                 this.updateTransparencyHighlightColor();
-                $(backgroundGlassColorfull1Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull1));
-                $(backgroundGlassColorfull2Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull2));
-                $(backgroundGlassColorfull3Selectors).css('background-color', this.formatRgba(DynamicTheme.colorfull3));
+                this.updateTransparencyColorfull();
         }
 
-        private updateTransparencyHighlightColor() {
-                $(backgroundGlassActiveButtonSelectors).css({
-                        'background-color': `rgba(255, 255, 255, ${this.transparency})`,
-                        'color': DynamicTheme.highlightColor.hex
-                });
-                StyleRuleStore.Instance.getThumbScrollbarRule().style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor);
-                StyleRuleStore.Instance.getSliderThumbRule().style.backgroundColor = this.formatRgba(DynamicTheme.highlightColor); //TODO: set min
-                $(backgroundGlassHighlightColorSelectors).css('background-color', this.formatRgba(DynamicTheme.highlightColor));
-                this.setupLocalEvents();
+        setToCurrentTransparency(rule: CSSStyleRule, color: Color) {
+                const formattedColor: string = `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
+                const contrastColor: string = color.getInvertBlackWhite();
+                rule.style.setProperty('background-color', formattedColor, 'important');
+                rule.style.setProperty('color', contrastColor, 'important');
         }
 
         private updateTransparencySchemeColor() {
-                $(backgroundGlassSchemeColorSelectors).css('background-color', this.formatRgba(DynamicTheme.schemeColor));
-                $(backgroundGlassLightenSchemeColorSelectors).css('background-color', this.formatRgba(this.lightenSchemeColor));
-                StyleRuleStore.Instance.getTrackScrollbarRule().style.backgroundColor = this.formatRgba(DynamicTheme.schemeColor);
+                this.setToCurrentTransparency(FlatStyle.Instance.getBgSchemeRule(), DynamicTheme.schemeColor);
+                this.setToCurrentTransparency(FlatStyle.Instance.getBgLightenSchemeRule(), this.lightenSchemeColor);
         }
 
-        formatRgba(color: Color) {
-                return `rgba(${color.rValue}, ${color.gValue}, ${color.bValue}, ${this.transparency})`;
+        private updateTransparencyHighlightColor() {
+                this.setToCurrentTransparency(FlatStyle.Instance.getBgHighlightRule(), DynamicTheme.highlightColor);
+                this.setToCurrentTransparency(FlatStyle.Instance.getBgDarkenHighlightRule(), DynamicTheme.highlightColor);
+        }
+
+        private updateTransparencyColorfull() {
+                //CONSIDER: Separate update functions if optimization needed
+                this.setToCurrentTransparency(this.getBgColorfull1Rule(), DynamicTheme.colorfull1);
+                this.setToCurrentTransparency(this.getBgColorfull2Rule(), DynamicTheme.colorfull2);
+                this.setToCurrentTransparency(this.getBgColorfull3Rule(), DynamicTheme.colorfull3);
         }
 
         onHighlightColorUpdated(): void {
+                this.darkenHighlightColor.setHex(DynamicTheme.highlightColor.getLighten(this.darkHighlightIntensity));
                 this.updateTransparencyHighlightColor();
-                $(":not(.portfolio-filter) .pill-button:not(.active)").css('color', DynamicTheme.highlightColor.getInvertBlackWhite());
+                FlatStyle.Instance.updateColorHighlight();
         }
 
         onSchemeColorUpdated(): void {
-                this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenIntensity));
+                this.lightenSchemeColor.setHex(DynamicTheme.schemeColor.getLighten(this.lightenSchemeIntensity));
                 this.updateTransparencySchemeColor();
         }
 
         onBaseColorUpdated(): void {
-        }
-
-        resetInactiveButtons(currentActiveButton: HTMLElement): void {
-                $('#portfolio .pill-button').not(currentActiveButton).css({
-                        'background-color': this.formatRgba(DynamicTheme.highlightColor),
-                        'color': DynamicTheme.highlightColor.getInvertBlackWhite()
-                });
+                FlatStyle.Instance.onBaseColorUpdated();
         }
 }
