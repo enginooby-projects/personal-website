@@ -148,7 +148,13 @@ function pagePilling() {
         },
         afterRender: function (index) {
             // console.log(`afterRender: index-${index}`);
+            addLabelLinkPagePiling();
         },
+    });
+}
+function addLabelLinkPagePiling() {
+    $('#pp-nav a').each(function () {
+        $(this).attr('aria-label', 'PagePiling span');
     });
 }
 /*-------------------------

@@ -39,9 +39,9 @@ class CodingProject
                                                   <div class="img-overlay text-center">
                                                             <div class="img-overlay-content">
                                                                       <div class="portfolio-icon">
-                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight"><i class=" lni-search"></i></a>
-                                                                                <a href="https://' . $this->accessUrl . '" target="blank_" type="button"><i class=" lni-play"></i></a>
-                                                                                <a href="https://github.com/' . $this->codeUrl . '" target="_blank"> <i class="lni-code"></i> </a>
+                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight" aria-label="Read more"><i class=" lni-search"></i></a>
+                                                                                <a href="https://' . $this->accessUrl . '" target="blank_" type="button" aria-label="Play"><i class=" lni-play"></i></a>
+                                                                                <a href="https://github.com/' . $this->codeUrl . '" target="_blank" aria-label="Source code"> <i class="lni-code"></i> </a>
                                                                       </div>
                                                                       <h6 class="mt-3 mb-0">' . $this->name . '</h6>
                                                             </div>
@@ -76,28 +76,28 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         }
 
         if ($isGalleryItem) $buttonElements .= '
-                <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1">
+                <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1" aria-label="Gallery image">
                         <i class="lni-search"></i>
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="background-colorfull1"><i class=" lni-search"></i></a>
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class=" lni-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2"><i class=" lni-link"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit"><i class=" lni-link"></i></a>
         ';
 
         if ($downloadUrl) $buttonElements .= '
-                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2"><i class=" lni-download"></i></a>
+                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2"><i class=" lni-download" aria-label="Download"></i></a>
         ';
 
         if ($modalPlay) $buttonElements .= '
-                <a href="javascript:void();" class="background-colorfull2" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class=" lni-play"></i></a>
+                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class=" lni-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="background-colorfull3"> <i class="lni-code"></i> </a>
+                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="background-colorfull3" aria-label="Source code"> <i class="lni-code"></i> </a>
         ';
 
         echo '
@@ -163,34 +163,34 @@ function formatLabel($str, $sep = '-')
                                         <!--   Portfolio Filters   -->
                                         <ul id="portfolio-filter" class="list-unstyled list-inline mb-0 col-lg-12 text-center portfolio-filter">
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter="*" class="pill-button active"><i class="fas fa-globe fa-xs"></i> All</a>
+                                                        <a href="#" data-filter="*" class="pill-button active"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".highlight" class="pill-button"><i class="fas fa-star fa-xs"></i> Highlight</a>
+                                                        <a href="#" data-filter=".highlight" class="pill-button" aria-label="Highlight filter"><i class="fas fa-star fa-xs"></i> Highlight</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".game" class="pill-button"><i class="fas fa-gamepad fa-xs"></i> Game</a>
+                                                        <a href="#" data-filter=".game" class="pill-button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".cg" class="pill-button"><i class="fas fa-dice-d20 fa-xs"></i> CG</a>
+                                                        <a href="#" data-filter=".cg" class="pill-button" aria-label="CG filter"><i class="fas fa-dice-d20 fa-xs"></i> CG</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".model" class="pill-button"><i class="fas fa-cube fa-xs"></i> Model</a>
+                                                        <a href="#" data-filter=".model" class="pill-button" aria-label="Model filter"><i class="fas fa-cube fa-xs"></i> Model</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".design" class="pill-button"><i class="fas fa-palette fa-xs"></i> Design</a>
+                                                        <a href="#" data-filter=".design" class="pill-button" aria-label="Design filter"><i class="fas fa-palette fa-xs"></i> Design</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".utility" class="pill-button"><i class="fas fa-tools fa-xs"></i> Utility</a>
+                                                        <a href="#" data-filter=".utility" class="pill-button" aria-label="Utility filter"><i class="fas fa-tools fa-xs"></i> Utility</a>
                                                 </li>
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".ecommerce" class="pill-button"><i class="fas fa-shopping-cart fa-xs"></i> eCommerce</a>
+                                                        <a href="#" data-filter=".ecommerce" class="pill-button" aria-label="eCommerce filter"><i class="fas fa-shopping-cart fa-xs"></i> eCommerce</a>
                                                 </li>
                                                 <!-- <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".cms" class="pill-button"><i class="fas fa-users fa-xs"></i> CMS</a>
+                                                        <a href="#" data-filter=".cms" class="pill-button" aria-label="CMS filter"><i class="fas fa-users fa-xs"></i> CMS</a>
                                                 </li> -->
                                                 <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".academia" class="pill-button"><i class="fas fa-graduation-cap fa-xs"></i> Academia</a>
+                                                        <a href="#" data-filter=".academia" class="pill-button" aria-label="Academia filter"><i class="fas fa-graduation-cap fa-xs"></i> Academia</a>
                                                 </li>
                                         </ul>
                                 </div>
