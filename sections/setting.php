@@ -4,13 +4,13 @@
                         <ul class="theme-skin mb-1" id="ui-style-panel">
                                 <h6 class="text-center mt-0">UI Style</h6>
                                 <div class="button-border" id="flat-skin-button">
-                                        <a href="javascript:void(0)" class="pill-button">Flat</a>
+                                        <a href="#" class="pill-button">Flat</a>
                                 </div>
                                 <div class="button-border" id="neu-skin-button">
-                                        <a href="javascript:void(0)" class="pill-button">Neumorphism</a>
+                                        <a href="#" class="pill-button">Neumorphism</a>
                                 </div>
                                 <div class="button-border" id="glass-skin-button">
-                                        <a href="javascript:void(0)" class="pill-button">Glassmorphism</a>
+                                        <a href="#" class="pill-button">Glassmorphism</a>
                                 </div>
                         </ul>
 
