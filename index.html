@@ -9,6 +9,11 @@
         <meta name="keywords" content="" />
         <meta name="author" content="enginoobz" />
 
+        <!-- Preload assets -->
+        <link rel="preload" href="assets/fonts/agency-fb-regular/AgencyFB-Reg.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/agency-fb-bold/AgencyFB-Bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/LineIcons.ttf?y2l643" as="font" subtype="TrueType" crossorigin>
+
         <link rel="shortcut icon" href="assets/img/favicon.ico">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
         <link rel="stylesheet" href="assets/css/LineIcons.css">
