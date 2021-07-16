@@ -13,6 +13,7 @@ $regularFont: '/assets/fonts/agency-fb-regular/AgencyFB-Reg';
         url("#{$regularFont}.woff") format("woff"),
         url("#{$regularFont}.ttf") format("truetype"),
         url("#{$regularFont}.svg") format("svg");
+        font-display: swap;
 }
 
 $boldFont: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
@@ -25,6 +26,7 @@ $boldFont: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
         url("#{$boldFont}.woff") format("woff"),
         url("#{$boldFont}.ttf") format("truetype"),
         url("#{$boldFont}.svg") format("svg");
+        font-display: swap;
 }
 
 $transition_duration: 0.8s;
