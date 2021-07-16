@@ -61,6 +61,8 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         $injectedElement = "";
         $imageElement = "";
         $buttonElements = "";
+        $imgRatioProperty = '';
+
 
         if ($isInjectedItem) {
                 ob_start();
@@ -68,9 +70,9 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                 $injectedContent = ob_get_clean();
                 $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
         } else {
-                // CONSIDER: set size for the containers instead of using placeholder images
                 // src="https://placehold.co/' . $imgRatio . '/jpg" 
                 $imageElement = ' <img class="lazy" data-src="https://enginoobz.com/assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">';
+                if ($imgRatio) $imgRatioProperty = 'style="aspect-ratio: ' . $imgRatio . '"';
         }
 
         if ($isGalleryItem) $buttonElements .= '
@@ -101,7 +103,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         echo '
           <div class="col-lg-4 portfolio-item ' . $filters . '">
                     <div class="image-border">
-                              <div class="portfolio-item-content" style="aspect-ratio: ' . $imgRatio . '">
+                              <div class="portfolio-item-content" ' . $imgRatioProperty . '>
                                         ' . $imageElement . '
                                         ' . $highlightElement . '
                                         ' . $injectedElement . '
