@@ -24,11 +24,11 @@
                                                 <li class="list-group-item"><span>Social links :</span></li>
                                                 <li class="list-group-item">
                                                         <ul class="list-inline socials">
-                                                                <li class="list-inline-item"><a href="https://enginoobz.itch.io/" target="_blank" aria-label="Itch"><i class="fab fa-itch-io"></i></a></li>
-                                                                <li class="list-inline-item"><a href="https://github.com/enginoobz" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                                                                <li class="list-inline-item"><a href="https://www.linkedin.com/in/enginoobz/" target="_blank" aria-label="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                                                <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYiFredH0gXzs887bgZ9KDg" target="_blank" aria-label="Youtube"><i class="fab fa-youtube-square"></i></a></li>
-                                                                <li class="list-inline-item"><a href="https://steamcommunity.com/profiles/76561199124618095/" target="_blank" aria-label="Steam"><i class="fab fa-steam"></i></a></li>
+                                                                <li class="list-inline-item"><a href="https://enginoobz.itch.io/" target="_blank" rel="noopener" aria-label="Itch"><i class="fab fa-itch-io"></i></a></li>
+                                                                <li class="list-inline-item"><a href="https://github.com/enginoobz" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                                                                <li class="list-inline-item"><a href="https://www.linkedin.com/in/enginoobz/" target="_blank" rel="noopener" aria-label="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                                                <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYiFredH0gXzs887bgZ9KDg" target="_blank" rel="noopener" aria-label="Youtube"><i class="fab fa-youtube-square"></i></a></li>
+                                                                <li class="list-inline-item"><a href="https://steamcommunity.com/profiles/76561199124618095/" target="_blank" rel="noopener" aria-label="Steam"><i class="fab fa-steam"></i></a></li>
                                                         </ul>
                                                 </li>
                                         </ul>

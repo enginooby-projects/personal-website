@@ -7,7 +7,7 @@
                                                   <div class="portfolio-icon">
                                                             <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight"><i class=" lni-search"></i></a>
                                                             <a href="https://enginoobz.itch.io/endless-flight" target="blank_" type="button"><i class=" lni-play"></i></a>
-                                                            <a href="https://github.com/enginoobz-games/endless-flight" target="_blank"> <i class="lni-code"></i> </a>
+                                                            <a href="https://github.com/enginoobz-games/endless-flight" target="_blank" rel="noopener"> <i class="lni-code"></i> </a>
                                                   </div>
                                                   <h6 class="mt-3 mb-0">Endless Flight</h6>
                                         </div>
@@ -41,7 +41,7 @@ class CodingProject
                                                                       <div class="portfolio-icon">
                                                                                 <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight" aria-label="Read more"><i class=" lni-search"></i></a>
                                                                                 <a href="https://' . $this->accessUrl . '" target="blank_" type="button" aria-label="Play"><i class=" lni-play"></i></a>
-                                                                                <a href="https://github.com/' . $this->codeUrl . '" target="_blank" aria-label="Source code"> <i class="lni-code"></i> </a>
+                                                                                <a href="https://github.com/' . $this->codeUrl . '" target="_blank" rel="noopener" aria-label="Source code"> <i class="lni-code"></i> </a>
                                                                       </div>
                                                                       <h6 class="mt-3 mb-0">' . $this->name . '</h6>
                                                             </div>
@@ -97,7 +97,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         ';
 
         if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank" class="background-colorfull3" aria-label="Source code"> <i class="lni-code"></i> </a>
+                <a href="https://github.com/' . $codeUrl . '" target="_blank" rel="noopener" class="background-colorfull3" aria-label="Source code"> <i class="lni-code"></i> </a>
         ';
 
         echo '
