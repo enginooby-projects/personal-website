@@ -9,38 +9,23 @@
         <meta name="keywords" content="" />
         <meta name="author" content="enginoobz" />
 
-        <!--  FavIcon  -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
-
-        <!-- Google Fonts -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,200;0,300;0,400;0,600;0,800;0,900;1,500&display=swap" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;700&display=swap" rel="stylesheet"> -->
-
-        <!-- TODO: download to use  FontAwesome 5 locally -->
-        <!-- FontAwesome Css -->
-        <!-- <link rel="stylesheet" href="assets/css/fontawesome.min.css"> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
-        <!-- Line icon Css -->
         <link rel="stylesheet" href="assets/css/LineIcons.css">
-        <!-- Bootstrap Css -->
         <link rel="stylesheet" href="assets/css/bootstrap.css">
-        <!-- Page Pilling Css -->
         <link rel="stylesheet" href="assets/css/pagepiling.css">
-        <!-- Owl Carousel Css -->
+        <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
+
+        <!-- Load asynchronously -->
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript>
-                <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        </noscript>
-        <!-- Magnific Popup Css -->
-        <!-- load asynchronously -->
         <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <!-- Fallback when JS is disabled -->
         <noscript>
+                <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" rel="stylesheet">
+                <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
                 <link rel="stylesheet" href="assets/css/magnific-popup.css">
         </noscript>
-        <!--  Custom Style CSS  -->
-        <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
 </head>
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
