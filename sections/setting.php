@@ -100,13 +100,13 @@
                                 </div>
                                 <div class="row mt-1 px-4">
                                         <div class="col-4 p-0 ">
-                                                <input class="color-picker" type="color" id="colorfull1-picker" value="#00a584">
+                                                <input class="color-picker" type="color" id="colorfull1-picker" value="#01724b">
                                         </div>
                                         <div class="col-4 p-0 ">
-                                                <input class="color-picker" type="color" id="colorfull2-picker" value="#ebbc00">
+                                                <input class="color-picker" type="color" id="colorfull2-picker" value="#b44700">
                                         </div>
                                         <div class="col-4 p-0">
-                                                <input class="color-picker" type="color" id="colorfull3-picker" value="#e93666">
+                                                <input class="color-picker" type="color" id="colorfull3-picker" value="#c40639">
                                         </div>
                                 </div>
                         </div>

@@ -34,7 +34,7 @@
                                                                                 <span>5</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> Be Your Best Version</a></h6>
+                                                                <p class="blog-label mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> Be Your Best Version</a></p>
                                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
                                                                         <a class="highlight-color" href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single">Read More...</a>
@@ -63,7 +63,7 @@
                                                                                 <span>3</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> 5 Tips In UI/UX Web Design</a></h6>
+                                                                <p class="blog-label mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> 5 Tips In UI/UX Web Design</a></p>
                                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
                                                                         <a class="highlight-color" href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single">Read More...</a>
@@ -92,7 +92,7 @@
                                                                                 <span>8</span>
                                                                         </li>
                                                                 </ul>
-                                                                <h6 class="mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> Write Your Dreams</a></h6>
+                                                                <p class="blog-label mb-3"><a href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single"> Write Your Dreams</a></p>
                                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
                                                                 <div class="blog-link">
                                                                         <a class="highlight-color" href="#" target="_blank" rel="noopener" data-toggle="modal" data-target="#blog-single">Read More...</a>

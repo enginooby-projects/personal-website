@@ -25,7 +25,7 @@
                                                                 <div class="timeline-icon background-colorfull1"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-                                                                                <h6 class="timeline-title">Bachelor in Software Engineering</h6>
+                                                                                <h4 class="timeline-title">Bachelor in Software Engineering</h4>
                                                                                 <p class="timeline-year">03/2019 - 03/2022 (GPA: 4.76/5.0)</p>
                                                                         </div>
                                                                         <div class="timeline-content  ">
@@ -49,7 +49,7 @@
                                                                 <div class="timeline-icon data-background background-colorfull2"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-                                                                                <h6 class="timeline-title">Java Developer Intern at PlantHive</h6>
+                                                                                <h4 class="timeline-title">Java Developer Intern at PlantHive</h4>
                                                                                 <p class="timeline-year">08/2020 - 10/2020</p>
                                                                         </div>
                                                                         <div class="timeline-content">
@@ -77,8 +77,8 @@
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-                                                                                <h6 class="timeline-title">Bronze Medal: Vietnam National Casio Mathematics Contest for High School Students
-                                                                                </h6>
+                                                                                <h4 class="timeline-title">Bronze Medal: Vietnam National Casio Mathematics Contest for High School Students
+                                                                                </h4>
                                                                                 <div class="icon-image mb-2">
                                                                                         <img src="assets/img/icons/bronze-medal.svg" alt="">
                                                                                 </div>
@@ -90,7 +90,7 @@
                                                                 <div class="timeline-icon data-background background-colorfull3"></div>
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
-                                                                                <h6 class="timeline-title">Gold Medal: Vietnam National Vi-Olympic Online Mathematics Contest for High School Students</h6>
+                                                                                <h4 class="timeline-title">Gold Medal: Vietnam National Vi-Olympic Online Mathematics Contest for High School Students</h4>
                                                                                 <div class="icon-image mb-2">
                                                                                         <img src="assets/img/icons/gold-medal.svg" alt="">
                                                                                 </div>

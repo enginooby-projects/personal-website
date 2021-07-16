@@ -22,7 +22,7 @@
                                                         <div class="duties-item box-hover-border background-colorfull3">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/support.svg" alt="/">
-                                                                        <h5 class="">Unity Programming</h5>
+                                                                        <p class="title">Unity Programming</p>
                                                                         <p class=" text-justify mb-0">This is my main specialization. I make every effort to write <b>clean code</b> to implement project features following good principles (<b>SOLID, DRY,
                                                                                         KISS</b>)
                                                                                 and applying appropriate <b>Design Patterns</b> to make code readable, extendable, flexible, reusable as well as testable.</p>
@@ -39,7 +39,7 @@
                                                         <div class="duties-item box-hover-border background-colorfull2">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/responsive-design.svg" alt="/">
-                                                                        <h5 class="">Unity Optimizing</h5>
+                                                                        <p class="title">Unity Optimizing</p>
                                                                         <p class=" text-justify  mb-0">In a professionarerer rtt etetwetet werel context it often happens that private clients corder a publication to be made.</p>
                                                                 </div>
                                                         </div>
@@ -51,7 +51,7 @@
                                                         <div class="duties-item box-hover-border background-colorfull1">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/unlimited.svg" alt="/">
-                                                                        <h5 class="">Gameplay Designing</h5>
+                                                                        <p class="title">Gameplay Designing</p>
                                                                         <p class=" text-justify  mb-0">In a professional context it often happens that private clients corder a publication to be made.</p>
                                                                 </div>
                                                         </div>
@@ -63,7 +63,7 @@
                                                         <div class="duties-item box-hover-border background-colorfull2">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/premium-service.svg" alt="/">
-                                                                        <h5 class="">Unity Automation Testing</h5>
+                                                                        <p class="title">Unity Automation Testing</p>
                                                                         <p class=" text-justify  mb-0">In a professional context it often happens that private clients corder a publication to be made.</p>
                                                                 </div>
                                                         </div>

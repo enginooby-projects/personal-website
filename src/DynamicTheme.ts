@@ -9,12 +9,12 @@ let $squareImg: JQuery<HTMLElement>;
 
 let borderRadius: number = 9;
 
-export let colorfull1: Color = new TinyColor("#00a584");
-export let colorfull2: Color = new TinyColor("#ebbc00");
-export let colorfull3: Color = new TinyColor("#e93666");
+export let colorfull1: Color = new TinyColor("#01724b");
+export let colorfull2: Color = new TinyColor("#b44700");
+export let colorfull3: Color = new TinyColor("#c40639");
 
 export let schemeColor: Color = new TinyColor("#D4D4D4");
-export let highlightColor: Color = new TinyColor("#055CB3");
+export let highlightColor: Color = new TinyColor("#004b97");
 export let baseColor: string = darkBaseValue;
 //TODO: muted base color intensity
 const lightMutedBaseColor: string = "#b2b2b2";

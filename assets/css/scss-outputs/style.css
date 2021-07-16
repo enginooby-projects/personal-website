@@ -5,12 +5,14 @@
   font-family: "Agency FB";
   src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf");
   src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff2") format("woff2"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff") format("woff"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf") format("truetype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.svg") format("svg");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Agency FB Bold";
   src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf");
   src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff2") format("woff2"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff") format("woff"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf") format("truetype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.svg") format("svg");
+  font-display: swap;
 }
 
 .image-border,
@@ -744,6 +746,10 @@ canvas.particles-js-canvas-el {
   overflow-x: hidden !important;
 }
 
+.hero-03 h2 {
+  font-size: 2rem;
+}
+
 .hero-03 p {
   max-width: 450px;
 }
@@ -1075,6 +1081,12 @@ canvas.particles-js-canvas-el {
   color: #5f5f5f;
 }
 
+.paragraph-title {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 /*-------------------------
          RESUME
 -------------------------*/
@@ -1085,6 +1097,12 @@ canvas.particles-js-canvas-el {
 .timeline-items.box-border {
   padding: 30px 30px 15px 30px;
   margin-top: 30px;
+}
+
+.timeline-title {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .timeline-item {
@@ -1256,6 +1274,12 @@ header {
 /*-------------------------
           SKILLSET
 -------------------------*/
+.title {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
 /* skill-boxes */
 .skillset .row {
   margin-top: 4px;
@@ -1353,6 +1377,10 @@ header {
 /*-------------------------
          DUTIES
 -------------------------*/
+.duties .title {
+  margin-bottom: 0.5rem;
+}
+
 .duties-item img {
   width: 40px;
 }
@@ -1413,6 +1441,13 @@ header {
 
 .portfolio .portfolio-filter .list-inline-item:not(:last-child) {
   margin-bottom: 0.7rem;
+}
+
+.project-label {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fafafa;
 }
 
 .portfolio .portfolio-filter li a {
@@ -2179,6 +2214,16 @@ header {
 /*-------------------------
           BLOG
 -------------------------*/
+.blog-label {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.blog-label a {
+  color: #212529;
+}
+
 .blog .blog-item {
   padding: 30px;
   margin: 60px 0 30px;
@@ -2694,7 +2739,7 @@ header {
   top: -2px;
   display: inline-block;
   left: 200px;
-  color: #fafafa;
+  color: #9f0e0e;
 }
 
 .contact .toast button span {
@@ -4054,7 +4099,7 @@ body,
 
 .bg-highlight-color,
 .border-style {
-  background-color: #055CB3;
+  background-color: #004b97;
 }
 
 #pp-nav li :not(.active) span {
@@ -4062,7 +4107,7 @@ body,
 }
 
 #pp-nav li .active span {
-  background-color: #055CB3;
+  background-color: #004b97;
 }
 
 .highlight-color,
@@ -4073,7 +4118,7 @@ body,
 .contact .form-item .form-control,
 .highlight-portfolio-item.fa-star,
 .portfolio .portfolio-icon a:hover {
-  color: #055CB3;
+  color: #004b97;
 }
 
 body,
@@ -4105,44 +4150,44 @@ body,
 
 .colorfull1,
 .background-colorfull1 > .badge {
-  color: #00a584;
+  color: #01724b;
 }
 
 .colorfull2,
 .background-colorfull2 > .badge {
-  color: #ebbc00;
+  color: #b44700;
 }
 
 .colorfull3,
 .background-colorfull3 > .badge {
-  color: #e93666;
+  color: #c40639;
 }
 
 .background-colorfull1 {
-  background-color: #00a584;
+  background-color: #01724b;
   color: #EBEBEB;
 }
 
 .background-colorfull2 {
-  background-color: #ebbc00;
+  background-color: #b44700;
   color: #EBEBEB;
 }
 
 .background-colorfull3 {
-  background-color: #e93666;
+  background-color: #c40639;
   color: #EBEBEB;
 }
 
 #education-timeline .timeline-items .timeline-border {
-  border-color: #00a584;
+  border-color: #01724b;
 }
 
 #experience-timeline .timeline-items .timeline-border {
-  border-color: #ebbc00;
+  border-color: #b44700;
 }
 
 #achievements-timeline .timeline-items .timeline-border {
-  border-color: #e93666;
+  border-color: #c40639;
 }
 
 .overlay-menu-toggler:hover,
@@ -4150,7 +4195,7 @@ body,
 .social i:hover,
 .list-inline.socials li a i:hover,
 #myMenu li a:hover {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .blog .blog-image,
@@ -4269,7 +4314,7 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .pill-button,
 .neu-style .segmented-control > input:checked + label,
 .neu-style .segmented-control > input:hover + label {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .neu-style .pill-button:hover,
@@ -4293,7 +4338,7 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .checkbox input:checked ~ label + .name,
 .neu-style .checkbox input:checked ~ label i,
 .neu-style .checkbox input:hover ~ label i {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .neu-style ::-webkit-scrollbar-track {
@@ -4330,7 +4375,7 @@ Init values for dynamic properties to reduce  page load time
 .flat-style .theme-skin .pill-button:not(.active):hover,
 .flat-style .radio-selection,
 .flat-style table > tbody > tr:hover {
-  background-color: #055CB3;
+  background-color: #004b97;
   color: #EBEBEB;
 }
 
@@ -4356,7 +4401,7 @@ Init values for dynamic properties to reduce  page load time
 
 .flat-style .portfolio-filter .pill-button:not(.active),
 .flat-style .theme-skin .pill-button:not(.active) {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .flat-style .pill-button:hover {
@@ -4368,7 +4413,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .flat-style .segmented-control > input:hover + label {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .flat-style .segmented-control > input:checked + label {
@@ -4383,7 +4428,7 @@ Init values for dynamic properties to reduce  page load time
 .flat-style .checkbox input:checked ~ label + .name,
 .flat-style .checkbox input:checked ~ label i,
 .flat-style .checkbox input:hover ~ label i {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .flat-style ::-webkit-scrollbar-track {
@@ -4391,7 +4436,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .flat-style ::-webkit-scrollbar-thumb {
-  background-color: #055CB3;
+  background-color: #004b97;
 }
 
 .flat-style ::-webkit-scrollbar-thumb:hover {
@@ -4399,7 +4444,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .flat-style ::-webkit-slider-thumb {
-  background-color: #055CB3;
+  background-color: #004b97;
 }
 
 .flat-style ::-webkit-slider-thumb:hover {
@@ -4416,7 +4461,7 @@ Init values for dynamic properties to reduce  page load time
 .glass-style .theme-skin .pill-button:not(.active):hover,
 .glass-style .radio-selection,
 .glass-style table > tbody > tr:hover {
-  background-color: rgba(5, 92, 179, 0.6);
+  background-color: rgba(0, 75, 155, 0.6);
   color: #EBEBEB;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -4451,19 +4496,19 @@ Init values for dynamic properties to reduce  page load time
 
 .glass-style .portfolio-filter .pill-button:not(.active),
 .glass-style .theme-skin .pill-button:not(.active) {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .glass-style .background-colorfull1:not(.fill-skillbar) {
-  background-color: rgba(0, 165, 132, 0.6);
+  background-color: rgba(1, 114, 75, 0.6);
 }
 
 .glass-style .background-colorfull2:not(.fill-skillbar) {
-  background-color: rgba(235, 188, 0, 0.6);
+  background-color: rgba(180, 71, 0, 0.6);
 }
 
 .glass-style .background-colorfull3:not(.fill-skillbar) {
-  background-color: rgba(233, 54, 102, 0.6);
+  background-color: rgba(196, 6, 57, 0.6);
 }
 
 .glass-style .pill-button:hover {
@@ -4479,7 +4524,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .glass-style .segmented-control > input:hover + label {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .glass-style .segmented-control > input:checked + label {
@@ -4494,7 +4539,7 @@ Init values for dynamic properties to reduce  page load time
 .glass-style .checkbox input:checked ~ label + .name,
 .glass-style .checkbox input:checked ~ label i,
 .glass-style .checkbox input:hover ~ label i {
-  color: #055CB3;
+  color: #004b97;
 }
 
 .glass-style ::-webkit-scrollbar-track {
@@ -4505,7 +4550,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .glass-style ::-webkit-scrollbar-thumb {
-  background-color: rgba(5, 92, 179, 0.6);
+  background-color: rgba(0, 75, 155, 0.6);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(209, 213, 219, 0.6);
@@ -4519,7 +4564,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .glass-style ::-webkit-slider-thumb {
-  background-color: rgba(5, 92, 179, 0.6);
+  background-color: rgba(0, 75, 155, 0.6);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(209, 213, 219, 0.6);

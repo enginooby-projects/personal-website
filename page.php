@@ -16,13 +16,14 @@
 
         <link rel="shortcut icon" href="assets/img/favicon.ico">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
+        <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="assets/css/LineIcons.css">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
         <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
 
         <!-- Load asynchronously -->
-        <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <!-- Fallback when JS is disabled -->

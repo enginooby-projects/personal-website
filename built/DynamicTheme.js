@@ -5,11 +5,11 @@ import { TinyColor } from './TinyColor.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
 let $squareImg;
 let borderRadius = 9;
-export let colorfull1 = new TinyColor("#00a584");
-export let colorfull2 = new TinyColor("#ebbc00");
-export let colorfull3 = new TinyColor("#e93666");
+export let colorfull1 = new TinyColor("#01724b");
+export let colorfull2 = new TinyColor("#b44700");
+export let colorfull3 = new TinyColor("#c40639");
 export let schemeColor = new TinyColor("#D4D4D4");
-export let highlightColor = new TinyColor("#055CB3");
+export let highlightColor = new TinyColor("#004b97");
 export let baseColor = darkBaseValue;
 //TODO: muted base color intensity
 const lightMutedBaseColor = "#b2b2b2";

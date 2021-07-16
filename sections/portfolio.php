@@ -112,7 +112,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                                                             <div class="portfolio-icon">
                                                         ' . $buttonElements . '
                                                             </div>
-                                                            <h6 class="mt-3 mb-0">' . $label . '</h6>
+                                                            <p class="project-label mt-3 mb-0">' . $label . '</p>
                                                   </div>
                                         </div>
                               </div>

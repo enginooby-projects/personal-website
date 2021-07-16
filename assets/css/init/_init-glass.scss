@@ -6,13 +6,13 @@ $borderSize:1;
 
 $schemeColorA: rgba(212, 212, 212, $transparency);
 $lightenSchemeColorA: rgba(250, 250, 250, $transparency);
-$highlightColorA: rgba(5, 92, 179, $transparency);
+$highlightColorA: rgba(0, 75, 155, $transparency);
 $darkenHighlightColorA: rgba(3, 54, 105, $transparency);
 $contrastHighlightColor: #EBEBEB;
 
-$colorfull1A: rgba(0, 165, 132, $transparency);
-$colorfull2A: rgba(235, 188, 0, $transparency);
-$colorfull3A: rgba(233, 54, 102, $transparency);
+$colorfull1A: rgba(1, 114, 75, $transparency);
+$colorfull2A: rgba(180, 71, 0, $transparency);
+$colorfull3A: rgba(196, 6, 57, $transparency);
 
 @mixin blur-and-border {
         backdrop-filter: blur(#{$blur}px);

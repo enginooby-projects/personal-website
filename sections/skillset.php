@@ -28,7 +28,7 @@
                                         <!-- Fundamentals -->
                                         <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center mt-0 mt-lg-0">
-                                                        <h5>Fundamentals & Theories</h5>
+                                                        <p class="title">Fundamentals & Theories</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -94,7 +94,7 @@
                                         <!-- Languages -->
                                         <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center mt-5 mt-lg-0">
-                                                        <h5>Languages & Databases</h5>
+                                                        <p class="title">Languages & Databases</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -155,7 +155,7 @@
                                         <!-- Game/CS Technologies -->
                                         <div class="col-lg-12 equal-columns">
                                                 <div class="resume-title text-center mt-5">
-                                                        <h5>Game & CG Technologies</h5>
+                                                        <p class="title">Game & CG Technologies</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -195,7 +195,7 @@
                                         <!-- Java Technologies -->
                                         <div class="col-lg-6 equal-columns mt-5">
                                                 <div class="resume-title text-center">
-                                                        <h5>Java Technologies</h5>
+                                                        <p class="title">Java Technologies</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -236,7 +236,7 @@
                                         <!-- Web Technologies -->
                                         <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center mt-5">
-                                                        <h5>Web Technologies</h5>
+                                                        <p class="title">Web Technologies</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -259,7 +259,7 @@
                                         <!-- IDE -->
                                         <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center mt-5">
-                                                        <h5>IDEs & Code Editors</h5>
+                                                        <p class="title">IDEs & Code Editors</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">
@@ -291,7 +291,7 @@
                                         <!-- Tools -->
                                         <div class="col-lg-6 equal-columns">
                                                 <div class="resume-title text-center mt-5">
-                                                        <h5>Tools</h5>
+                                                        <p class="title">Tools</p>
                                                         <div class="border-style"></div>
                                                 </div>
                                                 <div class="skill-boxes box-border">

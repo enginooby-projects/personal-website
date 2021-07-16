@@ -19,7 +19,7 @@
                                                                 <img src="assets/img/phone.svg" alt="">
                                                         </div>
                                                         <div class="mt-3">
-                                                                <h5 class=" mb-0">Call Me</h5>
+                                                                <p class="title mb-0">Call Me</p>
                                                                 <small>+48 731.237.298</small>
                                                         </div>
                                                 </div>
@@ -30,7 +30,7 @@
                                                                 <img src="assets/img/location.svg" alt="">
                                                         </div>
                                                         <div class="mt-3">
-                                                                <h5 class=" mb-0 contact_detail-title">Visit Me</h5>
+                                                                <p class="title mb-0 contact_detail-title">Visit Me</p>
                                                                 <small>Wroclaw, Poland</small>
                                                         </div>
                                                 </div>
@@ -41,7 +41,7 @@
                                                                 <img src="assets/img/send.svg" alt="">
                                                         </div>
                                                         <div class="mt-3">
-                                                                <h5 class=" mb-0">Email Me</h5>
+                                                                <p class="title mb-0">Email Me</p>
                                                                 <small>enginoobz@gmail.com</small>
                                                         </div>
                                                 </div>
@@ -77,7 +77,7 @@
                                                                                 <a href="#" class="pill-button" id="submit-btn" onclick="sendEmail()">Send Message</a>
                                                                         </div>
                                                                         <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
-                                                                                <div class="toast-body d-inline-block"></div>
+                                                                                <!-- <div class="toast-body d-inline-block"></div> -->
                                                                                 <button type="button" class="pr-3 close" data-dismiss="toast" aria-label="Close">
                                                                                         <span aria-hidden="true" class="lni-close size-xs "></span>
                                                                                 </button>
