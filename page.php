@@ -70,8 +70,9 @@
         include 'modals/blog/sample.php';
         ?>
 
-        <script src="assets/js/import/jquery-3.4.1.min.js"></script>
+        <!-- <script src="assets/js/import/jquery-3.4.1.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="assets/js/import/bootstrap.js"></script>
         <script src="assets/js/import/pagePiling.js"></script>
         <script src="assets/js/import/jquery.easing.min.js"></script>
