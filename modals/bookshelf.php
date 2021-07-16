@@ -66,11 +66,11 @@ function displayBookCatalogBody($catalog, $showId)
 }
 ?>
 
-<div class="portfolio-single modal fade" id="bookshelf" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+<div class="portfolio-single modal fade" id="bookshelf" tabindex="-1" role="dialog" aria-labelledby="bookshelfModalScrollable" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content text-muted">
                         <div class="modal-header">
-                                <h5 class="modal-title " id="portfolioModalScrollable">Bookshelf</h5>
+                                <h5 class="modal-title " id="bookshelfModalScrollable">Bookshelf</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                 </button>
