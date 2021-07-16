@@ -11,7 +11,6 @@ $(document).ready(function () {
     sliderOwlCarousel();
     typedJS();
     skills();
-    countup();
     portfolioPopup();
     postSidebar();
     validateEmail();
@@ -100,6 +99,7 @@ function clientCarousel() {
         }
     });
 }
+let filterringTriggered;
 /*-------------------------
        Page Pilling
 -------------------------*/
@@ -136,22 +136,18 @@ function pagePilling() {
         animateAnchor: true,
         //events
         onLeave: function (index, nextIndex, direction) {
-            if (nextIndex == 1) {
-                // $(".special-section").css('color', '#fff');
-            }
-            else {
-                // $(".special-section").css('color', ColorModule.baseColor);
-            }
+            // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
         },
         afterLoad: function (anchorLink, index) {
+            // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
+            if (anchorLink == 'portfolio' && !filterringTriggered) {
+                // console.log('Trigger filterring when enter portfolio section first time');
+                filterringTriggered = true;
+                startFilterring($('.portfolio-items'), '*');
+            }
         },
         afterRender: function (index) {
-            if (index > 1 && $('.section.hero').hasClass("speacial-hero")) {
-                // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
-            }
-            else if ($('.section.hero').hasClass("speacial-hero")) {
-                // $("#pp-nav li .pp-tooltip").css('color', ColorModule.baseColor);
-            }
+            // console.log(`afterRender: index-${index}`);
         },
     });
 }
@@ -350,7 +346,6 @@ function resetTechFilters() {
     // DynamicTheme.currentStyle.updateCheckboxUI();
 }
 function startFilterring(container, filterContent) {
-    console.log(filterContent);
     container.isotope({
         filter: filterContent,
         animationOptions: {
