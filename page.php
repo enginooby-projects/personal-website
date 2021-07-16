@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>enginoobz</title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Personal website of Hieu Ngo">
+        <meta name="keywords" content="personal website, portfolio, blog, game programming, java developer" />
         <meta name="author" content="enginoobz" />
 
         <!-- Preload assets -->
