@@ -219,7 +219,7 @@ button {
 
 .icon-image img {
         width: 45px;
-        // background-color: aqua;
+        height: 45px;
 }
 
 .course-item b {
@@ -287,4 +287,8 @@ table.neumorphic td:hover::after {
         height: 10000px;
         width: 100%;
         z-index: -1;
+}
+
+.badge-light {
+        background-color: white;
 }

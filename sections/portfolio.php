@@ -71,8 +71,8 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                 $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
         } else {
                 // src="https://placehold.co/' . $imgRatio . '/jpg" 
-                $imageElement = ' <img class="lazy" data-src="https://enginoobz.com/assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid">';
                 if ($imgRatio) $imgRatioProperty = 'style="aspect-ratio: ' . $imgRatio . '"';
+                $imageElement = ' <img class="lazy" data-src="https://enginoobz.com/assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid" width="311" height="232">'; // dimension for audit, will be overrided by css
         }
 
         if ($isGalleryItem) $buttonElements .= '

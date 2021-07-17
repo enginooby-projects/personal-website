@@ -14,13 +14,13 @@
                                         </div>
                                         <div class="col-lg-6 order-1 order-lg-2">
                                                 <div class="hero-image">
-                                                        <div class="square"><img src="assets/img/dark-element_square.png" alt="/"> </div>
+                                                        <div class="square"><img src="assets/img/dark-element_square.png" alt="/" width="260" height="260"> </div>
                                                         <div class="circle background-colorfull1"></div>
                                                         <div class="circle-2 background-colorfull2"></div>
                                                         <div class="circle-3"></div>
                                                         <div class="floating background-colorfull3"></div>
                                                         <div class="personal-image rounded-circle">
-                                                                <img src="assets/img/avatar.jpeg" alt="/" class="rounded-circle img-fluid">
+                                                                <img src="assets/img/avatar.jpeg" alt="/" class="rounded-circle img-fluid" width="398" height="433">
                                                         </div>
                                                 </div>
                                         </div>

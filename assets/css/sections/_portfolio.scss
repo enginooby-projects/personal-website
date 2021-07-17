@@ -53,6 +53,10 @@
 
 .portfolio-item-content {
         position: relative;
+
+        img {
+                height: 100%;
+        }
 }
 
 .portfolio .portfolio-item-content::before,

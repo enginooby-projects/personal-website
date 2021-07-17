@@ -43,7 +43,7 @@ function displayCourse($name, $percent, $url = '')
         echo '
         <div class="image-border text-center course-item ">
                 <div class="portfolio-item-content ">
-                        <img  class="lazy" data-src="https://enginoobz.com/assets/img/courses/' . rawurlencode($name) . '.jpg" alt="/" class="img-fluid">
+                        <img  class="lazy" data-src="https://enginoobz.com/assets/img/courses/' . rawurlencode($name) . '.jpg" alt="' . $name . '"/" class="img-fluid">
                         <div class="img-overlay text-center">
                                         <div class="img-overlay-content">
                                                 <div class="portfolio-icon">

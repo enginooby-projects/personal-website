@@ -1,6 +1,17 @@
 /*-------------------------
          ABOUT
 -------------------------*/
+#about {
+        img {
+                // TODO: Specify width & height while reserving responsiveness
+                // aspect-ratio: 162/113 !important;
+                // width: 100%;
+                // height: 100%;
+                // width: 486;
+                // height: 339;
+        }
+}
+
 .about .personal-info ul li {
         margin-bottom: 1.25rem;
 }

@@ -204,6 +204,7 @@ button {
 
 .icon-image img {
   width: 45px;
+  height: 45px;
 }
 
 .course-item b {
@@ -251,6 +252,10 @@ table.neumorphic td:hover::after {
   height: 10000px;
   width: 100%;
   z-index: -1;
+}
+
+.badge-light {
+  background-color: white;
 }
 
 /*-------------------------
@@ -754,11 +759,6 @@ canvas.particles-js-canvas-el {
   max-width: 450px;
 }
 
-.hero-03 .personal-image img {
-  z-index: 10;
-  position: relative;
-}
-
 .hero-03 .hero-image img {
   z-index: 10;
   position: relative;
@@ -846,7 +846,7 @@ canvas.particles-js-canvas-el {
   opacity: 0.8;
   position: absolute;
   top: 10px;
-  right: 40px;
+  left: 90px;
   z-index: 1;
   -webkit-animation: floating 5s linear infinite;
           animation: floating 5s linear infinite;
@@ -1383,6 +1383,7 @@ header {
 
 .duties-item img {
   width: 40px;
+  height: 40px;
 }
 
 .duties .duties-item.data-background {
@@ -1460,6 +1461,10 @@ header {
 
 .portfolio-item-content {
   position: relative;
+}
+
+.portfolio-item-content img {
+  height: 100%;
 }
 
 .portfolio .portfolio-item-content::before,
@@ -2757,15 +2762,12 @@ header {
 
 .contact .contact-info img {
   width: 50px;
+  height: 50px;
 }
 
 .contact .copy-right {
   position: relative;
   top: 5rem;
-}
-
-.contact .contact-info img {
-  width: 50px;
 }
 
 /*-------------------------
