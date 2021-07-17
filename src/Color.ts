@@ -1,5 +1,5 @@
-export const lightBaseValue: string = "#EBEBEB";
-export const darkBaseValue: string = "#212529";
+// export const lightBaseValue: string = "#EBEBEB";
+// export const darkBaseValue: string = "#212529";
 
 export abstract class Color {
         //CONSIDER: Use private members with getters instead?
@@ -32,7 +32,7 @@ export abstract class Color {
 
         public getInvertBlackWhite(): string {
                 // http://stackoverflow.com/a/3943023/112731
-                return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? darkBaseValue : lightBaseValue;
+                return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? 'black' : 'white';     //darkBaseValue : lightBaseValue;
         }
 
         public getInvert() {

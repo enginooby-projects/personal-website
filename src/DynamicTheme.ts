@@ -1,7 +1,7 @@
 import * as Selectors from './color-selectors.js'
 import { Style } from './Style.js'
 import { StyleRegistry } from './StyleRegistry.js';
-import { Color, darkBaseValue, lightBaseValue } from './Color.js';
+import { Color } from './Color.js';
 import { TinyColor } from './TinyColor.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
 
@@ -10,12 +10,12 @@ let $squareImg: JQuery<HTMLElement>;
 let borderRadius: number = 9;
 
 export let colorfull1: Color = new TinyColor("#01724b");
-export let colorfull2: Color = new TinyColor("#b44700");
+export let colorfull2: Color = new TinyColor("#bc5b00");
 export let colorfull3: Color = new TinyColor("#c40639");
 
 export let schemeColor: Color = new TinyColor("#D4D4D4");
 export let highlightColor: Color = new TinyColor("#004b97");
-export let baseColor: string = darkBaseValue;
+export let baseColor: string = 'black';
 //TODO: muted base color intensity
 const lightMutedBaseColor: string = "#b2b2b2";
 const darkMutedBaseColor: string = "#4D4D4D";
@@ -205,8 +205,8 @@ function updateBaseColor() {
 }
 
 function onBaseColorChanged() {
-        mutedBaseColor = (baseColor == lightBaseValue) ? lightMutedBaseColor : darkMutedBaseColor;
-        const heroImg = (baseColor == lightBaseValue) ? "light-element_square" : "dark-element_square";
+        mutedBaseColor = (baseColor == 'white') ? lightMutedBaseColor : darkMutedBaseColor;
+        const heroImg = (baseColor == 'white') ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
         StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
         StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;

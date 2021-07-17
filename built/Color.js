@@ -1,5 +1,5 @@
-export const lightBaseValue = "#EBEBEB";
-export const darkBaseValue = "#212529";
+// export const lightBaseValue: string = "#EBEBEB";
+// export const darkBaseValue: string = "#212529";
 export class Color {
     constructor(hex) {
         this.hex = hex;
@@ -19,7 +19,7 @@ export class Color {
     cutHex(hex) { return (hex.charAt(0) == "#") ? hex.substring(1, 7) : hex; }
     getInvertBlackWhite() {
         // http://stackoverflow.com/a/3943023/112731
-        return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? darkBaseValue : lightBaseValue;
+        return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? 'black' : 'white'; //darkBaseValue : lightBaseValue;
     }
     getInvert() {
         // invert color components
