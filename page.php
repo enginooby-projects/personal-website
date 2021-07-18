@@ -16,21 +16,26 @@
 
         <link rel="shortcut icon" href="assets/img/favicon.ico">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
-        <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
+        <!-- TODO: create a custom shorten LineIcons.min.css with only used icons -->
         <link rel="stylesheet" href="assets/css/LineIcons.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <!-- <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
-        <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
+        <link rel="stylesheet" href="assets/css/style.min.css" title="style">
 
-        <!-- Load asynchronously -->
+        <!-- Load asynchronously non-critical assets-->
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <!-- <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <!-- <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style" onload="this.onload=null;this.rel='stylesheet'" />
         <!-- Fallback when JS is disabled -->
         <noscript>
-                <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" rel="stylesheet">
-                <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-                <link rel="stylesheet" href="assets/css/magnific-popup.css">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900">
+                <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <!-- <link rel="stylesheet" href="assets/css/magnific-popup.css"> -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         </noscript>
 </head>
 

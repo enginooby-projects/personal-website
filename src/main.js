@@ -186,6 +186,7 @@ function pagePilling() {
                 },
                 afterLoad: function (anchorLink, index) {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
+                        //TODO: load all lazy images in portfolio sections
                         if (anchorLink == 'portfolio' && !filterringTriggered) {
                                 // console.log('Trigger filterring when enter portfolio section first time');
                                 filterringTriggered = true;
