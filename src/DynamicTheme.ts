@@ -28,6 +28,7 @@ let hoverEventsAreSetup: boolean = false;
 //populate all style names since we have init css files
 let stylesWithUpdatedSchemeColor: string[] = ['flat-style', 'neu-style', 'glass-style'];
 let stylesWithUpdatedHighlightColor: string[] = ['flat-style', 'neu-style', 'glass-style'];
+let stylesWithUpdatedBaseColor: string[] = ['flat-style', 'neu-style', 'glass-style'];
 
 let styleSheet: CSSStyleSheet;
 let cssRules: CSSRuleList;
@@ -66,6 +67,10 @@ function updateChangesFromLastStyle() {
         if (!stylesWithUpdatedHighlightColor.includes(currentStyle.name)) {
                 currentStyle.onHighlightColorUpdated();
                 stylesWithUpdatedHighlightColor.push(currentStyle.name);
+        }
+        if (!stylesWithUpdatedBaseColor.includes(currentStyle.name)) {
+                currentStyle.onBaseColorUpdated();
+                stylesWithUpdatedBaseColor.push(currentStyle.name);
         }
 }
 
@@ -229,9 +234,12 @@ function onBaseColorChanged() {
         mutedBaseColor = (baseColor == 'white') ? lightMutedBaseColor : darkMutedBaseColor;
         const heroImg = (baseColor == 'white') ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
-        getColorMutedBaseRule().style.setProperty('color', 'green', 'important');
+        getColorMutedBaseRule().style.setProperty('color', mutedBaseColor, 'important');
         StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
         StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;
+
         currentStyle.onBaseColorUpdated();
+        stylesWithUpdatedBaseColor.length = 0;
+        stylesWithUpdatedBaseColor.push(currentStyle.name);
 }
 
