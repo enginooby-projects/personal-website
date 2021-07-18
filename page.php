@@ -21,7 +21,8 @@
         <!-- <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
-        <link rel="stylesheet" href="assets/css/style.min.css" title="style">
+        <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
+        <!-- <link rel="stylesheet" href="assets/css/style.min.css" title="style"> -->
 
         <!-- Load asynchronously non-critical assets-->
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">

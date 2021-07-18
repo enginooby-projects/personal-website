@@ -34,6 +34,7 @@ export const colorBaseColorSelectors = formatString([
     ".modal-title",
     ".portfolio-single .close",
     ".pp-tooltip",
+    ".blog-label a"
 ]);
 export const colorMutedBaseColorSelectors = formatString([
     ".blog-content .list-inline-item span",
@@ -45,6 +46,10 @@ export const colorMutedBaseColorSelectors = formatString([
     ".range-slider__value",
     "#colour-panel label ",
     ".color-pallet-content p",
+    "::placeholder",
+    // ".form-control::placeholder",         /* Chrome, Firefox, Opera, Safari 10.1+ */
+    // ".form-control:-ms-input-placeholder",         /* Internet Explorer 10-11 */
+    // ".form-control::-ms-input-placeholder"         /* Microsoft Edge */
 ]);
 export const colorColorfull1Selectors = formatString([]);
 export const borderRadiusSelectors = formatString([

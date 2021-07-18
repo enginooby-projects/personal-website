@@ -211,6 +211,22 @@ button {
   font-size: 1.15rem !important;
 }
 
+.form-control::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  opacity: 1;
+}
+
 table.neumorphic {
   border-spacing: 0;
   overflow: hidden;
@@ -2225,10 +2241,6 @@ header {
   font-weight: 600;
 }
 
-.blog-label a {
-  color: #212529;
-}
-
 .blog .blog-item {
   padding: 30px;
   margin: 60px 0 30px;
@@ -2713,11 +2725,6 @@ header {
 /*-------------------------
           CONTACT
 -------------------------*/
-::-moz-placeholder,
-.form-control::-moz-placeholder {
-  color: #5f5f5f;
-}
-
 .contact .form-item .form-control {
   background: transparent;
   border-radius: 0;
@@ -3526,8 +3533,7 @@ header {
   .search .form-group input::-webkit-input-placeholder,
   .breadcrumb li a,
   .blog-single .entry-meta li a i,
-  .comment-reply-link,
-  ::-webkit-input-placeholder {
+  .comment-reply-link {
     color: #fafafa;
   }
   .search .form-group button,
@@ -3535,8 +3541,7 @@ header {
   .search .form-group input:-ms-input-placeholder,
   .breadcrumb li a,
   .blog-single .entry-meta li a i,
-  .comment-reply-link,
-  :-ms-input-placeholder {
+  .comment-reply-link {
     color: #fafafa;
   }
   .search .form-group button,
@@ -3544,8 +3549,7 @@ header {
   .search .form-group input::-ms-input-placeholder,
   .breadcrumb li a,
   .blog-single .entry-meta li a i,
-  .comment-reply-link,
-  ::-ms-input-placeholder {
+  .comment-reply-link {
     color: #fafafa;
   }
   .search .form-group button,
@@ -3553,8 +3557,7 @@ header {
   .search .form-group input::placeholder,
   .breadcrumb li a,
   .blog-single .entry-meta li a i,
-  .comment-reply-link,
-  ::placeholder {
+  .comment-reply-link {
     color: #fafafa;
   }
   .search .form-group {
@@ -4134,7 +4137,8 @@ body,
 .overlay-menu-toggler,
 .modal-title,
 .portfolio-single .close,
-.pp-tooltip {
+.pp-tooltip,
+.blog-label a {
   color: black;
 }
 
@@ -4146,8 +4150,41 @@ body,
 .range-slider label,
 .range-slider__value,
 #colour-panel label,
-.color-pallet-content p {
-  color: #414141;
+.color-pallet-content p,
+.form-control:-ms-input-placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-ms-input-placeholder {
+  color: #4D4D4D;
+}
+
+.blog-content .list-inline-item span,
+.contact-info-text small,
+.hero-content p,
+.title-wrapper span,
+.form-control,
+.range-slider label,
+.range-slider__value,
+#colour-panel label,
+.color-pallet-content p,
+.form-control::-ms-input-placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-ms-input-placeholder {
+  color: #4D4D4D;
+}
+
+.blog-content .list-inline-item span,
+.contact-info-text small,
+.hero-content p,
+.title-wrapper span,
+.form-control,
+.range-slider label,
+.range-slider__value,
+#colour-panel label,
+.color-pallet-content p,
+.form-control::placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-ms-input-placeholder {
+  color: #4D4D4D;
 }
 
 .colorfull1,
@@ -4251,7 +4288,7 @@ table,
 }
 
 .checkbox i {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 /*
@@ -4310,7 +4347,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .neu-style .segmented-control > input:not(:checked):not(:hover) + label {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .neu-style .pill-button,
@@ -4334,7 +4371,7 @@ Init values for dynamic properties to reduce  page load time
 
 .neu-style .checkbox input:not(:checked):not(:hover) ~ label i,
 .neu-style .checkbox input:not(:checked) ~ label + .name {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .neu-style .checkbox input:checked ~ label + .name,
@@ -4411,7 +4448,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .flat-style .segmented-control > input:not(:checked):not(:hover) + label {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .flat-style .segmented-control > input:hover + label {
@@ -4424,7 +4461,7 @@ Init values for dynamic properties to reduce  page load time
 
 .flat-style .checkbox input:not(:checked):not(:hover) ~ label i,
 .flat-style .checkbox input:not(:checked) ~ label + .name {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .flat-style .checkbox input:checked ~ label + .name,
@@ -4522,7 +4559,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .glass-style .segmented-control > input:not(:checked):not(:hover) + label {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .glass-style .segmented-control > input:hover + label {
@@ -4535,7 +4572,7 @@ Init values for dynamic properties to reduce  page load time
 
 .glass-style .checkbox input:not(:checked):not(:hover) ~ label i,
 .glass-style .checkbox input:not(:checked) ~ label + .name {
-  color: #414141;
+  color: #4D4D4D;
 }
 
 .glass-style .checkbox input:checked ~ label + .name,

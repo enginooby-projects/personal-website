@@ -2,6 +2,7 @@ import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { TinyColor } from './TinyColor.js';
 import { StyleRuleStore } from './StyleRuleStore.js';
+// TODO: create class
 let $squareImg;
 let borderRadius = 9;
 export let colorfull1 = new TinyColor("#01724b");
@@ -10,7 +11,6 @@ export let colorfull3 = new TinyColor("#c40639");
 export let schemeColor = new TinyColor("#D4D4D4");
 export let highlightColor = new TinyColor("#004b97");
 export let baseColor = 'black';
-//TODO: muted base color intensity
 const lightMutedBaseColor = "#b2b2b2";
 const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
@@ -19,6 +19,23 @@ let hoverEventsAreSetup = false;
 //populate all style names since we have init css files
 let stylesWithUpdatedSchemeColor = ['flat-style', 'neu-style', 'glass-style'];
 let stylesWithUpdatedHighlightColor = ['flat-style', 'neu-style', 'glass-style'];
+let styleSheet;
+let cssRules;
+function getStyleSheet() {
+    for (let i = 0; i < document.styleSheets.length; i++) {
+        let cursheet = document.styleSheets[i];
+        if (cursheet.title == 'style')
+            return cursheet;
+    }
+    throw new Error('Failed to retrieve style sheet with title "style"!');
+}
+function insertEmptyRule(selector) {
+    return cssRules[styleSheet.insertRule(`${selector} {}`)];
+}
+let colorMutedBaseRule;
+function getColorMutedBaseRule() {
+    return colorMutedBaseRule !== null && colorMutedBaseRule !== void 0 ? colorMutedBaseRule : (colorMutedBaseRule = insertEmptyRule(Selectors.colorMutedBaseColorSelectors));
+}
 export function changeStyle(newStyle) {
     // currentStyle?.onDisable();
     currentStyle = newStyle;
@@ -41,6 +58,8 @@ function updateChangesFromLastStyle() {
 export function init() {
     new StyleRegistry();
     $squareImg = $(".hero-image .square img");
+    styleSheet = getStyleSheet();
+    cssRules = styleSheet.cssRules || styleSheet.rules;
     initSettingPanel();
     setupCustomizeEvents();
     // updateSchemeColor(schemeColor.hex);
@@ -167,7 +186,7 @@ function updateCommonElements() {
 }
 function updatePseudoElements() {
     StyleRuleStore.Instance.getThumbScrollbarRule().style.background = schemeColor.hex;
-    StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
+    // StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
     StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.color = baseColor;
 }
 function updateBaseColor() {
@@ -180,8 +199,8 @@ function onBaseColorChanged() {
     mutedBaseColor = (baseColor == 'white') ? lightMutedBaseColor : darkMutedBaseColor;
     const heroImg = (baseColor == 'white') ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
+    getColorMutedBaseRule().style.setProperty('color', 'green', 'important');
     StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
     StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;
-    StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
     currentStyle.onBaseColorUpdated();
 }

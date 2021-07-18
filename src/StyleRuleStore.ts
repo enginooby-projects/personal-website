@@ -22,7 +22,6 @@ export class StyleRuleStore {
         private sliderThumbHoverRule?: CSSStyleRule;
         private sliderTrackFocusRule?: CSSStyleRule;
         private colorSwatchRule?: CSSStyleRule;
-        private placeholderRule?: CSSStyleRule;
         private selectionRule?: CSSStyleRule;
         private selectionOldFirefoxRule?: CSSStyleRule;
         // Stateful rules (hover, active, focus...)
@@ -57,7 +56,6 @@ export class StyleRuleStore {
 
         getTrackScrollbarRule = (): CSSStyleRule => this.trackScrollbarRule ?? (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track'));
         getThumbScrollbarRule = (): CSSStyleRule => this.thumbScrollbarRule ?? (this.thumbScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-thumb'));
-        getPlaceholderRule = (): CSSStyleRule => this.placeholderRule ?? (this.placeholderRule = this.insertEmptyRule('::placeholder'));
         getSliderThumbRule = (): CSSStyleRule => this.sliderThumbRule ?? (this.sliderThumbRule = this.insertEmptyRule('::-webkit-slider-thumb'));
         getSliderThumbHoverRule = (): CSSStyleRule => this.sliderThumbHoverRule ?? (this.sliderThumbHoverRule = this.insertEmptyRule('::-webkit-slider-thumb:hover'));
         getSliderTrackFocusRule = (): CSSStyleRule => this.sliderTrackFocusRule ?? (this.sliderTrackFocusRule = this.insertEmptyRule('input[type=range]:focus'));

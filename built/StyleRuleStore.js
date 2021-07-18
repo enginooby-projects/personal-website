@@ -4,7 +4,6 @@ export class StyleRuleStore {
         this.insertEmptyRule = (selector) => this.cssRules[this.styleSheet.insertRule(`${selector} {}`)];
         this.getTrackScrollbarRule = () => { var _a; return (_a = this.trackScrollbarRule) !== null && _a !== void 0 ? _a : (this.trackScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-track')); };
         this.getThumbScrollbarRule = () => { var _a; return (_a = this.thumbScrollbarRule) !== null && _a !== void 0 ? _a : (this.thumbScrollbarRule = this.insertEmptyRule('::-webkit-scrollbar-thumb')); };
-        this.getPlaceholderRule = () => { var _a; return (_a = this.placeholderRule) !== null && _a !== void 0 ? _a : (this.placeholderRule = this.insertEmptyRule('::placeholder')); };
         this.getSliderThumbRule = () => { var _a; return (_a = this.sliderThumbRule) !== null && _a !== void 0 ? _a : (this.sliderThumbRule = this.insertEmptyRule('::-webkit-slider-thumb')); };
         this.getSliderThumbHoverRule = () => { var _a; return (_a = this.sliderThumbHoverRule) !== null && _a !== void 0 ? _a : (this.sliderThumbHoverRule = this.insertEmptyRule('::-webkit-slider-thumb:hover')); };
         this.getSliderTrackFocusRule = () => { var _a; return (_a = this.sliderTrackFocusRule) !== null && _a !== void 0 ? _a : (this.sliderTrackFocusRule = this.insertEmptyRule('input[type=range]:focus')); };
