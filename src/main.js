@@ -325,6 +325,9 @@ function loadPortfolioSection() {
                         $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
                                 if (status == "error") {
                                         console.log("Failed to load portfolio.html");
+                                }
+                                if (status == "success") {
+                                        console.log("Portfolio.html loaded");
                                         onPortfolioLoadingFinish();
                                 }
                         });
