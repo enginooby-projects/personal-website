@@ -39,7 +39,7 @@ class CodingProject
                                                   <div class="img-overlay text-center">
                                                             <div class="img-overlay-content">
                                                                       <div class="portfolio-icon">
-                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#endless-flight" aria-label="Read more"><i class=" lni-search"></i></a>
+                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#endless-flight" aria-label="Read more"><i class="fas fa-search"></i></a>
                                                                                 <a href="https://' . $this->accessUrl . '" target="blank_" type="button" aria-label="Play"><i class=" lni-play"></i></a>
                                                                                 <a href="https://github.com/' . $this->codeUrl . '" target="_blank" rel="noopener" aria-label="Source code"> <i class="lni-code"></i> </a>
                                                                       </div>
@@ -77,27 +77,27 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
 
         if ($isGalleryItem) $buttonElements .= '
                 <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1" aria-label="Gallery image">
-                        <i class="lni-search"></i>
+                       <i class="fas fa-search"></i>
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class=" lni-search"></i></a>
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class="fas fa-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit"><i class=" lni-link"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit"><i class="fas fa-link"></i></a>
         ';
 
         if ($downloadUrl) $buttonElements .= '
-                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2"><i class=" lni-download" aria-label="Download"></i></a>
+                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2" aria-label="Download"><i class="fas fa-download"></i></a>
         ';
 
         if ($modalPlay) $buttonElements .= '
-                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class=" lni-play"></i></a>
+                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class="fas fa-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank" rel="noopener" class="background-colorfull3" aria-label="Source code"> <i class="lni-code"></i> </a>
+                <a href="https://github.com/' . $codeUrl . '" target="_blank" rel="noopener" class="background-colorfull3" aria-label="Source code"> <i class="fas fa-code"></i> </a>
         ';
 
         echo '

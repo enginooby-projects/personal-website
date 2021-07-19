@@ -5,6 +5,6 @@
                 </a>
         </div>
         <div class="header-info-area">
-                <a class="overlay-menu-toggler lni-menu size-md" href="#" aria-label="Hamburger menu toggle"></a>
+                <a class="fas fa-ellipsis-h overlay-menu-toggler size-md" href="#" aria-label="Hamburger menu toggle"></a>
         </div>
 </header>

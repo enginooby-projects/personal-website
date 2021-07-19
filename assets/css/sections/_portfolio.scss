@@ -109,36 +109,19 @@
         display: inline-block;
         transition: all 0.3s ease;
         line-height: 37px;
+
 }
 
 .portfolio-icon a i {
-        font-size: 18px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 600;
+        margin: auto;
+        text-align: center;
         position: relative;
-        top: calc(50% - 10px);
-        /* 50% - 3/4 of icon height */
-}
-
-.portfolio-icon a:first-child {
-        width: 35px;
-        height: 35px;
-        line-height: 37px;
-        margin: 0 8px;
-        display: inline-block;
-        transition: all 0.3s ease;
-        line-height: 37px;
-        border-color: transparent;
-}
-
-.portfolio-icon a:first-child i {
-        font-size: 18px;
-        font-weight: 700;
-        position: relative;
-        left: -2px;
-}
-
-.portfolio-icon a:first-child:focus {
-        outline: none !important;
+        top: calc(50% - .5rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
 }
 
 .visible_item {

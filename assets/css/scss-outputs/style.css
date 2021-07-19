@@ -1547,34 +1547,21 @@ header {
 }
 
 .portfolio-icon a i {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
   position: relative;
-  top: calc(50% - 10px);
-  /* 50% - 3/4 of icon height */
-}
-
-.portfolio-icon a:first-child {
-  width: 35px;
-  height: 35px;
-  line-height: 37px;
-  margin: 0 8px;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  line-height: 37px;
-  border-color: transparent;
-}
-
-.portfolio-icon a:first-child i {
-  font-size: 18px;
-  font-weight: 700;
-  position: relative;
-  left: -2px;
-}
-
-.portfolio-icon a:first-child:focus {
-  outline: none !important;
+  top: calc(50% - .5rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .visible_item {
@@ -2014,6 +2001,10 @@ header {
   z-index: 1032;
   opacity: 0;
   visibility: hidden;
+}
+
+.overlay-menu-toggler {
+  font-size: 2rem;
 }
 
 .overlay-menu .overlay-menu-list {

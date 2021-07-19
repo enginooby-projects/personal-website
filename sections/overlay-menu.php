@@ -1,4 +1,5 @@
 <div class="overlay-menu bg-blue py-3 px-4 text-center center-item">
+        <!-- <i class="fas fa-bars"></i> -->
         <!-- Overlay Menu -->
         <div id="scrollspy" class="overlay-menu-list">
                 <div class="container">
