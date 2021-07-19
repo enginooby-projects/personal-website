@@ -5,7 +5,7 @@
                               <div class="img-overlay text-center">
                                         <div class="img-overlay-content">
                                                   <div class="portfolio-icon">
-                                                            <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight"><i class=" lni-search"></i></a>
+                                                            <a href="javascript:void();" type="button" data-toggle="modal" data-target="#endless-flight"><i class=" lni-search"></i></a>
                                                             <a href="https://enginoobz.itch.io/endless-flight" target="blank_" type="button"><i class=" lni-play"></i></a>
                                                             <a href="https://github.com/enginoobz-games/endless-flight" target="_blank" rel="noopener"> <i class="lni-code"></i> </a>
                                                   </div>
@@ -39,7 +39,7 @@ class CodingProject
                                                   <div class="img-overlay text-center">
                                                             <div class="img-overlay-content">
                                                                       <div class="portfolio-icon">
-                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-endless-flight" aria-label="Read more"><i class=" lni-search"></i></a>
+                                                                                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#endless-flight" aria-label="Read more"><i class=" lni-search"></i></a>
                                                                                 <a href="https://' . $this->accessUrl . '" target="blank_" type="button" aria-label="Play"><i class=" lni-play"></i></a>
                                                                                 <a href="https://github.com/' . $this->codeUrl . '" target="_blank" rel="noopener" aria-label="Source code"> <i class="lni-code"></i> </a>
                                                                       </div>
@@ -81,7 +81,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#portfolio-single-' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class=" lni-search"></i></a>
+                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class=" lni-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '

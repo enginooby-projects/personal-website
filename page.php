@@ -66,7 +66,7 @@
         <!--Modals -->
         <!-- TODO: Remove this -->
         <?php include 'utility.php'; ?>
-        <div class="portfolio-single modal fade" id="portfolio-single-endless-flight" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+        <div class="portfolio-single modal fade" id="endless-flight" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
                 <?php
                 // include 'modals/portfolio/endless-flight.php';
                 ?>
