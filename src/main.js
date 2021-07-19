@@ -317,7 +317,6 @@ function loadDutiesSection() {
 }
 
 function loadPortfolioSection() {
-        portfolioSectionLoaded = true;
         // fallback  (happens on server, why?)- load according html file
         $('#portfolio').load('sections/portfolio.php', function (response, status, xhr) {
                 if (status == "error") {
@@ -328,18 +327,19 @@ function loadPortfolioSection() {
                                 }
                                 if (status == "success") {
                                         console.log("Portfolio.html loaded");
-                                        onPortfolioLoadingFinish();
+                                        onPortfolioSectionLoaded();
                                 }
                         });
                 }
                 if (status == "success") {
                         console.log("Portfolio.php loaded");
-                        onPortfolioLoadingFinish();
+                        onPortfolioSectionLoaded();
                 }
         });
 }
 
-function onPortfolioLoadingFinish() {
+function onPortfolioSectionLoaded() {
+        portfolioSectionLoaded = true;
         loadLazyImagesInSection('#portfolio');
         startFilterring($('.portfolio-items'), '*');
         // BUG: If mouseenter happens later (delay) than click ,
@@ -351,6 +351,25 @@ function onPortfolioLoadingFinish() {
 }
 
 function loadSelfEducationSection() {
+        $('#self-education').load('sections/self-education.php', function (response, status, xhr) {
+                if (status == "error") {
+                        console.log("Failed to load self-education.php - Start loading self-education.html ");
+                        $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
+                                if (status == "error") {
+                                        console.log("Failed to load self-education.html");
+                                }
+                                if (status == "success") {
+                                        onSelfEducationSectionLoaded();
+                                }
+                        });
+                }
+                if (status == "success") {
+                        onSelfEducationSectionLoaded();
+                }
+        });
+}
+
+function onSelfEducationSectionLoaded() {
         selfEducationSectionLoaded = true;
         $('#self-education').load('sections/self-education.php', function () {
                 loadLazyImagesInSection('#self-education');
