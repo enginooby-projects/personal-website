@@ -350,8 +350,9 @@ function onPortfolioSectionLoaded() {
         });
 }
 
+// .Load file not formatting properly (skillbar tag)
 function loadSelfEducationSection() {
-        $('#self-education').load('sections/self-education.php', function (response, status, xhr) {
+        $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
                 if (status == "error") {
                         console.log("Failed to load self-education.php - Start loading self-education.html ");
                         $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
@@ -371,16 +372,14 @@ function loadSelfEducationSection() {
 
 function onSelfEducationSectionLoaded() {
         selfEducationSectionLoaded = true;
-        $('#self-education').load('sections/self-education.php', function () {
-                loadLazyImagesInSection('#self-education');
-                startProgressBarAnimation();
-                //CONSIDER: Load directly all modals at once
-                $('[data-target="#bookshelf"]').one('mouseenter', event => {
-                        $('#bookshelf').load('modals/bookshelf.php');
-                });
-                $('[data-target="#courses"]').one('mouseenter', event => {
-                        $('#courses').load('modals/courses.php');
-                });
+        loadLazyImagesInSection('#self-education');
+        startProgressBarAnimation();
+        //CONSIDER: Load directly all modals at once
+        $('[data-target="#bookshelf"]').one('mouseenter', event => {
+                $('#bookshelf').load('modals/bookshelf.php');
+        });
+        $('[data-target="#courses"]').one('mouseenter', event => {
+                $('#courses').load('modals/courses.php');
         });
 }
 
