@@ -74,15 +74,22 @@ function updateChangesFromLastStyle() {
         }
 }
 
+init();
+
 export function init() {
-        new StyleRegistry();
+        console.log('Init DynamicTheme')
         $squareImg = $(".hero-image .square img");
+        //TODO: lazy get style sheet & rules
         styleSheet = getStyleSheet();
         cssRules = styleSheet.cssRules || styleSheet.rules;
+        new StyleRegistry();
         initSettingPanel();
         setupCustomizeEvents();
+
+        // invoke update functions if init css file not available
         // updateSchemeColor(schemeColor.hex);
         // updateHighlightColor(highlightColor.hex);
+        // updateBaseColor() ;
 }
 
 function initSettingPanel() {

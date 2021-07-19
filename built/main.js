@@ -1,10 +1,14 @@
-import * as DynamicTheme from './DynamicTheme.js';
+"use strict";
 // repeated variables
 var $window = $(window);
-var $root = $('html, body');
+// var $root = $('html, body');
+// after loading DOM
 $(document).ready(function () {
+    // jQuery(function () {
+    // document.addEventListener("DOMContentLoaded", function () { // slowest
     "use strict";
-    DynamicTheme.init();
+    // wait(1000);
+    fixJqueryPassiveListeners();
     clientCarousel();
     pagePilling();
     menuToggler();
@@ -17,13 +21,14 @@ $(document).ready(function () {
     sendEmail();
     $('.owl-item.active .hero-slide').addClass('zoom');
     setupModalEvents();
-    return $('[data-toggle="tooltip"]').tooltip();
+    return;
 });
-fixJqueryPassiveListeners();
 setupLazyLoading();
 $window.on("load", (function () {
-    $("#overlayer").delay(500).fadeOut('slow');
-    $(".loader").delay(1000).fadeOut('slow');
+    // wait(2000);
+    // console.log('start onLoad');
+    $("#overlayer").delay(200).fadeOut('slow');
+    $(".loader").delay(500).fadeOut('slow');
     portfolioIsotop();
 }));
 $(".to-contact").on('click', function () {
@@ -31,6 +36,14 @@ $(".to-contact").on('click', function () {
     var $id = $(this).attr('href');
     $('#main').children($id).addClass('active');
 });
+// TESTING
+function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+        end = new Date().getTime();
+    }
+}
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/

@@ -1,15 +1,14 @@
-import * as DynamicTheme from './DynamicTheme.js'
-import { ModalManager } from './ModalManager.js';
-
 // repeated variables
 var $window = $(window);
-var $root = $('html, body');
+// var $root = $('html, body');
 
+// after loading DOM
 $(document).ready(function () {
-
+        // jQuery(function () {
+        // document.addEventListener("DOMContentLoaded", function () { // slowest
         "use strict";
-
-        DynamicTheme.init();
+        // wait(1000);
+        fixJqueryPassiveListeners();
         clientCarousel();
         pagePilling();
         menuToggler();
@@ -22,15 +21,16 @@ $(document).ready(function () {
         sendEmail();
         $('.owl-item.active .hero-slide').addClass('zoom');
         setupModalEvents();
-        return $('[data-toggle="tooltip"]').tooltip();
+        return;
 });
 
-fixJqueryPassiveListeners();
 setupLazyLoading();
 
-$window.on("load", (function () {
-        $("#overlayer").delay(500).fadeOut('slow');
-        $(".loader").delay(1000).fadeOut('slow');
+$window.on("load", (function () { // after loading DOM, images & CSS...
+        // wait(2000);
+        // console.log('start onLoad');
+        $("#overlayer").delay(200).fadeOut('slow');
+        $(".loader").delay(500).fadeOut('slow');
         portfolioIsotop();
 }));
 
@@ -40,9 +40,19 @@ $(".to-contact").on('click', function () {
         $('#main').children($id).addClass('active');
 })
 
+// TESTING
+function wait(ms) {
+        var start = new Date().getTime();
+        var end = start;
+        while (end < start + ms) {
+                end = new Date().getTime();
+        }
+}
+
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
+
 function setupModalEvents() {
         //TODO: using multi-dimension arrays or Object array
         $('[data-target="#guess-the-word-play"]').one('click', event => {

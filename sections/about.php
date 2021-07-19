@@ -27,7 +27,7 @@
                                                 <div class="image-border mt-4">
                                                         <img class="lazy" data-src="https://enginoobz.com/assets/img/about1.jpg" alt="/">
                                                 </div>
-                                                <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p>
+                                                <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
                                                 <div class="personal-item">
                                                         <p class="paragraph-title mt-4 mt-lg-4 mb-0">Background: <span class="highlight-color">Java & web development</span></p>
                                                         <p class=" text-justify mb-0">
@@ -46,7 +46,7 @@
                                                                 I first got started in this field by playing around with a few CG and game tools. Feeling more and more engaged, I decided to pick <span class="highlight-color">Unity</span> and <span class="highlight-color"> Unreal Engine</span> as my "long-term companions" on the journey.
                                                                 <br>
                                                                 Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal fun projects collaborative coding laboratories for my classes which involve with CG or game.
-                                                                While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well (as long as it's challenging). I especially fall in love with <span class="highlight-color">procedural generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
+                                                                While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. I especially fall in love with <span class="highlight-color">procedural generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
                                                         </p>
                                                         <p class="paragraph-title mt-4 mt-lg-4 mb-0">What am I doing?</p>
                                                         <p class=" text-justify mb-4">

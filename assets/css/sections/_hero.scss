@@ -132,6 +132,14 @@ canvas.particles-js-canvas-el {
 /*-------------------------
           HERO-03
 -------------------------*/
+#hero {
+        overflow-x: hidden !important;
+
+        h2 {
+                font-size: 2rem;
+        }
+}
+
 .hero-03 {
         overflow-x: hidden !important;
 

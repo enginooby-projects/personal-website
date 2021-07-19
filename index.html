@@ -15,22 +15,32 @@
         <link rel="preload" href="assets/fonts/LineIcons.ttf?y2l643" as="font" subtype="TrueType" crossorigin>
 
         <link rel="shortcut icon" href="assets/img/favicon.ico">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
-        <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
+        <!-- TODO: create a custom shorten LineIcons.min.css with only used icons -->
         <link rel="stylesheet" href="assets/css/LineIcons.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <!-- <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
         <link rel="stylesheet" href="assets/css/scss-outputs/style.css" title="style">
+        <!-- <link rel="stylesheet" href="assets/css/style.min.css" title="style"> -->
 
-        <!-- Load asynchronously -->
+        <!-- Load asynchronously non-critical assets-->
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <!-- <link rel="preload" href="assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style"
+                onload="this.onload=null;this.rel='stylesheet'" />
+        <!-- <link rel="preload" href="assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style"
+                onload="this.onload=null;this.rel='stylesheet'" />
+        <script async src="built/DynamicTheme.js" type="module"></script>
         <!-- Fallback when JS is disabled -->
         <noscript>
-                <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900" rel="stylesheet">
-                <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-                <link rel="stylesheet" href="assets/css/magnific-popup.css">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900">
+                <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <!-- <link rel="stylesheet" href="assets/css/magnific-popup.css"> -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         </noscript>
 </head>
 
@@ -159,7 +169,7 @@
                                                                 <div class="image-border mt-4">
                                                                         <img class="lazy" data-src="https://enginoobz.com/assets/img/about1.jpg" alt="/">
                                                                 </div>
-                                                                <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p>
+                                                                <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
                                                                 <div class="personal-item">
                                                                         <p class="paragraph-title mt-4 mt-lg-4 mb-0">Background: <span class="highlight-color">Java & web development</span></p>
                                                                         <p class=" text-justify mb-0">
@@ -183,8 +193,8 @@
                                                                                 <br>
                                                                                 Since then, I have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal fun projects collaborative
                                                                                 coding laboratories for my classes which involve with CG or game.
-                                                                                While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well (as long as it's challenging). I especially fall in love with <span
-                                                                                        class="highlight-color">procedural generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
+                                                                                While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. I especially fall in love with <span class="highlight-color">procedural
+                                                                                        generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
                                                                         </p>
                                                                         <p class="paragraph-title mt-4 mt-lg-4 mb-0">What am I doing?</p>
                                                                         <p class=" text-justify mb-4">
@@ -1564,7 +1574,7 @@
                                                                 </div>
 
                                                                 <div class="skill-box p-2">
-                                                                        <div class="skillbar clearfix " data-percent="16.5%">
+                                                                        <div class="skillbar clearfix " data-percent="21.5%">
                                                                                 <div class="skillbar-bar fill-skillbar background-colorfull1"></div>
                                                                         </div>
                                                                 </div>

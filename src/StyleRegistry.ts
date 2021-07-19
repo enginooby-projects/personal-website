@@ -12,26 +12,30 @@ const FLAT_OPTION_SELECTOR: string = '#flat-skin-button';
 const NEU_OPTION_SELECTOR: string = '#neu-skin-button';
 const GLASS_OPTION_SELECTOR: string = '#glass-skin-button';
 
-jQuery(function () {
-        "use strict";
-        $(FLAT_OPTION_SELECTOR).on('click', function () {
-                changeStyle(FlatStyle.Instance);
-        });
-        $(NEU_OPTION_SELECTOR).on('click', function () {
-                changeStyle(NeuStyle.Instance);
-        });
-        $(GLASS_OPTION_SELECTOR).on('click', function () {
-                changeStyle(GlassStyle.Instance);
-        });
-});
+// jQuery(function () {
+
 
 export class StyleRegistry {
         constructor() {
                 // changeStyle(GlassStyle.Instance);
                 // $(GLASS_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                this.init();
                 changeStyle(NeuStyle.Instance);
                 $(NEU_OPTION_SELECTOR).children('.pill-button').addClass('active');
                 // changeStyle(FlatStyle.Instance);
                 // $(FLAT_OPTION_SELECTOR).children('.pill-button').addClass('active');
+        }
+
+        public init() {
+                "use strict";
+                $(FLAT_OPTION_SELECTOR).on('click', function () {
+                        changeStyle(FlatStyle.Instance);
+                });
+                $(NEU_OPTION_SELECTOR).on('click', function () {
+                        changeStyle(NeuStyle.Instance);
+                });
+                $(GLASS_OPTION_SELECTOR).on('click', function () {
+                        changeStyle(GlassStyle.Instance);
+                });
         }
 }
