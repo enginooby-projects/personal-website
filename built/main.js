@@ -15,7 +15,6 @@ $(document).ready(function () {
     menuToggler();
     sliderOwlCarousel();
     typedJS();
-    portfolioPopup();
     postSidebar();
     validateEmail();
     sendEmail();
@@ -320,6 +319,8 @@ function loadPortfolioSection(loadOtherSection) {
 function onPortfolioSectionLoaded(loadOtherSection) {
     portfolioSectionLoaded = true;
     loadLazyImagesInSection('#portfolio');
+    portfolioIsotop();
+    portfolioPopup();
     // trigger filtering first time to fix overlapping items on mobile screen
     startFilterring($('.portfolio-items'), '*');
     setupPortfolioTypeTS();
