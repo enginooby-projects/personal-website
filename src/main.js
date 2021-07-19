@@ -15,7 +15,7 @@ $(document).ready(function () {
         menuToggler();
         sliderOwlCarousel();
         typedJS();
-        skills();
+        // startProgressBarAnimation();
         portfolioPopup();
         postSidebar();
         validateEmail();
@@ -59,23 +59,7 @@ function wait(ms) {
 -----------------------------------------------------------------------------*/
 
 function setupModalEvents() {
-        $('[data-target="#classes"]').one('mouseenter', event => {
-                $('#classes').load('modals/classes.php');
-        });
-        $('[data-target="#bookshelf"]').one('mouseenter', event => {
-                $('#bookshelf').load('modals/bookshelf.php');
-        });
-        $('[data-target="#courses"]').one('mouseenter', event => {
-                $('#courses').load('modals/courses.php');
-        });
-        $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
-                const id: string = $(event.currentTarget).attr('data-target');
-                $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
-        });
-        $('#blog [data-toggle="modal"]').one('mouseenter', event => {
-                const id: string = $(event.currentTarget).attr('data-target');
-                $(id).load(`modals/blog/${id?.substring(1)}.php`)
-        });
+
 }
 
 function setupIframeInjectionEvents() { // invoke if not include iframe in modals
@@ -182,14 +166,22 @@ function clientCarousel() {
         });
 }
 
-let portfolioSectionTriggered;
-let selfEducationSectionTriggered;
+//CONSIDER: Use 1 collection instead
+let aboutSectionLoaded;
+let resumeSectionLoaded;
+let skillsetSectionLoaded;
+let dutiesSectionLoaded;
+let portfolioSectionLoaded;
+let selfEducationSectionLoaded;
+let blogSectionLoaded;
+let contactSectionLoaded;
+
 /*-------------------------
        Page Pilling
 -------------------------*/
 function pagePilling() {
 
-        "use strict";
+        // "use strict";
 
         var ids = [];
         var tooltips = [];
@@ -223,33 +215,155 @@ function pagePilling() {
                 //events
                 onLeave: function (index, nextIndex, direction) {
                         // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
+                        switch (nextIndex) {
+                                case 2:
+                                        if (!aboutSectionLoaded) loadAboutSection();
+                                        if (!resumeSectionLoaded) loadResumeSection();
+                                        break;
+                                case 3:
+                                        if (!resumeSectionLoaded) loadResumeSection();
+                                        if (!skillsetSectionLoaded) loadSkillsetSection();
+                                        break;
+                                case 4:
+                                        if (!skillsetSectionLoaded) loadSkillsetSection();
+                                        if (!dutiesSectionLoaded) loadDutiesSection();
+                                        break;
+                                case 5:
+                                        if (!dutiesSectionLoaded) loadDutiesSection();
+                                        if (!portfolioSectionLoaded) loadPortfolioSection();
+                                        break;
+                                case 6:
+                                        if (!portfolioSectionLoaded) loadPortfolioSection();
+                                        if (!selfEducationSectionLoaded) loadSelfEducationSection();
+                                        break;
+                                case 7:
+                                        if (!selfEducationSectionLoaded) loadSelfEducationSection();
+                                        if (!blogSectionLoaded) loadBlogSection();
+                                        break;
+                                case 8:
+                                        if (!blogSectionLoaded) loadBlogSection();
+                                        if (!contactSectionLoaded) loadContactSection();
+                                        break;
+                                case 9:
+                                        if (!contactSectionLoaded) loadContactSection();
+                                        break;
+                        }
                 },
                 afterLoad: function (anchorLink, index) {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
-                        if ((anchorLink == 'portfolio' || anchorLink == 'duties') && !portfolioSectionTriggered) {
-                                // console.log('Trigger filterring when enter portfolio section first time');
-                                portfolioSectionTriggered = true;
-                                //  CONSIDER: setup lazy loading for the section instead if many images
-                                document.querySelectorAll('#portfolio img.lazy').forEach((element, index) => {
-                                        loadLazyImage(element);
-                                });
-                                document.querySelectorAll('#self-education img.lazy').forEach((element, index) => {
-                                        loadLazyImage(element);
-                                });
-                                startFilterring($('.portfolio-items'), '*');
-                        }
-                        if ((anchorLink == 'self-education') && !selfEducationSectionTriggered) {
-                                selfEducationSectionTriggered = true;
-                                //  CONSIDER: setup lazy loading for the section instead if many images
-                                document.querySelectorAll('#self-education img.lazy').forEach((element, index) => {
-                                        loadLazyImage(element);
-                                });
-                        }
+                        // switch (anchorLink) {
+                        //         case 'about':
+                        //                 if (!resumeSectionLoaded) loadResumeSection();
+                        //                 break;
+                        //         case 'resume':
+                        //                 if (!resumeSectionLoaded) loadResumeSection();
+                        //                 if (!skillsetSectionLoaded) loadSkillsetSection();
+                        //                 break;
+                        //         case 'skillset':
+                        //                 if (!skillsetSectionLoaded) loadSkillsetSection();
+                        //                 if (!dutiesSectionLoaded) loadDutiesSection();
+                        //                 break;
+                        //         case 'duties':
+                        //                 if (!dutiesSectionLoaded) loadDutiesSection();
+                        //                 if (!portfolioSectionLoaded) loadPortfolioSection();
+                        //                 break;
+                        //         case 'portfolio':
+                        //                 if (!portfolioSectionLoaded) loadPortfolioSection();
+                        //                 if (!selfEducationSectionLoaded) loadSelfEducationSection();
+                        //                 break;
+                        //         case 'self-education':
+                        //                 if (!selfEducationSectionLoaded) loadSelfEducationSection();
+                        //                 if (!blogSectionLoaded) loadBlogSection();
+                        //                 break;
+                        //         case 'blog':
+                        //                 if (!blogSectionLoaded) loadBlogSection();
+                        //                 if (!contactSectionLoaded) loadContactSection();
+                        //                 break;
+                        //         case 'contact':
+                        //                 if (!contactSectionLoaded) loadContactSection();
+                        //                 break;
+                        // }
                 },
-                afterRender: function (index) {
-                        // console.log(`afterRender: index-${index}`);
+                afterRender: function () {
+                        // console.log(`afterRender`);
+                        // wait(3000);
                         addLabelLinkPagePiling();
                 },
+        });
+}
+
+function loadResumeSection() {
+        resumeSectionLoaded = true;
+        $('#resume').load('sections/resume.php', function () {
+                $('[data-target="#classes"]').one('mouseenter', event => {
+                        $('#classes').load('modals/classes.php');
+                });
+        });
+}
+
+function loadAboutSection() {
+        aboutSectionLoaded = true;
+        $('#about').load('sections/about.php');
+}
+
+function loadSkillsetSection() {
+        skillsetSectionLoaded = true;
+        $('#skillset').load('sections/skillset.php');
+}
+
+function loadDutiesSection() {
+        dutiesSectionLoaded = true;
+        $('#duties').load('sections/duties.php');
+}
+
+function loadPortfolioSection() {
+        portfolioSectionLoaded = true;
+        $('#portfolio').load('sections/portfolio.php', function () {
+                loadLazyImagesInSection('#portfolio');
+                startFilterring($('.portfolio-items'), '*');
+                // BUG: If mouseenter happens later (delay) than click ,
+                // the modal close button will bind incorrect event hence not work
+                $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+                        const id: string = $(event.currentTarget).attr('data-target');
+                        $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+                });
+        });
+}
+
+function loadSelfEducationSection() {
+        selfEducationSectionLoaded = true;
+        $('#self-education').load('sections/self-education.php', function () {
+                loadLazyImagesInSection('#self-education');
+                startProgressBarAnimation();
+                //CONSIDER: Load directly all modals at once
+                $('[data-target="#bookshelf"]').one('mouseenter', event => {
+                        $('#bookshelf').load('modals/bookshelf.php');
+                });
+                $('[data-target="#courses"]').one('mouseenter', event => {
+                        $('#courses').load('modals/courses.php');
+                });
+        });
+}
+
+function loadBlogSection() {
+        blogSectionLoaded = true;
+        $('#blog').load('sections/blog.php', function () {
+                $('#blog [data-toggle="modal"]').one('mouseenter', event => {
+                        const id: string = $(event.currentTarget).attr('data-target');
+                        $(id).load(`modals/blog/${id?.substring(1)}.php`)
+                });
+        });
+}
+
+function loadContactSection() {
+        contactSectionLoaded = true;
+        $('#contact').load('sections/contact.php');
+}
+
+//  CONSIDER: setup lazy loading for the section instead if many images
+function loadLazyImagesInSection(sectionId: string) {
+        document.querySelectorAll(`${sectionId} img.lazy`).forEach((element, index) => {
+                loadLazyImage(element);
         });
 }
 
@@ -341,13 +455,13 @@ function typedJS() {
 /*-------------------------
           Skills
 -------------------------*/
-function skills() {
+function startProgressBarAnimation() {
 
-        "use strict";
+        // "use strict";
         $('.skillbar').each(function () {
                 $(this).find('.skillbar-bar').animate({
                         width: $(this).attr('data-percent')
-                }, 6000);
+                }, 4000);
         });
 }
 

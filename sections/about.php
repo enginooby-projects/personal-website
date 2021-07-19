@@ -1,7 +1,3 @@
-<?php
-?>
-
-<section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME">
         <div class="display-table">
                 <div class="display-content">
                         <div class="container">
@@ -25,7 +21,7 @@
                                                 </div>
                                                 <!-- Image -->
                                                 <div class="image-border mt-4">
-                                                        <img class="lazy" data-src="assets/img/about1.jpg" alt="/">
+                                                        <img src="assets/img/about1.jpg" alt="/">
                                                 </div>
                                                 <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
                                                 <div class="personal-item">
@@ -96,4 +92,3 @@
                         </div>
                 </div>
         </div>
-</section>

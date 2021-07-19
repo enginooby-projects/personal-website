@@ -1,4 +1,3 @@
-<section id="resume" class="section resume pp-scrollable" data-navigation-tooltip="RESUME">
         <div class="display-table">
                 <div class="display-content">
                         <div class="container">
@@ -104,4 +103,3 @@
                         </div>
                 </div>
         </div>
-</section>

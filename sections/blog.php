@@ -1,4 +1,3 @@
-<section id="blog" class="section pp-scrollable blog" data-navigation-tooltip="BLOG">
         <div class="display-table">
                 <div class="display-content">
                         <div class="container">
@@ -111,4 +110,3 @@
                         </div>
                 </div>
         </div>
-</section>

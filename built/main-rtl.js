@@ -13,7 +13,7 @@ $(document).ready(function () {
     sliderOwlCarousel();
     clientCarousel();
     typedJS();
-    skills();
+    startProgressBarAnimation();
     countup();
     portfolioPopup();
     postSidebar();
@@ -255,7 +255,7 @@ function typedJS() {
 /*-------------------------
             Skills
 -------------------------*/
-function skills() {
+function startProgressBarAnimation() {
     "use strict";
     $('.skillbar').each(function () {
         $(this).find('.skillbar-bar').animate({

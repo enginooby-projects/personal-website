@@ -47,22 +47,55 @@
         <div id="overlayer"></div><span class="loader"></span>
 
         <div id="pagepiling" class="pilling-page">
-                <?php include 'sections/social.php';  ?>
-                <?php include 'sections/logo.php';  ?>
-                <?php include 'sections/overlay-menu.php';  ?>
-                <?php include 'sections/hero.php';  ?>
-                <?php include 'sections/about.php';  ?>
-                <?php include 'sections/resume.php';  ?>
-                <?php include 'sections/skillset.php';  ?>
-                <?php include 'sections/duties.php';  ?>
-                <?php include 'sections/portfolio.php';  ?>
-                <?php include 'sections/self-education.php';  ?>
-                <?php include 'sections/blog.php';  ?>
-                <?php include 'sections/contact.php';  ?>
-                <?php include 'sections/setting.php';  ?>
+                <?php
+                include 'sections/social.php';
+                include 'sections/logo.php';
+                include 'sections/setting.php';
+                include 'sections/overlay-menu.php';
+                include 'sections/hero.php';
+                ?>
+                <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME">
+                        <?php
+                        // include 'sections/about.php';
+                        ?>
+                </section>
+                <section id="resume" class="section resume pp-scrollable" data-navigation-tooltip="RESUME">
+                        <?php
+                        // include 'sections/resume.php';
+                        ?>
+                </section>
+                <section id="skillset" class="section skillset  pp-scrollable" data-navigation-tooltip="SKILLSET">
+                        <?php
+                        // include 'sections/skillset.php';
+                        ?>
+                </section>
+                <section id="duties" class="section pp-scrollable duties" data-navigation-tooltip="SERVICES">
+                        <?php
+                        // include 'sections/duties.php';
+                        ?>
+                </section>
+                <section id="portfolio" class="section portfolio  pp-scrollable" data-navigation-tooltip="PORTFOLIO">
+                        <?php
+                        // include 'sections/portfolio.php';
+                        ?>
+                </section>
+                <section id="self-education" class="section self-education pp-scrollable" data-navigation-tooltip="SELF-EDU">
+                        <?php
+                        // include 'sections/self-education.php';
+                        ?>
+                </section>
+                <section id="blog" class="section pp-scrollable blog" data-navigation-tooltip="BLOG">
+                        <?php
+                        // include 'sections/blog.php';
+                        ?>
+                </section>
+                <section id="contact" class="section pp-scrollable contact" data-navigation-tooltip="CONTACT">
+                        <?php
+                        // include 'sections/contact.php';
+                        ?>
+                </section>
         </div>
 
-        <!-- TODO: Lazy initialization -->
         <!--Modals -->
         <!-- TODO: Remove this -->
         <?php include 'utility.php'; ?>

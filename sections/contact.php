@@ -1,4 +1,3 @@
-<section id="contact" class="section pp-scrollable contact" data-navigation-tooltip="CONTACT">
         <div class="display-table">
                 <div class="display-content">
                         <div class="container">
@@ -95,4 +94,3 @@
                         </div>
                 </div>
         </div>
-</section>
