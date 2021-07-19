@@ -16,13 +16,11 @@ function progressBar($percent)
 {
         $accountSpace = 3.5;
 
-        return '
-                <div class="skill-box p-2">
+        return ' <div class="skill-box p-2">
                         <div class="skillbar clearfix " data-percent="' . $percent - $accountSpace . '%">
                                <div class="skillbar-bar fill-skillbar ' . getColorfullByPercent($percent) . '"></div>
                         </div>
-                </div>
-        ';
+                </div>';
 }
 
 function displayBook($imageUrl, $pageAmount)
@@ -31,7 +29,7 @@ function displayBook($imageUrl, $pageAmount)
 
         echo '
         <div class="image-border text-center book-item">
-                <img  class="lazy" data-src="https://enginoobz.com/assets/img/books/' . $imageUrl . '" class="img-fluid" alt="" >
+                <img  class="lazy" data-src="https://enginoobz.com/assets/img/books/' . $imageUrl . '" class="img-fluid" alt="/" >
                 ' . progressBar($percent) . '
         </div>
         ';

@@ -343,8 +343,18 @@ function onPortfolioSectionLoaded() {
     });
 }
 function loadSelfEducationSection() {
-    // server loads this section successfully but has bugs, hence load html file instead
-    $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
+    $('#self-education').load('sections/self-education.php', function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Failed to load self-education.php - Start loading self-education.html ");
+            $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
+                if (status == "error") {
+                    console.log("Failed to load self-education.html");
+                }
+                if (status == "success") {
+                    onSelfEducationSectionLoaded();
+                }
+            });
+        }
         if (status == "success") {
             onSelfEducationSectionLoaded();
         }
