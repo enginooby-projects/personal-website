@@ -71,17 +71,21 @@ function setupLazyLoading() {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
+                    loadLazyImage(lazyImage);
                     imgObserver.unobserve(lazyImage);
                 }
             });
         });
-        const arr = document.querySelectorAll('img.lazy');
+        const arr = document.querySelectorAll('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)');
         arr.forEach((v) => {
             imageObserver.observe(v);
         });
     });
+}
+function loadLazyImage(lazyImage) {
+    lazyImage.src = lazyImage.dataset.src;
+    lazyImage.classList.remove("lazy");
+    return lazyImage;
 }
 function fixJqueryPassiveListeners() {
     jQuery.event.special.touchstart = {
@@ -143,7 +147,8 @@ function clientCarousel() {
         }
     });
 }
-let filterringTriggered;
+let portfolioSectionTriggered;
+let selfEducationSectionTriggered;
 /*-------------------------
        Page Pilling
 -------------------------*/
@@ -184,11 +189,21 @@ function pagePilling() {
         },
         afterLoad: function (anchorLink, index) {
             // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
-            //TODO: load all lazy images in portfolio sections
-            if (anchorLink == 'portfolio' && !filterringTriggered) {
+            if ((anchorLink == 'portfolio' || anchorLink == 'duties') && !portfolioSectionTriggered) {
                 // console.log('Trigger filterring when enter portfolio section first time');
-                filterringTriggered = true;
+                portfolioSectionTriggered = true;
+                //  CONSIDER: setup lazy loading for the section instead if many images
+                document.querySelectorAll('#portfolio img.lazy').forEach((element, index) => {
+                    loadLazyImage(element);
+                });
                 startFilterring($('.portfolio-items'), '*');
+            }
+            if ((anchorLink == 'self-education' || anchorLink == 'portfolio') && !selfEducationSectionTriggered) {
+                selfEducationSectionTriggered = true;
+                //  CONSIDER: setup lazy loading for the section instead if many images
+                document.querySelectorAll('#self-education img.lazy').forEach((element, index) => {
+                    loadLazyImage(element);
+                });
             }
         },
         afterRender: function (index) {

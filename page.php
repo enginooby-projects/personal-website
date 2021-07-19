@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>enginoobz</title>
-        <meta name="description" content="Personal website of Hieu Ngo">
-        <meta name="keywords" content="personal website, portfolio, blog, game programming, java developer" />
+        <meta charset="UTF-8">
         <meta name="author" content="enginoobz" />
+        <meta name="description" content="Personal website of Hieu Ngo">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="personal website, portfolio, blog, game programming, java developer" />
 
         <!-- Preload assets -->
         <link rel="preload" href="assets/fonts/agency-fb-regular/AgencyFB-Reg.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,7 +61,6 @@
                 <?php include 'sections/contact.php';  ?>
                 <?php include 'sections/setting.php';  ?>
         </div>
-
 
         <!-- TODO: Lazy initialization -->
         <!--Modals -->

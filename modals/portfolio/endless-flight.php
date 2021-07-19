@@ -44,7 +44,7 @@
                                                                           </div>
                                                                           <div class="mt-5">
                                                                                   <div class="portfolio-single-item image-border">
-                                                                                          <img src="assets/img/portfolio/endless-flight.png" class="d-block" alt="...">
+                                                                                          <img class="lazy" data-src="assets/img/portfolio/endless-flight.png" alt="/" class="d-block">
                                                                                   </div>
                                                                           </div>
                                                                           <div class="text-justify mt-5">
