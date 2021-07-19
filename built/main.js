@@ -320,7 +320,9 @@ function loadPortfolioSection(loadOtherSection) {
 function onPortfolioSectionLoaded(loadOtherSection) {
     portfolioSectionLoaded = true;
     loadLazyImagesInSection('#portfolio');
+    // trigger filtering first time to fix overlapping items on mobile screen
     startFilterring($('.portfolio-items'), '*');
+    setupPortfolioTypeTS();
     // BUG: If mouseenter happens later (delay) than click ,
     // the modal close button will bind incorrect event hence not work
     $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
@@ -329,6 +331,21 @@ function onPortfolioSectionLoaded(loadOtherSection) {
     });
     if (loadOtherSection)
         loadOtherSection();
+}
+function setupPortfolioTypeTS() {
+    var $element = $("#portfolio .typed");
+    if ($element.length > 0) {
+        if ($element.length) {
+            var options = {
+                strings: $element.attr('data-elements').split(','),
+                typeSpeed: 70,
+                backDelay: 1500,
+                backSpeed: 30,
+                loop: true
+            };
+            var typed = new Typed("#portfolio .typed", options);
+        }
+    }
 }
 // Load php file not formatting properly (skillbar tag), hence load html file
 function loadSelfEducationSection(loadOtherSection) {
@@ -463,19 +480,6 @@ function typedJS() {
                 loop: true
             };
             var typed = new Typed("#hero .typed", options);
-        }
-    }
-    var $element = $("#portfolio .typed");
-    if ($element.length > 0) {
-        if ($element.length) {
-            var options = {
-                strings: $element.attr('data-elements').split(','),
-                typeSpeed: 70,
-                backDelay: 1500,
-                backSpeed: 30,
-                loop: true
-            };
-            var typed = new Typed("#portfolio .typed", options);
         }
     }
 }
