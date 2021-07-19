@@ -318,15 +318,32 @@ function loadDutiesSection() {
 
 function loadPortfolioSection() {
         portfolioSectionLoaded = true;
-        $('#portfolio').load('sections/portfolio.php', function () {
-                loadLazyImagesInSection('#portfolio');
-                startFilterring($('.portfolio-items'), '*');
-                // BUG: If mouseenter happens later (delay) than click ,
-                // the modal close button will bind incorrect event hence not work
-                $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
-                        const id: string = $(event.currentTarget).attr('data-target');
-                        $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
-                });
+        // fallback  (happens on server, why?)- load according html file
+        $('#portfolio').load('sections/portfolio.php', function (response, status, xhr) {
+                if (status == "error") {
+                        console.log("Failed to load portfolio.php - Start loading portfolio.html ");
+                        $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
+                                if (status == "error") {
+                                        console.log("Failed to load portfolio.html");
+                                        onPortfolioLoadingFinish();
+                                }
+                        });
+                }
+                if (status == "success") {
+                        console.log("Portfolio.php loaded");
+                        onPortfolioLoadingFinish();
+                }
+        });
+}
+
+function onPortfolioLoadingFinish() {
+        loadLazyImagesInSection('#portfolio');
+        startFilterring($('.portfolio-items'), '*');
+        // BUG: If mouseenter happens later (delay) than click ,
+        // the modal close button will bind incorrect event hence not work
+        $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+                const id: string = $(event.currentTarget).attr('data-target');
+                $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
         });
 }
 
