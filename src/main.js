@@ -8,6 +8,7 @@ $(document).ready(function () {
         // document.addEventListener("DOMContentLoaded", function () { // slowest
         "use strict";
         // wait(1000);
+        console.log('start ready');
         fixJqueryPassiveListeners();
         clientCarousel();
         pagePilling();
@@ -22,6 +23,10 @@ $(document).ready(function () {
         $('.owl-item.active .hero-slide').addClass('zoom');
         setupModalEvents();
         return;
+});
+
+document.addEventListener("DOMContentLoaded", function () { // slowest
+        console.log('start DOMContentLoaded');
 });
 
 setupLazyLoading();
@@ -54,12 +59,32 @@ function wait(ms) {
 -----------------------------------------------------------------------------*/
 
 function setupModalEvents() {
-        //TODO: using multi-dimension arrays or Object array
-        $('[data-target="#guess-the-word-play"]').one('click', event => {
-                $('#guess-the-word-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/guess-the-word" style="width: 1072px;height: 670px;border:0"></iframe>')
+        $('[data-target="#classes"]').one('mouseenter', event => {
+                $('#classes').load('modals/classes.php');
         });
+        $('[data-target="#bookshelf"]').one('mouseenter', event => {
+                $('#bookshelf').load('modals/bookshelf.php');
+        });
+        $('[data-target="#courses"]').one('mouseenter', event => {
+                $('#courses').load('modals/courses.php');
+        });
+        $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+                const id: string = $(event.currentTarget).attr('data-target');
+                $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+        });
+        $('#blog [data-toggle="modal"]').one('mouseenter', event => {
+                const id: string = $(event.currentTarget).attr('data-target');
+                $(id).load(`modals/blog/${id?.substring(1)}.php`)
+        });
+}
+
+function setupIframeInjectionEvents() { // invoke if not include iframe in modals
+        //TODO: using multi-dimension arrays or Object array
         $('[data-target="#breakout-play"]').one('click', event => {
                 $('#breakout-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/breakout" style="width: 893px;height: 670px;border:0"></iframe>')
+        });
+        $('[data-target="#guess-the-word-play"]').one('click', event => {
+                $('#guess-the-word-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/guess-the-word" style="width: 1072px;height: 670px;border:0"></iframe>')
         });
         $('[data-target="#project-boost-play"]').one('click', event => {
                 $('#project-boost-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/project-boost" style="width: 1072px;height: 670px;border:0"></iframe>')
@@ -208,9 +233,12 @@ function pagePilling() {
                                 document.querySelectorAll('#portfolio img.lazy').forEach((element, index) => {
                                         loadLazyImage(element);
                                 });
+                                document.querySelectorAll('#self-education img.lazy').forEach((element, index) => {
+                                        loadLazyImage(element);
+                                });
                                 startFilterring($('.portfolio-items'), '*');
                         }
-                        if ((anchorLink == 'self-education' || anchorLink == 'portfolio') && !selfEducationSectionTriggered) {
+                        if ((anchorLink == 'self-education') && !selfEducationSectionTriggered) {
                                 selfEducationSectionTriggered = true;
                                 //  CONSIDER: setup lazy loading for the section instead if many images
                                 document.querySelectorAll('#self-education img.lazy').forEach((element, index) => {

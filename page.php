@@ -64,20 +64,58 @@
 
         <!-- TODO: Lazy initialization -->
         <!--Modals -->
-        <?php
-        include 'utility.php';
-        include 'modals/classes.php';
-        include 'modals/bookshelf.php';
-        include 'modals/courses.php';
-        include 'modals/portfolio/endless-flight.php';
-        include 'modals/portfolio/guess-the-word-play.php';
-        include 'modals/portfolio/the-maze-play.php';
-        include 'modals/portfolio/breakout-play.php';
-        include 'modals/portfolio/project-boost-play.php';
-        include 'modals/portfolio/shader-playground-play.php';
-        include 'modals/blog/sample.php';
-        ?>
-
+        <!-- TODO: Remove this -->
+        <?php include 'utility.php'; ?>
+        <div class="portfolio-single modal fade" id="portfolio-single-endless-flight" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/endless-flight.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="classes" tabindex="-1" role="dialog" aria-labelledby="classModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/classes.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="bookshelf" tabindex="-1" role="dialog" aria-labelledby="bookshelfModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/bookshelf.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="courses" tabindex="-1" role="dialog" aria-labelledby="bookshelfModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/courses.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="guess-the-word-play" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/guess-the-word-play.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="the-maze-play" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/the-maze-play.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="breakout-play" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/breakout-play.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="project-boost-play" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/project-boost-play.php';
+                ?>
+        </div>
+        <div class="portfolio-single modal fade" id="shader-playground-play" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/portfolio/shader-playground-play.php';
+                ?>
+        </div>
+        <div class="blog-single modal fade" id="blog-single" tabindex="-1" role="dialog" aria-labelledby="blogModalScrollable" aria-hidden="true">
+                <?php
+                // include 'modals/blog/blog-single.php';
+                ?>
+        </div>
         <!-- <script async data-main="main" src="assets/js/import/fallback.min.js" type="text/javascript"></script> -->
         <!-- <script src="assets/js/import/fallback.min.js" type="text/javascript"></script> -->
         <!--  Script block to execute Fallback JS -->
