@@ -350,9 +350,9 @@ function onPortfolioSectionLoaded() {
         });
 }
 
-// .Load file not formatting properly (skillbar tag)
+// Load php  file not formatting properly (skillbar tag)
 function loadSelfEducationSection() {
-        $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
+        $('#self-education').load('sections/self-education.php', function (response, status, xhr) {
                 if (status == "error") {
                         console.log("Failed to load self-education.php - Start loading self-education.html ");
                         $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
