@@ -14,7 +14,17 @@
         <link rel="preload" href="assets/fonts/agency-fb-bold/AgencyFB-Bold.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="assets/fonts/LineIcons.ttf?y2l643" as="font" subtype="TrueType" crossorigin>
 
-        <link rel="shortcut icon" href="assets/img/favicon.ico">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <!-- <link rel="shortcut icon" href="/favicon/favicon.ico"> -->
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
         <!-- TODO: create a custom shorten LineIcons.min.css with only used icons -->
