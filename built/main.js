@@ -8,14 +8,13 @@ $(document).ready(function () {
     // document.addEventListener("DOMContentLoaded", function () { // slowest
     "use strict";
     // wait(1000);
-    console.log('start ready');
+    // console.log('start ready');
     fixJqueryPassiveListeners();
     clientCarousel();
     pagePilling();
     menuToggler();
     sliderOwlCarousel();
     typedJS();
-    // startProgressBarAnimation();
     portfolioPopup();
     postSidebar();
     validateEmail();
@@ -25,9 +24,9 @@ $(document).ready(function () {
     return;
 });
 document.addEventListener("DOMContentLoaded", function () {
-    console.log('start DOMContentLoaded');
+    // console.log('start DOMContentLoaded');
 });
-setupLazyLoading();
+// setupLazyLoading();
 $window.on("load", (function () {
     // wait(2000);
     // console.log('start onLoad');
@@ -200,88 +199,35 @@ function pagePilling() {
         onLeave: function (index, nextIndex, direction) {
             // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
             switch (nextIndex) {
+                //TODO: load current section first then load next section
                 case 2:
-                    if (!aboutSectionLoaded)
-                        loadAboutSection();
-                    if (!resumeSectionLoaded)
-                        loadResumeSection();
+                    loadAboutSection(loadResumeSection);
                     break;
                 case 3:
-                    if (!resumeSectionLoaded)
-                        loadResumeSection();
-                    if (!skillsetSectionLoaded)
-                        loadSkillsetSection();
+                    loadResumeSection(loadSkillsetSection);
                     break;
                 case 4:
-                    if (!skillsetSectionLoaded)
-                        loadSkillsetSection();
-                    if (!dutiesSectionLoaded)
-                        loadDutiesSection();
+                    loadSkillsetSection(loadDutiesSection);
                     break;
                 case 5:
-                    if (!dutiesSectionLoaded)
-                        loadDutiesSection();
-                    if (!portfolioSectionLoaded)
-                        loadPortfolioSection();
+                    loadDutiesSection(loadPortfolioSection);
                     break;
                 case 6:
-                    if (!portfolioSectionLoaded)
-                        loadPortfolioSection();
-                    if (!selfEducationSectionLoaded)
-                        loadSelfEducationSection();
+                    loadPortfolioSection(loadSelfEducationSection);
                     break;
                 case 7:
-                    if (!selfEducationSectionLoaded)
-                        loadSelfEducationSection();
-                    if (!blogSectionLoaded)
-                        loadBlogSection();
+                    loadSelfEducationSection(loadBlogSection);
                     break;
                 case 8:
-                    if (!blogSectionLoaded)
-                        loadBlogSection();
-                    if (!contactSectionLoaded)
-                        loadContactSection();
+                    loadBlogSection(loadContactSection);
                     break;
                 case 9:
-                    if (!contactSectionLoaded)
-                        loadContactSection();
+                    loadContactSection();
                     break;
             }
         },
         afterLoad: function (anchorLink, index) {
             // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
-            // switch (anchorLink) {
-            //         case 'about':
-            //                 if (!resumeSectionLoaded) loadResumeSection();
-            //                 break;
-            //         case 'resume':
-            //                 if (!resumeSectionLoaded) loadResumeSection();
-            //                 if (!skillsetSectionLoaded) loadSkillsetSection();
-            //                 break;
-            //         case 'skillset':
-            //                 if (!skillsetSectionLoaded) loadSkillsetSection();
-            //                 if (!dutiesSectionLoaded) loadDutiesSection();
-            //                 break;
-            //         case 'duties':
-            //                 if (!dutiesSectionLoaded) loadDutiesSection();
-            //                 if (!portfolioSectionLoaded) loadPortfolioSection();
-            //                 break;
-            //         case 'portfolio':
-            //                 if (!portfolioSectionLoaded) loadPortfolioSection();
-            //                 if (!selfEducationSectionLoaded) loadSelfEducationSection();
-            //                 break;
-            //         case 'self-education':
-            //                 if (!selfEducationSectionLoaded) loadSelfEducationSection();
-            //                 if (!blogSectionLoaded) loadBlogSection();
-            //                 break;
-            //         case 'blog':
-            //                 if (!blogSectionLoaded) loadBlogSection();
-            //                 if (!contactSectionLoaded) loadContactSection();
-            //                 break;
-            //         case 'contact':
-            //                 if (!contactSectionLoaded) loadContactSection();
-            //                 break;
-            // }
         },
         afterRender: function () {
             // console.log(`afterRender`);
@@ -290,27 +236,67 @@ function pagePilling() {
         },
     });
 }
-function loadResumeSection() {
-    resumeSectionLoaded = true;
-    $('#resume').load('sections/resume.php', function () {
+function loadResumeSection(loadOtherSection) {
+    if (resumeSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#resume').load('sections/resume.php', function (response, status, xhr) {
+        if (status == 'success')
+            resumeSectionLoaded = true;
         $('[data-target="#classes"]').one('mouseenter', event => {
             $('#classes').load('modals/classes.php');
         });
+        if (loadOtherSection)
+            loadOtherSection();
     });
 }
-function loadAboutSection() {
-    aboutSectionLoaded = true;
-    $('#about').load('sections/about.php');
+function loadAboutSection(loadOtherSection) {
+    if (aboutSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#about').load('sections/about.php', function (response, status, xhr) {
+        if (status == "success")
+            aboutSectionLoaded = true;
+        if (loadOtherSection)
+            loadOtherSection();
+    });
 }
-function loadSkillsetSection() {
-    skillsetSectionLoaded = true;
-    $('#skillset').load('sections/skillset.php');
+function loadSkillsetSection(loadOtherSection) {
+    if (skillsetSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#skillset').load('sections/skillset.php', function (response, status, xhr) {
+        if (status == "success")
+            skillsetSectionLoaded = true;
+        if (loadOtherSection)
+            loadOtherSection();
+    });
 }
-function loadDutiesSection() {
-    dutiesSectionLoaded = true;
-    $('#duties').load('sections/duties.php');
+function loadDutiesSection(loadOtherSection) {
+    if (dutiesSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#duties').load('sections/duties.php', function (response, status, xhr) {
+        if (status == "success")
+            dutiesSectionLoaded = true;
+        if (loadOtherSection)
+            loadOtherSection();
+    });
 }
-function loadPortfolioSection() {
+function loadPortfolioSection(loadOtherSection) {
+    if (portfolioSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
     // fallback  (happens on server, why?)- load according html file
     $('#portfolio').load('sections/portfolio.php', function (response, status, xhr) {
         if (status == "error") {
@@ -321,17 +307,17 @@ function loadPortfolioSection() {
                 }
                 if (status == "success") {
                     console.log("Portfolio.html loaded");
-                    onPortfolioSectionLoaded();
+                    onPortfolioSectionLoaded(loadOtherSection);
                 }
             });
         }
         if (status == "success") {
             console.log("Portfolio.php loaded");
-            onPortfolioSectionLoaded();
+            onPortfolioSectionLoaded(loadOtherSection);
         }
     });
 }
-function onPortfolioSectionLoaded() {
+function onPortfolioSectionLoaded(loadOtherSection) {
     portfolioSectionLoaded = true;
     loadLazyImagesInSection('#portfolio');
     startFilterring($('.portfolio-items'), '*');
@@ -341,9 +327,16 @@ function onPortfolioSectionLoaded() {
         const id = $(event.currentTarget).attr('data-target');
         $(id).load(`modals/portfolio/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
     });
+    if (loadOtherSection)
+        loadOtherSection();
 }
 // Load php file not formatting properly (skillbar tag), hence load html file
-function loadSelfEducationSection() {
+function loadSelfEducationSection(loadOtherSection) {
+    if (selfEducationSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
     $('#self-education').load('sections/self-education.html  ', function (response, status, xhr) {
         // if (status == "error") {
         //         console.log("Failed to load self-education.php - Start loading self-education.html ");
@@ -357,11 +350,11 @@ function loadSelfEducationSection() {
         //         });
         // }
         if (status == "success") {
-            onSelfEducationSectionLoaded();
+            onSelfEducationSectionLoaded(loadOtherSection);
         }
     });
 }
-function onSelfEducationSectionLoaded() {
+function onSelfEducationSectionLoaded(loadOtherSection) {
     selfEducationSectionLoaded = true;
     loadLazyImagesInSection('#self-education');
     startProgressBarAnimation();
@@ -372,19 +365,38 @@ function onSelfEducationSectionLoaded() {
     $('[data-target="#courses"]').one('mouseenter', event => {
         $('#courses').load('modals/courses.php');
     });
+    if (loadOtherSection)
+        loadOtherSection();
 }
-function loadBlogSection() {
-    blogSectionLoaded = true;
-    $('#blog').load('sections/blog.php', function () {
+function loadBlogSection(loadOtherSection) {
+    if (blogSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#blog').load('sections/blog.php', function (response, status, xhr) {
+        if (status == 'success')
+            blogSectionLoaded = true;
         $('#blog [data-toggle="modal"]').one('mouseenter', event => {
             const id = $(event.currentTarget).attr('data-target');
             $(id).load(`modals/blog/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
         });
+        if (loadOtherSection)
+            loadOtherSection();
     });
 }
-function loadContactSection() {
-    contactSectionLoaded = true;
-    $('#contact').load('sections/contact.php');
+function loadContactSection(loadOtherSection) {
+    if (contactSectionLoaded) {
+        if (loadOtherSection)
+            loadOtherSection();
+        return;
+    }
+    $('#contact').load('sections/contact.php', function (response, status, xhr) {
+        if (status == "success")
+            contactSectionLoaded = true;
+    });
+    if (loadOtherSection)
+        loadOtherSection();
 }
 //  CONSIDER: setup lazy loading for the section instead if many images
 function loadLazyImagesInSection(sectionId) {
