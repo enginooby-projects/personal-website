@@ -1,7 +1,7 @@
 var $window = $(window);
 // var $root = $('html, body');
 
-// after loading DOM (not affect DOMContentLoaded)
+// after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
         // jQuery(function () {
         // document.addEventListener("DOMContentLoaded", function () { // slowest
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () { // slowest
 
 // setupLazyLoading();
 
-$window.on("load", (function () { // after loading DOM, images & CSS...
+// after loading DOM, images & CSS...  (not affect DOMContentLoaded, affect Load)
+$window.on("load", (function () {
         // wait(2000);
         // console.log('start onLoad');
         $("#overlayer").delay(0).fadeOut(500);

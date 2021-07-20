@@ -1,7 +1,7 @@
 "use strict";
 var $window = $(window);
 // var $root = $('html, body');
-// after loading DOM (not affect DOMContentLoaded)
+// after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
     // jQuery(function () {
     // document.addEventListener("DOMContentLoaded", function () { // slowest
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log('start DOMContentLoaded');
 });
 // setupLazyLoading();
+// after loading DOM, images & CSS...  (not affect DOMContentLoaded, affect Load)
 $window.on("load", (function () {
     // wait(2000);
     // console.log('start onLoad');
