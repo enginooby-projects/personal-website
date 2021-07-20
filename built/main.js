@@ -331,15 +331,17 @@ function pagePilling() {
             //         case 9:
             //                 tryLoadingSection("contact");
             //                 break;
-        }
-    }, afterLoad, function (anchorLink, index) {
-        // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
-    }, afterRender, function () {
-        // console.log(`PagePiling: afterRender`);
-        addLabelLinkPagePiling();
+            // }
+        },
+        afterLoad: function (anchorLink, index) {
+            // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
+        },
+        afterRender: function () {
+            // console.log(`PagePiling: afterRender`);
+            addLabelLinkPagePiling();
+        },
     });
 }
-;
 /*-------------------------
     MENU TOGGLER
 -------------------------*/

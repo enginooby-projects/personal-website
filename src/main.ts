@@ -349,8 +349,8 @@ function pagePilling() {
                         //         case 9:
                         //                 tryLoadingSection("contact");
                         //                 break;
-                }
-        },
+                        // }
+                },
                 afterLoad: function (anchorLink, index) {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
                 },
