@@ -12,7 +12,7 @@ $(document).ready(function () {
     clientCarousel();
     pagePilling();
     menuToggler();
-    sliderOwlCarousel();
+    sliderOwlCarousel(); //TODO: setup after load owl carousel script async
     typedJS();
     postSidebar();
     validateEmail();
