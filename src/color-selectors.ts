@@ -1,12 +1,10 @@
-export const backgroundBaseColorSelectors = formatString([
-]);
-
-export const backgroundHighlightColorSelectors = formatString([
+export const bgHighlightSelectors = formatString([
         ".bg-highlight-color",
         ".border-style",
+        "#pp-nav li .active span",
 ]);
 
-export const backgroundSchemeColorSelectors = formatString([
+export const bgSchemeSelectors = formatString([
         ".section",
         // ".hero-03",
         ".segmented-control",
@@ -18,7 +16,11 @@ export const backgroundSchemeColorSelectors = formatString([
         "#overlayer",
 ]);
 
-export const colorHighlightColorSelectors = formatString([
+export const bgBaseSelectors = formatString([
+        "#pp-nav li :not(.active) span"
+]);
+
+export const colorHighlightSelectors = formatString([
         ".highlight-color",
         ".overlay-menu a.active",
         ".timeline-year",
@@ -27,7 +29,7 @@ export const colorHighlightColorSelectors = formatString([
         ".highlight-portfolio-item.fa-star"
 ]);
 
-export const colorBaseColorSelectors = formatString([
+export const colorBaseSelectors = formatString([
         "body",
         ".logo",
         ".color-switcher .pallet-border i",
@@ -40,10 +42,11 @@ export const colorBaseColorSelectors = formatString([
         ".modal-title",
         ".portfolio-single .close",
         ".pp-tooltip",
-        ".blog-label a"
+        ".blog-label a",
+        // "#pp-nav li .pp-tooltip"
 ]);
 
-export const colorMutedBaseColorSelectors = formatString([
+export const colorMutedBaseSelectors = formatString([
         ".blog-content .list-inline-item span",
         ".contact-info-text small",
         ".hero-content p",
@@ -58,10 +61,6 @@ export const colorMutedBaseColorSelectors = formatString([
         // ".form-control:-ms-input-placeholder",         /* Internet Explorer 10-11 */
         // ".form-control::-ms-input-placeholder"         /* Microsoft Edge */
 ]);
-
-export const colorColorfull1Selectors = formatString([
-]);
-
 
 export const borderRadiusSelectors = formatString([
         ".blog .blog-image",
@@ -108,7 +107,9 @@ export const borderRadiusSelectors = formatString([
         ".checkbox label",
         ".testimonial .owl-carousel .owl-dot span",
         ".skill-item",
-        ".color-scheme li a"
+        ".color-scheme li a",
+        "::-webkit-scrollbar-track",
+        "::-webkit-scrollbar-thumb",
 ]);
 
 //HELPER

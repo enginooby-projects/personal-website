@@ -1,7 +1,6 @@
 import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { TinyColor } from './TinyColor.js';
-import { StyleRuleStore } from './StyleRuleStore.js';
 // TODO: create class
 let $squareImg;
 let borderRadius = 9;
@@ -33,9 +32,33 @@ function getStyleSheet() {
 function insertEmptyRule(selector) {
     return cssRules[styleSheet.insertRule(`${selector} {}`)];
 }
+let borderRadiusRule;
+let bgHighlightRule;
+let bgSchemeRule;
+let bgBaseRule;
+let colorHighlightRule;
+let colorBaseRule;
 let colorMutedBaseRule;
+function getBgHighlightRule() {
+    return bgHighlightRule !== null && bgHighlightRule !== void 0 ? bgHighlightRule : (bgHighlightRule = insertEmptyRule(Selectors.bgHighlightSelectors));
+}
+function getBgSchemeRule() {
+    return bgSchemeRule !== null && bgSchemeRule !== void 0 ? bgSchemeRule : (bgSchemeRule = insertEmptyRule(Selectors.bgSchemeSelectors));
+}
+function getBgBaseRule() {
+    return bgBaseRule !== null && bgBaseRule !== void 0 ? bgBaseRule : (bgBaseRule = insertEmptyRule(Selectors.bgBaseSelectors));
+}
+function getColorHighlightRule() {
+    return colorHighlightRule !== null && colorHighlightRule !== void 0 ? colorHighlightRule : (colorHighlightRule = insertEmptyRule(Selectors.colorHighlightSelectors));
+}
+function getColorBaseRule() {
+    return colorBaseRule !== null && colorBaseRule !== void 0 ? colorBaseRule : (colorBaseRule = insertEmptyRule(Selectors.colorBaseSelectors));
+}
 function getColorMutedBaseRule() {
-    return colorMutedBaseRule !== null && colorMutedBaseRule !== void 0 ? colorMutedBaseRule : (colorMutedBaseRule = insertEmptyRule(Selectors.colorMutedBaseColorSelectors));
+    return colorMutedBaseRule !== null && colorMutedBaseRule !== void 0 ? colorMutedBaseRule : (colorMutedBaseRule = insertEmptyRule(Selectors.colorMutedBaseSelectors));
+}
+function getBorderRadiusRule() {
+    return borderRadiusRule !== null && borderRadiusRule !== void 0 ? borderRadiusRule : (borderRadiusRule = insertEmptyRule(Selectors.borderRadiusSelectors));
 }
 export function changeStyle(newStyle) {
     // currentStyle?.onDisable();
@@ -126,10 +149,8 @@ function setupRangeSliderEvents() {
     });
 }
 function updateBorder() {
-    $(Selectors.borderRadiusSelectors).css('border-radius', borderRadius);
+    getBorderRadiusRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
     $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
-    StyleRuleStore.Instance.getTrackScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
-    StyleRuleStore.Instance.getThumbScrollbarRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
 }
 function updateColorfull(colorfullNumber) {
     let colorfull;
@@ -155,9 +176,8 @@ function updateColorfull(colorfullNumber) {
 ;
 function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
-    $(Selectors.backgroundHighlightColorSelectors).css("background-color", highlightColor.hex);
-    $(Selectors.colorHighlightColorSelectors).css("color", highlightColor.hex);
-    StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.setProperty('background-color', highlightColor.hex, 'important');
+    getBgHighlightRule().style.setProperty('background-color', highlightColor.hex, 'important');
+    getColorHighlightRule().style.setProperty('color', highlightColor.hex, 'important');
     setupCommonHoverEvents();
     currentStyle.onHighlightColorUpdated();
     stylesWithUpdatedHighlightColor.length = 0;
@@ -166,13 +186,13 @@ function updateHighlightColor(hex) {
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
     updateBaseColor();
-    updateCommonElements();
-    updatePseudoElements();
     setupCommonHoverEvents();
+    getBgSchemeRule().style.setProperty('background-color', schemeColor.hex, 'important');
     currentStyle.onSchemeColorUpdated();
     stylesWithUpdatedSchemeColor.length = 0;
     stylesWithUpdatedSchemeColor.push(currentStyle.name);
 }
+//TODO: use css instead
 function setupCommonHoverEvents() {
     // lazily setup
     if (hoverEventsAreSetup)
@@ -188,17 +208,6 @@ function setupCommonHoverEvents() {
         $(this).css('color', 'white');
     });
 }
-function updateCommonElements() {
-    $(Selectors.backgroundSchemeColorSelectors).css("background-color", schemeColor.hex);
-    $(Selectors.colorBaseColorSelectors).css("color", baseColor);
-    $(Selectors.backgroundBaseColorSelectors).css("background-color", baseColor);
-    $(Selectors.colorMutedBaseColorSelectors).css("color", mutedBaseColor);
-}
-function updatePseudoElements() {
-    StyleRuleStore.Instance.getThumbScrollbarRule().style.background = schemeColor.hex;
-    // StyleRuleStore.Instance.getPlaceholderRule().style.color = mutedBaseColor;
-    StyleRuleStore.Instance.getPagePillingSpanActiveRule().style.color = baseColor;
-}
 function updateBaseColor() {
     const lastBaseColor = baseColor;
     baseColor = schemeColor.getInvertBlackWhite();
@@ -209,9 +218,9 @@ function onBaseColorChanged() {
     mutedBaseColor = (baseColor == 'white') ? lightMutedBaseColor : darkMutedBaseColor;
     const heroImg = (baseColor == 'white') ? "light-element_square" : "dark-element_square";
     $squareImg.attr('src', `assets/img/${heroImg}.png`);
+    getColorBaseRule().style.setProperty('color', baseColor, 'important');
     getColorMutedBaseRule().style.setProperty('color', mutedBaseColor, 'important');
-    StyleRuleStore.Instance.getPagePillingSpanInactiveRule().style.setProperty('background-color', baseColor, 'important');
-    StyleRuleStore.Instance.getPagePillingTooltipRule().style.color = baseColor;
+    getBgBaseRule().style.setProperty('background-color', baseColor, 'important');
     currentStyle.onBaseColorUpdated();
     stylesWithUpdatedBaseColor.length = 0;
     stylesWithUpdatedBaseColor.push(currentStyle.name);
