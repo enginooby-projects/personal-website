@@ -57,6 +57,7 @@
                 include 'sections/logo.php';
                 include 'sections/hero.php';
                 ?>
+
                 <!-- DYNAMIC LOADING SECTIONS -->
                 <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME"> </section>
                 <section id="resume" class="section resume pp-scrollable" data-navigation-tooltip="RESUME"> </section>
