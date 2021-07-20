@@ -3,7 +3,6 @@ import { Style } from './Style.js'
 import { StyleRegistry } from './StyleRegistry.js';
 import { Color } from './Color.js';
 import { TinyColor } from './TinyColor.js';
-import { StyleRuleStore } from './StyleRuleStore.js';
 
 // TODO: create class
 let $squareImg: JQuery<HTMLElement>;
