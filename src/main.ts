@@ -6,36 +6,47 @@ $(document).ready(function () {
         // jQuery(function () {
         // document.addEventListener("DOMContentLoaded", function () { // slowest
         "use strict";
-        // wait(4000);
-        // console.log('start ready');
+        // console.log('document: onReady');
+        typedJS();
         fixJqueryPassiveListeners();
         clientCarousel();
         pagePilling();
         menuToggler();
         sliderOwlCarousel(); //TODO: setup after load owl carousel script async
-        typedJS();
         postSidebar();
         validateEmail();
         sendEmail();
         $('.owl-item.active .hero-slide').addClass('zoom');
         setupModalEvents();
-        return;
-});
 
-document.addEventListener("DOMContentLoaded", function () { // slowest
-        // console.log('start DOMContentLoaded');
+        return;
 });
 
 // setupLazyLoading();
 
-// after loading DOM, images & CSS...  (not affect DOMContentLoaded, affect Load)
+// after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
-        // wait(2000);
-        // console.log('start onLoad');
-        $("#overlayer").delay(0).fadeOut(500);
-        $(".loader").delay(0).fadeOut(500);
-        portfolioIsotop();
+        // console.log('window: onLoad');
+        // setTimeout(function () {
+        // }, 1000);
+        loadPortfolioSection();
+        loadAboutSection();
+        loadResumeSection();
+        loadSkillsetSection();
+        loadSelfEducationSection();
+        loadBlogSection();
+        loadContactSection();
 }));
+
+document.addEventListener('readystatechange', event => {
+        //When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
+        if (event.target?.readyState === "complete") {
+                // console.log('readystatechange = complete ');
+                $("#overlayer").delay(0).fadeOut(500);
+                $(".loader").delay(0).fadeOut(500);
+                portfolioIsotop();
+        }
+});
 
 $(".to-contact").on('click', function () {
         $("section.active").removeClass("active");
@@ -245,7 +256,7 @@ function pagePilling() {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
                 },
                 afterRender: function () {
-                        // console.log(`afterRender`);
+                        // console.log(`PagePiling: afterRender`);
                         // wait(3000);
                         addLabelLinkPagePiling();
                 },

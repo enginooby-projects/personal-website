@@ -101,7 +101,7 @@ function updateChangesFromLastStyle() {
 init();
 
 export function init() {
-        console.log('Init DynamicTheme')
+        // console.log('DynamicTheme: init')
         $squareImg = $(".hero-image .square img");
         //TODO: lazy get style sheet & rules
         styleSheet = getStyleSheet();

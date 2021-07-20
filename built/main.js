@@ -6,14 +6,13 @@ $(document).ready(function () {
     // jQuery(function () {
     // document.addEventListener("DOMContentLoaded", function () { // slowest
     "use strict";
-    // wait(4000);
-    // console.log('start ready');
+    // console.log('document: onReady');
+    typedJS();
     fixJqueryPassiveListeners();
     clientCarousel();
     pagePilling();
     menuToggler();
     sliderOwlCarousel(); //TODO: setup after load owl carousel script async
-    typedJS();
     postSidebar();
     validateEmail();
     sendEmail();
@@ -21,18 +20,30 @@ $(document).ready(function () {
     setupModalEvents();
     return;
 });
-document.addEventListener("DOMContentLoaded", function () {
-    // console.log('start DOMContentLoaded');
-});
 // setupLazyLoading();
-// after loading DOM, images & CSS...  (not affect DOMContentLoaded, affect Load)
+// after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
-    // wait(2000);
-    // console.log('start onLoad');
-    $("#overlayer").delay(0).fadeOut(500);
-    $(".loader").delay(0).fadeOut(500);
-    portfolioIsotop();
+    // console.log('window: onLoad');
+    // setTimeout(function () {
+    // }, 1000);
+    loadPortfolioSection();
+    loadAboutSection();
+    loadResumeSection();
+    loadSkillsetSection();
+    loadSelfEducationSection();
+    loadBlogSection();
+    loadContactSection();
 }));
+document.addEventListener('readystatechange', event => {
+    var _a;
+    //When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
+    if (((_a = event.target) === null || _a === void 0 ? void 0 : _a.readyState) === "complete") {
+        // console.log('readystatechange = complete ');
+        $("#overlayer").delay(0).fadeOut(500);
+        $(".loader").delay(0).fadeOut(500);
+        portfolioIsotop();
+    }
+});
 $(".to-contact").on('click', function () {
     $("section.active").removeClass("active");
     var $id = $(this).attr('href');
@@ -229,7 +240,7 @@ function pagePilling() {
             // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
         },
         afterRender: function () {
-            // console.log(`afterRender`);
+            // console.log(`PagePiling: afterRender`);
             // wait(3000);
             addLabelLinkPagePiling();
         },
