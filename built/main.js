@@ -316,6 +316,7 @@ function loadPortfolioSection(loadOtherSection) {
             loadOtherSection();
         return;
     }
+    portfolioSectionLoaded = true; //TODO: use flag sectionIsLoading to prevent duplicate loading
     // fallback  (happens on server, why?)- load according html file
     $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
         // if (status == "error") {
@@ -337,7 +338,6 @@ function loadPortfolioSection(loadOtherSection) {
     });
 }
 function onPortfolioSectionLoaded(loadOtherSection) {
-    portfolioSectionLoaded = true;
     loadLazyImagesInSection('#portfolio');
     portfolioIsotop();
     portfolioPopup();
@@ -354,6 +354,7 @@ function onPortfolioSectionLoaded(loadOtherSection) {
         const id = $(element).attr('data-target');
         $(id).load(`modals/portfolio/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
     });
+    setupIframeInjectionEvents();
     if (loadOtherSection)
         loadOtherSection();
 }

@@ -320,10 +320,13 @@ function loadDutiesSection(loadOtherSection?: () => void) {
 
 // TOFIX Load php file not formatting properly (skillbar tag), hence load html file
 function loadPortfolioSection(loadOtherSection?: () => void) {
+
         if (portfolioSectionLoaded) {
                 if (loadOtherSection) loadOtherSection();
                 return;
         }
+        portfolioSectionLoaded = true; //TODO: use flag sectionIsLoading to prevent duplicate loading
+
         // fallback  (happens on server, why?)- load according html file
         $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
                 // if (status == "error") {
@@ -346,7 +349,6 @@ function loadPortfolioSection(loadOtherSection?: () => void) {
 }
 
 function onPortfolioSectionLoaded(loadOtherSection?: () => void) {
-        portfolioSectionLoaded = true;
         loadLazyImagesInSection('#portfolio');
         portfolioIsotop();
         portfolioPopup();
@@ -361,8 +363,10 @@ function onPortfolioSectionLoaded(loadOtherSection?: () => void) {
         // });
         $('#portfolio [data-toggle="modal"]').each((index, element) => {
                 const id: string = $(element).attr('data-target')!;
-                $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+                $(id).load(`modals/portfolio/${id?.substring(1)}.php`);
         });
+        setupIframeInjectionEvents();
+
         if (loadOtherSection) loadOtherSection();
 }
 
