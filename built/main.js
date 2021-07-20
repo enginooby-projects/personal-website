@@ -246,6 +246,7 @@ function pagePilling() {
         },
     });
 }
+// DYNAMIC LOADING SECTIONS
 function loadResumeSection(loadOtherSection) {
     if (resumeSectionLoaded) {
         if (loadOtherSection)

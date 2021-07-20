@@ -83,20 +83,23 @@ function updateChangesFromLastStyle() {
         stylesWithUpdatedBaseColor.push(currentStyle.name);
     }
 }
-init();
-export function init() {
-    // console.log('DynamicTheme: init')
-    $squareImg = $(".hero-image .square img");
-    //TODO: lazy get style sheet & rules
-    styleSheet = getStyleSheet();
-    cssRules = styleSheet.cssRules || styleSheet.rules;
-    new StyleRegistry();
-    initSettingPanel();
-    setupCustomizeEvents();
-    // invoke update functions if init css file not available
-    // updateSchemeColor(schemeColor.hex);
-    // updateHighlightColor(highlightColor.hex);
-    // updateBaseColor() ;
+loadSettingPanel();
+function loadSettingPanel() {
+    $('#color-switcher').load('sections/setting.php', function (response, status, xhr) {
+        if (status == 'success') {
+            initSettingPanel();
+            setupSettingEvents();
+            $squareImg = $(".hero-image .square img");
+            //TODO: lazy get style sheet & rules
+            styleSheet = getStyleSheet();
+            cssRules = styleSheet.cssRules || styleSheet.rules;
+            new StyleRegistry();
+            // invoke update functions if init css file not available
+            // updateSchemeColor(schemeColor.hex);
+            // updateHighlightColor(highlightColor.hex);
+            // updateBaseColor() ;
+        }
+    });
 }
 function initSettingPanel() {
     $("#scheme-color-picker").attr('value', schemeColor.hex);
@@ -104,7 +107,7 @@ function initSettingPanel() {
     $('#border-radius').attr('value', borderRadius);
     $("#border-radius").next('.range-slider__value').html(borderRadius.toString());
 }
-function setupCustomizeEvents() {
+function setupSettingEvents() {
     $("#color-switcher .pallet-button").on('click', function () {
         $("#color-switcher .color-pallet").toggleClass('show');
         $(this).toggleClass('active');

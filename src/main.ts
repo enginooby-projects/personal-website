@@ -263,6 +263,8 @@ function pagePilling() {
         });
 }
 
+// DYNAMIC LOADING SECTIONS
+
 function loadResumeSection(loadOtherSection?: () => void) {
         if (resumeSectionLoaded) {
                 if (loadOtherSection) loadOtherSection();

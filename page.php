@@ -48,11 +48,13 @@
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
         <div id="overlayer"></div><span class="loader"></span>
+        <div id="color-switcher" class="color-switcher"></div>
+
         <div id="pagepiling" class="pilling-page">
                 <?php
                 include 'sections/social.php';
                 include 'sections/logo.php';
-                include 'sections/setting.php';
+                // include 'sections/setting.php';
                 include 'sections/overlay-menu.php';
                 include 'sections/hero.php';
                 ?>
