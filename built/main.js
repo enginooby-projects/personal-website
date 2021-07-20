@@ -1,13 +1,12 @@
 "use strict";
-// repeated variables
 var $window = $(window);
 // var $root = $('html, body');
-// after loading DOM
+// after loading DOM (not affect DOMContentLoaded)
 $(document).ready(function () {
     // jQuery(function () {
     // document.addEventListener("DOMContentLoaded", function () { // slowest
     "use strict";
-    // wait(1000);
+    // wait(4000);
     // console.log('start ready');
     fixJqueryPassiveListeners();
     clientCarousel();
@@ -29,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 $window.on("load", (function () {
     // wait(2000);
     // console.log('start onLoad');
-    $("#overlayer").delay(200).fadeOut('slow');
-    $(".loader").delay(500).fadeOut('slow');
+    $("#overlayer").delay(0).fadeOut(500);
+    $(".loader").delay(0).fadeOut(500);
     portfolioIsotop();
 }));
 $(".to-contact").on('click', function () {

@@ -15,6 +15,7 @@ export const backgroundSchemeColorSelectors = formatString([
         ".skill-box .skillbar",
         ".blog .blog-image",
         ".blog .blog-item .before",
+        "#overlayer",
 ]);
 
 export const colorHighlightColorSelectors = formatString([

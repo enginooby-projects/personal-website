@@ -119,6 +119,16 @@ body,
         color: $highlightColor;
 }
 
+// PRELOADER
+.loader {
+        // border-color: $baseColor;
+        border-top-color: $highlightColor;
+}
+
+#overlayer {
+        background-color: $schemeColor;
+}
+
 .blog .blog-image,
 .blog .blog-image .after,
 .blog .blog-intro,

@@ -51,9 +51,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
-        <!--  Pre Loader  -->
         <div id="overlayer"></div><span class="loader"></span>
-
         <div id="pagepiling" class="pilling-page">
                 <?php
                 include 'sections/social.php';
