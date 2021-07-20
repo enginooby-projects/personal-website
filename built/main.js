@@ -262,9 +262,10 @@ function loadResumeSection(loadOtherSection) {
     $('#resume').load('sections/resume.php', function (response, status, xhr) {
         if (status == 'success')
             resumeSectionLoaded = true;
-        $('[data-target="#classes"]').one('mouseenter', event => {
-            $('#classes').load('modals/classes.php');
-        });
+        // $('[data-target="#classes"]').one('mouseenter', event => {
+        //         $('#classes').load('modals/classes.php');
+        // });
+        $('#classes').load('modals/classes.php');
         if (loadOtherSection)
             loadOtherSection();
     });
@@ -345,8 +346,12 @@ function onPortfolioSectionLoaded(loadOtherSection) {
     setupPortfolioTypeTS();
     // BUG: If mouseenter happens later (delay) than click ,
     // the modal close button will bind incorrect event hence not work
-    $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
-        const id = $(event.currentTarget).attr('data-target');
+    // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+    //         const id: string = $(event.currentTarget).attr('data-target');
+    //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+    // });
+    $('#portfolio [data-toggle="modal"]').each((index, element) => {
+        const id = $(element).attr('data-target');
         $(id).load(`modals/portfolio/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
     });
     if (loadOtherSection)
@@ -395,13 +400,16 @@ function onSelfEducationSectionLoaded(loadOtherSection) {
     selfEducationSectionLoaded = true;
     loadLazyImagesInSection('#self-education');
     startProgressBarAnimation();
-    //CONSIDER: Load directly all modals at once
-    $('[data-target="#bookshelf"]').one('mouseenter', event => {
-        $('#bookshelf').load('modals/bookshelf.php');
-    });
-    $('[data-target="#courses"]').one('mouseenter', event => {
-        $('#courses').load('modals/courses.php');
-    });
+    //Load modals on mouseenter event
+    // $('[data-target="#bookshelf"]').one('mouseenter', event => {
+    //         $('#bookshelf').load('modals/bookshelf.php');
+    // });
+    // $('[data-target="#courses"]').one('mouseenter', event => {
+    //         $('#courses').load('modals/courses.php');
+    // });
+    // Load modals at the same time as section loading
+    $('#courses').load('modals/courses.php');
+    $('#bookshelf').load('modals/bookshelf.php');
     if (loadOtherSection)
         loadOtherSection();
 }
@@ -414,8 +422,12 @@ function loadBlogSection(loadOtherSection) {
     $('#blog').load('sections/blog.php', function (response, status, xhr) {
         if (status == 'success')
             blogSectionLoaded = true;
-        $('#blog [data-toggle="modal"]').one('mouseenter', event => {
-            const id = $(event.currentTarget).attr('data-target');
+        // $('#blog [data-toggle="modal"]').one('mouseenter', event => {
+        //         const id: string = $(event.currentTarget).attr('data-target');
+        //         $(id).load(`modals/blog/${id?.substring(1)}.php`)
+        // });
+        $('#blog [data-toggle="modal"]').each((index, element) => {
+            const id = $(element).attr('data-target');
             $(id).load(`modals/blog/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
         });
         if (loadOtherSection)
