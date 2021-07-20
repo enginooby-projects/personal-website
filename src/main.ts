@@ -17,27 +17,19 @@ $(document).ready(function () {
         validateEmail();
         sendEmail();
         $('.owl-item.active .hero-slide').addClass('zoom');
-        setupModalEvents();
-
         return;
 });
 
 // setupLazyLoading();
+
+const sections: string[] = ["overlay-menu", "about", "resume", "skillset", "duties", "portfolio", "self-education", "blog", "contact"];
 
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
         // console.log('window: onLoad');
         // setTimeout(function () {
         // }, 1000);
-        loadOverlayMenu();
-        loadPortfolioSection();
-        loadAboutSection();
-        loadResumeSection();
-        loadSkillsetSection();
-        loadDutiesSection();
-        loadSelfEducationSection();
-        loadBlogSection();
-        loadContactSection();
+        sections.forEach(section => tryLoadingSection(section));
 }));
 
 document.addEventListener('readystatechange', event => {
@@ -56,23 +48,139 @@ $(".to-contact").on('click', function () {
         $('#main').children($id).addClass('active');
 })
 
-// TESTING
-function wait(ms: number) {
-        var start = new Date().getTime();
-        var end = start;
-        while (end < start + ms) {
-                end = new Date().getTime();
+// DYNAMIC LOADING SECTIONS
+let loadedSections: string[] = [];
+let loadingSections: string[] = []; // to prevent duplication loading
+function tryLoadingSection(name: string, otherSection?: string) {
+        if (loadedSections.includes(name) || loadingSections.includes(name)) {
+                if (otherSection) tryLoadingSection(otherSection);
+                return;
+        }
+        startLoadingSection(name, otherSection);
+}
+
+function startLoadingSection(name: string, otherSection?: string) {
+        loadingSections.push(name);
+        let filePath: string = '';
+        if (name == "portfolio" || name == "self-education") {
+                //TOFIX:  Load php file not formatting properly (e.g skillbar tag), hence load html file instead
+                filePath = `sections/${name}.html`;
+        } else {
+                filePath = `sections/${name}.php`
+        }
+        $(`#${name}`).load(filePath, function (response, status, xhr) {
+                if (status == 'success') {
+                        // loadingSections = loadingSections.filter(e => e !== name); //optional since it's already loaded
+                        // console.log(`${filePath} loaded`);
+                        loadedSections.push(name);
+                        onSectionLoaded(name);
+                        if (otherSection) tryLoadingSection(otherSection);
+                }
+        });
+}
+
+function onSectionLoaded(name: string) {
+        switch (name) {
+                case "resume":
+                        // $('[data-target="#classes"]').one('mouseenter', event => {
+                        //         $('#classes').load('modals/classes.php');
+                        // });
+                        $('#classes').load('modals/classes.php');
+                        break;
+                case "portfolio":
+                        onPortfolioSectionLoaded();
+                        break;
+                case "self-education":
+                        onSelfEducationSectionLoaded();
+                        break;
+                case "blog":
+                        $('#blog [data-toggle="modal"]').each((index, element) => {
+                                const id: string = $(element).attr('data-target')!;
+                                $(id).load(`modals/blog/${id?.substring(1)}.php`)
+                        });
+                        break;
+                default:
+                        break;
         }
 }
+
+function onPortfolioSectionLoaded() {
+        loadLazyImagesInSection('#portfolio');
+        portfolioIsotop();
+        portfolioPopup();
+        setupPortfolioTypeTS();
+        // trigger filtering first time to fix overlapping items on mobile screen
+        startFilterring($('.portfolio-items'), '*');
+        // BUG: If mouseenter happens later (delay) than click ,
+        // the modal close button will bind incorrect event hence not work
+        // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+        //         const id: string = $(event.currentTarget).attr('data-target');
+        //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+        // });
+        $('#portfolio [data-toggle="modal"]').each((index, element) => {
+                const id: string = $(element).attr('data-target')!;
+                $(id).load(`modals/portfolio/${id?.substring(1)}.php`);
+        });
+        setupIframeInjectionEvents();
+}
+
+function setupPortfolioTypeTS() {
+        var $element = $("#portfolio .typed");
+        if ($element.length > 0) {
+                if ($element.length) {
+                        var options = {
+                                strings: $element.attr('data-elements').split(','),
+                                typeSpeed: 70,
+                                backDelay: 1500,
+                                backSpeed: 30,
+                                loop: true
+                        };
+                        var typed = new Typed("#portfolio .typed", options);
+                }
+        }
+}
+
+function onSelfEducationSectionLoaded() {
+        loadLazyImagesInSection('#self-education');
+        startProgressBarAnimation();
+        //Load modals on mouseenter event
+        // $('[data-target="#bookshelf"]').one('mouseenter', event => {
+        //         $('#bookshelf').load('modals/bookshelf.php');
+        // });
+        // $('[data-target="#courses"]').one('mouseenter', event => {
+        //         $('#courses').load('modals/courses.php');
+        // });
+        // Load modals at the same time as section loading
+        $('#courses').load('modals/courses.php');
+        $('#bookshelf').load('modals/bookshelf.php');
+}
+
+//  CONSIDER: setup lazy loading for the section instead if many images
+function loadLazyImagesInSection(sectionId: string) {
+        document.querySelectorAll(`${sectionId} img.lazy`).forEach((element, index) => {
+                loadLazyImage(element);
+        });
+}
+
+function startProgressBarAnimation() {
+        // "use strict";
+        $('.skillbar').each(function () {
+                $(this).find('.skillbar-bar').animate({
+                        width: $(this).attr('data-percent')
+                }, 4000);
+        });
+}
+
+function addLabelLinkPagePiling() {
+        $('#pp-nav a').each(function () {
+                $(this).attr('aria-label', 'PagePiling span');
+        });
+}
+
 
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
-
-function setupModalEvents() {
-
-}
-
 function setupIframeInjectionEvents() { // invoke if not include iframe in modals
         //TODO: using multi-dimension arrays or Object array
         $('[data-target="#breakout-play"]').one('click', event => {
@@ -177,16 +285,6 @@ function clientCarousel() {
         });
 }
 
-//CONSIDER: Use 1 collection instead
-let aboutSectionLoaded: boolean;
-let resumeSectionLoaded: boolean;
-let skillsetSectionLoaded: boolean;
-let dutiesSectionLoaded: boolean;
-let portfolioSectionLoaded: boolean;
-let selfEducationSectionLoaded: boolean;
-let blogSectionLoaded: boolean;
-let contactSectionLoaded: boolean;
-
 /*-------------------------
        Page Pilling
 -------------------------*/
@@ -226,249 +324,43 @@ function pagePilling() {
                 //events
                 onLeave: function (index, nextIndex, direction) {
                         // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
-                        switch (nextIndex) {
-                                //TODO: load current section first then load next section
-                                case 2:
-                                        loadAboutSection(loadResumeSection);
-                                        break;
-                                case 3:
-                                        loadResumeSection(loadSkillsetSection);
-                                        break;
-                                case 4:
-                                        loadSkillsetSection(loadDutiesSection);
-                                        break;
-                                case 5:
-                                        loadDutiesSection(loadPortfolioSection);
-                                        break;
-                                case 6:
-                                        loadPortfolioSection(loadSelfEducationSection);
-                                        break;
-                                case 7:
-                                        loadSelfEducationSection(loadBlogSection);
-                                        break;
-                                case 8:
-                                        loadBlogSection(loadContactSection);
-                                        break;
-                                case 9:
-                                        loadContactSection();
-                                        break;
-                        }
-                },
+                        // switch (nextIndex) {
+                        //         case 2:
+                        //                 tryLoadingSection("about", "resume");
+                        //                 break;
+                        //         case 3:
+                        //                 tryLoadingSection("resume", "skillset");
+                        //                 break;
+                        //         case 4:
+                        //                 tryLoadingSection("skillset", "duties");
+                        //                 break;
+                        //         case 5:
+                        //                 tryLoadingSection("duties", "portfolio");
+                        //                 break;
+                        //         case 6:
+                        //                 tryLoadingSection("portfolio", "self-education");
+                        //                 break;
+                        //         case 7:
+                        //                 tryLoadingSection("self-education", "blog");
+                        //                 break;
+                        //         case 8:
+                        //                 tryLoadingSection("blog", "contact");
+                        //                 break;
+                        //         case 9:
+                        //                 tryLoadingSection("contact");
+                        //                 break;
+                }
+        },
                 afterLoad: function (anchorLink, index) {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
                 },
                 afterRender: function () {
                         // console.log(`PagePiling: afterRender`);
-                        // wait(3000);
                         addLabelLinkPagePiling();
                 },
         });
 }
 
-// DYNAMIC LOADING SECTIONS
-function loadOverlayMenu() {
-        $('#overlay-menu').load('sections/overlay-menu.php', function (response, status, xhr) {
-        });
-}
-function loadResumeSection(loadOtherSection?: () => void) {
-        if (resumeSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#resume').load('sections/resume.php', function (response, status, xhr) {
-                if (status == 'success') resumeSectionLoaded = true;
-                // $('[data-target="#classes"]').one('mouseenter', event => {
-                //         $('#classes').load('modals/classes.php');
-                // });
-                $('#classes').load('modals/classes.php');
-                if (loadOtherSection) loadOtherSection();
-        });
-}
-
-function loadAboutSection(loadOtherSection?: () => void) {
-        if (aboutSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#about').load('sections/about.php', function (response, status, xhr) {
-                if (status == "success") aboutSectionLoaded = true;
-                if (loadOtherSection) loadOtherSection();
-        });
-}
-
-function loadSkillsetSection(loadOtherSection?: () => void) {
-        if (skillsetSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#skillset').load('sections/skillset.php', function (response, status, xhr) {
-                if (status == "success") skillsetSectionLoaded = true;
-                if (loadOtherSection) loadOtherSection();
-        });
-}
-
-function loadDutiesSection(loadOtherSection?: () => void) {
-        if (dutiesSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#duties').load('sections/duties.php', function (response, status, xhr) {
-                if (status == "success") dutiesSectionLoaded = true;
-                if (loadOtherSection) loadOtherSection();
-        });
-}
-
-// TOFIX Load php file not formatting properly (skillbar tag), hence load html file
-function loadPortfolioSection(loadOtherSection?: () => void) {
-
-        if (portfolioSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        portfolioSectionLoaded = true; //TODO: use flag sectionIsLoading to prevent duplicate loading
-
-        // fallback  (happens on server, why?)- load according html file
-        $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
-                // if (status == "error") {
-                //         console.log("Failed to load portfolio.php - Start loading portfolio.html ");
-                //         $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
-                //                 if (status == "error") {
-                //                         console.log("Failed to load portfolio.html");
-                //                 }
-                //                 if (status == "success") {
-                //                         console.log("Portfolio.html loaded");
-                //                         onPortfolioSectionLoaded(loadOtherSection);
-                //                 }
-                //         });
-                // }
-                if (status == "success") {
-                        console.log("Portfolio.php loaded");
-                        onPortfolioSectionLoaded(loadOtherSection);
-                }
-        });
-}
-
-function onPortfolioSectionLoaded(loadOtherSection?: () => void) {
-        loadLazyImagesInSection('#portfolio');
-        portfolioIsotop();
-        portfolioPopup();
-        // trigger filtering first time to fix overlapping items on mobile screen
-        startFilterring($('.portfolio-items'), '*');
-        setupPortfolioTypeTS();
-        // BUG: If mouseenter happens later (delay) than click ,
-        // the modal close button will bind incorrect event hence not work
-        // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
-        //         const id: string = $(event.currentTarget).attr('data-target');
-        //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
-        // });
-        $('#portfolio [data-toggle="modal"]').each((index, element) => {
-                const id: string = $(element).attr('data-target')!;
-                $(id).load(`modals/portfolio/${id?.substring(1)}.php`);
-        });
-        setupIframeInjectionEvents();
-
-        if (loadOtherSection) loadOtherSection();
-}
-
-function setupPortfolioTypeTS() {
-        var $element = $("#portfolio .typed");
-        if ($element.length > 0) {
-                if ($element.length) {
-                        var options = {
-                                strings: $element.attr('data-elements').split(','),
-                                typeSpeed: 70,
-                                backDelay: 1500,
-                                backSpeed: 30,
-                                loop: true
-                        };
-                        var typed = new Typed("#portfolio .typed", options);
-                }
-        }
-}
-
-//TOFIX  Load php file not formatting properly (skillbar tag), hence load html file
-function loadSelfEducationSection(loadOtherSection?: () => void) {
-        if (selfEducationSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#self-education').load('sections/self-education.html  ', function (response, status, xhr) {
-                // if (status == "error") {
-                //         console.log("Failed to load self-education.php - Start loading self-education.html ");
-                //         $('#self-education').load('sections/self-education.html', function (response, status, xhr) {
-                //                 if (status == "error") {
-                //                         console.log("Failed to load self-education.html");
-                //                 }
-                //                 if (status == "success") {
-                //                         onSelfEducationSectionLoaded();
-                //                 }
-                //         });
-                // }
-                if (status == "success") {
-                        onSelfEducationSectionLoaded(loadOtherSection);
-                }
-        });
-}
-
-function onSelfEducationSectionLoaded(loadOtherSection?: () => void) {
-        selfEducationSectionLoaded = true;
-        loadLazyImagesInSection('#self-education');
-        startProgressBarAnimation();
-        //Load modals on mouseenter event
-        // $('[data-target="#bookshelf"]').one('mouseenter', event => {
-        //         $('#bookshelf').load('modals/bookshelf.php');
-        // });
-        // $('[data-target="#courses"]').one('mouseenter', event => {
-        //         $('#courses').load('modals/courses.php');
-        // });
-        // Load modals at the same time as section loading
-        $('#courses').load('modals/courses.php');
-        $('#bookshelf').load('modals/bookshelf.php');
-        if (loadOtherSection) loadOtherSection();
-}
-
-function loadBlogSection(loadOtherSection?: () => void) {
-        if (blogSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#blog').load('sections/blog.php', function (response, status, xhr) {
-                if (status == 'success') blogSectionLoaded = true;
-                // $('#blog [data-toggle="modal"]').one('mouseenter', event => {
-                //         const id: string = $(event.currentTarget).attr('data-target');
-                //         $(id).load(`modals/blog/${id?.substring(1)}.php`)
-                // });
-                $('#blog [data-toggle="modal"]').each((index, element) => {
-                        const id: string = $(element).attr('data-target')!;
-                        $(id).load(`modals/blog/${id?.substring(1)}.php`)
-                });
-                if (loadOtherSection) loadOtherSection();
-        });
-}
-
-function loadContactSection(loadOtherSection?: () => void) {
-        if (contactSectionLoaded) {
-                if (loadOtherSection) loadOtherSection();
-                return;
-        }
-        $('#contact').load('sections/contact.php', function (response, status, xhr) {
-                if (status == "success") contactSectionLoaded = true;
-        });
-        if (loadOtherSection) loadOtherSection();
-}
-
-//  CONSIDER: setup lazy loading for the section instead if many images
-function loadLazyImagesInSection(sectionId: string) {
-        document.querySelectorAll(`${sectionId} img.lazy`).forEach((element, index) => {
-                loadLazyImage(element);
-        });
-}
-
-function addLabelLinkPagePiling() {
-        $('#pp-nav a').each(function () {
-                $(this).attr('aria-label', 'PagePiling span');
-        });
-}
 
 
 /*-------------------------
@@ -535,18 +427,7 @@ function typedJS() {
         }
 }
 
-/*-------------------------
-          Skills
--------------------------*/
-function startProgressBarAnimation() {
 
-        // "use strict";
-        $('.skillbar').each(function () {
-                $(this).find('.skillbar-bar').animate({
-                        width: $(this).attr('data-percent')
-                }, 4000);
-        });
-}
 
 /*-------------------------
             Count up
