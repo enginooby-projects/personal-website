@@ -77,23 +77,11 @@ function startLoadingSection(name, otherSection) {
 }
 function onSectionLoaded(name) {
     switch (name) {
-        case "resume":
-            // $('[data-target="#classes"]').one('mouseenter', event => {
-            //         $('#classes').load('modals/classes.php');
-            // });
-            $('#classes').load('modals/classes.php');
-            break;
         case "portfolio":
             onPortfolioSectionLoaded();
             break;
         case "self-education":
             onSelfEducationSectionLoaded();
-            break;
-        case "blog":
-            $('#blog [data-toggle="modal"]').each((index, element) => {
-                const id = $(element).attr('data-target');
-                $(id).load(`modals/blog/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
-            });
             break;
         default:
             break;
@@ -106,17 +94,6 @@ function onPortfolioSectionLoaded() {
     setupPortfolioTypeTS();
     // trigger filtering first time to fix overlapping items on mobile screen
     startFilterring($('.portfolio-items'), '*');
-    // BUG: If mouseenter happens later (delay) than click ,
-    // the modal close button will bind incorrect event hence not work
-    // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
-    //         const id: string = $(event.currentTarget).attr('data-target');
-    //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
-    // });
-    $('#portfolio [data-toggle="modal"]').each((index, element) => {
-        const id = $(element).attr('data-target');
-        $(id).load(`modals/portfolio/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
-    });
-    setupIframeInjectionEvents();
 }
 function setupPortfolioTypeTS() {
     var $element = $("#portfolio .typed");
@@ -136,16 +113,6 @@ function setupPortfolioTypeTS() {
 function onSelfEducationSectionLoaded() {
     loadLazyImagesInSection('#self-education');
     startProgressBarAnimation();
-    //Load modals on mouseenter event
-    // $('[data-target="#bookshelf"]').one('mouseenter', event => {
-    //         $('#bookshelf').load('modals/bookshelf.php');
-    // });
-    // $('[data-target="#courses"]').one('mouseenter', event => {
-    //         $('#courses').load('modals/courses.php');
-    // });
-    // Load modals at the same time as section loading
-    $('#courses').load('modals/courses.php');
-    $('#bookshelf').load('modals/bookshelf.php');
 }
 //  CONSIDER: setup lazy loading for the section instead if many images
 function loadLazyImagesInSection(sectionId) {
@@ -269,6 +236,56 @@ function clientCarousel() {
         }
     });
 }
+// DYNAMIC MODALS LOADING
+let loadedModalSections = [];
+function loadResumeModals() {
+    if (loadedModalSections.includes('resume'))
+        return;
+    // $('[data-target="#classes"]').one('mouseenter', event => {
+    //         $('#classes').load('modals/classes.php');
+    // });
+    $('#classes').load('modals/classes.php');
+    loadedModalSections.push('resume');
+}
+function loadBlogModals() {
+    if (loadedModalSections.includes('blog'))
+        return;
+    $('#blog [data-toggle="modal"]').each((index, element) => {
+        const id = $(element).attr('data-target');
+        $(id).load(`modals/blog/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
+    });
+    loadedModalSections.push('blog');
+}
+function loadPortfolioModals() {
+    if (loadedModalSections.includes('portfolio'))
+        return;
+    // BUG: If mouseenter happens later (delay) than click ,
+    // the modal close button will bind incorrect event hence not work
+    // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
+    //         const id: string = $(event.currentTarget).attr('data-target');
+    //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
+    // });
+    $('#portfolio [data-toggle="modal"]').each((index, element) => {
+        const id = $(element).attr('data-target');
+        $(id).load(`modals/portfolio/${id === null || id === void 0 ? void 0 : id.substring(1)}.php`);
+    });
+    setupIframeInjectionEvents();
+    loadedModalSections.push('portfolio');
+}
+function loadSelfEducationModals() {
+    if (loadedModalSections.includes('self-education'))
+        return;
+    //Load modals on mouseenter event
+    // $('[data-target="#bookshelf"]').one('mouseenter', event => {
+    //         $('#bookshelf').load('modals/bookshelf.php');
+    // });
+    // $('[data-target="#courses"]').one('mouseenter', event => {
+    //         $('#courses').load('modals/courses.php');
+    // });
+    $('#courses').load('modals/courses.php');
+    $('#bookshelf').load('modals/bookshelf.php');
+    loadedModalSections.push('self-education');
+}
 /*-------------------------
        Page Pilling
 -------------------------*/
@@ -306,32 +323,36 @@ function pagePilling() {
         //events
         onLeave: function (index, nextIndex, direction) {
             // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
-            // switch (nextIndex) {
-            //         case 2:
-            //                 tryLoadingSection("about", "resume");
-            //                 break;
-            //         case 3:
-            //                 tryLoadingSection("resume", "skillset");
-            //                 break;
-            //         case 4:
-            //                 tryLoadingSection("skillset", "duties");
-            //                 break;
-            //         case 5:
-            //                 tryLoadingSection("duties", "portfolio");
-            //                 break;
-            //         case 6:
-            //                 tryLoadingSection("portfolio", "self-education");
-            //                 break;
-            //         case 7:
-            //                 tryLoadingSection("self-education", "blog");
-            //                 break;
-            //         case 8:
-            //                 tryLoadingSection("blog", "contact");
-            //                 break;
-            //         case 9:
-            //                 tryLoadingSection("contact");
-            //                 break;
-            // }
+            switch (nextIndex) {
+                case 2:
+                    // tryLoadingSection("about", "resume");
+                    break;
+                case 3:
+                    // tryLoadingSection("resume", "skillset");
+                    loadResumeModals();
+                    break;
+                case 4:
+                    // tryLoadingSection("skillset", "duties");
+                    break;
+                case 5:
+                    // tryLoadingSection("duties", "portfolio");
+                    break;
+                case 6:
+                    // tryLoadingSection("portfolio", "self-education");
+                    loadPortfolioModals();
+                    break;
+                case 7:
+                    // tryLoadingSection("self-education", "blog");
+                    loadSelfEducationModals();
+                    break;
+                case 8:
+                    // tryLoadingSection("blog", "contact");
+                    loadBlogModals();
+                    break;
+                case 9:
+                    // tryLoadingSection("contact");
+                    break;
+            }
         },
         afterLoad: function (anchorLink, index) {
             // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
