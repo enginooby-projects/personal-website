@@ -29,6 +29,7 @@ $window.on("load", (function () {
         // console.log('window: onLoad');
         // setTimeout(function () {
         // }, 1000);
+        loadOverlayMenu();
         loadPortfolioSection();
         loadAboutSection();
         loadResumeSection();
@@ -264,7 +265,10 @@ function pagePilling() {
 }
 
 // DYNAMIC LOADING SECTIONS
-
+function loadOverlayMenu() {
+        $('#overlay-menu').load('sections/overlay-menu.php', function (response, status, xhr) {
+        });
+}
 function loadResumeSection(loadOtherSection?: () => void) {
         if (resumeSectionLoaded) {
                 if (loadOtherSection) loadOtherSection();

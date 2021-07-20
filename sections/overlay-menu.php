@@ -1,11 +1,7 @@
-<div class="overlay-menu bg-blue py-3 px-4 text-center center-item">
-        <!-- <i class="fas fa-bars"></i> -->
-        <!-- Overlay Menu -->
         <div id="scrollspy" class="overlay-menu-list">
                 <div class="container">
                         <div class="row">
                                 <div class="col-lg-8 mx-auto overlay-nav">
-                                        <!-- TODO -->
                                         <ul class="list-group text-left" id="myMenu">
                                                 <li data-menuanchor="about" class="list-group-item"><a href="#about" aria-label="About me">About me</a></li>
                                                 <li data-menuanchor="about" class="list-group-item"><a href="#resume" aria-label="Resume">Resume</a></li>
@@ -37,4 +33,3 @@
                         </div>
                 </div>
         </div>
-</div>
