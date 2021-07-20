@@ -31,6 +31,7 @@ $window.on("load", (function () {
     loadAboutSection();
     loadResumeSection();
     loadSkillsetSection();
+    loadDutiesSection();
     loadSelfEducationSection();
     loadBlogSection();
     loadContactSection();
