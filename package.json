@@ -10,7 +10,8 @@
                 "typescript": "^4.3.5"
         },
         "devDependencies": {
-                "@types/jquery": "^3.5.5"
+                "@types/jquery": "^3.5.5",
+                "critical": "^4.0.1"
         },
         "scripts": {
                 "test": "echo \"Error: no test specified\" && exit 1"

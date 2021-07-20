@@ -290,6 +290,7 @@ function loadDutiesSection(loadOtherSection) {
             loadOtherSection();
     });
 }
+// TOFIX Load php file not formatting properly (skillbar tag), hence load html file
 function loadPortfolioSection(loadOtherSection) {
     if (portfolioSectionLoaded) {
         if (loadOtherSection)
@@ -297,19 +298,19 @@ function loadPortfolioSection(loadOtherSection) {
         return;
     }
     // fallback  (happens on server, why?)- load according html file
-    $('#portfolio').load('sections/portfolio.php', function (response, status, xhr) {
-        if (status == "error") {
-            console.log("Failed to load portfolio.php - Start loading portfolio.html ");
-            $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
-                if (status == "error") {
-                    console.log("Failed to load portfolio.html");
-                }
-                if (status == "success") {
-                    console.log("Portfolio.html loaded");
-                    onPortfolioSectionLoaded(loadOtherSection);
-                }
-            });
-        }
+    $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
+        // if (status == "error") {
+        //         console.log("Failed to load portfolio.php - Start loading portfolio.html ");
+        //         $('#portfolio').load('sections/portfolio.html', function (response, status, xhr) {
+        //                 if (status == "error") {
+        //                         console.log("Failed to load portfolio.html");
+        //                 }
+        //                 if (status == "success") {
+        //                         console.log("Portfolio.html loaded");
+        //                         onPortfolioSectionLoaded(loadOtherSection);
+        //                 }
+        //         });
+        // }
         if (status == "success") {
             console.log("Portfolio.php loaded");
             onPortfolioSectionLoaded(loadOtherSection);
@@ -348,7 +349,7 @@ function setupPortfolioTypeTS() {
         }
     }
 }
-// Load php file not formatting properly (skillbar tag), hence load html file
+//TOFIX  Load php file not formatting properly (skillbar tag), hence load html file
 function loadSelfEducationSection(loadOtherSection) {
     if (selfEducationSectionLoaded) {
         if (loadOtherSection)
