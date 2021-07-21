@@ -95,7 +95,6 @@ function onSectionLoaded(name: string) {
 function onPortfolioSectionLoaded() {
         loadLazyImagesInSection('#portfolio');
         portfolioIsotop();
-        portfolioPopup();
         setupPortfolioTypeTS();
         // trigger filtering first time to fix overlapping items on mobile screen
         startFilterring($('.portfolio-items'), '*');
@@ -362,6 +361,7 @@ function pagePilling() {
                                 case 6:
                                         // tryLoadingSection("portfolio", "self-education");
                                         loadPortfolioModals();
+                                        portfolioPopup();
                                         break;
                                 case 7:
                                         // tryLoadingSection("self-education", "blog");
