@@ -84,6 +84,7 @@ function displayCourse($name, $percent, $url = '')
                         <!-- TODO: Start update progress bars when just moving into this section -->
                         <div class=" row justify-content-center">
                                 <?php
+                                //TODO: Setup database
                                 displayBook('clean-code.jpg', ((-26   + 190) + (-202 + 225) + (-282 + 285)) / (-25 + 345));
                                 displayBook('head-first-design-patterns.jpg', 20 / 629);
                                 displayBook('gof.jpg', ((52 - 0) + (152 - 144)) / 396);

@@ -2,8 +2,8 @@ import * as Selectors from './color-selectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { TinyColor } from './TinyColor.js';
 // TODO: create class
+//elements for this specific projects
 let $squareImg;
-let borderRadius = 9;
 export let colorfull1 = new TinyColor("#01724b");
 export let colorfull2 = new TinyColor("#bc5b00");
 export let colorfull3 = new TinyColor("#c40639");
@@ -13,8 +13,8 @@ export let baseColor = 'black';
 const lightMutedBaseColor = "#b2b2b2";
 const darkMutedBaseColor = "#4D4D4D";
 export let mutedBaseColor = darkMutedBaseColor;
+let borderRadius = 9;
 export let currentStyle;
-let hoverEventsAreSetup = false;
 //populate all style names since we have init css files
 let stylesWithUpdatedSchemeColor = ['flat-style', 'neu-style', 'glass-style'];
 let stylesWithUpdatedHighlightColor = ['flat-style', 'neu-style', 'glass-style'];
@@ -61,7 +61,6 @@ function getBorderRadiusRule() {
     return borderRadiusRule !== null && borderRadiusRule !== void 0 ? borderRadiusRule : (borderRadiusRule = insertEmptyRule(Selectors.borderRadiusSelectors));
 }
 export function changeStyle(newStyle) {
-    // currentStyle?.onDisable();
     currentStyle = newStyle;
     $(".customizer").hide();
     currentStyle.onEnable();
@@ -181,7 +180,6 @@ function updateHighlightColor(hex) {
     highlightColor.setHex(hex);
     getBgHighlightRule().style.setProperty('background-color', highlightColor.hex, 'important');
     getColorHighlightRule().style.setProperty('color', highlightColor.hex, 'important');
-    setupCommonHoverEvents();
     currentStyle.onHighlightColorUpdated();
     stylesWithUpdatedHighlightColor.length = 0;
     stylesWithUpdatedHighlightColor.push(currentStyle.name);
@@ -189,27 +187,10 @@ function updateHighlightColor(hex) {
 function updateSchemeColor(hex) {
     schemeColor.setHex(hex);
     updateBaseColor();
-    setupCommonHoverEvents();
     getBgSchemeRule().style.setProperty('background-color', schemeColor.hex, 'important');
     currentStyle.onSchemeColorUpdated();
     stylesWithUpdatedSchemeColor.length = 0;
     stylesWithUpdatedSchemeColor.push(currentStyle.name);
-}
-//TODO: use css instead
-function setupCommonHoverEvents() {
-    // lazily setup
-    if (hoverEventsAreSetup)
-        return;
-    hoverEventsAreSetup = true;
-    $(".portfolio .portfolio-icon a, .list-inline.socials li a i, #myMenu li a, .social a i,.overlay-menu-toggler").on('mouseenter', (event) => {
-        $(event.currentTarget).css('color', highlightColor.hex);
-    });
-    $(".social a i,.overlay-menu-toggler, .portfolio .portfolio-icon a").on('mouseleave', function () {
-        $(this).css('color', baseColor);
-    });
-    $(".list-inline.socials li a i, #myMenu li a").on('mouseleave', function () {
-        $(this).css('color', 'white');
-    });
 }
 function updateBaseColor() {
     const lastBaseColor = baseColor;

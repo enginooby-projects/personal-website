@@ -23,7 +23,13 @@ export const colorHighlightSelectors = formatString([
     ".timeline-year",
     ".portfolio .portfolio-filter li a",
     ".contact .form-item .form-control",
-    ".highlight-portfolio-item.fa-star"
+    ".highlight-portfolio-item.fa-star",
+    //hover
+    ".portfolio-icon a:hover",
+    ".social a i:hover",
+    ".list-inline.socials li a i:hover",
+    ".overlay-menu-toggler:hover",
+    " #myMenu li a:hover"
 ]);
 export const colorBaseSelectors = formatString([
     "body",

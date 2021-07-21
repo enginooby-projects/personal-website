@@ -23,6 +23,7 @@
                         </div>
 
                         <!--  Skill Start  -->
+                        <!-- TODO: Setup database -->
                         <div class="row mt-0">
                                 <!-- Fundamentals -->
                                 <div class="col-lg-6 equal-columns">

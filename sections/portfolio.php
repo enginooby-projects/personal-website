@@ -17,6 +17,7 @@
 </div> -->
 
 <?php
+//TODO: Setup database
 class CodingProject
 {
         public function __construct(
