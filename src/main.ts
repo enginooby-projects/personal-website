@@ -7,12 +7,12 @@ $(document).ready(function () {
         // document.addEventListener("DOMContentLoaded", function () { // slowest
         "use strict";
         // console.log('document: onReady');
+        // clientCarousel();
+        // sliderOwlCarousel(); 
         typedJS();
         fixJqueryPassiveListeners();
-        clientCarousel();
         pagePilling();
         menuToggler();
-        sliderOwlCarousel(); //TODO: setup after load owl carousel script async
         postSidebar();
         validateEmail();
         sendEmail();
