@@ -56,15 +56,7 @@ function tryLoadingSection(name, otherSection) {
 }
 function startLoadingSection(name, otherSection) {
     loadingSections.push(name);
-    let filePath = '';
-    if (name == "portfolio" || name == "self-education") {
-        //TOFIX:  Load php file not formatting properly (e.g skillbar tag), hence load html file instead
-        filePath = `sections/${name}.html`;
-    }
-    else {
-        filePath = `sections/${name}.php`;
-    }
-    $(`#${name}`).load(filePath, function (response, status, xhr) {
+    $(`#${name}`).load(`sections/${name}.php`, function (response, status, xhr) {
         if (status == 'success') {
             // loadingSections = loadingSections.filter(e => e !== name); //optional since it's already loaded
             // console.log(`${filePath} loaded`);
