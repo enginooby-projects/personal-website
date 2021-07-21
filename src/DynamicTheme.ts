@@ -100,21 +100,16 @@ function updateChangesFromLastStyle() {
 loadSettingPanel();
 
 function loadSettingPanel() {
-        $('#color-switcher').load('sections/setting.php', function (response, status, xhr) {
-                if (status == 'success') {
-                        initSettingPanel();
-                        setupSettingEvents();
-                        $squareImg = $(".hero-image .square img");
-                        //TODO: lazy get style sheet & rules
-                        styleSheet = getStyleSheet();
-                        cssRules = styleSheet.cssRules || styleSheet.rules;
-                        new StyleRegistry();
-
-                        // invoke update functions if init css file not available
-                        // updateSchemeColor(schemeColor.hex);
-                        // updateHighlightColor(highlightColor.hex);
-                        // updateBaseColor() ;
-                }
+        $.get('sections/setting.php', function (data) {
+                $('body').append(data);
+        }).done(function () {
+                initSettingPanel();
+                setupSettingEvents();
+                $squareImg = $(".hero-image .square img");
+                //TODO: lazy get style sheet & rules
+                styleSheet = getStyleSheet();
+                cssRules = styleSheet.cssRules || styleSheet.rules;
+                new StyleRegistry();
         });
 }
 

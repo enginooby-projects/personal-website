@@ -1,4 +1,5 @@
 var $window = $(window);
+let $body: JQuery<HTMLElement> = $('body');
 // var $root = $('html, body');
 
 // after loading DOM (not affect DOMContentLoaded, affect Load)
@@ -12,7 +13,6 @@ $(document).ready(function () {
         typedJS();
         fixJqueryPassiveListeners();
         pagePilling();
-        menuToggler();
         postSidebar();
         validateEmail();
         sendEmail();
@@ -22,13 +22,14 @@ $(document).ready(function () {
 
 // setupLazyLoading();
 
-const sections: string[] = ["overlay-menu", "about", "resume", "skillset", "duties", "portfolio", "self-education", "blog", "contact"];
+const sections: string[] = ["about", "resume", "skillset", "duties", "portfolio", "self-education", "blog", "contact"];
 
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
         // console.log('window: onLoad');
         // setTimeout(function () {
         // }, 1000);
+        loadPhpToBody("sections/overlay-menu.php", menuToggler);
         sections.forEach(section => tryLoadingSection(section));
 }));
 
@@ -93,17 +94,15 @@ function onPortfolioSectionLoaded() {
         startFilterring($('.portfolio-items'), '*');
 }
 
-
-
 function setupPortfolioTypeTS() {
         var $element = $("#portfolio .typed");
         if ($element.length > 0) {
                 if ($element.length) {
                         var options = {
                                 strings: $element.attr('data-elements').split(','),
-                                typeSpeed: 70,
-                                backDelay: 1500,
-                                backSpeed: 30,
+                                typeSpeed: 30,
+                                backDelay: 1000,
+                                backSpeed: 20,
                                 loop: true
                         };
                         var typed = new Typed("#portfolio .typed", options);
@@ -253,51 +252,49 @@ let loadedModalSections: string[] = [];
 function loadResumeModals() {
         if (loadedModalSections.includes('resume')) return;
         // $('[data-target="#classes"]').one('mouseenter', event => {
-        //         $('#classes').load('modals/classes.php');
+        //                 loadPhpToBody('modals/classes.php');
         // });
-        $('#classes').load('modals/classes.php');
+        loadPhpToBody('modals/classes.php');
         loadedModalSections.push('resume');
 }
 
 function loadBlogModals() {
         if (loadedModalSections.includes('blog')) return;
-        $('#blog [data-toggle="modal"]').each((index, element) => {
-                const id: string = $(element).attr('data-target')!;
-                $(id).load(`modals/blog/${id?.substring(1)}.php`)
-        });
+        const modals: string[] = ["blog-single"];
+        modals.forEach(modal => loadPhpToBody(`modals/blog/${modal}.php`));
         loadedModalSections.push('blog');
 }
 
 function loadPortfolioModals() {
         if (loadedModalSections.includes('portfolio')) return;
         // BUG: If mouseenter happens later (delay) than click ,
-        // the modal close button will bind incorrect event hence not work
+        // the modal close button will bind to incorrect event hence not work
         // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
         //         const id: string = $(event.currentTarget).attr('data-target');
         //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
         // });
-        $('#portfolio [data-toggle="modal"]').each((index, element) => {
-                const id: string = $(element).attr('data-target')!;
-                $(id).load(`modals/portfolio/${id?.substring(1)}.php`);
-        });
+        //TODO: loops all files in the server folder instead (/modals/portfolio) or create php file dynamically
+        const modals: string[] = ["endless-flight", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
+        modals.forEach(modal => loadPhpToBody(`modals/portfolio/${modal}.php`));
         setupIframeInjectionEvents();
         loadedModalSections.push('portfolio');
 }
 
 function loadSelfEducationModals() {
         if (loadedModalSections.includes('self-education')) return;
-        //Load modals on mouseenter event
-        // $('[data-target="#bookshelf"]').one('mouseenter', event => {
-        //         $('#bookshelf').load('modals/bookshelf.php');
-        // });
-        // $('[data-target="#courses"]').one('mouseenter', event => {
-        //         $('#courses').load('modals/courses.php');
-        // });
-        $('#courses').load('modals/courses.php');
-        $('#bookshelf').load('modals/bookshelf.php');
+        loadPhpToBody('modals/courses.php');
+        loadPhpToBody('modals/bookshelf.php');
         loadedModalSections.push('self-education');
 }
 
+//HELPER
+function loadPhpToBody(filePath: string, callback?: () => void) {
+        $.get(filePath, function (data) {
+                $body.append(data);
+        }).done(function () {
+                if (callback) callback();
+        });
+}
 /*-------------------------
        Page Pilling
 -------------------------*/
@@ -435,9 +432,9 @@ function typedJS() {
                 if ($element.length) {
                         var options = {
                                 strings: $element.attr('data-elements').split(','),
-                                typeSpeed: 70,
-                                backDelay: 1500,
-                                backSpeed: 30,
+                                typeSpeed: 30,
+                                backDelay: 1000,
+                                backSpeed: 20,
                                 loop: true
                         };
                         var typed = new Typed("#hero .typed", options);

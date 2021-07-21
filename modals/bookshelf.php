@@ -66,21 +66,23 @@ function displayBookCatalogBody($catalog, $showId)
 }
 ?>
 
-<div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content text-muted">
-                <div class="modal-header">
-                        <h5 class="modal-title " id="bookshelfModalScrollable">Bookshelf</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                        <div class="pt-4 pb-5">
-                                <div class="container">
-                                        <div class="row  justify-content-center">
-                                                <table class="neumorphic">
-                                                        <?php displayBookCatalog($books) ?>
-                                                </table>
+<div class="portfolio-single modal fade" id="bookshelf" tabindex="-1" role="dialog" aria-labelledby="bookshelfModalScrollable" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content text-muted">
+                        <div class="modal-header">
+                                <h5 class="modal-title " id="bookshelfModalScrollable">Bookshelf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="pt-4 pb-5">
+                                        <div class="container">
+                                                <div class="row  justify-content-center">
+                                                        <table class="neumorphic">
+                                                                <?php displayBookCatalog($books) ?>
+                                                        </table>
+                                                </div>
                                         </div>
                                 </div>
                         </div>

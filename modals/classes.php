@@ -29,32 +29,34 @@ $subjects = array(
 );
 ?>
 
-<div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content text-muted">
-                <div class="modal-header">
-                        <h5 class="modal-title " id="classModalScrollable">Classes</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                        <div class="pt-4 pb-5">
-                                <div class="container">
-                                        <div class="row">
-                                                <table class="neumorphic">
-                                                        <thead>
-                                                                <tr>
-                                                                        <th>#</th>
-                                                                        <th>Name</th>
-                                                                        <th>Key points</th>
-                                                                        <th>Technologies</th>
-                                                                        <th>Grade<br> (scale: 5.0)</th>
-                                                                </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                                <?php displayTableRows($subjects); ?>
-                                                        </tbody>
-                                                </table>
+<div class="portfolio-single modal fade" id="classes" tabindex="-1" role="dialog" aria-labelledby="classModalScrollable" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content text-muted">
+                        <div class="modal-header">
+                                <h5 class="modal-title " id="classModalScrollable">Classes</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="pt-4 pb-5">
+                                        <div class="container">
+                                                <div class="row">
+                                                        <table class="neumorphic">
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>#</th>
+                                                                                <th>Name</th>
+                                                                                <th>Key points</th>
+                                                                                <th>Technologies</th>
+                                                                                <th>Grade<br> (scale: 5.0)</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                        <?php displayTableRows($subjects); ?>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
                                         </div>
                                 </div>
                         </div>
