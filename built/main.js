@@ -26,6 +26,7 @@ $window.on("load", (function () {
     // console.log('window: onLoad');
     // setTimeout(function () {
     // }, 1000);
+    loadPhpToBody("connect-database.php");
     loadPhpToBody("sections/overlay-menu.php", menuToggler);
     sections.forEach(section => tryLoadingSection(section));
 }));
