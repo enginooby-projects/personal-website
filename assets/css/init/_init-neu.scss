@@ -16,7 +16,29 @@ $concaveBoxShadow:"#{$dropBoxShadow},  #{$insetBoxShadow}";
 $thumbScrollbarBoxShadow:inset -#{$distance}px -#{$distance}px #{$blur}px #{$darkenSchemeColor},
 inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
 
+$x:2.5;
+$y:2.5;
+$z:3;
+$textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
+#{$x}px #{$y}px #{$z}px #{$darkenSchemeColor};
+
 .neu-style {
+
+        // .title-wrapper {
+        //         opacity: 1;
+        //         margin-bottom: 2rem;
+        //         margin-top: -1.5rem !important;
+        // }
+
+        // .title-wrapper span {
+        //         text-shadow: $textDropShadow;
+        //         color: $schemeColor;
+        //         font-size: 3.5rem;
+        // }
+
+        // .title-content {
+        //         display: none;
+        // }
 
         .button-border,
         .box-border,
