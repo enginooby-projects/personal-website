@@ -55,7 +55,6 @@ body,
 }
 
 .blog-content .list-inline-item span,
-.contact-info-text small,
 .hero-content p,
 .title-wrapper span,
 .form-control,
@@ -63,9 +62,11 @@ body,
 .range-slider__value,
 #colour-panel label,
 .color-pallet-content p,
+//contact
 .form-control::placeholder,
 .form-control:-ms-input-placeholder,
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder,
+.contact-info-text small {
         color: $mutedBaseColor;
 }
 

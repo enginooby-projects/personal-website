@@ -37,7 +37,7 @@
                                                 <div class="personal-item ml-lg-4">
                                                         <p class="paragraph-title mt-4 mt-lg-0 mb-0">Ambition: <span class="highlight-color">Video game development</span></p>
                                                         <p class=" text-justify mb-0">
-                                                                While normal software is all about services to serve our life, <span class="highlight-color">computer graphics</span> (CG) is the technology enabling us to create life itself, virtually. That interests me, Particularly, game development is a subset of CG, where we define our own rules for the world then allow players to get involved in. That interests me more.
+                                                                While normal software is all about services to serve our life, <span class="highlight-color">computer graphics</span> (CG) is the technology enabling us to create life itself, virtually. That interests me, Particularly, game development is a subset of CG, where we define our own rules for the world then allow players to get involved in, and that interests me even more.
                                                                 <br>
                                                                 I first got started in this field by playing around with a few CG and game tools. Feeling more and more engaged, I decided to pick <span class="highlight-color">Unity</span> and <span class="highlight-color"> Unreal Engine</span> as my "long-term companions" on the journey.
                                                                 <br>

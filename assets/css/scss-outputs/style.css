@@ -200,8 +200,7 @@ button {
   text-align: center;
   font-size: 56px;
   font-weight: 900;
-  opacity: 0.3;
-  /* font-family: "Agency FB", sans-serif; */
+  opacity: 0.12;
   font-family: "Poppins", sans-serif;
   margin-top: -18px;
 }
@@ -1421,6 +1420,7 @@ header {
 
 .title-content .badge-border {
   display: inline-block;
+  padding-top: 0;
 }
 
 .badge-pill > .badge {
@@ -4170,7 +4170,6 @@ body,
 }
 
 .blog-content .list-inline-item span,
-.contact-info-text small,
 .hero-content p,
 .title-wrapper span,
 .form-control,
@@ -4180,12 +4179,12 @@ body,
 .color-pallet-content p,
 .form-control:-ms-input-placeholder,
 .form-control:-ms-input-placeholder,
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder,
+.contact-info-text small {
   color: #4D4D4D;
 }
 
 .blog-content .list-inline-item span,
-.contact-info-text small,
 .hero-content p,
 .title-wrapper span,
 .form-control,
@@ -4195,12 +4194,12 @@ body,
 .color-pallet-content p,
 .form-control::-ms-input-placeholder,
 .form-control:-ms-input-placeholder,
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder,
+.contact-info-text small {
   color: #4D4D4D;
 }
 
 .blog-content .list-inline-item span,
-.contact-info-text small,
 .hero-content p,
 .title-wrapper span,
 .form-control,
@@ -4210,7 +4209,8 @@ body,
 .color-pallet-content p,
 .form-control::placeholder,
 .form-control:-ms-input-placeholder,
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder,
+.contact-info-text small {
   color: #4D4D4D;
 }
 
