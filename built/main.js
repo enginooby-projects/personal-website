@@ -106,6 +106,8 @@ function setupPortfolioTypeTS() {
 }
 function onSelfEducationSectionLoaded() {
     loadLazyImagesInSection('#self-education');
+    if (visitedSections.includes('self-education'))
+        setupObserver('.skillbar', onProgressBarIntersecting);
 }
 //  CONSIDER: setup lazy loading for the section instead if many images
 function loadLazyImagesInSection(sectionId) {
@@ -249,6 +251,7 @@ function clientCarousel() {
     });
 }
 // DYNAMIC MODALS LOADING
+//CONSIDER: remove this since we already use visitedSections to trigger event only once
 let loadedModalSections = [];
 function loadResumeModals() {
     if (loadedModalSections.includes('resume'))
@@ -300,6 +303,7 @@ function loadPhpToBody(filePath, callback) {
 /*-------------------------
        Page Pilling
 -------------------------*/
+let visitedSections = [];
 function pagePilling() {
     // "use strict";
     var ids = [];
@@ -355,8 +359,11 @@ function pagePilling() {
                     break;
                 case 7:
                     // tryLoadingSection("self-education", "blog");
-                    setupObserver('.skillbar', onProgressBarIntersecting);
-                    loadSelfEducationModals();
+                    if (!visitedSections.includes('self-education')) {
+                        setupObserver('.skillbar', onProgressBarIntersecting);
+                        loadSelfEducationModals();
+                        visitedSections.push('self-education');
+                    }
                     break;
                 case 8:
                     // tryLoadingSection("blog", "contact");
