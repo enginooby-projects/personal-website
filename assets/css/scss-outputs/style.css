@@ -4347,8 +4347,8 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .theme-skin .pill-button,
 .neu-style .form-group input:focus,
 .neu-style .form-group textarea:focus {
-  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6 !important;
-          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6 !important;
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
 
 .neu-style .pill-button.active,
@@ -4368,8 +4368,8 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .form-group input,
 .neu-style .form-group textarea,
 .neu-style .skill-box .skillbar {
-  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6 !important;
-          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6 !important;
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
 .neu-style .section,

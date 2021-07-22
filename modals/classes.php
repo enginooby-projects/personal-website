@@ -31,7 +31,7 @@ $subjects = array(
 
 <div class="portfolio-single modal fade" id="classes" tabindex="-1" role="dialog" aria-labelledby="classModalScrollable" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content text-muted">
+                <div class="modal-content ">
                         <div class="modal-header">
                                 <h5 class="modal-title " id="classModalScrollable">Classes</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -33,9 +33,8 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .theme-skin .pill-button,
         .form-group input:focus,
         .form-group textarea:focus {
-                box-shadow: $dropBoxShadow !important;
+                box-shadow: $dropBoxShadow;
         }
-
 
         .pill-button.active,
         .pallet-button.active,
@@ -54,7 +53,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .form-group input,
         .form-group textarea,
         .skill-box .skillbar {
-                box-shadow: #{$concaveBoxShadow} !important; //unquote
+                box-shadow: #{$concaveBoxShadow}; //unquote
         }
 
         .section,

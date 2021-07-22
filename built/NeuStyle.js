@@ -44,6 +44,9 @@ const dropBoxShadowSelectors = [
     "table thead ",
     ".range-slider__value",
     "::-webkit-slider-thumb",
+    //contact
+    ".form-group input:focus",
+    ".form-group textarea:focus"
 ];
 const insetBoxShadowSelectors = [
     ".custom-scrollbar",
@@ -66,9 +69,12 @@ const insetBoxShadowSelectors = [
 ];
 const concaveBoxShadowSelectors = [
     ".skill-box .skillbar",
-    ".form-group",
+    // ".form-group",
     "input[type=range]:focus",
-    "::-webkit-slider-thumb:hover"
+    "::-webkit-slider-thumb:hover",
+    //contact
+    ".form-group input",
+    ".form-group textarea",
 ];
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
