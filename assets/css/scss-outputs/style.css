@@ -368,7 +368,12 @@ table.neumorphic td:hover::after {
   border-radius: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 372px;
+  height: 370px;
+}
+
+.setting-save-panel {
+  height: 45px;
+  padding-top: 8px;
 }
 
 .color-pallet-content {
@@ -378,6 +383,50 @@ table.neumorphic td:hover::after {
 .color-pallet-content p {
   font-size: 1.1rem !important;
   margin-bottom: 10px !important;
+}
+
+.color-switcher .label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.color-switcher .label-text {
+  margin-left: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.color-switcher .toggle {
+  isolation: isolate;
+  position: relative;
+  height: 25px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.color-switcher .toggle-state {
+  display: none;
+}
+
+.color-switcher .indicator {
+  height: 100%;
+  width: 200%;
+  -webkit-transform: translate3d(-75%, 0, 0);
+          transform: translate3d(-75%, 0, 0);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35), -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.color-switcher .toggle-state:checked ~ .indicator {
+  -webkit-transform: translate3d(25%, 0, 0);
+          transform: translate3d(25%, 0, 0);
 }
 
 .color-switcher .scrollable::-webkit-scrollbar {
@@ -4120,7 +4169,8 @@ body,
 .form-group,
 .skill-box .skillbar,
 .blog .blog-image,
-.blog .blog-item .before {
+.blog .blog-item .before,
+.toggle .indicator {
   background-color: #D4D4D4;
 }
 
@@ -4316,7 +4366,9 @@ table,
 ::-webkit-scrollbar-thumb,
 .portfolio-item-content::before,
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.toggle,
+.toggle .indicator {
   border-radius: 9px;
 }
 
@@ -4342,7 +4394,8 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .theme-skin .pill-button,
 .neu-style .form-group input:focus,
 .neu-style .form-group textarea:focus,
-.neu-style .color-pallet {
+.neu-style .color-pallet,
+.neu-style .toggle .indicator {
   -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
           box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
@@ -4361,6 +4414,7 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
+.neu-style .toggle,
 .neu-style .form-group input,
 .neu-style .form-group textarea,
 .neu-style .skill-box .skillbar {

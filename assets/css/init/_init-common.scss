@@ -9,7 +9,8 @@ body,
 .form-group,
 .skill-box .skillbar,
 .blog .blog-image,
-.blog .blog-item .before {
+.blog .blog-item .before,
+.toggle .indicator {
         background-color: $schemeColor;
 }
 
@@ -179,7 +180,9 @@ table,
 ::-webkit-scrollbar-thumb,
 .portfolio-item-content::before,
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.toggle,
+.toggle .indicator {
         border-radius: $borderRadius;
 }
 

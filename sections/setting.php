@@ -124,7 +124,14 @@
                         </div>
 
                         <div class="setting-save-panel">
-                                <h5>Save</h5>
+                                <label class="label">
+                                        <div class="toggle">
+                                                <input class="toggle-state" type="checkbox" name="check" value="check" />
+                                                <div class="indicator"></div>
+                                        </div>
+                                        <div class="label-text">Save</div>
+                                        <!-- TODO: Random button-->
+                                </label>
                         </div>
                 </div>
         </div>

@@ -34,6 +34,9 @@ const colorMutedBaseColorSelectors = [
 ];
 
 const dropBoxShadowSelectors = [
+        //COMMON
+        ".toggle .indicator",
+
         ".theme-skin .pill-button",
         ".button-border",
         ".box-border",
@@ -82,6 +85,7 @@ const concaveBoxShadowSelectors = [
         //contact
         ".form-group input",
         ".form-group textarea",
+        ".toggle",
 ];
 
 // REFACTOR: generic singleton

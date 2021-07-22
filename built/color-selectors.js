@@ -13,6 +13,7 @@ export const bgSchemeSelectors = formatString([
     ".blog .blog-image",
     ".blog .blog-item .before",
     "#overlayer",
+    ".toggle .indicator"
 ]);
 export const bgBaseSelectors = formatString([
     "#pp-nav li :not(.active) span"
@@ -63,7 +64,7 @@ export const colorMutedBaseSelectors = formatString([
     // ".form-control::-ms-input-placeholder"         /* Microsoft Edge */
 ]);
 export const borderRadiusSelectors = formatString([
-    // blog
+    // BLOG
     ".blog .blog-image",
     ".blog .blog-image .after",
     ".blog .blog-intro ",
@@ -77,12 +78,12 @@ export const borderRadiusSelectors = formatString([
     ".comments img",
     ".comments .commnet-image-border img",
     ".comments-devider",
-    //contact
+    //CONTACT
     ".contact .form-item .form-group",
     ".contact #message.toast",
     ".form-group input",
     ".form-group textarea",
-    //common
+    //COMMON
     ".pill-button",
     ".button-border",
     ".image-border img:not(.personal-image img)",
@@ -95,12 +96,14 @@ export const borderRadiusSelectors = formatString([
     ".box-border",
     ".badge",
     ".badge-border",
-    // self-education
+    ".toggle",
+    ".toggle .indicator",
+    // SELF-EDUCATION
     ".course-item img",
     ".book-item>img",
     ".skill-box .skillbar",
     ".skill-box .fill-skillbar",
-    // portfolio
+    // PORTFOLIO
     ".segmented-control",
     ".radio-selection",
     ".checkbox label",

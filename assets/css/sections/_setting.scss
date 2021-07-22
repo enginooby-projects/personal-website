@@ -19,8 +19,12 @@
         border-radius: 0;
         overflow-y: auto;
         overflow-x: hidden;
-        // background-color: #1abc9c;
-        height: 372px; //TODO: caculate this for reponsiveness
+        height: 370px; //TODO: caculate this for reponsiveness
+}
+
+.setting-save-panel {
+        height: 45px;
+        padding-top: 8px;
 }
 
 .color-pallet-content {
@@ -29,6 +33,47 @@
         p {
                 font-size: 1.1rem !important;
                 margin-bottom: 10px !important;
+        }
+}
+
+// TOGGLE BUTTON
+.color-switcher {
+        .label {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+                // color: #394a56;
+        }
+
+        .label-text {
+                margin-left: 16px;
+                font-size: 1.2rem;
+                font-weight: 700;
+        }
+
+        .toggle {
+                isolation: isolate;
+                position: relative;
+                height: 25px;
+                width: 60px;
+                // border-radius: 15px;
+                overflow: hidden;
+        }
+
+        .toggle-state {
+                display: none;
+        }
+
+        .indicator {
+                height: 100%;
+                width: 200%;
+                // border-radius: 15px;
+                transform: translate3d(-75%, 0, 0);
+                transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        }
+
+        .toggle-state:checked~.indicator {
+                transform: translate3d(25%, 0, 0);
         }
 }
 
