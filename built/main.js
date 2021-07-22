@@ -16,6 +16,7 @@ $(document).ready(function () {
     postSidebar();
     validateEmail();
     sendEmail();
+    // setupObserver('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)',onLazyImageIntersecting);
     $('.owl-item.active .hero-slide').addClass('zoom');
     return;
 });
@@ -105,20 +106,11 @@ function setupPortfolioTypeTS() {
 }
 function onSelfEducationSectionLoaded() {
     loadLazyImagesInSection('#self-education');
-    startProgressBarAnimation();
 }
 //  CONSIDER: setup lazy loading for the section instead if many images
 function loadLazyImagesInSection(sectionId) {
     document.querySelectorAll(`${sectionId} img.lazy`).forEach((element, index) => {
         loadLazyImage(element);
-    });
-}
-function startProgressBarAnimation() {
-    // "use strict";
-    $('.skillbar').each(function () {
-        $(this).find('.skillbar-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 4000);
     });
 }
 function addLabelLinkPagePiling() {
@@ -147,22 +139,49 @@ function setupIframeInjectionEvents() {
         $('#the-maze-play .row').append('<iframe src="https://i.simmer.io/@enginoobz/the-maze" style="width: 1072px;height: 517px;border:0"></iframe>');
     });
 }
-function setupLazyLoading() {
-    document.addEventListener("DOMContentLoaded", function () {
-        const imageObserver = new IntersectionObserver((entries, imgObserver) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    loadLazyImage(lazyImage);
-                    imgObserver.unobserve(lazyImage);
-                }
-            });
-        });
-        const arr = document.querySelectorAll('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)');
-        arr.forEach((v) => {
-            imageObserver.observe(v);
+// OBSERVERS 
+function setupProgressBarObserver() {
+    const barObserver = new IntersectionObserver((entries, barObserverInit) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const skilbar = entry.target;
+                console.log($(skilbar).attr('data-percent'));
+                barObserverInit.unobserve(skilbar);
+            }
         });
     });
+    const skillbars = document.querySelectorAll('.skillbar');
+    skillbars.forEach((skillbar) => {
+        barObserver.observe(skillbar);
+    });
+}
+// this has be executed at DOMContentLoaded at the ealieast
+function setupObserver(selectors, callback, once = true) {
+    const elementObserver = new IntersectionObserver((entries, elementObserverInit) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                callback(element);
+                if (once)
+                    elementObserverInit.unobserve(element);
+            }
+        });
+    });
+    const elements = document.querySelectorAll(selectors);
+    elements.forEach((element) => {
+        elementObserver.observe(element);
+    });
+}
+function onProgressBarIntersecting(ele) {
+    startProgressBarAnimation(ele);
+}
+function onLazyImageIntersecting(ele) {
+    loadLazyImage(ele);
+}
+function startProgressBarAnimation(bar) {
+    $(bar).find('.skillbar-bar').animate({
+        width: $(bar).attr('data-percent')
+    }, 2000);
 }
 function loadLazyImage(lazyImage) {
     lazyImage.src = lazyImage.dataset.src;
@@ -336,6 +355,7 @@ function pagePilling() {
                     break;
                 case 7:
                     // tryLoadingSection("self-education", "blog");
+                    setupObserver('.skillbar', onProgressBarIntersecting);
                     loadSelfEducationModals();
                     break;
                 case 8:

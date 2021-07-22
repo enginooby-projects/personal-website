@@ -16,6 +16,7 @@ $(document).ready(function () {
         postSidebar();
         validateEmail();
         sendEmail();
+        // setupObserver('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)',onLazyImageIntersecting);
         $('.owl-item.active .hero-slide').addClass('zoom');
         return;
 });
@@ -113,7 +114,6 @@ function setupPortfolioTypeTS() {
 
 function onSelfEducationSectionLoaded() {
         loadLazyImagesInSection('#self-education');
-        startProgressBarAnimation();
 }
 
 
@@ -124,14 +124,6 @@ function loadLazyImagesInSection(sectionId: string) {
         });
 }
 
-function startProgressBarAnimation() {
-        // "use strict";
-        $('.skillbar').each(function () {
-                $(this).find('.skillbar-bar').animate({
-                        width: $(this).attr('data-percent')
-                }, 4000);
-        });
-}
 
 function addLabelLinkPagePiling() {
         $('#pp-nav a').each(function () {
@@ -162,23 +154,54 @@ function setupIframeInjectionEvents() { // invoke if not include iframe in modal
         });
 }
 
-function setupLazyLoading() {
-        document.addEventListener("DOMContentLoaded", function () {
-                const imageObserver = new IntersectionObserver((entries, imgObserver) => {
-                        entries.forEach((entry) => {
-                                if (entry.isIntersecting) {
-                                        const lazyImage = entry.target
-                                        loadLazyImage(lazyImage);
-                                        imgObserver.unobserve(lazyImage);
-                                }
-                        })
-                });
-                const arr = document.querySelectorAll('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)')
-                arr.forEach((v) => {
-                        imageObserver.observe(v);
+// OBSERVERS 
+function setupProgressBarObserver() {
+        const barObserver = new IntersectionObserver((entries, barObserverInit) => {
+                entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                                const skilbar = entry.target
+                                console.log($(skilbar).attr('data-percent'));
+                                barObserverInit.unobserve(skilbar);
+                        }
                 })
+        });
+        const skillbars = document.querySelectorAll('.skillbar');
+        skillbars.forEach((skillbar) => {
+                barObserver.observe(skillbar);
         })
 }
+
+// this has be executed at DOMContentLoaded at the ealieast
+function setupObserver(selectors: string, callback: (ele: Element) => void, once: boolean = true) {
+        const elementObserver = new IntersectionObserver((entries, elementObserverInit) => {
+                entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                                const element = entry.target;
+                                callback(element);
+                                if (once) elementObserverInit.unobserve(element);
+                        }
+                })
+        });
+        const elements = document.querySelectorAll(selectors);
+        elements.forEach((element) => {
+                elementObserver.observe(element);
+        })
+}
+
+function onProgressBarIntersecting(ele: Element) {
+        startProgressBarAnimation(ele);
+}
+
+function onLazyImageIntersecting(ele: Element) {
+        loadLazyImage(ele);
+}
+
+function startProgressBarAnimation(bar: Element) {
+        $(bar).find('.skillbar-bar').animate({
+                width: $(bar).attr('data-percent')
+        }, 2000);
+}
+
 
 function loadLazyImage(lazyImage: Element) {
         lazyImage.src = lazyImage.dataset.src
@@ -356,6 +379,7 @@ function pagePilling() {
                                         break;
                                 case 7:
                                         // tryLoadingSection("self-education", "blog");
+                                        setupObserver('.skillbar', onProgressBarIntersecting);
                                         loadSelfEducationModals();
                                         break;
                                 case 8:
