@@ -64,6 +64,8 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         $buttonElements = "";
         $imgRatioProperty = '';
 
+        // $linkIcon = '<lord-icon src="https://cdn.lordicon.com/wjwuvtno.json" trigger="morph"stroke="100" colors="primary:#ffffff,secondary:#08a88a" axis-y="35"></lord-icon>';
+        $linkIcon = '<i class="fas fa-link"></i>';
 
         if ($isInjectedItem) {
                 ob_start();
@@ -86,7 +88,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         ';
 
         if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit"><i class="fas fa-link"></i></a>
+                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit">' . $linkIcon . '</a>
         ';
 
         if ($downloadUrl) $buttonElements .= '

@@ -222,13 +222,13 @@ function updateBaseColor() {
 }
 
 function onBaseColorChanged() {
-        mutedBaseColor = (baseColor == 'white') ? lightMutedBaseColor : darkMutedBaseColor;
-        const heroImg = (baseColor == 'white') ? "light-element_square" : "dark-element_square";
+        mutedBaseColor = (baseColor == '#ffffff') ? lightMutedBaseColor : darkMutedBaseColor;
+        const heroImg = (baseColor == '#ffffff') ? "light-element_square" : "dark-element_square";
         $squareImg.attr('src', `assets/img/${heroImg}.png`);
         getColorBaseRule().style.setProperty('color', baseColor, 'important');
         getColorMutedBaseRule().style.setProperty('color', mutedBaseColor, 'important');
         getBgBaseRule().style.setProperty('background-color', baseColor, 'important');
-
+        $('.overlay-menu-toggler lord-icon').attr('colors', `primary:${baseColor}`);
         currentStyle.onBaseColorUpdated();
         stylesWithUpdatedBaseColor.length = 0;
         stylesWithUpdatedBaseColor.push(currentStyle.name);

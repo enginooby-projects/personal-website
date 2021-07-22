@@ -32,7 +32,7 @@ export abstract class Color {
 
         public getInvertBlackWhite(): string {
                 // http://stackoverflow.com/a/3943023/112731
-                return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? 'black' : 'white';     //darkBaseValue : lightBaseValue;
+                return (this.rValue * 0.299 + this.gValue * 0.587 + this.bValue * 0.114) > 186 ? '#000000' : '#ffffff';     //darkBaseValue : lightBaseValue;
         }
 
         public getInvert() {
