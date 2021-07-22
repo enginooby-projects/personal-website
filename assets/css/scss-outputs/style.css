@@ -1524,7 +1524,6 @@ header {
   height: 100%;
 }
 
-.portfolio .portfolio-item-content::before,
 .portfolio-item-content::before {
   content: "";
   position: absolute;
@@ -1537,7 +1536,6 @@ header {
           transform: scale(0.8);
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
-  border-radius: 1.25rem;
   background-color: rgba(0, 0, 0, 0.479);
   z-index: 99;
 }
@@ -1681,7 +1679,7 @@ header {
 
 .segmented-control-size__color, .segmented-control-platform__color, .segmented-control-stage__color {
   position: absolute;
-  height: 2.015rem;
+  height: 1.9175rem;
   width: 72.5px;
   pointer-events: none;
 }
@@ -2759,9 +2757,6 @@ header {
 -------------------------*/
 .contact .form-item .form-control {
   background: transparent;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
   height: 44px;
   font-size: 20px;
   position: relative;
@@ -4323,7 +4318,10 @@ table,
 .skill-item,
 .color-scheme li a,
 ::-webkit-scrollbar-track,
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb,
+.portfolio-item-content::before,
+.form-group input,
+.form-group textarea {
   border-radius: 9px;
 }
 
@@ -4346,9 +4344,11 @@ Init values for dynamic properties to reduce  page load time
 .neu-style table,
 .neu-style table thead,
 .neu-style .range-slider__value,
-.neu-style .theme-skin .pill-button {
-  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
-          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+.neu-style .theme-skin .pill-button,
+.neu-style .form-group input:focus,
+.neu-style .form-group textarea:focus {
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6 !important;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6 !important;
 }
 
 .neu-style .pill-button.active,
@@ -4359,16 +4359,17 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .skill-boxes .box-border,
 .neu-style .color-pallet,
 .neu-style .timeline-items.box-border,
-.neu-style .range-slider__range {
-  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+.neu-style .range-slider__range,
+.neu-style .radio-selection {
+  -webkit-box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
-.neu-style .skill-box .skillbar,
-.neu-style .form-group,
-.neu-style .radio-selection {
-  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+.neu-style .form-group input,
+.neu-style .form-group textarea,
+.neu-style .skill-box .skillbar {
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6 !important;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6 !important;
 }
 
 .neu-style .section,
@@ -4400,13 +4401,13 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .badge-border:hover,
 .neu-style table > tbody > tr:hover,
 .neu-style .pallet-button:hover {
-  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+  -webkit-box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
 .neu-style .checkbox input:checked ~ label {
-  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+  -webkit-box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
 .neu-style .checkbox input:not(:checked):not(:hover) ~ label i,
@@ -4421,27 +4422,27 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .neu-style ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+  -webkit-box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
   background-color: #D4D4D4;
 }
 
 .neu-style ::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
-          box-shadow: inset -3px -3px 8px #c2c2c2, inset 3px 3px 8px #e6e6e6;
+  -webkit-box-shadow: inset -3px -3px 4px #c2c2c2, inset 3px 3px 4px #e6e6e6;
+          box-shadow: inset -3px -3px 4px #c2c2c2, inset 3px 3px 4px #e6e6e6;
   background-color: #D4D4D4;
 }
 
 .neu-style ::-webkit-slider-thumb {
   background-color: #D4D4D4;
-  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
-          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6;
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
 
 .neu-style ::-webkit-slider-thumb:hover,
 .neu-style input[type=range]:focus {
-  -webkit-box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
-          box-shadow: 3px 3px 8px #c2c2c2, -3px -3px 8px #e6e6e6,  inset 3px 3px 8px #c2c2c2, inset -3px -3px 8px #e6e6e6;
+  -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
+          box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6,  inset 3px 3px 4px #c2c2c2, inset -3px -3px 4px #e6e6e6;
 }
 
 /*

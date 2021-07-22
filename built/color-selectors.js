@@ -63,6 +63,7 @@ export const colorMutedBaseSelectors = formatString([
     // ".form-control::-ms-input-placeholder"         /* Microsoft Edge */
 ]);
 export const borderRadiusSelectors = formatString([
+    // blog
     ".blog .blog-image",
     ".blog .blog-image .after",
     ".blog .blog-intro ",
@@ -76,11 +77,16 @@ export const borderRadiusSelectors = formatString([
     ".comments img",
     ".comments .commnet-image-border img",
     ".comments-devider",
+    //contact
     ".contact .form-item .form-group",
     ".contact #message.toast",
+    ".form-group input",
+    ".form-group textarea",
+    //common
     ".pill-button",
     ".button-border",
-    ".image-border img",
+    ".image-border img:not(.personal-image img)",
+    ".range-slider__value",
     ".image-border",
     ".color-switcher .color-pallet",
     ".color-switcher .pallet-border",
@@ -89,18 +95,20 @@ export const borderRadiusSelectors = formatString([
     ".box-border",
     ".badge",
     ".badge-border",
+    // self-education
     ".course-item img",
     ".book-item>img",
     ".skill-box .skillbar",
     ".skill-box .fill-skillbar",
+    // portfolio
     ".segmented-control",
     ".radio-selection",
     ".checkbox label",
     ".range-slider__range",
     ".modal-content",
+    ".portfolio-item-content::before",
     "table",
     ".display-content>.container",
-    ".range-slider__value",
     ".portfolio-item-content",
     ".portfolio-icon a",
     ".portfolio-single img",

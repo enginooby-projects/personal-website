@@ -59,7 +59,6 @@
         }
 }
 
-.portfolio .portfolio-item-content::before,
 .portfolio-item-content::before {
         content: "";
         position: absolute;
@@ -70,8 +69,6 @@
         opacity: 0;
         transform: scale(0.8);
         transition: 0.5s all ease;
-        // TODO: dynamic radius
-        border-radius: 1.25rem;
         background-color: rgba(0, 0, 0, 0.479);
         z-index: 99;
 }
@@ -226,7 +223,7 @@ inset -3px -3px 4px $light-bg-color;
         &-platform__color,
         &-stage__color {
                 position: absolute;
-                height: 3.1rem*$scale;
+                height: 2.95rem*$scale;
                 width: 72.5px;
                 // z-index: -1;
                 // box-shadow: $inner-shadow;

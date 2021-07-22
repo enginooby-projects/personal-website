@@ -175,7 +175,10 @@ table,
 .skill-item,
 .color-scheme li a,
 ::-webkit-scrollbar-track,
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb,
+.portfolio-item-content::before,
+.form-group input,
+.form-group textarea {
         border-radius: $borderRadius;
 }
 

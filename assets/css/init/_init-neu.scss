@@ -1,7 +1,7 @@
 @import "common-variables";
 
 $distance:3;
-$blur:8;
+$blur:4;
 $lightenSchemeColor:#e6e6e6;
 $darkenSchemeColor: #c2c2c2;
 
@@ -30,9 +30,12 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         table,
         table thead,
         .range-slider__value,
-        .theme-skin .pill-button {
-                box-shadow: $dropBoxShadow;
+        .theme-skin .pill-button,
+        .form-group input:focus,
+        .form-group textarea:focus {
+                box-shadow: $dropBoxShadow !important;
         }
+
 
         .pill-button.active,
         .pallet-button.active,
@@ -42,14 +45,16 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .skill-boxes .box-border,
         .color-pallet,
         .timeline-items.box-border,
-        .range-slider__range {
+        .range-slider__range,
+        .radio-selection {
                 box-shadow: $insetBoxShadow;
         }
 
-        .skill-box .skillbar,
-        .form-group,
-        .radio-selection {
-                box-shadow: #{$concaveBoxShadow}; //unquote
+        //    .form-group,
+        .form-group input,
+        .form-group textarea,
+        .skill-box .skillbar {
+                box-shadow: #{$concaveBoxShadow} !important; //unquote
         }
 
         .section,

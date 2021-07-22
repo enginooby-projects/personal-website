@@ -61,12 +61,12 @@ const insetBoxShadowSelectors = [
     ".theme-skin .pill-button:hover",
     ".badge-border:hover",
     "table>tbody>tr:hover",
-    ".pallet-button:hover"
+    ".pallet-button:hover",
+    ".radio-selection",
 ];
 const concaveBoxShadowSelectors = [
     ".skill-box .skillbar",
     ".form-group",
-    ".radio-selection",
     "input[type=range]:focus",
     "::-webkit-slider-thumb:hover"
 ];
@@ -75,7 +75,7 @@ export class NeuStyle extends Style {
     constructor() {
         super('neu-style');
         this.distance = 3;
-        this.blur = 8;
+        this.blur = 4;
         this.lightenIntensity = 7;
         this.darkenIntensity = 7;
         this.lightenSchemeColor = "#e6e6e6";
