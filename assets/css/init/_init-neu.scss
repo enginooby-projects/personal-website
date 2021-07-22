@@ -54,7 +54,8 @@ $textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
         .range-slider__value,
         .theme-skin .pill-button,
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .color-pallet {
                 box-shadow: $dropBoxShadow;
         }
 
@@ -64,7 +65,7 @@ $textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
         .custom-scrollbar,
         .blog .blog-image .after,
         .skill-boxes .box-border,
-        .color-pallet,
+        .color-switcher .scrollable,
         .timeline-items.box-border,
         .range-slider__range,
         .radio-selection {

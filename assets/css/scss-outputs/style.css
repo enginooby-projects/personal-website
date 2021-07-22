@@ -352,21 +352,23 @@ table.neumorphic td:hover::after {
          SETTING
 -------------------------*/
 .color-switcher .color-pallet {
-  direction: rtl;
   top: 75px;
+  left: 55px;
   z-index: 1000;
   position: fixed;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  left: 55px;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
   opacity: 0;
   visibility: hidden;
   width: 180px;
-  height: calc(100vh - 87px);
+}
+
+.color-switcher .scrollable {
+  padding-top: 1rem;
+  border-radius: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 372px;
 }
 
 .color-pallet-content {
@@ -378,18 +380,11 @@ table.neumorphic td:hover::after {
   margin-bottom: 10px !important;
 }
 
-.color-switcher .color-pallet::-webkit-scrollbar {
+.color-switcher .scrollable::-webkit-scrollbar {
   width: 7px !important;
 }
 
-.color-switcher .color-pallet::-webkit-scrollbar-track {
-  border-radius: 0 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-  background: transparent !important;
-}
-
-.color-switcher .color-pallet::-webkit-scrollbar-thumb {
+.color-switcher .scrollable::-webkit-scrollbar-thumb {
   border-radius: 0 !important;
 }
 
@@ -4346,7 +4341,8 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .range-slider__value,
 .neu-style .theme-skin .pill-button,
 .neu-style .form-group input:focus,
-.neu-style .form-group textarea:focus {
+.neu-style .form-group textarea:focus,
+.neu-style .color-pallet {
   -webkit-box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
           box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
@@ -4357,7 +4353,7 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
 .neu-style .skill-boxes .box-border,
-.neu-style .color-pallet,
+.neu-style .color-switcher .scrollable,
 .neu-style .timeline-items.box-border,
 .neu-style .range-slider__range,
 .neu-style .radio-selection {

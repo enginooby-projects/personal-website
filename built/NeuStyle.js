@@ -43,16 +43,17 @@ const dropBoxShadowSelectors = [
     "table",
     "table thead ",
     ".range-slider__value",
+    ".color-pallet",
     "::-webkit-slider-thumb",
     //contact
     ".form-group input:focus",
-    ".form-group textarea:focus"
+    ".form-group textarea:focus",
 ];
 const insetBoxShadowSelectors = [
     ".custom-scrollbar",
     ".blog .blog-image .after",
     ".skill-boxes .box-border",
-    ".color-pallet",
+    ".color-switcher .scrollable",
     ".timeline-items.box-border",
     ".range-slider__range",
     "::-webkit-scrollbar-track",

@@ -106,7 +106,7 @@ function loadSettingPanel() {
                 initSettingPanel();
                 setupSettingEvents();
                 $squareImg = $(".hero-image .square img");
-                //TODO: lazy get style sheet & rules
+                //TOFIX: sometimes fail due to early execution
                 styleSheet = getStyleSheet();
                 cssRules = styleSheet.cssRules || styleSheet.rules;
                 new StyleRegistry();

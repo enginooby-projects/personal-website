@@ -2,20 +2,25 @@
          SETTING
 -------------------------*/
 .color-switcher .color-pallet {
-        direction: rtl;
+        // direction: rtl;
         top: 75px;
+        left: 55px;
         z-index: 1000;
         position: fixed;
         transition: all 0.3s ease;
-        left: 55px;
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
         opacity: 0;
         visibility: hidden;
         width: 180px;
-        height: calc(100vh - 87px);
+        // height: calc(100vh - 87px);
+}
+
+.color-switcher .scrollable {
+        padding-top: 1rem;
+        border-radius: 0;
         overflow-y: auto;
         overflow-x: hidden;
+        // background-color: #1abc9c;
+        height: 372px; //TODO: caculate this for reponsiveness
 }
 
 .color-pallet-content {
@@ -29,17 +34,17 @@
 
 $scrollbarRadius: 16px;
 
-.color-switcher .color-pallet::-webkit-scrollbar {
+.color-switcher .scrollable::-webkit-scrollbar {
         width: 7px !important;
 }
 
-.color-switcher .color-pallet::-webkit-scrollbar-track {
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        background: transparent !important;
+.color-switcher .scrollable::-webkit-scrollbar-track {
+        // border-radius: 0 !important;
+        // box-shadow: none !important;
+        // background: transparent !important;
 }
 
-.color-switcher .color-pallet::-webkit-scrollbar-thumb {
+.color-switcher .scrollable::-webkit-scrollbar-thumb {
         border-radius: 0 !important;
 }
 
