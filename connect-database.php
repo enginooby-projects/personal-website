@@ -1,51 +1,22 @@
 <?php
-//TODO: ensure properties file is secured on remote server
-// chmod 000 /path/to/database-properties.php 
-// create local database-properties.php file, connect to remote host, add to .gitignore
+// PDO implementation
 include 'database-properties.php';
+include 'utility.php';
 
-$database;
-$database_name = 'PersonalWebsite';
-$link = mysqli_connect($host, $username, $password);
-if (mysqli_connect_error()) {
-        die("Failed to connect to mysql server!");
-} else {
-        debug_to_console("Connect to mysql server successfully!");
-        select_database();
-}
+$dbname = 'PersonalWebsite';
+$charset = 'utf8mb4';
 
-function select_database()
-{
-        global $database_name, $link;
+$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+$options = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
-        $database = mysqli_select_db($link, $database_name);
-        if ($database) {
-                debug_to_console($database_name . ' database found');
-        } else {
-                debug_to_console($database_name . '  database not found');
-                create_database();
-        }
-}
-
-function create_database()
-{
-        global $database_name, $link;
-
-        $query = 'CREATE DATABASE ' . $database_name;
-        if (mysqli_query($link, $query)) {
-                debug_to_console($database_name . " database created successfully");
-        } else {
-                debug_to_console('Error creating database: ' . mysqli_error($link));
-        }
-}
-
-//HELPER
-function debug_to_console($data)
-{
-        // return;
-        $output = $data;
-        if (is_array($output))
-                $output = implode(',', $output);
-
-        echo "<script>console.log('PHP: " . $output . "' );</script>";
+try {
+        $pdo = new PDO($dsn, $username, $password, $options);
+        debug_to_console("Connected to $dbname database.");
+} catch (\PDOException $e) {
+        debug_to_console($e->getMessage());
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
