@@ -87,7 +87,10 @@ function onSectionLoaded(name) {
         onSelfEducationSectionLoaded();
 }
 function onPortfolioSectionLoaded() {
-    loadLazyImagesInSection(Section[Section.portfolio]);
+    // loadLazyImagesInSection(Section[Section.portfolio]);
+    if (visitedSections.includes(Section[Section.portfolio])) {
+        setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
+    }
     portfolioIsotop();
     portfolioPopup();
     setupPortfolioTypeTS();
@@ -110,11 +113,13 @@ function setupPortfolioTypeTS() {
     }
 }
 function onSelfEducationSectionLoaded() {
-    loadLazyImagesInSection(Section[Section.selfEducation]);
-    if (visitedSections.includes(Section[Section.selfEducation]))
+    // loadLazyImagesInSection(Section[Section.selfEducation]);
+    if (visitedSections.includes(Section[Section.selfEducation])) {
+        setupObserver(`#${Section[Section.selfEducation]} img.lazy`, onLazyImageIntersecting);
         setupObserver('.skillbar', onProgressBarIntersecting);
+    }
 }
-//  CONSIDER: setup lazy loading for the section instead if many images
+//setup lazy loading for the section instead if  there are many images
 function loadLazyImagesInSection(sectionId) {
     document.querySelectorAll(`#${sectionId} img.lazy`).forEach((element, index) => {
         loadLazyImage(element);
@@ -147,21 +152,6 @@ function setupIframeInjectionEvents() {
     });
 }
 // OBSERVERS 
-function setupProgressBarObserver() {
-    const barObserver = new IntersectionObserver((entries, barObserverInit) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const skilbar = entry.target;
-                console.log($(skilbar).attr('data-percent'));
-                barObserverInit.unobserve(skilbar);
-            }
-        });
-    });
-    const skillbars = document.querySelectorAll('.skillbar');
-    skillbars.forEach((skillbar) => {
-        barObserver.observe(skillbar);
-    });
-}
 // this has be executed at DOMContentLoaded at the ealieast
 function setupObserver(selectors, callback, once = true) {
     const elementObserver = new IntersectionObserver((entries, elementObserverInit) => {
@@ -174,8 +164,9 @@ function setupObserver(selectors, callback, once = true) {
             }
         });
     });
-    const elements = document.querySelectorAll(selectors);
-    elements.forEach((element) => {
+    const elements = $(selectors); //as NodeListOf<Element>;//document.querySelectorAll(selectors) ;
+    elements.each((index, element) => {
+        // console.log(element.getAttribute('data-src'))
         elementObserver.observe(element);
     });
 }
@@ -191,6 +182,7 @@ function startProgressBarAnimation(bar) {
     }, 2000);
 }
 function loadLazyImage(lazyImage) {
+    // console.log(lazyImage.dataset.src);
     lazyImage.src = lazyImage.dataset.src;
     lazyImage.classList.remove("lazy");
     return lazyImage;
@@ -346,11 +338,13 @@ function pagePilling() {
                     break;
                 case Section[Section.portfolio]:
                     triggerOnFirstTimeVisit(Section.portfolio, () => {
+                        setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
                         loadPortfolioModals();
                     });
                     break;
                 case Section[Section.selfEducation]:
                     triggerOnFirstTimeVisit(Section.selfEducation, () => {
+                        setupObserver(`#${Section[Section.selfEducation]} img.lazy`, onLazyImageIntersecting);
                         setupObserver('.skillbar', onProgressBarIntersecting);
                         loadSelfEducationModals();
                     });
