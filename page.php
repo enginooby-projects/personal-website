@@ -46,11 +46,7 @@
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
         <div id="overlayer"></div><span class="loader"></span>
         <div id="pagepiling" class="pilling-page">
-                <?php
-                include 'sections/social.php';
-                include 'sections/logo.php';
-                include 'sections/hero.php';
-                ?>
+                <?php include 'sections/hero.php'; ?>
 
                 <!-- DYNAMIC LOADING SECTIONS -->
                 <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME"> </section>

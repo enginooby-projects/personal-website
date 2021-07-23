@@ -103,6 +103,7 @@ export class NeuStyle extends Style {
                 return NeuStyle._instance;
         }
 
+        // TODO: implement border size
         distance: number = 3;
         blur: number = 4;
         lightenIntensity: number = 7;

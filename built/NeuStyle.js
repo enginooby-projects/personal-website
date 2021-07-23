@@ -89,6 +89,7 @@ const surfaceSelectors = [
 export class NeuStyle extends Style {
     constructor() {
         super('neu-style');
+        // TODO: implement border size
         this.distance = 3;
         this.blur = 4;
         this.lightenIntensity = 7;

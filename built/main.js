@@ -37,6 +37,8 @@ $(document).ready(function () {
 $window.on("load", (function () {
     // loadPhpToBody("connect-database.php");
     loadPhpToBody("sections/overlay-menu.php", menuToggler);
+    loadPhpToBody("sections/social.php");
+    loadPhpToBody("sections/logo.php");
     for (var section in Section) {
         if (isNaN(Number(section))) {
             tryLoadingSection(section);
