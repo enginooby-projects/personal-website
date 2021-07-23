@@ -1352,15 +1352,71 @@ header {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   font-size: 1.3rem !important;
+  -webkit-animation-name: slide_to_right;
+          animation-name: slide_to_right;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes slide_to_right {
+  from {
+    right: 40px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slide_to_right {
+  from {
+    right: 40px;
+  }
+  to {
+    right: 0;
+  }
 }
 
 .follow-label .line {
   content: "";
   position: absolute;
   top: 50%;
-  right: 0;
-  width: 60px;
   height: 2px;
+  -webkit-animation-name: stretch;
+          animation-name: stretch;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes stretch {
+  from {
+    right: 60px;
+    width: 0;
+  }
+  to {
+    right: 0;
+    width: 60px;
+  }
+}
+
+@keyframes stretch {
+  from {
+    right: 60px;
+    width: 0;
+  }
+  to {
+    right: 0;
+    width: 60px;
+  }
 }
 
 .social i {

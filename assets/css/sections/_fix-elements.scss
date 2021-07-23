@@ -42,15 +42,45 @@ header {
         text-align: right;
         transform: rotate(90deg);
         font-size: 1.3rem !important;
+
+        animation-name: slide_to_right;
+        animation-fill-mode: forwards;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+}
+
+@keyframes slide_to_right {
+        from {
+                right: 40px;
+        }
+
+        to {
+                right: 0;
+        }
 }
 
 .follow-label .line {
         content: "";
         position: absolute;
         top: 50%;
-        right: 0;
-        width: 60px;
         height: 2px;
+        animation-name: stretch;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+        animation-duration: 0.6s;
+        animation-timing-function: ease-in-out;
+}
+
+@keyframes stretch {
+        from {
+                right: 60px;
+                width: 0;
+        }
+
+        to {
+                right: 0;
+                width: 60px;
+        }
 }
 
 .social i {
