@@ -187,6 +187,8 @@ function loadLazyImage(lazyImage) {
     lazyImage.src = lazyImage.dataset.src;
     // lazyImage.classList.remove("lazy");
     lazyImage.classList.add("loaded"); // class for effect on first appear
+    console.log(`${lazyImage.src} loaded`);
+    $(lazyImage).parent().siblings(".cssload-container").remove();
     return lazyImage;
 }
 function fixJqueryPassiveListeners() {

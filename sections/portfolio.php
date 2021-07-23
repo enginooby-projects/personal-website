@@ -109,9 +109,9 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
 
         echo '
           <div class="col-lg-4 portfolio-item ' . $filters . '">
-                                        ' . $loadingIndicatorElement . '
                     <div class="image-border">
-                              <div class="portfolio-item-content cssload-containe" ' . $imgRatioProperty . '>
+                                        ' . $loadingIndicatorElement . '
+                              <div class="portfolio-item-content" ' . $imgRatioProperty . '>
                                         ' . $imageElement . '
                                         ' . $highlightElement . '
                                         ' . $injectedElement . '
