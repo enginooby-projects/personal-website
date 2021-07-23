@@ -4,18 +4,15 @@ export abstract class Style {
         name: string = '';
 
         constructor(name: string) {
-                this.styleSheet = this.getStyleSheet();
+                this.styleSheet = this.createStyleSheet();
                 this.cssRules = this.styleSheet.cssRules || this.styleSheet.rules;
                 this.name = name;
         }
 
-        // CONSIDER: Create new style then append to head
-        private getStyleSheet(): CSSStyleSheet {
-                for (let i = 0; i < document.styleSheets.length; i++) {
-                        let cursheet = document.styleSheets[i];
-                        if (cursheet.title == 'style') return cursheet;
-                }
-                throw new Error('Failed to retrieve style sheet with title "style"!');
+        private createStyleSheet(): CSSStyleSheet {
+                var style = document.createElement("style");
+                document.head.appendChild(style);
+                return style.sheet!;
         }
 
         protected insertEmptyRule = (selectors: string[]): CSSStyleRule => this.cssRules![this.styleSheet!.insertRule(`${this.formatSelectorsArray(selectors)} {}`)] as CSSStyleRule;

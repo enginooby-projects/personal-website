@@ -31,12 +31,11 @@ let stylesWithUpdatedBaseColor: string[] = ['flat-style', 'neu-style', 'glass-st
 
 let styleSheet: CSSStyleSheet;
 let cssRules: CSSRuleList;
-function getStyleSheet(): CSSStyleSheet {
-        for (let i = 0; i < document.styleSheets.length; i++) {
-                let cursheet = document.styleSheets[i];
-                if (cursheet.title == 'style') return cursheet;
-        }
-        throw new Error('Failed to retrieve style sheet with title "style"!');
+
+function createStyleSheet(): CSSStyleSheet {
+        var style = document.createElement("style");
+        document.head.appendChild(style);
+        return style.sheet!;
 }
 
 function insertEmptyRule(selector: string): CSSStyleRule {
@@ -106,8 +105,7 @@ function loadSettingPanel() {
                 initSettingPanel();
                 setupSettingEvents();
                 $squareImg = $(".hero-image .square img");
-                //TOFIX: sometimes fail due to early execution
-                styleSheet = getStyleSheet();
+                styleSheet = createStyleSheet();
                 cssRules = styleSheet.cssRules || styleSheet.rules;
                 new StyleRegistry();
         });

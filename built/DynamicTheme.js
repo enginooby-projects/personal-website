@@ -21,13 +21,10 @@ let stylesWithUpdatedHighlightColor = ['flat-style', 'neu-style', 'glass-style']
 let stylesWithUpdatedBaseColor = ['flat-style', 'neu-style', 'glass-style'];
 let styleSheet;
 let cssRules;
-function getStyleSheet() {
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        let cursheet = document.styleSheets[i];
-        if (cursheet.title == 'style')
-            return cursheet;
-    }
-    throw new Error('Failed to retrieve style sheet with title "style"!');
+function createStyleSheet() {
+    var style = document.createElement("style");
+    document.head.appendChild(style);
+    return style.sheet;
 }
 function insertEmptyRule(selector) {
     return cssRules[styleSheet.insertRule(`${selector} {}`)];
@@ -90,8 +87,7 @@ function loadSettingPanel() {
         initSettingPanel();
         setupSettingEvents();
         $squareImg = $(".hero-image .square img");
-        //TOFIX: sometimes fail due to early execution
-        styleSheet = getStyleSheet();
+        styleSheet = createStyleSheet();
         cssRules = styleSheet.cssRules || styleSheet.rules;
         new StyleRegistry();
     });
