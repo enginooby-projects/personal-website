@@ -64,6 +64,10 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         $buttonElements = "";
         $imgRatioProperty = '';
 
+        $loadingIndicatorElement = '<div class="cssload-container">
+	<div class="cssload-whirlpool"></div>
+</div>';
+
         // $linkIcon = '<lord-icon src="https://cdn.lordicon.com/wjwuvtno.json" trigger="morph"stroke="100" colors="primary:#ffffff,secondary:#08a88a" axis-y="35"></lord-icon>';
         $linkIcon = '<i class="fas fa-link"></i>';
 
@@ -105,8 +109,9 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
 
         echo '
           <div class="col-lg-4 portfolio-item ' . $filters . '">
+                                        ' . $loadingIndicatorElement . '
                     <div class="image-border">
-                              <div class="portfolio-item-content" ' . $imgRatioProperty . '>
+                              <div class="portfolio-item-content cssload-containe" ' . $imgRatioProperty . '>
                                         ' . $imageElement . '
                                         ' . $highlightElement . '
                                         ' . $injectedElement . '
