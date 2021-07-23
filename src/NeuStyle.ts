@@ -3,19 +3,8 @@ import { Style } from './Style.js';
 
 const backgroundSchemeColorSelectors = [
         ".display-content>.container",
-        "  .form-item .form-group",
-        ".segmented-control",
-        ".checkbox label",
-        ".color-pallet",
-        ".portfolio-single .modal-content",
-        ".range-slider__range",
-        ".range-slider__value",
-        ".box-border",
-        ".pill-button",
-        ".pallet-button",
         "::-webkit-scrollbar-track",
         "::-webkit-scrollbar-thumb",
-        "::-webkit-slider-thumb"
 ];
 
 const colorHighlightColorSelectors = [
@@ -36,8 +25,6 @@ const colorMutedBaseColorSelectors = [
 const dropBoxShadowSelectors = [
         //COMMON
         ".toggle .indicator",
-
-        ".theme-skin .pill-button",
         ".button-border",
         ".box-border",
         ".image-border",
@@ -82,11 +69,29 @@ const concaveBoxShadowSelectors = [
         // ".form-group",
         "input[type=range]:focus",
         "::-webkit-slider-thumb:hover",
-        //contact
+        //CONTACT
         ".form-group input",
         ".form-group textarea",
         ".toggle",
 ];
+
+const surfaceSelectors = [
+        ".pill-button",
+        ".pallet-button",
+        ".box-border",
+        ".color-pallet",
+        ".image-border",
+        ".badge-border",
+        ".segmented-control",
+        ".checkbox label",
+        ".blog-intro",
+        "  .form-item .form-group",
+        ".range-slider__range",
+        ".range-slider__value",
+        "::-webkit-slider-thumb",
+        ".portfolio-single .modal-content",
+        "table thead ",
+]
 
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
@@ -107,8 +112,13 @@ export class NeuStyle extends Style {
 
         dropBoxShadow: string = '';
         insetBoxShadow: string = '';
-        concaveBoxShadow: string = '';
+        pressedBoxShadow: string = '';
         thumbScrollbarBoxShadow: string = '';
+
+        //TODO: implement curvature for colorful background
+        // negative: concave - 0: flat - positive: convex
+        surfaceCurvature: number = 0;
+        bgSurface: string = '';
 
         private backgroundSchemeColorRule?: CSSStyleRule;
         private colorHighlightColorRule?: CSSStyleRule;
@@ -117,6 +127,7 @@ export class NeuStyle extends Style {
         private insetBoxShadowRule?: CSSStyleRule;
         private concaveBoxShadowRule?: CSSStyleRule;
         private thumbScrollbarBoxShadowRule?: CSSStyleRule;
+        private surfaceRule?: CSSStyleRule;
 
         // lazy initializations
         getBackgroundSchemeColorRule = () => this.backgroundSchemeColorRule ?? (this.backgroundSchemeColorRule = this.insertEmptyRule(backgroundSchemeColorSelectors));
@@ -126,6 +137,7 @@ export class NeuStyle extends Style {
         getInsetBoxShadowRule = () => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule(insetBoxShadowSelectors));
         getConcaveBoxShadowRule = () => this.concaveBoxShadowRule ?? (this.concaveBoxShadowRule = this.insertEmptyRule(concaveBoxShadowSelectors));
         getThumbScrollbarBoxShadowRule = () => this.thumbScrollbarBoxShadowRule ?? (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb']));
+        getSurfaceRule = () => this.surfaceRule ?? (this.surfaceRule = this.insertEmptyRule(surfaceSelectors));
 
         init() {
                 this.initRangeSliders();
@@ -140,10 +152,12 @@ export class NeuStyle extends Style {
                 $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
                 $('#dark-intensity').attr('value', this.darkenIntensity);
                 $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
+                $('#surface-curvature').attr('value', this.surfaceCurvature);
+                $("#surface-curvature").next('.range-slider__value').html(this.surfaceCurvature.toString());
         }
 
         setupCustomizeEvents(): void {
-                $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
+                $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature").on('input', (event) => {
                         const newValue = (event.target as HTMLInputElement).value;
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
@@ -159,6 +173,11 @@ export class NeuStyle extends Style {
                                 case 'dark-intensity':
                                         this.darkenIntensity = parseInt(newValue);
                                         break;
+                                case 'surface-curvature':
+                                        this.surfaceCurvature = parseInt(newValue);
+                                        this.updateSurface();
+                                        return;
+                                // break;
                         }
                         this.updateBoxShadows();
                 });
@@ -171,6 +190,7 @@ export class NeuStyle extends Style {
         onSchemeColorUpdated(): void {
                 this.getBackgroundSchemeColorRule().style.setProperty('background', DynamicTheme.schemeColor.hex, 'important');
                 this.updateBoxShadows();
+                this.updateSurface();
         }
 
         onBaseColorUpdated(): void {
@@ -182,12 +202,19 @@ export class NeuStyle extends Style {
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
                 this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
                 this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
-                this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
+                this.pressedBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
                 this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
 
                 this.getDropBoxShadowRule().style.setProperty('box-shadow', this.dropBoxShadow, 'important');
                 this.getInsetBoxShadowRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');
-                this.getConcaveBoxShadowRule().style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
+                this.getConcaveBoxShadowRule().style.setProperty('box-shadow', this.pressedBoxShadow, 'important');
                 this.getThumbScrollbarBoxShadowRule().style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
+        }
+
+        private updateSurface() {
+                const leftSurfaceColor = DynamicTheme.schemeColor.getLighten(this.surfaceCurvature);
+                const rightSurfaceColor = DynamicTheme.schemeColor.getDarken(this.surfaceCurvature);
+                this.bgSurface = `linear-gradient(145deg, ${leftSurfaceColor}, ${rightSurfaceColor})`
+                this.getSurfaceRule().style.setProperty('background', this.bgSurface, 'important');
         }
 }

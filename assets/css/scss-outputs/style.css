@@ -2128,10 +2128,6 @@ header {
   }
 }
 
-#selfEducation img {
-  z-index: 99;
-}
-
 .book-item {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -4536,6 +4532,10 @@ table,
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+.neu-style {
+  /* TEXT DROP SHADOW */
+}
+
 .neu-style .button-border,
 .neu-style .box-border,
 .neu-style .image-border,
@@ -4548,7 +4548,6 @@ Init values for dynamic properties to reduce  page load time
 .neu-style table,
 .neu-style table thead,
 .neu-style .range-slider__value,
-.neu-style .theme-skin .pill-button,
 .neu-style .form-group input:focus,
 .neu-style .form-group textarea:focus,
 .neu-style .color-pallet,

@@ -2,19 +2,8 @@ import * as DynamicTheme from './DynamicTheme.js';
 import { Style } from './Style.js';
 const backgroundSchemeColorSelectors = [
     ".display-content>.container",
-    "  .form-item .form-group",
-    ".segmented-control",
-    ".checkbox label",
-    ".color-pallet",
-    ".portfolio-single .modal-content",
-    ".range-slider__range",
-    ".range-slider__value",
-    ".box-border",
-    ".pill-button",
-    ".pallet-button",
     "::-webkit-scrollbar-track",
     "::-webkit-scrollbar-thumb",
-    "::-webkit-slider-thumb"
 ];
 const colorHighlightColorSelectors = [
     ".pill-button",
@@ -32,7 +21,6 @@ const colorMutedBaseColorSelectors = [
 const dropBoxShadowSelectors = [
     //COMMON
     ".toggle .indicator",
-    ".theme-skin .pill-button",
     ".button-border",
     ".box-border",
     ".image-border",
@@ -75,10 +63,27 @@ const concaveBoxShadowSelectors = [
     // ".form-group",
     "input[type=range]:focus",
     "::-webkit-slider-thumb:hover",
-    //contact
+    //CONTACT
     ".form-group input",
     ".form-group textarea",
     ".toggle",
+];
+const surfaceSelectors = [
+    ".pill-button",
+    ".pallet-button",
+    ".box-border",
+    ".color-pallet",
+    ".image-border",
+    ".badge-border",
+    ".segmented-control",
+    ".checkbox label",
+    ".blog-intro",
+    "  .form-item .form-group",
+    ".range-slider__range",
+    ".range-slider__value",
+    "::-webkit-slider-thumb",
+    ".portfolio-single .modal-content",
+    "table thead ",
 ];
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
@@ -92,8 +97,12 @@ export class NeuStyle extends Style {
         this.darkenSchemeColor = "#c2c2c2";
         this.dropBoxShadow = '';
         this.insetBoxShadow = '';
-        this.concaveBoxShadow = '';
+        this.pressedBoxShadow = '';
         this.thumbScrollbarBoxShadow = '';
+        //TODO: implement curvature for colorful background
+        // negative: concave - 0: flat - positive: convex
+        this.surfaceCurvature = 0;
+        this.bgSurface = '';
         // lazy initializations
         this.getBackgroundSchemeColorRule = () => { var _a; return (_a = this.backgroundSchemeColorRule) !== null && _a !== void 0 ? _a : (this.backgroundSchemeColorRule = this.insertEmptyRule(backgroundSchemeColorSelectors)); };
         this.getColorHighlightColorRule = () => { var _a; return (_a = this.colorHighlightColorRule) !== null && _a !== void 0 ? _a : (this.colorHighlightColorRule = this.insertEmptyRule(colorHighlightColorSelectors)); };
@@ -102,6 +111,7 @@ export class NeuStyle extends Style {
         this.getInsetBoxShadowRule = () => { var _a; return (_a = this.insetBoxShadowRule) !== null && _a !== void 0 ? _a : (this.insetBoxShadowRule = this.insertEmptyRule(insetBoxShadowSelectors)); };
         this.getConcaveBoxShadowRule = () => { var _a; return (_a = this.concaveBoxShadowRule) !== null && _a !== void 0 ? _a : (this.concaveBoxShadowRule = this.insertEmptyRule(concaveBoxShadowSelectors)); };
         this.getThumbScrollbarBoxShadowRule = () => { var _a; return (_a = this.thumbScrollbarBoxShadowRule) !== null && _a !== void 0 ? _a : (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb'])); };
+        this.getSurfaceRule = () => { var _a; return (_a = this.surfaceRule) !== null && _a !== void 0 ? _a : (this.surfaceRule = this.insertEmptyRule(surfaceSelectors)); };
     }
     static get Instance() {
         var _a;
@@ -120,9 +130,11 @@ export class NeuStyle extends Style {
         $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
         $('#dark-intensity').attr('value', this.darkenIntensity);
         $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
+        $('#surface-curvature').attr('value', this.surfaceCurvature);
+        $("#surface-curvature").next('.range-slider__value').html(this.surfaceCurvature.toString());
     }
     setupCustomizeEvents() {
-        $("#distance, #blur, #light-intensity, #dark-intensity").on('input', (event) => {
+        $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature").on('input', (event) => {
             const newValue = event.target.value;
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
@@ -138,6 +150,11 @@ export class NeuStyle extends Style {
                 case 'dark-intensity':
                     this.darkenIntensity = parseInt(newValue);
                     break;
+                case 'surface-curvature':
+                    this.surfaceCurvature = parseInt(newValue);
+                    this.updateSurface();
+                    return;
+                // break;
             }
             this.updateBoxShadows();
         });
@@ -148,6 +165,7 @@ export class NeuStyle extends Style {
     onSchemeColorUpdated() {
         this.getBackgroundSchemeColorRule().style.setProperty('background', DynamicTheme.schemeColor.hex, 'important');
         this.updateBoxShadows();
+        this.updateSurface();
     }
     onBaseColorUpdated() {
         this.getColorMutedBaseColorRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
@@ -157,12 +175,18 @@ export class NeuStyle extends Style {
         this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
         this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
-        this.concaveBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
+        this.pressedBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
         this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
         this.getDropBoxShadowRule().style.setProperty('box-shadow', this.dropBoxShadow, 'important');
         this.getInsetBoxShadowRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');
-        this.getConcaveBoxShadowRule().style.setProperty('box-shadow', this.concaveBoxShadow, 'important');
+        this.getConcaveBoxShadowRule().style.setProperty('box-shadow', this.pressedBoxShadow, 'important');
         this.getThumbScrollbarBoxShadowRule().style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
+    }
+    updateSurface() {
+        const leftSurfaceColor = DynamicTheme.schemeColor.getLighten(this.surfaceCurvature);
+        const rightSurfaceColor = DynamicTheme.schemeColor.getDarken(this.surfaceCurvature);
+        this.bgSurface = `linear-gradient(145deg, ${leftSurfaceColor}, ${rightSurfaceColor})`;
+        this.getSurfaceRule().style.setProperty('background', this.bgSurface, 'important');
     }
 }
 //  Singleton Pattern

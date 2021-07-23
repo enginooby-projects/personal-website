@@ -16,14 +16,16 @@ $concaveBoxShadow:"#{$dropBoxShadow},  #{$insetBoxShadow}";
 $thumbScrollbarBoxShadow:inset -#{$distance}px -#{$distance}px #{$blur}px #{$darkenSchemeColor},
 inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
 
-$x:2.5;
-$y:2.5;
-$z:3;
-$textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
-#{$x}px #{$y}px #{$z}px #{$darkenSchemeColor};
+
 
 .neu-style {
 
+        /* TEXT DROP SHADOW */
+        // $x: 2.5;
+        // $y: 2.5;
+        // $z: 3;
+        // $textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
+        // #{$x}px #{$y}px #{$z}px #{$darkenSchemeColor};
         // .title-wrapper {
         //         opacity: 1;
         //         margin-bottom: 2rem;
@@ -52,7 +54,6 @@ $textDropShadow : -#{$x}px -#{$y}px #{$z}px #{$lightenSchemeColor},
         table,
         table thead,
         .range-slider__value,
-        .theme-skin .pill-button,
         .form-group input:focus,
         .form-group textarea:focus,
         .color-pallet,

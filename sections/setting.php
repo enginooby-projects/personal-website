@@ -46,6 +46,13 @@
                                                                 <div class="inner-text"></div>
                                                         </span>
                                                 </div>
+                                                <div class="range-slider">
+                                                        <label for="surface-curvature">Surface curvature</label>
+                                                        <input class="range-slider__range" id="surface-curvature" type="range" min="-20" max="20" step="0.1">
+                                                        <span class="range-slider__value">
+                                                                <div class="inner-text"></div>
+                                                        </span>
+                                                </div>
                                         </div>
                                         <div class="customizer" id="flat-customizer-in-progress">
                                                 <h6 class="text-center mt-0"> Customize</h6>
