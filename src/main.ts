@@ -120,7 +120,7 @@ function onSelfEducationSectionLoaded() {
 //setup lazy loading for the section instead if  there are many images
 function loadLazyImagesInSection(sectionId: string) {
         document.querySelectorAll(`#${sectionId} img.lazy`).forEach((element, index) => {
-                loadLazyImage(element);
+                loadLazyImage(element as HTMLImageElement);
         });
 }
 
@@ -176,7 +176,7 @@ function onProgressBarIntersecting(ele: Element) {
 }
 
 function onLazyImageIntersecting(ele: Element) {
-        loadLazyImage(ele);
+        loadLazyImage(ele as HTMLImageElement);
 }
 
 function startProgressBarAnimation(bar: Element) {
@@ -185,13 +185,16 @@ function startProgressBarAnimation(bar: Element) {
         }, 2000);
 }
 
-//TODO: use  placeholder/indicator in case slow loading
-function loadLazyImage(lazyImage: Element) {
-        lazyImage.src = lazyImage.dataset.src
+function loadLazyImage(lazyImage: HTMLImageElement) {
+        lazyImage.src = lazyImage.dataset.src!;
         // lazyImage.classList.remove("lazy");
         lazyImage.classList.add("loaded"); // class for effect on first appear
-        console.log(`${lazyImage.src} loaded`);
-        $(lazyImage).parent().siblings(".cssload-container").remove();
+        lazyImage.onload = function () { // is fully loaded <=> status = 200 in Network tab
+                setTimeout(function () {
+                        $(lazyImage).parent().siblings(".cssload-container").remove();
+                }, 1000); // add delay to create fade out effect
+        }
+
         return lazyImage;
 }
 
