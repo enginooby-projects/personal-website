@@ -110,6 +110,7 @@ function setupPortfolioTypeTS() {
 
 function onSelfEducationSectionLoaded() {
         // loadLazyImagesInSection(Section[Section.selfEducation]);
+        // this happens in case load page from this section, e.g. enginoobz.com/#selfEducation
         if (visitedSections.includes(Section[Section.selfEducation])) {
                 setupObserver(`#${Section[Section.selfEducation]} img.lazy`, onLazyImageIntersecting);
                 setupObserver('.skillbar', onProgressBarIntersecting);
@@ -187,7 +188,8 @@ function startProgressBarAnimation(bar: Element) {
 function loadLazyImage(lazyImage: Element) {
         // console.log(lazyImage.dataset.src);
         lazyImage.src = lazyImage.dataset.src
-        lazyImage.classList.remove("lazy");
+        // lazyImage.classList.remove("lazy");
+        lazyImage.classList.add("loaded"); // class for effect on first appear
         return lazyImage;
 }
 

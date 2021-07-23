@@ -311,3 +311,13 @@ table.neumorphic td:hover::after {
 .badge-light {
         background-color: white;
 }
+
+/* IMAGE */
+img.lazy {
+        opacity: 0;
+        transition: opacity .8s ease;
+}
+
+img.lazy.loaded {
+        opacity: 1;
+}
