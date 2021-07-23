@@ -188,8 +188,8 @@ function startProgressBarAnimation(bar: Element) {
 function loadLazyImage(lazyImage: HTMLImageElement) {
         lazyImage.src = lazyImage.dataset.src!;
         // lazyImage.classList.remove("lazy");
-        lazyImage.classList.add("loaded"); // class for effect on first appear
         lazyImage.onload = function () { // is fully loaded <=> status = 200 in Network tab
+                lazyImage.classList.add("loaded"); // class for effect on first appear
                 setTimeout(function () {
                         $(lazyImage).parent().siblings(".cssload-container").remove();
                 }, 1000); // add delay to create fade out effect
