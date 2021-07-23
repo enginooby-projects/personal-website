@@ -1,6 +1,13 @@
 /*-------------------------
           PP Nav
 -------------------------*/
+#pp-nav {
+        animation: backInRight;
+        /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 1s;
+        /* don't forget to set a duration! */
+}
+
 #pp-nav li {
         margin: 10px 8px;
         width: 28px;

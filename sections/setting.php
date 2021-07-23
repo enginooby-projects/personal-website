@@ -135,8 +135,8 @@
                         </div>
                 </div>
         </div>
-        <div class="pallet-border hide">
-                <div class="pallet-button">
+        <div class="pallet-border hide animate__animated animate__backInLeft">
+                <div class="pallet-button ">
                         <a href="#" class="cp-toggle"><i class="fa fa-cog fa-spin" aria-label="Toggle setting pannel"></i></a>
                 </div>
         </div>

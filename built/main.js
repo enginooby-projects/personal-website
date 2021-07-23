@@ -182,8 +182,8 @@ function startProgressBarAnimation(bar) {
         width: $(bar).attr('data-percent')
     }, 2000);
 }
+//TODO: use  placeholder/indicator in case slow loading
 function loadLazyImage(lazyImage) {
-    // console.log(lazyImage.dataset.src);
     lazyImage.src = lazyImage.dataset.src;
     // lazyImage.classList.remove("lazy");
     lazyImage.classList.add("loaded"); // class for effect on first appear

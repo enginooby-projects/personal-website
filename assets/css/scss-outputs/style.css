@@ -320,6 +320,15 @@ img.lazy.loaded {
 /*-------------------------
           PP Nav
 -------------------------*/
+#pp-nav {
+  -webkit-animation: backInRight;
+          animation: backInRight;
+  /* referring directly to the animation's @keyframe declaration */
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  /* don't forget to set a duration! */
+}
+
 #pp-nav li {
   margin: 10px 8px;
   width: 28px;
@@ -453,8 +462,7 @@ img.lazy.loaded {
   visibility: visible;
 }
 
-.color-switcher .pallet-border,
-.color-switcher .pallet-border .pallet-button {
+.color-switcher .pallet-border {
   top: 75px;
   z-index: 1000;
   position: fixed;
@@ -466,6 +474,14 @@ img.lazy.loaded {
   width: 40px;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+}
+
+.color-switcher .pallet-border .pallet-button {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  position: fixed;
+  width: 98%;
+  height: 98%;
 }
 
 .cp-toggle {
