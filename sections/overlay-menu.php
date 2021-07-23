@@ -9,7 +9,7 @@
                                                                 <li data-menuanchor="about" class="list-group-item"><a href="#skillset" aria-label="Skillset">Skillset</a></li>
                                                                 <li data-menuanchor="duties" class="list-group-item"><a href="#duties" aria-label="Services">Services</a></li>
                                                                 <li data-menuanchor="portfolio" class="list-group-item"><a href="#portfolio" aria-label="Portfolio">Portfolio</a></li>
-                                                                <li data-menuanchor="client" class="list-group-item"><a href="#self-education" aria-label="Self-education">Self-edu</a></li>
+                                                                <li data-menuanchor="client" class="list-group-item"><a href="#selfEducation" aria-label="selfEducation">Self-edu</a></li>
                                                                 <li data-menuanchor="blog" class="list-group-item"><a href="#blog" aria-label="Blog">Blog</a></li>
                                                         </ul>
                                                         <ul class="list-group contact-info text-left mb-1">

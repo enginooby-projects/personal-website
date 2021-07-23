@@ -1,6 +1,10 @@
 var $window = $(window);
 let $body: JQuery<HTMLElement> = $('body');
-// var $root = $('html, body');
+
+// key must be the same as section ID (from HTML), other same as in PagePiling
+//get name: Section[Section.about]  => about
+// get index: Section.about => 0
+enum Section { about, resume, skillset, duties, portfolio, selfEducation, blog, contact } // not include hero which is already loaded on page load
 
 // after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
@@ -16,32 +20,28 @@ $(document).ready(function () {
         postSidebar();
         validateEmail();
         sendEmail();
-        // setupObserver('img.lazy:not(#portfolio img.lazy):not(#self-education img.lazy)',onLazyImageIntersecting);
+        // setupObserver('img.lazy:not(#portfolio img.lazy):not(#selfEducation img.lazy)',onLazyImageIntersecting);
         $('.owl-item.active .hero-slide').addClass('zoom');
         return;
 });
 
-// setupLazyLoading();
-
-const sections: string[] = ["about", "resume", "skillset", "duties", "portfolio", "self-education", "blog", "contact"];
-
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
-        // console.log('window: onLoad');
-        // setTimeout(function () {
-        // }, 1000);
         // loadPhpToBody("connect-database.php");
         loadPhpToBody("sections/overlay-menu.php", menuToggler);
-        sections.forEach(section => tryLoadingSection(section));
+        for (var section in Section) {
+                if (isNaN(Number(section))) {
+                        tryLoadingSection(section);
+                }
+        }
 }));
 
 document.addEventListener('readystatechange', event => {
         //When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
-        if (event.target?.readyState === "complete") {
+        if ((event.target as any).readyState === "complete") {
                 // console.log('readystatechange = complete ');
                 $("#overlayer").delay(0).fadeOut(500);
                 $(".loader").delay(0).fadeOut(500);
-                portfolioIsotop();
         }
 });
 
@@ -76,25 +76,20 @@ function startLoadingSection(name: string, otherSection?: string) {
 }
 
 function onSectionLoaded(name: string) {
-        switch (name) {
-                case "portfolio":
-                        onPortfolioSectionLoaded();
-                        break;
-                case "self-education":
-                        onSelfEducationSectionLoaded();
-                        break;
-                default:
-                        break;
-        }
+        if (name == Section[Section.portfolio]) onPortfolioSectionLoaded();
+        if (name == Section[Section.selfEducation]) onSelfEducationSectionLoaded();
 }
 
 function onPortfolioSectionLoaded() {
-        loadLazyImagesInSection('#portfolio');
+        loadLazyImagesInSection(Section[Section.portfolio]);
         portfolioIsotop();
+        portfolioPopup();
         setupPortfolioTypeTS();
         // trigger filtering first time to fix overlapping items on mobile screen
         startFilterring($('.portfolio-items'), '*');
 }
+
+
 
 function setupPortfolioTypeTS() {
         var $element = $("#portfolio .typed");
@@ -113,14 +108,14 @@ function setupPortfolioTypeTS() {
 }
 
 function onSelfEducationSectionLoaded() {
-        loadLazyImagesInSection('#self-education');
-        if (visitedSections.includes('self-education')) setupObserver('.skillbar', onProgressBarIntersecting);
+        loadLazyImagesInSection(Section[Section.selfEducation]);
+        if (visitedSections.includes(Section[Section.selfEducation])) setupObserver('.skillbar', onProgressBarIntersecting);
 }
 
 
 //  CONSIDER: setup lazy loading for the section instead if many images
 function loadLazyImagesInSection(sectionId: string) {
-        document.querySelectorAll(`${sectionId} img.lazy`).forEach((element, index) => {
+        document.querySelectorAll(`#${sectionId} img.lazy`).forEach((element, index) => {
                 loadLazyImage(element);
         });
 }
@@ -271,28 +266,20 @@ function clientCarousel() {
         });
 }
 
-
 // DYNAMIC MODALS LOADING
-//CONSIDER: remove this since we already use visitedSections to trigger event only once
-let loadedModalSections: string[] = [];
 function loadResumeModals() {
-        if (loadedModalSections.includes('resume')) return;
         // $('[data-target="#classes"]').one('mouseenter', event => {
         //                 loadPhpToBody('modals/classes.php');
         // });
         loadPhpToBody('modals/classes.php');
-        loadedModalSections.push('resume');
 }
 
 function loadBlogModals() {
-        if (loadedModalSections.includes('blog')) return;
         const modals: string[] = ["blog-single"];
         modals.forEach(modal => loadPhpToBody(`modals/blog/${modal}.php`));
-        loadedModalSections.push('blog');
 }
 
 function loadPortfolioModals() {
-        if (loadedModalSections.includes('portfolio')) return;
         // BUG: If mouseenter happens later (delay) than click ,
         // the modal close button will bind to incorrect event hence not work
         // $('#portfolio [data-toggle="modal"]').one('mouseenter', event => {
@@ -303,14 +290,11 @@ function loadPortfolioModals() {
         const modals: string[] = ["endless-flight", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
         modals.forEach(modal => loadPhpToBody(`modals/portfolio/${modal}.php`));
         setupIframeInjectionEvents();
-        loadedModalSections.push('portfolio');
 }
 
 function loadSelfEducationModals() {
-        if (loadedModalSections.includes('self-education')) return;
         loadPhpToBody('modals/courses.php');
         loadPhpToBody('modals/bookshelf.php');
-        loadedModalSections.push('self-education');
 }
 
 //HELPER
@@ -325,6 +309,14 @@ function loadPhpToBody(filePath: string, callback?: () => void) {
        Page Pilling
 -------------------------*/
 let visitedSections: string[] = [];
+const indexEnumOffset: number = -2; // e.g. Section.about=0 but index of about is 2  according to PagePiling
+
+function triggerOnFirstTimeVisit(section: Section, callback: () => void) {
+        if (visitedSections.includes(Section[section])) return;
+        // console.log(`On first time visit ${Section[section]}`);
+        visitedSections.push(Section[section]);
+        callback();
+}
 
 function pagePilling() {
 
@@ -362,39 +354,28 @@ function pagePilling() {
                 //events
                 onLeave: function (index, nextIndex, direction) {
                         // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
-                        switch (nextIndex) {
-                                case 2:
-                                        // tryLoadingSection("about", "resume");
+                        const incommingSection: string = Section[nextIndex + indexEnumOffset];
+                        switch (incommingSection) {
+                                case Section[Section.resume]:
+                                        triggerOnFirstTimeVisit(Section.resume, () => {
+                                                loadResumeModals();
+                                        });
                                         break;
-                                case 3:
-                                        // tryLoadingSection("resume", "skillset");
-                                        loadResumeModals();
+                                case Section[Section.portfolio]:
+                                        triggerOnFirstTimeVisit(Section.portfolio, () => {
+                                                loadPortfolioModals();
+                                        });
                                         break;
-                                case 4:
-                                        // tryLoadingSection("skillset", "duties");
-                                        break;
-                                case 5:
-                                        // tryLoadingSection("duties", "portfolio");
-                                        break;
-                                case 6:
-                                        // tryLoadingSection("portfolio", "self-education");
-                                        loadPortfolioModals();
-                                        portfolioPopup();
-                                        break;
-                                case 7:
-                                        // tryLoadingSection("self-education", "blog");
-                                        if (!visitedSections.includes('self-education')) {
+                                case Section[Section.selfEducation]:
+                                        triggerOnFirstTimeVisit(Section.selfEducation, () => {
                                                 setupObserver('.skillbar', onProgressBarIntersecting);
                                                 loadSelfEducationModals();
-                                                visitedSections.push('self-education');
-                                        }
+                                        });
                                         break;
-                                case 8:
-                                        // tryLoadingSection("blog", "contact");
-                                        loadBlogModals();
-                                        break;
-                                case 9:
-                                        // tryLoadingSection("contact");
+                                case Section[Section.blog]:
+                                        triggerOnFirstTimeVisit(Section.blog, () => {
+                                                loadBlogModals();
+                                        });
                                         break;
                         }
                 },
