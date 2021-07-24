@@ -28,9 +28,9 @@ $(document).ready(function () {
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
         // loadPhpToBody("connect-database.php");
-        loadPhpToBody("sections/overlay-menu.php", menuToggler);
+        loadPhpToBody("sections/overlay-menu.php", setupOverlayMenuEvents);
         loadPhpToBody("sections/social.php");
-        loadPhpToBody("sections/logo.php");
+        loadPhpToBody("sections/logo.php", setupOverlayMenuEvents);
         for (var section in Section) {
                 if (isNaN(Number(section))) {
                         tryLoadingSection(section);
@@ -52,6 +52,15 @@ $(".to-contact").on('click', function () {
         var $id = $(this).attr('href');
         $('#main').children($id).addClass('active');
 })
+
+function setupOverlayMenuEvents() {
+        $(".overlay-menu-toggler").on("click", function () {
+                $(".overlay-menu").addClass("show");
+        });
+        $(".overlay-menu").on("click", function () {
+                $(this).removeClass("show");
+        });
+}
 
 // DYNAMIC LOADING SECTIONS
 let loadedSections: string[] = [];
@@ -383,23 +392,6 @@ function pagePilling() {
                         // console.log(`PagePiling: afterRender`);
                         addLabelLinkPagePiling();
                 },
-        });
-}
-
-
-
-/*-------------------------
-    MENU TOGGLER
--------------------------*/
-function menuToggler() {
-
-        "use strict";
-
-        $(".overlay-menu-toggler").on("click", function () {
-                $(".overlay-menu").addClass("show");
-        });
-        $(".overlay-menu").on("click", function () {
-                $(this).removeClass("show");
         });
 }
 
