@@ -39,6 +39,7 @@ const dropBoxShadowSelectors = [
         ".range-slider__value",
         ".color-pallet",
         "::-webkit-slider-thumb",
+        ".radio-group .indicator",
         //contact
         ".form-group input:focus",
         ".form-group textarea:focus",
@@ -125,7 +126,7 @@ const surfaceSelectors = [
         "table thead ",
 ]
 
-enum BorderStyle { solid, dotted, dashed, double };
+enum BorderStyle { solid, double, dotted, dashed }; // order must matchs with id from HTML radio
 
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
@@ -168,6 +169,8 @@ export class NeuStyle extends Style {
         private thumbScrollbarBoxShadowRule?: CSSStyleRule;
         private borderRule?: CSSStyleRule;
         private surfaceRule?: CSSStyleRule;
+        private radioIndicatorUncheckedRule?: CSSStyleRule;
+        private radioIndicatorCheckedRule?: CSSStyleRule;
 
         // lazy initializations
         getBackgroundSchemeColorRule = () => this.backgroundSchemeColorRule ?? (this.backgroundSchemeColorRule = this.insertEmptyRule(backgroundSchemeColorSelectors));
@@ -179,6 +182,8 @@ export class NeuStyle extends Style {
         getThumbScrollbarBoxShadowRule = () => this.thumbScrollbarBoxShadowRule ?? (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb']));
         getBorderRule = () => this.borderRule ?? (this.borderRule = this.insertEmptyRule(borderSelectors));
         getSurfaceRule = () => this.surfaceRule ?? (this.surfaceRule = this.insertEmptyRule(surfaceSelectors));
+        getRadioIndicatorUncheckedRule = () => this.radioIndicatorUncheckedRule ?? (this.radioIndicatorUncheckedRule = this.insertEmptyRule(['.radio-group .indicator::before']));
+        getRadioIndicatorCheckedRule = () => this.radioIndicatorCheckedRule ?? (this.radioIndicatorCheckedRule = this.insertEmptyRule(['.radio-group .indicator::after']));
 
         init() {
                 this.initRangeSliders();
@@ -202,7 +207,7 @@ export class NeuStyle extends Style {
         }
 
         setupCustomizeEvents(): void {
-                $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature,#neu-border-width,#neu-border-brightness").on('input', (event) => {
+                $("#neu-customizer ,range-slider input").on('input', (event) => {
                         const newValue = (event.target as HTMLInputElement).value;
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
@@ -233,6 +238,12 @@ export class NeuStyle extends Style {
                         }
                         this.updateBoxShadows();
                 });
+
+                $('#neu-customizer #neu-border-style-options input').on('input', event => {
+                        this.borderStyle = parseInt(event.currentTarget.getAttribute('value')!);
+                        console.log(this.borderStyle);
+                        this.updateBorder();
+                });
         }
 
         onHighlightColorUpdated(): void {
@@ -244,10 +255,14 @@ export class NeuStyle extends Style {
                 this.updateBoxShadows();
                 this.updateSurface();
                 this.updateBorder();
+                this.updateRadio();
         }
 
         onBaseColorUpdated(): void {
                 this.getColorMutedBaseColorRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+                $('.radio-group label .text').each((index, element) => {
+                        element.style.borderColor = DynamicTheme.mutedBaseColor;
+                });
         }
 
         private updateBoxShadows() {
@@ -275,5 +290,13 @@ export class NeuStyle extends Style {
                 const borderColor: string = DynamicTheme.schemeColor.getLighten(this.borderBrightness);
                 const borderStyle: string = `${this.borderWidth}px ${BorderStyle[this.borderStyle]} ${borderColor}`;
                 this.getBorderRule().style.setProperty('border', borderStyle);
+        }
+
+        private updateRadio() {
+                //TODO: Variablize
+                const checkBoxShadow = `-4px -2px 4px 0px ${this.lightenSchemeColor}, 4px 2px 8px 0px ${this.darkenSchemeColor}`
+                const uncheckBoxShadow = `-4px -2px 4px 0px ${this.darkenSchemeColor}, 4px 2px 8px 0px ${this.lightenSchemeColor}`
+                this.getRadioIndicatorCheckedRule().style.setProperty('box-shadow', checkBoxShadow, 'important');
+                this.getRadioIndicatorUncheckedRule().style.setProperty('box-shadow', uncheckBoxShadow, 'important');
         }
 }

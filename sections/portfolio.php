@@ -330,6 +330,7 @@ function formatLabel($str, $sep = '-')
                                         modalPlay: 'guess-the-word-play',
                                         codeUrl: 'enginoobz-games/guess-the-word'
                                 );
+                                //TODO: setInterval change style by modify class name of style in the section wrapper
                                 displayPortfolioItem(
                                         label: 'Personal Website',
                                         isInjectedItem: true,

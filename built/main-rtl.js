@@ -9,7 +9,7 @@ $(document).ready(function () {
     bgBackground();
     colorFull();
     borderColor();
-    menuToggler();
+    setupOverlayMenuEvents();
     sliderOwlCarousel();
     clientCarousel();
     typedJS();
@@ -198,7 +198,7 @@ function borderColor() {
 /*-------------------------
     MENU TOGGLER
 -------------------------*/
-function menuToggler() {
+function setupOverlayMenuEvents() {
     "use strict";
     $(".overlay-menu-toggler").on("click", function () {
         $(".overlay-menu").addClass("show");

@@ -14,7 +14,8 @@ export const bgSchemeSelectors = formatString([
         ".blog .blog-image",
         ".blog .blog-item .before",
         "#overlayer",
-        ".toggle .indicator"
+        ".toggle .indicator",
+        ".radio-group .indicator::after"
 ]);
 
 export const bgBaseSelectors = formatString([
@@ -33,13 +34,18 @@ export const colorHighlightSelectors = formatString([
         ".social a i:hover",
         ".list-inline.socials li a i:hover",
         ".overlay-menu-toggler:hover",
-        " #myMenu li a:hover"
+        " #myMenu li a:hover",
+        // COMMON
+        ".radio-group .label:hover .text"
 ]);
 
 export const colorBaseSelectors = formatString([
         "body",
         ".logo",
         ".color-switcher .pallet-border i",
+        ".color-pallet-content p",
+        ".range-slider label",
+        "#colour-panel label ",
         ".follow-label",
         ".social a i",
         ".blog-content h6 a",
@@ -59,14 +65,13 @@ export const colorMutedBaseSelectors = formatString([
         ".hero-content p",
         ".title-wrapper span",
         ".form-control",
-        ".range-slider label",
         ".range-slider__value",
-        "#colour-panel label ",
-        ".color-pallet-content p",
         "::placeholder",
         // ".form-control::placeholder",         /* Chrome, Firefox, Opera, Safari 10.1+ */
         // ".form-control:-ms-input-placeholder",         /* Internet Explorer 10-11 */
         // ".form-control::-ms-input-placeholder"         /* Microsoft Edge */
+        //COMMON
+        ".radio-group .label",
 ]);
 
 export const borderRadiusSelectors = formatString([
@@ -103,7 +108,6 @@ export const borderRadiusSelectors = formatString([
         ".range-slider__value",
         "::-webkit-scrollbar-track",
         "::-webkit-scrollbar-thumb",
-
         " .pallet-button",
         ".badge",
         "table",
@@ -112,6 +116,7 @@ export const borderRadiusSelectors = formatString([
         ".checkbox label",
         ".toggle",
         ".toggle .indicator",
+        ".radio-group .text",
 
         // SETTING
         ".color-switcher .color-pallet",

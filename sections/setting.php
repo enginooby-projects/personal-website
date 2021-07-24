@@ -58,28 +58,28 @@
                                                         <p class="radio-title">Border style</p>
                                                         <div class="radio-group">
                                                                 <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="solid-border" value="solid-border">
+                                                                        <input class="state" type="radio" name="app" id="solid-border" value="0">
                                                                         <label class="label" for="solid-border">
                                                                                 <div class="indicator"></div>
                                                                                 <span class="text"></span>
                                                                         </label>
                                                                 </div>
                                                                 <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="double-border" value="double-border">
+                                                                        <input class="state" type="radio" name="app" id="double-border" value="1">
                                                                         <label class="label" for="double-border">
                                                                                 <div class="indicator"></div>
                                                                                 <span class="text"></span>
                                                                         </label>
                                                                 </div>
                                                                 <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="dotted-border" value="dotted-border">
+                                                                        <input class="state" type="radio" name="app" id="dotted-border" value="2">
                                                                         <label class="label" for="dotted-border">
                                                                                 <div class="indicator"></div>
                                                                                 <span class="text"></span>
                                                                         </label>
                                                                 </div>
                                                                 <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="dashed-border" value="dashed-border">
+                                                                        <input class="state" type="radio" name="app" id="dashed-border" value="3">
                                                                         <label class="label" for="dashed-border">
                                                                                 <div class="indicator"></div>
                                                                                 <span class="text"></span>

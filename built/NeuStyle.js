@@ -35,6 +35,7 @@ const dropBoxShadowSelectors = [
     ".range-slider__value",
     ".color-pallet",
     "::-webkit-slider-thumb",
+    ".radio-group .indicator",
     //contact
     ".form-group input:focus",
     ".form-group textarea:focus",
@@ -116,11 +117,11 @@ const surfaceSelectors = [
 var BorderStyle;
 (function (BorderStyle) {
     BorderStyle[BorderStyle["solid"] = 0] = "solid";
-    BorderStyle[BorderStyle["dotted"] = 1] = "dotted";
-    BorderStyle[BorderStyle["dashed"] = 2] = "dashed";
-    BorderStyle[BorderStyle["double"] = 3] = "double";
+    BorderStyle[BorderStyle["double"] = 1] = "double";
+    BorderStyle[BorderStyle["dotted"] = 2] = "dotted";
+    BorderStyle[BorderStyle["dashed"] = 3] = "dashed";
 })(BorderStyle || (BorderStyle = {}));
-;
+; // order must matchs with id from HTML radio
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
     constructor() {
@@ -153,6 +154,8 @@ export class NeuStyle extends Style {
         this.getThumbScrollbarBoxShadowRule = () => { var _a; return (_a = this.thumbScrollbarBoxShadowRule) !== null && _a !== void 0 ? _a : (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb'])); };
         this.getBorderRule = () => { var _a; return (_a = this.borderRule) !== null && _a !== void 0 ? _a : (this.borderRule = this.insertEmptyRule(borderSelectors)); };
         this.getSurfaceRule = () => { var _a; return (_a = this.surfaceRule) !== null && _a !== void 0 ? _a : (this.surfaceRule = this.insertEmptyRule(surfaceSelectors)); };
+        this.getRadioIndicatorUncheckedRule = () => { var _a; return (_a = this.radioIndicatorUncheckedRule) !== null && _a !== void 0 ? _a : (this.radioIndicatorUncheckedRule = this.insertEmptyRule(['.radio-group .indicator::before'])); };
+        this.getRadioIndicatorCheckedRule = () => { var _a; return (_a = this.radioIndicatorCheckedRule) !== null && _a !== void 0 ? _a : (this.radioIndicatorCheckedRule = this.insertEmptyRule(['.radio-group .indicator::after'])); };
     }
     static get Instance() {
         var _a;
@@ -178,7 +181,7 @@ export class NeuStyle extends Style {
         $slider.next('.range-slider__value').html(value.toString());
     }
     setupCustomizeEvents() {
-        $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature,#neu-border-width,#neu-border-brightness").on('input', (event) => {
+        $("#neu-customizer ,range-slider input").on('input', (event) => {
             const newValue = event.target.value;
             $("#" + event.target.id).next('.range-slider__value').text(newValue);
             switch (event.target.id) {
@@ -209,6 +212,11 @@ export class NeuStyle extends Style {
             }
             this.updateBoxShadows();
         });
+        $('#neu-customizer #neu-border-style-options input').on('input', event => {
+            this.borderStyle = parseInt(event.currentTarget.getAttribute('value'));
+            console.log(this.borderStyle);
+            this.updateBorder();
+        });
     }
     onHighlightColorUpdated() {
         this.getColorHighlightColorRule().style.setProperty('color', DynamicTheme.highlightColor.hex, 'important');
@@ -218,9 +226,13 @@ export class NeuStyle extends Style {
         this.updateBoxShadows();
         this.updateSurface();
         this.updateBorder();
+        this.updateRadio();
     }
     onBaseColorUpdated() {
         this.getColorMutedBaseColorRule().style.setProperty('color', DynamicTheme.mutedBaseColor, 'important');
+        $('.radio-group label .text').each((index, element) => {
+            element.style.borderColor = DynamicTheme.mutedBaseColor;
+        });
     }
     updateBoxShadows() {
         this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
@@ -244,6 +256,13 @@ export class NeuStyle extends Style {
         const borderColor = DynamicTheme.schemeColor.getLighten(this.borderBrightness);
         const borderStyle = `${this.borderWidth}px ${BorderStyle[this.borderStyle]} ${borderColor}`;
         this.getBorderRule().style.setProperty('border', borderStyle);
+    }
+    updateRadio() {
+        //TODO: Variablize
+        const checkBoxShadow = `-4px -2px 4px 0px ${this.lightenSchemeColor}, 4px 2px 8px 0px ${this.darkenSchemeColor}`;
+        const uncheckBoxShadow = `-4px -2px 4px 0px ${this.darkenSchemeColor}, 4px 2px 8px 0px ${this.lightenSchemeColor}`;
+        this.getRadioIndicatorCheckedRule().style.setProperty('box-shadow', checkBoxShadow, 'important');
+        this.getRadioIndicatorUncheckedRule().style.setProperty('box-shadow', uncheckBoxShadow, 'important');
     }
 }
 //  Singleton Pattern
