@@ -88,6 +88,8 @@ const borderSelectors = [
         ".range-slider__range",
         ".range-slider__value",
         "::-webkit-slider-thumb",
+        // "::-webkit-scrollbar-track",
+        // "::-webkit-scrollbar-thumb",
 
         // PORTFOLIO
         ".segmented-control", //TODO: set max limit
@@ -150,7 +152,7 @@ export class NeuStyle extends Style {
         borderWidth: number = 0;
         borderBrightness: number = -6.9;
         // TODO: implement border style
-        borderStyle: BorderStyle = BorderStyle.solid;
+        borderStyle: BorderStyle = BorderStyle.double;
 
         //TODO: implement curvature for colorful background
         // negative: concave - 0: flat - positive: convex

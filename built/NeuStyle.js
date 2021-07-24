@@ -81,6 +81,8 @@ const borderSelectors = [
     ".range-slider__range",
     ".range-slider__value",
     "::-webkit-slider-thumb",
+    // "::-webkit-scrollbar-track",
+    // "::-webkit-scrollbar-thumb",
     // PORTFOLIO
     ".segmented-control",
     ".radio-selection",
@@ -136,7 +138,7 @@ export class NeuStyle extends Style {
         this.borderWidth = 0;
         this.borderBrightness = -6.9;
         // TODO: implement border style
-        this.borderStyle = BorderStyle.solid;
+        this.borderStyle = BorderStyle.double;
         //TODO: implement curvature for colorful background
         // negative: concave - 0: flat - positive: convex
         this.surfaceCurvature = 0;

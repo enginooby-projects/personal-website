@@ -93,6 +93,8 @@ export const borderRadiusSelectors = formatString([
     ".image-border img:not(.personal-image img)",
     ".range-slider__range",
     ".range-slider__value",
+    "::-webkit-scrollbar-track",
+    "::-webkit-scrollbar-thumb",
     " .pallet-button",
     ".badge",
     "table",
@@ -119,8 +121,6 @@ export const borderRadiusSelectors = formatString([
     ".display-content>.container",
     ".testimonial .owl-carousel .owl-dot span",
     ".skill-item",
-    "::-webkit-scrollbar-track",
-    "::-webkit-scrollbar-thumb",
 ]);
 //HELPER
 function formatString(selectorsArray) {

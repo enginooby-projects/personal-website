@@ -18,7 +18,7 @@
                         <div class="scrollable ">
                                 <div id="customizer-panel">
                                         <div class="customizer" id="neu-customizer">
-                                                <h6 class="text-center mt-0"> Customize</h6>
+                                                <h6 class="text-center mt-0">Neu Customizer</h6>
                                                 <div class="range-slider">
                                                         <label for="distance">Distance</label>
                                                         <input class="range-slider__range" id="distance" type="range" min="0" max="20" step="0.1">
@@ -48,6 +48,46 @@
                                                         </span>
                                                 </div>
                                                 <div class="range-slider">
+                                                        <label for="surface-curvature">Surface curvature</label>
+                                                        <input class="range-slider__range" id="surface-curvature" type="range" min="-20" max="20" step="0.1">
+                                                        <span class="range-slider__value">
+                                                                <div class="inner-text"></div>
+                                                        </span>
+                                                </div>
+                                                <div id="neu-border-style-options" class="">
+                                                        <p class="radio-title">Border style</p>
+                                                        <div class="radio-group">
+                                                                <div class="radio-button-wrapper">
+                                                                        <input class="state" type="radio" name="app" id="solid-border" value="solid-border">
+                                                                        <label class="label" for="solid-border">
+                                                                                <div class="indicator"></div>
+                                                                                <span class="text"></span>
+                                                                        </label>
+                                                                </div>
+                                                                <div class="radio-button-wrapper">
+                                                                        <input class="state" type="radio" name="app" id="double-border" value="double-border">
+                                                                        <label class="label" for="double-border">
+                                                                                <div class="indicator"></div>
+                                                                                <span class="text"></span>
+                                                                        </label>
+                                                                </div>
+                                                                <div class="radio-button-wrapper">
+                                                                        <input class="state" type="radio" name="app" id="dotted-border" value="dotted-border">
+                                                                        <label class="label" for="dotted-border">
+                                                                                <div class="indicator"></div>
+                                                                                <span class="text"></span>
+                                                                        </label>
+                                                                </div>
+                                                                <div class="radio-button-wrapper">
+                                                                        <input class="state" type="radio" name="app" id="dashed-border" value="dashed-border">
+                                                                        <label class="label" for="dashed-border">
+                                                                                <div class="indicator"></div>
+                                                                                <span class="text"></span>
+                                                                        </label>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="range-slider">
                                                         <label for="neu-border-width">Border width</label>
                                                         <input class="range-slider__range" id="neu-border-width" type="range" min="0" max="10" step="0.1">
                                                         <span class="range-slider__value">
@@ -61,20 +101,12 @@
                                                                 <div class="inner-text"></div>
                                                         </span>
                                                 </div>
-                                                <!-- TODO: Implement border style -->
-                                                <div class="range-slider">
-                                                        <label for="surface-curvature">Surface curvature</label>
-                                                        <input class="range-slider__range" id="surface-curvature" type="range" min="-20" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
                                         </div>
                                         <div class="customizer" id="flat-customizer-in-progress">
-                                                <h6 class="text-center mt-0"> Customize</h6>
+                                                <h6 class="text-center mt-0"> Flat Customizer</h6>
                                         </div>
                                         <div class="customizer" id="glass-customizer">
-                                                <h6 class="text-center mt-0"> Customize</h6>
+                                                <h6 class="text-center mt-0"> Glass Customizer</h6>
                                                 <div class="range-slider">
                                                         <label for="glass-transparency">Transparency</label>
                                                         <input class="range-slider__range" id="glass-transparency" type="range" min="0" max="1" step="0.1">
