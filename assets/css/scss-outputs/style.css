@@ -4191,6 +4191,11 @@ header {
   width: 11px;
 }
 
+.neu-style .toggle .indicator {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
 .glass-style #glass-customizer {
   display: block !important;
 }

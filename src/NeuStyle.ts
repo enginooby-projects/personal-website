@@ -75,6 +75,36 @@ const concaveBoxShadowSelectors = [
         ".toggle",
 ];
 
+const borderSelectors = [
+        //COMMON
+        ".pill-button",
+        ".box-border",
+        ".color-switcher .color-pallet",
+        " .pallet-button",
+        ".image-border",
+        "table",
+        ".toggle",
+        ".toggle .indicator",
+        ".range-slider__range",
+        ".range-slider__value",
+        "::-webkit-slider-thumb",
+
+        // PORTFOLIO
+        ".segmented-control", //TODO: set max limit
+        ".radio-selection", //TODO: set max limit
+        ".checkbox label", //TODO: set max limit
+
+        // BLOG
+        ".blog .blog-image .after",
+        ".blog .blog-intro ",
+
+        //CONTACT
+        // ".contact .form-item .form-group",
+        // ".contact #message.toast",
+        ".form-group input",
+        ".form-group textarea",
+]
+
 const surfaceSelectors = [
         ".pill-button",
         ".pallet-button",
@@ -93,6 +123,8 @@ const surfaceSelectors = [
         "table thead ",
 ]
 
+enum BorderStyle { solid, dotted, dashed, double };
+
 // REFACTOR: generic singleton
 export class NeuStyle extends Style {
         //  Singleton Pattern
@@ -103,11 +135,10 @@ export class NeuStyle extends Style {
                 return NeuStyle._instance;
         }
 
-        // TODO: implement border size
         distance: number = 3;
         blur: number = 4;
-        lightenIntensity: number = 7;
-        darkenIntensity: number = 7;
+        lightenIntensity: number = 6.9;
+        darkenIntensity: number = 6.9;
         lightenSchemeColor: string = "#e6e6e6";
         darkenSchemeColor: string = "#c2c2c2";
 
@@ -115,6 +146,11 @@ export class NeuStyle extends Style {
         insetBoxShadow: string = '';
         pressedBoxShadow: string = '';
         thumbScrollbarBoxShadow: string = '';
+
+        borderWidth: number = 0;
+        borderBrightness: number = -6.9;
+        // TODO: implement border style
+        borderStyle: BorderStyle = BorderStyle.solid;
 
         //TODO: implement curvature for colorful background
         // negative: concave - 0: flat - positive: convex
@@ -128,6 +164,7 @@ export class NeuStyle extends Style {
         private insetBoxShadowRule?: CSSStyleRule;
         private concaveBoxShadowRule?: CSSStyleRule;
         private thumbScrollbarBoxShadowRule?: CSSStyleRule;
+        private borderRule?: CSSStyleRule;
         private surfaceRule?: CSSStyleRule;
 
         // lazy initializations
@@ -138,27 +175,32 @@ export class NeuStyle extends Style {
         getInsetBoxShadowRule = () => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule(insetBoxShadowSelectors));
         getConcaveBoxShadowRule = () => this.concaveBoxShadowRule ?? (this.concaveBoxShadowRule = this.insertEmptyRule(concaveBoxShadowSelectors));
         getThumbScrollbarBoxShadowRule = () => this.thumbScrollbarBoxShadowRule ?? (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb']));
+        getBorderRule = () => this.borderRule ?? (this.borderRule = this.insertEmptyRule(borderSelectors));
         getSurfaceRule = () => this.surfaceRule ?? (this.surfaceRule = this.insertEmptyRule(surfaceSelectors));
 
         init() {
                 this.initRangeSliders();
         }
 
-        initRangeSliders() {
-                $('#distance').attr('value', this.distance);
-                $("#distance").next('.range-slider__value').html(this.distance.toString());
-                $('#blur').attr('value', this.blur);
-                $("#blur").next('.range-slider__value').html(this.blur.toString());
-                $('#light-intensity').attr('value', this.lightenIntensity);
-                $("#light-intensity").next('.range-slider__value').html(this.lightenIntensity.toString());
-                $('#dark-intensity').attr('value', this.darkenIntensity);
-                $("#dark-intensity").next('.range-slider__value').html(this.darkenIntensity.toString());
-                $('#surface-curvature').attr('value', this.surfaceCurvature);
-                $("#surface-curvature").next('.range-slider__value').html(this.surfaceCurvature.toString());
+        private initRangeSliders() {
+                this.initRangeSlider('#distance', this.distance);
+                this.initRangeSlider('#blur', this.blur);
+                this.initRangeSlider('#light-intensity', this.lightenIntensity);
+                this.initRangeSlider('#dark-intensity', this.darkenIntensity);
+                this.initRangeSlider('#neu-border-width', this.borderWidth);
+                this.initRangeSlider('#neu-border-brightness', this.borderBrightness);
+                this.initRangeSlider('#surface-curvature', this.surfaceCurvature);
+        }
+
+        //HELPER
+        initRangeSlider(selector: string, value: number) {
+                const $slider = $(selector);
+                $slider.attr('value', value);
+                $slider.next('.range-slider__value').html(value.toString());
         }
 
         setupCustomizeEvents(): void {
-                $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature").on('input', (event) => {
+                $("#distance, #blur, #light-intensity, #dark-intensity, #surface-curvature,#neu-border-width,#neu-border-brightness").on('input', (event) => {
                         const newValue = (event.target as HTMLInputElement).value;
                         $("#" + event.target.id).next('.range-slider__value').text(newValue);
                         switch (event.target.id) {
@@ -174,11 +216,18 @@ export class NeuStyle extends Style {
                                 case 'dark-intensity':
                                         this.darkenIntensity = parseInt(newValue);
                                         break;
+                                case 'neu-border-width':
+                                        this.borderWidth = parseInt(newValue);
+                                        this.updateBorder();
+                                        return;
+                                case 'neu-border-brightness':
+                                        this.borderBrightness = parseInt(newValue);
+                                        this.updateBorder();
+                                        return;
                                 case 'surface-curvature':
                                         this.surfaceCurvature = parseInt(newValue);
                                         this.updateSurface();
                                         return;
-                                // break;
                         }
                         this.updateBoxShadows();
                 });
@@ -192,6 +241,7 @@ export class NeuStyle extends Style {
                 this.getBackgroundSchemeColorRule().style.setProperty('background', DynamicTheme.schemeColor.hex, 'important');
                 this.updateBoxShadows();
                 this.updateSurface();
+                this.updateBorder();
         }
 
         onBaseColorUpdated(): void {
@@ -217,5 +267,11 @@ export class NeuStyle extends Style {
                 const rightSurfaceColor = DynamicTheme.schemeColor.getDarken(this.surfaceCurvature);
                 this.bgSurface = `linear-gradient(145deg, ${leftSurfaceColor}, ${rightSurfaceColor})`
                 this.getSurfaceRule().style.setProperty('background', this.bgSurface, 'important');
+        }
+
+        private updateBorder() {
+                const borderColor: string = DynamicTheme.schemeColor.getLighten(this.borderBrightness);
+                const borderStyle: string = `${this.borderWidth}px ${BorderStyle[this.borderStyle]} ${borderColor}`;
+                this.getBorderRule().style.setProperty('border', borderStyle);
         }
 }

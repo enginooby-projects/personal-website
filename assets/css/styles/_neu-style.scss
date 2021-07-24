@@ -14,4 +14,9 @@
         ::-webkit-scrollbar {
                 width: 11px;
         }
+
+        .toggle .indicator {
+                border-top: none !important;
+                border-bottom: none !important;
+        }
 }
