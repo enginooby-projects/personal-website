@@ -72,6 +72,7 @@ body {
         height: 100vh;
 }
 
+/* TEXT */
 h1,
 h2,
 h3,
@@ -129,6 +130,18 @@ h6,
 h2,
 h2 span {
         font-weight: 700;
+}
+
+p {
+        -ms-word-break: break-all;
+        word-break: break-all;
+        /* Non standard for WebKit */
+        word-break: break-word;
+
+        // insert a hypen before each break
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
 }
 
 .image-caption {
