@@ -15,6 +15,7 @@ export class GlassStyle extends Style {
                 return GlassStyle._instance;
         }
 
+        currentBackground: string = "background-3";
         blur = '2';
         transparency = '0.6';
         borderSize = '1';
@@ -51,8 +52,8 @@ export class GlassStyle extends Style {
 
         init() {
                 this.initRangeSliders();
-                $('section').each((index, element) => {
-                        element.classList.add('background-3');
+                $('section, #personal-website-portfolio .image-border').each((index, element) => {
+                        element.classList.add(this.currentBackground);
                 })
         }
 
@@ -86,22 +87,14 @@ export class GlassStyle extends Style {
                 });
 
                 $('.background-item').on('click', (event) => {
-                        const background: string = event.currentTarget.id;
-                        $('section').each((index, element) => {
-                                this.removeClassesByPrefix(element, 'background');
-                                element.classList.add(background);
+                        const lastBackground: string = this.currentBackground;
+                        this.currentBackground = event.currentTarget.id;
+
+                        $('section, #personal-website-portfolio .image-border').each((index, element) => {
+                                element.classList.remove(lastBackground);
+                                element.classList.add(this.currentBackground);
                         })
                 });
-        }
-
-        //HELPER
-        removeClassesByPrefix(element: HTMLElement, prefix: string) {
-                for (let i = element.classList.length - 1; i >= 0; i--) {
-                        const className = element.classList[i];
-                        if (className.startsWith(prefix)) {
-                                element.classList.remove(className);
-                        }
-                }
         }
 
         updateBlur() {
@@ -133,10 +126,13 @@ export class GlassStyle extends Style {
                         this.getBgColorfull2Rule(),
                         this.getBgColorfull3Rule(),
                 ]);
+
+                // update limit
+                const borderSizeNumber = parseFloat(this.borderSize);
                 //TODO: use Map or Dictionary
-                this.limitBorderSize('.pallet-button', 1.5);
-                this.limitBorderSize('.range-slider__range', 2.5);
-                this.limitBorderSize('.range-slider__value', 4);
+                this.setPropertyWithLimit('.pallet-border', 'border-width', borderSizeNumber, 1.5, 'px');
+                this.setPropertyWithLimit('.range-slider__range', 'border-width', borderSizeNumber, 1.5, 'px');
+                this.setPropertyWithLimit('.range-slider__value', 'border-width', borderSizeNumber, 1.5, 'px');
         }
 
         setToCurrentBorderSize(rules: CSSStyleRule[]) {
@@ -145,8 +141,11 @@ export class GlassStyle extends Style {
         }
 
         //HELPER
-        limitBorderSize(selector: string, limit: number) {
-                document.querySelectorAll(selector).forEach((element) => (element as HTMLElement).style.setProperty('border-width', `${Math.min(limit, parseFloat(this.borderSize))}`, 'important'));
+        setPropertyWithLimit(selector: string, property: string, rawValue: number, limitValue: number, unit: string) {
+                document.querySelectorAll(selector).forEach((element) => {
+                        const borderWidth = Math.min(limitValue, rawValue);
+                        (element as HTMLElement).style.setProperty(property, `${borderWidth}${unit}`, 'important');
+                });
         }
 
         updateTransparency() {

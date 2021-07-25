@@ -7,6 +7,7 @@ import { TinyColor } from './TinyColor.js';
 export class GlassStyle extends Style {
     constructor() {
         super('glass-style');
+        this.currentBackground = "background-3";
         this.blur = '2';
         this.transparency = '0.6';
         this.borderSize = '1';
@@ -34,8 +35,8 @@ export class GlassStyle extends Style {
     }
     init() {
         this.initRangeSliders();
-        $('section').each((index, element) => {
-            element.classList.add('background-3');
+        $('section, #personal-website-portfolio .image-border').each((index, element) => {
+            element.classList.add(this.currentBackground);
         });
     }
     initRangeSliders() {
@@ -66,21 +67,13 @@ export class GlassStyle extends Style {
             }
         });
         $('.background-item').on('click', (event) => {
-            const background = event.currentTarget.id;
-            $('section').each((index, element) => {
-                this.removeClassesByPrefix(element, 'background');
-                element.classList.add(background);
+            const lastBackground = this.currentBackground;
+            this.currentBackground = event.currentTarget.id;
+            $('section, #personal-website-portfolio .image-border').each((index, element) => {
+                element.classList.remove(lastBackground);
+                element.classList.add(this.currentBackground);
             });
         });
-    }
-    //HELPER
-    removeClassesByPrefix(element, prefix) {
-        for (let i = element.classList.length - 1; i >= 0; i--) {
-            const className = element.classList[i];
-            if (className.startsWith(prefix)) {
-                element.classList.remove(className);
-            }
-        }
     }
     updateBlur() {
         this.setToCurrentBlur([
@@ -109,18 +102,23 @@ export class GlassStyle extends Style {
             this.getBgColorfull2Rule(),
             this.getBgColorfull3Rule(),
         ]);
+        // update limit
+        const borderSizeNumber = parseFloat(this.borderSize);
         //TODO: use Map or Dictionary
-        this.limitBorderSize('.pallet-button', 1.5);
-        this.limitBorderSize('.range-slider__range', 2.5);
-        this.limitBorderSize('.range-slider__value', 4);
+        this.setPropertyWithLimit('.pallet-border', 'border-width', borderSizeNumber, 1.5, 'px');
+        this.setPropertyWithLimit('.range-slider__range', 'border-width', borderSizeNumber, 1.5, 'px');
+        this.setPropertyWithLimit('.range-slider__value', 'border-width', borderSizeNumber, 1.5, 'px');
     }
     setToCurrentBorderSize(rules) {
         //TODO: Variablize border properties
         rules.forEach(rule => rule.style.setProperty('border', `${this.borderSize}px solid rgba(209, 213, 219, 0.3)`, 'important'));
     }
     //HELPER
-    limitBorderSize(selector, limit) {
-        document.querySelectorAll(selector).forEach((element) => element.style.setProperty('border-width', `${Math.min(limit, parseFloat(this.borderSize))}`, 'important'));
+    setPropertyWithLimit(selector, property, rawValue, limitValue, unit) {
+        document.querySelectorAll(selector).forEach((element) => {
+            const borderWidth = Math.min(limitValue, rawValue);
+            element.style.setProperty(property, `${borderWidth}${unit}`, 'important');
+        });
     }
     updateTransparency() {
         this.updateTransparencySchemeColor();
