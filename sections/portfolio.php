@@ -88,7 +88,11 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
                 if ($displayFileExtension == 'png' || $displayElement == 'jpg') {
                         $displayElement = " <img class='lazy' data-src=' $displayFileUrl.$displayFileExtension' alt='/' class='img-fluid' width='311' height='232'>"; // placholder dimension for audit, will be overrided by css
                 } else if ($displayFileExtension == 'mp4') {
-                        $displayElement = "<div class='video-container' $displayFileRatioProperty><video autoplay loop muted playsinline src='$displayFileUrl.$displayFileExtension'></video></div>";
+                        $displayElement = "<div class='video-container' $displayFileRatioProperty>
+                                <video autoplay loop muted playsinline class='lazy'>
+                                        <source data-src='$displayFileUrl.$displayFileExtension' type='video/$displayFileExtension'>
+                                </video>
+                        </div>";
                 }
         }
 

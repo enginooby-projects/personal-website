@@ -101,6 +101,7 @@ function onPortfolioSectionLoaded() {
     // loadLazyImagesInSection(Section[Section.portfolio]);
     if (visitedSections.includes(Section[Section.portfolio])) {
         setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
+        setupObserver(`#${Section[Section.portfolio]} video.lazy`, onLazyVideoIntersecting);
     }
     portfolioIsotop();
     portfolioPopup();
@@ -189,6 +190,9 @@ function onProgressBarIntersecting(ele) {
 function onLazyImageIntersecting(ele) {
     loadLazyImage(ele);
 }
+function onLazyVideoIntersecting(ele) {
+    loadLazyVideo(ele);
+}
 function startProgressBarAnimation(bar) {
     $(bar).find('.skillbar-bar').animate({
         width: $(bar).attr('data-percent')
@@ -204,6 +208,25 @@ function loadLazyImage(lazyImage) {
         }, 1000); // add delay to create fade out effect
     };
     return lazyImage;
+}
+function loadLazyVideo(lazyVideo) {
+    for (var source in lazyVideo.children) {
+        var videoSource = lazyVideo.children[source];
+        if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+            videoSource.src = videoSource.dataset.src;
+        }
+    }
+    lazyVideo.load();
+    lazyVideo.addEventListener('loadeddata', (e) => {
+        //Video should now be loaded but we can double check
+        if (lazyVideo.readyState >= 3) {
+            lazyVideo.classList.add("loaded"); // class for effect on first appear
+            setTimeout(function () {
+                $(lazyVideo).parent().parent().siblings(".cssload-container").remove();
+            }, 1000); // add delay to create fade out effect
+        }
+    });
+    return lazyVideo;
 }
 function fixJqueryPassiveListeners() {
     jQuery.event.special.touchstart = {
@@ -383,6 +406,7 @@ function pagePilling() {
                 case Section.portfolio:
                     triggerOnFirstTimeVisit(Section.portfolio, () => {
                         setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
+                        setupObserver(`#${Section[Section.portfolio]} video.lazy`, onLazyVideoIntersecting);
                         loadPortfolioModals();
                         setupPersonalWebsitePortfolioStyleUpdateInterval();
                     });

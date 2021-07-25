@@ -326,11 +326,13 @@ table.neumorphic td:hover::after {
 }
 
 /* IMAGE */
-img.lazy {
+img.lazy,
+video.lazy {
         opacity: 0;
         transition: opacity .8s ease;
 }
 
-img.lazy.loaded {
+img.lazy.loaded,
+video.lazy.loaded {
         opacity: 1;
 }

@@ -96,6 +96,7 @@ function onPortfolioSectionLoaded() {
         // loadLazyImagesInSection(Section[Section.portfolio]);
         if (visitedSections.includes(Section[Section.portfolio])) {
                 setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
+                setupObserver(`#${Section[Section.portfolio]} video.lazy`, onLazyVideoIntersecting);
         }
         portfolioIsotop();
         portfolioPopup();
@@ -192,6 +193,10 @@ function onLazyImageIntersecting(ele: Element) {
         loadLazyImage(ele as HTMLImageElement);
 }
 
+function onLazyVideoIntersecting(ele: Element) {
+        loadLazyVideo(ele as HTMLMediaElement);
+}
+
 function startProgressBarAnimation(bar: Element) {
         $(bar).find('.skillbar-bar').animate({
                 width: $(bar).attr('data-percent')
@@ -209,6 +214,28 @@ function loadLazyImage(lazyImage: HTMLImageElement) {
         }
 
         return lazyImage;
+}
+
+function loadLazyVideo(lazyVideo: HTMLMediaElement) {
+        for (var source in lazyVideo.children) {
+                var videoSource = lazyVideo.children[source] as HTMLSourceElement;
+                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                        videoSource.src = videoSource.dataset.src!;
+                }
+        }
+
+        lazyVideo.load();
+        lazyVideo.addEventListener('loadeddata', (e) => {
+                //Video should now be loaded but we can double check
+                if (lazyVideo.readyState >= 3) {
+                        lazyVideo.classList.add("loaded"); // class for effect on first appear
+                        setTimeout(function () {
+                                $(lazyVideo).parent().parent().siblings(".cssload-container").remove();
+                        }, 1000); // add delay to create fade out effect
+                }
+        });
+
+        return lazyVideo;
 }
 
 function fixJqueryPassiveListeners() {
@@ -400,6 +427,7 @@ function pagePilling() {
                                 case Section.portfolio:
                                         triggerOnFirstTimeVisit(Section.portfolio, () => {
                                                 setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
+                                                setupObserver(`#${Section[Section.portfolio]} video.lazy`, onLazyVideoIntersecting);
                                                 loadPortfolioModals();
                                                 setupPersonalWebsitePortfolioStyleUpdateInterval();
                                         });
