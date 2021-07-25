@@ -41,7 +41,7 @@ export const colorBaseSelectors = formatString([
     ".setting-section .setting-button-border i",
     ".setting-panel-content p",
     ".range-slider label",
-    "#colour-panel label ",
+    "#color-panel label ",
     ".follow-label",
     ".social a i",
     ".blog-content h6 a",

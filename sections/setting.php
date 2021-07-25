@@ -19,42 +19,14 @@
                                 <div id="customizer-panel">
                                         <div class="customizer" id="neu-customizer">
                                                 <h6 class="text-center mt-0">Neu Customizer</h6>
-                                                <div class="range-slider">
-                                                        <label for="distance">Distance</label>
-                                                        <input class="range-slider__range" id="distance" type="range" min="0" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="blur">Blur</label>
-                                                        <input class="range-slider__range" id="blur" type="range" min="0" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="light-intensity">Light intensity</label>
-                                                        <input class="range-slider__range" id="light-intensity" type="range" min="1" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="dark-intensity">Dark intensity</label>
-                                                        <input class="range-slider__range" id="dark-intensity" type="range" min="1" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="surface-curvature">Surface curvature</label>
-                                                        <input class="range-slider__range" id="surface-curvature" type="range" min="-20" max="20" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div id="neu-border-style-options" class="">
+                                                <?php
+                                                rangeSlider('Distance', 'distance', 0, 20);
+                                                rangeSlider('Blur', 'blur', 0, 20);
+                                                rangeSlider('Light intensity', 'light-intensity', 1, 20);
+                                                rangeSlider('Dark intensity', 'dark-intensity', 1, 20);
+                                                rangeSlider('Surface curvature', 'surface-curvature', -20, 20);
+                                                ?>
+                                                <div id="neu-border-style-options">
                                                         <p class="radio-title">Border style</p>
                                                         <div class="radio-group">
                                                                 <div class="radio-button-wrapper">
@@ -87,47 +59,21 @@
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div class="range-slider">
-                                                        <label for="neu-border-width">Border width</label>
-                                                        <input class="range-slider__range" id="neu-border-width" type="range" min="0" max="10" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="neu-border-brightness">Border brightness</label>
-                                                        <input class="range-slider__range" id="neu-border-brightness" type="range" min="-100" max="100" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
+                                                <?php
+                                                rangeSlider('Border width', 'neu-border-width', 0, 10);
+                                                rangeSlider('Border brightness', 'neu-border-brightness', 100, 100);
+                                                ?>
                                         </div>
                                         <div class="customizer" id="flat-customizer-in-progress">
                                                 <h6 class="text-center mt-0"> Flat Customizer</h6>
                                         </div>
                                         <div class="customizer" id="glass-customizer">
                                                 <h6 class="text-center mt-0"> Glass Customizer</h6>
-                                                <div class="range-slider">
-                                                        <label for="glass-transparency">Transparency</label>
-                                                        <input class="range-slider__range" id="glass-transparency" type="range" min="0" max="1" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="glass-blur">Blur</label>
-                                                        <input class="range-slider__range" id="glass-blur" type="range" min="0" max="30" step="0.5">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
-                                                <div class="range-slider">
-                                                        <label for="glass-border-size">Border size</label>
-                                                        <input class="range-slider__range" id="glass-border-size" type="range" min="0.5" max="10" step="0.1">
-                                                        <span class="range-slider__value">
-                                                                <div class="inner-text"></div>
-                                                        </span>
-                                                </div>
+                                                <?php
+                                                rangeSlider('Transparency', 'glass-transparency', 0, 1);
+                                                rangeSlider('Blur', 'glass-blur', 0, 30);
+                                                rangeSlider('Border size', 'glass-border-size', 0, 10);
+                                                ?>
                                                 <div class="background-gallery">
                                                         <p>Background</p>
                                                         <div class="row px-4">
@@ -139,7 +85,7 @@
                                         </div>
                                 </div>
 
-                                <div id="colour-panel">
+                                <div id="color-panel">
                                         <h6 class="text-center mt-3"> Colour</h6>
                                         <div class="row px-4">
                                                 <div class="col-6 p-0">
@@ -169,12 +115,9 @@
 
                                 <div id="border-panel" class="mt-3 mb-3">
                                         <h6 class="text-center "> Border</h6>
-                                        <div class="range-slider">
-                                                <label for="border-radius">Radius</label>
-                                                <input class="range-slider__range" id="border-radius" type="range" min="0" max="50" step="1">
-                                                <span class="range-slider__value">
-                                                </span>
-                                        </div>
+                                        <?php
+                                        rangeSlider('Radius', 'border-radius', 0, 50);
+                                        ?>
                                 </div>
                         </div>
 
@@ -196,3 +139,16 @@
                 </div>
         </div>
 </div>
+
+<?php
+function rangeSlider($label, $id, $min, $max, $step = 0.1)
+{
+        echo "
+        <div class='range-slider'>
+                <label for='$id'>$label</label>
+                <input class='range-slider__range' id='$id' type='range' min='$min' max='$max' step='$step'>
+                <span class='range-slider__value'></span>
+        </div>
+        ";
+}
+?>
