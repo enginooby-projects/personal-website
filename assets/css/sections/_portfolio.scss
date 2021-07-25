@@ -69,17 +69,22 @@ $injectionScale:0.4;
         }
 }
 
+$x:3px;
+$y:5px;
+
 .portfolio-item-content::before {
         content: "";
         position: absolute;
-        top: 15px;
-        right: 15px;
-        bottom: 15px;
-        left: 15px;
+        top: $x;
+        right: $y;
+        bottom: $x;
+        left: $y;
         opacity: 0;
-        transform: scale(0.8);
-        transition: 0.5s all ease;
+        transform: scale(0.5);
+        transition: .7s all ease;
         background-color: rgba(0, 0, 0, 0.479);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
         z-index: 99;
 }
 
@@ -101,7 +106,6 @@ $injectionScale:0.4;
         opacity: 0;
         transition: all 0.5s ease;
         z-index: 100;
-
 }
 
 .img-overlay-content h6 {

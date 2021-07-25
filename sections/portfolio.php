@@ -322,7 +322,8 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Endless Flight',
                                         isGalleryItem: false,
-                                        displayFileRatio: '80/40',
+                                        displayFileExtension: 'mp4',
+                                        displayFileRatio: '768/432',
                                         filters: 'highlight game large web completed',
                                         accessUrl: 'enginoobz.itch.io/endless-flight',
                                         codeUrl: 'enginoobz-games/endless-flight'
