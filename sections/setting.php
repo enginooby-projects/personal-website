@@ -29,34 +29,12 @@
                                                 <div id="neu-border-style-options">
                                                         <p class="radio-title">Border style</p>
                                                         <div class="radio-group">
-                                                                <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="solid-border" value="0">
-                                                                        <label class="label" for="solid-border">
-                                                                                <div class="indicator"></div>
-                                                                                <span class="text"></span>
-                                                                        </label>
-                                                                </div>
-                                                                <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="double-border" value="1">
-                                                                        <label class="label" for="double-border">
-                                                                                <div class="indicator"></div>
-                                                                                <span class="text"></span>
-                                                                        </label>
-                                                                </div>
-                                                                <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="dotted-border" value="2">
-                                                                        <label class="label" for="dotted-border">
-                                                                                <div class="indicator"></div>
-                                                                                <span class="text"></span>
-                                                                        </label>
-                                                                </div>
-                                                                <div class="radio-button-wrapper">
-                                                                        <input class="state" type="radio" name="app" id="dashed-border" value="3">
-                                                                        <label class="label" for="dashed-border">
-                                                                                <div class="indicator"></div>
-                                                                                <span class="text"></span>
-                                                                        </label>
-                                                                </div>
+                                                                <?php
+                                                                radioButton('solid-border', 0);
+                                                                radioButton('double-border', 1);
+                                                                radioButton('dotted-border', 2);
+                                                                radioButton('dashed-border', 3);
+                                                                ?>
                                                         </div>
                                                 </div>
                                                 <?php
@@ -148,6 +126,19 @@ function rangeSlider($label, $id, $min, $max, $step = 0.1)
                 <label for='$id'>$label</label>
                 <input class='range-slider__range' id='$id' type='range' min='$min' max='$max' step='$step'>
                 <span class='range-slider__value'></span>
+        </div>
+        ";
+}
+
+function radioButton($id, $value)
+{
+        echo "
+        <div class='radio-button-wrapper'>
+                <input class='state' type='radio' name='app' id='$id' value='$value'>
+                <label class='label' for='$id'>
+                        <div class='indicator'></div>
+                        <span class='text'></span>
+                </label>
         </div>
         ";
 }
