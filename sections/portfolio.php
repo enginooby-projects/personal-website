@@ -55,15 +55,19 @@ class CodingProject
 }
 
 // space in url = %20
-function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, $isInjectedItem = false, $injectedFile = null, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
+function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtension = 'png', $isGalleryItem = false, $displayFileRatio = null, $isInjectedItem = false, $injectedFile = null, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
 {
         $formattedName = formatLabel($label);
         $highlightElement = getHighlightElement($filters);
         $injectedElement = "";
-        $imageElement = "";
+        $displayElement = "";
         $buttonElements = "";
-        $imgRatioProperty = '';
+        $displayFileRatioProperty = '';
         $id = $formattedName . '-portfolio';
+
+        if (!$displayFileUrl) {
+                $displayFileUrl = 'assets/img/portfolio/' . $formattedName;
+        }
 
         $loadingIndicatorElement = '<div class="cssload-container">
 	<div class="cssload-whirlpool"></div>
@@ -79,9 +83,13 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                 $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
                 $loadingIndicatorElement = '';
         } else {
-                // src="https://placehold.co/' . $imgRatio . '/jpg" 
-                if ($imgRatio) $imgRatioProperty = 'style="aspect-ratio: ' . $imgRatio . '"';
-                $imageElement = ' <img class="lazy" data-src="assets/img/portfolio/' . $formattedName . '.png" alt="/" class="img-fluid" width="311" height="232">'; // dimension for audit, will be overrided by css
+                // src="https://placehold.co/' . $displayFileRatio . '/jpg" 
+                if ($displayFileRatio) $displayFileRatioProperty = 'style="aspect-ratio: ' . $displayFileRatio . '"';
+                if ($displayFileExtension == 'png' || $displayElement == 'jpg') {
+                        $displayElement = " <img class='lazy' data-src=' $displayFileUrl.$displayFileExtension' alt='/' class='img-fluid' width='311' height='232'>"; // placholder dimension for audit, will be overrided by css
+                } else if ($displayFileExtension == 'mp4') {
+                        $displayElement = "<div class='video-container' $displayFileRatioProperty><video autoplay loop muted playsinline src='$displayFileUrl.$displayFileExtension'></video></div>";
+                }
         }
 
         if ($isGalleryItem) $buttonElements .= '
@@ -113,8 +121,8 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
           <div class="-style col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
                     <div class="image-border">
                                         ' . $loadingIndicatorElement . '
-                              <div class="portfolio-item-content" ' . $imgRatioProperty . '>
-                                        ' . $imageElement . '
+                              <div class="portfolio-item-content" ' . $displayFileRatioProperty . '>
+                                        ' . $displayElement . '
                                         ' . $highlightElement . '
                                         ' . $injectedElement . '
                                         <div class="img-overlay text-center">
@@ -310,7 +318,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Endless Flight',
                                         isGalleryItem: false,
-                                        imgRatio: '80/40',
+                                        displayFileRatio: '80/40',
                                         filters: 'highlight game large web completed',
                                         accessUrl: 'enginoobz.itch.io/endless-flight',
                                         codeUrl: 'enginoobz-games/endless-flight'
@@ -318,7 +326,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Generic Tic Tac Toe',
                                         isGalleryItem: false,
-                                        imgRatio: '180/90',
+                                        displayFileRatio: '180/90',
                                         filters: 'highlight game medium web completed networking',
                                         accessUrl: 'enginoobz-threejs.herokuapp.com',
                                         codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
@@ -327,7 +335,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Guess The Word',
                                         isGalleryItem: false,
-                                        imgRatio: '100/74',
+                                        displayFileRatio: '100/74',
                                         filters: 'game small web prototype',
                                         modalPlay: 'guess-the-word-play',
                                         codeUrl: 'enginoobz-games/guess-the-word'
@@ -342,8 +350,9 @@ function formatLabel($str, $sep = '-')
                                 );
                                 displayPortfolioItem(
                                         label: 'Tony The Runner',
+                                        displayFileExtension: 'mp4',
                                         isGalleryItem: false,
-                                        imgRatio: '192/108',
+                                        displayFileRatio: '896/502',
                                         filters: 'game medium web completed',
                                         accessUrl: 'enginoobz.itch.io/tony-the-runner',
                                         codeUrl: 'enginoobz-games/tony-the-runner'
@@ -351,7 +360,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'The Maze',
                                         isGalleryItem: false,
-                                        imgRatio: '192/108',
+                                        displayFileRatio: '192/108',
                                         filters: 'game small web prototype',
                                         modalPlay: 'the-maze-play',
                                         codeUrl: 'enginoobz-university/unity-laboratories'
@@ -359,7 +368,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Breakout',
                                         isGalleryItem: false,
-                                        imgRatio: '143/107',
+                                        displayFileRatio: '143/107',
                                         filters: 'game small web prototype',
                                         modalPlay: 'breakout-play',
                                         codeUrl: 'enginoobz-games/breakout2'
@@ -367,7 +376,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Project Boost',
                                         isGalleryItem: false,
-                                        imgRatio: '148/80',
+                                        displayFileRatio: '148/80',
                                         filters: 'game small web prototype',
                                         modalPlay: 'project-boost-play',
                                         codeUrl: 'enginoobz-games/project-boost'
@@ -375,7 +384,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Racing',
                                         isGalleryItem: false,
-                                        imgRatio: '99/74',
+                                        displayFileRatio: '99/74',
                                         filters: 'game small web prototype',
                                         // modalPlay: 'project-boost-play',
                                         codeUrl: 'enginoobz-games/racing'
@@ -383,7 +392,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Shader Playground',
                                         isGalleryItem: false,
-                                        imgRatio: '153/64',
+                                        displayFileRatio: '153/64',
                                         filters: 'cg small web ongoing',
                                         modalPlay: 'shader-playground-play',
                                         codeUrl: 'enginoobz-games/shader-playground'
@@ -391,7 +400,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Newton Cradle',
                                         isGalleryItem: false,
-                                        imgRatio: '192/90',
+                                        displayFileRatio: '192/90',
                                         filters: 'cg medium web completed',
                                         accessUrl: 'enginoobz-threejs.herokuapp.com',
                                         codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/newton_cradle.ts'
@@ -399,20 +408,20 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'MeowMeow Brand',
                                         isGalleryItem: true,
-                                        imgRatio: '248/350',
+                                        displayFileRatio: '248/350',
                                         filters: 'design completed',
                                 );
                                 displayPortfolioItem(
                                         label: 'Train Model',
                                         isGalleryItem: true,
-                                        imgRatio: '192/107',
+                                        displayFileRatio: '192/107',
                                         filters: 'model web completed',
                                         accessUrl: 'enginoobz.itch.io/unity-laboratories',
                                 );
                                 displayPortfolioItem(
                                         label: 'Multistore Shopping GUI',
                                         isGalleryItem: false,
-                                        imgRatio: '87/68',
+                                        displayFileRatio: '87/68',
                                         filters: 'ecommerce  medium  desktop completed database',
                                         downloadUrl: 'enginoobz.com/download/Multistore%20Shopping%20GUI.rar',
                                         codeUrl: 'enginoobz-projects/multistore-shopping-gui',
@@ -420,7 +429,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'The Dark Diary',
                                         isGalleryItem: false,
-                                        imgRatio: '123/77',
+                                        displayFileRatio: '123/77',
                                         accessUrl: 'enginoobz.com/projects/the-dark-diary',
                                         filters: 'utility small  web database prototype ',
                                         codeUrl: 'enginoobz-projects/the-dark-diary'
@@ -428,14 +437,14 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Weather Checker',
                                         isGalleryItem: false,
-                                        imgRatio: '57/86',
+                                        displayFileRatio: '57/86',
                                         filters: 'utility small  desktop prototype api',
                                         codeUrl: 'enginoobz-projects/weather-checker'
                                 );
                                 displayPortfolioItem(
                                         label: 'Corona Checker',
                                         isGalleryItem: false,
-                                        imgRatio: '192/90',
+                                        displayFileRatio: '192/90',
                                         accessUrl: 'enginoobz.com/projects/corona-checker',
                                         filters: 'utility small  web completed ',
                                         codeUrl: 'enginoobz-projects/corona-checker'
@@ -444,7 +453,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Photo Enhancement',
                                         isGalleryItem: true,
-                                        imgRatio: '297/197',
+                                        displayFileRatio: '297/197',
                                         filters: 'design completed',
                                 );
                                 ?>

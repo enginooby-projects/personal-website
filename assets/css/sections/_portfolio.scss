@@ -59,6 +59,14 @@ $injectionScale:0.4;
         img {
                 height: 100%;
         }
+
+        .video-container {
+                overflow: hidden;
+
+                video {
+                        height: 100%;
+                }
+        }
 }
 
 .portfolio-item-content::before {

@@ -94,6 +94,7 @@ export const borderRadiusSelectors = formatString([
     ".image-border",
     ".box-border",
     ".badge-border",
+    ".video-container",
     ".duties .image-border .box-hover-border",
     ".image-border img:not(.personal-image img)",
     ".range-slider__range",
