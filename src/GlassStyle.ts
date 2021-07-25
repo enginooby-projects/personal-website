@@ -130,7 +130,7 @@ export class GlassStyle extends Style {
                 // update limit
                 const borderSizeNumber = parseFloat(this.borderSize);
                 //TODO: use Map or Dictionary
-                this.setPropertyWithLimit('.pallet-border', 'border-width', borderSizeNumber, 1.5, 'px');
+                this.setPropertyWithLimit('.setting-button-border', 'border-width', borderSizeNumber, 1.5, 'px');
                 this.setPropertyWithLimit('.range-slider__range', 'border-width', borderSizeNumber, 1.5, 'px');
                 this.setPropertyWithLimit('.range-slider__value', 'border-width', borderSizeNumber, 1.5, 'px');
         }

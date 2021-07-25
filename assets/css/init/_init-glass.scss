@@ -37,9 +37,9 @@ $colorfull3A: rgba(196, 6, 57, $transparency);
         .contact .form-item .form-group,
         .segmented-control,
         .checkbox label,
-        .pallet-border,
-        .color-pallet,
-        .pallet-button {
+        .setting-button-border,
+        .setting-panel,
+        .setting-button {
                 background-color: $lightenSchemeColorA;
                 color: $baseColor;
                 @include blur-and-border();

@@ -69,13 +69,13 @@ ul {
   padding-right: 0;
 }
 
-.color-switcher .pallet-border {
+.setting-section .setting-button-border {
   left: inherit;
   right: 0;
   border-radius: 16px 0 0 16px;
 }
 
-.color-switcher .color-pallet {
+.setting-section .setting-panel {
   right: 50px;
   left: inherit;
   border-radius: 16px;

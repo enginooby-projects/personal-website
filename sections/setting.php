@@ -1,17 +1,17 @@
-<div id="color-switcher" class="color-switcher">
-        <div class="text-center color-pallet hide">
-                <div class="color-pallet-content">
+<div id="setting-section" class="setting-section">
+        <div class="text-center setting-panel hide">
+                <div class="setting-panel-content">
                         <ul class="theme-skin mb-1 radio-button-group" id="ui-style-panel">
                                 <h6 class="text-center mt-0 mb-3">UI Style</h6>
                                 <!-- TODO: make buttons  equal widths -->
-                                <div class="button-border" id="flat-skin-button">
-                                        <a href="#" class="button">Flat</a>
+                                <div class="button-border">
+                                        <a href="#" class="button" id="flat-skin-button">Flat</a>
                                 </div>
-                                <div class="button-border" id="neu-skin-button">
-                                        <a href="#" class="button">Neumorphism</a>
+                                <div class="button-border">
+                                        <a href="#" class="button" id="neu-skin-button">Neumorphism</a>
                                 </div>
-                                <div class="button-border" id="glass-skin-button">
-                                        <a href="#" class="button">Glassmorphism</a>
+                                <div class="button-border">
+                                        <a href="#" class="button" id="glass-skin-button">Glassmorphism</a>
                                 </div>
                         </ul>
 
@@ -190,9 +190,9 @@
                         </div>
                 </div>
         </div>
-        <div class="pallet-border hide animate__animated animate__backInLeft">
-                <div class="pallet-button ">
-                        <a href="#" class="cp-toggle"><i class="fa fa-cog fa-spin" aria-label="Toggle setting pannel"></i></a>
+        <div class="setting-button-border hide animate__animated animate__backInLeft">
+                <div class="setting-button ">
+                        <a href="#" class="cp-toggle"><i class="fa fa-cog fa-spin" aria-label="Toggle setting button"></i></a>
                 </div>
         </div>
 </div>

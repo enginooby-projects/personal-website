@@ -16,7 +16,7 @@ export class StyleRegistry {
         // $(GLASS_OPTION_SELECTOR).children('.button').addClass('active');
         this.init();
         changeStyle(NeuStyle.Instance);
-        $(NEU_OPTION_SELECTOR).children('.button').addClass('active');
+        $(NEU_OPTION_SELECTOR).addClass('active');
         // changeStyle(FlatStyle.Instance);
         // $(FLAT_OPTION_SELECTOR).children('.button').addClass('active');
     }

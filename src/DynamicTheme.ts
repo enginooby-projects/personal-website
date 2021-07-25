@@ -119,8 +119,8 @@ function initSettingPanel() {
 }
 
 function setupSettingEvents() {
-        $("#color-switcher .pallet-button").on('click', function () {
-                $("#color-switcher .color-pallet").toggleClass('show');
+        $("#setting-section .setting-button").on('click', function () {
+                $("#setting-section .setting-panel").toggleClass('show');
                 $(this).toggleClass('active');
         });
         $('.theme-skin.radio-button-group .button').on('click', event => {

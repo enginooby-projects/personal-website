@@ -38,8 +38,8 @@ export const colorHighlightSelectors = formatString([
 export const colorBaseSelectors = formatString([
     "body",
     ".logo",
-    ".color-switcher .pallet-border i",
-    ".color-pallet-content p",
+    ".setting-section .setting-button-border i",
+    ".setting-panel-content p",
     ".range-slider label",
     "#colour-panel label ",
     ".follow-label",
@@ -100,7 +100,7 @@ export const borderRadiusSelectors = formatString([
     ".range-slider__value",
     "::-webkit-scrollbar-track",
     "::-webkit-scrollbar-thumb",
-    " .pallet-button",
+    " .setting-button",
     ".badge",
     "table",
     ".segmented-control",
@@ -110,8 +110,8 @@ export const borderRadiusSelectors = formatString([
     ".toggle .indicator",
     ".radio-group .text",
     // SETTING
-    ".color-switcher .color-pallet",
-    ".color-switcher .pallet-border",
+    ".setting-section .setting-panel",
+    ".setting-section .setting-button-border",
     ".color-scheme li a",
     // SELF-EDUCATION
     ".course-item img",

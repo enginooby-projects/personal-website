@@ -15,9 +15,9 @@ export const bgLightenSchemeSelectors = [
         ".contact .form-item .form-group",
         ".segmented-control",
         ".checkbox label",
-        ".pallet-border",
-        ".color-pallet",
-        ".pallet-button",
+        ".setting-button-border",
+        ".setting-panel",
+        ".setting-button",
         "::-webkit-scrollbar-track"
 ];
 

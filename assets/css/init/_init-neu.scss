@@ -46,7 +46,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .box-border,
         .image-border,
         .badge-border,
-        .pallet-border,
+        .setting-button-border,
         .segmented-control,
         .hero-03 .personal-image img,
         .checkbox label,
@@ -56,19 +56,19 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .range-slider__value,
         .form-group input:focus,
         .form-group textarea:focus,
-        .color-pallet,
+        .setting-panel,
         .toggle .indicator {
                 box-shadow: $dropBoxShadow;
         }
 
         .button.active,
-        .pallet-button.active,
+        .setting-button.active,
         .radio-button-group .button.active,
         .custom-scrollbar,
         .blog .blog-image .after,
         .skill-boxes .box-border,
         //setting panel
-        .color-switcher .scrollable,
+        .setting-section .scrollable,
         .timeline-items.box-border,
         .range-slider__range,
         .radio-selection {
@@ -87,8 +87,8 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .display-content>.container,
         .display-content,
         .button,
-        .pallet-button,
-        .color-pallet,
+        .setting-button,
+        .setting-panel,
         .contact .form-item .form-group,
         .segmented-control,
         .checkbox label,
@@ -114,7 +114,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .button:hover,
         .badge-border:hover,
         table>tbody>tr:hover,
-        .pallet-button:hover {
+        .setting-button:hover {
                 box-shadow: $insetBoxShadow;
         }
 
