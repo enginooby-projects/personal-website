@@ -7,9 +7,9 @@ $contrastHighlightColor: #EBEBEB;
 
 .flat-style {
 
-        .pill-button:not(.radio-button-group .pill-button),
-        .radio-button-group .pill-button.active,
-        .radio-button-group .pill-button:not(.active):hover,
+        .button:not(.radio-button-group .button),
+        .radio-button-group .button.active,
+        .radio-button-group .button:not(.active):hover,
         .radio-selection,
         table>tbody>tr:hover {
                 background-color: $highlightColor;
@@ -37,12 +37,12 @@ $contrastHighlightColor: #EBEBEB;
                 color: $baseColor;
         }
 
-        .radio-button-group .pill-button:not(.active) {
+        .radio-button-group .button:not(.active) {
                 color: $highlightColor;
         }
 
         //HOVER
-        .pill-button:hover {
+        .button:hover {
                 background-color: $darkenHighlightColor;
         }
 

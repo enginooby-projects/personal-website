@@ -152,7 +152,7 @@ button {
   padding: 1px;
 }
 
-.pill-button {
+.button {
   border: none;
   padding: 10px 30px;
   -webkit-transition: all 0.3s ease;
@@ -565,7 +565,7 @@ img.lazy.loaded {
   display: inline-block;
 }
 
-.theme-skin .pill-button {
+.theme-skin .button {
   padding: 8px 20px !important;
 }
 
@@ -1270,7 +1270,7 @@ canvas.particles-js-canvas-el {
   margin: 0 auto;
 }
 
-.timeline-content .button-border .pill-button {
+.timeline-content .button-border .button {
   padding: 8px 15px;
   min-width: 150px;
   text-align: center;
@@ -3391,8 +3391,8 @@ header {
           box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
 }
 
-.dark-scheme .pill-button:hover,
-.dark-scheme .pill-button.active {
+.dark-scheme .button:hover,
+.dark-scheme .button.active {
   border: none;
   -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
           box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
@@ -3482,7 +3482,7 @@ header {
   color: #1a1a1a !important;
 }
 
-.mono .pill-button {
+.mono .button {
   color: #3c3c3c;
 }
 
@@ -3571,7 +3571,7 @@ header {
   color: #3c3c3c !important;
 }
 
-.mono.dark-scheme .pill-button {
+.mono.dark-scheme .button {
   color: #fafafa;
 }
 
@@ -3662,13 +3662,13 @@ header {
   background-color: #f8f8f8 !important;
 }
 
-.flat-style.mono .pill-button {
+.flat-style.mono .button {
   background-color: #5f5f5f;
   border: 1px solid #5f5f5f;
   color: #fafafa !important;
 }
 
-.flat-style.mono .pill-button:hover {
+.flat-style.mono .button:hover {
   background-color: #3c3c3c;
   border: 1px solid #3c3c3c;
 }
@@ -3681,14 +3681,14 @@ header {
   border: 1px solid #5f5f5f;
 }
 
-.flat-style.mono .radio-button-group .pill-button {
+.flat-style.mono .radio-button-group .button {
   background-color: transparent;
   border: none;
   color: #3c3c3c !important;
 }
 
-.flat-style.mono .radio-button-group .pill-button.active,
-.flat-style.mono .radio-button-group .pill-button:hover {
+.flat-style.mono .radio-button-group .button.active,
+.flat-style.mono .radio-button-group .button:hover {
   color: #fafafa !important;
   background-color: #3c3c3c;
 }
@@ -3706,13 +3706,13 @@ header {
   background-color: #2c2d30 !important;
 }
 
-.flat-style.dark-scheme.mono .pill-button {
+.flat-style.dark-scheme.mono .button {
   background-color: #fafafa;
   border: 1px solid #fafafa;
   color: #5f5f5f !important;
 }
 
-.flat-style.dark-scheme.mono .pill-button:hover {
+.flat-style.dark-scheme.mono .button:hover {
   background-color: #e3e5d2;
   border: 1px solid #e3e5d2;
 }
@@ -3733,14 +3733,14 @@ header {
   border: 1px solid #fafafa;
 }
 
-.flat-style.dark-scheme.mono .radio-button-group .pill-button {
+.flat-style.dark-scheme.mono .radio-button-group .button {
   background-color: transparent;
   border: none;
   color: #e3e5d2 !important;
 }
 
-.flat-style.dark-scheme.mono .radio-button-group .pill-button.active,
-.flat-style.dark-scheme.mono .radio-button-group .pill-button:hover {
+.flat-style.dark-scheme.mono .radio-button-group .button.active,
+.flat-style.dark-scheme.mono .radio-button-group .button:hover {
   color: #3c3c3c !important;
   background-color: #e3e5d2;
 }
@@ -3908,8 +3908,8 @@ header {
     -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
             box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
   }
-  .pill-button:hover,
-  .pill-button.active {
+  .button:hover,
+  .button.active {
     border: none;
     -webkit-box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
             box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
@@ -3997,7 +3997,7 @@ header {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .flat-style .radio-button-group .pill-button {
+  .flat-style .radio-button-group .button {
     color: #fafafa;
   }
   .mono .social a:hover {
@@ -4006,7 +4006,7 @@ header {
   .mono .text-white {
     color: #3c3c3c !important;
   }
-  .mono .pill-button {
+  .mono .button {
     color: #fafafa;
   }
   .mono .highlight-color {
@@ -4074,12 +4074,12 @@ header {
   .flat-style.mono .section {
     background-color: #2c2d30 !important;
   }
-  .flat-style.mono .pill-button {
+  .flat-style.mono .button {
     background-color: #fafafa;
     border: 1px solid #fafafa;
     color: #5f5f5f !important;
   }
-  .flat-style.mono .pill-button:hover {
+  .flat-style.mono .button:hover {
     background-color: #e3e5d2;
     border: 1px solid #e3e5d2;
   }
@@ -4095,13 +4095,13 @@ header {
   .flat-style.mono .timeline-icon {
     border: 1px solid #fafafa;
   }
-  .flat-style.mono .radio-button-group .pill-button {
+  .flat-style.mono .radio-button-group .button {
     background-color: transparent;
     border: none;
     color: #e3e5d2 !important;
   }
-  .flat-style.mono .radio-button-group .pill-button.active,
-  .flat-style.mono .radio-button-group .pill-button:hover {
+  .flat-style.mono .radio-button-group .button.active,
+  .flat-style.mono .radio-button-group .button:hover {
     color: #3c3c3c !important;
     background-color: #e3e5d2;
   }
@@ -4135,7 +4135,7 @@ header {
   padding: 0;
 }
 
-.flat-style .pill-button,
+.flat-style .button,
 .flat-style .button-border,
 .flat-style .personal-image img,
 .flat-style .box-border,
@@ -4144,7 +4144,7 @@ header {
 .flat-style .checkbox label,
 .flat-style .segmented-control,
 .flat-style .radio-selection,
-.flat-style .radio-button-group .pill-button.active,
+.flat-style .radio-button-group .button.active,
 .flat-style .blog-intro,
 .flat-style .blog .blog-image .after,
 .flat-style .skill-box .skillbar,
@@ -4162,7 +4162,7 @@ header {
           box-shadow: none !important;
 }
 
-.flat-style .radio-button-group .pill-button:not(.active),
+.flat-style .radio-button-group .button:not(.active),
 .flat-style .radio-button-group .button-border,
 .flat-style .testimonial .owl-carousel .testimonial-image {
   background: transparent;
@@ -4176,7 +4176,7 @@ header {
   display: block !important;
 }
 
-.neu-style .pill-button {
+.neu-style .button {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -4258,7 +4258,7 @@ header {
   }
 }
 
-.glass-style .pill-button:hover {
+.glass-style .button:hover {
   -webkit-transition: 0.6s all ease !important;
   transition: 0.6s all ease !important;
   -webkit-transition: 0.6 s all ease !important;
@@ -4275,7 +4275,7 @@ header {
           box-shadow: none !important;
 }
 
-.glass-style .pill-button,
+.glass-style .button,
 .glass-style .hero-03 .personal-image img,
 .glass-style .box-border,
 .glass-style .box-hover-border,
@@ -4283,7 +4283,7 @@ header {
 .glass-style .checkbox label,
 .glass-style .segmented-control,
 .glass-style .radio-selection,
-.glass-style .radio-button-group .pill-button.active,
+.glass-style .radio-button-group .button.active,
 .glass-style .blog-intro,
 .glass-style .blog .blog-image .after,
 .glass-style .skill-box .skillbar,
@@ -4298,8 +4298,8 @@ header {
           box-shadow: none !important;
 }
 
-.glass-style .radio-button-group .pill-button:not(.active),
-.glass-style .theme-skin .pill-button:not(.active) {
+.glass-style .radio-button-group .button:not(.active),
+.glass-style .theme-skin .button:not(.active) {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   background: transparent;
@@ -4354,9 +4354,9 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
 
-.neu-style .pill-button.active,
+.neu-style .button.active,
 .neu-style .pallet-button.active,
-.neu-style .radio-button-group .pill-button.active,
+.neu-style .radio-button-group .button.active,
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
 .neu-style .skill-boxes .box-border,
@@ -4379,7 +4379,7 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .section,
 .neu-style .display-content > .container,
 .neu-style .display-content,
-.neu-style .pill-button,
+.neu-style .button,
 .neu-style .pallet-button,
 .neu-style .color-pallet,
 .neu-style .contact .form-item .form-group,
@@ -4396,13 +4396,13 @@ Init values for dynamic properties to reduce  page load time
   color: #4D4D4D;
 }
 
-.neu-style .pill-button,
+.neu-style .button,
 .neu-style .segmented-control > input:checked + label,
 .neu-style .segmented-control > input:hover + label {
   color: #004b97;
 }
 
-.neu-style .pill-button:hover,
+.neu-style .button:hover,
 .neu-style .badge-border:hover,
 .neu-style table > tbody > tr:hover,
 .neu-style .pallet-button:hover {
@@ -4597,7 +4597,7 @@ body,
 }
 
 .highlight-color,
-.pill-button,
+.button,
 .overlay-menu a.active,
 .timeline-year,
 .portfolio .radio-button-group li a,
@@ -4735,7 +4735,7 @@ body,
 .comments-devider,
 .contact .form-item .form-group,
 .contact #message.toast,
-.pill-button,
+.button,
 .button-border,
 .image-border img,
 .image-border,
@@ -4806,9 +4806,9 @@ Init values for dynamic properties to reduce  page load time
           box-shadow: 3px 3px 4px #c2c2c2, -3px -3px 4px #e6e6e6;
 }
 
-.neu-style .pill-button.active,
+.neu-style .button.active,
 .neu-style .pallet-button.active,
-.neu-style .radio-button-group .pill-button.active,
+.neu-style .radio-button-group .button.active,
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
 .neu-style .skill-boxes .box-border,
@@ -4831,7 +4831,7 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .section,
 .neu-style .display-content > .container,
 .neu-style .display-content,
-.neu-style .pill-button,
+.neu-style .button,
 .neu-style .pallet-button,
 .neu-style .color-pallet,
 .neu-style .contact .form-item .form-group,
@@ -4848,13 +4848,13 @@ Init values for dynamic properties to reduce  page load time
   color: #4D4D4D;
 }
 
-.neu-style .pill-button,
+.neu-style .button,
 .neu-style .segmented-control > input:checked + label,
 .neu-style .segmented-control > input:hover + label {
   color: #004b97;
 }
 
-.neu-style .pill-button:hover,
+.neu-style .button:hover,
 .neu-style .badge-border:hover,
 .neu-style table > tbody > tr:hover,
 .neu-style .pallet-button:hover {
@@ -4905,9 +4905,9 @@ Init values for dynamic properties to reduce  page load time
 /*
 Init values for dynamic properties to reduce  page load time 
 */
-.flat-style .pill-button,
-.flat-style .radio-button-group .pill-button.active,
-.flat-style .radio-button-group .pill-button:not(.active):hover,
+.flat-style .button,
+.flat-style .radio-button-group .button.active,
+.flat-style .radio-button-group .button:not(.active):hover,
 .flat-style .radio-selection,
 .flat-style table > tbody > tr:hover {
   background-color: #004b97;
@@ -4935,11 +4935,11 @@ Init values for dynamic properties to reduce  page load time
   color: black;
 }
 
-.flat-style .radio-button-group .pill-button:not(.active) {
+.flat-style .radio-button-group .button:not(.active) {
   color: #004b97;
 }
 
-.flat-style .pill-button:hover {
+.flat-style .button:hover {
   background-color: #033669;
 }
 
@@ -4989,9 +4989,9 @@ Init values for dynamic properties to reduce  page load time
 /*
 Init values for dynamic properties to reduce  page load time 
 */
-.glass-style .pill-button,
-.glass-style .radio-button-group .pill-button.active,
-.glass-style .radio-button-group .pill-button:not(.active):hover,
+.glass-style .button,
+.glass-style .radio-button-group .button.active,
+.glass-style .radio-button-group .button:not(.active):hover,
 .glass-style .radio-selection,
 .glass-style table > tbody > tr:hover {
   background-color: rgba(0, 75, 155, 0.6);
@@ -5027,7 +5027,7 @@ Init values for dynamic properties to reduce  page load time
   border: 1px solid rgba(209, 213, 219, 0.6);
 }
 
-.glass-style .radio-button-group .pill-button:not(.active) {
+.glass-style .radio-button-group .button:not(.active) {
   color: #004b97;
 }
 
@@ -5043,7 +5043,7 @@ Init values for dynamic properties to reduce  page load time
   background-color: rgba(196, 6, 57, 0.6);
 }
 
-.glass-style .pill-button:hover {
+.glass-style .button:hover {
   background-color: rgba(3, 54, 105, 0.6);
   color: white;
   backdrop-filter: blur(2px);

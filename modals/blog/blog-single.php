@@ -178,7 +178,7 @@
                                                                                                                         </div>
                                                                                                                         <div class="col-sm-12 mt-4 text-left">
                                                                                                                                 <div class="button-border">
-                                                                                                                                        <button type="submit" class="pill-button" id="blog-submit-btn">Submit</button>
+                                                                                                                                        <button type="submit" class="button" id="blog-submit-btn">Submit</button>
                                                                                                                                 </div>
                                                                                                                         </div>
                                                                                                                 </div>

@@ -5,13 +5,13 @@
                                 <h6 class="text-center mt-0 mb-3">UI Style</h6>
                                 <!-- TODO: make buttons  equal widths -->
                                 <div class="button-border" id="flat-skin-button">
-                                        <a href="#" class="pill-button">Flat</a>
+                                        <a href="#" class="button">Flat</a>
                                 </div>
                                 <div class="button-border" id="neu-skin-button">
-                                        <a href="#" class="pill-button">Neumorphism</a>
+                                        <a href="#" class="button">Neumorphism</a>
                                 </div>
                                 <div class="button-border" id="glass-skin-button">
-                                        <a href="#" class="pill-button">Glassmorphism</a>
+                                        <a href="#" class="button">Glassmorphism</a>
                                 </div>
                         </ul>
 

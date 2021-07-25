@@ -18,12 +18,12 @@ const GLASS_OPTION_SELECTOR: string = '#glass-skin-button';
 export class StyleRegistry {
         constructor() {
                 // changeStyle(GlassStyle.Instance);
-                // $(GLASS_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                // $(GLASS_OPTION_SELECTOR).children('.button').addClass('active');
                 this.init();
                 changeStyle(NeuStyle.Instance);
-                $(NEU_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                $(NEU_OPTION_SELECTOR).children('.button').addClass('active');
                 // changeStyle(FlatStyle.Instance);
-                // $(FLAT_OPTION_SELECTOR).children('.pill-button').addClass('active');
+                // $(FLAT_OPTION_SELECTOR).children('.button').addClass('active');
         }
 
         public init() {

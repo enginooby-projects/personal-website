@@ -73,7 +73,7 @@
                                                                 </div>
                                                                 <div class="col-sm-12 mt-4 text-left">
                                                                         <div class="button-border">
-                                                                                <a href="#" class="pill-button" id="submit-btn" onclick="sendEmail()">Send Message</a>
+                                                                                <a href="#" class="button" id="submit-btn" onclick="sendEmail()">Send Message</a>
                                                                         </div>
                                                                         <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
                                                                                 <!-- <div class="toast-body d-inline-block"></div> -->

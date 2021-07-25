@@ -172,34 +172,34 @@ function formatLabel($str, $sep = '-')
                                 <!--   Portfolio Filters   -->
                                 <ul id="radio-button-group" class="list-unstyled list-inline mb-0 col-lg-12 text-center radio-button-group">
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter="*" class="pill-button active"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
+                                                <a href="#" data-filter="*" class="button active"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".highlight" class="pill-button" aria-label="Highlight filter"><i class="fas fa-star fa-xs"></i> Highlight</a>
+                                                <a href="#" data-filter=".highlight" class="button" aria-label="Highlight filter"><i class="fas fa-star fa-xs"></i> Highlight</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".game" class="pill-button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>
+                                                <a href="#" data-filter=".game" class="button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".cg" class="pill-button" aria-label="CG filter"><i class="fas fa-dice-d20 fa-xs"></i> CG</a>
+                                                <a href="#" data-filter=".cg" class="button" aria-label="CG filter"><i class="fas fa-dice-d20 fa-xs"></i> CG</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".model" class="pill-button" aria-label="Model filter"><i class="fas fa-cube fa-xs"></i> Model</a>
+                                                <a href="#" data-filter=".model" class="button" aria-label="Model filter"><i class="fas fa-cube fa-xs"></i> Model</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".design" class="pill-button" aria-label="Design filter"><i class="fas fa-palette fa-xs"></i> Design</a>
+                                                <a href="#" data-filter=".design" class="button" aria-label="Design filter"><i class="fas fa-palette fa-xs"></i> Design</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".utility" class="pill-button" aria-label="Utility filter"><i class="fas fa-tools fa-xs"></i> Utility</a>
+                                                <a href="#" data-filter=".utility" class="button" aria-label="Utility filter"><i class="fas fa-tools fa-xs"></i> Utility</a>
                                         </li>
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".ecommerce" class="pill-button" aria-label="eCommerce filter"><i class="fas fa-shopping-cart fa-xs"></i> eCommerce</a>
+                                                <a href="#" data-filter=".ecommerce" class="button" aria-label="eCommerce filter"><i class="fas fa-shopping-cart fa-xs"></i> eCommerce</a>
                                         </li>
                                         <!-- <li class="button-border list-inline-item">
-                                                        <a href="#" data-filter=".cms" class="pill-button" aria-label="CMS filter"><i class="fas fa-users fa-xs"></i> CMS</a>
+                                                        <a href="#" data-filter=".cms" class="button" aria-label="CMS filter"><i class="fas fa-users fa-xs"></i> CMS</a>
                                                 </li> -->
                                         <li class="button-border list-inline-item">
-                                                <a href="#" data-filter=".academia" class="pill-button" aria-label="Academia filter"><i class="fas fa-graduation-cap fa-xs"></i> Academia</a>
+                                                <a href="#" data-filter=".academia" class="button" aria-label="Academia filter"><i class="fas fa-graduation-cap fa-xs"></i> Academia</a>
                                         </li>
                                 </ul>
                         </div>
@@ -452,7 +452,7 @@ function formatLabel($str, $sep = '-')
                         <!-- <div class="row mt-4">
                                         <div class="col-12 text-center pt-2">
                                                 <div class="button-border d-inline-block">
-                                                        <a href="portfolio.html" class="pill-button">Portfolio Page</a>
+                                                        <a href="portfolio.html" class="button">Portfolio Page</a>
                                                 </div>
                                         </div>
                                 </div> -->

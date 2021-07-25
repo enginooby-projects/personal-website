@@ -98,7 +98,7 @@ function displayCourse($name, $percent, $url = '')
                         <div class="row">
                                 <div class="col-12 text-center mt-4">
                                         <div class="button-border">
-                                                <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#bookshelf">View Catalog</a>
+                                                <a href="javascript:void();" class="button" type="button" data-toggle="modal" data-target="#bookshelf">View Catalog</a>
                                         </div>
                                 </div>
                         </div>
@@ -133,7 +133,7 @@ function displayCourse($name, $percent, $url = '')
                         <div class="row ">
                                 <div class="col-12 text-center mt-4">
                                         <div class="button-border">
-                                                <a href="javascript:void();" class="pill-button" type="button" data-toggle="modal" data-target="#courses">View Catalog</a>
+                                                <a href="javascript:void();" class="button" type="button" data-toggle="modal" data-target="#courses">View Catalog</a>
                                         </div>
                                 </div>
                         </div>

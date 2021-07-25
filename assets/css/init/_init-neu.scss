@@ -61,9 +61,9 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 box-shadow: $dropBoxShadow;
         }
 
-        .pill-button.active,
+        .button.active,
         .pallet-button.active,
-        .radio-button-group .pill-button.active,
+        .radio-button-group .button.active,
         .custom-scrollbar,
         .blog .blog-image .after,
         .skill-boxes .box-border,
@@ -86,7 +86,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
         .section,
         .display-content>.container,
         .display-content,
-        .pill-button,
+        .button,
         .pallet-button,
         .color-pallet,
         .contact .form-item .form-group,
@@ -104,14 +104,14 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
                 color: $mutedBaseColor;
         }
 
-        .pill-button,
+        .button,
         .segmented-control>input:checked+label,
         .segmented-control>input:hover+label {
                 color: $highlightColor;
         }
 
         // HOVER
-        .pill-button:hover,
+        .button:hover,
         .badge-border:hover,
         table>tbody>tr:hover,
         .pallet-button:hover {

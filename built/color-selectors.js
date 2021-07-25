@@ -89,7 +89,7 @@ export const borderRadiusSelectors = formatString([
     ".form-group input",
     ".form-group textarea",
     //COMMON
-    ".pill-button",
+    ".button",
     ".button-border",
     ".image-border",
     ".box-border",

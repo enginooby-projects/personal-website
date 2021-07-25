@@ -5,13 +5,13 @@
         background-color: #f8f8f8 !important;
 }
 
-.flat-style.mono .pill-button {
+.flat-style.mono .button {
         background-color: #5f5f5f;
         border: 1px solid #5f5f5f;
         color: #fafafa !important;
 }
 
-.flat-style.mono .pill-button:hover {
+.flat-style.mono .button:hover {
         background-color: #3c3c3c;
         border: 1px solid #3c3c3c;
 }
@@ -24,14 +24,14 @@
         border: 1px solid #5f5f5f;
 }
 
-.flat-style.mono .radio-button-group .pill-button {
+.flat-style.mono .radio-button-group .button {
         background-color: transparent;
         border: none;
         color: #3c3c3c !important;
 }
 
-.flat-style.mono .radio-button-group .pill-button.active,
-.flat-style.mono .radio-button-group .pill-button:hover {
+.flat-style.mono .radio-button-group .button.active,
+.flat-style.mono .radio-button-group .button:hover {
         color: #fafafa !important;
         background-color: #3c3c3c;
 }
@@ -48,13 +48,13 @@
         background-color: #2c2d30 !important;
 }
 
-.flat-style.dark-scheme.mono .pill-button {
+.flat-style.dark-scheme.mono .button {
         background-color: #fafafa;
         border: 1px solid #fafafa;
         color: #5f5f5f !important;
 }
 
-.flat-style.dark-scheme.mono .pill-button:hover {
+.flat-style.dark-scheme.mono .button:hover {
         background-color: #e3e5d2;
         border: 1px solid #e3e5d2;
 }
@@ -75,14 +75,14 @@
         border: 1px solid #fafafa;
 }
 
-.flat-style.dark-scheme.mono .radio-button-group .pill-button {
+.flat-style.dark-scheme.mono .radio-button-group .button {
         background-color: transparent;
         border: none;
         color: #e3e5d2 !important;
 }
 
-.flat-style.dark-scheme.mono .radio-button-group .pill-button.active,
-.flat-style.dark-scheme.mono .radio-button-group .pill-button:hover {
+.flat-style.dark-scheme.mono .radio-button-group .button.active,
+.flat-style.dark-scheme.mono .radio-button-group .button:hover {
         color: #3c3c3c !important;
         background-color: #e3e5d2;
 }
@@ -253,8 +253,8 @@
                 box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
         }
 
-        .pill-button:hover,
-        .pill-button.active {
+        .button:hover,
+        .button.active {
                 border: none;
                 box-shadow: inset 3px 3px 3px #202125, inset -3px -3px 3px #3e3e3e;
         }
@@ -351,7 +351,7 @@
                 box-shadow: none;
         }
 
-        .flat-style .radio-button-group .pill-button {
+        .flat-style .radio-button-group .button {
                 color: #fafafa;
         }
 
@@ -370,7 +370,7 @@
                 color: #3c3c3c !important;
         }
 
-        .mono .pill-button {
+        .mono .button {
                 color: #fafafa;
         }
 
@@ -458,13 +458,13 @@
                 background-color: #2c2d30 !important;
         }
 
-        .flat-style.mono .pill-button {
+        .flat-style.mono .button {
                 background-color: #fafafa;
                 border: 1px solid #fafafa;
                 color: #5f5f5f !important;
         }
 
-        .flat-style.mono .pill-button:hover {
+        .flat-style.mono .button:hover {
                 background-color: #e3e5d2;
                 border: 1px solid #e3e5d2;
         }
@@ -485,14 +485,14 @@
                 border: 1px solid #fafafa;
         }
 
-        .flat-style.mono .radio-button-group .pill-button {
+        .flat-style.mono .radio-button-group .button {
                 background-color: transparent;
                 border: none;
                 color: #e3e5d2 !important;
         }
 
-        .flat-style.mono .radio-button-group .pill-button.active,
-        .flat-style.mono .radio-button-group .pill-button:hover {
+        .flat-style.mono .radio-button-group .button.active,
+        .flat-style.mono .radio-button-group .button:hover {
                 color: #3c3c3c !important;
                 background-color: #e3e5d2;
         }

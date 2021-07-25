@@ -18,7 +18,7 @@
                 padding: 0;
         }
 
-        .pill-button,
+        .button,
         // .image-border,
         .button-border,
         .personal-image img,
@@ -28,7 +28,7 @@
         .checkbox label,
         .segmented-control,
         .radio-selection,
-        .radio-button-group .pill-button.active,
+        .radio-button-group .button.active,
         .blog-intro,
         .blog .blog-image .after,
         .skill-box .skillbar,
@@ -45,7 +45,7 @@
                 box-shadow: none !important;
         }
 
-        .radio-button-group .pill-button:not(.active),
+        .radio-button-group .button:not(.active),
         .radio-button-group .button-border,
         .testimonial .owl-carousel .testimonial-image {
                 background: transparent;
@@ -101,8 +101,8 @@
 //         padding: 0;
 // }
 
-// .flat-style .pill-button:hover,
-// .flat-style .pill-button.active,
+// .flat-style .button:hover,
+// .flat-style .button.active,
 // .flat-style .testimonial .owl-dot.active span,
 // .flat-style .skill-box .skillbar,
 // // .flat-style .blog-intro,
@@ -111,9 +111,9 @@
 //         box-shadow: none;
 // }
 
-// .flat-style .pill-button,
-// .flat-style .radio-button-group .pill-button.active,
-// .flat-style .radio-button-group .pill-button:hover {
+// .flat-style .button,
+// .flat-style .radio-button-group .button.active,
+// .flat-style .radio-button-group .button:hover {
 //         color: #fafafa;
 // }
 
@@ -142,7 +142,7 @@
 //         // background-color: transparent;
 // }
 
-// .flat-style .radio-button-group .pill-button {
+// .flat-style .radio-button-group .button {
 //         color: #3c3c3c;
 // }
 

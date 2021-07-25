@@ -9,7 +9,7 @@ const backgroundSchemeColorSelectors = [
 ];
 
 const colorHighlightColorSelectors = [
-        ".pill-button",
+        ".button",
         " .checkbox input:checked~label+.name",
         ".checkbox input:checked~label i",
         ".checkbox input:hover~label i",
@@ -55,9 +55,9 @@ const insetBoxShadowSelectors = [
         ".range-slider__range",
         "::-webkit-scrollbar-track",
         ".checkbox input:checked~label",
-        ".pill-button.active",
+        ".button.active",
         ".pallet-button.active",
-        ".pill-button:hover",
+        ".button:hover",
         ".badge-border:hover",
         "table>tbody>tr:hover",
         ".pallet-button:hover",
@@ -77,7 +77,7 @@ const concaveBoxShadowSelectors = [
 
 const borderSelectors = [
         //COMMON
-        ".pill-button",
+        ".button",
         ".box-border",
         ".color-switcher .color-pallet",
         " .pallet-button",
@@ -108,7 +108,7 @@ const borderSelectors = [
 ]
 
 const surfaceSelectors = [
-        ".pill-button",
+        ".button",
         ".pallet-button",
         ".box-border",
         ".color-pallet",

@@ -23,9 +23,9 @@ export const bgLightenSchemeSelectors = [
 
 export const bgHighlightSelectors = [
         ".radio-selection",
-        ".radio-button-group .pill-button.active",
-        ".pill-button:not(.radio-button-group .pill-button)",
-        ".radio-button-group .pill-button:not(.active):hover",
+        ".radio-button-group .button.active",
+        ".button:not(.radio-button-group .button)",
+        ".radio-button-group .button:not(.active):hover",
         "table>tbody>tr:hover",
         "::-webkit-scrollbar-thumb",
         "::-webkit-slider-thumb "
@@ -34,13 +34,13 @@ export const bgHighlightSelectors = [
 export const bgDarkenHighlightSelectors = [
         "::-webkit-scrollbar-thumb:hover",
         "::-webkit-slider-thumb:hover",
-        ".pill-button:hover",
-        ".pill-button:not(.radio-button-group .pill-button):hover",
+        ".button:hover",
+        ".button:not(.radio-button-group .button):hover",
 ]
 
 export const colorHighlightSelectors = [
         ".segmented-control>input:hover+label",
-        ".radio-button-group .pill-button:not(.active)",
+        ".radio-button-group .button:not(.active)",
         ".checkbox input:hover~label i",
         ".checkbox input:checked~label i",
         ".checkbox input:checked~label+.name"
@@ -51,7 +51,7 @@ export const colorContrastHighlightSelectors = [
 ]
 
 export const colorBaseSelectors = [
-        ".radio-button-group .pill-button ",
+        ".radio-button-group .button ",
 ];
 
 export const colorMutedBaseSelectors = [
