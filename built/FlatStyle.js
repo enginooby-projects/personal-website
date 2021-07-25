@@ -30,7 +30,6 @@ export const bgHighlightSelectors = [
 export const bgDarkenHighlightSelectors = [
     "::-webkit-scrollbar-thumb:hover",
     "::-webkit-slider-thumb:hover",
-    ".button:hover",
     ".button:not(.radio-button-group .button):hover",
 ];
 export const colorHighlightSelectors = [

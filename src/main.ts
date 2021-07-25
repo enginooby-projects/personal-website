@@ -1,5 +1,6 @@
 var $window = $(window);
 let $body: JQuery<HTMLElement> = $('body');
+let $pagePiling: JQuery<HTMLElement> = $('#pagepiling');
 
 // key must be the same as section ID (from HTML), other same as in PagePiling
 //get name: Section[Section.about]  => about
@@ -28,9 +29,9 @@ $(document).ready(function () {
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
         // loadPhpToBody("connect-database.php");
-        loadPhpToBody("sections/overlay-menu.php", setupOverlayMenuEvents);
-        loadPhpToBody("sections/social.php");
-        loadPhpToBody("sections/logo.php", setupOverlayMenuEvents);
+        loadAjaxFile("sections/overlay-menu.php", $body, setupOverlayMenuEvents);
+        loadAjaxFile("sections/social.php", $body);
+        loadAjaxFile("sections/logo.php", $body, setupOverlayMenuEvents);
         for (var section in Section) {
                 if (isNaN(Number(section))) {
                         tryLoadingSection(section);
@@ -276,12 +277,12 @@ function loadResumeModals() {
         // $('[data-target="#classes"]').one('mouseenter', event => {
         //                 loadPhpToBody('modals/classes.php');
         // });
-        loadPhpToBody('modals/classes.php');
+        loadAjaxFile('modals/classes.php', $body);
 }
 
 function loadBlogModals() {
         const modals: string[] = ["blog-single"];
-        modals.forEach(modal => loadPhpToBody(`modals/blog/${modal}.php`));
+        modals.forEach(modal => loadAjaxFile(`modals/blog/${modal}.php`, $body));
 }
 
 function loadPortfolioModals() {
@@ -293,7 +294,7 @@ function loadPortfolioModals() {
         // });
         //TODO: loops all files in the server folder instead (/modals/portfolio) or create php file dynamically
         const modals: string[] = ["endless-flight", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
-        modals.forEach(modal => loadPhpToBody(`modals/portfolio/${modal}.php`));
+        modals.forEach(modal => loadAjaxFile(`modals/portfolio/${modal}.php`, $body));
         setupIframeInjectionEvents();
 }
 
@@ -321,14 +322,14 @@ function clearPersonalWebsitePortfolioStyleUpdateInterval{
 }
 
 function loadSelfEducationModals() {
-        loadPhpToBody('modals/courses.php');
-        loadPhpToBody('modals/bookshelf.php');
+        loadAjaxFile('modals/courses.php', $body);
+        loadAjaxFile('modals/bookshelf.php', $body);
 }
 
 //HELPER
-function loadPhpToBody(filePath: string, callback?: () => void) {
+function loadAjaxFile(filePath: string, container: JQuery<HTMLElement>, callback?: () => void) {
         $.get(filePath, function (data) {
-                $body.append(data);
+                container.append(data);
         }).done(function () {
                 if (callback) callback();
         });

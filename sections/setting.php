@@ -16,6 +16,7 @@
                         </ul>
 
                         <div class="scrollable ">
+                                <!-- STYLE CUSTOMIZER -->
                                 <div id="customizer-panel">
                                         <div class="customizer" id="neu-customizer">
                                                 <h6 class="text-center mt-0">Neu Customizer</h6>
@@ -39,7 +40,7 @@
                                                 </div>
                                                 <?php
                                                 rangeSlider('Border width', 'neu-border-width', 0, 10);
-                                                rangeSlider('Border brightness', 'neu-border-brightness', 100, 100);
+                                                rangeSlider('Border brightness', 'neu-border-brightness', -100, 100);
                                                 ?>
                                         </div>
                                         <div class="customizer" id="flat-customizer-in-progress">
@@ -62,7 +63,7 @@
                                                 </div>
                                         </div>
                                 </div>
-
+                                <!-- GLOBAL CUSTOMIZER -->
                                 <div id="color-panel">
                                         <h6 class="text-center mt-3"> Colour</h6>
                                         <div class="row px-4">

@@ -1,6 +1,7 @@
 "use strict";
 var $window = $(window);
 let $body = $('body');
+let $pagePiling = $('#pagepiling');
 // key must be the same as section ID (from HTML), other same as in PagePiling
 //get name: Section[Section.about]  => about
 // get index: Section.about => 0
@@ -36,9 +37,9 @@ $(document).ready(function () {
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
     // loadPhpToBody("connect-database.php");
-    loadPhpToBody("sections/overlay-menu.php", setupOverlayMenuEvents);
-    loadPhpToBody("sections/social.php");
-    loadPhpToBody("sections/logo.php", setupOverlayMenuEvents);
+    loadAjaxFile("sections/overlay-menu.php", $body, setupOverlayMenuEvents);
+    loadAjaxFile("sections/social.php", $body);
+    loadAjaxFile("sections/logo.php", $body, setupOverlayMenuEvents);
     for (var section in Section) {
         if (isNaN(Number(section))) {
             tryLoadingSection(section);
@@ -269,11 +270,11 @@ function loadResumeModals() {
     // $('[data-target="#classes"]').one('mouseenter', event => {
     //                 loadPhpToBody('modals/classes.php');
     // });
-    loadPhpToBody('modals/classes.php');
+    loadAjaxFile('modals/classes.php', $body);
 }
 function loadBlogModals() {
     const modals = ["blog-single"];
-    modals.forEach(modal => loadPhpToBody(`modals/blog/${modal}.php`));
+    modals.forEach(modal => loadAjaxFile(`modals/blog/${modal}.php`, $body));
 }
 function loadPortfolioModals() {
     // BUG: If mouseenter happens later (delay) than click ,
@@ -284,7 +285,7 @@ function loadPortfolioModals() {
     // });
     //TODO: loops all files in the server folder instead (/modals/portfolio) or create php file dynamically
     const modals = ["endless-flight", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
-    modals.forEach(modal => loadPhpToBody(`modals/portfolio/${modal}.php`));
+    modals.forEach(modal => loadAjaxFile(`modals/portfolio/${modal}.php`, $body));
     setupIframeInjectionEvents();
 }
 let funStyleUpdateIntervalId = -1;
@@ -308,13 +309,13 @@ function clearPersonalWebsitePortfolioStyleUpdateInterval() {
     funStyleUpdateIntervalId = -1;
 }
 function loadSelfEducationModals() {
-    loadPhpToBody('modals/courses.php');
-    loadPhpToBody('modals/bookshelf.php');
+    loadAjaxFile('modals/courses.php', $body);
+    loadAjaxFile('modals/bookshelf.php', $body);
 }
 //HELPER
-function loadPhpToBody(filePath, callback) {
+function loadAjaxFile(filePath, container, callback) {
     $.get(filePath, function (data) {
-        $body.append(data);
+        container.append(data);
     }).done(function () {
         if (callback)
             callback();
