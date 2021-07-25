@@ -63,7 +63,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
 
         .pill-button.active,
         .pallet-button.active,
-        .theme-skin .pill-button.active,
+        .radio-button-group .pill-button.active,
         .custom-scrollbar,
         .blog .blog-image .after,
         .skill-boxes .box-border,
@@ -85,6 +85,7 @@ inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
 
         .section,
         .display-content>.container,
+        .display-content,
         .pill-button,
         .pallet-button,
         .color-pallet,

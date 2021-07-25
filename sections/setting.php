@@ -1,7 +1,7 @@
 <div id="color-switcher" class="color-switcher">
         <div class="text-center color-pallet hide">
                 <div class="color-pallet-content">
-                        <ul class="theme-skin mb-1" id="ui-style-panel">
+                        <ul class="theme-skin mb-1 radio-button-group" id="ui-style-panel">
                                 <h6 class="text-center mt-0 mb-3">UI Style</h6>
                                 <!-- TODO: make buttons  equal widths -->
                                 <div class="button-border" id="flat-skin-button">
@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="range-slider">
                                                         <label for="neu-border-brightness">Border brightness</label>
-                                                        <input class="range-slider__range" id="neu-border-brightness" type="range" min="-10" max="10" step="0.1">
+                                                        <input class="range-slider__range" id="neu-border-brightness" type="range" min="-100" max="100" step="0.1">
                                                         <span class="range-slider__value">
                                                                 <div class="inner-text"></div>
                                                         </span>

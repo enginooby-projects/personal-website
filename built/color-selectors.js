@@ -23,7 +23,7 @@ export const colorHighlightSelectors = formatString([
     ".highlight-color",
     ".overlay-menu a.active",
     ".timeline-year",
-    ".portfolio .portfolio-filter li a",
+    ".portfolio .radio-button-group li a",
     ".contact .form-item .form-control",
     ".highlight-portfolio-item.fa-star",
     //hover

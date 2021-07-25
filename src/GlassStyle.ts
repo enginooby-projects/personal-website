@@ -143,8 +143,8 @@ export class GlassStyle extends Style {
         //HELPER
         setPropertyWithLimit(selector: string, property: string, rawValue: number, limitValue: number, unit: string) {
                 document.querySelectorAll(selector).forEach((element) => {
-                        const borderWidth = Math.min(limitValue, rawValue);
-                        (element as HTMLElement).style.setProperty(property, `${borderWidth}${unit}`, 'important');
+                        const processedValue = Math.min(limitValue, rawValue);
+                        (element as HTMLElement).style.setProperty(property, `${processedValue}${unit}`, 'important');
                 });
         }
 

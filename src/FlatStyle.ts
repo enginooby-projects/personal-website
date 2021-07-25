@@ -3,6 +3,7 @@ import { Style } from './Style.js';
 
 export const bgSchemeSelectors = [
         ".display-content>.container",
+        ".display-content",
         ".range-slider__range",
         ".range-slider__value",
         ".modal-content"
@@ -22,11 +23,9 @@ export const bgLightenSchemeSelectors = [
 
 export const bgHighlightSelectors = [
         ".radio-selection",
-        ".portfolio-filter .pill-button.active",
-        ".pill-button:not( .theme-skin .pill-button):not(.portfolio-filter .pill-button)",
-        " .theme-skin .pill-button.active",
-        ".theme-skin .pill-button:not(.active):hover",
-        ".portfolio-filter .pill-button:not(.active):hover",
+        ".radio-button-group .pill-button.active",
+        ".pill-button:not(.radio-button-group .pill-button)",
+        ".radio-button-group .pill-button:not(.active):hover",
         "table>tbody>tr:hover",
         "::-webkit-scrollbar-thumb",
         "::-webkit-slider-thumb "
@@ -35,13 +34,13 @@ export const bgHighlightSelectors = [
 export const bgDarkenHighlightSelectors = [
         "::-webkit-scrollbar-thumb:hover",
         "::-webkit-slider-thumb:hover",
-        ".pill-button:hover"
+        ".pill-button:hover",
+        ".pill-button:not(.radio-button-group .pill-button):hover",
 ]
 
 export const colorHighlightSelectors = [
         ".segmented-control>input:hover+label",
-        ".portfolio-filter .pill-button:not(.active)",
-        ".theme-skin .pill-button:not(.active)",
+        ".radio-button-group .pill-button:not(.active)",
         ".checkbox input:hover~label i",
         ".checkbox input:checked~label i",
         ".checkbox input:checked~label+.name"
@@ -52,7 +51,7 @@ export const colorContrastHighlightSelectors = [
 ]
 
 export const colorBaseSelectors = [
-        ".portfolio-filter .pill-button ",
+        ".radio-button-group .pill-button ",
 ];
 
 export const colorMutedBaseSelectors = [
@@ -108,7 +107,7 @@ export class FlatStyle extends Style {
         private updateBgHighlight() {
                 this.getBgHighlightRule().style.setProperty('background-color', DynamicTheme.highlightColor.hex, 'important');
                 this.getBgHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
-                this.getBgDarkenHighlightRule().style.setProperty('background-color', this.darkenHighlightColor, 'important');
+                this.insertEmptyRule(bgDarkenHighlightSelectors).style.setProperty('background-color', this.darkenHighlightColor, 'important');
                 this.getBgDarkenHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
         }
 

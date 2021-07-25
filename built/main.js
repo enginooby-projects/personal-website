@@ -106,6 +106,7 @@ function onPortfolioSectionLoaded() {
     setupPortfolioTypeTS();
     // trigger filtering first time to fix overlapping items on mobile screen
     startFilterring($('.portfolio-items'), '*');
+    $injectedPersonalWebsitePortfolio = $("#personal-website-portfolio");
 }
 function setupPortfolioTypeTS() {
     var $element = $("#portfolio .typed");
@@ -286,6 +287,26 @@ function loadPortfolioModals() {
     modals.forEach(modal => loadPhpToBody(`modals/portfolio/${modal}.php`));
     setupIframeInjectionEvents();
 }
+let funStyleUpdateIntervalId = -1;
+const styleClasses = ["flat-style", "neu-style", "glass-style"];
+let $injectedPersonalWebsitePortfolio;
+function setupPersonalWebsitePortfolioStyleUpdateInterval() {
+    if (funStyleUpdateIntervalId != -1)
+        return;
+    let count = 1;
+    let lastStyle;
+    funStyleUpdateIntervalId = window.setInterval(() => {
+        // $injectedPersonalWebsitePortfolio.removeClass(lastStyle);
+        const currentStyle = styleClasses[(count++) % styleClasses.length];
+        console.log(currentStyle);
+        // $injectedPersonalWebsitePortfolio.addClass(currentStyle);
+        lastStyle = currentStyle;
+    }, 2000);
+}
+function clearPersonalWebsitePortfolioStyleUpdateInterval() {
+    clearInterval(funStyleUpdateIntervalId);
+    funStyleUpdateIntervalId = -1;
+}
 function loadSelfEducationModals() {
     loadPhpToBody('modals/courses.php');
     loadPhpToBody('modals/bookshelf.php');
@@ -345,27 +366,37 @@ function pagePilling() {
         //events
         onLeave: function (index, nextIndex, direction) {
             // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
-            const incommingSection = Section[nextIndex + indexEnumOffset];
-            switch (incommingSection) {
-                case Section[Section.resume]:
+            const leavingSectionId = index + indexEnumOffset;
+            switch (leavingSectionId) {
+                case Section.portfolio:
+                    clearPersonalWebsitePortfolioStyleUpdateInterval();
+                    break;
+            }
+            const incommingSectionId = nextIndex + indexEnumOffset;
+            switch (incommingSectionId) {
+                case Section.resume:
                     triggerOnFirstTimeVisit(Section.resume, () => {
                         loadResumeModals();
                     });
                     break;
-                case Section[Section.portfolio]:
+                case Section.portfolio:
                     triggerOnFirstTimeVisit(Section.portfolio, () => {
                         setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
                         loadPortfolioModals();
+                        setupPersonalWebsitePortfolioStyleUpdateInterval();
                     });
+                    if (loadedSections.includes(Section[Section.portfolio])) {
+                        setupPersonalWebsitePortfolioStyleUpdateInterval();
+                    }
                     break;
-                case Section[Section.selfEducation]:
+                case Section.selfEducation:
                     triggerOnFirstTimeVisit(Section.selfEducation, () => {
                         setupObserver(`#${Section[Section.selfEducation]} img.lazy`, onLazyImageIntersecting);
                         setupObserver('.skillbar', onProgressBarIntersecting);
                         loadSelfEducationModals();
                     });
                     break;
-                case Section[Section.blog]:
+                case Section.blog:
                     triggerOnFirstTimeVisit(Section.blog, () => {
                         loadBlogModals();
                     });
@@ -465,7 +496,7 @@ function portfolioPopup() {
 function portfolioIsotop() {
     "use strict";
     var $container = $('.portfolio-items');
-    var $filter = $('#portfolio-filter');
+    var $filter = $('#radio-button-group');
     $container.isotope({
         filter: '*',
         layoutMode: 'masonry',

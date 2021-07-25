@@ -28,7 +28,7 @@
         .checkbox label,
         .segmented-control,
         .radio-selection,
-        .portfolio-filter .pill-button.active,
+        .radio-button-group .pill-button.active,
         .blog-intro,
         .blog .blog-image .after,
         .skill-box .skillbar,
@@ -37,7 +37,6 @@
         .color-pallet,
         table,
         table thead,
-        .theme-skin .pill-button,
         .badge-border,
         .range-slider__range,
         .range-slider__value,
@@ -46,9 +45,8 @@
                 box-shadow: none !important;
         }
 
-        .portfolio-filter .pill-button:not(.active),
-        .theme-skin .pill-button:not(.active),
-        .portfolio-filter .button-border,
+        .radio-button-group .pill-button:not(.active),
+        .radio-button-group .button-border,
         .testimonial .owl-carousel .testimonial-image {
                 background: transparent;
         }
@@ -114,8 +112,8 @@
 // }
 
 // .flat-style .pill-button,
-// .flat-style .portfolio-filter .pill-button.active,
-// .flat-style .portfolio-filter .pill-button:hover {
+// .flat-style .radio-button-group .pill-button.active,
+// .flat-style .radio-button-group .pill-button:hover {
 //         color: #fafafa;
 // }
 
@@ -140,11 +138,11 @@
 // }
 
 // .flat-style .testimonial .owl-carousel .testimonial-image,
-// .flat-style .portfolio-filter .button-border {
+// .flat-style .radio-button-group .button-border {
 //         // background-color: transparent;
 // }
 
-// .flat-style .portfolio-filter .pill-button {
+// .flat-style .radio-button-group .pill-button {
 //         color: #3c3c3c;
 // }
 

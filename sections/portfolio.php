@@ -63,6 +63,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         $imageElement = "";
         $buttonElements = "";
         $imgRatioProperty = '';
+        $id = $formattedName . '-portfolio';
 
         $loadingIndicatorElement = '<div class="cssload-container">
 	<div class="cssload-whirlpool"></div>
@@ -76,6 +77,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
                 include $injectedFile;
                 $injectedContent = ob_get_clean();
                 $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
+                $loadingIndicatorElement = '';
         } else {
                 // src="https://placehold.co/' . $imgRatio . '/jpg" 
                 if ($imgRatio) $imgRatioProperty = 'style="aspect-ratio: ' . $imgRatio . '"';
@@ -108,7 +110,7 @@ function displayPortfolioItem($label, $isGalleryItem = false, $imgRatio = null, 
         ';
 
         echo '
-          <div class="col-lg-4 portfolio-item ' . $filters . '">
+          <div class="-style col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
                     <div class="image-border">
                                         ' . $loadingIndicatorElement . '
                               <div class="portfolio-item-content" ' . $imgRatioProperty . '>
@@ -168,7 +170,7 @@ function formatLabel($str, $sep = '-')
                         <!-- Categorize filter -->
                         <div class="row mb-0">
                                 <!--   Portfolio Filters   -->
-                                <ul id="portfolio-filter" class="list-unstyled list-inline mb-0 col-lg-12 text-center portfolio-filter">
+                                <ul id="radio-button-group" class="list-unstyled list-inline mb-0 col-lg-12 text-center radio-button-group">
                                         <li class="button-border list-inline-item">
                                                 <a href="#" data-filter="*" class="pill-button active"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
                                         </li>

@@ -24,14 +24,14 @@
         border: 1px solid #5f5f5f;
 }
 
-.flat-style.mono .portfolio-filter .pill-button {
+.flat-style.mono .radio-button-group .pill-button {
         background-color: transparent;
         border: none;
         color: #3c3c3c !important;
 }
 
-.flat-style.mono .portfolio-filter .pill-button.active,
-.flat-style.mono .portfolio-filter .pill-button:hover {
+.flat-style.mono .radio-button-group .pill-button.active,
+.flat-style.mono .radio-button-group .pill-button:hover {
         color: #fafafa !important;
         background-color: #3c3c3c;
 }
@@ -75,14 +75,14 @@
         border: 1px solid #fafafa;
 }
 
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button {
+.flat-style.dark-scheme.mono .radio-button-group .pill-button {
         background-color: transparent;
         border: none;
         color: #e3e5d2 !important;
 }
 
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button.active,
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button:hover {
+.flat-style.dark-scheme.mono .radio-button-group .pill-button.active,
+.flat-style.dark-scheme.mono .radio-button-group .pill-button:hover {
         color: #3c3c3c !important;
         background-color: #e3e5d2;
 }
@@ -351,7 +351,7 @@
                 box-shadow: none;
         }
 
-        .flat-style .portfolio-filter .pill-button {
+        .flat-style .radio-button-group .pill-button {
                 color: #fafafa;
         }
 
@@ -430,7 +430,7 @@
 
         .mono .portfolio .portfolio-icon a:first-child i,
         .mono .portfolio .portfolio-icon a i,
-        .mono .portfolio .portfolio-filter li a {
+        .mono .portfolio .radio-button-group li a {
                 color: #fafafa;
         }
 
@@ -485,14 +485,14 @@
                 border: 1px solid #fafafa;
         }
 
-        .flat-style.mono .portfolio-filter .pill-button {
+        .flat-style.mono .radio-button-group .pill-button {
                 background-color: transparent;
                 border: none;
                 color: #e3e5d2 !important;
         }
 
-        .flat-style.mono .portfolio-filter .pill-button.active,
-        .flat-style.mono .portfolio-filter .pill-button:hover {
+        .flat-style.mono .radio-button-group .pill-button.active,
+        .flat-style.mono .radio-button-group .pill-button:hover {
                 color: #3c3c3c !important;
                 background-color: #e3e5d2;
         }

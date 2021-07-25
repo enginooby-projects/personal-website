@@ -116,8 +116,8 @@ export class GlassStyle extends Style {
     //HELPER
     setPropertyWithLimit(selector, property, rawValue, limitValue, unit) {
         document.querySelectorAll(selector).forEach((element) => {
-            const borderWidth = Math.min(limitValue, rawValue);
-            element.style.setProperty(property, `${borderWidth}${unit}`, 'important');
+            const processedValue = Math.min(limitValue, rawValue);
+            element.style.setProperty(property, `${processedValue}${unit}`, 'important');
         });
     }
     updateTransparency() {

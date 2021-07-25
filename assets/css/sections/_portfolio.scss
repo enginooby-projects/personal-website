@@ -1,12 +1,14 @@
 /*-------------------------
          PORTFOLIO
 -------------------------*/
+$injectionScale:0.4;
+
 .injected-section {
-        zoom: 0.4;
-        -moz-transform: scale(0.4);
+        zoom: $injectionScale;
+        -moz-transform: scale($injectionScale);
 }
 
-.portfolio-filter>li>a>i {
+.radio-button-group>li>a>i {
         //icon for inline radio buttons
         position: relative;
         bottom: 1.5px;
@@ -31,7 +33,7 @@
         background-color: #403d37;
 }
 
-.portfolio .portfolio-filter .list-inline-item:not(:last-child) {
+.portfolio .radio-button-group .list-inline-item:not(:last-child) {
         margin-bottom: 0.7rem;
 }
 
@@ -42,7 +44,7 @@
         color: #fafafa;
 }
 
-.portfolio .portfolio-filter li a {
+.portfolio .radio-button-group li a {
         // padding: 5px 15px;
         padding: 5px 13.43px;
 }

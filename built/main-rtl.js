@@ -302,7 +302,7 @@ function portfolioPopup() {
 function portfolioIsotop() {
     "use strict";
     var $container = $('.portfolio-items');
-    var $filter = $('#portfolio-filter');
+    var $filter = $('#radio-button-group');
     $container.isotope({
         filter: '*',
         layoutMode: 'masonry',

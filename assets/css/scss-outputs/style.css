@@ -1612,7 +1612,7 @@ header {
   -moz-transform: scale(0.4);
 }
 
-.portfolio-filter > li > a > i {
+.radio-button-group > li > a > i {
   position: relative;
   bottom: 1.5px;
   margin-right: 0.15rem;
@@ -1636,7 +1636,7 @@ header {
   background-color: #403d37;
 }
 
-.portfolio .portfolio-filter .list-inline-item:not(:last-child) {
+.portfolio .radio-button-group .list-inline-item:not(:last-child) {
   margin-bottom: 0.7rem;
 }
 
@@ -1647,7 +1647,7 @@ header {
   color: #fafafa;
 }
 
-.portfolio .portfolio-filter li a {
+.portfolio .radio-button-group li a {
   padding: 5px 13.43px;
 }
 
@@ -3521,7 +3521,7 @@ header {
 
 .mono .portfolio .portfolio-icon a:first-child i,
 .mono .portfolio .portfolio-icon a i,
-.mono .portfolio .portfolio-filter li a {
+.mono .portfolio .radio-button-group li a {
   color: #3c3c3c;
 }
 
@@ -3631,7 +3631,7 @@ header {
 
 .mono.dark-scheme .portfolio .portfolio-icon a:first-child i,
 .mono.dark-scheme .portfolio .portfolio-icon a i,
-.mono.dark-scheme .portfolio .portfolio-filter li a {
+.mono.dark-scheme .portfolio .radio-button-group li a {
   color: #fafafa;
 }
 
@@ -3681,14 +3681,14 @@ header {
   border: 1px solid #5f5f5f;
 }
 
-.flat-style.mono .portfolio-filter .pill-button {
+.flat-style.mono .radio-button-group .pill-button {
   background-color: transparent;
   border: none;
   color: #3c3c3c !important;
 }
 
-.flat-style.mono .portfolio-filter .pill-button.active,
-.flat-style.mono .portfolio-filter .pill-button:hover {
+.flat-style.mono .radio-button-group .pill-button.active,
+.flat-style.mono .radio-button-group .pill-button:hover {
   color: #fafafa !important;
   background-color: #3c3c3c;
 }
@@ -3733,14 +3733,14 @@ header {
   border: 1px solid #fafafa;
 }
 
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button {
+.flat-style.dark-scheme.mono .radio-button-group .pill-button {
   background-color: transparent;
   border: none;
   color: #e3e5d2 !important;
 }
 
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button.active,
-.flat-style.dark-scheme.mono .portfolio-filter .pill-button:hover {
+.flat-style.dark-scheme.mono .radio-button-group .pill-button.active,
+.flat-style.dark-scheme.mono .radio-button-group .pill-button:hover {
   color: #3c3c3c !important;
   background-color: #e3e5d2;
 }
@@ -3997,7 +3997,7 @@ header {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .flat-style .portfolio-filter .pill-button {
+  .flat-style .radio-button-group .pill-button {
     color: #fafafa;
   }
   .mono .social a:hover {
@@ -4053,7 +4053,7 @@ header {
   }
   .mono .portfolio .portfolio-icon a:first-child i,
   .mono .portfolio .portfolio-icon a i,
-  .mono .portfolio .portfolio-filter li a {
+  .mono .portfolio .radio-button-group li a {
     color: #fafafa;
   }
   .mono .menu-toggler span {
@@ -4095,13 +4095,13 @@ header {
   .flat-style.mono .timeline-icon {
     border: 1px solid #fafafa;
   }
-  .flat-style.mono .portfolio-filter .pill-button {
+  .flat-style.mono .radio-button-group .pill-button {
     background-color: transparent;
     border: none;
     color: #e3e5d2 !important;
   }
-  .flat-style.mono .portfolio-filter .pill-button.active,
-  .flat-style.mono .portfolio-filter .pill-button:hover {
+  .flat-style.mono .radio-button-group .pill-button.active,
+  .flat-style.mono .radio-button-group .pill-button:hover {
     color: #3c3c3c !important;
     background-color: #e3e5d2;
   }
@@ -4144,7 +4144,7 @@ header {
 .flat-style .checkbox label,
 .flat-style .segmented-control,
 .flat-style .radio-selection,
-.flat-style .portfolio-filter .pill-button.active,
+.flat-style .radio-button-group .pill-button.active,
 .flat-style .blog-intro,
 .flat-style .blog .blog-image .after,
 .flat-style .skill-box .skillbar,
@@ -4153,7 +4153,6 @@ header {
 .flat-style .color-pallet,
 .flat-style table,
 .flat-style table thead,
-.flat-style .theme-skin .pill-button,
 .flat-style .badge-border,
 .flat-style .range-slider__range,
 .flat-style .range-slider__value,
@@ -4163,9 +4162,8 @@ header {
           box-shadow: none !important;
 }
 
-.flat-style .portfolio-filter .pill-button:not(.active),
-.flat-style .theme-skin .pill-button:not(.active),
-.flat-style .portfolio-filter .button-border,
+.flat-style .radio-button-group .pill-button:not(.active),
+.flat-style .radio-button-group .button-border,
 .flat-style .testimonial .owl-carousel .testimonial-image {
   background: transparent;
 }
@@ -4285,7 +4283,7 @@ header {
 .glass-style .checkbox label,
 .glass-style .segmented-control,
 .glass-style .radio-selection,
-.glass-style .portfolio-filter .pill-button.active,
+.glass-style .radio-button-group .pill-button.active,
 .glass-style .blog-intro,
 .glass-style .blog .blog-image .after,
 .glass-style .skill-box .skillbar,
@@ -4300,7 +4298,7 @@ header {
           box-shadow: none !important;
 }
 
-.glass-style .portfolio-filter .pill-button:not(.active),
+.glass-style .radio-button-group .pill-button:not(.active),
 .glass-style .theme-skin .pill-button:not(.active) {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -4358,7 +4356,7 @@ Init values for dynamic properties to reduce  page load time
 
 .neu-style .pill-button.active,
 .neu-style .pallet-button.active,
-.neu-style .theme-skin .pill-button.active,
+.neu-style .radio-button-group .pill-button.active,
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
 .neu-style .skill-boxes .box-border,
@@ -4380,6 +4378,7 @@ Init values for dynamic properties to reduce  page load time
 
 .neu-style .section,
 .neu-style .display-content > .container,
+.neu-style .display-content,
 .neu-style .pill-button,
 .neu-style .pallet-button,
 .neu-style .color-pallet,
@@ -4601,7 +4600,7 @@ body,
 .pill-button,
 .overlay-menu a.active,
 .timeline-year,
-.portfolio .portfolio-filter li a,
+.portfolio .radio-button-group li a,
 .contact .form-item .form-control,
 .highlight-portfolio-item.fa-star,
 .portfolio .portfolio-icon a:hover {
@@ -4809,7 +4808,7 @@ Init values for dynamic properties to reduce  page load time
 
 .neu-style .pill-button.active,
 .neu-style .pallet-button.active,
-.neu-style .theme-skin .pill-button.active,
+.neu-style .radio-button-group .pill-button.active,
 .neu-style .custom-scrollbar,
 .neu-style .blog .blog-image .after,
 .neu-style .skill-boxes .box-border,
@@ -4831,6 +4830,7 @@ Init values for dynamic properties to reduce  page load time
 
 .neu-style .section,
 .neu-style .display-content > .container,
+.neu-style .display-content,
 .neu-style .pill-button,
 .neu-style .pallet-button,
 .neu-style .color-pallet,
@@ -4906,10 +4906,8 @@ Init values for dynamic properties to reduce  page load time
 Init values for dynamic properties to reduce  page load time 
 */
 .flat-style .pill-button,
-.flat-style .portfolio-filter .pill-button.active,
-.flat-style .theme-skin .pill-button.active,
-.flat-style .portfolio-filter .pill-button:not(.active):hover,
-.flat-style .theme-skin .pill-button:not(.active):hover,
+.flat-style .radio-button-group .pill-button.active,
+.flat-style .radio-button-group .pill-button:not(.active):hover,
 .flat-style .radio-selection,
 .flat-style table > tbody > tr:hover {
   background-color: #004b97;
@@ -4929,6 +4927,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .flat-style .display-content > .container,
+.flat-style .display-content,
 .flat-style .range-slider__range,
 .flat-style .range-slider__value,
 .flat-style .modal-content {
@@ -4936,8 +4935,7 @@ Init values for dynamic properties to reduce  page load time
   color: black;
 }
 
-.flat-style .portfolio-filter .pill-button:not(.active),
-.flat-style .theme-skin .pill-button:not(.active) {
+.flat-style .radio-button-group .pill-button:not(.active) {
   color: #004b97;
 }
 
@@ -4992,10 +4990,8 @@ Init values for dynamic properties to reduce  page load time
 Init values for dynamic properties to reduce  page load time 
 */
 .glass-style .pill-button,
-.glass-style .portfolio-filter .pill-button.active,
-.glass-style .theme-skin .pill-button.active,
-.glass-style .portfolio-filter .pill-button:not(.active):hover,
-.glass-style .theme-skin .pill-button:not(.active):hover,
+.glass-style .radio-button-group .pill-button.active,
+.glass-style .radio-button-group .pill-button:not(.active):hover,
 .glass-style .radio-selection,
 .glass-style table > tbody > tr:hover {
   background-color: rgba(0, 75, 155, 0.6);
@@ -5031,8 +5027,7 @@ Init values for dynamic properties to reduce  page load time
   border: 1px solid rgba(209, 213, 219, 0.6);
 }
 
-.glass-style .portfolio-filter .pill-button:not(.active),
-.glass-style .theme-skin .pill-button:not(.active) {
+.glass-style .radio-button-group .pill-button:not(.active) {
   color: #004b97;
 }
 

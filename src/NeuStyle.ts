@@ -3,6 +3,7 @@ import { Style } from './Style.js';
 
 const backgroundSchemeColorSelectors = [
         ".display-content>.container",
+        ".display-content",
         "::-webkit-scrollbar-track",
         "::-webkit-scrollbar-thumb",
 ];
@@ -55,10 +56,8 @@ const insetBoxShadowSelectors = [
         "::-webkit-scrollbar-track",
         ".checkbox input:checked~label",
         ".pill-button.active",
-        ".theme-skin .pill-button.active",
         ".pallet-button.active",
         ".pill-button:hover",
-        ".theme-skin .pill-button:hover",
         ".badge-border:hover",
         "table>tbody>tr:hover",
         ".pallet-button:hover",
@@ -153,7 +152,7 @@ export class NeuStyle extends Style {
         borderWidth: number = 0;
         borderBrightness: number = -6.9;
         // TODO: implement border style
-        borderStyle: BorderStyle = BorderStyle.double;
+        borderStyle: BorderStyle = BorderStyle.solid;
 
         //TODO: implement curvature for colorful background
         // negative: concave - 0: flat - positive: convex
@@ -187,6 +186,7 @@ export class NeuStyle extends Style {
 
         init() {
                 this.initRangeSliders();
+                // TODO: Init radio button
         }
 
         private initRangeSliders() {
@@ -277,6 +277,10 @@ export class NeuStyle extends Style {
                 this.getInsetBoxShadowRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');
                 this.getConcaveBoxShadowRule().style.setProperty('box-shadow', this.pressedBoxShadow, 'important');
                 this.getThumbScrollbarBoxShadowRule().style.setProperty('box-shadow', this.thumbScrollbarBoxShadow, 'important');
+
+                // const s: number = 0.4; //personal website portfolio scale
+                // const scaledDropBoxShadow = `${this.distance / s}px ${this.distance / s}px ${this.blur / s}px ${this.darkenSchemeColor}, -${this.distance / s}px -${this.distance / s}px ${this.blur / s}px ${this.lightenSchemeColor}`;
+                // (document.querySelector('#personal-website-portfolio')?.querySelector('.image-border') as HTMLElement).style.setProperty('box-shadow', scaledDropBoxShadow, 'important');
         }
 
         private updateSurface() {

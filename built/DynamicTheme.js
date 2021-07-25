@@ -103,8 +103,8 @@ function setupSettingEvents() {
         $("#color-switcher .color-pallet").toggleClass('show');
         $(this).toggleClass('active');
     });
-    $('.theme-skin .pill-button').on('click', event => {
-        $('.theme-skin .pill-button').removeClass('active');
+    $('.theme-skin.radio-button-group .pill-button').on('click', event => {
+        $('.theme-skin.radio-button-group .pill-button').removeClass('active');
         $(event.currentTarget).addClass('active');
     });
     setupColorPickerEvents();

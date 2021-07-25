@@ -22,11 +22,9 @@ $colorfull3A: rgba(196, 6, 57, $transparency);
 
 .glass-style {
 
-        .pill-button:not(.theme-skin .pill-button):not(.portfolio-filter .pill-button),
-        .portfolio-filter .pill-button.active,
-        .theme-skin .pill-button.active,
-        .portfolio-filter .pill-button:not(.active):hover,
-        .theme-skin .pill-button:not(.active):hover,
+        .pill-button:not(.radio-button-group .pill-button),
+        .radio-button-group .pill-button.active,
+        .radio-button-group .pill-button:not(.active):hover,
         .radio-selection,
         table>tbody>tr:hover {
                 background-color: $highlightColorA;
@@ -56,8 +54,7 @@ $colorfull3A: rgba(196, 6, 57, $transparency);
                 @include blur-and-border();
         }
 
-        .portfolio-filter .pill-button:not(.active),
-        .theme-skin .pill-button:not(.active) {
+        .radio-button-group .pill-button:not(.active) {
                 color: $highlightColor;
         }
 
