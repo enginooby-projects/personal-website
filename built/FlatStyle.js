@@ -1,56 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
+import * as FlatSelectors from './selectors/FlatSelectors.js';
 import { Style } from './Style.js';
-export const bgSchemeSelectors = [
-    ".display-content>.container",
-    ".display-content",
-    ".range-slider__range",
-    ".range-slider__value",
-    ".modal-content",
-    ".radio-button-group .button:not(.active)",
-];
-export const bgLightenSchemeSelectors = [
-    ".box-border",
-    ".image-border",
-    ".contact .form-item .form-group",
-    ".segmented-control",
-    ".checkbox label",
-    ".setting-button-border",
-    ".setting-panel",
-    ".setting-button",
-    "::-webkit-scrollbar-track"
-];
-export const bgHighlightSelectors = [
-    ".radio-selection",
-    ".radio-button-group .button.active",
-    ".button:not(.radio-button-group .button)",
-    ".radio-button-group .button:not(.active):hover",
-    "table>tbody>tr:hover",
-    "::-webkit-scrollbar-thumb",
-    "::-webkit-slider-thumb "
-];
-export const bgDarkenHighlightSelectors = [
-    "::-webkit-scrollbar-thumb:hover",
-    "::-webkit-slider-thumb:hover",
-    ".button:not(.radio-button-group .button):hover",
-];
-export const colorHighlightSelectors = [
-    ".segmented-control>input:hover+label",
-    ".radio-button-group .button:not(.active)",
-    ".checkbox input:hover~label i",
-    ".checkbox input:checked~label i",
-    ".checkbox input:checked~label+.name"
-];
-export const colorContrastHighlightSelectors = [
-    ".segmented-control>input:checked+label",
-];
-export const colorBaseSelectors = [
-    ".radio-button-group .button ",
-];
-export const colorMutedBaseSelectors = [
-    ".segmented-control>input:not(:checked):not(:hover)+label",
-    ".checkbox input:not(:checked)~label+.name",
-    ".checkbox input:not(:checked):not(:hover)~label i",
-];
 export class FlatStyle extends Style {
     constructor() {
         super('flat-style');
@@ -59,15 +9,15 @@ export class FlatStyle extends Style {
         // darkenSchemeColor: string = "#c7c7c7";
         this.darkHighlightIntensity = 15;
         this.darkenHighlightColor = "#033669";
-        this.getBgSchemeRule = () => { var _a; return (_a = this.bgSchemeRule) !== null && _a !== void 0 ? _a : (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors)); };
-        this.getBgHighlightRule = () => { var _a; return (_a = this.bgHighlightRule) !== null && _a !== void 0 ? _a : (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors)); };
-        this.getBgDarkenHighlightRule = () => { var _a; return (_a = this.bgDarkenHighlightRule) !== null && _a !== void 0 ? _a : (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors)); };
+        this.getBgSchemeRule = () => { var _a; return (_a = this.bgSchemeRule) !== null && _a !== void 0 ? _a : (this.bgSchemeRule = this.insertEmptyRule(FlatSelectors.bgSchemeSelectors)); };
+        this.getBgHighlightRule = () => { var _a; return (_a = this.bgHighlightRule) !== null && _a !== void 0 ? _a : (this.bgHighlightRule = this.insertEmptyRule(FlatSelectors.bgHighlightSelectors)); };
+        this.getBgDarkenHighlightRule = () => { var _a; return (_a = this.bgDarkenHighlightRule) !== null && _a !== void 0 ? _a : (this.bgDarkenHighlightRule = this.insertEmptyRule(FlatSelectors.bgDarkenHighlightSelectors)); };
         // lazy initializations
-        this.getBgLightenSchemeRule = () => { var _a; return (_a = this.bgLightenSchemeRule) !== null && _a !== void 0 ? _a : (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors)); };
-        this.getColorHighlightRule = () => { var _a; return (_a = this.colorHighlightRule) !== null && _a !== void 0 ? _a : (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors)); };
-        this.getColorContrastHighlightRule = () => { var _a; return (_a = this.colorContrastHighlightRule) !== null && _a !== void 0 ? _a : (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors)); };
-        this.getColorBaseRule = () => { var _a; return (_a = this.colorBaseRule) !== null && _a !== void 0 ? _a : (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors)); };
-        this.getColorMutedBaseRule = () => { var _a; return (_a = this.colorMutedBaseRule) !== null && _a !== void 0 ? _a : (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors)); };
+        this.getBgLightenSchemeRule = () => { var _a; return (_a = this.bgLightenSchemeRule) !== null && _a !== void 0 ? _a : (this.bgLightenSchemeRule = this.insertEmptyRule(FlatSelectors.bgLightenSchemeSelectors)); };
+        this.getColorHighlightRule = () => { var _a; return (_a = this.colorHighlightRule) !== null && _a !== void 0 ? _a : (this.colorHighlightRule = this.insertEmptyRule(FlatSelectors.colorHighlightSelectors)); };
+        this.getColorContrastHighlightRule = () => { var _a; return (_a = this.colorContrastHighlightRule) !== null && _a !== void 0 ? _a : (this.colorContrastHighlightRule = this.insertEmptyRule(FlatSelectors.colorContrastHighlightSelectors)); };
+        this.getColorBaseRule = () => { var _a; return (_a = this.colorBaseRule) !== null && _a !== void 0 ? _a : (this.colorBaseRule = this.insertEmptyRule(FlatSelectors.colorBaseSelectors)); };
+        this.getColorMutedBaseRule = () => { var _a; return (_a = this.colorMutedBaseRule) !== null && _a !== void 0 ? _a : (this.colorMutedBaseRule = this.insertEmptyRule(FlatSelectors.colorMutedBaseSelectors)); };
     }
     static get Instance() {
         var _a;

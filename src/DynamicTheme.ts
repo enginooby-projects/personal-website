@@ -1,4 +1,4 @@
-import * as Selectors from './color-selectors.js'
+import * as DynamicSelectors from './selectors/DynamicSelectors.js'
 import { Style } from './Style.js'
 import { StyleRegistry } from './StyleRegistry.js';
 import { Color } from './Color.js';
@@ -51,25 +51,25 @@ let colorBaseRule: CSSStyleRule;
 let colorMutedBaseRule: CSSStyleRule;
 
 function getBgHighlightRule(): CSSStyleRule {
-        return bgHighlightRule ?? (bgHighlightRule = insertEmptyRule(Selectors.bgHighlightSelectors));
+        return bgHighlightRule ?? (bgHighlightRule = insertEmptyRule(DynamicSelectors.bgHighlightSelectors));
 }
 function getBgSchemeRule(): CSSStyleRule {
-        return bgSchemeRule ?? (bgSchemeRule = insertEmptyRule(Selectors.bgSchemeSelectors));
+        return bgSchemeRule ?? (bgSchemeRule = insertEmptyRule(DynamicSelectors.bgSchemeSelectors));
 }
 function getBgBaseRule(): CSSStyleRule {
-        return bgBaseRule ?? (bgBaseRule = insertEmptyRule(Selectors.bgBaseSelectors));
+        return bgBaseRule ?? (bgBaseRule = insertEmptyRule(DynamicSelectors.bgBaseSelectors));
 }
 function getColorHighlightRule(): CSSStyleRule {
-        return colorHighlightRule ?? (colorHighlightRule = insertEmptyRule(Selectors.colorHighlightSelectors));
+        return colorHighlightRule ?? (colorHighlightRule = insertEmptyRule(DynamicSelectors.colorHighlightSelectors));
 }
 function getColorBaseRule(): CSSStyleRule {
-        return colorBaseRule ?? (colorBaseRule = insertEmptyRule(Selectors.colorBaseSelectors));
+        return colorBaseRule ?? (colorBaseRule = insertEmptyRule(DynamicSelectors.colorBaseSelectors));
 }
 function getColorMutedBaseRule(): CSSStyleRule {
-        return colorMutedBaseRule ?? (colorMutedBaseRule = insertEmptyRule(Selectors.colorMutedBaseSelectors));
+        return colorMutedBaseRule ?? (colorMutedBaseRule = insertEmptyRule(DynamicSelectors.colorMutedBaseSelectors));
 }
 function getBorderRadiusRule(): CSSStyleRule {
-        return borderRadiusRule ?? (borderRadiusRule = insertEmptyRule(Selectors.borderRadiusSelectors));
+        return borderRadiusRule ?? (borderRadiusRule = insertEmptyRule(DynamicSelectors.borderRadiusSelectors));
 }
 
 export function changeStyle(newStyle: Style) {

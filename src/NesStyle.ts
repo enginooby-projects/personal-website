@@ -1,5 +1,5 @@
 import * as DynamicTheme from './DynamicTheme.js';
-import *as NesSelectors from './NesSelectors.js';
+import *as NesSelectors from './selectors/NesSelectors.js';
 import { Style } from './Style.js';
 
 export class NesStyle extends Style {

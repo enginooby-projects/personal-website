@@ -1,129 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
+import * as NeuSelectors from './selectors/NeuSelectors.js'
 import { Style } from './Style.js';
-
-const backgroundSchemeColorSelectors = [
-        ".display-content>.container",
-        ".display-content",
-        "::-webkit-scrollbar-track",
-        "::-webkit-scrollbar-thumb",
-];
-
-const colorHighlightColorSelectors = [
-        ".button",
-        " .checkbox input:checked~label+.name",
-        ".checkbox input:checked~label i",
-        ".checkbox input:hover~label i",
-        ".segmented-control>input:checked+label",
-        ".segmented-control>input:hover+label",
-];
-
-const colorMutedBaseColorSelectors = [
-        ".checkbox input:not(:checked)~label+.name",
-        ".checkbox input:not(:checked):not(:hover)~label i",
-        ".segmented-control>input:not(:checked):not(:hover)+label"
-];
-
-const dropBoxShadowSelectors = [
-        //COMMON
-        ".toggle .indicator",
-        ".button-border",
-        ".box-border",
-        ".image-border",
-        ".badge-border",
-        ".setting-button-border",
-        ".segmented-control",
-        ".hero-03 .personal-image img",
-        ".checkbox label",
-        ".blog-intro",
-        "table",
-        "table thead ",
-        ".range-slider__value",
-        ".setting-panel",
-        "::-webkit-slider-thumb",
-        ".radio-group .indicator",
-        //contact
-        ".form-group input:focus",
-        ".form-group textarea:focus",
-];
-
-const insetBoxShadowSelectors = [
-        ".custom-scrollbar",
-        ".blog .blog-image .after",
-        ".skill-boxes .box-border",
-        ".setting-section .scrollable",
-        ".timeline-items.box-border",
-        ".range-slider__range",
-        "::-webkit-scrollbar-track",
-        ".checkbox input:checked~label",
-        ".button.active",
-        ".setting-button.active",
-        ".button:hover",
-        ".badge-border:hover",
-        "table>tbody>tr:hover",
-        ".setting-button:hover",
-        ".radio-selection",
-];
-
-const concaveBoxShadowSelectors = [
-        ".skill-box .skillbar",
-        // ".form-group",
-        "input[type=range]:focus",
-        "::-webkit-slider-thumb:hover",
-        //CONTACT
-        ".form-group input",
-        ".form-group textarea",
-        ".toggle",
-];
-
-const borderSelectors = [
-        //COMMON
-        ".button",
-        ".box-border",
-        ".setting-section .setting-panel",
-        " .setting-button",
-        ".image-border",
-        "table",
-        ".toggle",
-        ".toggle .indicator",
-        ".range-slider__range",
-        ".range-slider__value",
-        "::-webkit-slider-thumb",
-        // "::-webkit-scrollbar-track",
-        // "::-webkit-scrollbar-thumb",
-
-        // PORTFOLIO
-        ".segmented-control", //TODO: set max limit
-        ".radio-selection", //TODO: set max limit
-        ".checkbox label", //TODO: set max limit
-
-        // BLOG
-        ".blog .blog-image .after",
-        ".blog .blog-intro ",
-
-        //CONTACT
-        // ".contact .form-item .form-group",
-        // ".contact #message.toast",
-        ".form-group input",
-        ".form-group textarea",
-]
-
-const surfaceSelectors = [
-        ".button",
-        ".setting-button",
-        ".box-border",
-        ".setting-panel",
-        ".image-border",
-        ".badge-border",
-        ".segmented-control",
-        ".checkbox label",
-        ".blog-intro",
-        "  .form-item .form-group",
-        ".range-slider__range",
-        ".range-slider__value",
-        "::-webkit-slider-thumb",
-        ".portfolio-single .modal-content",
-        "table thead ",
-]
 
 enum BorderStyle { solid, double, dotted, dashed }; // order must matchs with id from HTML radio
 
@@ -174,15 +51,15 @@ export class NeuStyle extends Style {
         private radioIndicatorCheckedRule?: CSSStyleRule;
 
         // lazy initializations
-        getBackgroundSchemeColorRule = () => this.backgroundSchemeColorRule ?? (this.backgroundSchemeColorRule = this.insertEmptyRule(backgroundSchemeColorSelectors));
-        getColorHighlightColorRule = () => this.colorHighlightColorRule ?? (this.colorHighlightColorRule = this.insertEmptyRule(colorHighlightColorSelectors));
-        getColorMutedBaseColorRule = () => this.colorMutedBaseColorRule ?? (this.colorMutedBaseColorRule = this.insertEmptyRule(colorMutedBaseColorSelectors));
-        getDropBoxShadowRule = () => this.dropBoxShadowRule ?? (this.dropBoxShadowRule = this.insertEmptyRule(dropBoxShadowSelectors));
-        getInsetBoxShadowRule = () => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule(insetBoxShadowSelectors));
-        getConcaveBoxShadowRule = () => this.concaveBoxShadowRule ?? (this.concaveBoxShadowRule = this.insertEmptyRule(concaveBoxShadowSelectors));
+        getBackgroundSchemeColorRule = () => this.backgroundSchemeColorRule ?? (this.backgroundSchemeColorRule = this.insertEmptyRule(NeuSelectors.backgroundSchemeColorSelectors));
+        getColorHighlightColorRule = () => this.colorHighlightColorRule ?? (this.colorHighlightColorRule = this.insertEmptyRule(NeuSelectors.colorHighlightColorSelectors));
+        getColorMutedBaseColorRule = () => this.colorMutedBaseColorRule ?? (this.colorMutedBaseColorRule = this.insertEmptyRule(NeuSelectors.colorMutedBaseColorSelectors));
+        getDropBoxShadowRule = () => this.dropBoxShadowRule ?? (this.dropBoxShadowRule = this.insertEmptyRule(NeuSelectors.dropBoxShadowSelectors));
+        getInsetBoxShadowRule = () => this.insetBoxShadowRule ?? (this.insetBoxShadowRule = this.insertEmptyRule(NeuSelectors.insetBoxShadowSelectors));
+        getConcaveBoxShadowRule = () => this.concaveBoxShadowRule ?? (this.concaveBoxShadowRule = this.insertEmptyRule(NeuSelectors.concaveBoxShadowSelectors));
         getThumbScrollbarBoxShadowRule = () => this.thumbScrollbarBoxShadowRule ?? (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb']));
-        getBorderRule = () => this.borderRule ?? (this.borderRule = this.insertEmptyRule(borderSelectors));
-        getSurfaceRule = () => this.surfaceRule ?? (this.surfaceRule = this.insertEmptyRule(surfaceSelectors));
+        getBorderRule = () => this.borderRule ?? (this.borderRule = this.insertEmptyRule(NeuSelectors.borderSelectors));
+        getSurfaceRule = () => this.surfaceRule ?? (this.surfaceRule = this.insertEmptyRule(NeuSelectors.surfaceSelectors));
         getRadioIndicatorUncheckedRule = () => this.radioIndicatorUncheckedRule ?? (this.radioIndicatorUncheckedRule = this.insertEmptyRule(['.radio-group .indicator::before']));
         getRadioIndicatorCheckedRule = () => this.radioIndicatorCheckedRule ?? (this.radioIndicatorCheckedRule = this.insertEmptyRule(['.radio-group .indicator::after']));
 

@@ -1,4 +1,4 @@
-import * as Selectors from './color-selectors.js';
+import * as DynamicSelectors from './selectors/DynamicSelectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
 import { TinyColor } from './TinyColor.js';
 // TODO: create class
@@ -37,25 +37,25 @@ let colorHighlightRule;
 let colorBaseRule;
 let colorMutedBaseRule;
 function getBgHighlightRule() {
-    return bgHighlightRule !== null && bgHighlightRule !== void 0 ? bgHighlightRule : (bgHighlightRule = insertEmptyRule(Selectors.bgHighlightSelectors));
+    return bgHighlightRule !== null && bgHighlightRule !== void 0 ? bgHighlightRule : (bgHighlightRule = insertEmptyRule(DynamicSelectors.bgHighlightSelectors));
 }
 function getBgSchemeRule() {
-    return bgSchemeRule !== null && bgSchemeRule !== void 0 ? bgSchemeRule : (bgSchemeRule = insertEmptyRule(Selectors.bgSchemeSelectors));
+    return bgSchemeRule !== null && bgSchemeRule !== void 0 ? bgSchemeRule : (bgSchemeRule = insertEmptyRule(DynamicSelectors.bgSchemeSelectors));
 }
 function getBgBaseRule() {
-    return bgBaseRule !== null && bgBaseRule !== void 0 ? bgBaseRule : (bgBaseRule = insertEmptyRule(Selectors.bgBaseSelectors));
+    return bgBaseRule !== null && bgBaseRule !== void 0 ? bgBaseRule : (bgBaseRule = insertEmptyRule(DynamicSelectors.bgBaseSelectors));
 }
 function getColorHighlightRule() {
-    return colorHighlightRule !== null && colorHighlightRule !== void 0 ? colorHighlightRule : (colorHighlightRule = insertEmptyRule(Selectors.colorHighlightSelectors));
+    return colorHighlightRule !== null && colorHighlightRule !== void 0 ? colorHighlightRule : (colorHighlightRule = insertEmptyRule(DynamicSelectors.colorHighlightSelectors));
 }
 function getColorBaseRule() {
-    return colorBaseRule !== null && colorBaseRule !== void 0 ? colorBaseRule : (colorBaseRule = insertEmptyRule(Selectors.colorBaseSelectors));
+    return colorBaseRule !== null && colorBaseRule !== void 0 ? colorBaseRule : (colorBaseRule = insertEmptyRule(DynamicSelectors.colorBaseSelectors));
 }
 function getColorMutedBaseRule() {
-    return colorMutedBaseRule !== null && colorMutedBaseRule !== void 0 ? colorMutedBaseRule : (colorMutedBaseRule = insertEmptyRule(Selectors.colorMutedBaseSelectors));
+    return colorMutedBaseRule !== null && colorMutedBaseRule !== void 0 ? colorMutedBaseRule : (colorMutedBaseRule = insertEmptyRule(DynamicSelectors.colorMutedBaseSelectors));
 }
 function getBorderRadiusRule() {
-    return borderRadiusRule !== null && borderRadiusRule !== void 0 ? borderRadiusRule : (borderRadiusRule = insertEmptyRule(Selectors.borderRadiusSelectors));
+    return borderRadiusRule !== null && borderRadiusRule !== void 0 ? borderRadiusRule : (borderRadiusRule = insertEmptyRule(DynamicSelectors.borderRadiusSelectors));
 }
 export function changeStyle(newStyle) {
     currentStyle === null || currentStyle === void 0 ? void 0 : currentStyle.onDisable();

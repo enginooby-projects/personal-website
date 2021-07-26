@@ -1,118 +1,6 @@
 import * as DynamicTheme from './DynamicTheme.js';
+import * as NeuSelectors from './selectors/NeuSelectors.js';
 import { Style } from './Style.js';
-const backgroundSchemeColorSelectors = [
-    ".display-content>.container",
-    ".display-content",
-    "::-webkit-scrollbar-track",
-    "::-webkit-scrollbar-thumb",
-];
-const colorHighlightColorSelectors = [
-    ".button",
-    " .checkbox input:checked~label+.name",
-    ".checkbox input:checked~label i",
-    ".checkbox input:hover~label i",
-    ".segmented-control>input:checked+label",
-    ".segmented-control>input:hover+label",
-];
-const colorMutedBaseColorSelectors = [
-    ".checkbox input:not(:checked)~label+.name",
-    ".checkbox input:not(:checked):not(:hover)~label i",
-    ".segmented-control>input:not(:checked):not(:hover)+label"
-];
-const dropBoxShadowSelectors = [
-    //COMMON
-    ".toggle .indicator",
-    ".button-border",
-    ".box-border",
-    ".image-border",
-    ".badge-border",
-    ".setting-button-border",
-    ".segmented-control",
-    ".hero-03 .personal-image img",
-    ".checkbox label",
-    ".blog-intro",
-    "table",
-    "table thead ",
-    ".range-slider__value",
-    ".setting-panel",
-    "::-webkit-slider-thumb",
-    ".radio-group .indicator",
-    //contact
-    ".form-group input:focus",
-    ".form-group textarea:focus",
-];
-const insetBoxShadowSelectors = [
-    ".custom-scrollbar",
-    ".blog .blog-image .after",
-    ".skill-boxes .box-border",
-    ".setting-section .scrollable",
-    ".timeline-items.box-border",
-    ".range-slider__range",
-    "::-webkit-scrollbar-track",
-    ".checkbox input:checked~label",
-    ".button.active",
-    ".setting-button.active",
-    ".button:hover",
-    ".badge-border:hover",
-    "table>tbody>tr:hover",
-    ".setting-button:hover",
-    ".radio-selection",
-];
-const concaveBoxShadowSelectors = [
-    ".skill-box .skillbar",
-    // ".form-group",
-    "input[type=range]:focus",
-    "::-webkit-slider-thumb:hover",
-    //CONTACT
-    ".form-group input",
-    ".form-group textarea",
-    ".toggle",
-];
-const borderSelectors = [
-    //COMMON
-    ".button",
-    ".box-border",
-    ".setting-section .setting-panel",
-    " .setting-button",
-    ".image-border",
-    "table",
-    ".toggle",
-    ".toggle .indicator",
-    ".range-slider__range",
-    ".range-slider__value",
-    "::-webkit-slider-thumb",
-    // "::-webkit-scrollbar-track",
-    // "::-webkit-scrollbar-thumb",
-    // PORTFOLIO
-    ".segmented-control",
-    ".radio-selection",
-    ".checkbox label",
-    // BLOG
-    ".blog .blog-image .after",
-    ".blog .blog-intro ",
-    //CONTACT
-    // ".contact .form-item .form-group",
-    // ".contact #message.toast",
-    ".form-group input",
-    ".form-group textarea",
-];
-const surfaceSelectors = [
-    ".button",
-    ".setting-button",
-    ".box-border",
-    ".setting-panel",
-    ".image-border",
-    ".badge-border",
-    ".segmented-control",
-    ".checkbox label",
-    ".blog-intro",
-    "  .form-item .form-group",
-    ".range-slider__range",
-    ".range-slider__value",
-    "::-webkit-slider-thumb",
-    ".portfolio-single .modal-content",
-    "table thead ",
-];
 var BorderStyle;
 (function (BorderStyle) {
     BorderStyle[BorderStyle["solid"] = 0] = "solid";
@@ -146,15 +34,15 @@ export class NeuStyle extends Style {
         this.surfaceCurvature = 0;
         this.bgSurface = '';
         // lazy initializations
-        this.getBackgroundSchemeColorRule = () => { var _a; return (_a = this.backgroundSchemeColorRule) !== null && _a !== void 0 ? _a : (this.backgroundSchemeColorRule = this.insertEmptyRule(backgroundSchemeColorSelectors)); };
-        this.getColorHighlightColorRule = () => { var _a; return (_a = this.colorHighlightColorRule) !== null && _a !== void 0 ? _a : (this.colorHighlightColorRule = this.insertEmptyRule(colorHighlightColorSelectors)); };
-        this.getColorMutedBaseColorRule = () => { var _a; return (_a = this.colorMutedBaseColorRule) !== null && _a !== void 0 ? _a : (this.colorMutedBaseColorRule = this.insertEmptyRule(colorMutedBaseColorSelectors)); };
-        this.getDropBoxShadowRule = () => { var _a; return (_a = this.dropBoxShadowRule) !== null && _a !== void 0 ? _a : (this.dropBoxShadowRule = this.insertEmptyRule(dropBoxShadowSelectors)); };
-        this.getInsetBoxShadowRule = () => { var _a; return (_a = this.insetBoxShadowRule) !== null && _a !== void 0 ? _a : (this.insetBoxShadowRule = this.insertEmptyRule(insetBoxShadowSelectors)); };
-        this.getConcaveBoxShadowRule = () => { var _a; return (_a = this.concaveBoxShadowRule) !== null && _a !== void 0 ? _a : (this.concaveBoxShadowRule = this.insertEmptyRule(concaveBoxShadowSelectors)); };
+        this.getBackgroundSchemeColorRule = () => { var _a; return (_a = this.backgroundSchemeColorRule) !== null && _a !== void 0 ? _a : (this.backgroundSchemeColorRule = this.insertEmptyRule(NeuSelectors.backgroundSchemeColorSelectors)); };
+        this.getColorHighlightColorRule = () => { var _a; return (_a = this.colorHighlightColorRule) !== null && _a !== void 0 ? _a : (this.colorHighlightColorRule = this.insertEmptyRule(NeuSelectors.colorHighlightColorSelectors)); };
+        this.getColorMutedBaseColorRule = () => { var _a; return (_a = this.colorMutedBaseColorRule) !== null && _a !== void 0 ? _a : (this.colorMutedBaseColorRule = this.insertEmptyRule(NeuSelectors.colorMutedBaseColorSelectors)); };
+        this.getDropBoxShadowRule = () => { var _a; return (_a = this.dropBoxShadowRule) !== null && _a !== void 0 ? _a : (this.dropBoxShadowRule = this.insertEmptyRule(NeuSelectors.dropBoxShadowSelectors)); };
+        this.getInsetBoxShadowRule = () => { var _a; return (_a = this.insetBoxShadowRule) !== null && _a !== void 0 ? _a : (this.insetBoxShadowRule = this.insertEmptyRule(NeuSelectors.insetBoxShadowSelectors)); };
+        this.getConcaveBoxShadowRule = () => { var _a; return (_a = this.concaveBoxShadowRule) !== null && _a !== void 0 ? _a : (this.concaveBoxShadowRule = this.insertEmptyRule(NeuSelectors.concaveBoxShadowSelectors)); };
         this.getThumbScrollbarBoxShadowRule = () => { var _a; return (_a = this.thumbScrollbarBoxShadowRule) !== null && _a !== void 0 ? _a : (this.thumbScrollbarBoxShadowRule = this.insertEmptyRule(['::-webkit-scrollbar-thumb'])); };
-        this.getBorderRule = () => { var _a; return (_a = this.borderRule) !== null && _a !== void 0 ? _a : (this.borderRule = this.insertEmptyRule(borderSelectors)); };
-        this.getSurfaceRule = () => { var _a; return (_a = this.surfaceRule) !== null && _a !== void 0 ? _a : (this.surfaceRule = this.insertEmptyRule(surfaceSelectors)); };
+        this.getBorderRule = () => { var _a; return (_a = this.borderRule) !== null && _a !== void 0 ? _a : (this.borderRule = this.insertEmptyRule(NeuSelectors.borderSelectors)); };
+        this.getSurfaceRule = () => { var _a; return (_a = this.surfaceRule) !== null && _a !== void 0 ? _a : (this.surfaceRule = this.insertEmptyRule(NeuSelectors.surfaceSelectors)); };
         this.getRadioIndicatorUncheckedRule = () => { var _a; return (_a = this.radioIndicatorUncheckedRule) !== null && _a !== void 0 ? _a : (this.radioIndicatorUncheckedRule = this.insertEmptyRule(['.radio-group .indicator::before'])); };
         this.getRadioIndicatorCheckedRule = () => { var _a; return (_a = this.radioIndicatorCheckedRule) !== null && _a !== void 0 ? _a : (this.radioIndicatorCheckedRule = this.insertEmptyRule(['.radio-group .indicator::after'])); };
     }
