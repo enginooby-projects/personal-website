@@ -24,7 +24,8 @@
                                         <div class="customizer" id="neu-customizer">
                                                 <h6 class="text-center mt-0">Neu Customizer</h6>
                                                 <?php
-                                                rangeSlider('Distance', 'distance', 0, 20);
+                                                rangeSlider('Distance X', 'neu-distance-x', 0, 20);
+                                                rangeSlider('Distance Y', 'neu-distance-y', 0, 20);
                                                 rangeSlider('Blur', 'blur', 0, 20);
                                                 rangeSlider('Spread', 'neu-spread', -5, 5);
                                                 rangeSlider('Light intensity', 'light-intensity', 1, 20);
