@@ -139,6 +139,7 @@ export class NeuStyle extends Style {
 
         distance: number = 3;
         blur: number = 4;
+        spread: number = 0;
         lightenIntensity: number = 6.9;
         darkenIntensity: number = 6.9;
         lightenSchemeColor: string = "#e6e6e6";
@@ -194,6 +195,7 @@ export class NeuStyle extends Style {
         private initRangeSliders() {
                 this.initRangeSlider('#distance', this.distance);
                 this.initRangeSlider('#blur', this.blur);
+                this.initRangeSlider('#neu-spread', this.spread);
                 this.initRangeSlider('#light-intensity', this.lightenIntensity);
                 this.initRangeSlider('#dark-intensity', this.darkenIntensity);
                 this.initRangeSlider('#neu-border-width', this.borderWidth);
@@ -218,6 +220,9 @@ export class NeuStyle extends Style {
                                         break;
                                 case 'blur':
                                         this.blur = parseInt(newValue);
+                                        break;
+                                case 'neu-spread':
+                                        this.spread = parseInt(newValue);
                                         break;
                                 case 'light-intensity':
                                         this.lightenIntensity = parseInt(newValue);
@@ -270,10 +275,10 @@ export class NeuStyle extends Style {
         private updateBoxShadows() {
                 this.lightenSchemeColor = DynamicTheme.schemeColor.getLighten(this.lightenIntensity);
                 this.darkenSchemeColor = DynamicTheme.schemeColor.getDarken(this.darkenIntensity);
-                this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
-                this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
+                this.dropBoxShadow = `${this.distance}px ${this.distance}px ${this.blur}px ${this.spread}px ${this.darkenSchemeColor}, -${this.distance}px -${this.distance}px ${this.blur}px ${this.spread}px ${this.lightenSchemeColor}`;
+                this.insetBoxShadow = `inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.spread}px ${this.darkenSchemeColor}, inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.spread}px ${this.lightenSchemeColor}`;
                 this.pressedBoxShadow = `${this.dropBoxShadow}, ${this.insetBoxShadow}`; // TODO: Does not look good!
-                this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px ${this.lightenSchemeColor}`;
+                this.thumbScrollbarBoxShadow = `inset -${this.distance}px -${this.distance}px ${this.blur}px ${this.spread}px ${this.darkenSchemeColor}, inset ${this.distance}px ${this.distance}px ${this.blur}px${this.spread}px  ${this.lightenSchemeColor}`;
 
                 this.getDropBoxShadowRule().style.setProperty('box-shadow', this.dropBoxShadow, 'important');
                 this.getInsetBoxShadowRule().style.setProperty('box-shadow', this.insetBoxShadow, 'important');

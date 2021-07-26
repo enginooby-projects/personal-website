@@ -26,6 +26,7 @@
                                                 <?php
                                                 rangeSlider('Distance', 'distance', 0, 20);
                                                 rangeSlider('Blur', 'blur', 0, 20);
+                                                rangeSlider('Spread', 'neu-spread', -5, 5);
                                                 rangeSlider('Light intensity', 'light-intensity', 1, 20);
                                                 rangeSlider('Dark intensity', 'dark-intensity', 1, 20);
                                                 rangeSlider('Surface curvature', 'surface-curvature', -20, 20);

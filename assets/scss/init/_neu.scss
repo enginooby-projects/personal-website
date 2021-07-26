@@ -2,19 +2,20 @@
 
 $distance:3;
 $blur:4;
+$spread:0;
 $lightenSchemeColor:#e6e6e6;
 $darkenSchemeColor: #c2c2c2;
 
-$dropBoxShadow : #{$distance}px #{$distance}px #{$blur}px #{$darkenSchemeColor},
--#{$distance}px -#{$distance}px #{$blur}px #{$lightenSchemeColor};
+$dropBoxShadow : #{$distance}px #{$distance}px #{$blur}px #{$spread}px #{$darkenSchemeColor},
+-#{$distance}px -#{$distance}px #{$blur}px #{$spread}px #{$lightenSchemeColor};
 
-$insetBoxShadow : inset #{$distance}px #{$distance}px #{$blur}px #{$darkenSchemeColor},
-inset -#{$distance}px -#{$distance}px #{$blur}px #{$lightenSchemeColor};
+$insetBoxShadow : inset #{$distance}px #{$distance}px #{$blur}px #{$spread}px #{$darkenSchemeColor},
+inset -#{$distance}px -#{$distance}px #{$blur}px #{$spread}px #{$lightenSchemeColor};
 
 $concaveBoxShadow:"#{$dropBoxShadow},  #{$insetBoxShadow}";
 
-$thumbScrollbarBoxShadow:inset -#{$distance}px -#{$distance}px #{$blur}px #{$darkenSchemeColor},
-inset #{$distance}px #{$distance}px #{$blur}px #{$lightenSchemeColor};
+$thumbScrollbarBoxShadow:inset -#{$distance}px -#{$distance}px #{$blur}px #{$spread}px #{$darkenSchemeColor},
+inset #{$distance}px #{$distance}px #{$blur}px #{$spread}px #{$lightenSchemeColor};
 
 
 
