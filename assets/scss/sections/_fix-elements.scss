@@ -1,3 +1,5 @@
+@import "../base/_variables";
+
 /*-------------------------
           FIXED ELEMENTS: LOGO & SOCIAL ICONS
 -------------------------*/
@@ -13,7 +15,7 @@ header {
 .logo {
         color: #5f5f5f;
         font-weight: 800;
-        font-size: 22px;
+        font-size: 22px *$fontScale;
         margin-left: 14px;
 }
 
@@ -41,7 +43,7 @@ header {
         transform-origin: 100% 0;
         text-align: right;
         transform: rotate(90deg);
-        font-size: 1.3rem !important;
+        font-size: 1.3rem *$fontScale !important;
 
         animation-name: slide_to_right;
         animation-fill-mode: forwards;

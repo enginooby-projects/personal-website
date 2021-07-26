@@ -1,3 +1,14 @@
+@import "../base/_variables";
+
+#hero h2 {
+        font-size: 2rem * $fontScale;
+}
+
+#hero p {
+        word-break: normal;
+        hyphens: none;
+}
+
 /*-------------------------
           HERO
 -------------------------*/
@@ -134,10 +145,6 @@ canvas.particles-js-canvas-el {
 -------------------------*/
 #hero {
         overflow-x: hidden !important;
-
-        h2 {
-                font-size: 2rem;
-        }
 }
 
 .hero-03 {

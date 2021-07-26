@@ -1,9 +1,11 @@
+@import "../base/variables";
+
 /*-------------------------
           SKILLSET
 -------------------------*/
 .title {
-        font-family: "Agency FB Bold", sans-serif;
-        font-size: 1.75rem;
+        font-family: $fontBold;
+        font-size: 1.75rem *$fontScale;
         font-weight: 600;
 }
 
@@ -57,6 +59,12 @@
 
 .badge {
         display: inline-block;
+}
+
+.badge-pill {
+        i {
+                // font-size: 1.15rem !important;
+        }
 }
 
 .badge.badge-pill {

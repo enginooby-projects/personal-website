@@ -1,6 +1,11 @@
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
          GENERAL
 -------------------------*/
@@ -22,6 +27,10 @@ Init values for dynamic properties to reduce  page load time
   overflow-x: hidden !important;
 }
 
+.full-screen {
+  height: 100vh;
+}
+
 .image-border,
 .box-border,
 .form-group,
@@ -38,16 +47,6 @@ Init values for dynamic properties to reduce  page load time
 .radio-selection {
   transition: 0.4s all ease !important;
   -webkit-transition: 0.4s all ease !important;
-}
-
-body {
-  font-family: "Agency FB", sans-serif;
-  font-weight: 400;
-  font-size: 1.35rem !important;
-}
-
-.full-screen {
-  height: 100vh;
 }
 
 /* TEXT */
@@ -68,6 +67,12 @@ h6,
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.2;
+}
+
+body {
+  font-family: "Agency FB", sans-serif;
+  font-size: 1.35rem !important;
+  font-weight: 400;
 }
 
 h1,
@@ -120,13 +125,6 @@ p {
       hyphens: auto;
 }
 
-.image-caption {
-  font-size: 1.15rem;
-  font-style: italic;
-  text-align: center;
-  margin-top: 6px;
-}
-
 .max-width-450 {
   max-width: 450px;
   margin: 0 auto;
@@ -163,6 +161,17 @@ button {
   font-size: 22px;
   font-weight: 500 !important;
   display: inline-block;
+}
+
+.button i {
+  font-size: 15px;
+}
+
+.image-caption {
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .image-border {
@@ -287,7 +296,7 @@ table.neumorphic th {
 }
 
 table.neumorphic tbody {
-  font-size: 1.20rem;
+  font-size: 1.2rem;
 }
 
 table.neumorphic > tbody > tr > td {
@@ -314,10 +323,6 @@ table.neumorphic td:hover::after {
   height: 10000px;
   width: 100%;
   z-index: -1;
-}
-
-.badge-light {
-  background-color: white;
 }
 
 /* IMAGE */
@@ -522,12 +527,6 @@ video.lazy.loaded {
   border-radius: 0 !important;
 }
 
-.dark-scheme .setting-section .setting-button-border i {
-  color: #d3d3d3;
-  font-size: 20px;
-  line-height: 40px;
-}
-
 .setting-section ul.pattern {
   list-style: none outside none;
   margin: 0 0 0;
@@ -681,7 +680,7 @@ input::-moz-focus-outer {
 
 .range-slider label {
   display: block;
-  margin: 0;
+  margin: 0px 0 0px;
 }
 
 #color-panel label {
@@ -727,6 +726,21 @@ input::-moz-focus-outer {
 ::-webkit-scrollbar-thumb {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
+}
+
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
+#hero h2 {
+  font-size: 2rem;
+}
+
+#hero p {
+  word-break: normal;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
 }
 
 /*-------------------------
@@ -891,10 +905,6 @@ canvas.particles-js-canvas-el {
 -------------------------*/
 #hero {
   overflow-x: hidden !important;
-}
-
-#hero h2 {
-  font-size: 2rem;
 }
 
 .hero-03 {
@@ -1215,6 +1225,10 @@ canvas.particles-js-canvas-el {
   overflow: hidden;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
          ABOUT
 -------------------------*/
@@ -1233,14 +1247,23 @@ canvas.particles-js-canvas-el {
 
 .paragraph-title {
   font-family: "Agency FB Bold", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
+  margin-bottom: 0.2rem;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
          RESUME
 -------------------------*/
 .badge-pill {
+  font-size: 1.15rem !important;
+}
+
+.badge-pill i {
   font-size: 1.15rem !important;
 }
 
@@ -1321,6 +1344,7 @@ canvas.particles-js-canvas-el {
 }
 
 .timeline-year {
+  font-size: "Agency FB", sans-serif;
   font-size: 20px;
   font-weight: 500;
 }
@@ -1329,6 +1353,10 @@ canvas.particles-js-canvas-el {
   padding-right: 0.75rem;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
           FIXED ELEMENTS: LOGO & SOCIAL ICONS
 -------------------------*/
@@ -1477,6 +1505,10 @@ header {
   margin-right: 12px;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
           SKILLSET
 -------------------------*/
@@ -1623,6 +1655,10 @@ header {
   margin-top: 8px;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
          PORTFOLIO
 -------------------------*/
@@ -2057,6 +2093,15 @@ header {
 }
 
 .checkbox .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.1rem;
   margin-left: 0.35rem;
   margin-right: 0.8rem;
@@ -2990,6 +3035,10 @@ header {
   }
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
           CONTACT
 -------------------------*/
@@ -4151,9 +4200,11 @@ header {
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 .neu-style {
   /* TEXT DROP SHADOW */
 }
@@ -4601,6 +4652,7 @@ Init values for dynamic properties to reduce  page load time
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 .section,
 .display-content > .container,
 body,
@@ -4815,6 +4867,7 @@ table,
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 .neu-style {
   /* TEXT DROP SHADOW */
 }
@@ -4938,6 +4991,7 @@ Init values for dynamic properties to reduce  page load time
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 .flat-style .button,
 .flat-style .radio-button-group .button.active,
 .flat-style .radio-button-group .button:not(.active):hover,
@@ -5022,6 +5076,7 @@ Init values for dynamic properties to reduce  page load time
 /*
 Init values for dynamic properties to reduce  page load time 
 */
+/* FONT */
 .glass-style .button,
 .glass-style .radio-button-group .button.active,
 .glass-style .radio-button-group .button:not(.active):hover,

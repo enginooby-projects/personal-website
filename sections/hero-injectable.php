@@ -6,7 +6,7 @@
                                                 <div class="hero-content">
                                                         <h1 class="dark-color mb-4">I'M <span class="highlight-color"> HIEU NGO</span></h1>
                                                         <h2 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="typed" data-elements="Game Programmer,Java Developer"></span></h2>
-                                                        <p class="my-4">Welcome to my little corner of the Internet. Here is the place I document my life, showcase works & share knowledge.</p>
+                                                        <p class="my-4">Welcome to my little corner of the Internet. Here is where I document my life, showcase works & share knowledge.</p>
                                                         <div class="button-border mt-2 mt-lg-4">
                                                                 <a href="#portfolio" class="button nes-btn is-primary"> My Work </a>
                                                         </div>

@@ -1,31 +1,29 @@
+@import "_variables";
 /*-------------------------
          GENERAL
 -------------------------*/
-$button-border:0.8rem;
-
-$regularFont: '/assets/fonts/agency-fb-regular/AgencyFB-Reg';
+$agencyFbRegular: '/assets/fonts/agency-fb-regular/AgencyFB-Reg';
+$agencyFbBold: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
 
 @font-face {
         font-family: "Agency FB";
-        src: url("#{$regularFont}.ttf");
-        src: url("#{$regularFont}.eot") format("embedded-opentype"),
-        url("#{$regularFont}.woff2") format("woff2"),
-        url("#{$regularFont}.woff") format("woff"),
-        url("#{$regularFont}.ttf") format("truetype"),
-        url("#{$regularFont}.svg") format("svg");
+        src: url("#{$agencyFbRegular}.ttf");
+        src: url("#{$agencyFbRegular}.eot") format("embedded-opentype"),
+        url("#{$agencyFbRegular}.woff2") format("woff2"),
+        url("#{$agencyFbRegular}.woff") format("woff"),
+        url("#{$agencyFbRegular}.ttf") format("truetype"),
+        url("#{$agencyFbRegular}.svg") format("svg");
         font-display: swap;
 }
 
-$boldFont: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
-
 @font-face {
         font-family: "Agency FB Bold";
-        src: url("#{$boldFont}.ttf");
-        src: url("#{$boldFont}.eot") format("embedded-opentype"),
-        url("#{$boldFont}.woff2") format("woff2"),
-        url("#{$boldFont}.woff") format("woff"),
-        url("#{$boldFont}.ttf") format("truetype"),
-        url("#{$boldFont}.svg") format("svg");
+        src: url("#{$agencyFbBold}.ttf");
+        src: url("#{$agencyFbBold}.eot") format("embedded-opentype"),
+        url("#{$agencyFbBold}.woff2") format("woff2"),
+        url("#{$agencyFbBold}.woff") format("woff"),
+        url("#{$agencyFbBold}.ttf") format("truetype"),
+        url("#{$agencyFbBold}.svg") format("svg");
         font-display: swap;
 }
 
@@ -33,6 +31,11 @@ $boldFont: '/assets/fonts/agency-fb-bold/AgencyFB-Bold';
         overflow-x: hidden !important;
 }
 
+.full-screen {
+        height: 100vh;
+}
+
+// TRANSITION
 $transition_duration: 0.8s;
 
 .image-border,
@@ -53,16 +56,6 @@ $transition_duration: 0.8s;
         -webkit-transition: 0.4s all ease !important;
 }
 
-body {
-        font-family: "Agency FB", sans-serif;
-        font-weight: 400;
-        font-size: 1.35rem !important;
-}
-
-.full-screen {
-        height: 100vh;
-}
-
 /* TEXT */
 h1,
 h2,
@@ -76,42 +69,49 @@ h6,
 .h4,
 .h5,
 .h6 {
-        font-family: "Agency FB Bold", sans-serif;
+        font-family: $fontBold;
         line-height: 1.618;
         margin-bottom: 0.5rem;
         font-weight: 600;
         line-height: 1.2;
 }
 
+body {
+        font-family: $fontRegular;
+        font-size: 1.35rem * $fontScale !important;
+        font-weight: 400;
+}
+
+
 h1,
 .h1 {
         margin-top: 0;
-        font-size: 4rem;
+        font-size: 4rem *$fontScale;
 }
 
 h2,
 .h2 {
-        font-size: 3rem;
+        font-size: 3rem*$fontScale;
 }
 
 h3,
 .h3 {
-        font-size: 2.5rem;
+        font-size: 2.5rem*$fontScale;
 }
 
 h4,
 .h4 {
-        font-size: 2rem;
+        font-size: 2rem*$fontScale;
 }
 
 h5,
 .h5 {
-        font-size: 1.75rem;
+        font-size: 1.75rem*$fontScale;
 }
 
 h6,
 .h6 {
-        font-size: 1.5rem;
+        font-size: 1.5rem*$fontScale;
 }
 
 .z-index {
@@ -133,13 +133,6 @@ p {
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
         hyphens: auto;
-}
-
-.image-caption {
-        font-size: 1.15rem;
-        font-style: italic;
-        text-align: center;
-        margin-top: 6px;
 }
 
 .max-width-450 {
@@ -174,11 +167,22 @@ button {
         border: none;
         padding: 10px 30px;
         transition: all 0.3s ease;
-        font-size: 22px;
+        font-size: 22px *$fontScale;
         font-weight: 500 !important;
         display: inline-block;
 }
 
+.button i {
+        font-size: 15px;
+}
+
+// IMAGE
+.image-caption {
+        font-size: 1.15rem *$fontScale;
+        font-style: italic;
+        text-align: center;
+        margin-top: 6px;
+}
 
 .image-border {
         background-color: #f1f3f6;
@@ -218,10 +222,10 @@ button {
 
 .title-wrapper {
         text-align: center;
-        font-size: 56px;
+        font-size: 56px *$fontTitleScale;
         font-weight: 900;
         opacity: 0.12;
-        font-family: "Poppins", sans-serif;
+        font-family: $fontTitle;
         margin-top: -18px;
 }
 
@@ -232,9 +236,9 @@ button {
 }
 
 .title-content h2 {
-        font-size: 32px;
+        font-size: 32px *$fontTitleScale;
         font-weight: 900;
-        font-family: "Poppins", sans-serif !important;
+        font-family: $fontTitle !important;
         margin-bottom: 0;
 }
 
@@ -259,7 +263,7 @@ button {
 }
 
 .course-item b {
-        font-size: 1.15rem !important;
+        font-size: 1.15rem *$fontScale !important;
 }
 
 // Placeholder text
@@ -267,6 +271,7 @@ button {
         opacity: 1;
 }
 
+// TABLE
 table.neumorphic {
         border-spacing: 0;
         overflow: hidden;
@@ -275,13 +280,13 @@ table.neumorphic {
 }
 
 table.neumorphic th {
-        font-size: 1.35rem;
+        font-size: 1.35rem *$fontScale;
         padding: 7px;
         white-space: pre;
 }
 
 table.neumorphic tbody {
-        font-size: 1.20rem;
+        font-size: 1.20rem *$fontScale;
 }
 
 table.neumorphic>tbody>tr>td {
@@ -303,17 +308,11 @@ table.neumorphic tr td:first-child::before {
 table.neumorphic td:hover::after {
         content: "";
         position: absolute;
-        // box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-        //         -9px -9px 16px rgba(255, 255, 255, 0.6);
         left: 0;
         top: -5000px;
         height: 10000px;
         width: 100%;
         z-index: -1;
-}
-
-.badge-light {
-        background-color: white;
 }
 
 /* IMAGE */

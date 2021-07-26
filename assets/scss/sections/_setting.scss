@@ -94,7 +94,7 @@ $panelWidth:180px;
         direction: ltr;
 
         p {
-                font-size: 1.1rem !important;
+                font-size: 1.1rem *$fontScale !important;
                 margin-bottom: 10px !important;
         }
 }
@@ -110,7 +110,7 @@ $panelWidth:180px;
 
         .label-text {
                 margin-left: 16px;
-                font-size: 1.2rem;
+                font-size: 1.2rem *$fontScale;
                 font-weight: 700;
         }
 
@@ -156,12 +156,6 @@ $scrollbarRadius: 16px;
         border-radius: 0 !important;
 }
 
-.dark-scheme .setting-section .setting-button-border i {
-        color: #d3d3d3;
-        font-size: 20px;
-        line-height: 40px;
-}
-
 .setting-section ul.pattern {
         list-style: none outside none;
         margin: 0 0 0;
@@ -185,7 +179,7 @@ $scrollbarRadius: 16px;
         display: block;
         padding: 8px 0;
         transition: all 0.5s ease;
-        font-size: 20px;
+        font-size: 20px *$fontScale;
 }
 
 .color-scheme li a.light-scheme:hover,
@@ -215,7 +209,7 @@ $scrollbarRadius: 16px;
 }
 
 .theme-skin div a {
-        font-size: 1.15rem !important;
+        font-size: 1.15rem *$fontScale !important;
 }
 
 .theme-skin div {
@@ -344,16 +338,16 @@ input::-moz-focus-outer {
 }
 
 .range-slider label {
-        font-size: 1.1rem !important;
+        font-size: 1.1rem *$fontScale !important;
 }
 
 .range-slider__value {
-        font-size: 1rem !important;
+        font-size: 1rem *$fontScale !important;
 }
 
 .range-slider label {
         display: block;
-        margin: 0;
+        margin: 1.5*$sliderMargin 0 $sliderMargin;
         // writing-mode: vertical-rl;
         // text-orientation: mixed;
 }
@@ -372,7 +366,7 @@ input::-moz-focus-outer {
 // }
 
 #color-panel label {
-        font-size: 1.1rem !important;
+        font-size: 1.1rem *$fontScale !important;
         margin-bottom: 0.2rem !important;
 }
 
