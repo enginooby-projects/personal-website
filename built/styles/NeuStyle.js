@@ -1,6 +1,6 @@
-import * as DynamicTheme from './DynamicTheme.js';
-import * as NeuSelectors from './selectors/NeuSelectors.js';
-import { Style } from './Style.js';
+import * as DynamicTheme from '../DynamicTheme.js';
+import * as NeuSelectors from '../selectors/NeuSelectors.js';
+import { Style } from '../base/Style.js';
 var BorderStyle;
 (function (BorderStyle) {
     BorderStyle[BorderStyle["solid"] = 0] = "solid";

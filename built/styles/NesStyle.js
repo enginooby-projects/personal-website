@@ -1,6 +1,6 @@
-import * as DynamicTheme from './DynamicTheme.js';
-import * as NesSelectors from './selectors/NesSelectors.js';
-import { Style } from './Style.js';
+import * as DynamicTheme from '../DynamicTheme.js';
+import * as NesSelectors from '../selectors/NesSelectors.js';
+import { Style } from '../base/Style.js';
 export class NesStyle extends Style {
     constructor() {
         super('nes-style');

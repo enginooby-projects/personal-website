@@ -1,8 +1,8 @@
 import * as DynamicSelectors from './selectors/DynamicSelectors.js'
-import { Style } from './Style.js'
+import { Style } from './base/Style.js'
 import { StyleRegistry } from './StyleRegistry.js';
-import { Color } from './Color.js';
-import { TinyColor } from './TinyColor.js';
+import { Color } from './base/Color.js';
+import { TinyColor } from './base/TinyColor.js';
 
 // TODO: create class
 

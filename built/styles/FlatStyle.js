@@ -1,6 +1,6 @@
-import * as DynamicTheme from './DynamicTheme.js';
-import * as FlatSelectors from './selectors/FlatSelectors.js';
-import { Style } from './Style.js';
+import * as DynamicTheme from '../DynamicTheme.js';
+import * as FlatSelectors from '../selectors/FlatSelectors.js';
+import { Style } from '../base/Style.js';
 export class FlatStyle extends Style {
     constructor() {
         super('flat-style');

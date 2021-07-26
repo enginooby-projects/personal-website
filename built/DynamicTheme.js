@@ -1,6 +1,6 @@
 import * as DynamicSelectors from './selectors/DynamicSelectors.js';
 import { StyleRegistry } from './StyleRegistry.js';
-import { TinyColor } from './TinyColor.js';
+import { TinyColor } from './base/TinyColor.js';
 // TODO: create class
 //elements for this specific projects
 let $squareImg;

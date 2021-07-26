@@ -3,15 +3,14 @@ Responsibility: manage, load all styles & initialize current style of the theme
 Reason to change: add/remove a style, change the first style
 */
 import { changeStyle } from "./DynamicTheme.js";
-import { FlatStyle } from "./FlatStyle.js";
-import { NeuStyle } from "./NeuStyle.js";
-import { GlassStyle } from "./GlassStyle.js";
-import { NesStyle } from "./NesStyle.js";
+import { FlatStyle } from "./styles/FlatStyle.js";
+import { NeuStyle } from "./styles/NeuStyle.js";
+import { GlassStyle } from "./styles/GlassStyle.js";
+import { NesStyle } from "./styles/NesStyle.js";
 const FLAT_OPTION_SELECTOR = '#flat-skin-button';
 const NES_OPTION_SELECTOR = '#nes-skin-button';
 const NEU_OPTION_SELECTOR = '#neu-skin-button';
 const GLASS_OPTION_SELECTOR = '#glass-skin-button';
-// jQuery(function () {
 export class StyleRegistry {
     constructor() {
         this.init();

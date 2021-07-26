@@ -1,11 +1,11 @@
-import { Color } from './Color.js';
-import * as DynamicTheme from './DynamicTheme.js';
-import { Style } from './Style.js';
-import { TinyColor } from './TinyColor.js';
+import { Color } from '../base/Color.js';
+import * as DynamicTheme from '../DynamicTheme.js';
+import { Style } from '../base/Style.js';
+import { TinyColor } from '../base/TinyColor.js';
 
 // CAUTION: FlatStyle dependent
 //TODO: DRY with FlatStyle
-import * as FlatSelectors from './selectors/FlatSelectors.js'
+import * as FlatSelectors from '../selectors/FlatSelectors.js'
 
 export class GlassStyle extends Style {
         // Singleton Pattern
