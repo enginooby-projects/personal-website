@@ -1,8 +1,8 @@
 <?php
 // PDO implementation
-include 'database-properties.php';
-include 'utility.php';
-require 'entities/Book.php';
+include '../database-properties.php';
+include '../utility.php';
+require '../entities/Book.php';
 
 $dbname = 'PersonalWebsite';
 $charset = 'utf8mb4';
