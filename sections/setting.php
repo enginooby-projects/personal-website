@@ -7,6 +7,9 @@
                                 <div class="button-border">
                                         <a href="#" class="button" id="flat-skin-button">Flat</a>
                                 </div>
+                                <!-- <div class="button-border">
+                                        <a href="#" class="button" id="nes-skin-button">NES</a>
+                                </div> -->
                                 <div class="button-border">
                                         <a href="#" class="button" id="neu-skin-button">Neumorphism</a>
                                 </div>

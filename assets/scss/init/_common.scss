@@ -147,6 +147,8 @@ body,
 .contact .form-item .form-group,
 .contact #message.toast,
 .button,
+.setting-button,
+.nes-btn::after,
 .button-border,
 .image-border img,
 .image-border,
@@ -187,6 +189,31 @@ table,
         border-radius: $borderRadius;
 }
 
+//TODO: radius for border-background
+.nes-btn {}
+
 .checkbox i {
         color: $mutedBaseColor;
+}
+
+// CURSOR
+.flat-style,
+.neu-style,
+.glass-style {
+        * {
+                // cursor: default;
+        }
+
+        .button,
+        .radio-group .label,
+        .checkbox label,
+        i,
+        .overlay-menu-toggler,
+        input[type=color] {
+                * {
+                        cursor: pointer;
+                }
+
+                cursor: pointer;
+        }
 }

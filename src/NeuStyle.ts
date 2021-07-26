@@ -189,6 +189,8 @@ export class NeuStyle extends Style {
                 // TODO: Init radio button
         }
 
+        onDisable(): void { }
+
         private initRangeSliders() {
                 this.initRangeSlider('#distance', this.distance);
                 this.initRangeSlider('#blur', this.blur);

@@ -73,6 +73,7 @@ function getBorderRadiusRule(): CSSStyleRule {
 }
 
 export function changeStyle(newStyle: Style) {
+        currentStyle?.onDisable();
         currentStyle = newStyle;
         $(".customizer").hide();
         currentStyle.onEnable();

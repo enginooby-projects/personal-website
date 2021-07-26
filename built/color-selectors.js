@@ -88,8 +88,9 @@ export const borderRadiusSelectors = formatString([
     ".contact #message.toast",
     ".form-group input",
     ".form-group textarea",
-    //COMMON
+    //ELEMENTS
     ".button",
+    ".nes-btn::after",
     ".button-border",
     ".image-border",
     ".box-border",
@@ -113,6 +114,7 @@ export const borderRadiusSelectors = formatString([
     // SETTING
     ".setting-section .setting-panel",
     ".setting-section .setting-button-border",
+    ".setting-button",
     ".color-scheme li a",
     // SELF-EDUCATION
     ".course-item img",

@@ -58,6 +58,7 @@ function getBorderRadiusRule() {
     return borderRadiusRule !== null && borderRadiusRule !== void 0 ? borderRadiusRule : (borderRadiusRule = insertEmptyRule(Selectors.borderRadiusSelectors));
 }
 export function changeStyle(newStyle) {
+    currentStyle === null || currentStyle === void 0 ? void 0 : currentStyle.onDisable();
     currentStyle = newStyle;
     $(".customizer").hide();
     currentStyle.onEnable();

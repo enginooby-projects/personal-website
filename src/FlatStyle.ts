@@ -70,31 +70,32 @@ export class FlatStyle extends Style {
         }
 
         lightSchemeIntensity: number = 5;
+        lightenSchemeColor: string = "#e1e1e1";
         // darkenSchemeColor: string = "#c7c7c7";
         darkHighlightIntensity: number = 15;
-        lightenSchemeColor: string = "#e1e1e1";
         darkenHighlightColor: string = "#033669"
 
         private bgSchemeRule?: CSSStyleRule;
+        getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
         private bgLightenSchemeRule?: CSSStyleRule;
         private bgHighlightRule?: CSSStyleRule;
+        getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
         private bgDarkenHighlightRule?: CSSStyleRule;
+        getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
         private colorHighlightRule?: CSSStyleRule;
         private colorContrastHighlightRule?: CSSStyleRule;
         private colorBaseRule?: CSSStyleRule;
         private colorMutedBaseRule?: CSSStyleRule;
 
         // lazy initializations
-        getBgSchemeRule = () => this.bgSchemeRule ?? (this.bgSchemeRule = this.insertEmptyRule(bgSchemeSelectors));
         getBgLightenSchemeRule = () => this.bgLightenSchemeRule ?? (this.bgLightenSchemeRule = this.insertEmptyRule(bgLightenSchemeSelectors));
-        getBgHighlightRule = () => this.bgHighlightRule ?? (this.bgHighlightRule = this.insertEmptyRule(bgHighlightSelectors));
-        getBgDarkenHighlightRule = () => this.bgDarkenHighlightRule ?? (this.bgDarkenHighlightRule = this.insertEmptyRule(bgDarkenHighlightSelectors));
         getColorHighlightRule = () => this.colorHighlightRule ?? (this.colorHighlightRule = this.insertEmptyRule(colorHighlightSelectors));
         getColorContrastHighlightRule = () => this.colorContrastHighlightRule ?? (this.colorContrastHighlightRule = this.insertEmptyRule(colorContrastHighlightSelectors));
         getColorBaseRule = () => this.colorBaseRule ?? (this.colorBaseRule = this.insertEmptyRule(colorBaseSelectors));
         getColorMutedBaseRule = () => this.colorMutedBaseRule ?? (this.colorMutedBaseRule = this.insertEmptyRule(colorMutedBaseSelectors));
 
         init() { }
+        onDisable(): void { }
 
         setupCustomizeEvents(): void { }
 
@@ -107,7 +108,7 @@ export class FlatStyle extends Style {
         private updateBgHighlight() {
                 this.getBgHighlightRule().style.setProperty('background-color', DynamicTheme.highlightColor.hex, 'important');
                 this.getBgHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
-                this.insertEmptyRule(bgDarkenHighlightSelectors).style.setProperty('background-color', this.darkenHighlightColor, 'important');
+                this.getBgDarkenHighlightRule().style.setProperty('background-color', this.darkenHighlightColor, 'important');
                 this.getBgDarkenHighlightRule().style.setProperty('color', DynamicTheme.highlightColor.getInvertBlackWhite(), 'important');
         }
 

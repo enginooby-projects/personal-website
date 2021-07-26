@@ -57,6 +57,8 @@ export class GlassStyle extends Style {
                 })
         }
 
+        onDisable(): void { }
+
         initRangeSliders() {
                 $('#glass-transparency').attr('value', this.transparency);
                 $("#glass-transparency").next('.range-slider__value').html(this.transparency.toString());

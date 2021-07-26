@@ -39,6 +39,7 @@ export class GlassStyle extends Style {
             element.classList.add(this.currentBackground);
         });
     }
+    onDisable() { }
     initRangeSliders() {
         $('#glass-transparency').attr('value', this.transparency);
         $("#glass-transparency").next('.range-slider__value').html(this.transparency.toString());

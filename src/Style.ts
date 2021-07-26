@@ -29,6 +29,9 @@ export abstract class Style {
         abstract setupCustomizeEvents(): void; // events for customize the style in the setting panel
         abstract init(): void;
 
+        abstract onDisable(): void;
+
+        // DRY: update common functions, e.g. bgScheme, bgHighlight....
         abstract onHighlightColorUpdated(): void;
         abstract onSchemeColorUpdated(): void;
         abstract onBaseColorUpdated(): void;
