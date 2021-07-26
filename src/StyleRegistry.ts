@@ -22,8 +22,8 @@ export class StyleRegistry {
                 // $(GLASS_OPTION_SELECTOR).children('.button').addClass('active');
                 // changeStyle(NeuStyle.Instance);
                 // $(NEU_OPTION_SELECTOR).addClass('active');
-                // changeStyle(FlatStyle.Instance);
-                // $(FLAT_OPTION_SELECTOR).children('.button').addClass('active');
+                changeStyle(FlatStyle.Instance);
+                $(FLAT_OPTION_SELECTOR).children('.button').addClass('active');
         }
 
         public init() {

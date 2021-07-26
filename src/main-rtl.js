@@ -164,31 +164,31 @@ function ColorPallet() {
         "use strict";
 
         $("ul.pattern .color1").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/green-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/green-color.css")
         });
         $("ul.pattern .color2").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/yellow-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/yellow-color.css")
         });
         $("ul.pattern .color3").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/golden-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/golden-color.css")
         });
         $("ul.pattern .color4").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/sky-blue-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/sky-blue-color.css")
         });
         $("ul.pattern .color5").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/blue-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/blue-color.css")
         });
         $("ul.pattern .color6").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/purple-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/purple-color.css")
         });
         $("ul.pattern .color7").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/orange-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/orange-color.css")
         });
         $("ul.pattern .color8").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/pink-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/pink-color.css")
         });
         $("ul.pattern .color9").click(function () {
-                return $("#option-color").attr("href", "assets/css/color/red-color.css")
+                return $("#option-color").attr("href", "assets/scss/color/red-color.css")
         });
         $("#setting-section .setting-button-border").click(function () {
                 $("#setting-section .setting-panel").toggleClass('show')
