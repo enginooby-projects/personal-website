@@ -41,9 +41,11 @@
 
         <!-- EXPERIMENTING -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
+<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="">
         <div id="overlayer"></div><span class="loader"></span>
         <div id="pagepiling" class="pilling-page">
                 <?php include 'sections/hero.php'; ?>

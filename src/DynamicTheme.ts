@@ -119,9 +119,10 @@ function initSettingPanel() {
 }
 
 function setupSettingEvents() {
-        $("#setting-section .setting-button").on('click', function () {
+        $("#setting-section .setting-button-border").on('click', function () {
                 $("#setting-section .setting-panel").toggleClass('show');
                 $(this).toggleClass('active');
+                $('#setting-section .setting-button').toggleClass('active');
         });
         $('.theme-skin.radio-button-group .button').on('click', event => {
                 $('.theme-skin.radio-button-group .button').removeClass('active');
@@ -166,7 +167,7 @@ function setupRangeSliderEvents() {
 }
 
 function updateBorder() {
-        getBorderRadiusRule().style.setProperty('border-radius', `${borderRadius}px`, 'important');
+        getBorderRadiusRule().style.setProperty('border-radius', `${borderRadius}px`);
         $('.background-item').css('border-radius', borderRadius * 6); // since its zoom is 1/6
 }
 

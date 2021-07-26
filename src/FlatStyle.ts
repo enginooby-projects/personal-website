@@ -6,7 +6,8 @@ export const bgSchemeSelectors = [
         ".display-content",
         ".range-slider__range",
         ".range-slider__value",
-        ".modal-content"
+        ".modal-content",
+        ".radio-button-group .button:not(.active)",
 ];
 
 export const bgLightenSchemeSelectors = [

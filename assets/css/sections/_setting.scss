@@ -1,18 +1,81 @@
 /*-------------------------
          SETTING
 -------------------------*/
+
+//SETTING MAIN PANEL
+$panelWidth:180px;
+
 .setting-section .setting-panel {
         // direction: rtl;
         top: 75px;
-        left: 55px;
         z-index: 1000;
         position: fixed;
         transition: all .3s ease;
-        opacity: 0;
-        visibility: hidden;
-        width: 180px;
+        width: $panelWidth;
+        left: 55px;
+        // border-top-left-radius: 0 !important;
+        // border-top-right-radius: 0 !important;
+        // border-bottom-left-radius: 0 !important;
         // height: calc(100vh - 87px);
 }
+
+.setting-panel.hide {
+        // left: -$panelWidth;
+        opacity: 0;
+        visibility: hidden;
+}
+
+.setting-panel.show {
+        // left: 0;
+        opacity: 1;
+        visibility: visible;
+}
+
+// SETTING BUTTON
+.setting-section .setting-button-border {
+        border-left: none !important;
+        top: 75px;
+        z-index: 1000;
+        position: fixed;
+        transition: all 0.3s ease;
+        transition: left .7s ease;
+        display: block;
+        height: 40px;
+        left: 0;
+        width: 40px;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+
+        &.active {
+                // left: $panelWidth;
+        }
+
+        .setting-button {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+                position: fixed;
+                width: 98%;
+                height: 98%;
+        }
+
+        .cp-toggle {
+                position: fixed;
+        }
+
+        a {
+                width: 40px;
+                height: 40px;
+                display: block;
+                text-align: center;
+        }
+
+        i {
+                // position: absolute !important;
+                font-size: 20px;
+                line-height: 40px;
+        }
+}
+
 
 .setting-section .scrollable {
         padding-top: 1rem;
@@ -91,51 +154,6 @@ $scrollbarRadius: 16px;
 
 .setting-section .scrollable::-webkit-scrollbar-thumb {
         border-radius: 0 !important;
-}
-
-.setting-section .setting-panel.show {
-        opacity: 1;
-        visibility: visible;
-}
-
-.setting-section .setting-button-border // ,.setting-section .setting-button-border .setting-button
-
-        {
-        top: 75px;
-        z-index: 1000;
-        position: fixed;
-        transition: all 0.3s ease;
-        display: block;
-        height: 40px;
-        left: 0;
-        width: 40px;
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-}
-
-.setting-section .setting-button-border .setting-button {
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-        position: fixed;
-        width: 98%;
-        height: 98%;
-}
-
-.cp-toggle {
-        position: fixed;
-}
-
-.setting-section .setting-button-border a {
-        width: 40px;
-        height: 40px;
-        display: block;
-        text-align: center;
-}
-
-.setting-section .setting-button-border i {
-        // position: absolute !important;
-        font-size: 20px;
-        line-height: 40px;
 }
 
 .dark-scheme .setting-section .setting-button-border i {

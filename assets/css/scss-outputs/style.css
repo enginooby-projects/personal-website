@@ -43,10 +43,6 @@ body {
   font-size: 1.35rem !important;
 }
 
-.display-content > .container {
-  padding: 14px;
-}
-
 .full-screen {
   height: 100vh;
 }
@@ -390,14 +386,63 @@ video.lazy.loaded {
 -------------------------*/
 .setting-section .setting-panel {
   top: 75px;
-  left: 55px;
   z-index: 1000;
   position: fixed;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
+  width: 180px;
+  left: 55px;
+}
+
+.setting-panel.hide {
   opacity: 0;
   visibility: hidden;
-  width: 180px;
+}
+
+.setting-panel.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.setting-section .setting-button-border {
+  border-left: none !important;
+  top: 75px;
+  z-index: 1000;
+  position: fixed;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transition: left .7s ease;
+  transition: left .7s ease;
+  display: block;
+  height: 40px;
+  left: 0;
+  width: 40px;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.setting-section .setting-button-border .setting-button {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  position: fixed;
+  width: 98%;
+  height: 98%;
+}
+
+.setting-section .setting-button-border .cp-toggle {
+  position: fixed;
+}
+
+.setting-section .setting-button-border a {
+  width: 40px;
+  height: 40px;
+  display: block;
+  text-align: center;
+}
+
+.setting-section .setting-button-border i {
+  font-size: 20px;
+  line-height: 40px;
 }
 
 .setting-section .scrollable {
@@ -472,49 +517,6 @@ video.lazy.loaded {
 
 .setting-section .scrollable::-webkit-scrollbar-thumb {
   border-radius: 0 !important;
-}
-
-.setting-section .setting-panel.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.setting-section .setting-button-border {
-  top: 75px;
-  z-index: 1000;
-  position: fixed;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  display: block;
-  height: 40px;
-  left: 0;
-  width: 40px;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.setting-section .setting-button-border .setting-button {
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  position: fixed;
-  width: 98%;
-  height: 98%;
-}
-
-.cp-toggle {
-  position: fixed;
-}
-
-.setting-section .setting-button-border a {
-  width: 40px;
-  height: 40px;
-  display: block;
-  text-align: center;
-}
-
-.setting-section .setting-button-border i {
-  font-size: 20px;
-  line-height: 40px;
 }
 
 .dark-scheme .setting-section .setting-button-border i {
@@ -3061,8 +3063,11 @@ header {
            MEDIA
 -------------------------*/
 @media (min-width: 1200px) {
-  .pilling-page .container {
-    max-width: 1050px;
+  .display-content > .container {
+    max-width: 1100px;
+  }
+  .display-content > .container {
+    padding: 40px;
   }
 }
 

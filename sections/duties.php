@@ -13,10 +13,10 @@
                                 </div>
                                 <div class="row">
                                         <!-- Item 01 -->
-                                        <div class="col-lg-4 text-center text-md-left equal-columns">
+                                        <div class="col-lg-4 text-center text-md-left ">
                                         </div>
                                         <!-- Item 02 -->
-                                        <div class="col-lg-4 text-center text-md-left equal-columns">
+                                        <div class="col-lg-4 text-center text-md-left ">
                                                 <div class="image-border">
                                                         <div class="duties-item box-hover-border background-colorfull3">
                                                                 <div class="text-center p-4">

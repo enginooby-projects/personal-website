@@ -12,11 +12,11 @@ const GLASS_OPTION_SELECTOR = '#glass-skin-button';
 // jQuery(function () {
 export class StyleRegistry {
     constructor() {
+        this.init();
         // changeStyle(GlassStyle.Instance);
         // $(GLASS_OPTION_SELECTOR).children('.button').addClass('active');
-        this.init();
-        changeStyle(NeuStyle.Instance);
-        $(NEU_OPTION_SELECTOR).addClass('active');
+        // changeStyle(NeuStyle.Instance);
+        // $(NEU_OPTION_SELECTOR).addClass('active');
         // changeStyle(FlatStyle.Instance);
         // $(FLAT_OPTION_SELECTOR).children('.button').addClass('active');
     }
