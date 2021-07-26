@@ -40,6 +40,10 @@ $transition_duration: 0.8s;
         // -webkit-transition: 0.5s all ease !important;
 }
 
+.section {
+        overflow-x: hidden !important;
+}
+
 .image-border,
 .box-border,
 .form-group,

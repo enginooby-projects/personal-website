@@ -15,6 +15,10 @@
   font-display: swap;
 }
 
+.section {
+  overflow-x: hidden !important;
+}
+
 .image-border,
 .box-border,
 .form-group,
@@ -1575,6 +1579,14 @@ header {
 /*-------------------------
          DUTIES
 -------------------------*/
+.duties .image-border {
+  height: 90%;
+}
+
+.duties .duties-item {
+  height: 100%;
+}
+
 .duties .title {
   margin-bottom: 0.5rem;
 }

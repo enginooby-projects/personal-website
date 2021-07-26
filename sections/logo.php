@@ -1,6 +1,6 @@
 <header>
-        <div class="logo-area">
-                <a href="#hero" class="logo">
+        <div class="logo-area animate__animated  animate__bounceInDown">
+                <a href="#hero" class="logo ">
                         <span>engi<span class="highlight-color">noobz</span></span>
                 </a>
         </div>

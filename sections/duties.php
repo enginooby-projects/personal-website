@@ -13,10 +13,10 @@
                                 </div>
                                 <div class="row">
                                         <!-- Item 01 -->
-                                        <div class="col-lg-4 text-center text-md-left">
+                                        <div class="col-lg-4 text-center text-md-left equal-columns">
                                         </div>
                                         <!-- Item 02 -->
-                                        <div class="col-lg-4 text-center text-md-lef">
+                                        <div class="col-lg-4 text-center text-md-left equal-columns">
                                                 <div class="image-border">
                                                         <div class="duties-item box-hover-border background-colorfull3">
                                                                 <div class="text-center p-4">
@@ -33,19 +33,19 @@
                                         <div class="col-lg-4 text-center text-md-left">
                                         </div>
                                         <!-- Item 04 -->
-                                        <div class="col-lg-4 text-center text-md-left">
+                                        <div class="col-lg-4 text-center text-md-left ">
                                                 <div class="image-border">
                                                         <div class="duties-item box-hover-border background-colorfull2">
                                                                 <div class="text-center p-4">
                                                                         <img src="assets/img/responsive-design.svg" alt="/">
                                                                         <p class="title">Unity Optimizing</p>
-                                                                        <p class=" text-justify  mb-0">In a professionarerer rtt etetwetet werel context it often happens that private clients corder a publication to be made.</p>
+                                                                        <p class=" text-justify  mb-0">In a professional context it often happens that private clients corder a publication to be made.</p>
                                                                 </div>
                                                         </div>
                                                 </div>
                                         </div>
                                         <!-- Item 05 -->
-                                        <div class="col-lg-4 text-center text-md-left">
+                                        <div class="col-lg-4 text-center text-md-left ">
                                                 <div class="image-border">
                                                         <div class="duties-item box-hover-border background-colorfull1">
                                                                 <div class="text-center p-4">
@@ -57,7 +57,7 @@
                                                 </div>
                                         </div>
                                         <!-- Item 06 -->
-                                        <div class="col-lg-4 text-center text-md-left">
+                                        <div class="col-lg-4 text-center text-md-left ">
                                                 <div class="image-border">
                                                         <div class="duties-item box-hover-border background-colorfull2">
                                                                 <div class="text-center p-4">

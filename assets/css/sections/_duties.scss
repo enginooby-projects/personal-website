@@ -1,8 +1,14 @@
 /*-------------------------
          DUTIES
 -------------------------*/
-.duties .duties-item {
-        // margin-top: 30px;
+.duties {
+        .image-border {
+                height: 90%;
+        }
+
+        .duties-item {
+                height: 100%;
+        }
 }
 
 .duties .title {

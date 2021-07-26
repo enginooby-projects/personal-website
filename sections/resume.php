@@ -13,7 +13,7 @@
                                 </div>
                                 <!--    TimeLine Start   -->
                                 <div class="row">
-                                        <div class="col-lg-6 equal-columns" id="education-timeline">
+                                        <div class="col-lg-6 equal-columns animated " id="education-timeline">
                                                 <div class="resume-title text-center">
                                                         <h3>Education</h3>
                                                         <div class="border-style"></div>
@@ -25,7 +25,7 @@
                                                                 <div class="timeline-contents">
                                                                         <div class="time-line-header text-center">
                                                                                 <h4 class="timeline-title">Bachelor in Software Engineering</h4>
-                                                                                <p class="timeline-year">03/2019 - 03/2022 (GPA: 4.76/5.0)</p>
+                                                                                <p class="timeline-year">03/2019 - 03/2022</p>
                                                                         </div>
                                                                         <div class="timeline-content  ">
                                                                                 <p>My specialization is Internet & Multimedia Technologies which is one of the factors inspiring me to pursue game development.</p>

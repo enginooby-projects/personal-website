@@ -418,32 +418,39 @@ function pagePilling() {
                         }
 
                         const incommingSectionId: number = nextIndex + indexEnumOffset;
+                        const incommingSection: string = Section[incommingSectionId];
                         switch (incommingSectionId) {
                                 case Section.resume:
-                                        triggerOnFirstTimeVisit(Section.resume, () => {
+                                        triggerOnFirstTimeVisit(incommingSectionId, () => {
                                                 loadResumeModals();
                                         });
+                                        if (loadedSections.includes(incommingSection)) {
+                                                animateCSS('#education-timeline .timeline-items', 'slideInLeft');
+                                                animateCSS('#experience-timeline .timeline-items', 'slideInRight');
+                                                animateCSS('#achievements-timeline .timeline-items', 'slideInUp').then(() => {
+                                                });;
+                                        }
                                         break;
                                 case Section.portfolio:
-                                        triggerOnFirstTimeVisit(Section.portfolio, () => {
-                                                setupObserver(`#${Section[Section.portfolio]} img.lazy`, onLazyImageIntersecting);
-                                                setupObserver(`#${Section[Section.portfolio]} video.lazy`, onLazyVideoIntersecting);
+                                        triggerOnFirstTimeVisit(incommingSectionId, () => {
+                                                setupObserver(`#${incommingSection} img.lazy`, onLazyImageIntersecting);
+                                                setupObserver(`#${incommingSection} video.lazy`, onLazyVideoIntersecting);
                                                 loadPortfolioModals();
-                                                setupPersonalWebsitePortfolioStyleUpdateInterval();
+                                                // setupPersonalWebsitePortfolioStyleUpdateInterval();
                                         });
-                                        if (loadedSections.includes(Section[Section.portfolio])) {
-                                                setupPersonalWebsitePortfolioStyleUpdateInterval();
+                                        if (loadedSections.includes(incommingSection)) {
+                                                // setupPersonalWebsitePortfolioStyleUpdateInterval();
                                         }
                                         break;
                                 case Section.selfEducation:
-                                        triggerOnFirstTimeVisit(Section.selfEducation, () => {
-                                                setupObserver(`#${Section[Section.selfEducation]} img.lazy`, onLazyImageIntersecting);
+                                        triggerOnFirstTimeVisit(incommingSectionId, () => {
+                                                setupObserver(`#${incommingSection} img.lazy`, onLazyImageIntersecting);
                                                 setupObserver('.skillbar', onProgressBarIntersecting);
                                                 loadSelfEducationModals();
                                         });
                                         break;
                                 case Section.blog:
-                                        triggerOnFirstTimeVisit(Section.blog, () => {
+                                        triggerOnFirstTimeVisit(incommingSectionId, () => {
                                                 loadBlogModals();
                                         });
                                         break;
@@ -458,6 +465,25 @@ function pagePilling() {
                 },
         });
 }
+
+/* ANIMATION */
+const animateCSS = (element: string, animation: string, prefix = 'animate__') =>
+        // We create a Promise and return it
+        new Promise((resolve, reject) => {
+                const animationName = `${prefix}${animation}`;
+                const node = document.querySelector(element)!;
+
+                node.classList.add(`${prefix}animated`, animationName);
+
+                // When the animation ends, we clean the classes and resolve the Promise
+                function handleAnimationEnd(event: Event) {
+                        event.stopPropagation();
+                        node.classList.remove(`${prefix}animated`, animationName);
+                        resolve('Animation ended');
+                }
+
+                node.addEventListener('animationend', handleAnimationEnd, { once: true });
+        });
 
 /*-----------------------------
       SLIDER OWL CAROUSEL
