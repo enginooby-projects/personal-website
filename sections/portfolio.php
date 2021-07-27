@@ -54,8 +54,8 @@ class CodingProject
         }
 }
 
-// space in url = %20
-function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtension = 'png', $isGalleryItem = false, $displayFileRatio = null, $isInjectedItem = false, $injectedFile = null, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
+// space in url = %20; $injectedClasses to set style for the injected item
+function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtension = 'png', $isGalleryItem = false, $displayFileRatio = null, $isInjectedItem = false, $injectedClasses = '', $injectedFile = null, $filters, $accessUrl = null, $downloadUrl = null, $modalPlay = null, $codeUrl = null)
 {
         $formattedName = formatLabel($label);
         $highlightElement = getHighlightElement($filters);
@@ -80,7 +80,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
                 ob_start();
                 include $injectedFile;
                 $injectedContent = ob_get_clean();
-                $injectedElement = '<div class="injected-section">' . $injectedContent . ' </div> ';
+                $injectedElement = "<div class='injected-section $injectedClasses'>$injectedContent  </div> ";
                 $loadingIndicatorElement = '';
         } else {
                 // src="https://placehold.co/' . $displayFileRatio . '/jpg" 
@@ -122,7 +122,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
         ';
 
         echo '
-          <div class="-style col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
+          <div class="  col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
                     <div class="image-border">
                                         ' . $loadingIndicatorElement . '
                               <div class="portfolio-item-content" ' . $displayFileRatioProperty . '>
@@ -345,7 +345,6 @@ function formatLabel($str, $sep = '-')
                                         modalPlay: 'guess-the-word-play',
                                         codeUrl: 'enginoobz-games/guess-the-word'
                                 );
-                                //TODO: setInterval change style by modify class name of style in the section wrapper
                                 displayPortfolioItem(
                                         label: 'Personal Website',
                                         isInjectedItem: true,
@@ -361,6 +360,17 @@ function formatLabel($str, $sep = '-')
                                         filters: 'game medium web completed',
                                         accessUrl: 'enginoobz.itch.io/tony-the-runner',
                                         codeUrl: 'enginoobz-games/tony-the-runner'
+                                );
+                                //TODO: setInterval change style by modify class name of style in the section wrapper
+                                //TOFIX: border radius
+                                displayPortfolioItem(
+                                        label: 'Dynamic Style Framework',
+                                        isInjectedItem: true,
+                                        injectedClasses: ' glass-style background-3',
+                                        injectedFile: '../DynamicStyle/index-injectable.php',
+                                        filters: 'highlight web utility ongoing medium',
+                                        accessUrl: 'enginoobz.com/DynamicStyle/',
+                                        codeUrl: 'enginoobz-projects/dynamic-style-framework'
                                 );
                                 displayPortfolioItem(
                                         label: 'The Maze',
