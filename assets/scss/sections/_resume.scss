@@ -3,6 +3,23 @@
 /*-------------------------
          RESUME
 -------------------------*/
+@mixin center_div_in_div {
+        display: table;
+        margin: 0 auto;
+}
+
+.resume {
+        .timeline-content .button-border {
+                @include center_div_in_div();
+
+                .button {
+                        padding: 8px 15px;
+                        min-width: 150px;
+                        text-align: center;
+                }
+        }
+}
+
 .badge-pill {
         font-size: 1.15rem *$fontScale !important;
 }
@@ -43,19 +60,6 @@
         text-align: justify;
 }
 
-.timeline-content .button-border {
-        // center div in div
-        display: table;
-        margin: 0 auto;
-}
-
-.timeline-content .button-border .button {
-        padding: 8px 15px;
-        min-width: 150px;
-        text-align: center;
-        // width: 100px;
-        // height: 50px;
-}
 
 .timeline-icon {
         width: 15px;

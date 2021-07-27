@@ -5,7 +5,8 @@ let $pagePiling: JQuery<HTMLElement> = $('#pagepiling');
 // key must be the same as section ID (from HTML), other same as in PagePiling
 //get key string: Section[Section.about]  => about
 // get value: Section.about => 0
-enum Section { about, resume, skillset, duties, portfolio, selfEducation, blog, contact } // not include hero which is already loaded on page load
+// change indexEnumOffset if add/remove section
+enum Section { hero, about, resume, skillset, duties, portfolio, selfEducation, blog, contact }
 
 // after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
@@ -29,11 +30,14 @@ $(document).ready(function () {
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
         // loadPhpToBody("connect-database.php");
+        $('#hero').css(' -webkit-transition', '1s all ease');
+        $('#hero').css('transition', '1s all ease');
         loadAjaxFile("sections/overlay-menu.php", $body, setupOverlayMenuEvents);
         loadAjaxFile("sections/social.php", $body);
         loadAjaxFile("sections/logo.php", $body, setupOverlayMenuEvents);
         for (var section in Section) {
                 if (isNaN(Number(section))) {
+                        if (section == Section[Section.hero]) continue;// skip hero which is already loaded on page load
                         tryLoadingSection(section);
                 }
         }
@@ -365,7 +369,7 @@ function loadAjaxFile(filePath: string, container: JQuery<HTMLElement>, callback
        Page Pilling
 -------------------------*/
 let visitedSections: string[] = [];
-const indexEnumOffset: number = -2; // e.g. Section.about=0 but index of about is 2  according to PagePiling
+const indexEnumOffset: number = -1; // e.g. Section.about=1 but index of about is 2  according to PagePiling
 
 function triggerOnFirstTimeVisit(section: Section, callback: () => void) {
         if (visitedSections.includes(Section[section])) return;
@@ -411,6 +415,7 @@ function pagePilling() {
                 onLeave: function (index, nextIndex, direction) {
                         // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
                         const leavingSectionId: number = index + indexEnumOffset;
+                        const leavingSection: string = Section[leavingSectionId];
                         switch (leavingSectionId) {
                                 case Section.portfolio:
                                         clearPersonalWebsitePortfolioStyleUpdateInterval();
@@ -455,6 +460,9 @@ function pagePilling() {
                                         });
                                         break;
                         }
+
+                        $(` #${leavingSection}`).css('opacity', 0);
+                        $(` #${incommingSection}`).css('opacity', 1);
                 },
                 afterLoad: function (anchorLink, index) {
                         // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);

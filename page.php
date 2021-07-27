@@ -38,8 +38,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
         <link rel="stylesheet" href="assets/css/style.css" title="style" type="text/css">
-        <!-- TOFIX: reference to separate dynamic style sheet not working (file requested but rules in file not applied, so import dynamic-style.scss in style.scss to compile into 1 file)  -->
-        <!-- <link rel="stylesheet" href="DynamicStyle/css/dynamic-style.css" title="dynamic-style" type="text/css"> -->
+        <!-- TOFIX: reference to separate dynamic style sheet not working: file requested but rules in file not applied, 
+        so import dynamic-style.scss in style.scss to compile into 1 file, however must recompile style.scss each time recompile dynamic-style.scss  -->
+        <link rel="stylesheet" href="DynamicStyle/css/dynamic-style.css" title="dynamic-style" type="text/css">
 
         <!-- Load asynchronously non-critical assets (comment these out since using Critical npm makes them inactivated???)-->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" media="print" onload="this.media='all'"> -->

@@ -5,17 +5,19 @@ let $pagePiling = $('#pagepiling');
 // key must be the same as section ID (from HTML), other same as in PagePiling
 //get key string: Section[Section.about]  => about
 // get value: Section.about => 0
+// change indexEnumOffset if add/remove section
 var Section;
 (function (Section) {
-    Section[Section["about"] = 0] = "about";
-    Section[Section["resume"] = 1] = "resume";
-    Section[Section["skillset"] = 2] = "skillset";
-    Section[Section["duties"] = 3] = "duties";
-    Section[Section["portfolio"] = 4] = "portfolio";
-    Section[Section["selfEducation"] = 5] = "selfEducation";
-    Section[Section["blog"] = 6] = "blog";
-    Section[Section["contact"] = 7] = "contact";
-})(Section || (Section = {})); // not include hero which is already loaded on page load
+    Section[Section["hero"] = 0] = "hero";
+    Section[Section["about"] = 1] = "about";
+    Section[Section["resume"] = 2] = "resume";
+    Section[Section["skillset"] = 3] = "skillset";
+    Section[Section["duties"] = 4] = "duties";
+    Section[Section["portfolio"] = 5] = "portfolio";
+    Section[Section["selfEducation"] = 6] = "selfEducation";
+    Section[Section["blog"] = 7] = "blog";
+    Section[Section["contact"] = 8] = "contact";
+})(Section || (Section = {}));
 // after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
     // jQuery(function () {
@@ -37,11 +39,15 @@ $(document).ready(function () {
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
     // loadPhpToBody("connect-database.php");
+    $('#hero').css(' -webkit-transition', '1s all ease');
+    $('#hero').css('transition', '1s all ease');
     loadAjaxFile("sections/overlay-menu.php", $body, setupOverlayMenuEvents);
     loadAjaxFile("sections/social.php", $body);
     loadAjaxFile("sections/logo.php", $body, setupOverlayMenuEvents);
     for (var section in Section) {
         if (isNaN(Number(section))) {
+            if (section == Section[Section.hero])
+                continue; // skip hero which is already loaded on page load
             tryLoadingSection(section);
         }
     }
@@ -348,7 +354,7 @@ function loadAjaxFile(filePath, container, callback) {
        Page Pilling
 -------------------------*/
 let visitedSections = [];
-const indexEnumOffset = -2; // e.g. Section.about=0 but index of about is 2  according to PagePiling
+const indexEnumOffset = -1; // e.g. Section.about=1 but index of about is 2  according to PagePiling
 function triggerOnFirstTimeVisit(section, callback) {
     if (visitedSections.includes(Section[section]))
         return;
@@ -391,6 +397,7 @@ function pagePilling() {
         onLeave: function (index, nextIndex, direction) {
             // console.log(`onLeave: index-${index}; nextIndex-${nextIndex}; direction-${direction}`);
             const leavingSectionId = index + indexEnumOffset;
+            const leavingSection = Section[leavingSectionId];
             switch (leavingSectionId) {
                 case Section.portfolio:
                     clearPersonalWebsitePortfolioStyleUpdateInterval();
@@ -435,6 +442,8 @@ function pagePilling() {
                     });
                     break;
             }
+            $(` #${leavingSection}`).css('opacity', 0);
+            $(` #${incommingSection}`).css('opacity', 1);
         },
         afterLoad: function (anchorLink, index) {
             // console.log(`afterLoad: index-${index}; anchorLink-${anchorLink}`);
