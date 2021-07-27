@@ -102,6 +102,8 @@ function onSectionLoaded(name) {
         onPortfolioSectionLoaded();
     if (name == Section[Section.selfEducation])
         onSelfEducationSectionLoaded();
+    $(`#${name}`).css(' -webkit-transition', '1s all ease');
+    $(`#${name}`).css('transition', '1s all ease');
 }
 function onPortfolioSectionLoaded() {
     // loadLazyImagesInSection(Section[Section.portfolio]);

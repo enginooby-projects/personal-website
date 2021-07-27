@@ -1,15 +1,13 @@
 .section {
         background-color: transparent !important;
         overflow-x: hidden !important;
-        -webkit-transition: 1s all ease;
-        transition: 1s all ease;
         opacity: 0;
+        // make it appear fast on page load then manipulate speed  after loaded
+        -webkit-transition: none;
+        transition: none;
 }
 
 // first section
 .section#hero {
-        // make it appear fast on page load
-        -webkit-transition: 0s all ease;
-        transition: 0s all ease;
         opacity: 1;
 }

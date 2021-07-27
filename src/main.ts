@@ -94,6 +94,8 @@ function startLoadingSection(name: string, otherSection?: string) {
 function onSectionLoaded(name: string) {
         if (name == Section[Section.portfolio]) onPortfolioSectionLoaded();
         if (name == Section[Section.selfEducation]) onSelfEducationSectionLoaded();
+        $(`#${name}`).css(' -webkit-transition', '1s all ease');
+        $(`#${name}`).css('transition', '1s all ease');
 }
 
 function onPortfolioSectionLoaded() {

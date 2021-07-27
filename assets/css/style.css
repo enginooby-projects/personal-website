@@ -1,14 +1,12 @@
 .section {
   background-color: transparent !important;
   overflow-x: hidden !important;
-  -webkit-transition: 1s all ease;
-  transition: 1s all ease;
   opacity: 0;
+  -webkit-transition: none;
+  transition: none;
 }
 
 .section#hero {
-  -webkit-transition: 0s all ease;
-  transition: 0s all ease;
   opacity: 1;
 }
 
