@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="assets/css/pagepiling.css">
         <link rel="stylesheet" href="assets/css/style.css" title="style" type="text/css">
         <!-- TOFIX: reference to separate dynamic style sheet not working (file requested but rules in file not applied, so import dynamic-style.scss in style.scss to compile into 1 file)  -->
-        <!-- <link rel="stylesheet" href="DynamicTheme/css/dynamic-style.css" title="dynamic-style" type="text/css"> -->
+        <!-- <link rel="stylesheet" href="DynamicStyle/css/dynamic-style.css" title="dynamic-style" type="text/css"> -->
 
         <!-- Load asynchronously non-critical assets (comment these out since using Critical npm makes them inactivated???)-->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" media="print" onload="this.media='all'"> -->
@@ -74,7 +74,7 @@
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js" integrity="sha512-+aXA9mgbUvFe0ToTlbt8/3vT7+nOgUmFw29wfFCsGoh8AZMRSU0p4WtOvC1vkF2JBrndPN2TuNZsHPAKPPxe8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script async src="built/DynamicTheme.js" type="module"></script>
+        <script async src="DynamicStyle/js/DynamicTheme.js" type="module"></script>
 
         <!-- EXPERIMENTING -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->

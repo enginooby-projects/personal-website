@@ -3,8 +3,8 @@ var $window = $(window);
 let $body = $('body');
 let $pagePiling = $('#pagepiling');
 // key must be the same as section ID (from HTML), other same as in PagePiling
-//get name: Section[Section.about]  => about
-// get index: Section.about => 0
+//get key string: Section[Section.about]  => about
+// get value: Section.about => 0
 var Section;
 (function (Section) {
     Section[Section["about"] = 0] = "about";

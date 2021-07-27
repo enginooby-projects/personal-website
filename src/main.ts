@@ -3,8 +3,8 @@ let $body: JQuery<HTMLElement> = $('body');
 let $pagePiling: JQuery<HTMLElement> = $('#pagepiling');
 
 // key must be the same as section ID (from HTML), other same as in PagePiling
-//get name: Section[Section.about]  => about
-// get index: Section.about => 0
+//get key string: Section[Section.about]  => about
+// get value: Section.about => 0
 enum Section { about, resume, skillset, duties, portfolio, selfEducation, blog, contact } // not include hero which is already loaded on page load
 
 // after loading DOM (not affect DOMContentLoaded, affect Load)
