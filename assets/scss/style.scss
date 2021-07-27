@@ -1,7 +1,4 @@
 @charset "utf-8";
 
-@import "base/_index";
-@import "sections/_index";
-@import "elements/_index";
-@import "styles/_index";
-@import "init/_index";
+@import "sections/index";
+@import "../../DynamicTheme/scss/dynamic-style.scss"; // TODO: use path from project root

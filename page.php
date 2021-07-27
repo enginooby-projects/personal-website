@@ -37,7 +37,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900">
         <link rel="stylesheet" href="assets/css/pagepiling.css">
-        <link rel="stylesheet" href="assets/css/style.css" title="style">
+        <link rel="stylesheet" href="assets/css/style.css" title="style" type="text/css">
+        <!-- TOFIX: reference to separate dynamic style sheet not working (file requested but rules in file not applied, so import dynamic-style.scss in style.scss to compile into 1 file)  -->
+        <!-- <link rel="stylesheet" href="DynamicTheme/css/dynamic-style.css" title="dynamic-style" type="text/css"> -->
 
         <!-- Load asynchronously non-critical assets (comment these out since using Critical npm makes them inactivated???)-->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" media="print" onload="this.media='all'"> -->

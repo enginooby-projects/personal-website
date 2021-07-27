@@ -1,342 +1,3 @@
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
-/*-------------------------
-         GENERAL
--------------------------*/
-@font-face {
-  font-family: "Agency FB";
-  src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf");
-  src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff2") format("woff2"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff") format("woff"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf") format("truetype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.svg") format("svg");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Agency FB Bold";
-  src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf");
-  src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff2") format("woff2"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff") format("woff"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf") format("truetype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.svg") format("svg");
-  font-display: swap;
-}
-
-.section {
-  overflow-x: hidden !important;
-}
-
-.full-screen {
-  height: 100vh;
-}
-
-.image-border,
-.box-border,
-.form-group,
-.button-border,
-.blog-intro,
-.blog-image,
-.checkbox label,
-.segmented-control,
-.badge-border {
-  transition: 0.8s all ease !important;
-  -webkit-transition: 0.8s all ease !important;
-}
-
-.radio-selection {
-  transition: 0.4s all ease !important;
-  -webkit-transition: 0.4s all ease !important;
-}
-
-/* TEXT */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "Agency FB Bold", sans-serif;
-  line-height: 1.618;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-body {
-  font-family: "Agency FB", sans-serif;
-  font-size: 1.35rem !important;
-  font-weight: 400;
-}
-
-h1,
-.h1 {
-  margin-top: 0;
-  font-size: 4rem;
-}
-
-h2,
-.h2 {
-  font-size: 3rem;
-}
-
-h3,
-.h3 {
-  font-size: 2.5rem;
-}
-
-h4,
-.h4 {
-  font-size: 2rem;
-}
-
-h5,
-.h5 {
-  font-size: 1.75rem;
-}
-
-h6,
-.h6 {
-  font-size: 1.5rem;
-}
-
-.z-index {
-  z-index: 2;
-}
-
-h2,
-h2 span {
-  font-weight: 700;
-}
-
-p {
-  -ms-word-break: break-all;
-  word-break: break-all;
-  /* Non standard for WebKit */
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-      hyphens: auto;
-}
-
-.max-width-450 {
-  max-width: 450px;
-  margin: 0 auto;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a,
-button {
-  outline: none !important;
-}
-
-.box-border {
-  background-color: #f1f3f6;
-  padding: 15px 20px 7px;
-}
-
-.button-border button {
-  background-color: transparent;
-}
-
-.button-border {
-  display: inline-block;
-  padding: 1px;
-}
-
-.button {
-  padding: 10px 30px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  font-size: 22px;
-  font-weight: 500 !important;
-  display: inline-block;
-}
-
-.button i {
-  font-size: 15px;
-}
-
-.image-caption {
-  font-size: 1.15rem;
-  font-style: italic;
-  text-align: center;
-  margin-top: 6px;
-}
-
-.image-border {
-  background-color: #f1f3f6;
-  padding: 5px;
-}
-
-.image-border img {
-  width: 100%;
-}
-
-.display-table {
-  width: 100%;
-  height: 100%;
-  display: table;
-}
-
-.display-content {
-  vertical-align: middle;
-  display: table-cell;
-  padding: 5rem 0;
-}
-
-.center-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.text-dark {
-  color: #5f5f5f;
-}
-
-.dark-bg {
-  background-color: #2c2d30;
-}
-
-.title-wrapper {
-  text-align: center;
-  font-size: 56px;
-  font-weight: 900;
-  opacity: 0.12;
-  font-family: "Poppins", sans-serif;
-  margin-top: -18px;
-}
-
-.title-content {
-  text-align: center;
-  position: relative;
-  top: -48px;
-}
-
-.title-content h2 {
-  font-size: 32px;
-  font-weight: 900;
-  font-family: "Poppins", sans-serif !important;
-  margin-bottom: 0;
-}
-
-.border-style {
-  height: 2px;
-  width: 65px;
-  margin: 16px auto;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.resume-title:hover .border-style {
-  width: 90px;
-}
-
-.icon-image i {
-  font-size: 2.5rem;
-}
-
-.icon-image img {
-  width: 45px;
-  height: 45px;
-}
-
-.course-item b {
-  font-size: 1.15rem !important;
-}
-
-.form-control::-webkit-input-placeholder {
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
-  opacity: 1;
-}
-
-.form-control::-ms-input-placeholder {
-  opacity: 1;
-}
-
-.form-control::placeholder {
-  opacity: 1;
-}
-
-table.neumorphic {
-  border-spacing: 0;
-  overflow: hidden;
-  text-align: center;
-  position: relative;
-}
-
-table.neumorphic th {
-  font-size: 1.35rem;
-  padding: 7px;
-  white-space: pre;
-}
-
-table.neumorphic tbody {
-  font-size: 1.2rem;
-}
-
-table.neumorphic > tbody > tr > td {
-  padding: 10px;
-  position: relative;
-}
-
-table.neumorphic tr td:first-child::before {
-  content: "";
-  position: absolute;
-  padding: 7px;
-  top: 0;
-  left: -5000px;
-  width: 10000px;
-  height: 100%;
-  z-index: -10;
-}
-
-table.neumorphic td:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
-}
-
-/* IMAGE */
-img.lazy,
-video.lazy {
-  opacity: 0;
-  -webkit-transition: opacity .8s ease;
-  transition: opacity .8s ease;
-}
-
-img.lazy.loaded,
-video.lazy.loaded {
-  opacity: 1;
-}
-
 /*-------------------------
           PP Nav
 -------------------------*/
@@ -388,6 +49,10 @@ video.lazy.loaded {
   right: 28px;
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*-------------------------
          SETTING
 -------------------------*/
@@ -1224,10 +889,6 @@ canvas.particles-js-canvas-el {
   overflow: hidden;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
          ABOUT
 -------------------------*/
@@ -1242,13 +903,6 @@ Init values for dynamic properties to reduce  page load time
 .about .personal-info span {
   font-weight: 300;
   color: #5f5f5f;
-}
-
-.paragraph-title {
-  font-family: "Agency FB Bold", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
 }
 
 /*
@@ -4196,6 +3850,352 @@ Init values for dynamic properties to reduce  page load time
   }
 }
 
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
+/*-------------------------
+         GENERAL
+-------------------------*/
+@font-face {
+  font-family: "Agency FB";
+  src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf");
+  src: url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff2") format("woff2"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.woff") format("woff"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.ttf") format("truetype"), url("/assets/fonts/agency-fb-regular/AgencyFB-Reg.svg") format("svg");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agency FB Bold";
+  src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf");
+  src: url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.eot") format("embedded-opentype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff2") format("woff2"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.woff") format("woff"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.ttf") format("truetype"), url("/assets/fonts/agency-fb-bold/AgencyFB-Bold.svg") format("svg");
+  font-display: swap;
+}
+
+.section {
+  overflow-x: hidden !important;
+}
+
+.full-screen {
+  height: 100vh;
+}
+
+.image-border,
+.box-border,
+.form-group,
+.button-border,
+.blog-intro,
+.blog-image,
+.checkbox label,
+.segmented-control,
+.badge-border {
+  transition: 0.8s all ease !important;
+  -webkit-transition: 0.8s all ease !important;
+}
+
+.radio-selection {
+  transition: 0.4s all ease !important;
+  -webkit-transition: 0.4s all ease !important;
+}
+
+/* TEXT */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Agency FB Bold", sans-serif;
+  line-height: 1.618;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+body {
+  font-family: "Agency FB", sans-serif;
+  font-size: 1.35rem !important;
+  font-weight: 400;
+}
+
+h1,
+.h1 {
+  margin-top: 0;
+  font-size: 4rem;
+}
+
+h2,
+.h2 {
+  font-size: 3rem;
+}
+
+h3,
+.h3 {
+  font-size: 2.5rem;
+}
+
+h4,
+.h4 {
+  font-size: 2rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.75rem;
+}
+
+h6,
+.h6 {
+  font-size: 1.5rem;
+}
+
+.z-index {
+  z-index: 2;
+}
+
+h2,
+h2 span {
+  font-weight: 700;
+}
+
+p {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  /* Non standard for WebKit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
+}
+
+.paragraph-title {
+  font-family: "Agency FB Bold", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.max-width-450 {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a,
+button {
+  outline: none !important;
+}
+
+.box-border {
+  background-color: #f1f3f6;
+  padding: 15px 20px 7px;
+}
+
+.button-border button {
+  background-color: transparent;
+}
+
+.button-border {
+  display: inline-block;
+  padding: 1px;
+}
+
+.button {
+  padding: 10px 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 22px;
+  font-weight: 500 !important;
+  display: inline-block;
+}
+
+.button i {
+  font-size: 15px;
+}
+
+.image-caption {
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.image-border {
+  background-color: #f1f3f6;
+  padding: 5px;
+}
+
+.image-border img {
+  width: 100%;
+}
+
+.display-table {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.display-content {
+  vertical-align: middle;
+  display: table-cell;
+  padding: 5rem 0;
+}
+
+.center-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.text-dark {
+  color: #5f5f5f;
+}
+
+.dark-bg {
+  background-color: #2c2d30;
+}
+
+.title-wrapper {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 900;
+  opacity: 0.12;
+  font-family: "Poppins", sans-serif;
+  margin-top: -18px;
+}
+
+.title-content {
+  text-align: center;
+  position: relative;
+  top: -48px;
+}
+
+.title-content h2 {
+  font-size: 32px;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif !important;
+  margin-bottom: 0;
+}
+
+.border-style {
+  height: 2px;
+  width: 65px;
+  margin: 16px auto;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.resume-title:hover .border-style {
+  width: 90px;
+}
+
+.icon-image i {
+  font-size: 2.5rem;
+}
+
+.icon-image img {
+  width: 45px;
+  height: 45px;
+}
+
+.course-item b {
+  font-size: 1.15rem !important;
+}
+
+.form-control::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  opacity: 1;
+}
+
+table.neumorphic {
+  border-spacing: 0;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+table.neumorphic th {
+  font-size: 1.35rem;
+  padding: 7px;
+  white-space: pre;
+}
+
+table.neumorphic tbody {
+  font-size: 1.2rem;
+}
+
+table.neumorphic > tbody > tr > td {
+  padding: 10px;
+  position: relative;
+}
+
+table.neumorphic tr td:first-child::before {
+  content: "";
+  position: absolute;
+  padding: 7px;
+  top: 0;
+  left: -5000px;
+  width: 10000px;
+  height: 100%;
+  z-index: -10;
+}
+
+table.neumorphic td:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+/* IMAGE */
+img.lazy,
+video.lazy {
+  opacity: 0;
+  -webkit-transition: opacity .8s ease;
+  transition: opacity .8s ease;
+}
+
+img.lazy.loaded,
+video.lazy.loaded {
+  opacity: 1;
+}
+
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
 /*
 Init values for dynamic properties to reduce  page load time 
 */

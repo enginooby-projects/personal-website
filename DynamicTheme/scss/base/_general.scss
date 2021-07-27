@@ -1,4 +1,4 @@
-@import "_variables";
+@import "variables";
 /*-------------------------
          GENERAL
 -------------------------*/
@@ -133,6 +133,13 @@ p {
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
         hyphens: auto;
+}
+
+.paragraph-title {
+        font-family: $fontBold;
+        font-size: 1.6rem * $fontScale;
+        font-weight: 600;
+        margin-bottom: 0.2rem /$fontScale;
 }
 
 .max-width-450 {
