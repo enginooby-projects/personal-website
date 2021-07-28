@@ -345,7 +345,7 @@ function setupInjectedPortfolioUpdateInterval() {
                         element.classList.remove(lastStyle);
                 })
                 const currentStyle = styleClasses[(count++) % styleClasses.length];
-                console.log(currentStyle);
+                // console.log(currentStyle);
                 injectedPortfolioItems.forEach((element) => {
                         element.classList.add(currentStyle);
                 })

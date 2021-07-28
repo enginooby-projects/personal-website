@@ -3185,7 +3185,7 @@ Init values for dynamic properties to reduce  page load time
   -webkit-transition: 0.8s all ease !important;
 }
 
-.button-border .button {
+.button {
   color: #004b97;
   border-radius: 9px;
   padding: 10px 30px;
@@ -3196,7 +3196,7 @@ Init values for dynamic properties to reduce  page load time
   display: inline-block;
 }
 
-.button-border .button i {
+.button i {
   font-size: 15px;
 }
 
@@ -3798,6 +3798,7 @@ body,
 .modal-content,
 table,
 .injected-section,
+.display-content,
 .display-content > .container,
 .portfolio-item-content,
 .portfolio-icon a,
