@@ -364,13 +364,13 @@ function formatLabel($str, $sep = '-')
                                 );
                                 //TODO: setInterval change style by modify class name of style in the section wrapper
                                 displayPortfolioItem(
-                                        label: 'Dynamic Style Framework',
+                                        label: 'Dynamic UI Framework',
                                         isInjectedItem: true,
                                         injectedClasses: ' glass-style background-1',
                                         injectedFile: '../DynamicStyle/index-injectable.php',
                                         filters: 'highlight web utility ongoing medium',
                                         accessUrl: 'enginoobz.com/DynamicStyle/',
-                                        codeUrl: 'enginoobz-projects/dynamic-style-framework'
+                                        codeUrl: 'enginoobz-projects/dynamic-ui-framework'
                                 );
                                 displayPortfolioItem(
                                         label: 'The Maze',

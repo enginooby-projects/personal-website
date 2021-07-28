@@ -1022,6 +1022,8 @@ Init values for dynamic properties to reduce  page load time
 .injected-section {
   zoom: 0.4;
   -moz-transform: scale(0.4);
+  max-height: 800px;
+  overflow: hidden !important;
 }
 
 .radio-button-group > li > a > i {
@@ -2896,7 +2898,7 @@ body {
   -webkit-transition: 0.4s all ease !important;
 }
 
-/* TEXT */
+/* CONTAINER COMPONENTS */
 h1,
 h2,
 h3,
@@ -3200,6 +3202,25 @@ Init values for dynamic properties to reduce  page load time
   font-size: 15px;
 }
 
+.code-block {
+  font-style: italic;
+  margin: 10px 0 40px;
+  font-size: 1rem;
+  border-radius: 9px;
+}
+
+.code-block pre {
+  background-color: transparent;
+}
+
+.code-block pre code {
+  text-shadow: 0 0.5px black;
+  display: block;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+}
+
 /*
 Init values for dynamic properties to reduce  page load time 
 */
@@ -3215,6 +3236,13 @@ Init values for dynamic properties to reduce  page load time
 
 .radio-group .radio-button-wrapper {
   display: inline-block;
+}
+
+.radio-group .radio-button-wrapper input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
 }
 
 .radio-group .state {
@@ -3864,7 +3892,10 @@ Init values for dynamic properties to reduce  page load time
 /* FONT */
 .neu-style {
   /*-------------------------
-      FORMS
+      FORM COMPONENTS
+-------------------------*/
+  /*-------------------------
+      CONTAINER COMPONENTS
 -------------------------*/
   /* TEXT DROP SHADOW */
 }
@@ -3906,6 +3937,11 @@ Init values for dynamic properties to reduce  page load time
 .neu-style .range-slider input[type=range]:focus {
   -webkit-box-shadow: 3px 3px 4px 0px #c2c2c2, -3px -3px 4px 0px #e6e6e6,  inset 3px 3px 4px 0px #c2c2c2, inset -3px -3px 4px 0px #e6e6e6;
           box-shadow: 3px 3px 4px 0px #c2c2c2, -3px -3px 4px 0px #e6e6e6,  inset 3px 3px 4px 0px #c2c2c2, inset -3px -3px 4px 0px #e6e6e6;
+}
+
+.neu-style .code-block {
+  -webkit-box-shadow: inset 3px 3px 4px 0px #c2c2c2, inset -3px -3px 4px 0px #e6e6e6;
+          box-shadow: inset 3px 3px 4px 0px #c2c2c2, inset -3px -3px 4px 0px #e6e6e6;
 }
 
 .neu-style .button-border,
@@ -4014,8 +4050,15 @@ Init values for dynamic properties to reduce  page load time
 /* FONT */
 .flat-style {
   /*-------------------------
+      CONTAINER COMPONENTS
+-------------------------*/
+  /*-------------------------
       ELEMENTS
 -------------------------*/
+}
+
+.flat-style .code-block {
+  background-color: #e1e1e1;
 }
 
 .flat-style .button {

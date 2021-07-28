@@ -7,6 +7,8 @@ $injectionScale:0.4;
 .injected-section {
         zoom: $injectionScale;
         -moz-transform: scale($injectionScale);
+                max-height: 800px;
+                overflow: hidden !important;
 }
 
 .radio-button-group>li>a>i {
