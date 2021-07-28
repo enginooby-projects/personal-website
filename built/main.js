@@ -116,7 +116,7 @@ function onPortfolioSectionLoaded() {
     setupPortfolioTypeTS();
     // trigger filtering first time to fix overlapping items on mobile screen
     startFilterring($('.portfolio-items'), '*');
-    $injectedPersonalWebsitePortfolio = $("#personal-website-portfolio");
+    injectedPortfolioItems = document.querySelectorAll(".injected-section");
 }
 function setupPortfolioTypeTS() {
     var $element = $("#portfolio .typed");
@@ -321,17 +321,22 @@ function loadPortfolioModals() {
 }
 let funStyleUpdateIntervalId = -1;
 const styleClasses = ["flat-style", "neu-style", "glass-style"];
-let $injectedPersonalWebsitePortfolio;
-function setupPersonalWebsitePortfolioStyleUpdateInterval() {
+let injectedPortfolioItems;
+// TOFIX: Conflict styles when manually change style (from setting)
+function setupInjectedPortfolioUpdateInterval() {
     if (funStyleUpdateIntervalId != -1)
         return;
     let count = 1;
     let lastStyle;
     funStyleUpdateIntervalId = window.setInterval(() => {
-        // $injectedPersonalWebsitePortfolio.removeClass(lastStyle);
+        injectedPortfolioItems.forEach((element) => {
+            element.classList.remove(lastStyle);
+        });
         const currentStyle = styleClasses[(count++) % styleClasses.length];
         console.log(currentStyle);
-        // $injectedPersonalWebsitePortfolio.addClass(currentStyle);
+        injectedPortfolioItems.forEach((element) => {
+            element.classList.add(currentStyle);
+        });
         lastStyle = currentStyle;
     }, 2000);
 }
@@ -425,10 +430,10 @@ function pagePilling() {
                         setupObserver(`#${incommingSection} img.lazy`, onLazyImageIntersecting);
                         setupObserver(`#${incommingSection} video.lazy`, onLazyVideoIntersecting);
                         loadPortfolioModals();
-                        // setupPersonalWebsitePortfolioStyleUpdateInterval();
+                        setupInjectedPortfolioUpdateInterval();
                     });
                     if (loadedSections.includes(incommingSection)) {
-                        // setupPersonalWebsitePortfolioStyleUpdateInterval();
+                        setupInjectedPortfolioUpdateInterval();
                     }
                     break;
                 case Section.selfEducation:

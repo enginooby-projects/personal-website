@@ -348,6 +348,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Personal Website',
                                         isInjectedItem: true,
+                                        injectedClasses: ' glass-style background-3',
                                         injectedFile: 'hero-injectable.php',
                                         filters: 'highlight web database cloud ongoing large',
                                         codeUrl: 'enginoobz-projects/portfolio-test'
@@ -362,11 +363,10 @@ function formatLabel($str, $sep = '-')
                                         codeUrl: 'enginoobz-games/tony-the-runner'
                                 );
                                 //TODO: setInterval change style by modify class name of style in the section wrapper
-                                //TOFIX: border radius
                                 displayPortfolioItem(
                                         label: 'Dynamic Style Framework',
                                         isInjectedItem: true,
-                                        injectedClasses: ' glass-style background-3',
+                                        injectedClasses: ' glass-style background-1',
                                         injectedFile: '../DynamicStyle/index-injectable.php',
                                         filters: 'highlight web utility ongoing medium',
                                         accessUrl: 'enginoobz.com/DynamicStyle/',
