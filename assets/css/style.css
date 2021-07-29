@@ -1394,115 +1394,6 @@ Init values for dynamic properties to reduce  page load time
   }
 }
 
-/*  CHECKBOX  */
-.checkbox input {
-  display: none;
-}
-
-.checkbox .name {
-  font-size: 1.1rem;
-  margin-left: 0.35rem;
-  margin-right: 0.8rem;
-  margin-bottom: 0rem;
-}
-
-.checkbox__1, .checkbox__2, .checkbox__3, .checkbox__4, .checkbox__5, .checkbox__6, .checkbox__7 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.checkbox__1 label, .checkbox__2 label, .checkbox__3 label, .checkbox__4 label, .checkbox__5 label, .checkbox__6 label, .checkbox__7 label {
-  cursor: pointer;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
-.checkbox__1 label i, .checkbox__2 label i, .checkbox__3 label i, .checkbox__4 label i, .checkbox__5 label i, .checkbox__6 label i, .checkbox__7 label i {
-  width: 100%;
-  height: 100%;
-  font-size: 0.9rem;
-  font-weight: 700;
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-/*  CHECKBOX  */
-.checkbox input {
-  display: none;
-}
-
-.checkbox .name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.1rem;
-  margin-left: 0.35rem;
-  margin-right: 0.8rem;
-  margin-bottom: 0rem;
-}
-
-.checkbox__1,
-.checkbox__2,
-.checkbox__3,
-.checkbox__4,
-.checkbox__5,
-.checkbox__6,
-.checkbox__7,
-.checkbox__8 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.checkbox label {
-  cursor: pointer;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
-.checkbox label i {
-  font-size: 0.9rem;
-  font-weight: 700;
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
-}
-
 /* INDICATOR */
 .cssload-container {
   position: absolute;
@@ -2473,15 +2364,6 @@ Init values for dynamic properties to reduce  page load time
 /*-------------------------
            MEDIA
 -------------------------*/
-@media (min-width: 1200px) {
-  .display-content > .container {
-    max-width: 1100px;
-  }
-  .display-content > .container {
-    padding: 40px;
-  }
-}
-
 @media (max-width: 1199px) {
   .section {
     padding-right: 6rem;
@@ -2649,8 +2531,33 @@ Init values for dynamic properties to reduce  page load time
   padding: 8px 20px;
 }
 
-.setting-section .setting-panel .radio-group {
+.setting-section .setting-panel .radio-group-wrapper {
   padding: 1px 64px;
+  margin-left: -10px;
+}
+
+.setting-section .setting-panel .radio-group-wrapper .text {
+  margin-left: 10px;
+}
+
+.setting-section .setting-panel .radio-group-wrapper #solid-border ~ label .text {
+  border: 4px solid #4D4D4D;
+}
+
+.setting-section .setting-panel .radio-group-wrapper #double-border ~ label .text {
+  border: 4px double #4D4D4D;
+}
+
+.setting-section .setting-panel .radio-group-wrapper #dotted-border ~ label .text {
+  border: 4px dotted #4D4D4D;
+}
+
+.setting-section .setting-panel .radio-group-wrapper #dashed-border ~ label .text {
+  border: 4px dashed #4D4D4D;
+}
+
+.setting-section .setting-panel .range-slider__range {
+  width: 6rem;
 }
 
 .setting-panel.hide {
@@ -2729,50 +2636,6 @@ Init values for dynamic properties to reduce  page load time
 .setting-panel-content p {
   font-size: 1.1rem !important;
   margin-bottom: 10px !important;
-}
-
-.setting-section .label {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-}
-
-.setting-section .label-text {
-  margin-left: 16px;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.setting-section .toggle {
-  isolation: isolate;
-  position: relative;
-  height: 25px;
-  width: 60px;
-  overflow: hidden;
-}
-
-.setting-section .toggle-state {
-  display: none;
-}
-
-.setting-section .indicator {
-  height: 100%;
-  width: 200%;
-  -webkit-transform: translate3d(-75%, 0, 0);
-          transform: translate3d(-75%, 0, 0);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-  transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35), -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-}
-
-.setting-section .toggle-state:checked ~ .indicator {
-  -webkit-transform: translate3d(25%, 0, 0);
-          transform: translate3d(25%, 0, 0);
 }
 
 .setting-section .scrollable::-webkit-scrollbar {
@@ -3025,7 +2888,7 @@ button {
 .display-content {
   vertical-align: middle;
   display: table-cell;
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .center-item {
@@ -3175,6 +3038,15 @@ video.lazy.loaded {
 Init values for dynamic properties to reduce  page load time 
 */
 /* FONT */
+@media (min-width: 1200px) {
+  .display-content > .container {
+    max-width: 1100px;
+  }
+  .display-content > .container {
+    padding: 40px;
+  }
+}
+
 /*
 Init values for dynamic properties to reduce  page load time 
 */
@@ -3205,7 +3077,7 @@ Init values for dynamic properties to reduce  page load time
 .code-block {
   font-style: italic;
   margin: 10px 0 40px;
-  font-size: 1rem;
+  font-size: .93rem;
   border-radius: 9px;
 }
 
@@ -3216,36 +3088,61 @@ Init values for dynamic properties to reduce  page load time
 .code-block pre code {
   text-shadow: 0 0.5px black;
   display: block;
+  color: #4D4D4D;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -o-pre-wrap;
+}
+
+.code-block .token.atrule,
+.code-block .token.attr-value,
+.code-block .token.keyword {
+  color: #004b97;
+}
+
+.code-block .token.attr-name,
+.code-block .token.builtin,
+.code-block .token.char,
+.code-block .token.inserted,
+.code-block .token.selector,
+.code-block .token.string {
+  color: #01724b;
+}
+
+.code-block .token.important,
+.code-block .token.regex,
+.code-block .token.variable {
+  color: #bc5b00;
+}
+
+.code-block .token.class-name,
+.code-block .token.function {
+  color: #c40639;
+}
+
+.code-block .token.cdata,
+.code-block .token.comment,
+.code-block .token.doctype,
+.code-block .token.prolog {
+  color: #4D4D4D;
 }
 
 /*
 Init values for dynamic properties to reduce  page load time 
 */
 /* FONT */
-.radio-title {
-  font-size: 1.1rem !important;
-  color: black;
-}
-
-.radio-group {
-  padding-bottom: 0;
-}
-
-.radio-group .radio-button-wrapper {
+.dui-radio {
   display: inline-block;
 }
 
-.radio-group .radio-button-wrapper input {
+.dui-radio input {
   position: absolute;
   top: -9999px;
   left: -9999px;
   visibility: hidden;
 }
 
-.radio-group .state {
+.dui-radio .state {
   position: absolute;
   top: 0;
   right: 0;
@@ -3253,26 +3150,28 @@ Init values for dynamic properties to reduce  page load time
   pointer-events: none;
 }
 
-.radio-group .label {
+.dui-radio .label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
-  color: #4D4D4D;
+  color: black;
   font-size: 1.1rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
-.radio-group .text {
+.dui-radio .text {
   -webkit-transition: -webkit-transform .2s ease-out;
   transition: -webkit-transform .2s ease-out;
   transition: transform .2s ease-out;
   transition: transform .2s ease-out, -webkit-transform .2s ease-out;
-  font-style: italic;
   border-radius: 9px;
   padding: 5px 15px;
 }
 
-.radio-group .indicator {
+.dui-radio .indicator {
   position: relative;
   height: 25px;
   width: 25px;
@@ -3280,8 +3179,8 @@ Init values for dynamic properties to reduce  page load time
   overflow: hidden;
 }
 
-.radio-group .indicator::before,
-.radio-group .indicator::after {
+.dui-radio .indicator::before,
+.dui-radio .indicator::after {
   content: '';
   position: absolute;
   top: 10%;
@@ -3291,7 +3190,7 @@ Init values for dynamic properties to reduce  page load time
   border-radius: 50%;
 }
 
-.radio-group .indicator::after {
+.dui-radio .indicator::after {
   background-color: #D4D4D4;
   -webkit-transform: scale3d(1, 1, 1);
           transform: scale3d(1, 1, 1);
@@ -3301,41 +3200,25 @@ Init values for dynamic properties to reduce  page load time
   transition: opacity .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
 }
 
-.radio-group .state:checked ~ .label .indicator::after,
-.radio-group .label:hover .indicator::after {
+.dui-radio .state:checked ~ .label .indicator::after,
+.dui-radio .label:hover .indicator::after {
   -webkit-transform: scale3d(0.975, 0.975, 1) translate3d(0, 10%, 0);
           transform: scale3d(0.975, 0.975, 1) translate3d(0, 10%, 0);
   opacity: 0;
 }
 
-.radio-group .state:checked ~ .label .text {
+.dui-radio .state:checked ~ .label .text {
   color: #004b97;
 }
 
-.radio-group .state:focus ~ .label .text {
+.dui-radio .state:focus ~ .label .text {
   -webkit-transform: translate3d(8px, 0, 0);
           transform: translate3d(8px, 0, 0);
   color: #004b97;
 }
 
-.radio-group .label:hover .text {
+.dui-radio .label:hover .text {
   color: #004b97;
-}
-
-#solid-border ~ label .text {
-  border: 4px solid #4D4D4D;
-}
-
-#double-border ~ label .text {
-  border: 4px double #4D4D4D;
-}
-
-#dotted-border ~ label .text {
-  border: 4px dotted #4D4D4D;
-}
-
-#dashed-border ~ label .text {
-  border: 4px dashed #4D4D4D;
 }
 
 /*
@@ -3350,7 +3233,7 @@ Init values for dynamic properties to reduce  page load time
 
 .range-slider label {
   border-radius: 9px;
-  color: #4D4D4D;
+  color: black;
   font-size: 1.1rem !important;
   display: block;
   margin: 0px 0 0px;
@@ -3359,7 +3242,7 @@ Init values for dynamic properties to reduce  page load time
 .range-slider__range {
   border-radius: 9px;
   -webkit-appearance: none;
-  width: calc(75% - (2.5rem));
+  width: calc(100% - (2.8rem));
   height: 10px;
   outline: none;
   padding: 0;
@@ -3427,6 +3310,116 @@ Init values for dynamic properties to reduce  page load time
 input::-moz-focus-inner,
 input::-moz-focus-outer {
   border: 0;
+}
+
+/*
+Init values for dynamic properties to reduce  page load time 
+*/
+/* FONT */
+.toggle-label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.toggle-label .label-text {
+  margin-left: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.toggle {
+  isolation: isolate;
+  position: relative;
+  height: 25px;
+  width: 60px;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.toggle .toggle-state {
+  display: none;
+}
+
+.toggle .indicator {
+  height: 100%;
+  width: 200%;
+  border-radius: 9px;
+  -webkit-transform: translate3d(-75%, 0, 0);
+          transform: translate3d(-75%, 0, 0);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35), -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.toggle .toggle-state:checked ~ .indicator {
+  -webkit-transform: translate3d(25%, 0, 0);
+          transform: translate3d(25%, 0, 0);
+}
+
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkbox label {
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.1rem;
+  margin-left: 0.35rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0rem;
+}
+
+.checkbox i {
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*-------------------------
@@ -3546,7 +3539,7 @@ input::-moz-focus-outer {
 .glass-style .background-3, .glass-style.background-3,
 .glass-style #background-3 {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
+  background-size: 400% 1200%;
   -webkit-animation: gradient 15s ease infinite;
           animation: gradient 15s ease infinite;
 }
@@ -3840,8 +3833,6 @@ table,
 .portfolio-item-content::before,
 .form-group input,
 .form-group textarea,
-.toggle,
-.toggle .indicator,
 .video-container {
   border-radius: 9px;
 }
@@ -3850,17 +3841,17 @@ table,
   color: #4D4D4D;
 }
 
-.flat-style .radio-group .label,
+.flat-style .dui-radio .label,
 .flat-style .checkbox label,
 .flat-style i,
 .flat-style .overlay-menu-toggler,
 .flat-style input[type=color],
-.neu-style .radio-group .label,
+.neu-style .dui-radio .label,
 .neu-style .checkbox label,
 .neu-style i,
 .neu-style .overlay-menu-toggler,
 .neu-style input[type=color],
-.glass-style .radio-group .label,
+.glass-style .dui-radio .label,
 .glass-style .checkbox label,
 .glass-style i,
 .glass-style .overlay-menu-toggler,
@@ -3868,17 +3859,17 @@ table,
   cursor: pointer;
 }
 
-.flat-style .radio-group .label *,
+.flat-style .dui-radio .label *,
 .flat-style .checkbox label *,
 .flat-style i *,
 .flat-style .overlay-menu-toggler *,
 .flat-style input[type=color] *,
-.neu-style .radio-group .label *,
+.neu-style .dui-radio .label *,
 .neu-style .checkbox label *,
 .neu-style i *,
 .neu-style .overlay-menu-toggler *,
 .neu-style input[type=color] *,
-.glass-style .radio-group .label *,
+.glass-style .dui-radio .label *,
 .glass-style .checkbox label *,
 .glass-style i *,
 .glass-style .overlay-menu-toggler *,
@@ -3900,17 +3891,17 @@ Init values for dynamic properties to reduce  page load time
   /* TEXT DROP SHADOW */
 }
 
-.neu-style .radio-group .indicator {
+.neu-style .dui-radio .indicator {
   -webkit-box-shadow: 3px 3px 4px 0px #c2c2c2, -3px -3px 4px 0px #e6e6e6;
           box-shadow: 3px 3px 4px 0px #c2c2c2, -3px -3px 4px 0px #e6e6e6;
 }
 
-.neu-style .radio-group .indicator::before {
+.neu-style .dui-radio .indicator::before {
   -webkit-box-shadow: -4px -2px 4px 0px #c2c2c2, 4px 2px 8px 0px #e6e6e6;
           box-shadow: -4px -2px 4px 0px #c2c2c2, 4px 2px 8px 0px #e6e6e6;
 }
 
-.neu-style .radio-group .indicator::after {
+.neu-style .dui-radio .indicator::after {
   -webkit-box-shadow: -4px -2px 4px 0px #e6e6e6, 4px 2px 8px 0px #c2c2c2;
           box-shadow: -4px -2px 4px 0px #e6e6e6, 4px 2px 8px 0px #c2c2c2;
 }

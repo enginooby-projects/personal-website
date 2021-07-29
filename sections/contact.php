@@ -86,6 +86,7 @@
                                                 </form>
                                         </div>
                                 </div>
+
                                 <!-- <div class="row copy-right">
                                                   <div class="col-12 text-center ">
                                                             <p>Copyright © 2019. Template has been designed by <span class="highlight-color">Retrina</span></p>
