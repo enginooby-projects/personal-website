@@ -29,7 +29,6 @@ $(document).ready(function () {
 
 // after loading DOM, images & CSS...  (not affect DOMContentLoaded ....Load?)
 $window.on("load", (function () {
-        // loadPhpToBody("connect-database.php");
         $('#hero').css(' -webkit-transition', '1s all ease');
         $('#hero').css('transition', '1s all ease');
         loadAjaxFile("sections/overlay-menu.php", $body, setupOverlayMenuEvents);
@@ -41,6 +40,7 @@ $window.on("load", (function () {
                         tryLoadingSection(section);
                 }
         }
+        // loadAjaxFile("tasks/convert-php-files.php");
 }));
 
 document.addEventListener('readystatechange', event => {
@@ -365,9 +365,9 @@ function loadSelfEducationModals() {
 }
 
 //HELPER
-function loadAjaxFile(filePath: string, container: JQuery<HTMLElement>, callback?: () => void) {
+function loadAjaxFile(filePath: string, container?: JQuery<HTMLElement>, callback?: () => void) {
         $.get(filePath, function (data) {
-                container.append(data);
+                if (container) container.append(data);
         }).done(function () {
                 if (callback) callback();
         });
