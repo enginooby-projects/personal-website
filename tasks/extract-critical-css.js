@@ -2,7 +2,7 @@ var critical = require('critical');
 
 critical.generate({
         inline: true,
-        src: 'index-raw.html',
+        src: 'page.html',
         target: {
                 html: 'index.html',
                 // css: 'critical.min.css',

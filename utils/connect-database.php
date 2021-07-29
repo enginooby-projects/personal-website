@@ -1,7 +1,7 @@
 <?php
 // PDO implementation
 include '../database-properties.php';
-include '../utility.php';
+include_once 'utils/debug.php';
 require '../entities/Book.php';
 
 $dbname = 'PersonalWebsite';

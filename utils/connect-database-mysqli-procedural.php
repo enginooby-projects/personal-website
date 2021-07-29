@@ -3,7 +3,7 @@
 // chmod 700 /path/to/database-properties.php 
 // create local database-properties.php file, connect to remote host, add to .gitignore
 include '../database-properties.php';
-include '../utility.php';
+include_once 'utils/debug.php';
 
 //TODO: create Database contract& implement MySQL
 $database_name = 'PersonalWebsite';

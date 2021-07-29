@@ -1,5 +1,5 @@
 <?php
-include '../utility.php';
+include_once '../utils/table.php';
 //TODO: setup database
 $subjects = array(
         // array('Computer', '-', '-', '5.0'),

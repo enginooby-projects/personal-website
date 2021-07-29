@@ -1,5 +1,5 @@
 <?php
-include '../utility.php';
+include_once '../utils/table.php';
 $subjects = array(
         // array('Computer', '-', '-', '5.0'),
         array('Software Engineering', 'Software development cycle - Testing - Scrum - UML', 'StarUML', '5.0'),
