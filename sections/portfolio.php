@@ -367,9 +367,9 @@ function formatLabel($str, $sep = '-')
                                         label: 'Dynamic UI Framework',
                                         isInjectedItem: true,
                                         injectedClasses: ' glass-style background-1',
-                                        injectedFile: '../DynamicStyle/index-injectable.php',
+                                        injectedFile: '../dynamic-ui-framework/index-injectable.php',
                                         filters: 'highlight web utility ongoing medium',
-                                        accessUrl: 'enginoobz.com/DynamicStyle/',
+                                        accessUrl: 'enginoobz.com/dynamic-ui-framework/',
                                         codeUrl: 'enginoobz-projects/dynamic-ui-framework'
                                 );
                                 displayPortfolioItem(

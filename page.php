@@ -41,7 +41,7 @@
         <link rel="stylesheet" href="assets/css/style.css" title="style" type="text/css">
         <!-- TOFIX: reference to separate dynamic style sheet not working: file requested but rules in file not applied, 
         so import dynamic-style.scss in style.scss to compile into 1 file, however must recompile style.scss each time recompile dynamic-style.scss  -->
-        <link rel="stylesheet" href="DynamicStyle/css/dynamic-style.css" title="dynamic-style" type="text/css">
+        <link rel="stylesheet" href="dynamic-ui-framework/css/dynamic-style.css" title="dynamic-style" type="text/css">
 
         <!-- Load asynchronously non-critical assets (comment these out since using Critical npm makes them inactivated???)-->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" media="print" onload="this.media='all'"> -->
@@ -78,7 +78,7 @@
         <script async src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" integrity="sha512-hM0R3pW9UdoNG9T+oIW5pG9ndvy3OKChFfVTKzjyxNW9xrt6vAbD3OeFWdSLQ8mjKSgd9dSO3RXn3tojQtiA8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-xCfKr8zIONbip3Q1XG/u5x40hoJ0/DtP1bxyMEi0GWzUFoUffE+Dfw1Br8j55RRt9qG7bGKsh+4tSb1CvFHPSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script async src="DynamicStyle/js/DynamicTheme.js" type="module"></script>
+        <script async src="dynamic-ui-framework/js/DynamicTheme.js" type="module"></script>
 
         <!-- EXPERIMENTING -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
