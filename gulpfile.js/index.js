@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-const plugins = require('gulp-load-plugins')({ lazy: false });
 const log = require('fancy-log');
 const critical = require('critical');
 
@@ -28,6 +27,21 @@ function extractCriticalCss() {
                 .pipe(gulp.dest('index.html'));
 }
 
-exports.default = extractCriticalCss;
+var open = require('gulp-open');
+function serve() {
+        // server URI is set up  in Live ServerWeb Chrome extension for now
+        const liveServerUri = 'http://localhost:3000/';
+        // file URI relative to the project root dir
+        const fileUri = 'tasks/convert-php-files.php'
+        return gulp.src(fileUri)
+                .pipe(open({
+                        uri: `${liveServerUri}${fileUri}`,
+                        app: 'chrome' // google-chrome in Linux
+                })).on('error', err => {
+                        log.error(err.message);
+                })
+}
+
+exports.default = serve;
 
 
