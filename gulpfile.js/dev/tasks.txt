@@ -1,0 +1,10 @@
+[Series tasks]
+1. Go Live
+2. Run PHP Server: serve project (approach 1: execute command line)
+3.Open PHP files in the browser (page.php, dynamic-ui-framework/index.php, 
+dynamic-ui-framework/tasks/convert-php-files)
+
+[Parallel tasks]
++ Watch Sass [watch all scss]
++ {Optional} Watch and convert PHP files: page.php 
+ 

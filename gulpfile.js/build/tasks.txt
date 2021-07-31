@@ -1,0 +1,14 @@
+I - [Series tasks]
+1. Convert main PHP to HTML (approach 1: Run tasks/convert-php-files.php)
+2. Extract critical CSS with output HTML
+
+I - [Serise tasks]
+1. Compile & bundle TS 
+2. Minify output JS
+3. Extract critical JS
+
+II - [Serise tasks]
+1.  Commit git (param: message)
+2. Pull git from remote server: portfolio & dynamic-ui-framework (alternative: set up git hook)
+
+ 
