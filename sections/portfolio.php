@@ -244,14 +244,14 @@ function formatLabel($str, $sep = '-')
                         <div class="container mt-4" id="tech-filters">
                                 <?php
                                 Flexbox(
-                                        Justify::Center(),
+                                        null,
                                         Checkbox(name: "Database", value: ".database"),
                                         Checkbox(name: "Networking", value: ".networking"),
                                         Checkbox(name: "Cloud", value: ".cloud"),
                                         Checkbox(name: "API", value: ".api"),
                                         Checkbox(name: "AI/ML", value: ".ai"),
                                         Checkbox(name: "AR", value: ".ar"),
-                                        Checkbox(name: "VR", value: ".vr")
+                                        Checkbox(name: "VR", value: ".vr"),
                                 );
                                 ?>
                         </div>

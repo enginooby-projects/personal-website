@@ -107,6 +107,7 @@ function onPortfolioSectionLoaded() {
         portfolioIsotop();
         portfolioPopup();
         setupPortfolioTypeTS();
+        setupIframeInjectionEvents();
         // trigger filtering first time to fix overlapping items on mobile screen
         startFilterring($('.portfolio-items'), '*');
         injectedPortfolioItems = document.querySelectorAll(".injected-section");
@@ -328,7 +329,6 @@ function loadPortfolioModals() {
         //TODO: loops all files in the server folder instead (/modals/portfolio) or create php file dynamically
         const modals: string[] = ["endless-flight", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
         modals.forEach(modal => loadAjaxFile(`modals/portfolio/${modal}.php`, $body));
-        setupIframeInjectionEvents();
 }
 
 let funStyleUpdateIntervalId: number = -1;
