@@ -40,9 +40,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="assets/css/pagepiling.css">
         <link rel="stylesheet" href="assets/css/style.css" title="style" type="text/css">
-        <!-- TOFIX: reference to separate dynamic style sheet not working: file requested but rules in file not applied, 
-        so import dynamic-style.scss in style.scss to compile into 1 file, however must recompile style.scss each time recompile dynamic-style.scss  -->
-        <link rel="stylesheet" href="dynamic-ui-framework/css/dynamic-style.css" title="dynamic-style" type="text/css">
+        <link rel="stylesheet" href="dynamic-ui-framework/css/dynamic-style.css" type="text/css">
 
         <!-- Load asynchronously non-critical assets (comment these out since using Critical npm makes them inactivated???)-->
         <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900&display=swap" media="print" onload="this.media='all'"> -->

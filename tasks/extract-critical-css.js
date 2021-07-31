@@ -5,7 +5,7 @@ critical.generate({
         src: 'page.html',
         target: {
                 html: 'index.html',
-                css: 'critical.min.css', // output inline critical css
+                css: 'critical.css', // output inline critical css
         },
         // Critial auto detects all css files
         ignore: {
