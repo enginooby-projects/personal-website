@@ -399,7 +399,7 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Corona Checker',
                                         isGalleryItem: false,
-                                        displayFileRatio: '192/90',
+                                        displayFileRatio: '1512/806',
                                         accessUrl: 'enginoobz.com/projects/corona-checker',
                                         filters: 'utility small  web completed ',
                                         codeUrl: 'enginoobz-projects/corona-checker'
