@@ -2,6 +2,7 @@
 
 include_once "../dynamic-ui-framework/components/form/_index.php";
 include_once "../dynamic-ui-framework/layouts/_index.php";
+include_once "../dynamic-ui-framework/components/container/_index.php";
 
 //TODO: Setup database
 class CodingProject
@@ -64,7 +65,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
 
         if ($isInjectedItem) {
                 ob_start();
-                include $injectedFile;
+                include_once $injectedFile;
                 $injectedContent = ob_get_clean();
                 $injectedElement = "<div class='injected-section $injectedClasses'>$injectedContent  </div> ";
                 $loadingIndicatorElement = '';
@@ -152,18 +153,7 @@ function formatLabel($str, $sep = '-')
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <!-- Title -->
-                        <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="title-wrapper">
-                                                <span>My Works</span>
-                                        </div>
-                                        <div class="title-content">
-                                                <h2 class="highlight-color">My Works</h2>
-                                        </div>
-                                </div>
-                        </div>
-
+                        <?php echo TitleBar("My Works") ?>
 
                         <!-- Categorize filter -->
                         <div class="row mb-0">
@@ -289,7 +279,7 @@ function formatLabel($str, $sep = '-')
                                         label: 'Personal Website',
                                         isInjectedItem: true,
                                         injectedClasses: ' glass-style background-3',
-                                        injectedFile: 'hero-injectable.php',
+                                        injectedFile: 'hero.php',
                                         filters: 'highlight web database cloud ongoing large',
                                         codeUrl: 'enginoobz-projects/portfolio-test'
                                 );

@@ -51,7 +51,8 @@
 <body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="win98-style">
         <div id="overlayer"></div><span class="loader"></span>
         <div id="pagepiling" class="pilling-page">
-                <?php include 'sections/hero.php'; ?>
+
+                <section id="hero" class="section pp-scrollable "> <?php include_once 'sections/hero.php'; ?></section>
 
                 <!-- DYNAMIC LOADING SECTIONS -->
                 <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME"> </section>

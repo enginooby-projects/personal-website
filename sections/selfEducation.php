@@ -1,4 +1,6 @@
 <?php
+include_once "../dynamic-ui-framework/components/container/_index.php";
+
 function getColorfullByPercent($percent)
 {
         $backgroundColor = 'background-colorfull3';
@@ -61,17 +63,7 @@ function displayCourse($name, $percent, $url = '')
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <!-- Title -->
-                        <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="title-wrapper">
-                                                <span>Self-Taught</span>
-                                        </div>
-                                        <div class="title-content">
-                                                <h2 class="highlight-color">Self-Taught</h2>
-                                        </div>
-                                </div>
-                        </div>
+                        <?php echo TitleBar("Self-Taught") ?>
                         <!--   Bookshelf  -->
                         <div class="row">
                                 <div class="col-lg-12">

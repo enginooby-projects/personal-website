@@ -1,70 +1,65 @@
-        <div class="display-table">
-                <div class="display-content">
-                        <div class="container">
-                                <div class="row">
-                                        <div class="col-lg-12">
-                                                <div class="title-wrapper">
-                                                        <span>About Me</span>
-                                                </div>
-                                                <div class="title-content">
-                                                        <h2 class="highlight-color">About Me</h2>
-                                                </div>
+<?php
+include_once "../dynamic-ui-framework/components/container/_index.php";
+?>
+
+<div class="display-table">
+        <div class="display-content">
+                <div class="container">
+                        <?php echo TitleBar("About Me") ?>
+                        <div class="row">
+                                <div class="col-lg-6 equal-columns  justify-content-between">
+                                        <div class="personal-item">
+                                                <p class="mt-0 mt-lg-0 paragraph-title">Who am I?</p>
+                                                <p class=" text-justify mb-0">
+                                                        The name is <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate <span class="highlight-color">Software Engineering student</span> in Poland.
+                                                </p>
+                                        </div>
+                                        <!-- Image -->
+                                        <div class="image-border mt-4">
+                                                <img src="assets/img/about1.jpg" alt="/">
+                                        </div>
+                                        <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
+                                        <div class="personal-item">
+                                                <p class="paragraph-title mt-4 mt-lg-4">Background: <span class="highlight-color">Java & web development</span></p>
+                                                <p class=" text-justify mb-0">
+                                                        Once upon a time, I took the first step on my programming journey with <span class="highlight-color">Core Java</span>. Through some university classes, I then explored various Java technologies, most notably <span class="highlight-color">Spring frameworks</span>, for the development of enterprise & desktop software or back-end of web applications. Also slightly expanded my experiences in a few web technologies for front-end development to built some of personal-fun-things.
+                                                        <br>
+                                                        If you ask me, Java and web development in general were all fun, untill I figured out my bigger passion…
+                                                </p>
                                         </div>
                                 </div>
-                                <div class="row">
-                                        <div class="col-lg-6 equal-columns  justify-content-between">
-                                                <div class="personal-item">
-                                                        <p class="mt-0 mt-lg-0 paragraph-title">Who am I?</p>
-                                                        <p class=" text-justify mb-0">
-                                                                The name is <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate <span class="highlight-color">Software Engineering student</span> in Poland.
-                                                        </p>
-                                                </div>
-                                                <!-- Image -->
-                                                <div class="image-border mt-4">
-                                                        <img src="assets/img/about1.jpg" alt="/">
-                                                </div>
-                                                <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
-                                                <div class="personal-item">
-                                                        <p class="paragraph-title mt-4 mt-lg-4">Background: <span class="highlight-color">Java & web development</span></p>
-                                                        <p class=" text-justify mb-0">
-                                                                Once upon a time, I took the first step on my programming journey with <span class="highlight-color">Core Java</span>. Through some university classes, I then explored various Java technologies, most notably <span class="highlight-color">Spring frameworks</span>, for the development of enterprise & desktop software or back-end of web applications. Also slightly expanded my experiences in a few web technologies for front-end development to built some of personal-fun-things.
-                                                                <br>
-                                                                If you ask me, Java and web development in general were all fun, untill I figured out my bigger passion…
-                                                        </p>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-6 mt-0 mt-lg-0 equal-columns justify-content-between">
-                                                <div class="personal-item ml-lg-4">
-                                                        <p class="paragraph-title mt-4 mt-lg-0">Ambition: <span class="highlight-color">Video game development</span></p>
-                                                        <p class=" text-justify mb-0">
-                                                                While normal software is all about services to serve our life, <span class="highlight-color">Computer Graphics</span> (CG) is the technology enabling us to create life virtually. That interests me, Particularly, video game development is a subset of CG, where we define our own rules for the world then allow players to get involved in, and that interests me even more!
-                                                                <br>
-                                                                First got started in this field by playing around with a few CG and game tools then decided to pick <span class="highlight-color">Unity</span> and <span class="highlight-color"> Unreal Engine</span> as my waifus eh... I mean "long-term companions" on this exciting journey.
-                                                                <br>
-                                                                Have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal fun projects collaborative coding laboratories for classes which involve with CG or game.
-                                                                While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. Especially fall in love with <span class="highlight-color">procedural generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
-                                                        </p>
-                                                        <p class="paragraph-title mt-4 mt-lg-4">What am I doing?</p>
-                                                        <p class=" text-justify mb-4">
-                                                                At the current time, I am exploring <span class="highlight-color">VR/AR</span> and <span class="highlight-color">AI/ML</span> fields – those technologies I believe could bring huge enhancements for the experiences in games and CG projects in general.
-                                                                <!-- <br> -->
-                                                                Also being <span class="highlight-color">open for work</span> in the game development to gain real-world experience.
-                                                        </p>
-                                                        <div class="button-group-about ">
-                                                                <div class="button-border mt-3  mb-lg-0 mr-4">
-                                                                        <a href="javascript:;" class="button">Download CV</a>
-                                                                </div>
-                                                                <div class="button-border mt-3 mb-lg-0 to-contact">
-                                                                        <a href="#contact" class="button">Hire Me</a>
-                                                                </div>
+                                <div class="col-lg-6 mt-0 mt-lg-0 equal-columns justify-content-between">
+                                        <div class="personal-item ml-lg-4">
+                                                <p class="paragraph-title mt-4 mt-lg-0">Ambition: <span class="highlight-color">Video game development</span></p>
+                                                <p class=" text-justify mb-0">
+                                                        While normal software is all about services to serve our life, <span class="highlight-color">Computer Graphics</span> (CG) is the technology enabling us to create life virtually. That interests me, Particularly, video game development is a subset of CG, where we define our own rules for the world then allow players to get involved in, and that interests me even more!
+                                                        <br>
+                                                        First got started in this field by playing around with a few CG and game tools then decided to pick <span class="highlight-color">Unity</span> and <span class="highlight-color"> Unreal Engine</span> as my waifus eh... I mean "long-term companions" on this exciting journey.
+                                                        <br>
+                                                        Have been constantly horning my skills by registering for online courses, reading fundamental books, following bite-sized tutorials, solving coding problems, working on personal fun projects collaborative coding laboratories for classes which involve with CG or game.
+                                                        While mainly focusing on <span class="highlight-color">gameplay programming</span>, I enjoy every other aspect in the development process as well. Especially fall in love with <span class="highlight-color">procedural generation</span>, <span class="highlight-color"> simulation</span>, <span class="highlight-color">open world</span> & <span class="highlight-color">3D</span> game genres.
+                                                </p>
+                                                <p class="paragraph-title mt-4 mt-lg-4">What am I doing?</p>
+                                                <p class=" text-justify mb-4">
+                                                        At the current time, I am exploring <span class="highlight-color">VR/AR</span> and <span class="highlight-color">AI/ML</span> fields – those technologies I believe could bring huge enhancements for the experiences in games and CG projects in general.
+                                                        <!-- <br> -->
+                                                        Also being <span class="highlight-color">open for work</span> in the game development to gain real-world experience.
+                                                </p>
+                                                <div class="button-group-about ">
+                                                        <div class="button-border mt-3  mb-lg-0 mr-4">
+                                                                <a href="javascript:;" class="button">Download CV</a>
+                                                        </div>
+                                                        <div class="button-border mt-3 mb-lg-0 to-contact">
+                                                                <a href="#contact" class="button">Hire Me</a>
                                                         </div>
                                                 </div>
                                         </div>
                                 </div>
+                        </div>
 
 
-                                <!-- Characteristics & Hobbies -->
-                                <!-- <br>
+                        <!-- Characteristics & Hobbies -->
+                        <!-- <br>
                                 <br>
                                 <div class="row text-center">
                                         <div class="col-12 col-lg-3  ">
@@ -90,6 +85,6 @@
                                                 </div>
                                         </div>
                                 </div> -->
-                        </div>
                 </div>
         </div>
+</div>

@@ -100,6 +100,10 @@
 Init values for dynamic properties to reduce  page load time 
 */
 /* FONT */
+.hero-03 .title-bar {
+  display: none;
+}
+
 #hero h2 {
   font-size: 2rem;
 }

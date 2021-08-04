@@ -1,27 +1,11 @@
+<?php
+include_once "../dynamic-ui-framework/components/container/_index.php";
+?>
+
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="title-wrapper">
-                                                <span>My Skillset</span>
-                                        </div>
-                                        <div class="title-content">
-                                                <h2 class="highlight-color mb-3">My Skillset</h2>
-                                                <div class="badge-border">
-                                                        <span class="badge badge-pill background-colorfull3">Advanced <span class="badge badge-light">X</span></span>
-                                                </div>
-                                                <div class="badge-border">
-                                                        <span class="badge badge-pill background-colorfull2">Intermediate <span class="badge badge-light">Y</span></span>
-                                                </div>
-                                                <div class="badge-border">
-                                                        <span class="badge badge-pill background-colorfull1">Beginner <span class="badge badge-light">Z</span></span>
-                                                </div>
-                                                <p class="image-caption mb-0">(XYZ: hours of experience)</p>
-                                        </div>
-                                </div>
-                        </div>
-
+                        <?php echo TitleBar("My Skillset") ?>
                         <!--  Skill Start  -->
                         <!-- TODO: Setup database -->
                         <div class="row mt-0">
