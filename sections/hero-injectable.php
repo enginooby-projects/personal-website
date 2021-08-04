@@ -1,8 +1,17 @@
         <div class="display-table hero-03">
                 <div class="display-content">
+
                         <div class="container ">
+                                <div class="title-bar">
+                                        <p class="title-bar-text scalable">Home</p>
+                                        <div class="title-bar-controls">
+                                                <button aria-label="Minimize"></button>
+                                                <button aria-label="Restore"></button>
+                                                <button aria-label="Close"></button>
+                                        </div>
+                                </div>
                                 <div class="row align-items-center">
-                                        <div class="col-lg-6 order-2 order-lg-1">
+                                        <div class="col-lg-6 order-2 order-lg-1 pr-lg-5">
                                                 <div class="hero-content">
                                                         <h1 class="dark-color mb-4">I'M <span class="highlight-color"> HIEU NGO</span></h1>
                                                         <h2 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="typed" data-elements="Game Programmer,Java Developer"></span></h2>

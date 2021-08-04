@@ -52,7 +52,7 @@
                                                         </p>
                                                         <div class="button-group-about ">
                                                                 <div class="button-border mt-3  mb-lg-0 mr-4">
-                                                                        <a href="#" class="button">Download CV</a>
+                                                                        <a href="javascript:;" class="button">Download CV</a>
                                                                 </div>
                                                                 <div class="button-border mt-3 mb-lg-0 to-contact">
                                                                         <a href="#contact" class="button">Hire Me</a>

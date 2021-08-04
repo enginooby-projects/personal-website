@@ -1,7 +1,9 @@
 <div class="social-box ">
         <div class="animate__animated animate__rubberBand animate__fast animate__delay-1s">
-                <div class="follow-label">
-                        <span>Follow Me<span class="bg-highlight-color line"></span></span>
+                <div class="follow-label-wrapper">
+                        <div class="follow-label">
+                                <span><span class="scalable"> Follow Me</span><span class="bg-highlight-color line"></span></span>
+                        </div>
                 </div>
         </div>
         <div class="social animate__animated animate__bounceInUp animate__slow">

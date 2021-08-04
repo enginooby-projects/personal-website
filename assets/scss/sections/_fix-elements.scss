@@ -1,118 +1,124 @@
-@import "../../../dynamic-ui-framework/scss/base/variables";
+@import "../../../dynamic-ui-framework/scss/variables";
 
 /*-------------------------
           FIXED ELEMENTS: LOGO & SOCIAL ICONS
 -------------------------*/
 header {
-        padding: 15px;
-        width: 100%;
-        background-color: transparent;
-        position: fixed;
-        z-index: 1030;
-        top: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1030;
+  top: 0;
 }
 
 .logo {
-        color: #5f5f5f;
-        font-weight: 800;
-        font-size: 22px *$fontScale;
-        margin-left: 14px;
+  color: #5f5f5f;
+  font-weight: 800;
+  font-size: 22px * $fontScale;
+  margin-left: 14px;
 }
 
 .logo:hover {
-        color: #5f5f5f;
+  color: #5f5f5f;
 }
 
 .social-box {
-        position: absolute;
-        left: 1.2rem;
-        bottom: 0;
-        width: 1.5rem;
-        z-index: 100;
+  position: absolute;
+  left: 1.2rem;
+  bottom: 0;
+  width: 1.5rem;
+  z-index: 100;
 }
 
-.follow-label {
-        padding-right: 5rem;
-        position: absolute;
-        bottom: 100%;
-        right: 0;
-        color: #3c3c3c;
-        line-height: 1.5rem;
-        height: 1.5rem;
-        white-space: nowrap;
-        transform-origin: 100% 0;
-        text-align: right;
-        transform: rotate(90deg);
-        font-size: 1.3rem *$fontScale !important;
+.follow-label-wrapper {
+  padding-right: 5rem;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  color: #3c3c3c;
+  line-height: 1.5rem !important;
+  height: 1.5rem;
+  white-space: nowrap;
+  transform-origin: 100% 0;
+  text-align: right;
+  transform: rotate(90deg);
+  font-size: 1.3rem * $fontScale;
 
-        animation-name: slide_to_right;
-        animation-fill-mode: forwards;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
+  animation-name: slide_to_right;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+
+.follow-label .scalable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes slide_to_right {
-        from {
-                right: 40px;
-        }
+  from {
+    right: 40px;
+  }
 
-        to {
-                right: 0;
-        }
+  to {
+    right: 0;
+  }
 }
 
 .follow-label .line {
-        content: "";
-        position: absolute;
-        top: 50%;
-        height: 2px;
-        animation-name: stretch;
-        animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-        animation-duration: 0.6s;
-        animation-timing-function: ease-in-out;
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  animation-name: stretch;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes stretch {
-        from {
-                right: 60px;
-                width: 0;
-        }
+  from {
+    right: 60px;
+    width: 0;
+  }
 
-        to {
-                right: 0;
-                width: 60px;
-        }
+  to {
+    right: 0;
+    width: 60px;
+  }
 }
 
 .social i {
-        display: block;
-        margin-bottom: 1rem;
-        text-align: center;
-        font-size: 1.25rem !important;
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem !important;
 }
 
 .social a {
-        color: #3c3c3c;
+  color: #3c3c3c;
 }
 
 .social-icon a {
-        background-color: #f1f3f6;
-        transition: all 0.3s ease;
-        width: 38px;
-        height: 38px;
-        line-height: 38px;
-        display: inline-block;
-        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-        border-radius: 4px;
-        text-align: center;
-        color: #5f5f5f;
+  background-color: #f1f3f6;
+  transition: all 0.3s ease;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  display: inline-block;
+  box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+  border-radius: 4px;
+  text-align: center;
+  color: #5f5f5f;
 }
 
 .social-icon a:hover {
-        box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
 }
 
 .social-icon .list-inline-item:not(:last-child) {
-        margin-right: 12px;
+  margin-right: 12px;
 }

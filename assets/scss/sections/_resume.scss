@@ -1,105 +1,104 @@
-@import "../../../dynamic-ui-framework/scss/base/variables";
+@import "../../../dynamic-ui-framework/scss/variables";
 
 /*-------------------------
          RESUME
 -------------------------*/
 @mixin center_div_in_div {
-        display: table;
-        margin: 0 auto;
+  display: table;
+  margin: 0 auto;
 }
 
 .resume {
-        .timeline-content .button-border {
-                @include center_div_in_div();
+  .timeline-content .button-border {
+    @include center_div_in_div();
 
-                .button {
-                        padding: 8px 15px;
-                        min-width: 150px;
-                        text-align: center;
-                }
-        }
+    .button {
+      padding: 8px 15px;
+      min-width: 150px;
+      text-align: center;
+    }
+  }
 }
 
 .badge-pill {
-        font-size: 1.15rem *$fontScale !important;
+  font-size: 1.15rem * $fontScale;
 }
 
 .badge-pill i {
-        font-size: 1.15rem *$badgeIconScale !important;
+  font-size: 1.15rem * $badgeIconScale;
 }
 
 .timeline-items.box-border {
-        padding: 30px 30px 15px 30px;
-        margin-top: 30px;
+  padding: 30px 30px 15px 30px;
+  margin-top: 30px;
 }
 
 .timeline-title {
-        font-family: $fontBold;
-        font-size: 1.5rem * $fontScale;
-        font-weight: 600;
+  font-family: $fontBold;
+  font-size: 1.5rem * $fontScale;
+  font-weight: 600;
 }
 
 .timeline-item {
-        position: relative;
-        /* margin-bottom: 30px; */
+  position: relative;
+  /* margin-bottom: 30px; */
 }
 
 .timeline-item:before {
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 1px;
-        border-radius: 1rem;
-        display: block;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+  border-radius: 1rem;
+  display: block;
 }
 
 .timeline-contents {
-        padding-left: 30px;
-        text-align: justify;
+  padding-left: 30px;
+  text-align: justify;
 }
 
-
 .timeline-icon {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        position: absolute;
-        top: 15px;
-        left: -7px;
-        z-index: 10;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: -7px;
+  z-index: 10;
 }
 
 .timeline-items .timeline-icon {
-        border: none;
-        left: -9px !important;
+  border: none;
+  left: -9px !important;
 }
 
 .timeline-items .timeline-border {
-        border-left: 2px solid;
+  border-left: 2px solid;
 }
 
 .rtl .timeline-items .timeline-border {
-        border-left: none !important;
-        border-right: 2px solid;
+  border-left: none !important;
+  border-right: 2px solid;
 }
 
 .rtl .timeline-items .timeline-icon {
-        left: inherit !important;
-        right: -9px !important;
+  left: inherit !important;
+  right: -9px !important;
 }
 
 .timeline-item::before {
-        display: none;
+  display: none;
 }
 
 .timeline-year {
-        font-size: $fontRegular;
-        font-size: 20px *$fontScale;
-        font-weight: 500;
+  font-size: $fontRegular;
+  font-size: 1.25rem * $fontScale;
+  font-weight: 500;
 }
 
 .resume h3 i {
-        padding-right: 0.75rem;
+  padding-right: 0.75rem;
 }

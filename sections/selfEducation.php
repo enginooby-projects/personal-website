@@ -51,7 +51,7 @@ function displayCourse($name, $percent, $url = '')
                         </div>
                 </div>
                 ' . progressBar($percent) . '
-                 <b> ' . $name . '</b>
+                 <p> ' . $name . '</p>
 
         </div>
         ';

@@ -594,6 +594,7 @@ function portfolioPopup() {
 /*-------------------------
         ISOTOPE JS
 -------------------------*/
+// TODO: trigger after each time chaging text size to prevent overlapping for injected items
 function portfolioIsotop() {
 
         "use strict";

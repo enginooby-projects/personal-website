@@ -2,44 +2,44 @@
           PP Nav
 -------------------------*/
 #pp-nav {
-        animation: backInRight;
-        /* referring directly to the animation's @keyframe declaration */
-        animation-duration: 1s;
-        /* don't forget to set a duration! */
+  animation: backInRight;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
+  /* don't forget to set a duration! */
 }
 
 #pp-nav li {
-        margin: 10px 8px;
-        width: 28px;
+  margin: 10px 8px;
+  width: 28px;
 }
 
 #pp-nav li span {
-        width: 25px;
-        height: 3px;
-        border-radius: 5px;
-        border: none;
-        top: 5px;
+  width: 25px;
+  height: 3px;
+  border-radius: 5px;
+  border: none;
+  top: 5px;
 }
 
 #pp-nav li .pp-tooltip {
-        font-family: "Agency FB", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        transform: translateY(0);
-        padding-right: 1rem;
-        margin-top: -1.4px;
+  font-family: "Agency FB", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  padding-right: 1rem;
+  margin-top: -1.4px;
 }
 
 #pp-nav li .active span {
-        transform: translateX(-10px);
-        width: 36px;
+  transform: translateX(-10px);
+  width: 36px;
 }
 
-#pp-nav li .active~.pp-tooltip {
-        padding-right: 1.5rem;
+#pp-nav li .active ~ .pp-tooltip {
+  padding-right: 1.5rem;
 }
 
 #pp-nav.right {
-        right: 28px;
+  right: 28px;
 }
