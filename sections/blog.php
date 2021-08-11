@@ -1,11 +1,11 @@
      <?php
-        include_once "../dynamic-ui-framework/components/container/_index.php";
+        include_once "../dui/_index.php";
         ?>
 
      <div class="display-table">
              <div class="display-content">
                      <div class="container">
-                             <?php echo TitleBar("New Posts") ?>
+                             <?php TitleBar("New Posts")->show(); ?>
                              <div class="row">
                                      <!--  Item 01 -->
                                      <div class="col-lg-4">
@@ -97,9 +97,7 @@
                              </div>
                              <div class="row">
                                      <div class="col-12 text-center">
-                                             <div class="button-border">
-                                                     <a href="#" class="button">View More</a>
-                                             </div>
+                                             <?php Button(label: "View More")->show(); ?>
                                      </div>
                              </div>
                      </div>

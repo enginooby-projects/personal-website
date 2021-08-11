@@ -1,11 +1,28 @@
 <?php
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 ?>
 
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("My Skillset") ?>
+                        <?php TitleBar("My Skillset")->show(); ?>
+
+                        <div class="row mt-4">
+                                <div class="col-lg-12">
+                                        <div class="title-content">
+                                                <div class="badge-border">
+                                                        <span class="badge badge-pill background-colorfull3">Advanced <span class="badge badge-light">A</span></span>
+                                                </div>
+                                                <div class="badge-border">
+                                                        <span class="badge badge-pill background-colorfull2">Intermediate <span class="badge badge-light">B</span></span>
+                                                </div>
+                                                <div class="badge-border">
+                                                        <span class="badge badge-pill background-colorfull1">Beginner <span class="badge badge-light">C</span></span>
+                                                </div>
+                                                <p class="image-caption mb-0">(ABC: hours of experience)</p>
+                                        </div>
+                                </div>
+                        </div>
                         <!--  Skill Start  -->
                         <!-- TODO: Setup database -->
                         <div class="row mt-0">
@@ -96,7 +113,7 @@ include_once "../dynamic-ui-framework/components/container/_index.php";
                                                                 <span class="badge badge-pill background-colorfull2"><i class="fab fa-css3-alt"></i> CSS3/SASS <span class="badge badge-light">72</span></span>
                                                         </div>
                                                         <div class="badge-border">
-                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-js-square"></i> JavaScript/TypeScript <span class="badge badge-light">171</span></span>
+                                                                <span class="badge badge-pill background-colorfull2"><i class="fab fa-js-square"></i> JS/TS <span class="badge badge-light">171</span></span>
                                                         </div>
                                                         <div class="badge-border">
                                                                 <span class="badge badge-pill background-colorfull2"> PHP <span class="badge badge-light">46</span></span>

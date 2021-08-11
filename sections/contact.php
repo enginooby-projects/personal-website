@@ -1,11 +1,11 @@
       <?php
-        include_once "../dynamic-ui-framework/components/container/_index.php";
+        include_once "../dui/_index.php";
         ?>
 
       <div class="display-table">
               <div class="display-content">
                       <div class="container">
-                              <?php echo TitleBar("Get In Touch") ?>
+                              <?php TitleBar("Get In Touch")->show(); ?>
                               <div class="row contact-info">
                                       <div class="col-lg-4">
                                               <div class="contact-info-text text-center">
@@ -67,9 +67,7 @@
                                                                       </div>
                                                               </div>
                                                               <div class="col-sm-12 mt-4 text-left">
-                                                                      <div class="button-border">
-                                                                              <a href="#" class="button" id="submit-btn" onclick="sendEmail()">Send Message</a>
-                                                                      </div>
+                                                                      <?php Button(label: "Send Message", id: "sumit-btn", onclick: "sendEmail()")->show(); ?>
                                                                       <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
                                                                               <!-- <div class="toast-body d-inline-block"></div> -->
                                                                               <button type="button" class="pr-3 close" data-dismiss="toast" aria-label="Close">
@@ -84,7 +82,6 @@
 
                               <!-- <div class="row copy-right">
                                                   <div class="col-12 text-center ">
-                                                            <p>Copyright © 2019. Template has been designed by <span class="highlight-color">Retrina</span></p>
                                                   </div>
                                         </div> -->
                       </div>

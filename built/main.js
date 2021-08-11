@@ -60,11 +60,12 @@ document.addEventListener('readystatechange', event => {
         $(".loader").delay(0).fadeOut(500);
     }
 });
-$(".to-contact").on('click', function () {
-    $("section.active").removeClass("active");
-    var $id = $(this).attr('href');
-    $('#main').children($id).addClass('active');
-});
+// move to a section in PagePiling (unnecessary? just use href="#contact" )
+// $(".to-contact .button").on('click', function () {
+//         $("section.active").removeClass("active");
+//         var $id = $(this).attr('href');
+//         $('#main').children($id).addClass('active');
+// })
 function setupOverlayMenuEvents() {
     $(".overlay-menu-toggler").on("click", function () {
         $(".overlay-menu").addClass("show");

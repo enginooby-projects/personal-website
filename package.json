@@ -20,7 +20,7 @@
                 "sass": "^1.36.0"
         },
         "scripts": {
-                "test": "echo \"Error: no test specified\" && exit 1"
+                "start": "echo \"Error: no test specified\" && exit 1"
         },
         "repository": {
                 "type": "git",

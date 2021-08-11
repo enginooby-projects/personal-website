@@ -1,11 +1,11 @@
 <?php
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 ?>
 
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("About Me") ?>
+                        <?php TitleBar("About Me")->show(); ?>
                         <div class="row">
                                 <div class="col-lg-6 equal-columns  justify-content-between">
                                         <div class="personal-item">
@@ -46,12 +46,10 @@ include_once "../dynamic-ui-framework/components/container/_index.php";
                                                         Also being <span class="highlight-color">open for work</span> in the game development to gain real-world experience.
                                                 </p>
                                                 <div class="button-group-about ">
-                                                        <div class="button-border mt-3  mb-lg-0 mr-4">
-                                                                <a href="javascript:;" class="button">Download CV</a>
-                                                        </div>
-                                                        <div class="button-border mt-3 mb-lg-0 to-contact">
-                                                                <a href="#contact" class="button">Hire Me</a>
-                                                        </div>
+                                                        <?php
+                                                        Button(label: "Download CV", wrapperClass: "mb-4 mb-lg-0 mr-4")->show();
+                                                        Button(label: "Hire Me", href: "#contact", wrapperClass: "mb-4 mb-lg-0")->show();
+                                                        ?>
                                                 </div>
                                         </div>
                                 </div>

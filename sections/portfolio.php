@@ -1,8 +1,5 @@
 <?php
-
-include_once "../dynamic-ui-framework/components/form/_index.php";
-include_once "../dynamic-ui-framework/layouts/_index.php";
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 
 //TODO: Setup database
 class CodingProject
@@ -153,7 +150,7 @@ function formatLabel($str, $sep = '-')
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("My Works") ?>
+                        <?php TitleBar("My Works")->show(); ?>
 
                         <!-- Categorize filter -->
                         <div class="row mb-0">
@@ -297,10 +294,10 @@ function formatLabel($str, $sep = '-')
                                         label: 'Dynamic UI Framework',
                                         isInjectedItem: true,
                                         injectedClasses: ' glass-style background-1',
-                                        injectedFile: '../dynamic-ui-framework/index-injectable.php',
-                                        filters: 'highlight web utility ongoing medium',
-                                        accessUrl: 'enginoobz.com/dynamic-ui-framework/',
-                                        codeUrl: 'enginoobz-projects/dynamic-ui-framework'
+                                        injectedFile: '../dui/demo/index-injectable.php',
+                                        filters: 'highlight web utility ongoing large',
+                                        accessUrl: 'enginoobz.com/dui/demo',
+                                        codeUrl: 'enginoobz-projects/dui'
                                 );
                                 displayPortfolioItem(
                                         label: 'The Maze',
@@ -387,12 +384,12 @@ function formatLabel($str, $sep = '-')
                                         codeUrl: 'enginoobz-projects/weather-checker'
                                 );
                                 displayPortfolioItem(
-                                        label: 'Corona Checker',
+                                        label: 'Corona Scraper',
                                         isGalleryItem: false,
                                         displayFileRatio: '1512/806',
                                         accessUrl: 'enginoobz.com/projects/corona-checker',
                                         filters: 'utility small  web completed ',
-                                        codeUrl: 'enginoobz-projects/corona-checker'
+                                        codeUrl: 'enginoobz-projects/corona-scraper'
                                 );
 
                                 displayPortfolioItem(

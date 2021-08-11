@@ -1,11 +1,11 @@
 <?php
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 ?>
 
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("My Resume") ?>
+                        <?php TitleBar("My Resume")->show(); ?>
                         <!--    TimeLine Start   -->
                         <div class="row">
                                 <div class="col-lg-6 equal-columns animated " id="education-timeline">

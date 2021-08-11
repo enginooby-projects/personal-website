@@ -9,6 +9,6 @@ I - [Serise tasks]
 
 II - [Serise tasks]
 1.  Commit git (param: message)
-2. Pull git from remote server: portfolio & dynamic-ui-framework (alternative: set up git hook)
+2. Pull git from remote server: portfolio & dui (alternative: set up git hook)
 
  

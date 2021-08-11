@@ -1,11 +1,11 @@
 <?php
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 ?>
 
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("My Duties") ?>
+                        <?php TitleBar("My Duties")->show(); ?>
                         <div class="row">
                                 <!-- Item 01 -->
                                 <div class="col-lg-4 text-center text-md-left ">

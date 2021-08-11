@@ -2,26 +2,22 @@
 // due to main page which directly includes framework php file 
 // and portfolio page which include this hero file which then includes  framework file, are in different dirs
 // @ to hide error
-if ((@include_once "dynamic-ui-framework/components/container/_index.php") === false) {
-        include_once "../dynamic-ui-framework/components/container/_index.php";
+if ((@include_once "dui/_index.php") === false) {
+        include_once "../dui/_index.php";
 }
 ?>
 
 <div class="display-table hero-03">
         <div class="display-content">
                 <div class="container ">
-                        <?php
-                        echo TitleBar("Home");
-                        ?>
+                        <?php TitleBar("Home")->show(); ?>
                         <div class="row align-items-center">
                                 <div class="col-lg-6 order-2 order-lg-1 pr-lg-5">
                                         <div class="hero-content">
                                                 <h1 class="dark-color mb-4">I'M <span class="highlight-color"> HIEU NGO</span></h1>
                                                 <h2 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="typed" data-elements="Game Programmer,Java Developer"></span></h2>
                                                 <p class="my-4">Welcome to my little corner of the Internet. Here is where I document my life, showcase works & share knowledge.</p>
-                                                <div class="button-border mt-2 mt-lg-4">
-                                                        <a href="#portfolio" class="button"> My Work </a>
-                                                </div>
+                                                <?php Button(label: "My Works", href: "#portfolio", wrapperClass: "mt-2 mt-lg-4")->show(); ?>
                                         </div>
                                 </div>
                                 <div class="col-lg-6 order-1 order-lg-2">

@@ -1,5 +1,5 @@
 <?php
-include_once "../dynamic-ui-framework/components/container/_index.php";
+include_once "../dui/_index.php";
 
 function getColorfullByPercent($percent)
 {
@@ -63,7 +63,7 @@ function displayCourse($name, $percent, $url = '')
 <div class="display-table">
         <div class="display-content">
                 <div class="container">
-                        <?php echo TitleBar("Self-Taught") ?>
+                        <?php TitleBar("Self-Taught")->show(); ?>
                         <!--   Bookshelf  -->
                         <div class="row">
                                 <div class="col-lg-12">

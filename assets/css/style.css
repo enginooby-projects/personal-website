@@ -96,10 +96,6 @@
   transition: 0.5s all ease;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 .hero-03 .title-bar {
   display: none;
 }
@@ -609,10 +605,6 @@ canvas.particles-js-canvas-el {
   color: #5f5f5f;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
          RESUME
 -------------------------*/
@@ -641,7 +633,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .timeline-title {
-  font-family: "Agency FB Bold", sans-serif;
+  font-family: "Agency FB Bold";
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -701,7 +693,7 @@ Init values for dynamic properties to reduce  page load time
 }
 
 .timeline-year {
-  font-size: "Agency FB", sans-serif;
+  font-size: "Agency FB";
   font-size: 1.25rem;
   font-weight: 500;
 }
@@ -710,10 +702,6 @@ Init values for dynamic properties to reduce  page load time
   padding-right: 0.75rem;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
           FIXED ELEMENTS: LOGO & SOCIAL ICONS
 -------------------------*/
@@ -874,15 +862,11 @@ header {
   margin-right: 12px;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
           SKILLSET
 -------------------------*/
 .title {
-  font-family: "Agency FB Bold", sans-serif;
+  font-family: "Agency FB Bold";
   font-size: 1.75rem;
   font-weight: 600;
 }
@@ -1024,10 +1008,6 @@ Init values for dynamic properties to reduce  page load time
   margin-top: 8px;
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
          PORTFOLIO
 -------------------------*/
@@ -2286,23 +2266,9 @@ span {
   }
 }
 
-/*
-Init values for dynamic properties to reduce  page load time 
-*/
-/* FONT */
 /*-------------------------
           CONTACT
 -------------------------*/
-.contact .form-item .form-control {
-  background: transparent;
-  height: 44px;
-  font-size: 1.25rem;
-  position: relative;
-  -webkit-transition: border 0.9s ease;
-  transition: border 0.9s ease;
-  padding: 1rem;
-}
-
 .contact-form textarea {
   min-height: 175px;
   resize: none;

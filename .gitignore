@@ -42,4 +42,4 @@ yarn.lock
 
 projects/
 database-properties.php
-dynamic-ui-framework/
+dui/
