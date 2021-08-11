@@ -5,7 +5,9 @@
         "main": "index.js",
         "dependencies": {
                 "@types/tinycolor2": "^1.4.2",
+                "g": "^2.0.1",
                 "jquery": "^3.6.0",
+                "puppeteer": "^10.2.0",
                 "tinycolor2": "^1.4.2",
                 "typescript": "^4.3.5"
         },
@@ -19,9 +21,7 @@
                 "gulp-sass": "^5.0.0",
                 "sass": "^1.36.0"
         },
-        "scripts": {
-                "start": "echo \"Error: no test specified\" && exit 1"
-        },
+        "scripts": {},
         "repository": {
                 "type": "git",
                 "url": "git+https://github.com/enginoobz-projects/portfolio.git"

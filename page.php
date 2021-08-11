@@ -41,7 +41,7 @@
         <!-- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'"> -->
 </head>
 
-<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="win98-style  windows98-bg">
+<body data-spy="scroll" data-target="#scrollspy" data-offset="1" class="neu-style">
         <div id="overlayer"></div><span class="loader"></span>
         <div id="pagepiling" class="pilling-page">
 
