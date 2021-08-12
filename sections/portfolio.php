@@ -376,11 +376,12 @@ function formatLabel($str, $sep = '-')
                                         codeUrl: 'enginoobz-projects/the-dark-diary'
                                 );
                                 displayPortfolioItem(
-                                        label: 'Weather Checker',
+                                        label: 'Weather Getter',
                                         isGalleryItem: false,
-                                        displayFileRatio: '57/86',
-                                        filters: 'utility small  desktop prototype api',
-                                        codeUrl: 'enginoobz-projects/weather-checker'
+                                        displayFileRatio: '993/688',
+                                        filters: 'utility small  web prototype api',
+                                        accessUrl: 'enginoobz.com/nodejs/weather-getter',
+                                        codeUrl: 'enginoobz-projects/weather-getter'
                                 );
                                 displayPortfolioItem(
                                         label: 'Corona Scraper',
