@@ -7,6 +7,11 @@
         font-weight: 600;
 }
 
+// ADHOC: for bootstrap 5
+.skill-boxes .row > * {
+        width: unset;
+}
+
 /* skill-boxes */
 .skillset .row {
         margin-top: 4px;

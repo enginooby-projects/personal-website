@@ -68,12 +68,12 @@
                                                               </div>
                                                               <div class="col-sm-12 mt-4 text-left">
                                                                       <?php Button(label: "Send Message", id: "sumit-btn", onclick: "sendEmail()")->show(); ?>
-                                                                      <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
-                                                                              <!-- <div class="toast-body d-inline-block"></div> -->
-                                                                              <button type="button" class="pr-3 close" data-dismiss="toast" aria-label="Close">
+                                                                      <!-- <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
+                                                                              <div class="toast-body d-inline-block"></div>
+                                                                              <button type="button" class="pr-3 pe-3 close" data-dismiss="toast" aria-label="Close">
                                                                                       <span aria-hidden="true" class="lni-close size-xs "></span>
                                                                               </button>
-                                                                      </div>
+                                                                      </div> -->
                                                               </div>
                                                       </div>
                                               </form>

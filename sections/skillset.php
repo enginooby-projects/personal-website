@@ -98,6 +98,7 @@ include_once "../dui/_index.php";
                                                 <p class="title">Languages & Databases</p>
                                                 <div class="border-style"></div>
                                         </div>
+                                        <!-- TODO: remove all badge-pill -->
                                         <div class="skill-boxes box-border">
                                                 <div class="row justify-content-between">
                                                         <div class="badge-border">

@@ -7,7 +7,7 @@
                      <div class="container">
                              <?php TitleBar("New Posts")->show(); ?>
                              <div class="row">
-                                     <!--  Item 01 -->
+
                                      <div class="col-lg-4">
                                              <div class="blog-item box-border">
                                                      <div class="before"></div>
@@ -36,7 +36,7 @@
                                                      </div>
                                              </div>
                                      </div>
-                                     <!--  Item 02 -->
+
                                      <div class="col-lg-4">
                                              <div class="blog-item box-border">
                                                      <div class="before"></div>
@@ -65,7 +65,7 @@
                                                      </div>
                                              </div>
                                      </div>
-                                     <!--  Item 03 -->
+
                                      <div class="col-lg-4">
                                              <div class="blog-item box-border">
                                                      <div class="before"></div>

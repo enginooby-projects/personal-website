@@ -86,7 +86,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
                 </a>
         ';
         else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class="fas fa-search"></i></a>
+                <a href="javascript:void();" type="button" data-bs-toggle="modal" data-bs-target="#' . $formattedName . '" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class="fas fa-search"></i></a>
         ';
 
         if ($accessUrl) $buttonElements .= '
@@ -98,7 +98,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
         ';
 
         if ($modalPlay) $buttonElements .= '
-                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-toggle="modal" data-target="#' . $modalPlay . '"><i class="fas fa-play"></i></a>
+                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-bs-toggle="modal" data-bs-target="#' . $modalPlay . '" data-toggle="modal" data-target="#' . $modalPlay . '"><i class="fas fa-play"></i></a>
         ';
 
         if ($codeUrl) $buttonElements .= '
@@ -274,10 +274,10 @@ function formatLabel($str, $sep = '-')
                                 displayPortfolioItem(
                                         label: 'Personal Website',
                                         isInjectedItem: true,
-                                        injectedClasses: ' glass-style background-3',
+                                        injectedClasses: ' glass-style',
                                         injectedFile: 'hero.php',
-                                        filters: 'highlight web database cloud ongoing large',
-                                        codeUrl: 'enginoobz-projects/portfolio-test'
+                                        filters: 'highlight web database cloud ongoing medium',
+                                        codeUrl: 'enginoobz-projects/personal-site'
                                 );
                                 displayPortfolioItem(
                                         label: 'Tony The Runner',
