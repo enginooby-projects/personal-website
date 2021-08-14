@@ -5,7 +5,6 @@
         "main": "index.js",
         "dependencies": {
                 "@types/tinycolor2": "^1.4.2",
-                "g": "^2.0.1",
                 "jquery": "^3.6.0",
                 "puppeteer": "^10.2.0",
                 "tinycolor2": "^1.4.2",
@@ -21,7 +20,10 @@
                 "gulp-sass": "^5.0.0",
                 "sass": "^1.36.0"
         },
-        "scripts": {},
+        "scripts": {
+                "live-server": "live-server --browser=Chrome --no-browser --port=3000",
+                "open-php": "node ./manual-tasks/open.js"
+        },
         "repository": {
                 "type": "git",
                 "url": "git+https://github.com/enginoobz-projects/portfolio.git"
