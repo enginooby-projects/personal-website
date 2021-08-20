@@ -2,41 +2,40 @@
          DUTIES
 -------------------------*/
 .duties {
-        .image-border {
-                height: 90%;
-        }
+  .image-border {
+    height: 90%;
+  }
 
-        .duties-item {
-                height: 100%;
-        }
+  .duties-item {
+    height: 100%;
+  }
 }
 
 .duties .title {
-        margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .duties-item img {
-        width: 40px;
-        height: 40px;
+  width: 40px;
+  height: 40px;
 }
-
 
 .duties .duties-item.data-background {
-        margin-top: 0;
+  margin-top: 0;
 }
 
 .duties .image-border {
-        margin-top: 30px;
+  margin-top: 30px;
 }
 
 .duties .image-border {
-        transition: 0.5s all ease;
+  transition: 0.5s all ease;
 }
 
 .duties .image-border:hover {
-        transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .duties-item h5 {
-        margin-top: 8px;
+  margin-top: 8px;
 }

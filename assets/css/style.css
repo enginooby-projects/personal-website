@@ -15,10 +15,10 @@
 -------------------------*/
 #pp-nav {
   -webkit-animation: backInRight;
-          animation: backInRight;
+  animation: backInRight;
   /* referring directly to the animation's @keyframe declaration */
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   /* don't forget to set a duration! */
 }
 
@@ -42,14 +42,14 @@
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   padding-right: 1rem;
   margin-top: -1.4px;
 }
 
 #pp-nav li .active span {
   -webkit-transform: translateX(-10px);
-          transform: translateX(-10px);
+  transform: translateX(-10px);
   width: 36px;
 }
 
@@ -111,8 +111,8 @@
 #hero p {
   word-break: normal;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
 
 /*-------------------------
@@ -131,7 +131,7 @@
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   z-index: 2;
   right: 0;
 }
@@ -146,19 +146,19 @@
 .hero-01 .hero-item1 {
   background: url("https://placehold.co/1920x1280") no-repeat center;
   -webkit-box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.9);
-          box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.9);
+  box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.9);
 }
 
 .hero-01 .hero-item2 {
   background: url("https://placehold.co/1920x1280") no-repeat center;
   -webkit-box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
-          box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
+  box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
 }
 
 .hero-01 .hero-item3 {
   background: url("https://placehold.co/1920x1280") no-repeat center;
   -webkit-box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
-          box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
+  box-shadow: inset 0 0 0 2000px rgba(250, 250, 250, 0.8);
 }
 
 .hero-01 .hero-slide {
@@ -196,16 +196,16 @@
   margin-top: 10px;
   border-radius: 5px;
   -webkit-animation: sdb10 2s infinite;
-          animation: sdb10 2s infinite;
+  animation: sdb10 2s infinite;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #3c3c3c;
 }
 
 @-webkit-keyframes sdb10 {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
     opacity: 0;
   }
   40% {
@@ -213,7 +213,7 @@
   }
   80% {
     -webkit-transform: translate(0, 20px);
-            transform: translate(0, 20px);
+    transform: translate(0, 20px);
     opacity: 0;
   }
   100% {
@@ -224,7 +224,7 @@
 @keyframes sdb10 {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
     opacity: 0;
   }
   40% {
@@ -232,7 +232,7 @@
   }
   80% {
     -webkit-transform: translate(0, 20px);
-            transform: translate(0, 20px);
+    transform: translate(0, 20px);
     opacity: 0;
   }
   100% {
@@ -262,7 +262,7 @@ canvas.particles-js-canvas-el {
   z-index: 1;
   left: calc(50% - 8px);
   -webkit-animation: bounce 2s infinite;
-          animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
 }
 
 .hero-02 .scroll-down a:before {
@@ -302,29 +302,29 @@ canvas.particles-js-canvas-el {
   right: 34px;
   overflow: hidden;
   -webkit-animation: circling 18s linear infinite;
-          animation: circling 18s linear infinite;
+  animation: circling 18s linear infinite;
   z-index: 11;
 }
 
 @-webkit-keyframes circling {
   0% {
     -webkit-transform: rotate(0deg) translate(-80px) rotate(0deg);
-            transform: rotate(0deg) translate(-80px) rotate(0deg);
+    transform: rotate(0deg) translate(-80px) rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg) translate(-80px) rotate(-360deg);
-            transform: rotate(360deg) translate(-80px) rotate(-360deg);
+    transform: rotate(360deg) translate(-80px) rotate(-360deg);
   }
 }
 
 @keyframes circling {
   0% {
     -webkit-transform: rotate(0deg) translate(-80px) rotate(0deg);
-            transform: rotate(0deg) translate(-80px) rotate(0deg);
+    transform: rotate(0deg) translate(-80px) rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg) translate(-80px) rotate(-360deg);
-            transform: rotate(360deg) translate(-80px) rotate(-360deg);
+    transform: rotate(360deg) translate(-80px) rotate(-360deg);
   }
 }
 
@@ -341,29 +341,29 @@ canvas.particles-js-canvas-el {
   overflow: hidden;
   margin: auto;
   -webkit-animation: circlereverse 22s linear infinite;
-          animation: circlereverse 22s linear infinite;
+  animation: circlereverse 22s linear infinite;
   z-index: 11;
 }
 
 @-webkit-keyframes circlereverse {
   0% {
     -webkit-transform: rotate(0deg) translate(-275px) rotate(0deg);
-            transform: rotate(0deg) translate(-275px) rotate(0deg);
+    transform: rotate(0deg) translate(-275px) rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(-360deg) translate(-275px) rotate(360deg);
-            transform: rotate(-360deg) translate(-275px) rotate(360deg);
+    transform: rotate(-360deg) translate(-275px) rotate(360deg);
   }
 }
 
 @keyframes circlereverse {
   0% {
     -webkit-transform: rotate(0deg) translate(-275px) rotate(0deg);
-            transform: rotate(0deg) translate(-275px) rotate(0deg);
+    transform: rotate(0deg) translate(-275px) rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(-360deg) translate(-275px) rotate(360deg);
-            transform: rotate(-360deg) translate(-275px) rotate(360deg);
+    transform: rotate(-360deg) translate(-275px) rotate(360deg);
   }
 }
 
@@ -377,36 +377,36 @@ canvas.particles-js-canvas-el {
   left: 90px;
   z-index: 1;
   -webkit-animation: floating 5s linear infinite;
-          animation: floating 5s linear infinite;
+  animation: floating 5s linear infinite;
 }
 
 @-webkit-keyframes floating {
   0% {
     -webkit-transform: translate(0px);
-            transform: translate(0px);
+    transform: translate(0px);
   }
   50% {
     -webkit-transform: translate(-50px);
-            transform: translate(-50px);
+    transform: translate(-50px);
   }
   100% {
     -webkit-transform: translate(0px);
-            transform: translate(0px);
+    transform: translate(0px);
   }
 }
 
 @keyframes floating {
   0% {
     -webkit-transform: translate(0px);
-            transform: translate(0px);
+    transform: translate(0px);
   }
   50% {
     -webkit-transform: translate(-50px);
-            transform: translate(-50px);
+    transform: translate(-50px);
   }
   100% {
     -webkit-transform: translate(0px);
-            transform: translate(0px);
+    transform: translate(0px);
   }
 }
 
@@ -416,28 +416,28 @@ canvas.particles-js-canvas-el {
   z-index: 0;
   left: -10px;
   -webkit-animation: rotate 25s linear infinite;
-          animation: rotate 25s linear infinite;
+  animation: rotate 25s linear infinite;
 }
 
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -482,16 +482,16 @@ canvas.particles-js-canvas-el {
   margin-top: 10px;
   border-radius: 5px;
   -webkit-animation: sdb10 2s infinite;
-          animation: sdb10 2s infinite;
+  animation: sdb10 2s infinite;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #212529;
 }
 
 @keyframes sdb10 {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
     opacity: 0;
   }
   40% {
@@ -499,7 +499,7 @@ canvas.particles-js-canvas-el {
   }
   80% {
     -webkit-transform: translate(0, 20px);
-            transform: translate(0, 20px);
+    transform: translate(0, 20px);
     opacity: 0;
   }
   100% {
@@ -525,7 +525,7 @@ canvas.particles-js-canvas-el {
   background: url("https://placehold.co/1920x1280") no-repeat;
   background-size: cover;
   -webkit-box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
 }
 
 .hero-06 .scroll-down span {
@@ -549,16 +549,16 @@ canvas.particles-js-canvas-el {
   margin-top: 10px;
   border-radius: 5px;
   -webkit-animation: sdb10 2s infinite;
-          animation: sdb10 2s infinite;
+  animation: sdb10 2s infinite;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #fafafa;
 }
 
 @keyframes sdb10 {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
     opacity: 0;
   }
   40% {
@@ -566,7 +566,7 @@ canvas.particles-js-canvas-el {
   }
   80% {
     -webkit-transform: translate(0, 20px);
-            transform: translate(0, 20px);
+    transform: translate(0, 20px);
     opacity: 0;
   }
   100% {
@@ -579,7 +579,7 @@ canvas.particles-js-canvas-el {
 -------------------------*/
 .hero-07 {
   -webkit-box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8);
 }
 
 .hero-07 .video-overlay {
@@ -747,19 +747,19 @@ header {
   height: 1.5rem;
   white-space: nowrap;
   -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
+  transform-origin: 100% 0;
   text-align: right;
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
   font-size: 1.3rem;
   -webkit-animation-name: slide_to_right;
-          animation-name: slide_to_right;
+  animation-name: slide_to_right;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .follow-label .scalable {
@@ -767,11 +767,11 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 @-webkit-keyframes slide_to_right {
@@ -798,15 +798,15 @@ header {
   top: 50%;
   height: 2px;
   -webkit-animation-name: stretch;
-          animation-name: stretch;
+  animation-name: stretch;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  animation-delay: 0.5s;
   -webkit-animation-duration: 0.6s;
-          animation-duration: 0.6s;
+  animation-duration: 0.6s;
   -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes stretch {
@@ -851,7 +851,7 @@ header {
   line-height: 38px;
   display: inline-block;
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+  box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   border-radius: 4px;
   text-align: center;
   color: #5f5f5f;
@@ -859,7 +859,7 @@ header {
 
 .social-icon a:hover {
   -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
 }
 
 .social-icon .list-inline-item:not(:last-child) {
@@ -888,8 +888,8 @@ header {
 
 .equal-columns > .box-border {
   -webkit-box-flex: 1 !important;
-      -ms-flex-positive: 1 !important;
-          flex-grow: 1 !important;
+  -ms-flex-positive: 1 !important;
+  flex-grow: 1 !important;
 }
 
 .equal-columns {
@@ -898,8 +898,8 @@ header {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
   min-height: 140px;
 }
 
@@ -932,8 +932,8 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .badge {
@@ -943,8 +943,8 @@ header {
 .badge.badge-pill {
   font-weight: 300 !important;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   display: table;
   margin: 0 auto;
   /* vertical center */
@@ -957,8 +957,8 @@ header {
 .title-content .badge.badge-pill {
   display: inline-block;
   -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
 }
 
 .title-content .badge-border {
@@ -1009,7 +1009,7 @@ header {
 
 .duties .image-border:hover {
   -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .duties-item h5 {
@@ -1094,7 +1094,7 @@ header {
   left: 5px;
   opacity: 0;
   -webkit-transform: scale(0.5);
-          transform: scale(0.5);
+  transform: scale(0.5);
   -webkit-transition: 0.7s all ease;
   transition: 0.7s all ease;
   background-color: rgba(0, 0, 0, 0.479);
@@ -1109,7 +1109,7 @@ header {
 
 .portfolio-item-content:hover::before {
   -webkit-transform: scale(1.03);
-          transform: scale(1.03);
+  transform: scale(1.03);
   opacity: 1;
 }
 
@@ -1118,7 +1118,7 @@ header {
   width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   text-align: center;
   opacity: 0;
   -webkit-transition: all 0.5s ease;
@@ -1152,11 +1152,11 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .visible_item {
@@ -1202,8 +1202,8 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
 }
 
@@ -1220,16 +1220,19 @@ header {
   z-index: 99;
 }
 
-.segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
+.segmented-control__1,
+.segmented-control__2,
+.segmented-control__3,
+.segmented-control__4 {
   color: #444444;
   font-size: 1.1rem;
   cursor: pointer;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   width: 6.8rem;
@@ -1240,7 +1243,9 @@ header {
   display: flex;
 }
 
-.segmented-control-size__color, .segmented-control-platform__color, .segmented-control-stage__color {
+.segmented-control-size__color,
+.segmented-control-platform__color,
+.segmented-control-stage__color {
   position: absolute;
   height: 1.9175rem;
   width: 72.5px;
@@ -1258,41 +1263,49 @@ header {
   #platform-1:checked ~ .segmented-control-platform__color,
   #stage-1:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-165px);
-            transform: translateX(-165px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-165px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-2:checked ~ .segmented-control-size__color,
   #platform-2:checked ~ .segmented-control-platform__color,
   #stage-2:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-55px);
-            transform: translateX(-55px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-55px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-3:checked ~ .segmented-control-size__color,
   #platform-3:checked ~ .segmented-control-platform__color,
   #stage-3:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(55px);
-            transform: translateX(55px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(55px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-4:checked ~ .segmented-control-size__color,
   #platform-4:checked ~ .segmented-control-platform__color,
   #stage-4:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(165px);
-            transform: translateX(165px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(165px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
@@ -1307,41 +1320,49 @@ header {
   #platform-1:checked ~ .segmented-control-platform__color,
   #stage-1:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-82.5px);
-            transform: translateX(-82.5px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-82.5px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-2:checked ~ .segmented-control-size__color,
   #platform-2:checked ~ .segmented-control-platform__color,
   #stage-2:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-27.5px);
-            transform: translateX(-27.5px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-27.5px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-3:checked ~ .segmented-control-size__color,
   #platform-3:checked ~ .segmented-control-platform__color,
   #stage-3:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(27.5px);
-            transform: translateX(27.5px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(27.5px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-4:checked ~ .segmented-control-size__color,
   #platform-4:checked ~ .segmented-control-platform__color,
   #stage-4:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(82.5px);
-            transform: translateX(82.5px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(82.5px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
@@ -1356,41 +1377,49 @@ header {
   #platform-1:checked ~ .segmented-control-platform__color,
   #stage-1:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-108.75px);
-            transform: translateX(-108.75px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-108.75px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-2:checked ~ .segmented-control-size__color,
   #platform-2:checked ~ .segmented-control-platform__color,
   #stage-2:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(-36.25px);
-            transform: translateX(-36.25px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(-36.25px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-3:checked ~ .segmented-control-size__color,
   #platform-3:checked ~ .segmented-control-platform__color,
   #stage-3:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(36.25px);
-            transform: translateX(36.25px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(36.25px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   #size-4:checked ~ .segmented-control-size__color,
   #platform-4:checked ~ .segmented-control-platform__color,
   #stage-4:checked ~ .segmented-control-stage__color {
     -webkit-transform: translateX(108.75px);
-            transform: translateX(108.75px);
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: translateX(108.75px);
+    -webkit-transition: -webkit-transform 0.3s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
@@ -1454,7 +1483,7 @@ header {
 @keyframes cssload-rotate {
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -1471,7 +1500,7 @@ header {
 
 .book-item:hover {
   -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .book-item {
@@ -1524,7 +1553,7 @@ header {
   position: absolute;
   top: 53%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   margin: 0 4px;
 }
 
@@ -1602,11 +1631,11 @@ header {
 }
 
 .overlay-menu
-.overlay-menu-list
-.overlay-nav
-.contact-info
-li:first-child
-span {
+  .overlay-menu-list
+  .overlay-nav
+  .contact-info
+  li:first-child
+  span {
   font-size: 20px;
   color: #ffffff;
   font-weight: 600;
@@ -1684,28 +1713,28 @@ span {
   width: 40px;
   height: 40px;
   -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -1763,7 +1792,7 @@ span {
   right: 0;
   bottom: 0;
   -webkit-box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
-          box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+  box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
   border-radius: 50%;
   z-index: 0;
   left: 2px;
@@ -1775,7 +1804,7 @@ span {
 
 .testimonial .owl-carousel .testimonial-image-border {
   -webkit-box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
-          box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+  box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
   border-radius: 50%;
   padding: 5px;
   position: relative;
@@ -2096,7 +2125,7 @@ span {
 @media (max-width: 1199px) {
   .post-sidebar-toggle {
     -webkit-transform: none;
-            transform: none;
+    transform: none;
     -webkit-transition: none;
     transition: none;
   }
@@ -2236,14 +2265,14 @@ span {
     max-width: 25%;
     -ms-flex: 0 0 25%;
     -webkit-box-flex: 0;
-            flex: 0 0 25%;
+    flex: 0 0 25%;
     z-index: 0;
     padding: 0 15px;
   }
   .blog-single .post-sidebar-content {
     position: unset;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
     background-color: transparent;
     overflow: visible;
     padding-top: 0;
@@ -2260,7 +2289,7 @@ span {
   .flat-style .blog-single .post-sidebar-content {
     background-color: transparent !important;
     -webkit-box-shadow: none !important;
-            box-shadow: none !important;
+    box-shadow: none !important;
   }
   .flat-style .search .form-group,
   .flat-style .aside-contents {
@@ -2329,7 +2358,7 @@ span {
   .hero.error-404 .hero-content {
     position: inherit;
     -webkit-transform: inherit;
-            transform: inherit;
+    transform: inherit;
   }
   .error-404 ~ .contact {
     position: inherit;
@@ -2370,13 +2399,13 @@ span {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
   header {
     background-color: #f8f8f8;
     -webkit-box-shadow: 0 1px 3px 0 #eee;
-            box-shadow: 0 1px 3px 0 #eee;
+    box-shadow: 0 1px 3px 0 #eee;
   }
   .overlay-menu-toggler,
   .logo {
