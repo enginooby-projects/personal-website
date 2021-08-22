@@ -231,13 +231,13 @@ function formatLabel($str, $sep = '-')
       <div class="container mt-4" id="tech-filters">
         <?php
         Flexbox()
-          ->add(Checkbox(label: "Database", value: ".database"))
-          ->add(Checkbox(label: "Networking", value: ".networking"))
-          ->add(Checkbox(label: "Cloud", value: ".cloud"))
-          ->add(Checkbox(label: "API", value: ".api"))
-          ->add(Checkbox(label: "AI/ML", value: ".ai"))
-          ->add(Checkbox(label: "AR", value: ".ar"))
-          ->add(Checkbox(label: "VR", value: ".vr"))
+          ->Checkbox(label: "Database", value: ".database")
+          ->Checkbox(label: "Networking", value: ".networking")
+          ->Checkbox(label: "Cloud", value: ".cloud")
+          ->Checkbox(label: "API", value: ".api")
+          ->Checkbox(label: "AI/ML", value: ".ai")
+          ->Checkbox(label: "AR", value: ".ar")
+          ->Checkbox(label: "VR", value: ".vr")
           ->show();
         ?>
       </div>
@@ -247,7 +247,6 @@ function formatLabel($str, $sep = '-')
         //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null
         displayPortfolioItem(
           label: 'Endless Flight',
-          isGalleryItem: false,
           displayFileExtension: 'mp4',
           displayFileRatio: '768/432',
           filters: 'highlight game large web completed',
@@ -256,7 +255,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Generic Tic Tac Toe',
-          isGalleryItem: false,
           displayFileRatio: '180/90',
           filters: 'highlight game medium web completed networking',
           accessUrl: 'enginoobz-threejs.herokuapp.com',
@@ -265,7 +263,6 @@ function formatLabel($str, $sep = '-')
 
         displayPortfolioItem(
           label: 'Guess The Word',
-          isGalleryItem: false,
           displayFileRatio: '100/74',
           filters: 'game small web prototype',
           modalPlay: 'guess-the-word-play',
@@ -282,7 +279,6 @@ function formatLabel($str, $sep = '-')
         displayPortfolioItem(
           label: 'Tony The Runner',
           displayFileExtension: 'mp4',
-          isGalleryItem: false,
           displayFileRatio: '896/502',
           filters: 'game medium web completed',
           accessUrl: 'enginoobz.itch.io/tony-the-runner',
@@ -300,7 +296,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'The Maze',
-          isGalleryItem: false,
           displayFileRatio: '192/108',
           filters: 'game small web prototype',
           modalPlay: 'the-maze-play',
@@ -308,7 +303,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Breakout',
-          isGalleryItem: false,
           displayFileRatio: '143/107',
           filters: 'game small web prototype',
           modalPlay: 'breakout-play',
@@ -316,7 +310,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Project Boost',
-          isGalleryItem: false,
           displayFileRatio: '148/80',
           filters: 'game small web prototype',
           modalPlay: 'project-boost-play',
@@ -324,7 +317,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Racing',
-          isGalleryItem: false,
           displayFileRatio: '99/74',
           filters: 'game small web prototype',
           // modalPlay: 'project-boost-play',
@@ -332,15 +324,13 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Shader Playground',
-          isGalleryItem: false,
           displayFileRatio: '153/64',
           filters: 'cg small web ongoing',
           modalPlay: 'shader-playground-play',
-          codeUrl: 'enginoobz-games/shader-playground'
+          codeUrl: 'enginoobz-cg/shader-playground'
         );
         displayPortfolioItem(
           label: 'Newton Cradle',
-          isGalleryItem: false,
           displayFileRatio: '192/90',
           filters: 'cg medium web completed',
           accessUrl: 'enginoobz-threejs.herokuapp.com',
@@ -348,7 +338,6 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'MeowMeow Brand',
-          isGalleryItem: true,
           displayFileRatio: '248/350',
           filters: 'design completed',
         );
@@ -361,37 +350,39 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'Multistore Shopping GUI',
-          isGalleryItem: false,
           displayFileRatio: '87/68',
           filters: 'ecommerce  medium  desktop completed database',
           downloadUrl: 'enginoobz.com/download/Multistore%20Shopping%20GUI.rar',
-          codeUrl: 'enginoobz-projects/multistore-shopping-gui',
+          codeUrl: 'enginoobz-ecommerce/multistore-shopping-gui',
         );
         displayPortfolioItem(
           label: 'The Dark Diary',
-          isGalleryItem: false,
           displayFileRatio: '123/77',
           accessUrl: 'enginoobz.com/projects/the-dark-diary',
-          filters: 'utility small  web database prototype ',
-          codeUrl: 'enginoobz-projects/the-dark-diary'
+          filters: 'utility small web database prototype ',
+          codeUrl: 'enginoobz-utilities/the-dark-diary'
         );
         displayPortfolioItem(
           label: 'Weather Getter',
-          isGalleryItem: false,
           displayFileRatio: '993/688',
-          filters: 'utility small  web prototype api',
+          filters: 'utility small web prototype api',
           accessUrl: 'enginoobz.com/nodejs/weather-getter',
-          codeUrl: 'enginoobz-projects/weather-getter'
+          codeUrl: 'enginoobz-utilities/weather-getter'
         );
         displayPortfolioItem(
           label: 'Corona Scraper',
-          isGalleryItem: false,
           displayFileRatio: '1512/806',
           accessUrl: 'enginoobz.com/projects/corona-checker',
-          filters: 'utility small  web completed ',
-          codeUrl: 'enginoobz-projects/corona-scraper'
+          filters: 'utility small web completed ',
+          codeUrl: 'enginoobz-utilities/corona-scraper'
         );
-
+        displayPortfolioItem(
+          label: 'Trillo',
+          displayFileRatio: '1539/1497',
+          // accessUrl: 'enginoobz.com/projects/trillo',
+          filters: 'marketing small web completed ',
+          codeUrl: 'enginoobz-marketing/corona-scraper'
+        );
         displayPortfolioItem(
           label: 'Photo Enhancement',
           isGalleryItem: true,
