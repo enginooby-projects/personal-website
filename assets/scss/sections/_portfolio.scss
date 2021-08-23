@@ -1,6 +1,15 @@
 /*-------------------------
          PORTFOLIO
 -------------------------*/
+// iframe from sketchfab
+iframe {
+  border-radius: var(--dui-border-radius) !important;
+}
+.sketchfab-embed-wrapper {
+  width: 890px;
+  height: 480px;
+}
+
 $injectionScale: 0.4;
 
 .injected-section {

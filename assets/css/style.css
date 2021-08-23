@@ -1019,6 +1019,15 @@ header {
 /*-------------------------
          PORTFOLIO
 -------------------------*/
+iframe {
+  border-radius: var(--dui-border-radius) !important;
+}
+
+.sketchfab-embed-wrapper {
+  width: 890px;
+  height: 480px;
+}
+
 .injected-section {
   zoom: 0.4;
   -moz-transform: scale(0.4);

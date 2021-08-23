@@ -64,66 +64,66 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
     ob_start();
     include_once $injectedFile;
     $injectedContent = ob_get_clean();
-    $injectedElement = "<div class='injected-section $injectedClasses'>$injectedContent  </div> ";
+    $injectedElement = "<div class='injected-section $injectedClasses'>$injectedContent</div> ";
     $loadingIndicatorElement = '';
   } else {
     // src="https://placehold.co/' . $displayFileRatio . '/jpg" 
     if ($displayFileRatio) $displayFileRatioProperty = 'style="aspect-ratio: ' . $displayFileRatio . '"';
     if ($displayFileExtension == 'png' || $displayElement == 'jpg') {
-      $displayElement = " <img class='lazy' data-src=' $displayFileUrl.$displayFileExtension' alt='/' class='img-fluid' width='311' height='232'>"; // placholder dimension for audit, will be overrided by css
+      $displayElement = " <img class='lazy' data-src='$displayFileUrl.$displayFileExtension' alt='/' class='img-fluid' width='311' height='232'>"; // placholder dimension for audit, will be overrided by css
     } else if ($displayFileExtension == 'mp4') {
       $displayElement = "<div class='video-container' $displayFileRatioProperty>
-                                <video autoplay loop muted playsinline class='lazy'>
-                                        <source data-src='$displayFileUrl.$displayFileExtension' type='video/$displayFileExtension'>
-                                </video>
+                          <video autoplay loop muted playsinline class='lazy'>
+                            <source data-src='$displayFileUrl.$displayFileExtension' type='video/$displayFileExtension'>
+                          </video>
                         </div>";
     }
   }
 
   if ($isGalleryItem) $buttonElements .= '
-                <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1" aria-label="Gallery image">
-                       <i class="fas fa-search"></i>
-                </a>
+    <a href="assets/img/portfolio/' . $formattedName . '.png" class="js-zoom-gallery background-colorfull1" aria-label="Gallery image">
+      <i class="fas fa-search"></i>
+    </a>
         ';
   else $buttonElements .= '
-                <a href="javascript:void();" type="button" data-bs-toggle="modal" data-bs-target="#' . $formattedName . '" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class="fas fa-search"></i></a>
+    <a href="javascript:void();" type="button" data-bs-toggle="modal" data-bs-target="#' . $formattedName . '" data-toggle="modal" data-target="#' . $formattedName . '" class="background-colorfull1" aria-label="Read more"><i class="fas fa-search"></i></a>
         ';
 
   if ($accessUrl) $buttonElements .= '
-                <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit">' . $linkIcon . '</a>
+    <a href="https://' . $accessUrl . '" target="blank_" type="button" class="background-colorfull2" aria-label="Visit">' . $linkIcon . '</a>
         ';
 
   if ($downloadUrl) $buttonElements .= '
-                <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2" aria-label="Download"><i class="fas fa-download"></i></a>
+    <a href="https://' . $downloadUrl . '" type="button" class="background-colorfull2" aria-label="Download"><i class="fas fa-download"></i></a>
         ';
 
   if ($modalPlay) $buttonElements .= '
-                <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-bs-toggle="modal" data-bs-target="#' . $modalPlay . '" data-toggle="modal" data-target="#' . $modalPlay . '"><i class="fas fa-play"></i></a>
+    <a href="javascript:void();" class="background-colorfull2" aria-label="Play" type="button" data-bs-toggle="modal" data-bs-target="#' . $modalPlay . '" data-toggle="modal" data-target="#' . $modalPlay . '"><i class="fas fa-play"></i></a>
         ';
 
   if ($codeUrl) $buttonElements .= '
-                <a href="https://github.com/' . $codeUrl . '" target="_blank" rel="noopener" class="background-colorfull3" aria-label="Source code"> <i class="fas fa-code"></i> </a>
+    <a href="https://github.com/' . $codeUrl . '" target="_blank" rel="noopener" class="background-colorfull3" aria-label="Source code"> <i class="fas fa-code"></i> </a>
         ';
 
   echo '
-          <div class="  col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
-                    <div class="image-border">
-                                        ' . $loadingIndicatorElement . '
-                              <div class="portfolio-item-content" ' . $displayFileRatioProperty . '>
-                                        ' . $displayElement . '
-                                        ' . $highlightElement . '
-                                        ' . $injectedElement . '
-                                        <div class="img-overlay text-center">
-                                                  <div class="img-overlay-content">
-                                                            <div class="portfolio-icon">
-                                                        ' . $buttonElements . '
-                                                            </div>
-                                                            <p class="project-label mt-3 mb-0">' . $label . '</p>
-                                                  </div>
-                                        </div>
-                              </div>
-                    </div>
+  <div class="col-lg-4 portfolio-item ' . $filters . '" id="' . $id . '">
+    <div class="image-border">
+        ' . $loadingIndicatorElement . '
+      <div class="portfolio-item-content" ' . $displayFileRatioProperty . '>
+        ' . $displayElement . '
+        ' . $highlightElement . '
+        ' . $injectedElement . '
+        <div class="img-overlay text-center">
+          <div class="img-overlay-content">
+            <div class="portfolio-icon">
+        ' . $buttonElements . '
+            </div>
+            <p class="project-label mt-3 mb-0">' . $label . '</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
     ';
 }
 
@@ -151,8 +151,7 @@ function formatLabel($str, $sep = '-')
   <div class="display-content">
     <div class="container">
       <?php TitleBar("My Works")->show(); ?>
-
-      <!-- Categorize filter -->
+      <!-- CATEGORIZE FILTERS -->
       <div class="row mb-0">
         <!--   Portfolio Filters   -->
         <ul id="radio-button-group" class="list-unstyled list-inline mb-0 col-lg-12 text-center radio-button-group">
@@ -166,11 +165,11 @@ function formatLabel($str, $sep = '-')
             <a href="#" data-filter=".game" class="button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>
           </li>
           <li class="button-border list-inline-item">
-            <a href="#" data-filter=".cg" class="button" aria-label="CG filter"><i class="fas fa-dice-d20 fa-xs"></i> CG</a>
+            <a href="#" data-filter=".cg" class="button" aria-label="CG filter"><i class="fas fa-cube fa-xs"></i> CG</a>
           </li>
-          <li class="button-border list-inline-item">
+          <!-- <li class="button-border list-inline-item">
             <a href="#" data-filter=".model" class="button" aria-label="Model filter"><i class="fas fa-cube fa-xs"></i> Model</a>
-          </li>
+          </li> -->
           <li class="button-border list-inline-item">
             <a href="#" data-filter=".design" class="button" aria-label="Design filter"><i class="fas fa-palette fa-xs"></i> Design</a>
           </li>
@@ -180,6 +179,9 @@ function formatLabel($str, $sep = '-')
           <li class="button-border list-inline-item">
             <a href="#" data-filter=".ecommerce" class="button" aria-label="eCommerce filter"><i class="fas fa-shopping-cart fa-xs"></i> eCommerce</a>
           </li>
+          <li class="button-border list-inline-item">
+            <a href="#" data-filter=".marketing" class="button" aria-label="Marketing filter"><i class="fas fa-bullhorn fa-xs"></i> Marketing</a>
+          </li>
           <!-- <li class="button-border list-inline-item">
                                                         <a href="#" data-filter=".cms" class="button" aria-label="CMS filter"><i class="fas fa-users fa-xs"></i> CMS</a>
                                                 </li> -->
@@ -188,10 +190,8 @@ function formatLabel($str, $sep = '-')
           </li>
         </ul>
       </div>
-
-
-      <!-- Sub-filters -->
-      <div class="row  justify-content-around sub-filters mt-0">
+      <!-- SUB-FILTERS -->
+      <div class="row justify-content-around sub-filters mt-0">
         <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" id="size-filters" data-filter-group="size">
           <input type="radio" name="size" value="1" id="size-1" checked />
           <label for="size-1" class="segmented-control__1" data-filter="">All sizes</label>
@@ -226,8 +226,7 @@ function formatLabel($str, $sep = '-')
           <div class="segmented-control-stage__color radio-selection"></div>
         </div>
       </div>
-
-      <!-- Technology filter -->
+      <!-- TECH FILTERS -->
       <div class="container mt-4" id="tech-filters">
         <?php
         Flexbox()
@@ -260,7 +259,6 @@ function formatLabel($str, $sep = '-')
           accessUrl: 'enginoobz-threejs.herokuapp.com',
           codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
         );
-
         displayPortfolioItem(
           label: 'Guess The Word',
           displayFileRatio: '100/74',
@@ -273,7 +271,7 @@ function formatLabel($str, $sep = '-')
           isInjectedItem: true,
           injectedClasses: ' glass-style',
           injectedFile: 'hero.php',
-          filters: 'highlight web database cloud ongoing medium',
+          filters: 'highlight marketing web database cloud ongoing medium',
           codeUrl: 'enginoobz-projects/personal-site'
         );
         displayPortfolioItem(
@@ -342,16 +340,23 @@ function formatLabel($str, $sep = '-')
           filters: 'design completed',
         );
         displayPortfolioItem(
-          label: 'Train Model',
+          label: 'The Train',
           isGalleryItem: true,
           displayFileRatio: '192/107',
-          filters: 'model web completed',
+          filters: 'cg web completed',
           accessUrl: 'enginoobz.itch.io/unity-laboratories',
+        );
+        displayPortfolioItem(
+          label: 'The Well',
+          displayFileRatio: '1811/945',
+          filters: 'cg small web completed',
+          // accessUrl: 'enginoobz.itch.io/endless-flight',
+          // codeUrl: 'enginoobz-games/endless-flight'
         );
         displayPortfolioItem(
           label: 'Multistore Shopping GUI',
           displayFileRatio: '87/68',
-          filters: 'ecommerce  medium  desktop completed database',
+          filters: 'ecommerce medium desktop completed database',
           downloadUrl: 'enginoobz.com/download/Multistore%20Shopping%20GUI.rar',
           codeUrl: 'enginoobz-ecommerce/multistore-shopping-gui',
         );
@@ -381,7 +386,7 @@ function formatLabel($str, $sep = '-')
           displayFileRatio: '1539/1497',
           // accessUrl: 'enginoobz.com/projects/trillo',
           filters: 'marketing small web completed ',
-          codeUrl: 'enginoobz-marketing/corona-scraper'
+          codeUrl: 'enginoobz-marketing/trillo'
         );
         displayPortfolioItem(
           label: 'Photo Enhancement',
