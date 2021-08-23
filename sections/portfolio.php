@@ -244,6 +244,8 @@ function formatLabel($str, $sep = '-')
       <div class="portfolio-items row">
         <?php
         //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null
+        $FULL_HD = '1920/1080';
+
         displayPortfolioItem(
           label: 'Endless Flight',
           displayFileExtension: 'mp4',
@@ -294,7 +296,7 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'The Maze',
-          displayFileRatio: '192/108',
+          displayFileRatio: $FULL_HD,
           filters: 'game small web prototype',
           modalPlay: 'the-maze-play',
           codeUrl: 'enginoobz-university/unity-laboratories'
@@ -348,7 +350,7 @@ function formatLabel($str, $sep = '-')
         );
         displayPortfolioItem(
           label: 'The Well',
-          displayFileRatio: '1811/945',
+          displayFileRatio: $FULL_HD,
           filters: 'cg small web completed',
           // accessUrl: 'enginoobz.itch.io/endless-flight',
           // codeUrl: 'enginoobz-games/endless-flight'

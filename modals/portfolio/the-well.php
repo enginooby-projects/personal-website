@@ -44,14 +44,14 @@
                 </div> -->
                 <div class="mt-5">
                   <div class="portfolio-single-item image-border">
-                    <div class="sketchfab-embed-wrapper"> <iframe title="The well" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="890" height="480" src="https://sketchfab.com/models/67dc945a95ef40a5aaaef9655a6cc43c/embed"> </iframe> </div>
+                    <div class="sketchfab-embed-wrapper"> <iframe title="The Well" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="890" height="480" src="https://sketchfab.com/models/c3fa42e0498949778b752fee838d5b81/embed"> </iframe> </div>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-10 mx-auto">
                 <div class="text-justify mt-5">
-                  <p class="my-3">A simple well model in Blender, following <a target="blank" href="https://www.udemy.com/course/blendertutorial/">Blender Creator: Learn 3D Modelling for Beginners</a> course on Udemy.</p>
-                  <p>What I have learned: basic transformations, duplicating, creating & linking materials.</p>
+                  <p class="my-3">My "Hello, world" model in Blender, following <a target="blank" href="https://www.udemy.com/course/blendertutorial/">Blender Creator: Learn 3D Modelling for Beginners</a> course on Udemy.</p>
+                  <p>What I have learned: basic transformations, duplicating, creating & linking materials, 3 light point setup.</p>
                 </div>
               </div>
             </div>
