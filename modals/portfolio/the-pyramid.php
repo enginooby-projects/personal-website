@@ -1,4 +1,4 @@
-<div class="portfolio-single modal fade" id="the-well" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
+<div class="portfolio-single modal fade" id="the-pyramid" tabindex="-1" role="dialog" aria-labelledby="portfolioModalScrollable" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content ">
       <div class="modal-header">
@@ -13,7 +13,7 @@
             <div class="row">
               <div class="col-12 col-md-10 mx-auto">
                 <div class="text-center">
-                  <h2 class="mb-3"> <span class="highlight-color">The Well</span></h2>
+                  <h2 class="mb-3"> <span class="highlight-color">The Pyramid</span></h2>
                   <!-- <p class="max-width-450">In a professional context it often happens that private clients corder a publication to be made.</p> -->
                 </div>
                 <!-- <div class="row contact-info mt-5">
@@ -44,14 +44,14 @@
                 </div> -->
                 <div class="mt-5">
                   <div class="portfolio-single-item image-border">
-                    <div class="sketchfab-embed-wrapper"> <iframe title="The Well" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="890" height="480" src="https://sketchfab.com/models/c3fa42e0498949778b752fee838d5b81/embed"> </iframe> </div>
+                    <div class="sketchfab-embed-wrapper"> <iframe title="The Pyramid" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="890" height="480" src="https://sketchfab.com/models/ce9fdea312e74a19837b1a9d85f702fa/embed"> </iframe> </div>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-10 mx-auto">
                 <div class="text-justify mt-5">
-                  <p class="my-3">My "Hello, world" model in Blender, following <a target="blank" href="https://www.udemy.com/course/blendertutorial/">Blender Creator: Learn 3D Modelling for Beginners</a> course on Udemy.</p>
-                  <p>What I have learned and applied in this project: basic transformations, duplicating, creating & linking materials, 3-point lighting setup.</p>
+                  <p class="my-3">The 3rd praticing model in Blender, following <a target="blank" href="https://www.udemy.com/course/blendertutorial/">Blender Creator: Learn 3D Modelling for Beginners</a> course on Udemy.</p>
+                  <p>What I have learned and applied in this project: insetting, sliding, subdividing, loop cutting, array modifier.</p>
                 </div>
               </div>
             </div>

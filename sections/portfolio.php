@@ -351,9 +351,17 @@ function formatLabel($str, $sep = '-')
         displayPortfolioItem(
           label: 'The Well',
           displayFileRatio: $FULL_HD,
-          filters: 'cg small web completed',
-          // accessUrl: 'enginoobz.itch.io/endless-flight',
-          // codeUrl: 'enginoobz-games/endless-flight'
+          filters: 'cg small',
+        );
+        displayPortfolioItem(
+          label: 'The Village',
+          displayFileRatio: $FULL_HD,
+          filters: 'cg small',
+        );
+        displayPortfolioItem(
+          label: 'The Pyramid',
+          displayFileRatio: $FULL_HD,
+          filters: 'cg small',
         );
         displayPortfolioItem(
           label: 'Multistore Shopping GUI',

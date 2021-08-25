@@ -328,7 +328,7 @@ function loadPortfolioModals() {
   //         $(id).load(`modals/portfolio/${id?.substring(1)}.php`)
   // });
   //TODO: loops all files in the server folder instead (/modals/portfolio) or create php file dynamically
-  const modals: string[] = ["endless-flight", "the-well", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
+  const modals: string[] = ["endless-flight", "the-well", "the-village", "the-pyramid", "breakout-play", "guess-the-word-play", "project-boost-play", "shader-playground-play", "the-maze-play"];
   modals.forEach(modal => loadAjaxFile(`modals/portfolio/${modal}.php`, $body));
 }
 
