@@ -696,10 +696,15 @@ canvas.particles-js-canvas-el {
   display: none;
 }
 
+.timeline-place {
+  margin-bottom: 0.5rem;
+}
+
 .timeline-year {
   font-size: "Agency FB";
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 500;
+  font-style: italic;
 }
 
 .resume h3 i {

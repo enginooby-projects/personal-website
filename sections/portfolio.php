@@ -156,10 +156,10 @@ function formatLabel($str, $sep = '-')
         <!--   Portfolio Filters   -->
         <ul id="radio-button-group" class="list-unstyled list-inline mb-0 col-lg-12 text-center radio-button-group">
           <li class="button-border list-inline-item">
-            <a href="#" data-filter="*" class="button active"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
+            <a href="#" data-filter=".highlight" class="button active" aria-label="Highlight filter"><i class="fas fa-star fa-xs"></i> Highlight</a>
           </li>
           <li class="button-border list-inline-item">
-            <a href="#" data-filter=".highlight" class="button" aria-label="Highlight filter"><i class="fas fa-star fa-xs"></i> Highlight</a>
+            <a href="#" data-filter="*" class="button"><i class="fas fa-globe fa-xs" aria-label="All filter"></i> All</a>
           </li>
           <li class="button-border list-inline-item">
             <a href="#" data-filter=".game" class="button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>

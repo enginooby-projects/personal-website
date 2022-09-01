@@ -11,7 +11,7 @@ include_once "../dui/_index.php";
           <div class="personal-item">
             <p class="mt-0 mt-lg-0 paragraph-title">Who am I?</p>
             <p class=" text-justify mb-0">
-              The name is <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginoobz</span>”, a Vietnamese and a final-year undergraduate <span class="highlight-color">Software Engineering student</span> in Poland.
+              The name is <span class="highlight-color">Hieu Ngo</span>, a.k.a. “<span class="highlight-color">enginooby</span>”, a Vietnamese and a final-year undergraduate <span class="highlight-color">Software Engineering student</span> in Poland.
             </p>
           </div>
           <!-- Image -->
@@ -20,17 +20,17 @@ include_once "../dui/_index.php";
           </div>
           <!-- <p class="image-caption">I'd consider myself a noob to remind me there're always new things to learn from anyone.</p> -->
           <div class="personal-item">
-            <p class="paragraph-title mt-4 mt-lg-4">Background: <span class="highlight-color">Java & web development</span></p>
+            <p class="paragraph-title mt-4 mt-lg-4">Background - <span class="highlight-color">Java & web development</span></p>
             <p class=" text-justify mb-0">
               Once upon a time, I took the first step on my programming journey with <span class="highlight-color">Core Java</span>. Through some university classes, I then explored various Java technologies, most notably <span class="highlight-color">Spring frameworks</span>, for the development of enterprise & desktop software or back-end of web applications. Also slightly expanded my experiences in a few web technologies for front-end development to built some of personal-fun-things with <span class=highlight-color>LA/EMP</span> and <span class=highlight-color>MEAN</span> stacks.
               <br>
-              If you ask me, Java and web development in general were all fun, untill I figured out my bigger passion…
+              If you ask me, Java and web development in general were all fun, then I figured out my bigger passion…
             </p>
           </div>
         </div>
         <div class="col-lg-6 mt-0 mt-lg-0 equal-columns justify-content-between">
           <div class="personal-item ml-lg-4 ms-lg-4">
-            <p class="paragraph-title mt-4 mt-lg-0">Ambition: <span class="highlight-color">Video game development</span></p>
+            <p class="paragraph-title mt-4 mt-lg-0">Passion - <span class="highlight-color">Video game development</span></p>
             <p class=" text-justify mb-0">
               While normal software is all about services to serve our life, <span class="highlight-color">Computer Graphics</span> (CG) is the technology enabling us to create life virtually. That interests me, Particularly, video game development is a subset of CG, where we define our own rules for the world then allow players to get involved in, and that interests me even more!
               <br>
