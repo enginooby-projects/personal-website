@@ -1,12 +1,25 @@
+// @ts-nocheck
+
 var $window = $(window);
 let $body: JQuery<HTMLElement> = $('body');
 let $pagePiling: JQuery<HTMLElement> = $('#pagepiling');
+const PORTFOLIO_START_FILTER = ".highlight";
 
 // key must be the same as section ID (from HTML), other same as in PagePiling
 //get key string: Section[Section.about]  => about
 // get value: Section.about => 0
 // change indexEnumOffset if add/remove section
-enum Section { hero, about, resume, skillset, duties, portfolio, selfEducation, blog, contact }
+enum Section {
+  hero,
+  // about, 
+  resume,
+  // skillset, 
+  // duties, 
+  portfolio,
+  // selfEducation, 
+  // blog, 
+  contact
+}
 
 // after loading DOM (not affect DOMContentLoaded, affect Load)
 $(document).ready(function () {
@@ -110,7 +123,7 @@ function onPortfolioSectionLoaded() {
   setupPortfolioTypeTS();
   setupIframeInjectionEvents();
   // trigger filtering first time to fix overlapping items on mobile screen
-  startFilterring($('.portfolio-items'), '*');
+  startFilterring($('.portfolio-items'), PORTFOLIO_START_FILTER);
   injectedPortfolioItems = document.querySelectorAll(".injected-section");
 }
 
@@ -355,7 +368,7 @@ function setupInjectedPortfolioUpdateInterval() {
   }, 2000);
 }
 
-function clearPersonalWebsitePortfolioStyleUpdateInterval{
+function clearPersonalWebsitePortfolioStyleUpdateInterval() {
   clearInterval(funStyleUpdateIntervalId);
   funStyleUpdateIntervalId = -1;
 }
@@ -377,7 +390,7 @@ function loadAjaxFile(filePath: string, container?: JQuery<HTMLElement>, callbac
        Page Pilling
 -------------------------*/
 let visitedSections: string[] = [];
-const indexEnumOffset: number = -1; // e.g. Section.about=1 but index of about is 2  according to PagePiling
+const indexEnumOffset: number = -1; // e.g. Section.about=1 but index of about is 2 according to PagePiling
 
 function triggerOnFirstTimeVisit(section: Section, callback: () => void) {
   if (visitedSections.includes(Section[section])) return;
@@ -615,6 +628,8 @@ function portfolioIsotop() {
   var techFilters = "";
   // Create object to store sub-filter for each group
   var buttonFilters = {};
+  // console.log(filterContent);
+  // startFilterring($container, filterContent + techFilters + categorize);
 
   // categorize filter
   $filter.find('a').on("click", function () {

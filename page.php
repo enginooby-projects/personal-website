@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <title>enginoobz</title>
+  <title>Hieu Ngo</title>
   <meta charset="UTF-8">
-  <meta name="author" content="enginoobz" />
+  <meta name="author" content="enginooby" />
   <meta name="description" content="Personal website of Hieu Ngo">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="keywords" content="personal website, portfolio, blog, game programming, java developer" />
@@ -48,13 +48,13 @@
     <section id="hero" class="section pp-scrollable "> <?php include_once 'sections/hero.php'; ?></section>
 
     <!-- DYNAMIC LOADING SECTIONS -->
-    <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME"> </section>
+    <!-- <section id="about" class="section pp-scrollable about" data-navigation-tooltip="ABOUT ME"> </section> -->
     <section id="resume" class="section resume pp-scrollable" data-navigation-tooltip="RESUME"> </section>
-    <section id="skillset" class="section skillset  pp-scrollable" data-navigation-tooltip="SKILLSET"> </section>
-    <section id="duties" class="section pp-scrollable duties" data-navigation-tooltip="SERVICES"> </section>
+    <!-- <section id="skillset" class="section skillset  pp-scrollable" data-navigation-tooltip="SKILLSET"> </section> -->
+    <!-- <section id="duties" class="section pp-scrollable duties" data-navigation-tooltip="SERVICES"> </section> -->
     <section id="portfolio" class="section portfolio  pp-scrollable" data-navigation-tooltip="PORTFOLIO"> </section>
-    <section id="selfEducation" class="section selfEducation pp-scrollable" data-navigation-tooltip="SELF-EDU"> </section>
-    <section id="blog" class="section pp-scrollable blog" data-navigation-tooltip="BLOG"> </section>
+    <!-- <section id="selfEducation" class="section selfEducation pp-scrollable" data-navigation-tooltip="SELF-EDU"> </section> -->
+    <!-- <section id="blog" class="section pp-scrollable blog" data-navigation-tooltip="BLOG"> </section> -->
     <section id="contact" class="section pp-scrollable contact" data-navigation-tooltip="CONTACT"></section>
   </div>
 
