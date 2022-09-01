@@ -1,5 +1,5 @@
 {
-  "name": "pilling-parallax",
+  "name": "personal-website",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enginoobz-projects/portfolio.git"
+    "url": "git+https://github.com/enginooby-projects/portfolio.git"
   },
   "author": "Hieu Ngo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enginoobz-projects/portfolio/issues"
+    "url": "https://github.com/enginooby-projects/portfolio/issues"
   },
-  "homepage": "https://github.com/enginoobz-projects/portfolio#readme"
+  "homepage": "https://github.com/enginooby-projects/portfolio#readme"
 }

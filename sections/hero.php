@@ -1,6 +1,6 @@
 <?php
 // due to main page which directly includes framework php file 
-// and portfolio page which include this hero file which then includes  framework file, are in different dirs
+// and portfolio page which include this hero file which then includes framework file, are in different dirs
 // @ to hide error
 if ((@include_once "dui/_index.php") === false) {
   include_once "../dui/_index.php";
@@ -15,9 +15,9 @@ if ((@include_once "dui/_index.php") === false) {
         <div class="col-lg-6 order-2 order-lg-1 pe-lg-5 pr-lg-5">
           <div class="hero-content">
             <h1 class="dark-color mb-4">I'M <span class="highlight-color"> HIEU NGO</span></h1>
-            <h2 class="text-capitalize mb-0"><span class="highlight-color">A </span> <span class="typed" data-elements="Game Programmer,Java Developer"></span></h2>
+            <h2 class="text-capitalize mb-0"><span>A </span> <span class="typed highlight-color" data-elements="Game, Web, Software"></span> <span>Engineer </span></h2>
             <p class="my-4">Welcome to my little corner of the Internet. Here is where I document my life, showcase works & share knowledge.</p>
-            <?php Button(label: "My Works", href: "#portfolio", wrapperClass: "mt-2 mt-lg-4")->show(); ?>
+            <?php Button(label: "Contact me", href: "#contact", wrapperClass: "mt-2 mt-lg-4")->show(); ?>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2">

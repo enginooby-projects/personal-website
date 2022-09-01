@@ -20,13 +20,14 @@ include_once "../dui/_index.php";
               <div class="timeline-contents">
                 <div class="time-line-header text-center">
                   <h4 class="timeline-title">Bachelor in Software Engineering</h4>
-                  <p class="timeline-year">03/2019 - 03/2022</p>
+                  <p class="timeline-place">Wyższa Szkoła Handlowa we Wrocławiu | GPA: 4.5/5.0</p>
+                  <p class="timeline-year">03/2019 - 06/2022</p>
                 </div>
                 <div class="timeline-content  ">
-                  <p>My specialization is Internet & Multimedia Technologies which is one of the factors inspiring me to pursue game development.</p>
-                  <div class="button-border mt-2 mb-2">
+                  <p>Specialize in <span class="highlight-color">Internet & Multimedia Technologies</span> - one of factors inspiring me to pursue game development.</p>
+                  <!-- <div class="button-border mt-2 mb-2">
                     <a href="javascript:void();" class="button" type="button" data-bs-toggle="modal" data-bs-target="#classes" data-toggle="modal" data-target="#classes">Main classes</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -43,14 +44,15 @@ include_once "../dui/_index.php";
               <div class="timeline-icon data-background background-colorfull2"></div>
               <div class="timeline-contents">
                 <div class="time-line-header text-center">
-                  <h4 class="timeline-title">Java Developer Intern at PlantHive</h4>
+                  <h4 class="timeline-title">Java Developer Intern</h4>
+                  <p class="timeline-place">Planthive</p>
                   <p class="timeline-year">08/2020 - 10/2020</p>
                 </div>
                 <div class="timeline-content">
-                  <p>My responsibility is upgrading the back-end infrastructure of the company's application using Spring framework and Firebase services.</p>
-                  <div class="button-border mt-2 mb-2">
+                  <p>Upgrade application <span class="highlight-color">back-end</span> using Java <span class="highlight-color">Spring</span> framework and <span class="highlight-color">Firebase</span> services.</p>
+                  <!-- <div class="button-border mt-2 mb-2">
                     <a href="javascript:void();" class="button" type="button">My tasks</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

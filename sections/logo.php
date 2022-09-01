@@ -1,7 +1,7 @@
 <header>
   <div class="logo-area animate__animated  animate__bounceInDown">
     <a href="#hero" class="logo ">
-      <span>engi<span class="highlight-color">noobz</span></span>
+      <span>engi<span class="highlight-color">nooby</span></span>
     </a>
   </div>
   <div class="header-info-area">

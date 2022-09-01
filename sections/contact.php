@@ -25,7 +25,7 @@
                   </div>
                   <div class="mt-3">
                     <p class="title mb-0 contact_detail-title">Visit Me</p>
-                    <small>Wroclaw, Poland</small>
+                    <small>Warsaw, Poland</small>
                   </div>
                 </div>
               </div>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="mt-3">
                     <p class="title mb-0">Email Me</p>
-                    <small>enginoobz@gmail.com</small>
+                    <small>enginooby@gmail.com</small>
                   </div>
                 </div>
               </div>
