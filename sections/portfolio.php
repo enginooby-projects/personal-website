@@ -69,7 +69,7 @@ function displayPortfolioItem($label, $displayFileUrl = null, $displayFileExtens
   } else {
     // src="https://placehold.co/' . $displayFileRatio . '/jpg" 
     if ($displayFileRatio) $displayFileRatioProperty = 'style="aspect-ratio: ' . $displayFileRatio . '"';
-    if ($displayFileExtension == 'png' || $displayElement == 'jpg') {
+    if ($displayFileExtension == 'png' ||$displayFileExtension == 'gif' || $displayFileExtension == 'jpg') {
       $displayElement = " <img class='lazy' data-src='$displayFileUrl.$displayFileExtension' alt='/' class='img-fluid' width='311' height='232'>"; // placholder dimension for audit, will be overrided by css
     } else if ($displayFileExtension == 'mp4') {
       $displayElement = "<div class='video-container' $displayFileRatioProperty>
@@ -164,14 +164,14 @@ function formatLabel($str, $sep = '-')
           <li class="button-border list-inline-item">
             <a href="#" data-filter=".game" class="button" aria-label="Game filter"><i class="fas fa-gamepad fa-xs"></i> Game</a>
           </li>
-          <li class="button-border list-inline-item">
+          <!-- <li class="button-border list-inline-item">
             <a href="#" data-filter=".cg" class="button" aria-label="CG filter"><i class="fas fa-cube fa-xs"></i> CG</a>
-          </li>
+          </li> -->
           <!-- <li class="button-border list-inline-item">
             <a href="#" data-filter=".model" class="button" aria-label="Model filter"><i class="fas fa-cube fa-xs"></i> Model</a>
           </li> -->
           <li class="button-border list-inline-item">
-            <a href="#" data-filter=".design" class="button" aria-label="Design filter"><i class="fas fa-palette fa-xs"></i> Design</a>
+            <a href="#" data-filter=".art" class="button" aria-label="Art filter"><i class="fas fa-palette fa-xs"></i> Art</a>
           </li>
           <li class="button-border list-inline-item">
             <a href="#" data-filter=".utility" class="button" aria-label="Utility filter"><i class="fas fa-tools fa-xs"></i> Utility</a>
@@ -245,7 +245,79 @@ function formatLabel($str, $sep = '-')
         <?php
         //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null
         $FULL_HD = '1920/1080';
-
+        displayPortfolioItem(
+          label: 'Tower Defense Prototype',
+          displayFileExtension: 'gif',
+          displayFileRatio: '600/274',
+          filters: 'game highlight prototype',
+        );
+        displayPortfolioItem(
+          label: 'FPS Prototype',
+          displayFileExtension: 'gif',
+          displayFileRatio: '600/273',
+          filters: 'game highlight prototype',
+        );
+        displayPortfolioItem(
+          label: 'Eat Em Up',
+          displayFileExtension: 'gif',
+          displayFileRatio: '1100/499',
+          filters: 'game prototype',
+        );
+        displayPortfolioItem(
+          label: 'The Turret',
+          displayFileExtension: 'gif',
+          displayFileRatio: '933/468',
+          filters: 'game prototype',
+        );
+        displayPortfolioItem(
+          label: 'Air Hockey',
+          displayFileExtension: 'gif',
+          displayFileRatio: '1916/854',
+          filters: 'game prototype',
+        );
+        displayPortfolioItem(
+          label: 'Creek',
+          displayFileExtension: 'gif',
+          displayFileRatio: '1200/487',
+          filters: 'art completed',
+        );
+         displayPortfolioItem(
+          label: 'Jumping Lamp',
+          displayFileExtension: 'gif',
+          displayFileRatio: '600/338',
+          filters: 'art completed',
+        );
+          displayPortfolioItem(
+          label: 'Bowling',
+          displayFileExtension: 'gif',
+          displayFileRatio: '600/338',
+          filters: 'art completed',
+        );
+          displayPortfolioItem(
+          label: 'Food 3D Icon',
+          displayFileExtension: 'jpg',
+          displayFileRatio: '1812/898',
+          filters: 'art completed',
+        );
+         displayPortfolioItem(
+          label: 'Modular Dungeon',
+          displayFileExtension: 'jpg',
+          displayFileRatio: '1920/1046',
+          filters: 'art completed',
+        );
+         displayPortfolioItem(
+          label: 'Chess',
+          displayFileExtension: 'jpg',
+          displayFileRatio: '2048/1162',
+          filters: 'art completed',
+        );
+        displayPortfolioItem(
+          label: 'Unity Design Patterns In Depth',
+          displayFileExtension: 'png',
+          displayFileRatio: '600/526',
+          filters: 'highlight large academia completed',
+          codeUrl: 'enginooby-academics/unity-design-patterns-in-depth'
+        );
         displayPortfolioItem(
           label: 'Endless Flight',
           displayFileExtension: 'mp4',
@@ -325,14 +397,14 @@ function formatLabel($str, $sep = '-')
         displayPortfolioItem(
           label: 'Shader Playground',
           displayFileRatio: '153/64',
-          filters: 'cg small web ongoing',
+          filters: 'art small web ongoing',
           modalPlay: 'shader-playground-play',
           codeUrl: 'enginoobz-cg/shader-playground'
         );
         displayPortfolioItem(
           label: 'Newton Cradle',
           displayFileRatio: '192/90',
-          filters: 'cg medium web completed',
+          filters: 'game medium web completed',
           accessUrl: 'enginoobz-threejs.herokuapp.com',
           codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/newton_cradle.ts'
         );
@@ -345,23 +417,23 @@ function formatLabel($str, $sep = '-')
           label: 'The Train',
           isGalleryItem: true,
           displayFileRatio: '192/107',
-          filters: 'cg web completed',
+          filters: 'art web completed',
           accessUrl: 'enginoobz.itch.io/unity-laboratories',
         );
         displayPortfolioItem(
           label: 'The Well',
           displayFileRatio: $FULL_HD,
-          filters: 'cg small',
+          filters: 'art small',
         );
         displayPortfolioItem(
           label: 'The Village',
           displayFileRatio: $FULL_HD,
-          filters: 'cg small',
+          filters: 'art small',
         );
         displayPortfolioItem(
           label: 'The Pyramid',
           displayFileRatio: $FULL_HD,
-          filters: 'cg small',
+          filters: 'art small',
         );
         displayPortfolioItem(
           label: 'Multistore Shopping GUI',
