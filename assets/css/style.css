@@ -680,6 +680,7 @@ canvas.particles-js-canvas-el {
 
 .timeline-items .timeline-border {
   border-left: 2px solid;
+  height: 100%;
 }
 
 .rtl .timeline-items .timeline-border {

@@ -1,0 +1,73 @@
+server {
+	root /var/www/html/enginoobz/projects/weather-getter;
+	        server_name enginoobz.com/projects/weather-getter www.enginoobz.com/projects/weather-getter;
+}
+
+server {
+
+        root /var/www/html/enginooby;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name enginooby.com www.enginooby.com;
+
+         
+	location /nodejs/weather-getter {
+        	proxy_pass http://localhost:3001/home;
+        	#proxy_http_version 1.1;
+        	#proxy_set_header Upgrade $http_upgrade;
+        	#proxy_set_header Connection 'upgrade';
+        	#proxy_set_header Host $host;
+        	#proxy_cache_bypass $http_upgrade;
+    	}
+ 	location /nodejs/weather-getter/weather {
+        	proxy_pass http://localhost:3001/weather;
+    	}
+       
+	location / {
+                try_files $uri $uri/ =404;
+		# allow to access directory tree in broswer
+		autoindex on;
+		root /var/www/html/enginooby;
+        }
+
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+
+    listen [::]:443 ssl http2 ipv6only=on; # managed by Certbot
+    listen 443 ssl http2; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/enginoobz.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/enginoobz.com/privkey.pem; # managed by Certbot
+    #include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_ciphers EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+server {
+    if ($host = www.enginooby.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = enginooby.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        listen [::]:80;
+
+        server_name enginooby.com www.enginooby.com;
+    return 404; # managed by Certbot
+
+
+
+
+}

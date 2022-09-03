@@ -16,7 +16,8 @@ if ((@include_once "dui/_index.php") === false) {
           <div class="hero-content">
             <h1 class="dark-color mb-4">I'M <span class="highlight-color"> HIEU NGO</span></h1>
             <h2 class="text-capitalize mb-0"><span>A </span> <span class="typed highlight-color" data-elements="Game, Web, Software"></span> <span>Engineer </span></h2>
-            <p class="my-4">Welcome to my little corner of the Internet. Here is where I document my life, showcase works & share knowledge.</p>
+            <!-- <p class="my-4">Welcome to my little corner of the Internet. Here is where I document my life, showcase works & share knowledge.</p> -->
+            <p class="my-4">Welcome to my little corner of the Internet. Here I share my work, my knowledge and every technial part of my life.</p>
             <?php Button(label: "Contact me", href: "#contact", wrapperClass: "mt-2 mt-lg-4")->show(); ?>
           </div>
         </div>
