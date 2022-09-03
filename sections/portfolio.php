@@ -247,49 +247,49 @@ function formatLabel($str, $sep = '-')
         $FULL_HD = '1920/1080';
         displayPortfolioItem(
           label: 'Tower Defense Prototype',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '600/274',
           filters: 'game highlight prototype',
         );
         displayPortfolioItem(
           label: 'FPS Prototype',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '600/273',
           filters: 'game highlight prototype',
         );
         displayPortfolioItem(
           label: 'Eat Em Up',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '1100/499',
           filters: 'game prototype',
         );
         displayPortfolioItem(
           label: 'The Turret',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '933/468',
           filters: 'game prototype',
         );
         displayPortfolioItem(
           label: 'Air Hockey',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '1916/854',
           filters: 'game prototype',
         );
         displayPortfolioItem(
           label: 'Creek',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '1200/487',
           filters: 'art completed',
         );
          displayPortfolioItem(
           label: 'Jumping Lamp',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '600/338',
           filters: 'art completed',
         );
           displayPortfolioItem(
           label: 'Bowling',
-          displayFileExtension: 'gif',
+          displayFileExtension: 'mp4',
           displayFileRatio: '600/338',
           filters: 'art completed',
         );
@@ -314,7 +314,7 @@ function formatLabel($str, $sep = '-')
         displayPortfolioItem(
           label: 'Unity Design Patterns In Depth',
           displayFileExtension: 'png',
-          displayFileRatio: '600/526',
+          displayFileRatio: '600/270',
           filters: 'highlight large academia completed',
           codeUrl: 'enginooby-academics/unity-design-patterns-in-depth'
         );
