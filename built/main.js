@@ -33,7 +33,11 @@ $(document).ready(function () {
     pagePilling();
     postSidebar();
     validateEmail();
-    sendEmail();
+    // sendEmail();
+    $('#submit-btn').on("click", function () {
+        console.log("test");
+        sendEmail();
+    });
     // setupObserver('img.lazy:not(#portfolio img.lazy):not(#selfEducation img.lazy)',onLazyImageIntersecting);
     $('.owl-item.active .hero-slide').addClass('zoom');
     return;
@@ -680,6 +684,7 @@ function validateEmail(email) {
 }
 function sendEmail() {
     "use strict";
+    console.log("Send email");
     var name = $('#name').val();
     var email = $('#email').val();
     var subject = $('#subject').val();
@@ -710,6 +715,7 @@ function sendEmail() {
             data: $("#contactForm").serialize(),
             url: "sendEmail.php",
             beforeSend: function () {
+                console.log(data);
                 $('#submit-btn').html('<span class="spinner-border spinner-border-sm"></span> Loading..');
             },
             success: function (data) {

@@ -190,6 +190,7 @@ function formatLabel($str, $sep = '-')
           </li>
         </ul>
       </div>
+      <!-- // TODO: Collapsable for simple UI -->
       <!-- SUB-FILTERS -->
       <div class="row justify-content-around sub-filters mt-0">
         <div class="segmented-control col-lg-4  col-md-6 d-flex justify-content-around" id="size-filters" data-filter-group="size">
@@ -227,24 +228,35 @@ function formatLabel($str, $sep = '-')
         </div>
       </div>
       <!-- TECH FILTERS -->
+      <!-- // TODO: Customize filters for each categorize -->
       <div class="container mt-4" id="tech-filters">
         <?php
         Flexbox()
           ->Checkbox(label: "Database", value: ".database")
-          ->Checkbox(label: "Networking", value: ".networking")
+          ->Checkbox(label: "Realtime", value: ".realtime")
           ->Checkbox(label: "Cloud", value: ".cloud")
           ->Checkbox(label: "API", value: ".api")
           ->Checkbox(label: "AI/ML", value: ".ai")
           ->Checkbox(label: "AR", value: ".ar")
           ->Checkbox(label: "VR", value: ".vr")
+          ->Checkbox(label: "BE", value: ".be")
+          ->Checkbox(label: "FE", value: ".fe")
           ->show();
         ?>
       </div>
 
+      <!-- // FIX: each mp4 file is loaded twice (DevTools -> Network) -->
       <div class="portfolio-items row">
         <?php
         //$isGalleryItem = false, $filters, $label, $accessUrl = null, $codeUrl = null
         $FULL_HD = '1920/1080';
+
+        displayPortfolioItem(
+          label: 'RPG Prototype',
+          displayFileExtension: 'mp4',
+          displayFileRatio: '736/334',
+          filters: 'game highlight prototype',
+        );
         displayPortfolioItem(
           label: 'Tower Defense Prototype',
           displayFileExtension: 'mp4',
@@ -323,38 +335,38 @@ function formatLabel($str, $sep = '-')
           displayFileExtension: 'mp4',
           displayFileRatio: '768/432',
           filters: 'highlight game large web completed',
-          accessUrl: 'enginoobz.itch.io/endless-flight',
-          codeUrl: 'enginoobz-games/endless-flight'
+          accessUrl: 'enginooby.itch.io/endless-flight',
+          codeUrl: 'enginooby-games/endless-flight'
         );
         displayPortfolioItem(
           label: 'Generic Tic Tac Toe',
           displayFileRatio: '180/90',
-          filters: 'highlight game medium web completed networking',
+          filters: 'highlight game medium web completed realtime',
           accessUrl: 'enginoobz-threejs.herokuapp.com',
-          codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
+          codeUrl: 'enginooby-university/three-js/blob/master/src/client/tasks/tic-tac-toe.ts'
         );
         displayPortfolioItem(
           label: 'Guess The Word',
           displayFileRatio: '100/74',
           filters: 'game small web prototype',
           modalPlay: 'guess-the-word-play',
-          codeUrl: 'enginoobz-games/guess-the-word'
+          codeUrl: 'enginooby-games/guess-the-word'
         );
         displayPortfolioItem(
           label: 'Personal Website',
           isInjectedItem: true,
           injectedClasses: ' glass-style',
           injectedFile: 'hero.php',
-          filters: 'highlight marketing web database cloud ongoing medium',
-          codeUrl: 'enginoobz-projects/personal-site'
+          filters: 'highlight marketing web be fe database cloud ongoing medium',
+          codeUrl: 'enginooby-projects/personal-site'
         );
         displayPortfolioItem(
           label: 'Tony The Runner',
           displayFileExtension: 'mp4',
           displayFileRatio: '896/502',
           filters: 'game medium web completed',
-          accessUrl: 'enginoobz.itch.io/tony-the-runner',
-          codeUrl: 'enginoobz-games/tony-the-runner'
+          accessUrl: 'enginooby.itch.io/tony-the-runner',
+          codeUrl: 'enginooby-games/tony-the-runner'
         );
         //TODO: setInterval change style by modify class name of style in the section wrapper
         displayPortfolioItem(
@@ -362,51 +374,51 @@ function formatLabel($str, $sep = '-')
           isInjectedItem: true,
           injectedClasses: ' glass-style background-1',
           injectedFile: '../dui/demo/index-injectable.php',
-          filters: 'highlight web utility ongoing large',
-          accessUrl: 'enginoobz.com/dui/demo',
-          codeUrl: 'enginoobz-projects/dui'
+          filters: 'highlight web fe utility ongoing large',
+          accessUrl: 'enginooby.com/dui/demo',
+          codeUrl: 'enginooby-projects/dui'
         );
         displayPortfolioItem(
           label: 'The Maze',
           displayFileRatio: $FULL_HD,
           filters: 'game small web prototype',
           modalPlay: 'the-maze-play',
-          codeUrl: 'enginoobz-university/unity-laboratories'
+          codeUrl: 'enginooby-university/unity-laboratories'
         );
         displayPortfolioItem(
           label: 'Breakout',
           displayFileRatio: '143/107',
           filters: 'game small web prototype',
           modalPlay: 'breakout-play',
-          codeUrl: 'enginoobz-games/breakout2'
+          codeUrl: 'enginooby-games/breakout2'
         );
         displayPortfolioItem(
           label: 'Project Boost',
           displayFileRatio: '148/80',
           filters: 'game small web prototype',
           modalPlay: 'project-boost-play',
-          codeUrl: 'enginoobz-games/project-boost'
+          codeUrl: 'enginooby-games/project-boost'
         );
         displayPortfolioItem(
           label: 'Racing',
           displayFileRatio: '99/74',
           filters: 'game small web prototype',
           // modalPlay: 'project-boost-play',
-          codeUrl: 'enginoobz-games/racing'
+          codeUrl: 'enginooby-games/racing'
         );
         displayPortfolioItem(
           label: 'Shader Playground',
           displayFileRatio: '153/64',
           filters: 'art small web ongoing',
           modalPlay: 'shader-playground-play',
-          codeUrl: 'enginoobz-cg/shader-playground'
+          codeUrl: 'enginooby-cg/shader-playground'
         );
         displayPortfolioItem(
           label: 'Newton Cradle',
           displayFileRatio: '192/90',
           filters: 'game medium web completed',
           accessUrl: 'enginoobz-threejs.herokuapp.com',
-          codeUrl: 'enginoobz-university/three-js/blob/master/src/client/tasks/newton_cradle.ts'
+          codeUrl: 'enginooby-university/three-js/blob/master/src/client/tasks/newton_cradle.ts'
         );
         displayPortfolioItem(
           label: 'MeowMeow Brand',
@@ -418,7 +430,7 @@ function formatLabel($str, $sep = '-')
           isGalleryItem: true,
           displayFileRatio: '192/107',
           filters: 'art web completed',
-          accessUrl: 'enginoobz.itch.io/unity-laboratories',
+          accessUrl: 'enginooby.itch.io/unity-laboratories',
         );
         displayPortfolioItem(
           label: 'The Well',
@@ -438,37 +450,37 @@ function formatLabel($str, $sep = '-')
         displayPortfolioItem(
           label: 'Multistore Shopping GUI',
           displayFileRatio: '87/68',
-          filters: 'ecommerce medium desktop completed database',
-          downloadUrl: 'enginoobz.com/download/Multistore%20Shopping%20GUI.rar',
-          codeUrl: 'enginoobz-ecommerce/multistore-shopping-gui',
+          filters: 'ecommerce medium desktop be fe completed database',
+          downloadUrl: 'enginooby.com/download/Multistore%20Shopping%20GUI.rar',
+          codeUrl: 'enginooby-ecommerce/multistore-shopping-gui',
         );
         displayPortfolioItem(
           label: 'The Dark Diary',
           displayFileRatio: '123/77',
-          accessUrl: 'enginoobz.com/projects/the-dark-diary',
-          filters: 'utility small web database prototype ',
-          codeUrl: 'enginoobz-utilities/the-dark-diary'
+          accessUrl: 'enginooby.com/projects/the-dark-diary',
+          filters: 'utility small web be fe database prototype ',
+          codeUrl: 'enginooby-utilities/the-dark-diary'
         );
         displayPortfolioItem(
           label: 'Weather Getter',
           displayFileRatio: '993/688',
-          filters: 'utility small web prototype api',
-          accessUrl: 'enginoobz.com/nodejs/weather-getter',
-          codeUrl: 'enginoobz-utilities/weather-getter'
+          filters: 'utility small web be fe prototype api',
+          accessUrl: 'enginooby.com/nodejs/weather-getter',
+          codeUrl: 'enginooby-utilities/weather-getter'
         );
         displayPortfolioItem(
           label: 'Corona Scraper',
           displayFileRatio: '1512/806',
-          accessUrl: 'enginoobz.com/projects/corona-checker',
-          filters: 'utility small web completed ',
-          codeUrl: 'enginoobz-utilities/corona-scraper'
+          accessUrl: 'enginooby.com/projects/Corona%20Checker/',
+          filters: 'utility small web fe completed ',
+          codeUrl: 'enginooby-utilities/corona-scraper'
         );
         displayPortfolioItem(
           label: 'Trillo',
           displayFileRatio: '1539/1497',
-          // accessUrl: 'enginoobz.com/projects/trillo',
-          filters: 'marketing small web completed ',
-          codeUrl: 'enginoobz-marketing/trillo'
+          accessUrl: 'enginooby.com/projects/trillo',
+          filters: 'marketing small web fe completed ',
+          codeUrl: 'enginooby-marketing/trillo'
         );
         displayPortfolioItem(
           label: 'Photo Enhancement',

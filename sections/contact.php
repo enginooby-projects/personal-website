@@ -67,7 +67,11 @@
                       </div>
                     </div>
                     <div class="col-sm-12 mt-4 text-left">
-                      <?php Button(label: "Send Message", id: "sumit-btn", onclick: "sendEmail()")->show(); ?>
+                      <!-- <?php Button(label: "Send Message", id: "submit-btn", onclick: "sendEmail()")->show(); ?> -->
+                      <?php Button(label: "Send Message", id: "submit-btn")->show(); ?>
+                            <!-- <div class="button-border">
+                            <a href="javascript:void(0)" class="pill-button" id="submit-btn" onclick="sendEmail()">Send Message 2</a>
+                  </div> -->
                       <!-- <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
                                                                               <div class="toast-body d-inline-block"></div>
                                                                               <button type="button" class="pr-3 pe-3 close" data-dismiss="toast" aria-label="Close">
